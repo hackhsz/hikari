@@ -60,3 +60,19 @@ Only once the core rhythm is stable. Options, not commitments:
 3. Open a proxy account and start watching Yahoo Auctions daily. Do not bid for two weeks — build price intuition first. **The ability to value a piece at a glance is the core skill of this business and it is only acquired by looking.**
 4. Verify the current price bands of Missoma, Monica Vinader and Astrid & Miyu — the real comparison set ([03](03-customer.md)).
 5. Buy the first 5 pieces. Measure everything.
+
+---
+
+## Update · 2026-09-21
+
+Phase 1 now also carries: the brand system in [08](08-brand.md) (palette, type, the four-frame photography setup, the published Grade I–IV scale), and the payment-rail decision in [09](09-payments-and-tax.md) — which **blocks the Shopify build**, since checkout choice determines the theme, the apps and the trust blocks.
+
+Phase 3's physical-retail option is confirmed as correctly sequenced by [D3](DECISIONS.md), with an explicit trigger rather than a date: ≥60% 90-day sell-through sustained over two quarters, plus a list that clears the strongest pieces on Edition night.
+
+**Next week, revised:**
+1. Book the VAT/import accountant hour. Ask specifically about the margin scheme on imported second-hand goods. **Still first, still blocking.**
+2. Confirm the payment rail ([09](09-payments-and-tax.md)).
+3. Trademark and domain search on "Hikari".
+4. Open a proxy account. Watch Yahoo Auctions daily for two weeks **without bidding** — price intuition is the core skill and it's only acquired by looking.
+5. Pick Edition night and commit to it.
+6. Buy the first 5 pieces. Shoot them on the four-frame setup in [08](08-brand.md), in daylight. Measure everything.

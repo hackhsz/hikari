@@ -46,3 +46,26 @@ Stated plainly so they are not mistaken for findings:
 - Competitor prices were observed on a single date and will have moved.
 - The comparison-set brands (Missoma, Monica Vinader, Astrid & Miyu, Otiumberg) were named from general knowledge, not from a live price check.
 - Nothing here has been tested against a single real customer.
+
+---
+
+## Update · 2026-09-21
+
+### Resolved
+- **#9 — aesthetic direction.** Decided: Japanese editorial ([D2](DECISIONS.md), specified in [08](08-brand.md)). The *sub*-question — does it read as premium to a UK audience, or as under-designed? — stays open and is still worth a two-variant landing-page test before the full build.
+- **Physical retail sequencing.** Decided: prove the website first ([D3](DECISIONS.md)). Signal to move is ≥60% 90-day sell-through over two quarters.
+- **Naming.** Decided: the home is Hikari; the rituals carry the names ([D5](DECISIONS.md)).
+
+### Newly open
+
+| # | Question | Where |
+|---|---|---|
+| 18 | **Payment rails — confirm card checkout over peer-to-peer.** Recommendation is unambiguous; awaiting your call. Blocks the Shopify build. | [09](09-payments-and-tax.md), [D4](DECISIONS.md) |
+| 19 | Set the rolling-turnover alert at £75k and decide who watches it monthly | [09](09-payments-and-tax.md) |
+| 20 | Licensed type (Canela + Suisse) vs. free (Newsreader + Inter). Free can launch. | [08](08-brand.md) |
+| 21 | Define Grades I–IV precisely, and write the published condition scale | [08](08-brand.md), [04](04-site-ia.md) |
+| 22 | Which day and hour is Edition night? Once chosen, never move it. | [05](05-social.md) |
+
+### Note on #1
+
+Margin-scheme eligibility is **still the blocking question**, and the payment-rail discussion did not touch it. It is unaffected by how money is collected and remains the single highest-return hour available. Book the accountant.

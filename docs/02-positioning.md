@@ -81,3 +81,13 @@ Each clause is a competitive claim. *Japan* is the supply moat. *Authenticated* 
 
 - Does the Japan sourcing story move a UK buyer, or is it founder-romance? **Test it: run the first 20 sales with the story foregrounded in half the listings and absent in the other half.**
 - Is "Japanese editorial" legible as premium to a UK mass audience, or does it read as under-designed? Worth a cheap test — two landing-page variants before any full build.
+
+---
+
+## Update · 2026-09-21
+
+**The aesthetic direction is decided** — Japanese editorial, per [D2](DECISIONS.md). The "Open" question above about whether the Japan sourcing story moves a UK buyer remains live and is still a Phase 0 test; what's settled is the *visual* position, not yet its proof.
+
+Full specification — palette, type, photography, voice, lexicon — moved to [08 — Brand](08-brand.md). The tokonoma principle developed there (one object at a time, rotated on the Edition rhythm) is the bridge between this positioning and the IA in [04](04-site-ia.md).
+
+**Also decided:** the home is simply Hikari; marketplaces are *outposts* ([D5](DECISIONS.md)). Internal language matters here — calling them outposts keeps effort pointed at the owned site, which is the whole of [D1](DECISIONS.md).

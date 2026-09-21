@@ -87,3 +87,15 @@ At £180 average order value and ~50% gross margin, contribution is ~£90 per sa
 - Correct commodity code.
 - Whether to register for VAT voluntarily from day one.
 - FX exposure: at what monthly volume does hedging become worth the complexity?
+
+---
+
+## Update · 2026-09-21 — payment rails do not change the VAT position
+
+A proposal to take payment peer-to-peer in order to avoid VAT registration is analysed in full in [09 — Payments & Tax](09-payments-and-tax.md). Three points belong here, in the economics:
+
+1. **Registration is triggered by turnover, not payment method.** Below the threshold (currently £90,000 — verify) registration is optional regardless of how money is taken; above it, mandatory regardless.
+2. **At the roadmap's own month-9 target** — 25–35 sales/month at ~£180, i.e. **£54–76k/year** — the business is already under the threshold. Nothing needs structuring.
+3. **Import VAT is charged at the border either way.** Unregistered means paying it and being unable to reclaim it: permanent, unrecoverable cost on every piece. This runs opposite to the intuition and is the most important correction in this document.
+
+The genuine lever remains **margin-scheme eligibility for imported second-hand goods** — still [99](99-open-questions.md) #1, still blocking, still worth one paid hour of a specialist's time. Card processing at ~1.5–2% (~£3 on a £180 sale against ~£90 gross margin) is a rounding error against it.

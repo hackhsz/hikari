@@ -108,3 +108,19 @@ Flagged, not resolved — each needs confirming with someone qualified:
 - **Nickel release limits** under UK REACH apply to items in prolonged skin contact — earrings above all. Vintage costume jewellery is a genuine grey area here. Worth a specific answer rather than an assumption.
 - **Distance selling** — 14-day cancellation rights, per [03](03-customer.md).
 - **Online Dispute Resolution / consumer terms** — standard, but must actually exist on the site at launch.
+
+---
+
+## Update · 2026-09-21 — checkout is part of the trust architecture
+
+A proposal to take payment peer-to-peer (bank transfer, website as catalogue only) is analysed in [09 — Payments & Tax](09-payments-and-tax.md) and logged as [D4](DECISIONS.md). The recommendation is **normal card checkout**.
+
+The IA consequence is worth stating here, because it's easy to treat checkout as a separate concern from site design: **everything in this document is trust architecture, and the payment step is its last and most fragile moment.** A site that does all the work above — authentication page, condition grades, honest condition photography, 14-day returns stated plainly, a named founder — and then asks for a bank transfer has undone every bit of it in one screen. The customer's final read of whether you are real is the checkout.
+
+Required at launch:
+- Card checkout (Shopify Payments), with the accepted-card marks visible
+- Klarna/Clearpay — real basket-size effect in the £150–300 band ([03](03-customer.md)); confirm current FCA requirements first
+- Trust block repeated at checkout: authenticated · duty paid, no customs charges · UK next-day · 14-day returns
+- No forced account creation. Guest checkout, always.
+
+Also from [08](08-brand.md): the homepage leads with **one piece** (The Alcove), not a grid. The grid begins below the fold. Sold pieces stay live as **The Record**.
