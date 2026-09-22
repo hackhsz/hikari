@@ -11,9 +11,12 @@
         {%- for img in p.images -%}
           {%- assign evidence = false -%}
           {%- if forloop.index == 2 or forloop.index == 4 %}{% assign evidence = true %}{% endif -%}
-          {%- render 'plate', image: img, alt: p.title,
-              stamp: evidence | default: nil -%}
-          {%- if evidence %}<p class="unret">Unretouched</p>{% endif -%}
+          {%- if evidence -%}
+            {%- render 'plate', image: img, alt: p.title -%}
+            <p class="unret">Unretouched · no grain, no retouching</p>
+          {%- else -%}
+            {%- render 'plate', image: img, alt: p.title, stamp: block.settings.stamp -%}
+          {%- endif -%}
         {%- endfor -%}
       {%- else -%}
         {%- render 'plate', ratio: 0.8, seed: p.id, tone: 'light', comp: 'pair', stamp: 'Plate 01 · daylight' -%}
