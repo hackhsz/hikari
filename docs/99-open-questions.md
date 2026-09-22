@@ -87,3 +87,13 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 | 24 | **What "用画" means** — imagery at large scale (assumed), or actual paintings/artworks as backdrops? The latter is public-domain-only and is its own cliché in vintage retail. | [08](08-brand.md) |
 | 25 | Confirm the hard rule: grain on frames 1 and 3, never on 2 (maker's mark) and 4 (condition). Grain hides exactly what [03](03-customer.md) says must be visible. | [08](08-brand.md) |
 | 26 | Scroll-colour and full-page blend-mode need testing on a real mid-range Android before Phase 1 commits to them | [08](08-brand.md), [07](07-roadmap.md) |
+
+## Update · 2026-09-22 (iii)
+
+| # | Question | Where |
+|---|---|---|
+| 27 | **Which Instagram account is the style reference, and is it supplying subject or frame?** Not named and not reviewed — Instagram is login-walled. If it supplies the *frame* (dark ground, high-contrast serif, heavy grade) then adopting it reverses [D2](DECISIONS.md), and that should be a logged decision rather than a drift. Needs the handle or screenshots. | [05](05-social.md), [08](08-brand.md) |
+| 28 | **What job does 小红书 do?** UK/EU Chinese-speaking buyers and evergreen search (recommended), or a mainland-China ambition (a different business — customs, payment rails, returns and consumer law all change, and none of it is modelled). | [05](05-social.md), [06](06-unit-economics.md) |
+| 29 | What happens to the three-column grid in a week when only two pieces are ready? The columns only hold at exactly three posts per Edition. | [05](05-social.md) |
+
+**#4 extended:** handle availability must be checked on **Instagram and 小红书** alongside the UK Class 14/35 clearance and the domain, and all four secured before design work is commissioned.

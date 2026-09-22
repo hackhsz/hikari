@@ -71,3 +71,19 @@ Heavy film grain over the whole page (image and type alike), imagery at full wid
 **Carries one hard constraint.** Grain applies to the composed and on-body frames only. The maker's-mark macro and the condition frame are evidence and stay clean — grain hides precisely the wear that [03](03-customer.md) and [04](04-site-ia.md) require the buyer to see. Texture on the seduction, never on the proof.
 
 *Open:* whether "用画" meant large imagery or actual paintings ([99](99-open-questions.md) #24), and mid-range Android performance before Phase 1 commits ([99](99-open-questions.md) #26).
+
+---
+
+### D7 · Social accounts — European subject, Japanese frame
+**2026-09-22 · Proposed**
+
+Launch Instagram (primary) and 小红书 (secondary) on a single rule: **the objects are European, the eye is Japanese.** The stock already *is* European — Dior, Givenchy, YSL and Nina Ricci are Paris houses, Grosse is Pforzheim — so a European style reference is not in conflict with [D2](DECISIONS.md) provided it supplies the *subject* and never the *frame*. Composition, ground, type and light stay as specified in [08](08-brand.md).
+
+Two structural proposals attached:
+
+- **Instagram grid as a catalogue.** One Edition = exactly three posts in fixed order, which locks each column to one frame type (composed / maker's-mark macro / on-body). The condition frame stays off-grid — it is evidence, and it belongs on the product page and in Stories.
+- **小红书 as a knowledge and diaspora channel**, run at pillar-3 weight for UK/EU Chinese-speaking buyers and evergreen search. Not a second storefront, not a translated Instagram feed, not a route to mainland customers.
+
+The platform's cover-title convention collides with [08](08-brand.md)'s rule that the photograph never carries text. **Resolved in favour of the rule:** a plain `--paper-deep` type plate takes ~22% of the 3:4 cover, the photograph below it stays untouched. A plate, not an overlay — the same logic as information-below-the-image on the site.
+
+*Full reasoning:* [05](05-social.md). *Open:* the reference account itself is unreviewed ([99](99-open-questions.md) #27) and the 小红书 remit is unconfirmed (#28). **Awaiting your call.**

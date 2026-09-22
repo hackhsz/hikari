@@ -61,3 +61,72 @@ Weekly: sell-through per drop · email list growth · revenue per subscriber · 
 
 - Founder-forward or brand-anonymous? Susan Caplan's entire business rests on a named person. It converts better — and it is a real personal commitment that should be chosen deliberately rather than by drift.
 - Does the first Japan buying trip happen before or after launch? Before is better content and worse cash flow.
+
+---
+
+## Update · 2026-09-22 — launching the accounts: Instagram and 小红书
+
+### The reference account
+
+A reference Instagram account was cited as the desired style but not named, and Instagram is login-walled to anonymous fetches — it has **not** been reviewed. Logged as [99](99-open-questions.md) #27. Everything below holds regardless of which account it is, because the resolution is structural rather than a matter of taste.
+
+### The resolution: European subject, Japanese frame
+
+There is no aesthetic to reconcile, because **the stock is already European.** Dior, Givenchy, YSL and Nina Ricci are Paris houses; Grosse is Pforzheim. Japan is where the pieces were *found*, not what they *are*. [08](08-brand.md) already assigns each tradition its layer:
+
+| Layer | Tradition | In practice |
+|---|---|---|
+| **The subject** | European | 1980s baroque scale, gold-tone, paste stones, couture drama. Do not tone this down — it is the value argument in [03](03-customer.md). |
+| **The frame** | Japanese | Composition, negative space, cool ground, small type, wide-tracked labels, one object at a time, daylight from a single direction. |
+
+This is [08](08-brand.md)'s existing rule applied to the feed: *the Japanese reference shows up as restraint and composition, never as motif.* A European reference is compatible with D2 as long as it supplies the subject and never the frame.
+
+**Take from the European reference:** the drama and scale of the object itself; on-body styling — a 1985 brooch against a 2026 wardrobe (pillar 4); occasional interior or textile context, kept cool and plain.
+
+**Leave:** black ground with high-contrast serif (rejected by name in [08](08-brand.md), and already run by every competitor in [01](01-landscape.md)); heavy colour grading and faded-film presets (in direct conflict with D6 — frames 2 and 4 are evidence); marble, velvet, candles and Parisian-apartment props (costume); collage and scrapbook treatments (they destroy the evidence frames).
+
+If the reference account turns out to supply the *frame* rather than the subject — dark grounds, high-contrast serif, heavy grade — then adopting it is a reversal of **D2**, not a refinement of it, and should be logged as one.
+
+### The grid as a catalogue, not a feed
+
+**One Edition = three posts, published in a fixed order** (on-body, then macro, then composed — the last posted lands top-left). Because a three-post batch shifts the grid by a whole row, **each column permanently holds one frame type**: left composed, middle the maker's-mark macro, right on-body.
+
+- The profile reads as a catalogue spread rather than a product feed. Nobody in [01](01-landscape.md) does this; they all run mixed feeds.
+- It costs nothing — the four-frame spec in [08](08-brand.md) already produces exactly these images.
+- **It enforces the spec.** A week with no macro breaks the column visibly, which is the point.
+
+**Frame 4 stays off the grid.** The condition shot is evidence, not shop window: it belongs on the product page and in Stories. This keeps D6's clean-evidence rule intact without making the grid apologise for the stock.
+
+*Constraint:* the columns only hold if every Edition posts exactly three. A fourth post rotates them permanently — extras go to Stories and Reels.
+
+### 小红书 — a different job, not a second shop
+
+Nothing in this plan has previously assumed a Chinese-language channel. Before it gets any resource, name the job it does. Three candidates, in order of directness:
+
+1. **UK and EU Chinese-speaking buyers.** Small but real, and unusually well-qualified: 日本中古 jewellery is a mature content category on the platform, so this audience arrives already knowing who Grosse was and why a 1987 Dior clip is worth £180. Much of the trust work [03](03-customer.md) identifies as *the* barrier is pre-done. Domestic shipping, UK checkout, nothing cross-border.
+2. **Supply-side intelligence.** Authentication and dating content for 中古 and 古董首饰 is dense and good there. An input channel, not an output one.
+3. **Evergreen search.** The platform is search-led in the way Pinterest is; the knowledge pillar has a long tail.
+
+**What it is not:** a route to mainland China customers. That is a different business — customs, payment rails, returns and consumer law all change at once, and none of [06](06-unit-economics.md) or [09](09-payments-and-tax.md) models it.
+
+*Recommendation:* run it for (1) and (3) at pillar-3 weight. **Do not translate the Instagram feed onto it** — the two platforms reward opposite things, and a mirrored feed does the work twice for no gain.
+
+### The cover conflict, and how to keep the rule
+
+小红书 is cover-title-driven: the first card carries a headline or the note does not get opened. [08](08-brand.md) rules that **the photograph is never asked to carry text.** These collide.
+
+**Resolution — keep the rule.** The cover is 3:4. Give the top or bottom ~22% to a plain `--paper-deep` plate carrying the title in the grotesque, and leave the photograph untouched below it. A type plate, not an overlay. This is the same logic as *information below the image* on the site, and it reads as a catalogue caption rather than a thumbnail.
+
+Title line, keyword first: `东京中古 | 1987 Dior 水钻夹式耳环 · Grade II`.
+
+The voice rule from [08](08-brand.md) holds in both languages. The platform norm is emoji-dense and exclamation-heavy, which makes restraint *more* differentiating there, not less — and the knowledge pillar is where that voice reads as expertise rather than coldness.
+
+### Handles
+
+[99](99-open-questions.md) #4 asks whether "Hikari" is clear for the UK trade marks and the domain. Extend it: **the same string must clear on Instagram and 小红书 too, and all of it should be secured before any design work is commissioned.** Handles are the cheapest thing on this list to check and the most expensive to discover late.
+
+### Open
+
+- Which reference account, and whether it is supplying subject or frame ([99](99-open-questions.md) #27).
+- Whether 小红书 is for UK Chinese speakers or is a mainland ambition — different businesses ([99](99-open-questions.md) #28).
+- What the three-column grid does in a week when only two pieces are ready ([99](99-open-questions.md) #29).
