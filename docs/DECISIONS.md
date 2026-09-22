@@ -192,3 +192,5 @@ Remain unregistered while under the threshold. Watch rolling 12-month turnover m
 2. **Pre-1926 antiques collect both reliefs** — 5% import VAT *and* margin-scheme eligibility, which ordinary imported second-hand goods lack. £96 a piece against £84. [99](99-open-questions.md) #45 is now the highest-value open question in the plan.
 
 **When the threshold nears:** stay under deliberately, or register and reprice, or change the stock mix so the reliefs apply. Decide on numbers, not at the last minute.
+
+**Amended 2026-09-22 (ii):** the "~20% price rise" in this entry overstates it. **Break-even is 9.3% — £180 to £196.80** — because registration also recovers the £16 import VAT. Passing the full 20% on (£216) leaves us **£16 a piece better than today**. So the real question at the threshold is whether the market takes 9.3%, which is a cheap pricing test to run early rather than a cliff to fear. Working in [16](16-vat.md).

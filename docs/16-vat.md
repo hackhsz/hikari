@@ -184,3 +184,32 @@ And on the sale itself: **VAT does not vary by channel.** Registered means VAT o
 - Precious-metal exclusion: does sterling silver stock fall outside the margin scheme? ([99](99-open-questions.md) #48)
 - Reverse charge on overseas services once registered ([99](99-open-questions.md) #49)
 - Flat rate against standard in year one ([99](99-open-questions.md) #50)
+
+---
+
+## Refinement · 2026-09-22 (ii) — the threshold cliff is smaller than stated
+
+§6 and [D14](DECISIONS.md) say crossing £90,000 costs ~£7,000 a year "unless prices rise ~20%". The 20% figure is wrong — it overstates what has to be passed on.
+
+**Break-even is a 9.3% rise: £180 → £196.80.**
+
+Because registration also *recovers* the £16 of import VAT, only part of the output VAT has to reach the customer:
+
+| At £80 cost | Price | Profit |
+|---|---|---|
+| Unregistered | £180 | **£84.00** |
+| Registered, price held | £180 | £70.00 |
+| Registered, break-even | **£196.80** | £84.00 |
+| Registered, full 20% passed on | £216 | **£100.00** |
+
+Passing the full 20% on leaves us **£16 a piece better off than today** — exactly the import VAT recovered.
+
+**So the question at the threshold is not "register or not". It is "will the market take 9.3%?"** If yes, registration costs nothing. If no, it costs £14 a piece. That is a pricing test worth running long before the threshold arrives — and it is cheap to run, since it is one price change on a few pieces.
+
+### Two practical points for the plain-language version
+
+**Pre-registration input tax.** VAT on **goods still held at the registration date** can be reclaimed up to **4 years back** (services: 6 months). Import VAT on unsold stock bought while unregistered is therefore recoverable later — **but only with the paperwork.** Another reason the per-piece acquisition record from [04](04-site-ia.md) earns its keep: margin scheme, exhaustion defence, processor review, and now retrospective input tax.
+
+**Japanese consumption tax is not reclaimable in the UK.** It is not UK VAT and HMRC will not repay it. The only route back is Japan's own refund scheme ([06](06-unit-economics.md)). Easy to assume otherwise.
+
+**Reverse charge nets to zero but must still be filed.** Overseas services — a Japanese sourcing agent, non-UK SaaS — are self-accounted: declare the output, reclaim the same amount as input. Net nil, commonly missed, and it is our liability rather than the supplier's.
