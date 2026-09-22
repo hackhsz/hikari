@@ -1,0 +1,10 @@
+<section class="pad" data-bg="#EFF0EC" data-fg="#14171A"><div class="shell">
+  <form action="{{ routes.search_url }}" method="get" class="form" style="margin-bottom:40px">
+    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search" style="flex:1 1 240px;background:transparent;border:0;border-bottom:1px solid var(--rule);padding:11px 2px;font:inherit;font-size:18px">
+    <button type="submit"><span>Search</span></button>
+  </form>
+  {%- if search.performed -%}
+    <p class="eyebrow">{{ search.results_count }} result{% if search.results_count != 1 %}s{% endif %}</p>
+    <div class="grid4">{%- for item in search.results -%}{%- if item.object_type == 'product' -%}{%- render 'product-card', card_product: item, tone: 'grey' -%}{%- endif -%}{%- endfor -%}</div>
+  {%- endif -%}
+</div></section>

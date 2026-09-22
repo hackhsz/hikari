@@ -1,0 +1,40 @@
+[
+  { "name": "theme_info",
+    "theme_name": "Hikari",
+    "theme_version": "0.1.0",
+    "theme_author": "Hikari Vintage",
+    "theme_documentation_url": "https://github.com/hackhsz/hikari",
+    "theme_support_url": "https://github.com/hackhsz/hikari" },
+  { "name": "Brand",
+    "settings": [
+      { "type": "text", "id": "brand_name", "label": "Brand name", "default": "Hikari Vintage",
+        "info": "Change this and the whole site follows. The name is deliberately not hard-coded anywhere — see docs/18-name-clearance.md." },
+      { "type": "text", "id": "brand_kanji", "label": "Kanji", "default": "光",
+        "info": "Single character. Set at 1.30 cap height beside the Latin, one weight step lighter — see docs/10-logo.md." },
+      { "type": "text", "id": "edition_no", "label": "Current Edition number", "default": "01" },
+      { "type": "text", "id": "edition_day", "label": "Edition day and time", "default": "Thursday 19:00" }
+    ]},
+  { "name": "Texture & motion",
+    "settings": [
+      { "type": "range", "id": "grain_opacity", "label": "Grain strength", "min": 0, "max": 80, "step": 5, "unit": "%", "default": 40 },
+      { "type": "checkbox", "id": "grain_animate", "label": "Animate grain", "default": true },
+      { "type": "checkbox", "id": "scroll_colour", "label": "Scroll-driven background colour", "default": true }
+    ]},
+  { "name": "Trust strip",
+    "settings": [
+      { "type": "text", "id": "trust_1", "label": "1", "default": "Every piece authenticated" },
+      { "type": "text", "id": "trust_2", "label": "2", "default": "Duty paid — no customs charges" },
+      { "type": "text", "id": "trust_3", "label": "3", "default": "UK next day over £100" },
+      { "type": "text", "id": "trust_4", "label": "4", "default": "14-day returns" }
+    ]},
+  { "name": "Legal",
+    "settings": [
+      { "type": "textarea", "id": "legal_disclaimer", "label": "Trademark disclaimer",
+        "default": "{{ shop.name }} is an independent reseller of pre-owned items. We are not affiliated with, authorised by, endorsed by or connected to any of the brands featured. All trademarks are the property of their respective owners." },
+      { "type": "text", "id": "company_name", "label": "Registered company name", "info": "Required by the Companies Act and the E-Commerce Regulations 2002." },
+      { "type": "text", "id": "company_number", "label": "Company number" },
+      { "type": "textarea", "id": "company_address", "label": "Registered office address" },
+      { "type": "text", "id": "vat_line", "label": "VAT line", "default": "Prices include UK duty. We are not currently VAT registered, so no VAT is charged.",
+        "info": "Charging or displaying VAT while unregistered is an offence. Keep Settings → Taxes at zero." }
+    ]}
+]

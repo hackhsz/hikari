@@ -1,0 +1,13 @@
+<section class="pad" data-bg="#EFF0EC" data-fg="#14171A">
+  <div class="shell">
+    <p class="eyebrow">{{ collection.products_count }} {% if collection.products_count == 1 %}piece{% else %}pieces{% endif %}</p>
+    <h1 style="font-family:var(--serif);font-weight:200;font-size:clamp(34px,7vw,64px);line-height:1;margin:0 0 18px">{{ collection.title }}</h1>
+    {%- if collection.description != blank -%}
+      <div class="rte" style="max-width:56ch;opacity:.72;margin-bottom:clamp(36px,6vw,56px)">{{ collection.description }}</div>
+    {%- endif -%}
+    <div class="grid4">
+      {%- for p in collection.products -%}{%- render 'product-card', card_product: p, tone: 'grey' -%}{%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}{ "name": "Collection", "settings": [] }{% endschema %}

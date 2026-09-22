@@ -1,0 +1,5 @@
+{
+  "general": { "meta": { "tags": "Tagged {{ tags }}", "page": "Page {{ page }}" }, "search": { "heading": "Search", "placeholder": "Search" } },
+  "products": { "product": { "sold_out": "Sold", "add_to_bag": "Add to bag", "one_of_one": "One of one" } },
+  "layout": { "cart": { "title": "Bag" } }
+}

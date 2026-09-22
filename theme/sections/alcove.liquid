@@ -1,0 +1,34 @@
+{%- comment -%} The Alcove — one piece, full width. 床の間: one object, rotated on the Edition rhythm. {%- endcomment -%}
+{%- assign p = section.settings.product -%}
+<section data-bg="#EFF0EC" data-fg="#14171A" style="padding-top:clamp(6px,1.5vw,16px)">
+  <div class="shell">
+    {%- if p -%}
+      {%- render 'plate', image: p.featured_image, ratio: 0.70, seed: p.id, tone: 'light',
+          comp: 'pair', alt: p.title, stamp: 'Plate 01 · daylight, north window' -%}
+      <div class="al-info">
+        <div>
+          <p class="eyebrow" style="margin-bottom:14px">The Alcove · Edition No. {{ settings.edition_no }} · {{ settings.edition_day }}</p>
+          <h1 class="al-house">{{ p.vendor | default: p.title }}</h1>
+          <p class="al-piece">{{ p.metafields.hikari.piece | default: p.title }}</p>
+        </div>
+        <div style="text-align:right"><span class="price al-price">{% if p.available %}{{ p.price | money }}{% else %}Sold{% endif %}</span></div>
+      </div>
+      <div class="meta">
+        {%- if p.metafields.hikari.grade %}<span class="pill">Grade {{ p.metafields.hikari.grade }}</span>{% endif -%}
+        <span>One of one</span>
+        {%- if p.metafields.hikari.size %}<span>{{ p.metafields.hikari.size }}</span>{% endif -%}
+        {%- if p.metafields.hikari.mark %}<span>{{ p.metafields.hikari.mark }}</span>{% endif -%}
+        {%- if p.metafields.hikari.provenance %}<span class="prov">{{ p.metafields.hikari.provenance }}</span>{% endif -%}
+      </div>
+    {%- else -%}
+      {%- render 'plate', ratio: 0.70, seed: 1, tone: 'light', comp: 'pair', stamp: 'Select a piece in the theme editor' -%}
+      <div class="al-info"><div><p class="eyebrow">The Alcove</p><h1 class="al-house">Choose a piece</h1>
+      <p class="al-piece">Theme editor → The Alcove → Product</p></div></div>
+    {%- endif -%}
+  </div>
+</section>
+{% schema %}
+{ "name": "The Alcove", "settings": [
+  { "type": "product", "id": "product", "label": "Piece", "info": "One object, rotated each Edition." }
+], "presets": [{ "name": "The Alcove" }] }
+{% endschema %}

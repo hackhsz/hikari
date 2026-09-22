@@ -1,0 +1,18 @@
+{%- comment -%}
+  A plate: the real photograph where one exists, a drawn daylight study where it does not,
+  so the store is presentable before photography exists. See docs/13-photography-pipeline.md.
+  Grain applies to frames 1 and 3 only — the maker's-mark macro and the condition frame
+  are evidence and stay unretouched (D6, D10).
+{%- endcomment -%}
+{%- assign r = ratio | default: 0.8 -%}
+<div class="plate">
+  {%- if image -%}
+    {{ image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: alt | default: '' }}
+  {%- else -%}
+    <canvas data-seed="{{ seed | default: 1 }}" data-tone="{{ tone | default: 'light' }}"
+            data-comp="{{ comp | default: 'pair' }}" data-ratio="{{ r }}" role="img"
+            aria-label="{{ alt | default: 'Photography to follow' | escape }}"></canvas>
+  {%- endif -%}
+  {%- if stamp %}<span class="stamp">{{ stamp }}</span>{% endif -%}
+  {%- if sold %}<span class="sold">Sold</span>{% endif -%}
+</div>

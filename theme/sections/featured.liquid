@@ -1,0 +1,21 @@
+<section class="pad" data-bg="#E7E8E3" data-fg="#14171A">
+  <div class="shell">
+    <p class="eyebrow">{{ section.settings.heading }}</p>
+    <div class="featured">
+      {%- for block in section.blocks limit: 3 -%}
+        {%- if block.settings.product -%}
+          {%- render 'product-card', card_product: block.settings.product, tone: 'grey' -%}
+        {%- else -%}
+          <a class="card" href="#">{%- render 'plate', ratio: 1.25, seed: forloop.index, tone: 'grey', comp: 'single' -%}
+            <div class="cinfo"><h3 class="chouse">Choose a piece</h3></div></a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "This Edition", "max_blocks": 3,
+  "settings": [{ "type": "text", "id": "heading", "label": "Eyebrow", "default": "This Edition — three more" }],
+  "blocks": [{ "type": "piece", "name": "Piece", "settings": [{ "type": "product", "id": "product", "label": "Piece" }] }],
+  "presets": [{ "name": "This Edition", "blocks": [{"type":"piece"},{"type":"piece"},{"type":"piece"}] }] }
+{% endschema %}

@@ -1,0 +1,12 @@
+<section class="pad" data-bg="#EFF0EC" data-fg="#14171A"><div class="shell" style="max-width:68ch">
+  {%- if article -%}
+    <h1 style="font-family:var(--serif);font-weight:200;font-size:clamp(28px,5.4vw,48px);line-height:1.04;margin:0 0 20px">{{ article.title }}</h1>
+    <div class="rte">{{ article.content }}</div>
+  {%- else -%}
+    <p class="eyebrow">{{ blog.title }}</p>
+    {%- for a in blog.articles -%}
+      <a href="{{ a.url }}" style="display:block;padding:20px 0;border-bottom:1px solid var(--rule)">
+        <span style="font-family:var(--serif);font-size:24px;font-weight:300">{{ a.title }}</span></a>
+    {%- endfor -%}
+  {%- endif -%}
+</div></section>

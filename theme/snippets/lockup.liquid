@@ -1,0 +1,24 @@
+{%- comment -%}
+  Lockup per docs/10-logo.md. The pair is a ratio, not two numbers:
+  the kanji sits exactly one weight step below the Latin, and both move together with size.
+    scale: "hero" → kanji 200 / Newsreader 300 / rule 1.1
+    scale: "body" → kanji 300 / Newsreader 400 / rule 1.3   (small sizes, print, signage)
+  Proportions: kanji 1.30 C, rule 1.00 C with 0.55 C clear either side, Latin tracked 0.28 em.
+{%- endcomment -%}
+{%- assign s = scale | default: 'body' -%}
+{%- if s == 'hero' -%}
+  {%- assign kw = 200 -%}{%- assign lw = 300 -%}{%- assign rw = 1.1 -%}
+{%- else -%}
+  {%- assign kw = 300 -%}{%- assign lw = 400 -%}{%- assign rw = 1.3 -%}
+{%- endif -%}
+{%- assign w = width | default: 146 -%}
+{%- assign name = settings.brand_name | default: shop.name -%}
+<span class="lockup">
+  <svg width="{{ w }}" viewBox="0 0 420 100" role="img" aria-label="{{ name | escape }}">
+    <text x="42" y="50" font-family="Noto Serif JP, serif" font-weight="{{ kw }}" font-size="59"
+          fill="currentColor" text-anchor="middle" dominant-baseline="central">{{ settings.brand_kanji | default: '光' }}</text>
+    <line x1="100" y1="30" x2="100" y2="70" stroke="currentColor" stroke-width="{{ rw }}"/>
+    <text x="124" y="70" font-family="Newsreader, serif" font-weight="{{ lw }}" font-size="57"
+          letter-spacing="15" fill="currentColor">{{ name }}</text>
+  </svg>
+</span>

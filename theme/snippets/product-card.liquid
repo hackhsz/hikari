@@ -1,0 +1,14 @@
+{%- assign p = card_product -%}
+<a class="card" href="{{ p.url }}">
+  {%- render 'plate', image: p.featured_image, ratio: 1.25, seed: p.id, tone: tone,
+      comp: 'single', alt: p.title, sold: p.available == false -%}
+  <div class="cinfo">
+    <h3 class="chouse">{{ p.vendor | default: p.title }}</h3>
+    <p class="cpiece">{{ p.metafields.hikari.piece | default: p.title }}</p>
+    <div class="crow">
+      <span class="price">{% if p.available %}{{ p.price | money }}{% else %}Sold{% endif %}</span>
+      <span class="tag">{%- if p.metafields.hikari.grade %}Grade {{ p.metafields.hikari.grade }}{% endif -%}
+        {%- if p.metafields.hikari.size %} · {{ p.metafields.hikari.size }}{% endif -%}</span>
+    </div>
+  </div>
+</a>

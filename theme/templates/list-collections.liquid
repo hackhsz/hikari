@@ -1,0 +1,4 @@
+<section class="pad" data-bg="#EFF0EC" data-fg="#14171A"><div class="shell">
+  <p class="eyebrow">Shop by house</p>
+  <div class="houses">{%- for c in collections -%}<a href="{{ c.url }}">{{ c.title }}</a>{%- unless forloop.last %}<span class="sep">·</span>{% endunless -%}{%- endfor -%}</div>
+</div></section>
