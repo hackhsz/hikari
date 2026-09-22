@@ -68,7 +68,7 @@ Weekly: sell-through per drop · email list growth · revenue per subscriber · 
 
 ### The reference account
 
-A reference Instagram account was cited as the desired style but not named, and Instagram is login-walled to anonymous fetches — it has **not** been reviewed. Logged as [99](99-open-questions.md) #27. Everything below holds regardless of which account it is, because the resolution is structural rather than a matter of taste.
+A reference Instagram account was cited as the desired style but not named, and Instagram is login-walled to anonymous fetches — it has **not** been reviewed. Logged as [99](99-open-questions.md) #41. Everything below holds regardless of which account it is, because the resolution is structural rather than a matter of taste.
 
 ### The resolution: European subject, Japanese frame
 
@@ -127,15 +127,15 @@ The voice rule from [08](08-brand.md) holds in both languages. The platform norm
 
 ### Open
 
-- Which reference account, and whether it is supplying subject or frame ([99](99-open-questions.md) #27).
-- Whether 小红书 is for UK Chinese speakers or is a mainland ambition — different businesses ([99](99-open-questions.md) #28).
-- What the three-column grid does in a week when only two pieces are ready ([99](99-open-questions.md) #29).
+- Which reference account, and whether it is supplying subject or frame ([99](99-open-questions.md) #41).
+- Whether 小红书 is for UK Chinese speakers or is a mainland ambition — different businesses ([99](99-open-questions.md) #42).
+- What the three-column grid does in a week when only two pieces are ready ([99](99-open-questions.md) #43).
 
 ---
 
 ## Update · 2026-09-22 (ii) — the reference account, reviewed
 
-**Resolves [99](99-open-questions.md) #27.** The reference is [@thevisionnaire.studio](https://instagram.com/thevisionnaire.studio) — an Italian vintage jewellery and accessories dealer. ~335 posts, ~23k followers, ~7.6k following. Sells through **Depop**, not an owned storefront. The bio positions on feeling rather than stock — *"Oggetti e Reliquie per distinguersi"*, with a second line of business in *direzione estetica · bridal · occasion · editorial*. Category highlights for earrings, watches and pierced styles; a broadcast channel called *Club Visionario*.
+**Resolves [99](99-open-questions.md) #41.** The reference is [@thevisionnaire.studio](https://instagram.com/thevisionnaire.studio) — an Italian vintage jewellery and accessories dealer. ~335 posts, ~23k followers, ~7.6k following. Sells through **Depop**, not an owned storefront. The bio positions on feeling rather than stock — *"Oggetti e Reliquie per distinguersi"*, with a second line of business in *direzione estetica · bridal · occasion · editorial*. Category highlights for earrings, watches and pierced styles; a broadcast channel called *Club Visionario*.
 
 **It supplies the frame, not the subject** — warm brocade, gilt interiors, oil paintings, film grain, emotive Italian copy. Under the rule in the previous section that makes it a **reversal of [D2](DECISIONS.md)**, not a refinement, and it should not be adopted as-is.
 
@@ -182,4 +182,4 @@ The column lock in the previous section was proposed before the reference was se
 
 ### One find that is not about aesthetics at all
 
-The bio sells **bridal** as a named line. [03](03-customer.md) has three segments and bridal is not one of them — which looks like an omission rather than a decision. UK weddings have a literal *something old* convention, the intent is high, the timeline is fixed and the budget is separate from discretionary spend. Logged as [99](99-open-questions.md) #30.
+The bio sells **bridal** as a named line. [03](03-customer.md) has three segments and bridal is not one of them — which looks like an omission rather than a decision. UK weddings have a literal *something old* convention, the intent is high, the timeline is fixed and the budget is separate from discretionary spend. Logged as [99](99-open-questions.md) #44.

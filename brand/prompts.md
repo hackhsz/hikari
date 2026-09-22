@@ -1,6 +1,6 @@
 # Generated backdrop prompts
 
-Paste-ready. Written to the [08](../docs/08-brand.md) palette, not the reference account's warm brocade. See [10](../docs/10-imagery-rights.md) for why the piece is never generated and how to composite it.
+Paste-ready. Written to the [08](../docs/08-brand.md) palette, not the reference account's warm brocade. See [11](../docs/11-imagery-rights.md) for why the piece is never generated and how to composite it.
 
 **Two rules that are not stylistic:**
 1. **Bare ear, no jewellery.** The earring is a real photograph, dropped in afterwards. Generating one and painting it out leaves artefacts.
@@ -67,4 +67,4 @@ Still, composed, unsmiling. Editorial rather than commercial.
 | Not enough room for the piece | Add `ear positioned right of centre with empty space around it` |
 | Grain too clean (register B) | Add `pronounced film grain, slightly uneven, visible in the mid-tones` |
 
-**Generate several and keep the ones whose light direction you can actually match on a shoot day.** That constraint eliminates more candidates than aesthetics does, and it is the one that decides whether the composite reads as real ([10](../docs/10-imagery-rights.md)).
+**Generate several and keep the ones whose light direction you can actually match on a shoot day.** That constraint eliminates more candidates than aesthetics does, and it is the one that decides whether the composite reads as real ([11](../docs/11-imagery-rights.md)).

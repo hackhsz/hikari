@@ -24,7 +24,7 @@ These documents are the working plan. They are meant to be returned to and revis
 | [07 — Roadmap](docs/07-roadmap.md) | Phasing, and what to do in the next 90 days |
 | [08 — Brand](docs/08-brand.md) | **Aesthetic direction, palette, type, photography spec, lexicon** |
 | [09 — Payments & tax](docs/09-payments-and-tax.md) | **Payment rails, VAT registration, why peer-to-peer doesn't avoid it** |
-| [10 — Imagery rights](docs/10-imagery-rights.md) | **Borrowed backdrops: what the look is, and four legal routes to it** |
+| [11 — Imagery rights](docs/11-imagery-rights.md) | **Borrowed backdrops: what the look is, and four legal routes to it** |
 | [Decisions](docs/DECISIONS.md) | **Dated log of what's settled, proposed, or reversed** |
 | [99 — Open questions](docs/99-open-questions.md) | Everything unresolved, in one place |
 
