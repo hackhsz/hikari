@@ -11,7 +11,7 @@
         </div>
       {%- endfor -%}
     </div>
-    <div style="margin-top:clamp(40px,7vw,64px)">{%- render 'lockup', scale: 'hero', width: 196 -%}</div>
+    <div style="margin-top:clamp(40px,7vw,64px)">{%- render 'lockup', scale: 'hero', size: '34px' -%}</div>
     <p class="legal">
       {{ settings.legal_disclaimer }}
       {% if settings.company_name %} {{ settings.company_name }}{% if settings.company_number %}, registered in England and Wales no. {{ settings.company_number }}{% endif %}{% if settings.company_address %}, {{ settings.company_address }}{% endif %}.{% endif %}
