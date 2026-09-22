@@ -193,6 +193,22 @@ Remain unregistered while under the threshold. Watch rolling 12-month turnover m
 
 **When the threshold nears:** stay under deliberately, or register and reprice, or change the stock mix so the reliefs apply. Decide on numbers, not at the last minute.
 
+**Amended 2026-09-22 (iii) — the threshold in units, and when we actually hit it.**
+
+£90,000 is **turnover**, not profit, and it counts **every channel** — Shopify, marketplaces, offline, any rail — plus shipping income. It is a **rolling 12-month** test checked monthly, not a financial year, plus a forward test if the next 30 days alone would exceed it.
+
+| AOV | Threshold £90,000 | Alert £75,000 |
+|---|---|---|
+| £150 | 600/yr = **50/month** | 42/month |
+| £180 | 500/yr = **42/month** | 35/month |
+| £220 | 409/yr = **34/month** | 28/month |
+
+**Our own Phase 2 target reaches it.** 25–35 pieces a month at £180 is **£54,000–£75,600** — the top of the target range lands exactly on the alert line. And if AOV drifts to £220, which the £100–300 band makes likely, **35/month is £92,400 — over the threshold.**
+
+So this is not a distant problem. It arrives the moment [07](07-roadmap.md) Phase 2 succeeds. Since break-even is only a 9.3% price rise, **treat it as a pricing test to run a year early rather than a cliff to hit.**
+
+Note also that "small business" is not a status: there is nothing to register for in order to stay outside VAT. The business itself still registers — Self Assessment or Companies House ([17](17-entity-and-tax.md)) — which is unrelated.
+
 **Amended 2026-09-22 (ii):** the "~20% price rise" in this entry overstates it. **Break-even is 9.3% — £180 to £196.80** — because registration also recovers the £16 import VAT. Passing the full 20% on (£216) leaves us **£16 a piece better than today**. So the real question at the threshold is whether the market takes 9.3%, which is a cheap pricing test to run early rather than a cliff to fear. Working in [16](16-vat.md).
 
 ---
