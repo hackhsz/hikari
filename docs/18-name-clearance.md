@@ -185,6 +185,12 @@ Incorporating "Hikari Ltd" would confer almost no brand rights. Equally, the fac
 
 **The obstacle is not a company called Hikari. It is a company called DCK that owns the Hikari trade mark.**
 
+**The trap this creates.** HIKARI LIMITED (08883517) was dissolved on 22 September 2020 — SIC 96090, "other service activities", never a jewellery business — so **the company name is now free and could be incorporated tomorrow.** It would go through without a query.
+
+**Companies House performs no trade mark checking whatsoever.** It checks only for name duplication among live companies and for sensitive words. It neither knows nor cares that DCK holds the Class 14 mark. So the sequence that catches people is: incorporate easily → read that as clearance → spend on domain, packaging, SEO and press → receive a letter a year later.
+
+**Being able to register the company name is not evidence the brand is free.** It is the most common way this is got wrong. (Companies House also runs a Company Names Tribunal for opportunistic registrations of others' brands — so incorporating not only fails to protect you, it opens a second front.)
+
 ### D.C.K. Concessions is not a dormant shell
 
 Checked in the hope that the mark might be vulnerable to non-use revocation. It is not the picture we wanted:
