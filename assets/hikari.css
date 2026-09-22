@@ -28,9 +28,18 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 @keyframes gs{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-2%)}80%{transform:translate(3%,1%)}100%{transform:translate(0,0)}}
 @media (prefers-reduced-motion:reduce){#grain{animation:none!important}}
 
-/* lockup */
-.lockup{display:inline-flex;align-items:center;gap:0}
-.lockup svg{display:block;height:auto}
+/* lockup — proportional, so it cannot break when the name changes length.
+   C = cap height ≈ 0.70em. kanji 1.30 C · rule 1.00 C · 0.55 C clear · Latin tracked 0.28 em. */
+.lockup{display:inline-flex;align-items:center;line-height:1;white-space:nowrap}
+.lockup .lk-k{font-family:var(--mincho);font-size:1.035em;line-height:1;
+  /* optical centre of the kanji to cap centre of the Latin */
+  position:relative;top:-.02em}
+.lockup .lk-r{display:inline-block;height:.70em;margin:0 .42em;
+  border-left:1px solid currentColor;border-left-width:1.3px;align-self:center}
+.lockup .lk-n{font-family:var(--serif);letter-spacing:.28em;
+  /* tracking adds a trailing gap after the last letter; pull it back so the mark is optically centred */
+  margin-right:-.28em}
+@media (max-width:420px){ .lockup .lk-n{letter-spacing:.18em;margin-right:-.18em} }
 
 /* masthead */
 .mast{position:sticky;top:0;z-index:70;mix-blend-mode:difference;color:#fff}

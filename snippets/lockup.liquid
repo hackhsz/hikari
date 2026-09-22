@@ -1,24 +1,26 @@
 {%- comment -%}
-  Lockup per docs/10-logo.md. The pair is a ratio, not two numbers:
-  the kanji sits exactly one weight step below the Latin, and both move together with size.
-    scale: "hero" → kanji 200 / Newsreader 300 / rule 1.1
-    scale: "body" → kanji 300 / Newsreader 400 / rule 1.3   (small sizes, print, signage)
-  Proportions: kanji 1.30 C, rule 1.00 C with 0.55 C clear either side, Latin tracked 0.28 em.
+  Lockup per docs/10-logo.md, drawn in HTML/CSS rather than SVG.
+
+  The spec is proportional, so em units express it natively — and the mark cannot
+  break when the brand name changes length, which matters given docs/18-name-clearance.md.
+  (The previous SVG had a fixed 420-unit viewBox sized for "Hikari" and clipped
+  anything longer.)
+
+  Against a Latin font-size of 1em, cap height C ≈ 0.70em, so:
+    kanji   1.30 C  → 1.035em       (one weight step below the Latin)
+    rule    1.00 C  → 0.70em tall
+    clear   0.55 C  → 0.42em either side
+    Latin   tracked 0.28em
+
+  scale: "hero" → kanji 200 / Newsreader 300 / rule 1px
+  scale: "body" → kanji 300 / Newsreader 400 / rule 1.3px   (small sizes, print, signage)
 {%- endcomment -%}
 {%- assign s = scale | default: 'body' -%}
-{%- if s == 'hero' -%}
-  {%- assign kw = 200 -%}{%- assign lw = 300 -%}{%- assign rw = 1.1 -%}
-{%- else -%}
-  {%- assign kw = 300 -%}{%- assign lw = 400 -%}{%- assign rw = 1.3 -%}
-{%- endif -%}
-{%- assign w = width | default: 146 -%}
+{%- if s == 'hero' -%}{%- assign kw = 200 -%}{%- assign lw = 300 -%}{%- assign rw = '1px' -%}
+{%- else -%}{%- assign kw = 300 -%}{%- assign lw = 400 -%}{%- assign rw = '1.3px' -%}{%- endif -%}
 {%- assign name = settings.brand_name | default: shop.name -%}
-<span class="lockup">
-  <svg width="{{ w }}" viewBox="0 0 420 100" role="img" aria-label="{{ name | escape }}">
-    <text x="42" y="50" font-family="Noto Serif JP, serif" font-weight="{{ kw }}" font-size="59"
-          fill="currentColor" text-anchor="middle" dominant-baseline="central">{{ settings.brand_kanji | default: '光' }}</text>
-    <line x1="100" y1="30" x2="100" y2="70" stroke="currentColor" stroke-width="{{ rw }}"/>
-    <text x="124" y="70" font-family="Newsreader, serif" font-weight="{{ lw }}" font-size="57"
-          letter-spacing="15" fill="currentColor">{{ name }}</text>
-  </svg>
+<span class="lockup" style="font-size:{{ size | default: '20px' }}" role="img" aria-label="{{ name | escape }}">
+  <span class="lk-k" style="font-weight:{{ kw }}" aria-hidden="true">{{ settings.brand_kanji | default: '光' }}</span>
+  <span class="lk-r" style="border-left-width:{{ rw }}" aria-hidden="true"></span>
+  <span class="lk-n" style="font-weight:{{ lw }}" aria-hidden="true">{{ name }}</span>
 </span>
