@@ -60,41 +60,83 @@
     cv.dataset.done="1";return true;
   }
 
+  var io=null, ro=null;
   function initPlates(){
-    var pl=[].slice.call(document.querySelectorAll("canvas[data-seed]"));
+    var pl=[].slice.call(document.querySelectorAll("canvas[data-seed]:not([data-obs])"));
     pl.forEach(function(cv){
+      cv.dataset.obs="1";
       var w=cv.clientWidth||(cv.parentNode&&cv.parentNode.clientWidth)||600;
-      cv.style.height=Math.round(w*(parseFloat(cv.dataset.ratio)||0.8))+"px";});
-    if("IntersectionObserver" in window){
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&draw(e.target))io.unobserve(e.target);});},{rootMargin:"600px 0px"});
-      pl.forEach(function(cv){io.observe(cv);});
-    } else pl.forEach(draw);
-    var rt;window.addEventListener("resize",function(){clearTimeout(rt);
-      rt=setTimeout(function(){pl.forEach(function(cv){cv.dataset.done="";draw(cv);});},240);});
+      cv.style.height=Math.round(w*(parseFloat(cv.dataset.ratio)||0.8))+"px";
+    });
+    if(!pl.length) return;
+
+    /* A canvas whose width is still 0 when it first intersects would never redraw,
+       because IntersectionObserver only fires on change. ResizeObserver catches it
+       the moment layout gives it a width — this is what left plates blank. */
+    if(!ro && "ResizeObserver" in window){
+      ro=new ResizeObserver(function(es){
+        es.forEach(function(e){
+          var cv=e.target;
+          if(cv.dataset.done!=="1" && cv.clientWidth>40) draw(cv);
+        });
+      });
+    }
+    if(!io && "IntersectionObserver" in window){
+      io=new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting) draw(e.target); });
+      },{rootMargin:"800px 0px"});
+    }
+    pl.forEach(function(cv){
+      if(io) io.observe(cv); else draw(cv);
+      if(ro) ro.observe(cv);
+    });
   }
+  var _rt;
+  window.addEventListener("resize",function(){
+    clearTimeout(_rt);
+    _rt=setTimeout(function(){
+      [].forEach.call(document.querySelectorAll("canvas[data-seed]"),function(cv){
+        cv.dataset.done=""; draw(cv);});
+    },240);
+  });
 
   /* ── scroll-driven colour ───────────────────────────── */
   function h2r(h){h=h.replace("#","");return[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)];}
   function r2h(a){return "#"+a.map(function(v){return("0"+Math.round(Math.max(0,Math.min(255,v))).toString(16)).slice(-2);}).join("");}
   function lerp(a,b,t){return[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t];}
 
-  function initScroll(){
-    if(root.dataset.scrollColour!=="true") return;
-    var secs=[].slice.call(document.querySelectorAll("[data-bg]"));
-    if(!secs.length) return;
-    var stops=secs.map(function(s){return{el:s,bg:h2r(s.dataset.bg),fg:h2r(s.dataset.fg||"#14171A")};});
-    var tick=false;
-    function apply(){
-      tick=false;
-      var probe=window.scrollY+window.innerHeight*0.5,i=0;
-      for(var k=0;k<stops.length;k++){ if(stops[k].el.offsetTop<=probe) i=k; }
-      var cur=stops[i],nxt=stops[Math.min(i+1,stops.length-1)],t=0;
-      if(nxt!==cur){var sp=nxt.el.offsetTop-cur.el.offsetTop;if(sp>0)t=Math.max(0,Math.min(1,(probe-cur.el.offsetTop)/sp));}
-      root.style.setProperty("--bg",r2h(lerp(cur.bg,nxt.bg,t)));
-      root.style.setProperty("--fg",r2h(lerp(cur.fg,nxt.fg,t)));
+  var stops=[], bound=false, tick=false;
+  /* offsetTop is measured against the nearest positioned ancestor, and Shopify wraps
+     every section in its own div — so it returned the wrong number and the colour
+     never tracked the page. getBoundingClientRect is absolute. */
+  function topOf(el){ return el.getBoundingClientRect().top + window.scrollY; }
+
+  function applyColour(){
+    tick=false;
+    if(!stops.length) return;
+    var probe=window.scrollY+window.innerHeight*0.5, i=0;
+    for(var k=0;k<stops.length;k++){ if(topOf(stops[k].el)<=probe) i=k; }
+    var cur=stops[i], nxt=stops[Math.min(i+1,stops.length-1)], t=0;
+    if(nxt!==cur){
+      var a=topOf(cur.el), b=topOf(nxt.el);
+      if(b>a) t=Math.max(0,Math.min(1,(probe-a)/(b-a)));
     }
-    window.addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(apply);}},{passive:true});
-    window.addEventListener("resize",apply);apply();
+    root.style.setProperty("--bg",r2h(lerp(cur.bg,nxt.bg,t)));
+    root.style.setProperty("--fg",r2h(lerp(cur.fg,nxt.fg,t)));
+  }
+
+  function initScroll(){
+    if(root.dataset.scrollColour!=="true"){ root.classList.remove("scroll-colour"); return; }
+    var secs=[].slice.call(document.querySelectorAll("[data-bg]"));
+    if(!secs.length){ root.classList.remove("scroll-colour"); return; }
+    stops=secs.map(function(s){return{el:s,bg:h2r(s.dataset.bg),fg:h2r(s.dataset.fg||"#14171A")};});
+    root.classList.add("scroll-colour");
+    if(!bound){
+      bound=true;
+      window.addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(applyColour);}},{passive:true});
+      window.addEventListener("resize",applyColour);
+    }
+    applyColour();
   }
 
   function boot(){ initPlates(); initScroll(); }

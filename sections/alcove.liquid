@@ -7,7 +7,7 @@
     {%- if cp.available -%}{%- assign p = cp -%}{%- break -%}{%- endif -%}
   {%- endfor -%}
 {%- endunless -%}
-<section data-bg="#EFF0EC" data-fg="#14171A" style="padding-top:clamp(6px,1.5vw,16px)">
+<section data-bg="#EFF0EC" data-fg="#14171A" style="--sec-bg:#EFF0EC;--sec-fg:#14171A;padding-top:clamp(6px,1.5vw,16px)">
   <div class="shell">
     {%- if p -%}
       {%- render 'plate', image: p.featured_image, ratio: 0.70, seed: p.id, tone: 'light',
