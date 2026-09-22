@@ -1,0 +1,19 @@
+<section data-bg="#14171A" data-fg="#EFF0EC">
+  <div class="shell pad signup rule-top">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.body }}</p>
+    {%- form 'customer', class: 'form' -%}
+      <input type="hidden" name="contact[tags]" value="edition">
+      <label for="edition-email" style="position:absolute;left:-9999px">Email address</label>
+      <input id="edition-email" type="email" name="contact[email]" placeholder="you@example.com" autocomplete="email" required>
+      <button type="submit"><span>Join the list</span></button>
+      {%- if form.posted_successfully? %}<p style="flex:1 1 100%;margin:10px 0 0">Thank you — you are on the list.</p>{% endif -%}
+    {%- endform -%}
+  </div>
+</section>
+{% schema %}
+{ "name": "Edition sign-up", "settings": [
+  { "type": "text", "id": "heading", "label": "Heading", "default": "The Edition goes out Thursday, an hour before anyone else sees it." },
+  { "type": "text", "id": "body", "label": "Body", "default": "One of one means the best piece is gone first. The list gets it first." }
+], "presets": [{ "name": "Edition sign-up" }] }
+{% endschema %}

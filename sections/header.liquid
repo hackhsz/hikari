@@ -1,0 +1,17 @@
+<header class="mast">
+  <div class="inner">
+    <a href="{{ routes.root_url }}" aria-label="{{ settings.brand_name }} — home">
+      {%- render 'lockup', scale: 'body', width: 146 -%}
+    </a>
+    <nav>
+      {%- for link in linklists.main-menu.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+    </nav>
+    <a class="bag" href="{{ routes.cart_url }}">Bag ({{ cart.item_count }})</a>
+  </div>
+</header>
+<script>
+  document.documentElement.dataset.scrollColour = "{{ settings.scroll_colour }}";
+  document.documentElement.style.setProperty('--grain', {{ settings.grain_opacity | divided_by: 100.0 }});
+  {% if settings.grain_animate %}document.body.classList.add('grain-on');{% endif %}
+</script>
+{% schema %}{ "name": "Header", "settings": [] }{% endschema %}

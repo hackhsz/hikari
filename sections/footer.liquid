@@ -1,0 +1,27 @@
+<footer data-bg="#14171A" data-fg="#EFF0EC">
+  <div class="shell pad rule-top">
+    <div class="strip">
+      <div>{{ settings.trust_1 }}</div><div>{{ settings.trust_2 }}</div>
+      <div>{{ settings.trust_3 }}</div><div>{{ settings.trust_4 }}</div>
+    </div>
+    <div class="fcols">
+      {%- for block in section.blocks -%}
+        <div><h4>{{ block.settings.title }}</h4>
+          {%- for link in linklists[block.settings.menu].links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+        </div>
+      {%- endfor -%}
+    </div>
+    <div style="margin-top:clamp(40px,7vw,64px)">{%- render 'lockup', scale: 'hero', width: 196 -%}</div>
+    <p class="legal">
+      {{ settings.legal_disclaimer }}
+      {% if settings.company_name %} {{ settings.company_name }}{% if settings.company_number %}, registered in England and Wales no. {{ settings.company_number }}{% endif %}{% if settings.company_address %}, {{ settings.company_address }}{% endif %}.{% endif %}
+      {{ settings.vat_line }}
+    </p>
+  </div>
+</footer>
+{% schema %}
+{ "name": "Footer",
+  "blocks": [{ "type": "column", "name": "Column", "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "House" },
+    { "type": "link_list", "id": "menu", "label": "Menu" }]}] }
+{% endschema %}

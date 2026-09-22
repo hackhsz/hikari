@@ -1,0 +1,23 @@
+{%- comment -%}
+  Brand as a first-class navigation axis (docs/04-site-ia.md), rendered as display type rather than
+  a filter menu. A brand name is metadata, never identity: plain text in our own typeface, no logos.
+{%- endcomment -%}
+<section class="pad" id="houses" data-bg="#DFE1DC" data-fg="#14171A">
+  <div class="shell">
+    <p class="eyebrow">{{ section.settings.heading }}</p>
+    <div class="houses">
+      {%- for block in section.blocks -%}
+        <a href="{{ block.settings.url | default: '#' }}">{{ block.settings.name }}</a>
+        {%- unless forloop.last %}<span class="sep">·</span>{% endunless -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "Shop by house",
+  "settings": [{ "type": "text", "id": "heading", "label": "Eyebrow", "default": "Shop by house" }],
+  "blocks": [{ "type": "house", "name": "House", "settings": [
+    { "type": "text", "id": "name", "label": "House", "default": "Christian Dior" },
+    { "type": "url", "id": "url", "label": "Collection" }]}],
+  "presets": [{ "name": "Shop by house" }] }
+{% endschema %}

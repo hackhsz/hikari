@@ -1,0 +1,55 @@
+{%- comment -%}
+  Product page anatomy per docs/04-site-ia.md. Information sits BELOW / BESIDE the image, never over it,
+  so no scrim is ever needed. Frames 2 and 4 — the maker's-mark macro and the condition frame — are
+  evidence: unretouched, ungrained, and labelled as such (D6, D10).
+{%- endcomment -%}
+{%- assign p = product -%}
+<section class="pad" data-bg="#EFF0EC" data-fg="#14171A">
+  <div class="shell pdp">
+    <div class="frames">
+      {%- if p.images.size > 0 -%}
+        {%- for img in p.images -%}
+          {%- assign evidence = false -%}
+          {%- if forloop.index == 2 or forloop.index == 4 %}{% assign evidence = true %}{% endif -%}
+          {%- render 'plate', image: img, alt: p.title,
+              stamp: evidence | default: nil -%}
+          {%- if evidence %}<p class="unret">Unretouched</p>{% endif -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- render 'plate', ratio: 0.8, seed: p.id, tone: 'light', comp: 'pair', stamp: 'Plate 01 · daylight' -%}
+        {%- render 'plate', ratio: 0.8, seed: p.id | plus: 7, tone: 'light', comp: 'single', stamp: "Plate 02 · maker's mark" -%}
+        <p class="unret">Unretouched</p>
+      {%- endif -%}
+    </div>
+
+    <div class="panel">
+      <h1>{{ p.vendor | default: p.title }}</h1>
+      <p class="sub">{{ p.metafields.hikari.piece | default: p.title }}</p>
+      <span class="price p">{{ p.price | money }}</span>
+
+      {%- form 'product', p -%}
+        <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
+        <button class="btn" type="submit" {% unless p.available %}disabled{% endunless %}>
+          {% if p.available %}Add to bag{% else %}Sold{% endif %}
+        </button>
+      {%- endform -%}
+
+      <table class="spec">
+        {%- if p.metafields.hikari.grade -%}<tr><th>Condition</th><td>Grade {{ p.metafields.hikari.grade }}{% if p.metafields.hikari.condition %} — {{ p.metafields.hikari.condition }}{% endif %}</td></tr>{%- endif -%}
+        <tr><th>Availability</th><td>One of one</td></tr>
+        {%- if p.metafields.hikari.size -%}<tr><th>Measurements</th><td>{{ p.metafields.hikari.size }}</td></tr>{%- endif -%}
+        {%- if p.metafields.hikari.mark -%}<tr><th>Maker's mark</th><td>{{ p.metafields.hikari.mark }}</td></tr>{%- endif -%}
+        {%- if p.metafields.hikari.era -%}<tr><th>Era</th><td>{{ p.metafields.hikari.era }}</td></tr>{%- endif -%}
+        {%- if p.metafields.hikari.provenance -%}<tr><th>Provenance</th><td>{{ p.metafields.hikari.provenance }}</td></tr>{%- endif -%}
+      </table>
+
+      {%- if p.description != blank -%}<div class="rte">{{ p.description }}</div>{%- endif -%}
+
+      <ul class="trust-list">
+        <li>{{ settings.trust_1 }}</li><li>{{ settings.trust_2 }}</li>
+        <li>{{ settings.trust_3 }}</li><li>{{ settings.trust_4 }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+{% schema %}{ "name": "Product", "settings": [] }{% endschema %}
