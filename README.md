@@ -26,6 +26,7 @@ These documents are the working plan. They are meant to be returned to and revis
 | [09 — Payments & tax](docs/09-payments-and-tax.md) | **Payment rails, VAT registration, why peer-to-peer doesn't avoid it** |
 | [10 — Logo](docs/10-logo.md) | The lockup: proportions, the weight ratio, the compact mark |
 | [11 — Platform](docs/11-platform.md) | **Shopify vs Stripe vs custom — the checkout decision** |
+| [12 — Build cost](docs/12-build-cost.md) | **What it costs to get the store built and live** |
 | [Decisions](docs/DECISIONS.md) | **Dated log of what's settled, proposed, or reversed** |
 | [99 — Open questions](docs/99-open-questions.md) | Everything unresolved, in one place |
 

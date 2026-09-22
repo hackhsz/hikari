@@ -113,3 +113,11 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 | 31 | If a custom card form is ever wanted for design reasons, note it moves you from SAQ A to owning PCI DSS 6.4.3 and 11.6.1 (client-side script integrity). Hosted Checkout avoids it. | [11](11-platform.md) |
 | 32 | Returns: negotiated carrier rates don't cover return labels. Decide who pays return postage and how the label is issued — a Consumer Contracts Regulations question as much as a logistics one. | [11](11-platform.md), [03](03-customer.md) |
 | 33 | Don't switch on Stripe Tax (0.5% of taxed volume) while unregistered — it's a cost with no obligation behind it | [11](11-platform.md), [09](09-payments-and-tax.md) |
+
+## Update · 2026-09-22 (v)
+
+| # | Question | Where |
+|---|---|---|
+| 34 | **Photography in-house or outsourced.** At £15–40/piece outsourced it costs more than the website and recurs with every batch; in-house it is 45–60 min/piece, the real constraint on the business. Neither is cheap — decide deliberately. | [12](12-build-cost.md), [06](06-unit-economics.md) |
+| 35 | Get one freelance quote briefed as *conversion of a finished design*, not a design project, to test the £2,500–6,000 estimate | [12](12-build-cost.md) |
+| 36 | Confirm UK IPO trademark fees and whether Class 14 alone or 14 + 35 | [12](12-build-cost.md), [00](00-brief.md) |
