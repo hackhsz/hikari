@@ -19,12 +19,13 @@ These documents are the working plan. They are meant to be returned to and revis
 | [02 — Positioning](docs/02-positioning.md) | **Independent-curated vs. mass-market — the recommendation** |
 | [03 — Customer](docs/03-customer.md) | **Who buys at £100–300, and can they afford it** |
 | [04 — Site & IA](docs/04-site-ia.md) | Site structure, brand-as-navigation, and the legal guardrails around it |
-| [05 — Social](docs/05-social.md) | Channel strategy and the operating rhythm |
+| [05 — Social](docs/05-social.md) | **Channel strategy, the Edition rhythm, and the Instagram / 小红书 accounts** |
 | [06 — Unit economics](docs/06-unit-economics.md) | Japan → UK landed cost, duty, VAT, margin model |
 | [07 — Roadmap](docs/07-roadmap.md) | Phasing, and what to do in the next 90 days |
 | [08 — Brand](docs/08-brand.md) | **Aesthetic direction, palette, type, photography spec, lexicon** |
 | [09 — Payments & tax](docs/09-payments-and-tax.md) | **Payment rails, VAT registration, why peer-to-peer doesn't avoid it** |
 | [10 — Logo](docs/10-logo.md) | **Four directions for the mark, and the clearance checks that come first** |
+| [11 — Imagery rights](docs/11-imagery-rights.md) | **Borrowed backdrops: what the look is, and four legal routes to it** |
 | [Decisions](docs/DECISIONS.md) | **Dated log of what's settled, proposed, or reversed** |
 | [99 — Open questions](docs/99-open-questions.md) | Everything unresolved, in one place |
 

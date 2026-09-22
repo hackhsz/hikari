@@ -171,3 +171,52 @@ Divided lockup specified and the supplied reference glyph identified ([10](10-lo
 | 40 | Divider variant — A (cap height, recommended), B (kanji height), C (short centred tick) | [10](10-logo.md) |
 
 **#28 restated in a sharper form:** serif title case `Hikari` versus grotesque uppercase `HIKARI` beside the kanji are **different brands, not different renderings.** Test them as such.
+
+## Update · 2026-09-22 (ix)
+
+| # | Question | Where |
+|---|---|---|
+| 41 | **Which Instagram account is the style reference, and is it supplying subject or frame?** Not named and not reviewed — Instagram is login-walled. If it supplies the *frame* (dark ground, high-contrast serif, heavy grade) then adopting it reverses [D2](DECISIONS.md), and that should be a logged decision rather than a drift. Needs the handle or screenshots. | [05](05-social.md), [08](08-brand.md) |
+| 42 | **What job does 小红书 do?** UK/EU Chinese-speaking buyers and evergreen search (recommended), or a mainland-China ambition (a different business — customs, payment rails, returns and consumer law all change, and none of it is modelled). | [05](05-social.md), [06](06-unit-economics.md) |
+| 43 | What happens to the three-column grid in a week when only two pieces are ready? The columns only hold at exactly three posts per Edition. | [05](05-social.md) |
+
+**#4 extended:** handle availability must be checked on **Instagram and 小红书** alongside the UK Class 14/35 clearance and the domain, and all four secured before design work is commissioned.
+
+## Update · 2026-09-22 (x)
+
+### Resolved
+
+- **#41 — the reference account.** [@thevisionnaire.studio](https://instagram.com/thevisionnaire.studio), reviewed in [05](05-social.md). It supplies the **frame**, so adopting it wholesale reverses [D2](DECISIONS.md). What is worth taking from it is the *atmosphere-to-product ratio* and the *two-surface split* (Instagram = seduction, product page = evidence) — neither of which is European.
+- **#24 — what "用画" meant.** Answered by the reference: actual paintings, used as backdrops with the product composited on. Viable **only** with verified public-domain works. The reference also composites onto a black-and-white fashion photograph that is almost certainly still in copyright — do not follow it there.
+- **#25 — the grain rule.** Restated more usefully as a *channel* rule rather than a per-frame one ([05](05-social.md)): frame 4 need never appear on Instagram at all. The per-frame rule in [D6](DECISIONS.md) still governs the site.
+
+### Newly open
+
+| # | Question | Where |
+|---|---|---|
+| 44 | **Is bridal a fourth segment?** The reference account sells it as a named line. UK weddings have a literal *something old* convention, intent is high, the timeline is fixed, and the budget is separate from discretionary spend. [03](03-customer.md) omits it — decision or oversight? | [03](03-customer.md), [05](05-social.md) |
+| 45 | If paintings are used, who sources and verifies public-domain status, and is it recorded per asset? A wrong call here is a rights claim, not a design note. | [04](04-site-ia.md), [08](08-brand.md) |
+| 46 | Does the Edition move to six posts at the [07](07-roadmap.md) month-9 run rate, to buy two atmosphere slots per row while keeping the columns locked? | [05](05-social.md) |
+
+## Update · 2026-09-22 (xi)
+
+**#45 answered in method, still open in ownership.** [11](11-imagery-rights.md) sets out how to use paintings lawfully — open-access museum sources (Met, Rijksmuseum, Art Institute of Chicago, NGA, Getty, Smithsonian) where the licence is stated on the record, and **shot physically rather than composited**, so the resulting photograph is Hikari's own work. What remains open is *who owns the process* and whether the licence is recorded per asset at intake.
+
+| # | Question | Where |
+|---|---|---|
+| 47 | **Model release for on-body frames.** Route C in [11](11-imagery-rights.md) needs a signed release before the first shoot, or the images cannot be used commercially later. Template needed. | [11](11-imagery-rights.md), [08](08-brand.md) |
+| 48 | Extend the pre-launch IP solicitor hour ([04](04-site-ia.md)) to cover imagery: backdrop sourcing, model releases, and the disclaimer wording in one sitting. | [04](04-site-ia.md), [11](11-imagery-rights.md) |
+
+### Settled by [11](11-imagery-rights.md)
+
+- **Instagram-only posting does not reduce copyright exposure.** The infringing act is the communication to the public, which happens in full on Instagram; the UK has fair *dealing* on a closed list of purposes, not fair use. The operative risk is not litigation but **takedown and account loss** — the primary channel in [05](05-social.md) sits on rented land.
+- **AI-generated backdrops are not adopted.** They solve third-party copyright and create three problems, the decisive one being that [03](03-customer.md) identifies trust as *the* barrier and [08](08-brand.md) has already moved the palette away from looking AI-generated. A synthetic atmosphere argues against the product.
+
+## Update · 2026-09-22 (xii)
+
+**AI backdrops — owner's call, adopted in narrowed form.** The recommendation in [11](11-imagery-rights.md) §3 was against; the owner chose to proceed with a hybrid in which **only the backdrop is generated and the piece is always a real photograph**. Recorded as [D9](DECISIONS.md) amended. The narrowing resolves the evidence objection ([D8](DECISIONS.md)) but **not** the ownership one — generated output may carry no enforceable copyright, so exclusivity cannot be assumed even where commercial use is permitted.
+
+| # | Question | Where |
+|---|---|---|
+| 49 | **A recurring generated sitter, or a new face each time?** A fixed seed builds a brand asset over a year; it also sharpens the AI tell, since a face that recurs, never ages and never appears in Stories invites scrutiny. Suggested split: recurring in the painted register, one-off in the photographic one. | [11](11-imagery-rights.md), [08](08-brand.md) |
+| 50 | Confirm the commercial-use terms of whichever generation service is actually used — they differ between services and they change. | [11](11-imagery-rights.md) |

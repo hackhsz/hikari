@@ -132,3 +132,57 @@ Considered and dropped: ひかり and ひ ([99](99-open-questions.md), 2026-09-2
 **New branch, and it now sits above the open detail questions: set, or drawn?** The lockup keeps 光 as a character; the constructed mark of the earlier studies draws it. A house can carry both, but only one can be registered and stamped. Logged as [99](99-open-questions.md) #39.
 
 *Studies:* https://claude.ai/artifact/Xq1SCfUQnyXwrBoBnXtE2r
+### D8 · Social accounts — European subject, Japanese frame
+**2026-09-22 · Proposed**
+
+Launch Instagram (primary) and 小红书 (secondary) on a single rule: **the objects are European, the eye is Japanese.** The stock already *is* European — Dior, Givenchy, YSL and Nina Ricci are Paris houses, Grosse is Pforzheim — so a European style reference is not in conflict with [D2](DECISIONS.md) provided it supplies the *subject* and never the *frame*. Composition, ground, type and light stay as specified in [08](08-brand.md).
+
+Two structural proposals attached:
+
+- **Instagram grid as a catalogue.** One Edition = exactly three posts in fixed order, which locks each column to one frame type (composed / maker's-mark macro / on-body). The condition frame stays off-grid — it is evidence, and it belongs on the product page and in Stories.
+- **小红书 as a knowledge and diaspora channel**, run at pillar-3 weight for UK/EU Chinese-speaking buyers and evergreen search. Not a second storefront, not a translated Instagram feed, not a route to mainland customers.
+
+The platform's cover-title convention collides with [08](08-brand.md)'s rule that the photograph never carries text. **Resolved in favour of the rule:** a plain `--paper-deep` type plate takes ~22% of the 3:4 cover, the photograph below it stays untouched. A plate, not an overlay — the same logic as information-below-the-image on the site.
+
+*Full reasoning:* [05](05-social.md). *Open:* the 小红书 remit is unconfirmed ([99](99-open-questions.md) #42). **Awaiting your call.**
+
+**Amended 2026-09-22** — the reference account has now been reviewed (#41 resolved). It supplies the *frame*, so it is not adopted. Two amendments follow from it:
+
+- **The split is a channel rule, not just a frame rule.** *Instagram is the seduction surface; the product page is the evidence surface.* Frame 4 need never appear on Instagram at all. This supersedes nothing in [D6](DECISIONS.md) — it governs the feed, D6 governs the site — but it is the cleaner statement of the same principle.
+- **The grid needs atmosphere the four-frame spec does not produce.** Launch at three posts per Edition with atmosphere in Stories and Reels; revisit a six-post Edition at the [07](07-roadmap.md) month-9 run rate (#46). Hikari's atmosphere is pillar 2 — the Japan sourcing, shot documentary — not borrowed interiors.
+
+**One hard line added:** products are **never composited onto images the business did not make.** The reference does this with a classical painting and with a black-and-white fashion photograph; the second is almost certainly still in copyright, and both destroy scale and condition information that [08](08-brand.md)'s frame 3 exists to supply. Paintings as backdrops are viable only as verified public-domain works, sourced deliberately and recorded per asset ([99](99-open-questions.md) #45).
+
+---
+
+### D9 · Imagery — the look is kept, the borrowing is not
+**2026-09-22 · Decided in principle, open in production detail**
+
+The painterly / old-photograph register of the reference account ([05](05-social.md)) is **adopted**. The method by which the reference achieves it is **rejected**, and two shortcuts around it are rejected with it.
+
+**Rejected — posting borrowed imagery on Instagram only.** The infringing act is the communication to the public and it happens in full on Instagram. The UK has fair dealing on a closed list of purposes, none of which covers "it suited the feed". The decisive risk is not being sued: it is **notice, strike, and losing the account** — and with it the primary channel, the archive and the handle, uninsurably.
+
+**Rejected — AI-generated backdrops.** They remove the third-party copyright problem and add three: output that may carry no copyright anyone can enforce, prompts that can land back on a protected work, and CAP Code exposure wherever the product itself is misrepresented. The decisive objection is internal — [03](03-customer.md) makes trust the barrier and [08](08-brand.md) has already moved the palette off a look it identified as AI-signature. A synthetic atmosphere argues against a product whose whole claim is *real object, real age, found in Tokyo*.
+
+**Adopted — four routes, all of which produce imagery Hikari owns outright:**
+
+- **A · Verified public-domain paintings, shot physically, never composited.** Sourced from open-access museum programmes where the licence is stated on the record. Print it, light it, photograph the piece against it in one real exposure. Recommended.
+- **B · Commission the painting**, work-for-hire with copyright assigned in writing. Unrepeatable by any competitor.
+- **C · Shoot the "old photograph" rather than borrow one.** Grainy black-and-white profile, piece in colour — mechanically identical to the reference's strongest image, and it doubles as frame 3 done properly.
+- **D · The Tokyo frame.** The reference borrows European interiors because it has no real world of its own. Pillar 2 is Hikari's, documentary and uncopyable. Strategically the best of the four. **Not** a licence to use ukiyo-e or Japanese motif as backdrop — [08](08-brand.md)'s costume rule still holds.
+
+*Full reasoning:* [11](11-imagery-rights.md). **The hard line from [D8](DECISIONS.md) is unchanged:** never composite a piece onto an image the business did not make. Route A complies with it rather than excepting it, because the photograph is Hikari's own.
+
+*Open:* who owns public-domain verification and per-asset licence records ([99](99-open-questions.md) #45), a model release template before the first on-body shoot (#47), and folding imagery into the pre-launch IP solicitor hour (#48). **None of this is legal advice** — the reasoning in [11](11-imagery-rights.md) carries the same caveat as the tax work in [09](09-payments-and-tax.md).
+
+**Amended 2026-09-22 · owner's call — generated backdrops adopted, in a narrowed form.**
+
+The recommendation above was against, and the reasoning is unchanged and worth re-reading before this scales. What was chosen is narrower than what was rejected:
+
+> **The backdrop is generated. The piece is always a real photograph.**
+
+This satisfies [D8](DECISIONS.md)'s evidence line — true scale and condition survive, because the piece in frame is the piece being sold — and it leaves the *"real object, real age, found in Tokyo"* claim intact, since a painted setting no more contradicts it than a studio sweep does. A synthetic *piece* would; that is not what is being made.
+
+**The ownership objection is not resolved by the narrowing and stands in full.** Generated output may carry no copyright anyone can enforce. Commercial use is generally permitted by the generating service's terms (#50 — verify per service), but **exclusivity is a separate question and the answer may be that there is none.** Proceed accepting that a competitor may copy the feed with no claim available.
+
+Production spec in [11](11-imagery-rights.md); prompts in [`brand/prompts.md`](../brand/prompts.md). One rule is load-bearing rather than stylistic: **generate the sitter with a bare ear, never generate the earring.** Open: recurring sitter or a new face each time ([99](99-open-questions.md) #49).
