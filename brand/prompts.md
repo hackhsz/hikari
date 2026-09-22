@@ -68,3 +68,25 @@ Still, composed, unsmiling. Editorial rather than commercial.
 | Grain too clean (register B) | Add `pronounced film grain, slightly uneven, visible in the mid-tones` |
 
 **Generate several and keep the ones whose light direction you can actually match on a shoot day.** That constraint eliminates more candidates than aesthetics does, and it is the one that decides whether the composite reads as real ([11](../docs/11-imagery-rights.md)).
+
+---
+
+## Midjourney syntax
+
+The prompts above paste straight into most generators. Midjourney needs its own flags, and `--no` does the work the **Avoid** lists do elsewhere.
+
+**A · The painted sitter**
+
+```
+oil portrait of an East Asian woman turned three-quarters away from the viewer, head angled so one ear is fully visible and completely bare, dark hair gathered up off the neck, nineteenth-century academic painting, visible brushwork, canvas tooth showing through thin passages, slightly cracked varnish, cool restrained palette of grey-green and pale silver-grey with deep indigo shadows, warm skin the only warmth in the frame, soft directional light from a high north window across the cheekbone, plain dark neutral background, shallow depth, generous empty space beside the head, calm unsmiling self-possessed, natural skin texture, no retouching --ar 4:5 --style raw --stylize 100 --no earrings, necklace, jewellery, gold, sepia, brocade, gilt frame, chandelier, flowers, text, watermark, signature
+```
+
+**B · The old photograph**
+
+```
+black and white photograph of an East Asian woman in strict profile facing left, dark hair pulled back tightly into a low knot, ear fully exposed and completely bare, medium format film, heavy silver-halide grain, deep blacks, clean highlight roll-off, shallow depth of field with the ear and jawline sharp, hard directional side light raking across the cheekbone, one edge of the face in shadow, plain pale grey seamless background, still composed unsmiling, editorial --ar 4:5 --style raw --stylize 50 --no earrings, necklace, jewellery, colour, sepia, toning, smiling, soft focus glow, beauty retouching, ring light, text, watermark, logo, border, film sprockets, date stamp
+```
+
+**Flag notes.** `--style raw` suppresses Midjourney's default prettifying, which is what pushes faces toward glamour and away from both registers. Low `--stylize` keeps it literal — B wants it lower than A, because a photograph tolerates less invention than a painting. Raise `--ar` only if a wider crop is wanted; 4:5 is the Instagram portrait frame.
+
+**Whichever tool:** the output requirement is the same — **a bare, clearly lit, unobstructed ear.** Reject anything else before judging it on looks ([11](../docs/11-imagery-rights.md)).
