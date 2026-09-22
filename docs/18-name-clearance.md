@@ -102,3 +102,67 @@ Instagram returns a login redirect (HTTP 302) to automated requests, so `@hikari
 - **Attorney reading of UK00917478348's Class 14 specification, and of UK00908114902's Class 35 wording.** Blocking. [99](99-open-questions.md) #57
 - Alternative names, if needed. #58
 - Handle checks, once a name survives. #59
+
+---
+
+## Alternative names — screened, 2026-09-22
+
+22 candidates run against **TMview (GB register)** for live marks in Classes 14 and 35, and against RDAP for domains. **Preliminary screen only** — exact-name matching, not the phonetic and conceptual similarity analysis a proper clearance does. An attorney still reviews the shortlist; the difference is they now review three names instead of hunting for one.
+
+### Ruled out
+
+| Name | Why |
+|---|---|
+| **Akari** 灯り | **AKARI STUDIOS — Class 14 — Registered.** Same problem as Hikari. |
+| **Kura** 蔵 | KURA (cls 35), KURA London (cls 25+35) — both registered. Crowded. |
+| **Komorebi** 木漏れ日 | KOMOREBI (cls 9,18,25,35) + KOMOREBI EYEWEAR — registered. Also a listicle cliché. |
+| **Nagare** 流れ | NAGARE / NAGARE COFFEE — registered, cls 35. |
+| **Akane** 茜 | Several live AKANEA marks in 35. Messy. |
+| **Kohaku** 琥珀 | "Kohakuku" registered in **Class 14**. Too close. |
+| **Nagori** 名残 | No exact conflict, but `.com` and `.co.uk` both gone. |
+| **Katami** 形見 | Clear-ish, but `.com` and `.co.uk` both gone — and the word carries funerary weight (a keepsake of the dead). |
+
+### The shortlist
+
+All show **no live GB mark in Class 14 or 35**, and `.co.uk` is free for each.
+
+| | Name | Kanji | Meaning | Lockup |
+|---|---|---|---|---|
+| **1** | **Enishi** | **縁** | The invisible thread connecting people to each other and to things — a fated, serendipitous bond | **single kanji** ✓ |
+| **2** | **Meguri** | **巡** | Circulation, going round; 巡り会う is to meet by chance | single kanji ✓ |
+| **3** | **Utsuwa** | **器** | A vessel; also a person's capacity | single kanji ✓ |
+| **4** | **Tomoshibi** | **灯** | A small light, a lamp | single kanji ✓ |
+| **5** | **Nokori** | **残** | What remains | single kanji ✓ |
+| 6 | Kinari | 生成り | Undyed, unbleached, as it came | 3 chars ✗ |
+| 7 | Yoake | 夜明け | Daybreak | 2 chars + okurigana ✗ |
+| 8 | Kioku | 記憶 | Memory | 2 chars |
+| 9 | Mitsuke | 見つけ | Finding | ✗ |
+
+**Single-kanji names score higher for a specific reason:** the lockup spec at [10](10-logo.md) is built around **one glyph** at 1.30 cap height beside the Latin. A three-character name with okurigana does not fit that system and would need the mark redesigned, not just re-set.
+
+### Recommendation — Enishi 縁
+
+**On meaning.** 縁 is the thread of connection — the idea that an object and a person were bound to find each other. For a shop whose entire proposition is *there is one of this, and it is now yours* ([02](02-positioning.md)), no other word on the list is as close. It also quietly carries the sourcing story: the piece travelled from Paris to Tokyo to London to reach one person.
+
+**On form.** Single kanji, visually dense and balanced, holds its weight against the Latin at 1.30 cap height. The entire proportional system from [10](10-logo.md) transfers with only the glyph changed.
+
+**On sound.** *eh-NEE-shee.* Three syllables, no ambiguous consonants, spellable from hearing it — the same test Hikari passed.
+
+**Second choice: Meguri 巡.** Easier again to say, and *circulation* is the most honest one-word description of what resale is — which gives the sustainability argument in [03](03-customer.md) a name to hang on.
+
+### Domains
+
+**Every single-word `.com` is taken** — `enishi.com`, `meguri.com`, `kinari.com`, `utsuwa.com`, all of them. Expected: single Japanese words went years ago.
+
+**`.co.uk` is free for enishi, kinari, meguri, tomoshibi, yoake, utsuwa and nokori.** For a UK-first brand that is arguably the better domain anyway — it signals the thing we are selling, which is *a British shop that goes to Japan*.
+
+`<name>vintage.com` is also free for every name on the list, as a `.com` fallback.
+
+### Next steps
+
+1. Pick two or three from the shortlist.
+2. **Attorney reviews those, plus the Hikari Class 14 specification**, in one hour ([99](99-open-questions.md) #57). Shortlist first, so the hour covers the decision rather than one dead end.
+3. Check handles manually for whichever survives — Instagram, TikTok, Pinterest, Xiaohongshu.
+4. Only then buy domains.
+
+**Nothing else in the plan changes.** Palette, grain, scroll colour, layout, the lockup's proportional system, positioning, pricing, platform, tax — all name-independent.

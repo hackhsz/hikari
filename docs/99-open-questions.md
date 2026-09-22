@@ -193,6 +193,6 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 | # | Question | Where |
 |---|---|---|
 | 57 | **Attorney to read the Class 14 specification of UK00917478348, and the Class 35 wording of UK00908114902.** One hour. Decides whether the name survives. **Blocking — nothing else in the brand should be spent against until this is answered.** | [18](18-name-clearance.md) |
-| 58 | Alternative names, if it does not survive. Note the lockup's *proportional system* transfers to any kanji + Latin name — only the glyphs change. | [18](18-name-clearance.md), [10](10-logo.md) |
+| 58 | ~~Alternative names~~ **Done — 22 screened, shortlist of five.** Recommendation **Enishi 縁**; second **Meguri 巡**. Pick two or three for the attorney hour. | [18](18-name-clearance.md) |
 | 59 | Instagram / TikTok / Pinterest / Xiaohongshu handle checks, once a name clears. Cannot be automated — Instagram redirects bots. | [18](18-name-clearance.md), [05](05-social.md) |
 | 60 | **Do not buy domains until #57 is answered.** `hikarivintage.com` and `.co.uk` are both free today, which is the best pair available, but a domain for an unusable name anchors the decision. | [18](18-name-clearance.md) |
