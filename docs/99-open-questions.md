@@ -113,3 +113,17 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 | 30 | **Is bridal a fourth segment?** The reference account sells it as a named line. UK weddings have a literal *something old* convention, intent is high, the timeline is fixed, and the budget is separate from discretionary spend. [03](03-customer.md) omits it — decision or oversight? | [03](03-customer.md), [05](05-social.md) |
 | 31 | If paintings are used, who sources and verifies public-domain status, and is it recorded per asset? A wrong call here is a rights claim, not a design note. | [04](04-site-ia.md), [08](08-brand.md) |
 | 32 | Does the Edition move to six posts at the [07](07-roadmap.md) month-9 run rate, to buy two atmosphere slots per row while keeping the columns locked? | [05](05-social.md) |
+
+## Update · 2026-09-22 (v)
+
+**#31 answered in method, still open in ownership.** [10](10-imagery-rights.md) sets out how to use paintings lawfully — open-access museum sources (Met, Rijksmuseum, Art Institute of Chicago, NGA, Getty, Smithsonian) where the licence is stated on the record, and **shot physically rather than composited**, so the resulting photograph is Hikari's own work. What remains open is *who owns the process* and whether the licence is recorded per asset at intake.
+
+| # | Question | Where |
+|---|---|---|
+| 33 | **Model release for on-body frames.** Route C in [10](10-imagery-rights.md) needs a signed release before the first shoot, or the images cannot be used commercially later. Template needed. | [10](10-imagery-rights.md), [08](08-brand.md) |
+| 34 | Extend the pre-launch IP solicitor hour ([04](04-site-ia.md)) to cover imagery: backdrop sourcing, model releases, and the disclaimer wording in one sitting. | [04](04-site-ia.md), [10](10-imagery-rights.md) |
+
+### Settled by [10](10-imagery-rights.md)
+
+- **Instagram-only posting does not reduce copyright exposure.** The infringing act is the communication to the public, which happens in full on Instagram; the UK has fair *dealing* on a closed list of purposes, not fair use. The operative risk is not litigation but **takedown and account loss** — the primary channel in [05](05-social.md) sits on rented land.
+- **AI-generated backdrops are not adopted.** They solve third-party copyright and create three problems, the decisive one being that [03](03-customer.md) identifies trust as *the* barrier and [08](08-brand.md) has already moved the palette away from looking AI-generated. A synthetic atmosphere argues against the product.

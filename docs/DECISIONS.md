@@ -94,3 +94,25 @@ The platform's cover-title convention collides with [08](08-brand.md)'s rule tha
 - **The grid needs atmosphere the four-frame spec does not produce.** Launch at three posts per Edition with atmosphere in Stories and Reels; revisit a six-post Edition at the [07](07-roadmap.md) month-9 run rate (#32). Hikari's atmosphere is pillar 2 — the Japan sourcing, shot documentary — not borrowed interiors.
 
 **One hard line added:** products are **never composited onto images the business did not make.** The reference does this with a classical painting and with a black-and-white fashion photograph; the second is almost certainly still in copyright, and both destroy scale and condition information that [08](08-brand.md)'s frame 3 exists to supply. Paintings as backdrops are viable only as verified public-domain works, sourced deliberately and recorded per asset ([99](99-open-questions.md) #31).
+
+---
+
+### D8 · Imagery — the look is kept, the borrowing is not
+**2026-09-22 · Decided in principle, open in production detail**
+
+The painterly / old-photograph register of the reference account ([05](05-social.md)) is **adopted**. The method by which the reference achieves it is **rejected**, and two shortcuts around it are rejected with it.
+
+**Rejected — posting borrowed imagery on Instagram only.** The infringing act is the communication to the public and it happens in full on Instagram. The UK has fair dealing on a closed list of purposes, none of which covers "it suited the feed". The decisive risk is not being sued: it is **notice, strike, and losing the account** — and with it the primary channel, the archive and the handle, uninsurably.
+
+**Rejected — AI-generated backdrops.** They remove the third-party copyright problem and add three: output that may carry no copyright anyone can enforce, prompts that can land back on a protected work, and CAP Code exposure wherever the product itself is misrepresented. The decisive objection is internal — [03](03-customer.md) makes trust the barrier and [08](08-brand.md) has already moved the palette off a look it identified as AI-signature. A synthetic atmosphere argues against a product whose whole claim is *real object, real age, found in Tokyo*.
+
+**Adopted — four routes, all of which produce imagery Hikari owns outright:**
+
+- **A · Verified public-domain paintings, shot physically, never composited.** Sourced from open-access museum programmes where the licence is stated on the record. Print it, light it, photograph the piece against it in one real exposure. Recommended.
+- **B · Commission the painting**, work-for-hire with copyright assigned in writing. Unrepeatable by any competitor.
+- **C · Shoot the "old photograph" rather than borrow one.** Grainy black-and-white profile, piece in colour — mechanically identical to the reference's strongest image, and it doubles as frame 3 done properly.
+- **D · The Tokyo frame.** The reference borrows European interiors because it has no real world of its own. Pillar 2 is Hikari's, documentary and uncopyable. Strategically the best of the four. **Not** a licence to use ukiyo-e or Japanese motif as backdrop — [08](08-brand.md)'s costume rule still holds.
+
+*Full reasoning:* [10](10-imagery-rights.md). **The hard line from [D7](DECISIONS.md) is unchanged:** never composite a piece onto an image the business did not make. Route A complies with it rather than excepting it, because the photograph is Hikari's own.
+
+*Open:* who owns public-domain verification and per-asset licence records ([99](99-open-questions.md) #31), a model release template before the first on-body shoot (#33), and folding imagery into the pre-launch IP solicitor hour (#34). **None of this is legal advice** — the reasoning in [10](10-imagery-rights.md) carries the same caveat as the tax work in [09](09-payments-and-tax.md).
