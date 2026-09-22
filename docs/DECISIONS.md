@@ -175,3 +175,20 @@ The drip-pricing point *is* supportable, but three things outweigh it: winning g
 **Revisit if:** our own compliance is complete, or we see consumer harm at scale rather than one screenshot.
 
 *Reasoning:* [15](15-competitor-etvous.md). Publication, social posts, contacting their customers and press briefings stay ruled out under [D12](DECISIONS.md).
+
+---
+
+### D14 · VAT — stay unregistered, and treat £90,000 as a planned cliff
+**2026-09-22 · Decided**
+
+Remain unregistered while under the threshold. Watch rolling 12-month turnover monthly, alert at £75,000, decide before £90,000 rather than at it.
+
+*Rationale:* [16](16-vat.md) §6. At £80 cost and £180 retail, unregistered yields **£84** a piece against **£70** registered — **£14, or 7.8% of revenue**. Crossing the threshold costs roughly **£7,000 a year** unless prices rise about 20%, which costs demand instead.
+
+**Supersedes the claim in [06](06-unit-economics.md) and [09](09-payments-and-tax.md) that margin-scheme eligibility was the biggest lever.** It is not, for imported stock: where import VAT is recoverable, margin and standard accounting give the same result. The margin scheme pays on stock bought **VAT-free** — £13.33 a piece on UK private-seller purchases — which makes it an argument for **UK sourcing**, not for imports.
+
+**Two strategic consequences worth carrying forward:**
+1. **UK-sourced stock has a tax advantage the Japan supply does not.** House clearances, fairs and private sellers are now economically interesting alongside the import line.
+2. **Pre-1926 antiques collect both reliefs** — 5% import VAT *and* margin-scheme eligibility, which ordinary imported second-hand goods lack. £96 a piece against £84. [99](99-open-questions.md) #45 is now the highest-value open question in the plan.
+
+**When the threshold nears:** stay under deliberately, or register and reprice, or change the stock mix so the reliefs apply. Decide on numbers, not at the last minute.

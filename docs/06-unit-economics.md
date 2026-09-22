@@ -145,3 +145,20 @@ A French-made Dior earring returning to Europe feels like it should qualify. It 
 ### Where this leaves our own pricing
 
 While unregistered, import VAT is **irrecoverable and sits inside landed cost** — so it is inside the £185 on the page, not a line beside it. The tax exists either way. The only question is whether the customer meets it in the headline price or at the checkout screen ([D12](DECISIONS.md)).
+
+---
+
+## Correction · 2026-09-22 (iii) — the margin scheme is not the lever this document claimed
+
+The section above calls margin-scheme eligibility "the single most important open question in the business". **That is wrong for an import-based model.** Full working in [16](16-vat.md) §6.
+
+Where import VAT is **recoverable**, the margin scheme and standard accounting give **the same answer** — £70 gross profit per piece either way at £80 cost / £180 retail. The margin scheme's advantage comes from buying with no input VAT to reclaim. If you can already reclaim it, there is nothing left to save.
+
+**The real lever is whether to register at all.** Unregistered yields **£84** a piece against £70 registered — **£14, or 7.8% of revenue**. Crossing £90,000 turnover costs roughly **£7,000 a year** unless prices rise ~20%.
+
+Two things this changes:
+
+1. **The margin scheme is an argument for buying in the UK, not for importing.** On stock bought VAT-free from private sellers it is worth **£13.33** a piece (£83.33 against £70). That makes UK sourcing — house clearances, fairs, private sellers — economically interesting in a way it was not before, alongside the Japan supply.
+2. **Pre-1926 antiques collect both reliefs**: 5% import VAT *and* margin-scheme eligibility, which imported second-hand goods otherwise lack. £96 a piece unregistered against £84 for ordinary stock. [99](99-open-questions.md) #45 is now the most valuable open question in this document.
+
+The accountant hour is still worth booking — but the brief changes. Ask about **registration timing, postponed VAT accounting, global accounting and the precious-metals exclusion**, not only the margin scheme.

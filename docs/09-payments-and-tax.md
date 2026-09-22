@@ -89,3 +89,13 @@ The distinction is simple: **peer-to-peer is fine once trust exists. It cannot b
 This is your call, and I'll build to whichever way you take it. But the recommendation is unambiguous: **card checkout, no VAT registration under the threshold.** It delivers the goal of the peer-to-peer proposal, in full, without spending the trust the whole strategy depends on.
 
 Logged as **D4** in [DECISIONS](DECISIONS.md), currently marked *proposed — recommend reversing*.
+
+---
+
+## Correction · 2026-09-22 — "the biggest single lever" was the wrong call
+
+This document describes the second-hand margin scheme as "the real lever" and "the biggest single lever in the business". Working in [16](16-vat.md) §6 shows otherwise: where import VAT is recoverable, margin and standard accounting land in the same place.
+
+**The lever is registration itself.** Unregistered is worth **£14 a piece, 7.8% of revenue**, at our cost and price. The £90,000 threshold is a cliff costing about **£7,000 a year** to cross.
+
+Which *strengthens* this document's main conclusion rather than weakening it: staying under the threshold is not a technicality to be relaxed about, it is worth real money, and it remains entirely legitimate. What changes is the brief for the accountant — see [16](16-vat.md) §7.

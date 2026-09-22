@@ -153,3 +153,18 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 | 45 | **Model a pre-1926 line.** Antiques over 100 years old import at 5% VAT instead of 20% — a 15-point swing on landed cost. Different buying skill, different authentication, and it serves segment B who has the higher AOV. Worth costing before dismissing. | [06](06-unit-economics.md), [03](03-customer.md) |
 | 46 | Does Japan's tax-free scheme cover buying for commercial resale abroad, or only personal export? The Nov 2026 reform is aimed at resale abuse — ask a Japanese tax adviser rather than assume. ~10% of purchase cost rides on it. | [06](06-unit-economics.md) |
 | 47 | Add **postponed VAT accounting** to the accountant's brief — import VAT never leaves the bank account if registered. Most small importers don't know it exists. | [06](06-unit-economics.md), [09](09-payments-and-tax.md) |
+
+## Update · 2026-09-22 (ix)
+
+### Reprioritised
+- **#1 — margin scheme.** No longer blocking, and no longer "the biggest lever" ([D14](DECISIONS.md), [16](16-vat.md) §6). It is neutral against standard accounting on imported stock. Still ask, but the accountant brief is now: registration timing, postponed VAT accounting, global accounting, and the precious-metals exclusion.
+- **#45 — the pre-1926 line is now the highest-value open question in the plan.** Antiques over 100 years old collect *both* the 5% import rate and margin-scheme eligibility, which imported second-hand goods otherwise lack: £96 a piece against £84.
+
+### Newly open
+
+| # | Question | Where |
+|---|---|---|
+| 48 | **Does sterling silver stock fall outside the margin scheme?** HMRC's second-hand definition excludes precious metals and precious stones. Base-metal costume jewellery is fine; Japanese-sourced silver may not be. | [16](16-vat.md) |
+| 49 | Reverse charge on overseas services once registered — sourcing agents, overseas SaaS. Easy to miss, and it is our liability, not theirs. | [16](16-vat.md) |
+| 50 | Model flat rate (7.5%, or 6.5% in year one) against standard accounting before any registration | [16](16-vat.md) |
+| 51 | **Should we source UK stock as well as Japanese?** The margin scheme is worth £13.33 a piece on VAT-free UK purchases and nothing on imports. Changes the sourcing strategy, not just the accounting. | [16](16-vat.md), [06](06-unit-economics.md) |
