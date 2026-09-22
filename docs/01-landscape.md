@@ -95,3 +95,15 @@ Fees on a £180 item, indicatively: Etsy ~£12–15 · eBay ~£23 · Vestiaire c
 - [Vestiaire Collective — jewellery](https://www.vestiairecollective.com/women-jewellery/) · [The RealReal](https://en.wikipedia.org/wiki/The_RealReal) · [ReSee](https://www.resee.com/en/)
 - [Time Out — best vintage shops in Tokyo](https://www.timeout.com/tokyo/shopping/7-best-vintage-shops-for-designer-labels-in-tokyo) · [The Gilded Mirror — vintage Chanel shopping in Japan](https://thegildedmirror.co/vintage-chanel-shopping-in-japan/)
 - [Hello! — best places to buy vintage jewellery online](https://www.hellomagazine.com/hfm/20220714145434/best-vintage-jewellery-stores/) · [The Good Trade — best sites for vintage jewelry](https://www.thegoodtrade.com/features/vintage-jewelry-online/)
+
+---
+
+## Update · 2026-09-22 — a third pole
+
+The two poles above (curated independent / mass marketplace) miss a category that turns out to matter: the **cross-border direct seller** — UK-facing storefront, goods shipped from Asia, built on a Greater China commerce SaaS, with import costs passed to the customer at checkout.
+
+Full teardown of the closest example in [15](15-competitor-etvous.md). The short version: [etvous.uk](https://etvous.uk/) runs on **SHOPLINE**, adds a **20% "Handling Fee"** that only appears at checkout, and publicly offers customers a WeChat payment route to dodge a 5% platform fee.
+
+This pole competes on **headline price**, and it does so by moving 20% of the price behind the checkout door. It is the reason a £228 listing is really £273.60 — and, since the DMCC Act took effect in April 2025, the reason that model now carries regulatory risk.
+
+**Our attack on it is already written into [02](02-positioning.md):** stock held in the UK, duty paid, next day, and the price on the page is the price at the till. Against a Japan-based seller the advantage was speed and no customs ambush. Against this pole it is the same advantage, arriving one step earlier — at the moment the total updates.

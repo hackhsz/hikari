@@ -147,3 +147,16 @@ Ads point at the sourcing story and the Edition sign-up, never at individual pie
 **Budget:** £10–15/day Meta + £5/day Pinterest ≈ £450–600/month, and not until the weekly Edition works organically ([05](05-social.md)). Max £30 CAC on a first order. Measure **cost per subscriber**, not cost per sale.
 
 **Refines [04](04-site-ia.md):** its blanket "never bid on brand names" was too crude. Google permits reseller use of marks as keywords and in ad text where the landing page genuinely sells those goods and the advertiser is clearly identified, with the UK applying a stricter identity standard. It is *permitted rather than safe*, and the risk is asymmetric — so generic terms only until the business is worth defending, and never Chanel.
+
+---
+
+### D12 · All-in pricing — the price shown is the price paid
+**2026-09-22 · Decided**
+
+No handling fee, no service fee, no tax line appearing at checkout, no price that varies by payment rail. Duty and any tax are inside the number on the product page, and that number is what the customer pays.
+
+*Rationale:* [15](15-competitor-etvous.md). It is a legal requirement — the DMCC Act 2024 has banned drip pricing since 6 April 2025, with CMA fines up to the higher of £300,000 or 10% of global turnover — and it is simultaneously the sharpest competitive line available. The nearest direct competitor adds a 20% "Handling Fee" at checkout, so their £228 ring is really £273.60. Against that, an all-in £185 is a different proposition, not a small discount.
+
+**Accepted cost, stated so nobody is surprised:** all-in pricing looks *more expensive* in a side-by-side ad or a Google Shopping row. That is precisely why drip pricing exists. We answer with brand, trust and the Edition list ([D11](DECISIONS.md)), not with a price race we would lose.
+
+**Also decided:** never publish a comparison accusing a named competitor of a tax or pricing offence. Defamation and malicious-falsehood risk, and not how we compete. The finding informs our pricing; it never becomes our copy.

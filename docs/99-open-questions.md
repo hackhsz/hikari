@@ -137,3 +137,11 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 | 39 | Should hero frames be AI-worked at all, or is straight photography truer to the grain-and-daylight argument in [08](08-brand.md)? Instinct: straight. | [13](13-photography-pipeline.md) |
 | 40 | Write and publish the retouching policy page — a trust asset nobody else in the category has | [13](13-photography-pipeline.md), [04](04-site-ia.md) |
 | 41 | Spend harder in Q2–Q3 to build the list cheaply ahead of Q4's 60% fashion CPM rise? | [14](14-marketing.md) |
+
+## Update · 2026-09-22 (vii)
+
+| # | Question | Where |
+|---|---|---|
+| 42 | Re-check et vous's fee behaviour across several products, baskets and destinations — one screenshot of one item is thin evidence for a pattern | [15](15-competitor-etvous.md) |
+| 43 | Confirm with the accountant how our own all-in price is composed while unregistered: landed cost includes irrecoverable import VAT ([09](09-payments-and-tax.md)), so it sits inside the retail number rather than beside it. Make sure the product page says so. | [15](15-competitor-etvous.md), [06](06-unit-economics.md) |
+| 44 | Find more of this third pole. If several UK-facing cross-border sellers are running the same 20%-at-checkout model, the all-in pricing line is worth leading with rather than mentioning. | [01](01-landscape.md), [15](15-competitor-etvous.md) |
