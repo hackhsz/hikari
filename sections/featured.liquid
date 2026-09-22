@@ -3,11 +3,23 @@
     <p class="eyebrow">{{ section.settings.heading }}</p>
     <div class="featured">
       {%- for block in section.blocks limit: 3 -%}
-        {%- if block.settings.product -%}
-          {%- render 'product-card', card_product: block.settings.product, tone: 'grey' -%}
+        {%- assign bp = block.settings.product -%}
+        {%- unless bp -%}
+          {%- comment -%} Fall back to the next pieces in stock, skipping the one in the Alcove. {%- endcomment -%}
+          {%- assign want = forloop.index | plus: 1 -%}{%- assign n = 0 -%}
+          {%- for cp in collections.all.products -%}
+            {%- if cp.available -%}
+              {%- assign n = n | plus: 1 -%}
+              {%- if n == want -%}{%- assign bp = cp -%}{%- break -%}{%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endunless -%}
+        {%- if bp -%}
+          {%- render 'product-card', card_product: bp, tone: 'grey' -%}
         {%- else -%}
-          <a class="card" href="#">{%- render 'plate', ratio: 1.25, seed: forloop.index, tone: 'grey', comp: 'single' -%}
-            <div class="cinfo"><h3 class="chouse">Choose a piece</h3></div></a>
+          <a class="card" href="{{ routes.all_products_collection_url }}">
+            {%- render 'plate', ratio: 1.25, seed: forloop.index, tone: 'grey', comp: 'single' -%}
+            <div class="cinfo"><h3 class="chouse">—</h3></div></a>
         {%- endif -%}
       {%- endfor -%}
     </div>

@@ -1,5 +1,12 @@
 {%- comment -%} The Alcove — one piece, full width. 床の間: one object, rotated on the Edition rhythm. {%- endcomment -%}
 {%- assign p = section.settings.product -%}
+{%- unless p -%}
+  {%- comment -%} Nothing chosen yet — fall back to the first piece in stock, so the
+      store is presentable the moment products exist. {%- endcomment -%}
+  {%- for cp in collections.all.products -%}
+    {%- if cp.available -%}{%- assign p = cp -%}{%- break -%}{%- endif -%}
+  {%- endfor -%}
+{%- endunless -%}
 <section data-bg="#EFF0EC" data-fg="#14171A" style="padding-top:clamp(6px,1.5vw,16px)">
   <div class="shell">
     {%- if p -%}
