@@ -166,3 +166,66 @@ All show **no live GB mark in Class 14 or 35**, and `.co.uk` is free for each.
 4. Only then buy domains.
 
 **Nothing else in the plan changes.** Palette, grain, scroll colour, layout, the lockup's proportional system, positioning, pricing, platform, tax — all name-independent.
+
+---
+
+## Update · 2026-09-22 (ii) — two clarifications
+
+### Companies House is not the trade mark register
+
+A search showing "no active UK company named Hikari Jewelry" is true and **irrelevant**. The two registers do different jobs:
+
+| | Companies House | UKIPO trade mark register |
+|---|---|---|
+| Records | **Company names** | **Brand rights** |
+| Registration gives you | A legal entity | **The right to stop others using the name on the same goods** |
+| Can it block us | Barely | **Yes** |
+
+Incorporating "Hikari Ltd" would confer almost no brand rights. Equally, the fact that HIKARI LIMITED (08883517) and HIKARI GROUP LTD (13408835) are both dissolved says nothing about whether the brand is free.
+
+**The obstacle is not a company called Hikari. It is a company called DCK that owns the Hikari trade mark.**
+
+### D.C.K. Concessions is not a dormant shell
+
+Checked in the hope that the mark might be vulnerable to non-use revocation. It is not the picture we wanted:
+
+| D.C.K. CONCESSIONS LIMITED — 02715822 | |
+|---|---|
+| Status | **Active** |
+| Incorporated | 19 May 1992 |
+| **SIC code** | **47770 — retail sale of watches and jewellery in specialised stores** |
+| Last accounts | Made up to **28 February 2026** |
+| Overdue filings / charges / insolvency | **None** |
+
+**SIC 47770 is identical to our own trade.** A live company, currently filing, whose registered activity is exactly the goods its Class 14 mark covers.
+
+**Consequences:**
+- The "dormant shell" theory is dead.
+- **Non-use revocation is now a weak route.** Filing accounts is not proof of trade mark use, but proving five years of *non*-use against a company active in the very trade is a much harder case.
+- It confirms the channel problem: DCK operates department-store jewellery concessions — the wholesale channel [02](02-positioning.md) eventually targets.
+
+### Also noted
+
+**Hikari Jewelry (@hikari.jewelry_)** — an LA fine-jewellery brand. A US business creates no UK rights, but two practical points: the handle is taken, and it would compete for "Hikari jewellery" search.
+
+---
+
+## On "Hikari Vintage"
+
+The obvious compromise, and the domains are free (`hikarivintage.com` and `.co.uk` both available). But it is the weakest of the options, for a specific reason.
+
+**UK law tests the dominant and distinctive element, not whether two names look different.** Where the mark is *similar* and the goods *identical*, s.10(2) TMA 1994 applies and the test is likelihood of confusion. "Vintage" is purely descriptive of the goods, carries no distinctiveness, and is routinely disclaimed — so it does not distinguish. **The distinctive element remains HIKARI.** *Medion v Thomson* (CJEU C-120/04) is the line of authority: where an earlier mark keeps an independent distinctive role inside a later composite sign, confusion can be found.
+
+**And a widely-held misconception worth killing: registration does not immunise you from infringing an earlier mark.** UKIPO does not refuse on relative grounds — it notifies earlier rights holders, who may oppose. So "Hikari Vintage" might pass examination, DCK might oppose, and even an unopposed registration would not be a defence to infringement.
+
+**The structural problem is the same as elsewhere in this plan:** the risk is trivial while we are invisible and grows precisely as the strategy succeeds — SEO, press, wholesale — and DCK is in the wholesale channel we are aiming at. Changing the name today costs one SVG. Changing it after SEO equity, press coverage and printed packaging costs things that cannot be bought back.
+
+**But it is not ruled out, and the reason is honest:** if DCK's Class 14 specification turns out to be narrow, there may be room. That cannot be judged without the specification, which is still the one unknown.
+
+**So put it to the attorney as a fourth option, not as a way around the problem.** The brief:
+
+> Rank these four for risk: Hikari, Hikari Vintage, Enishi, Meguri — against the Class 14 specification of UK00917478348 (D.C.K. Concessions Limited) and the Class 35 wording of UK00908114902.
+
+One hour now decides four questions instead of one.
+
+**Neither TMview's detail endpoint nor UKIPO's search will serve the specification to an automated request** — UKIPO returns 403. This step has to be done by hand or by the attorney.
