@@ -160,3 +160,18 @@ No handling fee, no service fee, no tax line appearing at checkout, no price tha
 **Accepted cost, stated so nobody is surprised:** all-in pricing looks *more expensive* in a side-by-side ad or a Google Shopping row. That is precisely why drip pricing exists. We answer with brand, trust and the Edition list ([D11](DECISIONS.md)), not with a price race we would lose.
 
 **Also decided:** never publish a comparison accusing a named competitor of a tax or pricing offence. Defamation and malicious-falsehood risk, and not how we compete. The finding informs our pricing; it never becomes our copy.
+
+---
+
+### D13 · Not reporting the competitor — for now
+**2026-09-22 · Decided, revisitable**
+
+Lawful to report; not doing it yet. **Never** the tax allegation — a 20% line labelled "Handling Fee" is equally consistent with lawful DDP import-VAT collection, and we cannot see their registration, shipping origin or books. Reporting that would be wrong on the facts.
+
+The drip-pricing point *is* supportable, but three things outweigh it: winning gains us no customers (the CMA is already enforcing this sector); a competitor complaint on one screenshot is weighted as interested and rarely moves anything; and — decisively — **the retaliation risk is currently asymmetric.** We have not cleared the trademark, settled the VAT position, had the IP review, or published our policies. We are the less-prepared party.
+
+**Action instead:** archive dated evidence to preserve the option, and compete on it — *"The price you see is the price you pay"* in the headline, on the product page and at checkout. A claim about us, not an accusation about them.
+
+**Revisit if:** our own compliance is complete, or we see consumer harm at scale rather than one screenshot.
+
+*Reasoning:* [15](15-competitor-etvous.md). Publication, social posts, contacting their customers and press briefings stay ruled out under [D12](DECISIONS.md).

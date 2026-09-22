@@ -93,3 +93,50 @@ Inference, not fact: this reads as either caution about trademark exposure, or c
 - Screenshot is a single moment on one item; fee behaviour may vary by product, destination or basket size. **Re-check before relying on it.**
 - I cannot see their VAT registration, their shipping origin, or their books. The 20% arithmetic is a fact; every explanation for it above is inference, including the innocent one.
 - Nothing here is legal advice, and none of it should appear in our marketing as a claim about a named competitor. It is competitive intelligence for our own decisions. **Never publish a comparison accusing a named business of a tax or pricing offence** — that is a defamation and malicious-falsehood risk, and it is not how we want to compete.
+
+---
+
+## Reporting them — the analysis
+
+Lawful to do. Recommended **not yet**, and never on the tax point. Reasoning below so the decision can be revisited with the argument intact.
+
+### Separate the two allegations — they are not equally supported
+
+| | Evidence | Verdict |
+|---|---|---|
+| **Drip pricing** | A mandatory 20% charge absent from the headline price and revealed at checkout. Directly observed, arithmetically exact, screenshot-dated. | **Supportable** |
+| **Tax evasion** | A 20% line labelled "Handling Fee". | **Not supported.** Equally consistent with lawful DDP import-VAT collection on goods over £135 shipped from outside the UK. |
+
+We cannot see their VAT registration, their shipping origin, or their books. **Reporting a business for tax fraud on evidence that is equally consistent with lawful behaviour is wrong on the facts, not merely unwise.** HMRC's reward scheme requires collections of at least £1.5m to pay out, which is also a useful indication of the scale mismatch here.
+
+### The channels, for the record
+
+- **Drip pricing** → the **Citizens Advice consumer service**, which routes to **Trading Standards**; or the **CMA**. The CMA has been actively enforcing since April 2025 — investigations opened into eight companies, sector reviews covering fashion, and refunds already ordered over hidden fees ([HSF Kramer](https://www.hsfkramer.com/notes/crt/2026-07/cma-launches-three-further-drip-pricing-investigations-under-the-dmcc-act-consumer-protection-regime), [Baker Botts](https://www.bakerbotts.com/thought-leadership/publications/2025/november/cma-launches-consumer-protection-drive)).
+- **Advertising** → the **ASA**, but only if their *ads* show the pre-fee price.
+- **Tax** → HMRC online form or 0800 788 887, anonymous. **Not applicable here** for the reason above.
+
+### Why not now
+
+**1. Winning gains us nothing.** Best case they add 20% to the headline and their ring lists at £274. That makes our £185 look better — and brings us zero customers. The CMA is already running this sector. If the model is non-compliant it will be found without us.
+
+**2. The retaliation risk is real and currently asymmetric.** As of today Hikari has **not** cleared the trademark ([99](99-open-questions.md) #4), **not** settled the VAT and margin-scheme position ([99](99-open-questions.md) #1), **not** had an IP solicitor review our use of the Dior and Chanel marks ([04](04-site-ia.md)), and **not** published policies, returns terms or condition grades. A competitor who feels attacked can file a report as easily as we can — and right now **we are the less-prepared party.** This is the argument that decides it.
+
+**3. A competitor complaint is weighted as interested.** Regulators know. It does not invalidate a report, but a single competitor complaint about one screenshot rarely moves anything. A real customer surprised by 20% at checkout is a far stronger complainant — and if one of ours arrives from their site, telling them their rights is legitimate and costs us nothing.
+
+**4. The community is small.** UK vintage resale, and the Chinese-UK corner of it, is a small world that talks. Being known as the shop that reported a rival is a durable reputational cost against a speculative gain.
+
+### If it is done anyway
+
+- **Drip pricing only.** Never the tax allegation.
+- Citizens Advice → Trading Standards is the correct route.
+- Supply the URL, dated screenshots of product page against checkout total, and the arithmetic.
+- **Say you are a competitor if asked.** Concealing it and being found out destroys the report's credibility and ours.
+- Do it **after** our own house is in order, not before.
+
+### Never
+
+Publishing it, posting about it, contacting their customers, or briefing press. That is where the legal risk lands on **us** — defamation and malicious falsehood — and it is already ruled out at [D12](DECISIONS.md).
+
+### What to do instead, today
+
+**Preserve the option and compete on it.** Archive dated evidence — it costs nothing and keeps the door open. Then put *"The price you see is the price you pay"* in the headline, on the product page and at checkout. That captures the same customers, immediately, at no risk, and it is a claim about **us** rather than an accusation about them.
