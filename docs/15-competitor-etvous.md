@@ -140,3 +140,26 @@ Publishing it, posting about it, contacting their customers, or briefing press. 
 ### What to do instead, today
 
 **Preserve the option and compete on it.** Archive dated evidence — it costs nothing and keeps the door open. Then put *"The price you see is the price you pay"* in the headline, on the product page and at checkout. That captures the same customers, immediately, at no risk, and it is a claim about **us** rather than an accusation about them.
+
+---
+
+## What the fee reveals about their operating model
+
+The fee sits **above** shipping in the summary, and shipping is still "calculated in the next step" — so it is not a freight recovery. That strengthens the import-VAT reading considerably.
+
+If it is import VAT, their model is legible: **no UK stock. Each order ships direct from Asia, the customer is the consignee, and they front the 20% as DDP so no courier invoice lands at the door.**
+
+| | et vous | Hikari |
+|---|---|---|
+| Stock location | None held in UK; ships per order from Asia | Bought in bulk, landed once, held in London |
+| Delivery | 1–3 weeks, every order a customs event | Next day |
+| Capital | **Light — no inventory funded** | Heavy — stock is the balance sheet |
+| Returns | Back to Asia, or absorbed. The 14-day right applies regardless | UK address, trivial |
+| Customs | Per order, repeatedly | Once per batch |
+| Price the customer sees | £228, then £273.60 | £185, and £185 |
+
+**Their model has a real advantage and we should be honest about it:** it is capital-light. They are not funding inventory, which is the single largest cost and risk in our plan ([06](06-unit-economics.md)). That is not nothing.
+
+**But it costs them exactly what we sell.** No stock in the UK means no next-day delivery, painful returns, a customs event on every order, and a 20% surprise at the final screen. The "duty paid, next day, one price" line in [02](02-positioning.md) is not rhetoric against this competitor — it is a structural consequence of holding stock that they cannot match without changing their whole model.
+
+That is the trade: they keep the cash, we keep the experience. At £100–300 on a trust purchase from an unknown seller ([03](03-customer.md)), the experience is the thing that converts.

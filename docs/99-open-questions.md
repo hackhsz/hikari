@@ -145,3 +145,11 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 | 42 | Re-check et vous's fee behaviour across several products, baskets and destinations — one screenshot of one item is thin evidence for a pattern | [15](15-competitor-etvous.md) |
 | 43 | Confirm with the accountant how our own all-in price is composed while unregistered: landed cost includes irrecoverable import VAT ([09](09-payments-and-tax.md)), so it sits inside the retail number rather than beside it. Make sure the product page says so. | [15](15-competitor-etvous.md), [06](06-unit-economics.md) |
 | 44 | Find more of this third pole. If several UK-facing cross-border sellers are running the same 20%-at-checkout model, the all-in pricing line is worth leading with rather than mentioning. | [01](01-landscape.md), [15](15-competitor-etvous.md) |
+
+## Update · 2026-09-22 (viii)
+
+| # | Question | Where |
+|---|---|---|
+| 45 | **Model a pre-1926 line.** Antiques over 100 years old import at 5% VAT instead of 20% — a 15-point swing on landed cost. Different buying skill, different authentication, and it serves segment B who has the higher AOV. Worth costing before dismissing. | [06](06-unit-economics.md), [03](03-customer.md) |
+| 46 | Does Japan's tax-free scheme cover buying for commercial resale abroad, or only personal export? The Nov 2026 reform is aimed at resale abuse — ask a Japanese tax adviser rather than assume. ~10% of purchase cost rides on it. | [06](06-unit-economics.md) |
+| 47 | Add **postponed VAT accounting** to the accountant's brief — import VAT never leaves the bank account if registered. Most small importers don't know it exists. | [06](06-unit-economics.md), [09](09-payments-and-tax.md) |

@@ -99,3 +99,49 @@ A proposal to take payment peer-to-peer in order to avoid VAT registration is an
 3. **Import VAT is charged at the border either way.** Unregistered means paying it and being unable to reclaim it: permanent, unrecoverable cost on every piece. This runs opposite to the intuition and is the most important correction in this document.
 
 The genuine lever remains **margin-scheme eligibility for imported second-hand goods** — still [99](99-open-questions.md) #1, still blocking, still worth one paid hour of a specialist's time. Card processing at ~1.5–2% (~£3 on a £180 sale against ~£90 gross margin) is a rounding error against it.
+
+---
+
+## Update · 2026-09-22 (ii) — import VAT: what is and isn't available
+
+### The principle
+
+**VAT is a destination tax.** Where the goods were bought is irrelevant. Bringing goods into the UK *for resale* is an import, and UK import VAT applies on the customs value — whether they arrived by courier, by freight, or in a suitcase.
+
+There is **no traveller allowance for goods you intend to sell**. The £390 personal allowance explicitly excludes them; Border Force can question commercial intent and seize the goods. Carrying stock in undeclared, whatever the value, is smuggling rather than a loophole, and it is not a route this business will use.
+
+**Hand-carry is a perfectly good *route*, though** — it just doesn't avoid tax. **Merchandise in Baggage**: commercial goods under **£2,500** and **1,000kg** can be declared through a simplified online service, filed in the five days before arrival ([GOV.UK](https://www.gov.uk/guidance/bringing-commercial-goods-into-great-britainin-your-baggage)). That saves freight and courier handling on a buying trip. It does not save duty or VAT.
+
+### The levers that do exist
+
+**1 · The 100-year rule — the largest, and a genuine sourcing input.**
+
+The UK applies a **5% effective import VAT rate** to antiques (commodity heading **9706**, goods over 100 years old), collectors' items (9704, 9705) and works of art. Everything else is 20% ([BADA](https://www.bada.org/advice/imports-and-exports/importing-antiques-uk), [Plutos](https://plutos.org.uk/importing-art-antiques-to-uk-vat-licences/)).
+
+**In 2026 the cutoff is 1926.** Victorian, Edwardian, Art Nouveau and pre-1926 Art Deco pieces land at **5% rather than 20% — a 15-point swing on landed cost.** On a piece landing at £150, that is ~£22 a unit, permanently.
+
+Requirements: documentary evidence that the item was manufactured in its current form more than 100 years before import. If customs is not satisfied, a **BADA member can issue a certificate of age**.
+
+**1980s Dior does not qualify**, so this is not a saving on the current plan — it is an argument for whether to run a **pre-1926 line at all**. That is a different buying skill, a different authentication problem, and a different customer: segment B, the collector ([03](03-customer.md)), who has the higher AOV and the cheapest acquisition. Worth modelling before dismissing. Logged as [99](99-open-questions.md) #45.
+
+**2 · Japan-side: the consumption tax refund.**
+
+Japan charges 10% consumption tax. Non-residents can recover it on goods exported from Japan — a legitimate saving on the *Japanese* side of the trade, and roughly 10% of purchase cost.
+
+**The scheme changes on 1 November 2026, with no transition period.** It moves to a **refund method**: you pay the full tax-inclusive price in store, and the refund is issued after customs confirms at departure that the goods are leaving Japan ([Japan Guide](https://www.japan-guide.com/news/tax-free-shopping.html), [Japan Travel](https://en.japantravel.com/article/tax-free-shopping-in-japan-2026-changes/72305)). Eligibility covers foreign visitors within six months of entry.
+
+**Verify before relying on it:** the scheme is framed around non-residents taking goods out of Japan, and the 2026 reform is explicitly aimed at resale abuse (domestic diversion). Whether purchasing for commercial resale abroad falls inside or outside it is a question for a Japanese tax adviser, not an assumption. Also note many small vintage shops are not tax-free registered, though the large reuse chains are. Logged as [99](99-open-questions.md) #46.
+
+**3 · Registration and postponed VAT accounting.**
+
+If VAT-registered, import VAT becomes **recoverable input tax** — and under **postponed VAT accounting** it is not paid at the border at all, but accounted for on the return, so it never leaves the bank account. Most small importers do not know this exists.
+
+This is the structural answer to import VAT, and it is the same trade already framed at [09](09-payments-and-tax.md): recover import VAT, charge output VAT on sales. Still turns on the margin-scheme question at [99](99-open-questions.md) #1, still blocking, still one paid hour.
+
+**4 · Returned Goods Relief — sounds like it should work, doesn't.**
+
+A French-made Dior earring returning to Europe feels like it should qualify. It does not: RGR requires goods exported *from the UK*, returning within **three years**, unaltered, by the same person. A 1980s piece exported from France to Japan forty years ago fails every limb. Noted so nobody rediscovers it hopefully.
+
+### Where this leaves our own pricing
+
+While unregistered, import VAT is **irrecoverable and sits inside landed cost** — so it is inside the £185 on the page, not a line beside it. The tax exists either way. The only question is whether the customer meets it in the headline price or at the checkout screen ([D12](DECISIONS.md)).
