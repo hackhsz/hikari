@@ -174,7 +174,9 @@ Your theory is that they hold UK stock, sell it in person off the books, and onl
 
 And on the sale itself: **VAT does not vary by channel.** Registered means VAT on every sale — cash, WeChat, in-store, online. Unregistered means none anywhere, and a 20% "handling fee" online would then not be VAT at all.
 
-**Channel-dependent VAT is consistent with neither lawful position.** That is a genuine logical observation, and it is *still* not proof — we have not seen their books, their registration, or their stock. If they are established outside the UK, note their threshold would be **zero** (§2), so "too small to register" would not be available to them either.
+**Channel-dependent VAT is consistent with neither lawful position.** That is a genuine logical observation, and it is *still* not proof — we have not seen their books, their registration, or their stock.
+
+**Corrected 2026-09-22 (ii):** this paragraph originally added that their threshold might be **zero** as a non-established person. Companies House shows **ETVOUS LTD (16401166)**, a UK private limited company incorporated 23 April 2025 with matching SIC codes ([15](15-competitor-etvous.md)). If that is the seller of record, the ordinary £90,000 threshold applies and the zero-threshold point does not.
 
 **[D13](DECISIONS.md) stands unchanged.** The asymmetry argument does not improve because the suspicion got sharper: our own trademark, VAT and IP positions are still open, and we are still the less-prepared party.
 

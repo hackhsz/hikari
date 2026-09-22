@@ -177,3 +177,9 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 | 53 | **Sole trader or limited company for year one.** Recommendation is limited, mainly for liability containment on trademark risk and to avoid publishing a home address. Confirm with the accountant in the same hour as the VAT question. | [17](17-entity-and-tax.md) |
 | 54 | Registered office / service address provider, if incorporating | [17](17-entity-and-tax.md) |
 | 55 | **Set Shopify taxes to zero explicitly before the first sale.** Charging or displaying VAT while unregistered is an offence, and a store left on defaults will add a tax line by itself. | [17](17-entity-and-tax.md), [11](11-platform.md) |
+
+## Update · 2026-09-22 (xi)
+
+| # | Question | Where |
+|---|---|---|
+| 56 | **Publish our own entity details from day one** — registered name, company number, registered office, working email, in the footer and the terms. Required by the Companies Act and the E-Commerce Regulations 2002; the Consumer Contracts Regulations separately require trader identity and geographic address. Also a trust signal the nearest competitor is currently leaving on the table. | [15](15-competitor-etvous.md), [17](17-entity-and-tax.md) |

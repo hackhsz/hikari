@@ -163,3 +163,53 @@ If it is import VAT, their model is legible: **no UK stock. Each order ships dir
 **But it costs them exactly what we sell.** No stock in the UK means no next-day delivery, painful returns, a customs event on every order, and a 20% surprise at the final screen. The "duty paid, next day, one price" line in [02](02-positioning.md) is not rhetoric against this competitor — it is a structural consequence of holding stock that they cannot match without changing their whole model.
 
 That is the trade: they keep the cash, we keep the experience. At £100–300 on a trust purchase from an unknown seller ([03](03-customer.md)), the experience is the thing that converts.
+
+---
+
+## Update · 2026-09-22 (ii) — there is a UK entity
+
+Companies House, searched 2026-09-22:
+
+| | |
+|---|---|
+| **ETVOUS LTD** | company number **16401166** |
+| Status | **Active**, no overdue filings |
+| Incorporated | **23 April 2025** |
+| Type | Private limited company |
+| Registered office | 3rd Floor, 86–90 Paul Street, London EC2A 4NE |
+| First accounts due | 23 January 2027 (to 30 April 2026) |
+| Next confirmation statement | 6 May 2027 |
+
+**SIC codes match the business almost exactly:** 47770 (retail of watches and jewellery), 47799 (retail of other second-hand goods, not antiques), 47910 (mail order / internet retail). Effectively conclusive that this is the operator, though the register does not prove it.
+
+**86–90 Paul Street EC2A 4NE is a very widely used registered-office service address** — thousands of companies sit there. Entirely normal and lawful; it simply means it is not a trading address and tells us nothing about where stock is held.
+
+### This corrects an earlier inference
+
+[16](16-vat.md) §8 raised the possibility that they are a **non-established taxable person** with a zero VAT threshold. **If ETVOUS LTD is the seller of record, that does not apply** — it is a UK company and the ordinary £90,000 threshold governs it. Corrected so the wrong version is not carried forward.
+
+### The reported Singapore entity
+
+A Singapore entity said to be registered in March 2026 could not be verified from here. Reasoning about the shape rather than the specifics:
+
+**A Singapore or Hong Kong entity is an ordinary, legitimate structure for Asian sourcing** — it buys in Japan, holds the supplier relationships, and sells on to the UK company, which sells to consumers. Nothing irregular in that by itself. The tax questions it raises are the standard ones: whether the transfer price between the two is arm's length, and where the profit properly sits.
+
+Three rules that apply if an overseas entity does more than that:
+
+1. **Stock held in the UK at the point of sale by an overseas seller triggers UK VAT registration from the first sale, with no threshold.** This is the rule that catches overseas Amazon FBA sellers. It is directly relevant to the hypothesis that they hold UK inventory.
+2. **A fixed place of business in the UK** — an office, a shop, a warehouse with staff — must be registered with Companies House on **form OS IN01 within one month** of opening ([Companies House](https://assets.publishing.service.gov.uk/media/69135e462017198896ad7fdc/OS_IN01_v9.0-FINAL.pdf)).
+3. That same fixed place is generally a **permanent establishment**, bringing UK corporation tax on the profits attributable to UK activity ([UK Property Accountants](https://www.ukpropertyaccountants.co.uk/overseas-companies-with-a-uk-establishment-legal-requirements-compliance-and-tax-obligations/)).
+
+And regardless of where the seller sits: **selling to UK consumers means UK consumer law applies.**
+
+### One thing that *is* directly observable
+
+**The website displays no company details at all.** No company name, no registration number, no registered office, no email address on the pages checked.
+
+A UK company trading online must display its registered name, company number, place of registration and registered office address, and the E-Commerce Regulations 2002 additionally require an email address. The Consumer Contracts Regulations separately require the trader's identity and geographic address before a consumer is bound.
+
+Unlike everything else in this document, this needs no inference — it is a plainly visible gap, and it is the kind of thing that gets noticed first.
+
+### For us
+
+**Display it properly from day one:** registered company name, company number, registered office, and a working email in the footer and in the terms. It costs nothing, it is legally required, and on a £185 purchase from an unknown seller it is a trust signal ([03](03-customer.md)) that this competitor is currently leaving on the table.
