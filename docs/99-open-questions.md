@@ -87,3 +87,20 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 | 24 | **What "用画" means** — imagery at large scale (assumed), or actual paintings/artworks as backdrops? The latter is public-domain-only and is its own cliché in vintage retail. | [08](08-brand.md) |
 | 25 | Confirm the hard rule: grain on frames 1 and 3, never on 2 (maker's mark) and 4 (condition). Grain hides exactly what [03](03-customer.md) says must be visible. | [08](08-brand.md) |
 | 26 | Scroll-colour and full-page blend-mode need testing on a real mid-range Android before Phase 1 commits to them | [08](08-brand.md), [07](07-roadmap.md) |
+
+## Update · 2026-09-22 (iii)
+
+Logo directions proposed in [10](10-logo.md). **Specimen:** https://claude.ai/artifact/2fopZe4vn7LYhmL6JTJxtS
+
+**#4 is now the gate, not a background item.** [00](00-brief.md) says the trade-mark and handle check happens before any spend on brand design, and that spend is the next thing queued. It could not be resolved from public search: the UK IPO register needs a direct search. Known collisions sit outside Class 14 (Kyorin's Hikari fish food, Hikari Miso, NTT's フレッツ光); the closest in-class hit found is a "Hikari Pearls and Jewellery" trade-directory listing. **One hour, before a designer is briefed.**
+
+**Part of #4 is answered and it is a no.** `@hikari` is held by Hikari Mori (森星), a Japanese model with ~1M followers — a fashion-adjacent namesake, so this is an association and SEO problem as well as a handle problem. The handle will carry a qualifier; the lockup has to survive one.
+
+| # | Question | Where |
+|---|---|---|
+| 27 | **What goes inside the punch** — 光, `H`, or nothing. 光 performs best at small size and carries the costume risk [08](08-brand.md) warns about. Test alongside the #9 landing-page variants. | [10](10-logo.md) |
+| 28 | Wordmark in Newsreader (serif, category) or Instrument Sans (grotesque, closer to the Japanese-retail reference) | [10](10-logo.md) |
+| 29 | Register a trade mark at all, and when? A word mark plus a device in two classes competes directly with inventory in Phase 0 | [10](10-logo.md), [07](07-roadmap.md) |
+| 30 | Which qualified handle, given `@hikari` is gone — and it should be settled before the lockup is drawn, not after | [10](10-logo.md), [05](05-social.md) |
+
+**#12 gains a second half.** The hallmarking exposure logged there is about stock; the Hallmarking Act 1973 also constrains *the brand's own mark* — striking an article with a mark purporting to be an authorised sponsor's mark is an offence, and an assay office may obliterate marks likely to be confused with a hallmark. Rule established in [10](10-logo.md): the mark goes on paper, never into metal.

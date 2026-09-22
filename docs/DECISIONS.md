@@ -71,3 +71,22 @@ Heavy film grain over the whole page (image and type alike), imagery at full wid
 **Carries one hard constraint.** Grain applies to the composed and on-body frames only. The maker's-mark macro and the condition frame are evidence and stay clean — grain hides precisely the wear that [03](03-customer.md) and [04](04-site-ia.md) require the buyer to see. Texture on the seduction, never on the proof.
 
 *Open:* whether "用画" meant large imagery or actual paintings ([99](99-open-questions.md) #24), and mid-range Android performance before Phase 1 commits ([99](99-open-questions.md) #26).
+
+---
+
+### D7 · The mark — a wordmark for the screen, a struck punch for everything else
+**2026-09-22 · Proposed — and gated on [99](99-open-questions.md) #4**
+
+Primary logo is the `HIKARI` wordmark, tracked uppercase, governed by a size *rule* rather than a size spec: never larger than the piece on the page. The compact mark is a struck punch — a closed contour with something struck inside it — which exists to do the four jobs the wordmark provably fails: favicon, avatar, the stamp on the mailer, the seal on the care card. The abstract "alcove" direction is dropped; the idea already lives as the homepage feature.
+
+*Specimen:* https://claude.ai/artifact/2fopZe4vn7LYhmL6JTJxtS · *Full argument:* [10](10-logo.md).
+
+**Why a mark at all, when no competitor has one.** Susan Caplan, Jagged Metal and ReSee are all wordmark-only. That makes a wordmark alone incapable of differentiating — it is the baseline, not a position. The punch differentiates in the artefact the customer physically holds rather than in a header they scroll past, and it speaks the grammar the business already trades in: the sponsor's mark on the back of English silver, the 落款印 that authenticates a painting, the 家紋 enclosure Mitsubishi and Kikkoman still use. Frame 2 of the photography spec is a weekly macro of somebody else's maker's mark ([08](08-brand.md)); the house should have one.
+
+**Two constraints it inherits from [D6](DECISIONS.md), both of which narrow the field more than taste does.** Scroll-driven colour means one colour only — no gradient, no two-tone, no white knockout, legible on all four grounds. Full-page grain means minimum stroke weight is a specification, not a preference. Together they are the decisive argument against the abstract direction, which also fails a third test: offices refuse overly simple or abstract devices for want of distinctive character, so the weakest drawing is also the least defensible.
+
+**Hard legal rule, carried forward.** Hallmarking Act 1973 — the mark is struck into paper, never into metal, and its outline avoids the shield and lozenge shapes of the 1973 punch regulations.
+
+**Not decided here:** what goes inside the punch (光, `H`, or nothing — [99](99-open-questions.md) #27), and whether the wordmark is serif or grotesque (#28).
+
+**Blocked by #4.** [00](00-brief.md) commits to clearing the name in UK Classes 14 and 35 before any spend on brand design. It has not been done, `@hikari` is confirmed gone, and no designer should be briefed until it closes. **Awaiting your call on both #4 and this recommendation.**
