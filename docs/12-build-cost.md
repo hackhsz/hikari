@@ -51,7 +51,7 @@ The website is not the whole bill. Estimates — verify each.
 | Domain | **£10–15/yr** | |
 | Theme | **£0** | Built from scratch |
 | Apps | **£0–30/mo** | Ship with none. Reviews can wait; email is included ([11](11-platform.md)) |
-| UK trademark, 2 classes | **~£220** | ~£170 first class + £50 additional, filed online. **Verify with the IPO.** [99](99-open-questions.md) #4 |
+| UK trademark, 2 classes | **£265** | £205 first class + £60 additional. UKIPO fees rose 1 April 2026. See [18](18-name-clearance.md) — **and the name may not be available**. |
 | IP solicitor review | **£300–800** | One to two hours on trademark use ([04](04-site-ia.md)) |
 | Accountant — VAT and imports | **£150–300** | The blocking hour ([06](06-unit-economics.md)). Highest-return spend available |
 | Photography setup | **£100–200** | Tripod, backdrop paper, a reflector. Daylight is free ([08](08-brand.md)) |

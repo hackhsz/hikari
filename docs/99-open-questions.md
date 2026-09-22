@@ -183,3 +183,16 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 | # | Question | Where |
 |---|---|---|
 | 56 | **Publish our own entity details from day one** — registered name, company number, registered office, working email, in the footer and the terms. Required by the Companies Act and the E-Commerce Regulations 2002; the Consumer Contracts Regulations separately require trader identity and geographic address. Also a trust signal the nearest competitor is currently leaving on the table. | [15](15-competitor-etvous.md), [17](17-entity-and-tax.md) |
+
+## Update · 2026-09-22 (xii) — ⚠️ name clearance
+
+**#4 is no longer a routine check. It is the blocking question in the plan.**
+
+**UK00917478348 — "HIKARI" — Class 14 (jewellery) — Registered 20 Dec 2019 — D.C.K. CONCESSIONS LIMITED**, a UK company that is still active and trades in jewellery concessions. Class 14 is our goods class. Full detail at [18](18-name-clearance.md).
+
+| # | Question | Where |
+|---|---|---|
+| 57 | **Attorney to read the Class 14 specification of UK00917478348, and the Class 35 wording of UK00908114902.** One hour. Decides whether the name survives. **Blocking — nothing else in the brand should be spent against until this is answered.** | [18](18-name-clearance.md) |
+| 58 | Alternative names, if it does not survive. Note the lockup's *proportional system* transfers to any kanji + Latin name — only the glyphs change. | [18](18-name-clearance.md), [10](10-logo.md) |
+| 59 | Instagram / TikTok / Pinterest / Xiaohongshu handle checks, once a name clears. Cannot be automated — Instagram redirects bots. | [18](18-name-clearance.md), [05](05-social.md) |
+| 60 | **Do not buy domains until #57 is answered.** `hikarivintage.com` and `.co.uk` are both free today, which is the best pair available, but a domain for an unusable name anchors the decision. | [18](18-name-clearance.md) |
