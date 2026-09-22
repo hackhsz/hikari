@@ -130,3 +130,18 @@ The two top dots of 光 become drop-shaped stones ([10](10-logo.md), studies: ht
 **Second prohibition, logged alongside the 旭日旗 one:** **no facets, no sparkle, no third stone.** A gem in a jewellery logo is the category's single most common move; what keeps this clear of it is that the drops *replace* strokes the character already had, and that they are a pair (earrings) rather than a solitaire. Add ornament and that defence is gone.
 
 **Also noted:** the drops must be cut to the font's own contrast. The first pass drew them heavier than the character's own bar and legs, and the mismatch was visible — a text face's modulated strokes next to a geometric drop is how marks end up looking like clip art on type.
+
+## Update · 2026-09-22 (vi)
+
+Kana and simpler-mark options explored ([10](10-logo.md), studies: https://claude.ai/artifact/43BGDvL4z4U983z4gnZWJg).
+
+**New fact, and it is load-bearing:** **光 alone does not reliably read as "Hikari"** — コウ *kō*, ひかる *hikaru*, みつ, てる and others are all available readings. The Latin wordmark carries the name so the mark need not, but anywhere the Japanese side must *say* the name (supplier invoices, a Tokyo card, packing slips to dealers) **that is kana's job, not 光's.**
+
+**#33 and #34 stand.** #31 is effectively answered: the drops supply the abstraction.
+
+| # | Question | Where |
+|---|---|---|
+| 35 | Adopt **ヒカリ set vertically** as the Japanese-facing signature for supplier-side and Tokyo-side material? Katakana is the script built to be arranged; a column is composition rather than decoration. | [10](10-logo.md) |
+| 36 | Keep **the drop pair alone** as the reduced monogram for embroidery, hot foil and anything below 16px? | [10](10-logo.md) |
+
+**Considered and dropped:** ひかり (soft, unambiguous, but three curves that will not compress — a second wordmark, not a mark) and ひ alone (one continuous stroke, the most beautiful form in the set, but it says *hi*, not *hikari*).

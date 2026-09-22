@@ -106,3 +106,13 @@ Carries a second standing prohibition, alongside the 旭日旗 one: **no facets,
 Holding the font body untouched is right for deciding the idea and wrong for shipping it — it leaves two drops as the only distinctive element in a Class 14 mark. Once the pair is chosen, the constructed 光 takes the same drops.
 
 *Studies:* https://claude.ai/artifact/QV1zYGkdp8aGd4TyPWKCLg
+
+**Amended 2026-09-22 (iv) — the simpler answer, and the Japanese signature.** The mark is the **constructed 光 with the drop pair replacing the two top strokes**: four parts, no font, entirely ours. Simpler than the mincho hybrid and more specific than the plain constructed 光 — the drops are the one simplification that also adds meaning, and they are the only element that is about jewellery rather than about Japan.
+
+**Reduced monogram:** the drop pair alone, for embroidery, hot foil and anything below 16px.
+
+**Japanese-facing signature: ヒカリ set vertically.** Katakana because it is the script built to be arranged and reads as light and contemporary; vertical because a column is composition, not decoration. It also solves a real problem — **光 alone does not reliably read as "Hikari"** (コウ, ひかる, みつ, てる are all available), so anywhere the Japanese side must say the name, kana does it.
+
+Considered and dropped: ひかり and ひ ([99](99-open-questions.md), 2026-09-22 (vi)).
+
+*Studies:* https://claude.ai/artifact/43BGDvL4z4U983z4gnZWJg

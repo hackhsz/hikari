@@ -213,3 +213,51 @@ So there is a real choice, and it is not a drawing preference:
 4. **No facets, no sparkle, no third stone. Ever.**
 
 This resolves the earlier abstraction question ([99](99-open-questions.md) #31) in a way neither step alone did: **the drops are the abstraction.** They give the character a reason to be redrawn that is specific to this business, rather than a generic tidying-up.
+
+---
+
+## Update · 2026-09-22 (iv) — the name in Japanese, and the simpler options
+
+**Asked:** how is 光 expressed in Japanese, and what simpler marks are available.
+
+**Studies:** [`brand/kana-marks.html`](../brand/kana-marks.html) — open in a browser. Published copy: https://claude.ai/artifact/43BGDvL4z4U983z4gnZWJg
+
+### The reading, and why it matters to the mark
+
+**光 on its own does not reliably say "Hikari."** On-reading コウ *kō*; kun-readings ひかり *hikari* and ひかる *hikaru*; as a personal name also みつ, てる, あきら, あき and others. A Japanese reader meeting the character cold is as likely to say *kō* or *hikaru*.
+
+This is **not** fatal, because the Latin wordmark carries the name and the mark never has to. But it removes one argument for the kanji, and it means that where the Japanese side of the identity has to *say* the name — a supplier invoice, a Tokyo business card, a packing slip going back to a dealer — **that job belongs to kana, not to 光.**
+
+### The four ways to write it
+
+| | Script | Reading | Character |
+|---|---|---|---|
+| 光 | kanji | kō / hikari / hikaru / mitsu | Intellectual, sincere, trustworthy — and stiff. Carries the meaning, not the sound. One character, so the densest and the best in a square. |
+| ひかり | hiragana | hikari | Soft and approachable, and the only writing that says the name unambiguously. Three curved characters — the hardest of the four to compress. |
+| ヒカリ | katakana | hikari | Light, modern, and **the easiest to arrange**: its base forms are the simplest in the language. Six straight strokes, no curves. |
+| HIKARI | latin | — | Already decided. Carries the name for the people buying. |
+
+**If "simpler" is to be answered typographically, katakana is the answer** — Japanese design writing describes it in exactly these terms: lighter and more contemporary than kanji, and easy to arrange precisely because the letterforms are already simple.
+
+### Six marks, and the one that wins
+
+Full set in the studies. The result:
+
+1. **光 drawn, with the drop pair** — the synthesis. Four parts, no font, entirely ours: the constructed 光 with drops replacing the two top strokes. **Recommended.**
+2. **ヒカリ, vertical** — six straight strokes in a column. Composition rather than motif, which is the brand's own rule. Says the name. Fails at 16px.
+3. **ひ alone** — a single continuous form, the first sound of the name. The most beautiful object in the set, and it says *hi*, not *hikari*.
+4. **ひかり, horizontal** — the softest, unambiguous, but a second wordmark rather than a mark. No square use at all.
+5. **The drop pair alone** — two shapes. Survives 16px, grain, a stamp, embroidery. Says earrings and light; says no language at all.
+6. **光 drawn, plain** — the previous recommendation, for comparison. Simpler, and **nothing in it is about jewellery**.
+
+### Recommendation
+
+1. **Mark 01 is the mark.** "Simpler" and "more distinctive" usually pull against each other; here they do not, because the drops are the one simplification that also adds meaning. 06 is simpler still and says nothing specific — that is the whole argument for the drops.
+2. **Mark 05 is the fallback, and the better one when it has to get smaller.** Two shapes survive embroidery, hot foil, a 16px favicon and a bad printer. Keep it as the monogram inside the punch when the full mark will not fit.
+3. **ヒカリ, vertical, is the Japanese-facing signature** — Tokyo business card, supplier paperwork, box tape. Katakana because it is the script built to be arranged; vertical because a column is composition, not decoration.
+4. **Drop ひかり and ひ.** Neither earns a slot the Latin wordmark already fills.
+
+### Sources
+
+- Readings: [goo 漢字辞典 — 光](https://dictionary.goo.ne.jp/word/kanji/%E5%85%89/) · [Weblio — 名前《光》の読み方](https://www.weblio.jp/content/%E5%90%8D%E5%89%8D%E3%80%8A%E5%85%89%E3%80%8B%E3%81%AE%E8%AA%AD%E3%81%BF%E6%96%B9)
+- Script character and logotype practice: [ラクスル — 漢字・ひらがな・カタカナで変わる印象](https://raksul.com/magazine/column/characters-impression-difference/) · [ロゴマーケット — 日本語でロゴタイプを作成する際のポイント](https://logomarket.jp/labo/japanese-logo/) · [ランサーズ — カタカナを用いたロゴ20選](https://www.lancers.jp/c/logo/logo-knowhow/10253/)
