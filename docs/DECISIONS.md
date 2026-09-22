@@ -194,3 +194,16 @@ Remain unregistered while under the threshold. Watch rolling 12-month turnover m
 **When the threshold nears:** stay under deliberately, or register and reprice, or change the stock mix so the reliefs apply. Decide on numbers, not at the last minute.
 
 **Amended 2026-09-22 (ii):** the "~20% price rise" in this entry overstates it. **Break-even is 9.3% — £180 to £196.80** — because registration also recovers the £16 import VAT. Passing the full 20% on (£216) leaves us **£16 a piece better than today**. So the real question at the threshold is whether the market takes 9.3%, which is a cheap pricing test to run early rather than a cliff to fear. Working in [16](16-vat.md).
+
+---
+
+### D15 · Customs and sales records — importer of record, true value, no shared clearance
+**2026-09-22 · Decided**
+
+We are always the **importer of record** on our own stock, we always declare the **true transaction value**, and we keep the seller's invoice for every piece. All sales are recorded, in every channel.
+
+*Rationale:* [16](16-vat.md) §9. This is a liability boundary rather than a statement of principle: **if we are the importer of record but another party entered the value, the liability is ours.** Hence three operational rules — do not share a freight agent or customs broker with another seller, do not consolidate consignments with anyone, and do not buy stock from a business whose import valuations we cannot see.
+
+**Competitive consequence, recorded so it is not relitigated later:** a seller under-declaring customs value and recording only online sales has a cost base roughly 20% of landed cost plus 20% of their offline channel below ours. **We do not match it.** Never benchmark our price against theirs — their price carries an unpaid liability, assessable for twenty years where behaviour is deliberate, with penalties up to 100% of the tax. We compete on [D11](DECISIONS.md) and [D12](DECISIONS.md) instead.
+
+The per-piece acquisition record from [04](04-site-ia.md) now serves five purposes: margin-scheme evidence, trademark exhaustion defence, payment-processor review, retrospective input tax on registration, and proof of customs value.

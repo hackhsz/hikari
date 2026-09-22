@@ -213,3 +213,43 @@ Passing the full 20% on leaves us **£16 a piece better off than today** — exa
 **Japanese consumption tax is not reclaimable in the UK.** It is not UK VAT and HMRC will not repay it. The only route back is Japan's own refund scheme ([06](06-unit-economics.md)). Easy to assume otherwise.
 
 **Reverse charge nets to zero but must still be filed.** Overseas services — a Japanese sourcing agent, non-UK SaaS — are self-accounted: declare the output, reclaim the same amount as input. Net nil, commonly missed, and it is our liability rather than the supplier's.
+
+---
+
+## 9 · The line, and the control that keeps us on the right side of it
+
+Two practices have come up as hypotheses about how a competitor operates. Recorded here because they are **not grey areas, and because one of them creates a liability for *us* if we are careless about logistics.**
+
+### Under-declaring customs value
+
+The customs value is, in law, the **transaction value** — what was actually paid. Declaring a lower figure is a false declaration, not an estimate. CEMA 1979 s.167 makes it an offence to declare falsely, knowingly or recklessly ([LexisNexis](https://www.lexisnexis.com/en-gb/legal/guidance/creating-or-providing-false-documents-or-information)). Consequences: assessment for the duty and import VAT plus interest, a **civil evasion penalty** aimed specifically at dishonest behaviour, seizure and forfeiture of goods, and criminal exposure in serious cases ([Customs Notice 301](https://www.gov.uk/guidance/civil-penalties-for-contraventions-of-customs-law-customs-notice-301)).
+
+It also has a self-defeating quality worth noting: **a public retail price is evidence against a low declared value.** Customs valuation audits start by comparing declarations against the seller's own published prices.
+
+### Recording VAT on online sales only
+
+VAT does not vary by channel. Registered means output VAT on every supply — cash, transfer, in person, online. Recording only part of them is under-declared VAT and under-declared turnover.
+
+- Deliberate behaviour attracts penalties of **30%–100% of the unpaid tax**.
+- HMRC normally assesses four years back; **for deliberate evasion, twenty** ([TaxDebts](https://taxdebts.co.uk/hmrc-cop8-cop9-investigations-director-risks/)).
+- HMRC runs a standing campaign on exactly this pattern — **Electronic Sales Suppression**, with one-to-many letters already going out ([CIOT](https://www.tax.org.uk/hmrc-one-to-many-letter-electronic-sales-suppression-2025)).
+- **The £90,000 threshold test uses real turnover, not declared turnover.** Suppressing sales to stay "under" it is itself the fraud, and it converts the assessment window to twenty years.
+
+### The control we adopt
+
+Not a statement of virtue — a liability boundary:
+
+**Always be the importer of record ourselves. Always declare the true transaction value. Always keep the Japanese seller's invoice.**
+
+The reason is specific: **if we are the importer of record but someone else entered the value, the liability is ours, not theirs.** So: do not share a freight agent or customs broker with another seller, do not consolidate consignments with anyone, and do not buy stock from a business whose import valuations we cannot see.
+
+This runs on the acquisition record already in place ([04](04-site-ia.md)). That one process now serves five purposes: margin-scheme evidence, trademark exhaustion defence, payment-processor review, retrospective input tax on registration, and proof of customs value.
+
+### Competitive read
+
+If a competitor is operating this way, their cost base is lower by roughly 20% of landed cost plus 20% of the offline channel. **We cannot match that and will not try.** Two consequences:
+
+1. **Never benchmark our price against theirs.** Their price carries a liability that has not been paid yet.
+2. **It is not an advantage so much as deferred exposure.** Twenty years of assessment plus penalties of up to 100% is enough to end a business this size, and it grows with every sale.
+
+Our answer is unchanged: brand, trust, and the Edition list ([D11](DECISIONS.md)), with all-in pricing ([D12](DECISIONS.md)). And [D13](DECISIONS.md) still stands — a sharper hypothesis does not change the asymmetry, because our own trademark, VAT and IP positions are still open.
