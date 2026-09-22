@@ -168,3 +168,12 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 | 49 | Reverse charge on overseas services once registered — sourcing agents, overseas SaaS. Easy to miss, and it is our liability, not theirs. | [16](16-vat.md) |
 | 50 | Model flat rate (7.5%, or 6.5% in year one) against standard accounting before any registration | [16](16-vat.md) |
 | 51 | **Should we source UK stock as well as Japanese?** The margin scheme is worth £13.33 a piece on VAT-free UK purchases and nothing on imports. Changes the sourcing strategy, not just the accounting. | [16](16-vat.md), [06](06-unit-economics.md) |
+
+## Update · 2026-09-22 (x)
+
+| # | Question | Where |
+|---|---|---|
+| 52 | Current dividend tax rates — they have moved recently; the £500 allowance is confirmed but the rates need checking | [17](17-entity-and-tax.md) |
+| 53 | **Sole trader or limited company for year one.** Recommendation is limited, mainly for liability containment on trademark risk and to avoid publishing a home address. Confirm with the accountant in the same hour as the VAT question. | [17](17-entity-and-tax.md) |
+| 54 | Registered office / service address provider, if incorporating | [17](17-entity-and-tax.md) |
+| 55 | **Set Shopify taxes to zero explicitly before the first sale.** Charging or displaying VAT while unregistered is an offence, and a store left on defaults will add a tax line by itself. | [17](17-entity-and-tax.md), [11](11-platform.md) |

@@ -31,6 +31,7 @@ These documents are the working plan. They are meant to be returned to and revis
 | [14 — Marketing](docs/14-marketing.md) | **Paid channels, what they cost, and what to optimise for** |
 | [15 — Competitor: et vous](docs/15-competitor-etvous.md) | **SHOPLINE teardown, the 20% "handling fee", and what we do differently** |
 | [16 — VAT](docs/16-vat.md) | **Full reference: who pays, reliefs, schemes, and the numbers on our economics** |
+| [17 — Entity & tax](docs/17-entity-and-tax.md) | **Checkout tax when unregistered, income tax, and sole trader vs company** |
 | [Decisions](docs/DECISIONS.md) | **Dated log of what's settled, proposed, or reversed** |
 | [99 — Open questions](docs/99-open-questions.md) | Everything unresolved, in one place |
 
