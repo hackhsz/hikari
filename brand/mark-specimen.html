@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Hikari — mark specimen. Standalone; open directly in a browser.
+     Published copy: https://claude.ai/artifact/2fopZe4vn7LYhmL6JTJxtS
+     See docs/10-logo.md. Palette and type from brand/tokens.css. -->
+<title>Hikari Mark Specimen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Instrument+Sans:wght@400;500;600&family=Noto+Serif+JP:wght@400;500;600&display=swap">
+<style>
+:root{
+  /* Hikari palette B · 銀鼠 gin-nezu — from brand/tokens.css */
+  --paper:#EFF0EC;      /* 白練 shironeri */
+  --paper-deep:#DFE1DC; /* 銀鼠 gin-nezu  */
+  --rule:#C9CCC6;
+  --sumi:#14171A;       /* 濡羽色 nureba-iro */
+  --nezu:#5E625B;       /* 鼠色 nezumi-iro */
+  --ai:#2E4B6B;         /* 藍 ai */
+  --kaki:#9E4730;       /* 柿渋 kakishibu */
+
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --jp:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+
+  --measure:34rem;
+  --gutter:clamp(1rem,5vw,3.5rem);
+}
+
+/* Single-theme by decision: 08-brand.md forbids dark mode as identity.
+   Every colour is painted explicitly so the page holds on either host ground. */
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--sumi);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:60rem;margin:0 auto;padding-inline:var(--gutter);padding-block:clamp(2.5rem,7vw,5rem) 6rem}
+
+/* ── type ─────────────────────────────── */
+.label{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--nezu);
+}
+h1{
+  font-family:var(--serif);
+  font-optical-sizing:auto;
+  font-weight:300;
+  font-size:clamp(2.4rem,6vw,3.6rem);
+  line-height:1.05;
+  letter-spacing:-.01em;
+  margin:.5rem 0 0;
+  text-wrap:balance;
+}
+h2{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:clamp(1.5rem,3.4vw,2rem);
+  line-height:1.15;
+  margin:0;
+  text-wrap:balance;
+}
+h3{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.02em;margin:0 0 .35rem}
+p{margin:0 0 1rem;max-width:var(--measure)}
+p:last-child{margin-bottom:0}
+strong{font-weight:600}
+em{font-style:italic}
+a{color:var(--ai);text-decoration-thickness:1px;text-underline-offset:2px}
+.lede{font-size:17px;line-height:1.55;color:var(--sumi)}
+.jp{font-family:var(--jp);font-weight:400}
+hr.rule{border:0;border-top:1px solid var(--rule);margin:3.5rem 0}
+
+/* ── head ─────────────────────────────── */
+header.masthead{border-bottom:1px solid var(--rule);padding-bottom:2rem;margin-bottom:2.5rem}
+.masthead .meta{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;margin-top:1.75rem}
+.masthead .meta span{white-space:nowrap}
+
+/* ── findings ─────────────────────────── */
+.findings{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.75rem;margin:2rem 0 0}
+.finding{border-top:2px solid var(--sumi);padding-top:.85rem}
+.finding p{font-size:14px;color:var(--nezu);margin:0}
+.finding p b{color:var(--sumi);font-weight:500}
+
+/* ── controls ─────────────────────────── */
+.controls{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  margin-inline:calc(var(--gutter)*-1);
+  padding:.75rem var(--gutter);
+  display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.5rem;
+}
+.ctl-group{display:flex;align-items:center;gap:.5rem}
+.swatches{display:flex;gap:.35rem}
+button{font:inherit;cursor:pointer}
+.sw{
+  width:1.65rem;height:1.65rem;border-radius:50%;
+  border:1px solid var(--rule);padding:0;
+  outline-offset:3px;
+}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 1.5px var(--paper),0 0 0 3px var(--sumi)}
+.toggle{
+  border:1px solid var(--rule);background:transparent;color:var(--sumi);
+  border-radius:999px;padding:.3rem .85rem;
+  font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;
+}
+.toggle[aria-pressed="true"]{background:var(--sumi);color:var(--paper);border-color:var(--sumi)}
+
+/* ── plates ───────────────────────────── */
+.plate{margin-top:4rem}
+.plate-head{display:flex;align-items:baseline;gap:.9rem;flex-wrap:wrap;margin-bottom:.75rem}
+.num{font-family:var(--serif);font-size:13px;color:var(--nezu);font-variant-numeric:tabular-nums}
+.stage{
+  position:relative;overflow:hidden;
+  background:var(--ground,var(--paper-deep));
+  color:var(--ink,var(--sumi));
+  border:1px solid var(--rule);
+  margin-top:1.5rem;
+  padding:clamp(2rem,6vw,3.5rem);
+  display:flex;align-items:center;justify-content:center;min-height:13rem;
+  transition:background .5s ease,color .5s ease;
+}
+.stage::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  opacity:0;transition:opacity .3s ease;
+  mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+}
+body.grain .stage::after{opacity:.62}
+
+/* the scale strip */
+.strip{
+  display:flex;flex-wrap:wrap;align-items:flex-end;gap:2rem 2.75rem;
+  background:var(--ground,var(--paper-deep));
+  color:var(--ink,var(--sumi));
+  border:1px solid var(--rule);border-top:0;
+  padding:1.75rem clamp(1rem,4vw,2rem);
+  position:relative;overflow:hidden;
+  transition:background .5s ease,color .5s ease;
+}
+.strip::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
+  transition:opacity .3s ease;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+}
+body.grain .strip::after{opacity:.62}
+.size{display:flex;flex-direction:column;align-items:flex-start;gap:.65rem}
+.size .cap{
+  font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;
+  opacity:.6;
+}
+.size .slot{display:flex;align-items:center;min-height:2.5rem}
+.avatar{
+  width:2.75rem;height:2.75rem;border-radius:50%;
+  background:currentColor;
+  display:flex;align-items:center;justify-content:center;
+}
+.avatar svg{color:var(--ground,var(--paper-deep))}
+
+/* verdict */
+.verdict{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.5rem 2.5rem;margin-top:1.5rem}
+.verdict h3{display:flex;align-items:center;gap:.5rem}
+.dot{width:.5rem;height:.5rem;border-radius:50%;flex:none}
+.dot.for{background:var(--ai)}
+.dot.against{background:var(--kaki)}
+.verdict ul{margin:0;padding-left:1.05rem;font-size:14px;color:var(--nezu)}
+.verdict li{margin-bottom:.4rem}
+.verdict li::marker{color:var(--rule)}
+
+.note{
+  border-left:2px solid var(--kaki);
+  padding:.15rem 0 .15rem 1rem;
+  margin-top:1.5rem;font-size:14px;color:var(--nezu);max-width:var(--measure);
+}
+.note b{color:var(--sumi);font-weight:600}
+
+/* recommendation */
+.rec{background:var(--paper-deep);border:1px solid var(--rule);padding:clamp(1.5rem,4vw,2.5rem);margin-top:4rem}
+.rec ol{margin:1rem 0 0;padding-left:1.2rem;max-width:var(--measure)}
+.rec li{margin-bottom:.6rem}
+.rec li::marker{color:var(--nezu);font-variant-numeric:tabular-nums}
+
+table{border-collapse:collapse;width:100%;font-size:14px;margin-top:1rem}
+.scroll{overflow-x:auto;margin-top:1rem}
+th,td{text-align:left;padding:.55rem .9rem .55rem 0;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--nezu);font-weight:500}
+
+footer{margin-top:4.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);font-size:13px;color:var(--nezu)}
+footer p{max-width:var(--measure)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+html,body{background:#EFF0EC}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="label">Hikari &middot; brand &middot; 2026-09-22</div>
+  <h1>Four ways the mark could go</h1>
+  <div class="meta label">
+    <span>Palette B &middot; 銀鼠</span>
+    <span>Newsreader + Instrument Sans</span>
+    <span>Specimen, not artwork</span>
+  </div>
+</header>
+
+<p class="lede">Every competitor in the category uses a plain text logo and nothing else &mdash; Susan Caplan, Jagged Metal and ReSee are all wordmark-only. So the open question is not which typeface. It is <em>whether Hikari has a mark at all</em>, and what that mark has to survive.</p>
+
+<div class="findings">
+  <div class="finding">
+    <h3>The grain eats hairlines</h3>
+    <p><b>D6 puts animated film grain over the entire page, type included.</b> A fine-stroke mark does not survive it at small size. Turn the grain on below and watch direction 4 disappear.</p>
+  </div>
+  <div class="finding">
+    <h3>The ground moves</h3>
+    <p><b>Background colour is a function of scroll position</b> &mdash; 白練 → 銀鼠 → 藍 → 濡羽色. The mark must be one colour, no two-tone, no white knockout, legible on all four.</p>
+  </div>
+  <div class="finding">
+    <h3>An abstract mark is a weak mark</h3>
+    <p><b>Overly simple or abstract devices get refused as trade marks</b> for lacking distinctive character. The more generic the shape, the less of it is defensible in Class 14.</p>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="ctl-group">
+    <span class="label">Ground</span>
+    <div class="swatches" role="group" aria-label="Test ground">
+      <button class="sw" id="g-paper" data-bg="#EFF0EC" data-ink="#14171A" aria-pressed="true" title="白練 shironeri" style="background:#EFF0EC"></button>
+      <button class="sw" id="g-nezu" data-bg="#DFE1DC" data-ink="#14171A" aria-pressed="false" title="銀鼠 gin-nezu" style="background:#DFE1DC"></button>
+      <button class="sw" id="g-ai" data-bg="#2E4B6B" data-ink="#EFF0EC" aria-pressed="false" title="藍 ai" style="background:#2E4B6B"></button>
+      <button class="sw" id="g-sumi" data-bg="#14171A" data-ink="#EFF0EC" aria-pressed="false" title="濡羽色 nureba-iro" style="background:#14171A"></button>
+    </div>
+  </div>
+  <div class="ctl-group">
+    <button class="toggle" id="grain-toggle" aria-pressed="false">Grain off</button>
+  </div>
+</div>
+
+<!-- ══ 1 ══════════════════════════════════════ -->
+<section class="plate">
+  <div class="plate-head">
+    <span class="num">01</span>
+    <h2>The struck mark</h2>
+    <span class="label jp">刻印</span>
+  </div>
+  <p>A punch: a closed shape with something struck inside it. This is the shared grammar of the sponsor's mark on the back of a piece of silver, the <span class="jp">落款印</span> an artist presses into a painting to authenticate it, and the <span class="jp">家紋</span> enclosure that Mitsubishi and Kikkoman both still use. Hikari's second product <em>is</em> authentication &mdash; and frame 2 of the photography spec is already a macro of somebody else's maker's mark.</p>
+
+  <div class="stage">
+    <svg width="340" height="128" viewBox="0 0 340 128" role="img" aria-label="Struck mark: kanji 光 inside a rounded punch, with the HIKARI wordmark">
+      <rect x="6" y="16" width="96" height="96" rx="20" fill="none" stroke="currentColor" stroke-width="5"/>
+      <text x="54" y="64" font-family="Noto Serif JP, serif" font-size="54" font-weight="500"
+            fill="currentColor" text-anchor="middle" dominant-baseline="central">光</text>
+      <text x="130" y="58" font-family="Instrument Sans, sans-serif" font-size="25" font-weight="500"
+            letter-spacing="6.5" fill="currentColor">HIKARI</text>
+      <text x="132" y="84" font-family="Instrument Sans, sans-serif" font-size="10" font-weight="500"
+            letter-spacing="2.4" fill="currentColor" opacity=".72">VINTAGE · TOKYO TO LONDON</text>
+    </svg>
+  </div>
+  <div class="strip">
+    <div class="size">
+      <span class="cap">48px</span>
+      <div class="slot"><svg width="48" height="48" viewBox="0 0 100 100" aria-hidden="true"><rect x="5" y="5" width="90" height="90" rx="19" fill="none" stroke="currentColor" stroke-width="6"/><text x="50" y="52" font-family="Noto Serif JP, serif" font-size="52" font-weight="500" fill="currentColor" text-anchor="middle" dominant-baseline="central">光</text></svg></div>
+    </div>
+    <div class="size">
+      <span class="cap">24px</span>
+      <div class="slot"><svg width="24" height="24" viewBox="0 0 100 100" aria-hidden="true"><rect x="5" y="5" width="90" height="90" rx="19" fill="none" stroke="currentColor" stroke-width="7"/><text x="50" y="52" font-family="Noto Serif JP, serif" font-size="54" font-weight="600" fill="currentColor" text-anchor="middle" dominant-baseline="central">光</text></svg></div>
+    </div>
+    <div class="size">
+      <span class="cap">16px favicon</span>
+      <div class="slot"><svg width="16" height="16" viewBox="0 0 100 100" aria-hidden="true"><rect x="4" y="4" width="92" height="92" rx="19" fill="none" stroke="currentColor" stroke-width="9"/><text x="50" y="53" font-family="Noto Serif JP, serif" font-size="56" font-weight="600" fill="currentColor" text-anchor="middle" dominant-baseline="central">光</text></svg></div>
+    </div>
+    <div class="size">
+      <span class="cap">Avatar</span>
+      <div class="slot"><div class="avatar"><svg width="26" height="26" viewBox="0 0 100 100" aria-hidden="true"><text x="50" y="53" font-family="Noto Serif JP, serif" font-size="74" font-weight="500" fill="currentColor" text-anchor="middle" dominant-baseline="central">光</text></svg></div></div>
+    </div>
+    <div class="size">
+      <span class="cap">Latin interior</span>
+      <div class="slot"><svg width="48" height="48" viewBox="0 0 100 100" aria-hidden="true"><rect x="5" y="5" width="90" height="90" rx="19" fill="none" stroke="currentColor" stroke-width="6"/><text x="50" y="53" font-family="Newsreader, serif" font-size="50" font-weight="400" fill="currentColor" text-anchor="middle" dominant-baseline="central">H</text></svg></div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <h3><span class="dot for"></span>For</h3>
+      <ul>
+        <li>Holds at 16px, which no wordmark does.</li>
+        <li>Concept and category coincide: the business sells marks on the backs of objects.</li>
+        <li>A device with a closed contour and a struck interior is registrable in a way a bare shape is not.</li>
+        <li>Physical from day one &mdash; a rubber stamp on the mailer is the cheapest premium signal available.</li>
+      </ul>
+    </div>
+    <div>
+      <h3><span class="dot against"></span>Against</h3>
+      <ul>
+        <li>Initials-in-a-cartouche is the antiques trade's own cliché. It has to be drawn as a modern punch, not an engraved crest.</li>
+        <li>Needs a decision on the interior before anything else can be drawn.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="note"><b>Hard legal constraint.</b> Under the Hallmarking Act 1973 it is an offence to strike an article with a mark purporting to be an authorised sponsor's mark, and an assay office may obliterate any mark it considers likely to be confused with a hallmark. So: <b>never struck into metal, only into paper</b> &mdash; and the outline avoids the shield and lozenge shapes the 1973 punch regulations use. A rounded square (the <span class="jp">角印</span> logic) is clear of them.</p>
+</section>
+
+<!-- ══ 2 ══════════════════════════════════════ -->
+<section class="plate">
+  <div class="plate-head">
+    <span class="num">02</span>
+    <h2>The wordmark that never grows</h2>
+    <span class="label jp">白練</span>
+  </div>
+  <p>No device at all. <span class="jp">HIKARI</span> set small, uppercase, widely tracked &mdash; the same 0.12em label treatment already specified for <code>CHRISTIAN DIOR · c.1987 · GRADE II</code>. The differentiation is not the shape, it is the <em>behaviour</em>: the logo is never larger than the piece, ever, on any surface. The tokonoma rule applied to the brand's own name.</p>
+
+  <div class="stage">
+    <svg width="340" height="128" viewBox="0 0 340 128" role="img" aria-label="HIKARI wordmark in serif and in sans, widely tracked">
+      <text x="170" y="42" font-family="Newsreader, serif" font-size="27" font-weight="300"
+            letter-spacing="10" fill="currentColor" text-anchor="middle">HIKARI</text>
+      <text x="170" y="62" font-family="Instrument Sans, sans-serif" font-size="8.5" font-weight="500"
+            letter-spacing="3" fill="currentColor" opacity=".6" text-anchor="middle">NEWSREADER 300 · TRACKED 0.38EM</text>
+      <line x1="60" y1="80" x2="280" y2="80" stroke="currentColor" stroke-width="1" opacity=".25"/>
+      <text x="170" y="106" font-family="Instrument Sans, sans-serif" font-size="21" font-weight="500"
+            letter-spacing="8" fill="currentColor" text-anchor="middle">HIKARI</text>
+    </svg>
+  </div>
+  <div class="strip">
+    <div class="size">
+      <span class="cap">Header, actual size</span>
+      <div class="slot"><svg width="112" height="20" viewBox="0 0 224 40" aria-hidden="true"><text x="0" y="27" font-family="Instrument Sans, sans-serif" font-size="21" font-weight="500" letter-spacing="8" fill="currentColor">HIKARI</text></svg></div>
+    </div>
+    <div class="size">
+      <span class="cap">16px favicon — fails</span>
+      <div class="slot"><svg width="64" height="16" viewBox="0 0 224 40" aria-hidden="true"><text x="0" y="27" font-family="Instrument Sans, sans-serif" font-size="21" font-weight="500" letter-spacing="8" fill="currentColor">HIKARI</text></svg></div>
+    </div>
+    <div class="size">
+      <span class="cap">Avatar — fails</span>
+      <div class="slot"><div class="avatar"><svg width="34" height="10" viewBox="0 0 224 40" aria-hidden="true"><text x="0" y="28" font-family="Instrument Sans, sans-serif" font-size="21" font-weight="500" letter-spacing="8" fill="currentColor">HIKARI</text></svg></div></div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <h3><span class="dot for"></span>For</h3>
+      <ul>
+        <li>Costs nothing and can ship this week.</li>
+        <li>Nothing to get wrong &mdash; no motif, no borrowed symbol, no costume.</li>
+        <li>A word mark in plain type is the strongest thing to own in Class 14, stronger than any device.</li>
+      </ul>
+    </div>
+    <div>
+      <h3><span class="dot against"></span>Against</h3>
+      <ul>
+        <li>There is no asset for the favicon, the avatar, the stamp or the seal &mdash; the three squares above are all failures.</li>
+        <li>Identical in kind to all three competitors. Restraint you cannot see is not positioning.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3 ══════════════════════════════════════ -->
+<section class="plate">
+  <div class="plate-head">
+    <span class="num">03</span>
+    <h2>The bilingual lockup</h2>
+    <span class="label jp">光 / HIKARI</span>
+  </div>
+  <p>The kanji carries the compact slots, the Latin carries the name. A kanji is <em>designed</em> to resolve inside a square at small size, which is exactly what a favicon and an avatar are. It also states the sourcing without a sentence of copy.</p>
+
+  <div class="stage">
+    <svg width="340" height="128" viewBox="0 0 340 128" role="img" aria-label="Kanji 光 locked up with the HIKARI wordmark, horizontal and stacked">
+      <text x="30" y="64" font-family="Noto Serif JP, serif" font-size="60" font-weight="400"
+            fill="currentColor" text-anchor="middle" dominant-baseline="central">光</text>
+      <line x1="68" y1="34" x2="68" y2="94" stroke="currentColor" stroke-width="1" opacity=".3"/>
+      <text x="90" y="56" font-family="Newsreader, serif" font-size="26" font-weight="300"
+            letter-spacing="7" fill="currentColor">HIKARI</text>
+      <text x="92" y="80" font-family="Instrument Sans, sans-serif" font-size="9.5" font-weight="500"
+            letter-spacing="2.6" fill="currentColor" opacity=".65">EDITION No. 14</text>
+    </svg>
+  </div>
+  <div class="strip">
+    <div class="size">
+      <span class="cap">48px</span>
+      <div class="slot"><svg width="48" height="48" viewBox="0 0 100 100" aria-hidden="true"><text x="50" y="52" font-family="Noto Serif JP, serif" font-size="88" font-weight="400" fill="currentColor" text-anchor="middle" dominant-baseline="central">光</text></svg></div>
+    </div>
+    <div class="size">
+      <span class="cap">24px</span>
+      <div class="slot"><svg width="24" height="24" viewBox="0 0 100 100" aria-hidden="true"><text x="50" y="52" font-family="Noto Serif JP, serif" font-size="90" font-weight="500" fill="currentColor" text-anchor="middle" dominant-baseline="central">光</text></svg></div>
+    </div>
+    <div class="size">
+      <span class="cap">16px favicon</span>
+      <div class="slot"><svg width="16" height="16" viewBox="0 0 100 100" aria-hidden="true"><text x="50" y="53" font-family="Noto Serif JP, serif" font-size="94" font-weight="600" fill="currentColor" text-anchor="middle" dominant-baseline="central">光</text></svg></div>
+    </div>
+    <div class="size">
+      <span class="cap">Avatar</span>
+      <div class="slot"><div class="avatar"><svg width="30" height="30" viewBox="0 0 100 100" aria-hidden="true"><text x="50" y="53" font-family="Noto Serif JP, serif" font-size="84" font-weight="500" fill="currentColor" text-anchor="middle" dominant-baseline="central">光</text></svg></div></div>
+    </div>
+    <div class="size">
+      <span class="cap">Stacked</span>
+      <div class="slot"><svg width="70" height="46" viewBox="0 0 140 92" aria-hidden="true"><text x="70" y="34" font-family="Noto Serif JP, serif" font-size="46" font-weight="400" fill="currentColor" text-anchor="middle" dominant-baseline="central">光</text><text x="70" y="78" font-family="Instrument Sans, sans-serif" font-size="14" font-weight="500" letter-spacing="5.5" fill="currentColor" text-anchor="middle">HIKARI</text></svg></div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <h3><span class="dot for"></span>For</h3>
+      <ul>
+        <li>The best small-size performance of the four, by a distance.</li>
+        <li>Honest to the sourcing, and nobody in the category has it.</li>
+        <li>Gives the name a face for a UK buyer who has never seen the word before.</li>
+      </ul>
+    </div>
+    <div>
+      <h3><span class="dot against"></span>Against</h3>
+      <ul>
+        <li>Runs straight at the brand's own rule: <em>the Japanese reference must never become costume.</em> A kanji is a motif in a way that letter-spacing is not.</li>
+        <li>A lone kanji on a UK site is also the single most-borrowed Japanese signifier there is.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="note">The difference between this reading as provenance and reading as costume is almost entirely <b>where it is allowed to appear</b>. Inside a square that needs filling &mdash; avatar, favicon, stamp, the seal on a care card &mdash; it is a mark. Set large across a homepage above English copy, it is a costume. That is a system rule, not a drawing problem.</p>
+</section>
+
+<!-- ══ 4 ══════════════════════════════════════ -->
+<section class="plate">
+  <div class="plate-head">
+    <span class="num">04</span>
+    <h2>The alcove</h2>
+    <span class="label jp">床の間</span>
+  </div>
+  <p>The one direction that draws the <em>name</em> rather than the letters: light entering a recess. An upright opening, the light falling across it, nothing else. It is the tokonoma principle as a shape, and it is the direction a designer will reach for first.</p>
+
+  <div class="stage">
+    <svg width="340" height="128" viewBox="0 0 340 128" role="img" aria-label="Abstract alcove mark: an upright opening with a light edge, beside the HIKARI wordmark">
+      <defs>
+        <linearGradient id="fall" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="currentColor" stop-opacity="1"/>
+          <stop offset="1" stop-color="currentColor" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <rect x="22" y="20" width="68" height="88" fill="none" stroke="currentColor" stroke-width="1.25"/>
+      <rect x="22" y="20" width="34" height="88" fill="url(#fall)" opacity=".5"/>
+      <line x1="22" y1="20" x2="22" y2="108" stroke="currentColor" stroke-width="3"/>
+      <text x="118" y="58" font-family="Newsreader, serif" font-size="26" font-weight="300"
+            letter-spacing="8" fill="currentColor">HIKARI</text>
+      <text x="120" y="80" font-family="Instrument Sans, sans-serif" font-size="9.5" font-weight="500"
+            letter-spacing="2.6" fill="currentColor" opacity=".65">THE ALCOVE</text>
+    </svg>
+  </div>
+  <div class="strip">
+    <div class="size">
+      <span class="cap">48px</span>
+      <div class="slot"><svg width="38" height="48" viewBox="0 0 76 96" aria-hidden="true"><rect x="8" y="4" width="60" height="88" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="8" y="4" width="30" height="88" fill="url(#fall)" opacity=".5"/><line x1="8" y1="4" x2="8" y2="92" stroke="currentColor" stroke-width="3.5"/></svg></div>
+    </div>
+    <div class="size">
+      <span class="cap">24px</span>
+      <div class="slot"><svg width="19" height="24" viewBox="0 0 76 96" aria-hidden="true"><rect x="8" y="4" width="60" height="88" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="8" y="4" width="30" height="88" fill="url(#fall)" opacity=".5"/><line x1="8" y1="4" x2="8" y2="92" stroke="currentColor" stroke-width="5"/></svg></div>
+    </div>
+    <div class="size">
+      <span class="cap">16px favicon</span>
+      <div class="slot"><svg width="13" height="16" viewBox="0 0 76 96" aria-hidden="true"><rect x="8" y="4" width="60" height="88" fill="none" stroke="currentColor" stroke-width="4"/><rect x="8" y="4" width="30" height="88" fill="url(#fall)" opacity=".5"/><line x1="8" y1="4" x2="8" y2="92" stroke="currentColor" stroke-width="7"/></svg></div>
+    </div>
+    <div class="size">
+      <span class="cap">Avatar</span>
+      <div class="slot"><div class="avatar"><svg width="18" height="23" viewBox="0 0 76 96" aria-hidden="true"><rect x="8" y="4" width="60" height="88" fill="none" stroke="currentColor" stroke-width="3.5"/><line x1="8" y1="4" x2="8" y2="92" stroke="currentColor" stroke-width="7"/></svg></div></div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <h3><span class="dot for"></span>For</h3>
+      <ul>
+        <li>Draws the concept the whole site is already built on, and the name at the same time.</li>
+        <li>No borrowed motif to get wrong.</li>
+      </ul>
+    </div>
+    <div>
+      <h3><span class="dot against"></span>Against</h3>
+      <ul>
+        <li>A gradient is not a mark. It cannot be stamped, embossed, foiled or faxed, and it dies under grain &mdash; turn the grain on.</li>
+        <li>An upright rectangle is close to unregistrable: too simple and too decorative to carry distinctive character.</li>
+        <li>At 16px it is a rectangle. Every brand with a rectangle is this brand.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══ rejected ══════════════════════════════ -->
+<section>
+  <div class="plate-head">
+    <span class="num">&mdash;</span>
+    <h2>And the one to reject out loud</h2>
+  </div>
+  <p><strong>No mark at all &mdash; the Muji move.</strong> <span class="jp">無印良品</span> means "no-mark quality goods", and the argument for it is genuinely the same argument this brand already makes about empty space. It does not transfer. Muji can decline to have a mark because it is already one of the most recognised brands on earth; the absence reads as confidence <em>because</em> everyone knows whose absence it is. An unknown seller asking a stranger for £180 has no such stock of recognition to spend. Here the absence would read as an absence.</p>
+</section>
+
+<div class="rec">
+  <div class="label">Recommendation</div>
+  <h2 style="margin-top:.5rem">01 as the mark, 02 as the logo, 03 borrowed for the interior</h2>
+  <p style="margin-top:1rem">They are not four competing logos. Three of them are one system, and the fourth is the one to drop.</p>
+  <ol>
+    <li><strong>The primary logo is the wordmark (02).</strong> Tracked uppercase, small, and governed by a size rule rather than a size spec: never larger than the piece on the page.</li>
+    <li><strong>The compact mark is a struck punch (01)</strong> &mdash; and it earns its place by doing the four jobs the wordmark provably fails: favicon, avatar, the stamp on the mailer, the seal on the care card.</li>
+    <li><strong>What goes inside the punch is the one real open question.</strong> <span class="jp">光</span> (03) performs best and carries the most risk; <span class="jp">H</span> in Newsreader is safe and generic. This is the thing to test, and it is a smaller and cheaper question than "what should the logo be".</li>
+    <li><strong>Drop the alcove (04).</strong> It is the most attractive drawing here and the least usable mark. Keep the idea &mdash; it already exists as the homepage feature, which is where it belongs.</li>
+  </ol>
+</div>
+
+<section style="margin-top:3.5rem">
+  <div class="label">Before any of this is drawn properly</div>
+  <h2 style="margin-top:.5rem">Four checks, in this order</h2>
+  <p style="margin-top:1rem">The brief says the clearance check happens <em>before</em> any spend on brand design. That is now.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Check</th><th>Why now</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>UK IPO, Classes 14 and 35</td><td>A conflict here changes the name, and the name is the logo</td><td>Not done &mdash; needs a direct register search</td></tr>
+      <tr><td>Handles and domains</td><td>@hikari is held by a Japanese model with ~1M followers. The handle will carry a qualifier, so the lockup has to survive one</td><td>Confirmed unavailable</td></tr>
+      <tr><td>16px and stamped, under grain</td><td>D6 grain plus a 16px favicon kills fine strokes. Minimum stroke weight is a spec, not a preference</td><td>Testable above</td></tr>
+      <tr><td>Never struck into metal</td><td>Hallmarking Act 1973 &mdash; sponsor's-mark offence, and assay offices may obliterate confusable marks</td><td>Rule established</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<footer>
+  <p>Specimen for <code>docs/10-logo.md</code>. Palette and type from <code>brand/tokens.css</code> and <code>docs/08-brand.md</code>. The drawings are direction tests at specification quality, not finished artwork &mdash; the point is which direction survives the constraints, not which curve is right.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var grounds = document.querySelectorAll('.sw');
+  var grainBtn = document.getElementById('grain-toggle');
+
+  function applyGround(btn){
+    var bg = btn.getAttribute('data-bg');
+    var ink = btn.getAttribute('data-ink');
+    document.querySelectorAll('.stage, .strip').forEach(function(el){
+      el.style.setProperty('--ground', bg);
+      el.style.setProperty('--ink', ink);
+    });
+    grounds.forEach(function(b){ b.setAttribute('aria-pressed', String(b === btn)); });
+  }
+
+  grounds.forEach(function(btn){
+    btn.addEventListener('click', function(){ applyGround(btn); });
+  });
+
+  grainBtn.addEventListener('click', function(){
+    var on = document.body.classList.toggle('grain');
+    grainBtn.setAttribute('aria-pressed', String(on));
+    grainBtn.textContent = on ? 'Grain on' : 'Grain off';
+  });
+})();
+</script>
+</body>
+</html>

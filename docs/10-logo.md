@@ -2,7 +2,7 @@
 
 **Status: directions proposed, nothing decided (2026-09-22).** Reading order: [08](08-brand.md) first — the aesthetic, palette, type and texture are already settled and the mark has to live inside them, not restate them.
 
-**Live specimen:** https://claude.ai/artifact/2fopZe4vn7LYhmL6JTJxtS — the four directions drawn, at 48px / 24px / 16px favicon / avatar, on all four scroll grounds, with the grain toggle.
+**Specimen:** [`brand/mark-specimen.html`](../brand/mark-specimen.html) — open it in a browser. Published copy: https://claude.ai/artifact/2fopZe4vn7LYhmL6JTJxtS — the four directions drawn, at 48px / 24px / 16px favicon / avatar, on all four scroll grounds, with the grain toggle.
 
 ---
 
