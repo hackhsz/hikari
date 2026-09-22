@@ -116,3 +116,11 @@ Holding the font body untouched is right for deciding the idea and wrong for shi
 Considered and dropped: ひかり and ひ ([99](99-open-questions.md), 2026-09-22 (vi)).
 
 *Studies:* https://claude.ai/artifact/43BGDvL4z4U983z4gnZWJg
+
+**Amended 2026-09-22 (v) — the glyph form, and the simplest construction.** Japanese writes 光 with the same character (U+5149, six strokes, no separate simplified form), but the **drawn proportions differ by region and the difference is on the two top strokes**: the Japanese 明朝 convention draws them short with air above the bar, Chinese conventions draw them long. **The brief must name the Japanese form**; setting the Chinese proportions on a Japanese-sourcing brand is the kind of error a Tokyo dealer sees and a London customer never does. The Japanese convention is also the one that leaves room for the drops.
+
+**Proposed as the identity construction: "the shared rule."** The character's horizontal *is* the page's own hairline rule — the mark supplies five short strokes and the layout supplies the sixth. It is the only construction that gets simpler by giving a stroke away, it suits a brand already built on hairlines and horizontal division, and it is **a behaviour rather than a shape**, so it cannot be copied by tracing. Where no rule exists — favicon, stamp — it falls back to the intaglio square already specified for the punch. Logged as [99](99-open-questions.md) #37.
+
+**Rejected outright: hairline weight.** It reads as restraint and fails grain, stamping, embroidery and 16px at once.
+
+*Studies:* https://claude.ai/artifact/PXwnTn8fCqeoie3cew9pdM

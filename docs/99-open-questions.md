@@ -145,3 +145,16 @@ Kana and simpler-mark options explored ([10](10-logo.md), studies: https://claud
 | 36 | Keep **the drop pair alone** as the reduced monogram for embroidery, hot foil and anything below 16px? | [10](10-logo.md) |
 
 **Considered and dropped:** ひかり (soft, unambiguous, but three curves that will not compress — a second wordmark, not a mark) and ひ alone (one continuous stroke, the most beautiful form in the set, but it says *hi*, not *hikari*).
+
+## Update · 2026-09-22 (vii)
+
+Glyph question settled and five simpler constructions drawn ([10](10-logo.md), studies: https://claude.ai/artifact/PXwnTn8fCqeoie3cew9pdM).
+
+**Settled:** Japanese uses the same character — U+5149, six strokes, no separate simplified form. **But the regional drawn proportions differ, and the difference is on the two top strokes:** the Japanese 明朝 convention draws them short with clear air above the bar; Chinese conventions draw them long, nearly closing the gap. Two consequences — the brief must **name the Japanese form** as a constraint, and the Japanese convention happens to be the one that leaves room for the drops.
+
+| # | Question | Where |
+|---|---|---|
+| 37 | **Adopt "the shared rule" (03)?** The character's horizontal *is* the page's hairline rule; the layout completes the mark. The most genuinely simple option, and a behaviour rather than a shape — but it needs a fallback everywhere no rule exists, which is 02. | [10](10-logo.md), [04](04-site-ia.md) |
+| 38 | Ring enclosure (01) — keep as an alternative to the rounded-square punch, or drop? Hairline ring only; a filled disc triggers the rayed-sun prohibition. | [10](10-logo.md) |
+
+**Rejected:** hairline weight (05). It reads as restraint and fails grain, stamping, embroidery and 16px simultaneously. Logged so it does not return in a design review as "make it lighter".

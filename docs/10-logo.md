@@ -261,3 +261,58 @@ Full set in the studies. The result:
 
 - Readings: [goo 漢字辞典 — 光](https://dictionary.goo.ne.jp/word/kanji/%E5%85%89/) · [Weblio — 名前《光》の読み方](https://www.weblio.jp/content/%E5%90%8D%E5%89%8D%E3%80%8A%E5%85%89%E3%80%8B%E3%81%AE%E8%AA%AD%E3%81%BF%E6%96%B9)
 - Script character and logotype practice: [ラクスル — 漢字・ひらがな・カタカナで変わる印象](https://raksul.com/magazine/column/characters-impression-difference/) · [ロゴマーケット — 日本語でロゴタイプを作成する際のポイント](https://logomarket.jp/labo/japanese-logo/) · [ランサーズ — カタカナを用いたロゴ20選](https://www.lancers.jp/c/logo/logo-knowhow/10253/)
+
+---
+
+## Update · 2026-09-22 (v) — the glyph question, and five simpler constructions
+
+**Studies:** [`brand/constructions.html`](../brand/constructions.html) — open in a browser. Published copy: https://claude.ai/artifact/PXwnTn8fCqeoie3cew9pdM
+
+### Is Japanese 光 the same character?
+
+**Yes.** 光 is a jōyō kanji, six strokes, and it was never given a separate simplified form — the Japanese, simplified-Chinese and traditional-Chinese characters are one and the same code point (U+5149).
+
+**But the drawn proportions differ by region, and the difference lands exactly on the two strokes this mark is built from.** Rendered side by side in Noto Serif JP / SC / TC / KR:
+
+| Region | The top two strokes |
+|---|---|
+| **Japan · 明朝** | **Short, with clear air above the bar.** The most compact top of the four. |
+| PRC · 宋体 | Longer, reaching down toward the bar; the gap nearly closes. |
+| Taiwan · 明體 | Long again, with a straighter left stroke. Closer to the PRC form than to the Japanese one. |
+| Korea · 명조 | Between the two. |
+
+**Two practical consequences.**
+
+1. **Specify the Japanese form in writing.** Set 光 in a Chinese font on a brand whose entire story is Japanese sourcing and a Japanese eye finds it subtly wrong — the kind of detail a Tokyo dealer notices and a London customer never does. It belongs in the design brief as a named constraint, not as an assumption.
+2. **The Japanese convention is the one that leaves air under the top strokes** — which is exactly the space a pair of drops needs. The regional form we should be using is also the form that makes the drop idea work. That is luck, but it is worth recording.
+
+### Five simpler constructions
+
+All built from the same six-stroke skeleton, no font involved.
+
+| | Construction | Verdict |
+|---|---|---|
+| 01 · 丸に光 | 光 inside a hairline ring — the kamon enclosure Mitsubishi and Kikkoman still use | Stable, Japanese without a motif. **Hairline ring, never a filled disc** (rayed-sun prohibition). |
+| 02 · 陰刻 | 光 knocked out of a solid rounded square | **The simplest silhouette and the best at 16px** — the square carries the weight, the character only interrupts it. This is the stamp. |
+| 03 · 界線 | The character's horizontal **is the page's own hairline rule** | **Recommended.** See below. |
+| 04 · 方眼 | Every stroke on one grid, two lengths, square-cut terminals | Simple in the systematic sense, but the symmetric top ticks drift toward a radiating form. Watch it. |
+| 05 · 細線 | The same skeleton at hairline weight | **Reject.** Lighter *looks* like restraint and fails grain, stamping, embroidery and 16px at once. |
+| 06 · 滴 | The drop version, for comparison | Not simpler than these — **more specific.** |
+
+### Why 03 is the real answer to "simpler"
+
+**The shared rule is the only construction that gets simpler by removing a stroke from the logo and giving it to the page.** The mark supplies five short strokes; the layout supplies the sixth — the hairline rule that already divides every section of the site — and completes the character.
+
+Three reasons it is the right kind of simple for this brand specifically:
+
+- It suits a brand already built on hairlines, empty space and horizontal division. The logo stops being an object placed on the grid and becomes part of it.
+- It is **a behaviour, not a shape**, so it cannot be copied by tracing — which is the opposite of the problem with abstract minimal marks noted earlier in this document.
+- It degrades gracefully: where there is no rule to borrow (a favicon, a stamp), the mark falls back to 02, which is the same character with its own enclosure.
+
+### Recommendation
+
+1. **03 for the identity**, where a rule exists to borrow — site, stationery, editorial layouts.
+2. **02 for the stamp and the favicon.** Best silhouette, best at 16px, and it is the intaglio state already specified for the punch.
+3. **Keep the drops (06) as what sits inside them.** Simple and generic is easy; simple and specific is the job. Everything in this set except the drops could belong to any business called 光.
+4. **Reject 05 outright, watch 04.**
+5. **Name the Japanese glyph convention in the brief.**

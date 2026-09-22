@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Hikari — marks built on 光. Standalone; open directly in a browser.
+     See docs/10-logo.md. Palette and type from brand/tokens.css.
+     The four regional glyphs are U+5149 in Noto Serif JP / SC / TC / KR.
+     All six marks are hand-built geometry on one shared skeleton. -->
+<title>Marks Built on 光</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Instrument+Sans:wght@400;500;600&family=Noto+Serif+JP:wght@500&family=Noto+Serif+SC:wght@500&family=Noto+Serif+TC:wght@500&family=Noto+Serif+KR:wght@500&display=swap">
+<style>
+:root{
+  --paper:#EFF0EC; --paper-deep:#DFE1DC; --rule:#C9CCC6;
+  --sumi:#14171A; --nezu:#5E625B; --ai:#2E4B6B; --kaki:#9E4730;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --measure:34rem; --gutter:clamp(1rem,5vw,3.5rem);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--sumi);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:64rem;margin:0 auto;padding-inline:var(--gutter);padding-block:clamp(2.5rem,7vw,5rem) 6rem}
+.label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--nezu)}
+h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.3rem,6vw,3.5rem);line-height:1.05;letter-spacing:-.01em;margin:.5rem 0 0;text-wrap:balance}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.45rem,3.4vw,2rem);line-height:1.15;margin:0;text-wrap:balance}
+h3{font-size:13px;font-weight:600;letter-spacing:.02em;margin:0 0 .35rem}
+p{margin:0 0 1rem;max-width:var(--measure)}
+p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:var(--paper-deep);padding:.1em .35em}
+.lede{font-size:17px;line-height:1.55}
+hr.rule{border:0;border-top:1px solid var(--rule);margin:3.5rem 0}
+header.masthead{border-bottom:1px solid var(--rule);padding-bottom:2rem;margin-bottom:2.5rem}
+
+.controls{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--rule);
+  margin-inline:calc(var(--gutter)*-1);padding:.75rem var(--gutter);display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.5rem;margin-top:2.5rem}
+.ctl-group{display:flex;align-items:center;gap:.5rem}
+.swatches{display:flex;gap:.35rem}
+button{font:inherit;cursor:pointer}
+.sw{width:1.65rem;height:1.65rem;border-radius:50%;border:1px solid var(--rule);padding:0;outline-offset:3px}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 1.5px var(--paper),0 0 0 3px var(--sumi)}
+.toggle{border:1px solid var(--rule);background:transparent;color:var(--sumi);border-radius:999px;padding:.3rem .85rem;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.12em}
+.toggle[aria-pressed="true"]{background:var(--sumi);color:var(--paper);border-color:var(--sumi)}
+
+.tint{position:relative;overflow:hidden;background:var(--ground,var(--paper-deep));color:var(--ink,var(--sumi));transition:background .5s ease,color .5s ease}
+.tint::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s ease;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+body.grain .tint::after{opacity:.62}
+
+.regions{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2rem}
+.region{padding:1.4rem 1rem 1.2rem;display:flex;flex-direction:column;align-items:center;gap:.55rem;text-align:center}
+.region .cap{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;opacity:.55}
+.region p{font-size:12px;line-height:1.4;opacity:.78;max-width:11rem;margin:0}
+.region p b{opacity:1;font-weight:600}
+.region.is-ours{outline:2px solid var(--ai);outline-offset:-2px}
+
+.marks{display:grid;grid-template-columns:repeat(auto-fit,minmax(13.5rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2rem}
+.mark{padding:1.6rem 1.15rem 1.4rem;display:flex;flex-direction:column;align-items:center;gap:.8rem;text-align:center}
+.mark.pick{outline:2px solid var(--ai);outline-offset:-2px}
+.mark.reject{outline:1px solid var(--kaki);outline-offset:-1px}
+.mark .glyph{display:flex;align-items:center;justify-content:center;min-height:7.5rem}
+.mark .cap{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;opacity:.55}
+.mark .nm{font-family:var(--serif);font-size:1.05rem;line-height:1.2}
+.mark p{font-size:12.5px;line-height:1.45;opacity:.78;max-width:13rem;margin:0}
+.mark p b{opacity:1;font-weight:600}
+.tiny{display:flex;align-items:center;gap:.55rem;font-size:9.5px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;opacity:.5}
+
+.note{border-left:2px solid var(--kaki);padding:.15rem 0 .15rem 1rem;margin-top:1.5rem;font-size:14px;color:var(--nezu);max-width:var(--measure)}
+.note b{color:var(--sumi);font-weight:600}
+.rec{background:var(--paper-deep);border:1px solid var(--rule);padding:clamp(1.5rem,4vw,2.5rem);margin-top:3.5rem}
+.rec ol{margin:1rem 0 0;padding-left:1.2rem;max-width:var(--measure)}
+.rec li{margin-bottom:.6rem}
+.rec li::marker{color:var(--nezu);font-variant-numeric:tabular-nums}
+footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--rule);font-size:13px;color:var(--nezu)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+html,body{background:#EFF0EC}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="label">Hikari &middot; brand &middot; 2026-09-22</div>
+  <h1>Marks built on 光</h1>
+  <p class="lede" style="margin-top:1.25rem"><strong>Yes — Japanese writes it with exactly this character.</strong> 光 is a jōyō kanji, six strokes, and it was never given a separate simplified form: the Japanese, simplified-Chinese and traditional-Chinese characters are the same character. But the <em>drawn proportions</em> are not the same, and the difference falls precisely on the two strokes we care about.</p>
+</header>
+
+<h2>The same character, drawn four ways</h2>
+<p style="margin-top:.75rem">All four below are the identical code point set in that region's own serif. Look only at the two top strokes and the air beneath them.</p>
+
+<div class="regions tint">
+  <div class="region is-ours">
+    <span class="cap">Japan · 明朝</span>
+    <div style="font-family:'Noto Serif JP',serif;font-size:4rem;font-weight:500;line-height:1.1">光</div>
+    <p><b>Short top strokes, clear air above the bar.</b> The most compact top of the four — and the one that leaves room for something to hang there.</p>
+  </div>
+  <div class="region">
+    <span class="cap">PRC · 宋体</span>
+    <div style="font-family:'Noto Serif SC',serif;font-size:4rem;font-weight:500;line-height:1.1">光</div>
+    <p>Longer top strokes reaching down toward the bar; the gap nearly closes. A taller, tighter top.</p>
+  </div>
+  <div class="region">
+    <span class="cap">Taiwan · 明體</span>
+    <div style="font-family:'Noto Serif TC',serif;font-size:4rem;font-weight:500;line-height:1.1">光</div>
+    <p>Long strokes again, with a straighter left stroke. Closest to the PRC form, not to the Japanese one.</p>
+  </div>
+  <div class="region">
+    <span class="cap">Korea · 명조</span>
+    <div style="font-family:'Noto Serif KR',serif;font-size:4rem;font-weight:500;line-height:1.1">光</div>
+    <p>Between the two. Hanja are set from a third set of conventions again.</p>
+  </div>
+</div>
+
+<p class="note" style="margin-top:1.5rem"><b>Two consequences, and both are practical.</b> First: set 光 in a Chinese font on a brand whose whole story is Japanese sourcing and a Japanese eye will find it subtly wrong — the kind of detail a Tokyo dealer notices and a London customer never does. Specify the Japanese form, in writing. Second, and more useful: <b>the Japanese convention is the one that leaves air under the top strokes</b> — which is exactly the space a pair of drops needs. The regional form we should be using is also the form that makes the idea work.</p>
+
+<div class="controls">
+  <div class="ctl-group">
+    <span class="label">Ground</span>
+    <div class="swatches" role="group" aria-label="Test ground">
+      <button class="sw" data-bg="#EFF0EC" data-ink="#14171A" aria-pressed="true" title="白練" style="background:#EFF0EC"></button>
+      <button class="sw" data-bg="#DFE1DC" data-ink="#14171A" aria-pressed="false" title="銀鼠" style="background:#DFE1DC"></button>
+      <button class="sw" data-bg="#2E4B6B" data-ink="#EFF0EC" aria-pressed="false" title="藍" style="background:#2E4B6B"></button>
+      <button class="sw" data-bg="#14171A" data-ink="#EFF0EC" aria-pressed="false" title="濡羽色" style="background:#14171A"></button>
+    </div>
+  </div>
+  <div class="ctl-group"><button class="toggle" id="grain-toggle" aria-pressed="false">Grain off</button></div>
+</div>
+
+<h2 style="margin-top:3rem">Five simpler constructions</h2>
+<p style="margin-top:.75rem">All built from the same six-stroke skeleton, no font involved. Each shown large, then at 16px.</p>
+
+<div class="marks tint">
+
+  <!-- ring -->
+  <div class="mark">
+    <span class="cap">01 · 丸に光</span>
+    <div class="glyph">
+      <svg width="98" height="98" viewBox="0 0 100 100" role="img" aria-label="光 inside a thin ring">
+        <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="3.2"/>
+        <g transform="translate(50 50) scale(.62) translate(-50 -50)" fill="none" stroke="currentColor" stroke-width="10.5" stroke-linecap="butt">
+          <path d="M50 14 V34"/><path d="M31 18 L26 34"/><path d="M69 18 L74 34"/>
+          <path d="M6 47 H94"/><path d="M40 54 L26 85"/><path d="M63 54 L72 85"/>
+        </g>
+      </svg>
+    </div>
+    <div class="nm">The ring</div>
+    <div class="tiny">16px
+      <svg width="16" height="16" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="5"/>
+        <g transform="translate(50 50) scale(.6) translate(-50 -50)" fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="butt">
+          <path d="M50 12 V33"/><path d="M30 16 L24 33"/><path d="M70 16 L76 33"/>
+          <path d="M5 48 H95"/><path d="M40 56 L26 86"/><path d="M63 56 L73 86"/></g>
+      </svg>
+    </div>
+    <p>The kamon enclosure — the device Mitsubishi and Kikkoman still use. <b>A ring gives a mark stability and a Japanese read without a motif.</b> Keep it a hairline ring, never a filled disc.</p>
+  </div>
+
+  <!-- intaglio -->
+  <div class="mark">
+    <span class="cap">02 · 陰刻</span>
+    <div class="glyph">
+      <svg width="98" height="98" viewBox="0 0 100 100" role="img" aria-label="光 knocked out of a solid rounded square" class="intaglio">
+        <rect x="2" y="2" width="96" height="96" rx="20" fill="currentColor"/>
+        <g transform="translate(50 50) scale(.64) translate(-50 -50)" fill="none" stroke="var(--ground,#DFE1DC)" stroke-width="11" stroke-linecap="butt">
+          <path d="M50 14 V34"/><path d="M31 18 L26 34"/><path d="M69 18 L74 34"/>
+          <path d="M6 47 H94"/><path d="M40 54 L26 85"/><path d="M63 54 L72 85"/>
+        </g>
+      </svg>
+    </div>
+    <div class="nm">Struck in</div>
+    <div class="tiny">16px
+      <svg width="16" height="16" viewBox="0 0 100 100" aria-hidden="true" class="intaglio">
+        <rect x="2" y="2" width="96" height="96" rx="20" fill="currentColor"/>
+        <g transform="translate(50 50) scale(.62) translate(-50 -50)" fill="none" stroke="var(--ground,#DFE1DC)" stroke-width="13" stroke-linecap="butt">
+          <path d="M50 12 V33"/><path d="M30 16 L24 33"/><path d="M70 16 L76 33"/>
+          <path d="M5 48 H95"/><path d="M40 56 L26 86"/><path d="M63 56 L73 86"/></g>
+      </svg>
+    </div>
+    <p>One shape with a hole in it. <b>The simplest silhouette available</b> and the best performer at 16px, because the square carries the weight and the character only has to interrupt it.</p>
+  </div>
+
+  <!-- shared rule -->
+  <div class="mark pick">
+    <span class="cap">03 · 界線</span>
+    <div class="glyph">
+      <svg width="150" height="98" viewBox="0 0 160 100" role="img" aria-label="光 whose horizontal stroke is the page's own hairline rule, running full width">
+        <line x1="0" y1="47" x2="160" y2="47" stroke="currentColor" stroke-width="1.6"/>
+        <g fill="none" stroke="currentColor" stroke-width="9.5" stroke-linecap="butt" transform="translate(30 0)">
+          <path d="M50 14 V34"/><path d="M31 18 L26 34"/><path d="M69 18 L74 34"/>
+          <path d="M40 54 L26 85"/><path d="M63 54 L72 85"/>
+        </g>
+      </svg>
+    </div>
+    <div class="nm">The shared rule</div>
+    <div class="tiny">16px
+      <svg width="30" height="16" viewBox="0 0 160 100" aria-hidden="true">
+        <line x1="0" y1="47" x2="160" y2="47" stroke="currentColor" stroke-width="5"/>
+        <g fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="butt" transform="translate(30 0)">
+          <path d="M50 12 V33"/><path d="M30 16 L24 33"/><path d="M70 16 L76 33"/>
+          <path d="M40 56 L26 86"/><path d="M63 56 L73 86"/></g>
+      </svg>
+    </div>
+    <p><b>The character's horizontal <em>is</em> the page's hairline rule.</b> The mark supplies five short strokes; the layout supplies the sixth and completes it. Minimal by construction, and it makes the logo part of the grid rather than an object sitting on it.</p>
+  </div>
+
+  <!-- modular -->
+  <div class="mark">
+    <span class="cap">04 · 方眼</span>
+    <div class="glyph">
+      <svg width="98" height="98" viewBox="0 0 100 100" role="img" aria-label="光 on a strict grid, two stroke lengths only">
+        <g fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="butt">
+          <path d="M50 15 V35"/><path d="M32 15 L22 35"/><path d="M68 15 L78 35"/>
+          <path d="M5 47 H95"/><path d="M42 55 L22 85"/><path d="M62 55 L72 85"/>
+        </g>
+      </svg>
+    </div>
+    <div class="nm">Modular</div>
+    <div class="tiny">16px
+      <svg width="16" height="16" viewBox="0 0 100 100" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="butt">
+          <path d="M50 14 V34"/><path d="M32 14 L22 34"/><path d="M68 14 L78 34"/>
+          <path d="M4 48 H96"/><path d="M42 56 L22 86"/><path d="M62 56 L72 86"/></g>
+      </svg>
+    </div>
+    <p>Every stroke on one grid, two lengths only, terminals square-cut. <b>Simple in the systematic sense</b> — but the symmetric top ticks push it toward a radiating form. Watch that.</p>
+  </div>
+
+  <!-- hairline -->
+  <div class="mark reject">
+    <span class="cap">05 · 細線</span>
+    <div class="glyph">
+      <svg width="98" height="98" viewBox="0 0 100 100" role="img" aria-label="光 drawn at hairline weight">
+        <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="butt">
+          <path d="M50 14 V36"/><path d="M31 17 L25 36"/><path d="M69 17 L75 36"/>
+          <path d="M5 47 H95"/><path d="M41 53 L24 87"/><path d="M62 53 L73 87"/>
+        </g>
+      </svg>
+    </div>
+    <div class="nm">Hairline</div>
+    <div class="tiny">16px
+      <svg width="16" height="16" viewBox="0 0 100 100" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="butt">
+          <path d="M50 14 V36"/><path d="M31 17 L25 36"/><path d="M69 17 L75 36"/>
+          <path d="M5 47 H95"/><path d="M41 53 L24 87"/><path d="M62 53 L73 87"/></g>
+      </svg>
+    </div>
+    <p>Lighter <em>looks</em> simpler, and it is the trap. <b>Turn the grain on.</b> It also cannot be stamped, embossed or embroidered, and the 16px version is already a smudge.</p>
+  </div>
+
+  <!-- drops, for comparison -->
+  <div class="mark">
+    <span class="cap">06 · 滴</span>
+    <div class="glyph">
+      <svg width="98" height="98" viewBox="0 0 100 100" role="img" aria-label="光 with the two top strokes as drops">
+        <g fill="none" stroke="currentColor" stroke-width="9.5" stroke-linecap="butt">
+          <path d="M50 13 V33"/><path d="M6 47 H94"/><path d="M40 54 L26 85"/><path d="M63 54 L72 85"/>
+        </g>
+        <path d="M27.00 16.50 L28.32 32.49 A5.90 5.90 0 1 0 38.36 27.82 Z" fill="currentColor"/>
+        <path d="M73.00 16.50 L61.64 27.82 A5.90 5.90 0 1 0 71.68 32.49 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="nm">Drops &middot; current</div>
+    <div class="tiny">16px
+      <svg width="16" height="16" viewBox="0 0 100 100" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="11" stroke-linecap="butt">
+          <path d="M50 13 V33"/><path d="M6 47 H94"/><path d="M40 54 L26 85"/><path d="M63 54 L72 85"/></g>
+        <path d="M27.00 16.50 L28.32 32.49 A5.90 5.90 0 1 0 38.36 27.82 Z" fill="currentColor"/>
+        <path d="M73.00 16.50 L61.64 27.82 A5.90 5.90 0 1 0 71.68 32.49 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <p>Where we got to last time, for comparison. <b>Not simpler than these — more specific.</b> The drops are the only element in the whole set that is about jewellery.</p>
+  </div>
+
+</div>
+
+<div class="rec">
+  <div class="label">Recommendation</div>
+  <h2 style="margin-top:.5rem">03 as the idea, 02 as the stamp, 06 for what goes in them</h2>
+  <p style="margin-top:1rem">These are not six competitors. Three of them combine, and the two to avoid are the ones that look simplest.</p>
+  <ol>
+    <li><strong>03 — the shared rule — is the real answer to "simpler".</strong> It is the only one that gets simpler by removing a stroke from the logo and giving it to the page. It suits a brand already built on hairlines and empty space, and it makes the mark part of the grid instead of an object placed on it. It is also the most defensible, because it is a <em>behaviour</em> competitors cannot copy by tracing a shape.</li>
+    <li><strong>02 — struck in — is the stamp and the favicon.</strong> Best silhouette, best at 16px, and it is literally the intaglio state already specified for the punch.</li>
+    <li><strong>Keep the drops (06) as what sits in them.</strong> Simple and generic is easy; simple and specific is the job. Everything on this page except the drops could belong to any business called 光.</li>
+    <li><strong>Avoid 05 entirely, and watch 04.</strong> Hairline weight looks like restraint and fails grain, stamping, embroidery and 16px at once. The modular version's symmetric top ticks drift toward a radiating sun — the standing prohibition applies.</li>
+    <li><strong>Specify the Japanese glyph form in writing.</strong> Whatever is drawn, its proportions come from the 明朝 convention, not from 宋体. A Tokyo dealer will see the difference; the brief should name it.</li>
+  </ol>
+</div>
+
+<footer>
+  <p>Specimen for <code>docs/10-logo.md</code>. The four regional glyphs are the same code point (U+5149) rendered in Noto Serif JP, SC, TC and KR. All six marks are hand-built geometry on one shared skeleton — proportion studies at specification quality, not final artwork.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var grounds=document.querySelectorAll('.sw'), grainBtn=document.getElementById('grain-toggle');
+  function apply(btn){
+    var bg=btn.getAttribute('data-bg'), ink=btn.getAttribute('data-ink');
+    document.querySelectorAll('.tint').forEach(function(el){
+      el.style.setProperty('--ground',bg); el.style.setProperty('--ink',ink);
+    });
+    document.querySelectorAll('.intaglio g').forEach(function(g){ g.setAttribute('stroke',bg); });
+    grounds.forEach(function(b){ b.setAttribute('aria-pressed',String(b===btn)); });
+  }
+  grounds.forEach(function(b){ b.addEventListener('click',function(){ apply(b); }); });
+  grainBtn.addEventListener('click',function(){
+    var on=document.body.classList.toggle('grain');
+    grainBtn.setAttribute('aria-pressed',String(on));
+    grainBtn.textContent=on?'Grain on':'Grain off';
+  });
+})();
+</script>
+</body>
+</html>
