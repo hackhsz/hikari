@@ -27,6 +27,8 @@ These documents are the working plan. They are meant to be returned to and revis
 | [10 — Logo](docs/10-logo.md) | The lockup: proportions, the weight ratio, the compact mark |
 | [11 — Platform](docs/11-platform.md) | **Shopify vs Stripe vs custom — the checkout decision** |
 | [12 — Build cost](docs/12-build-cost.md) | **What it costs to get the store built and live** |
+| [13 — Photography](docs/13-photography-pipeline.md) | **The AI pipeline, and the line it must not cross** |
+| [14 — Marketing](docs/14-marketing.md) | **Paid channels, what they cost, and what to optimise for** |
 | [Decisions](docs/DECISIONS.md) | **Dated log of what's settled, proposed, or reversed** |
 | [99 — Open questions](docs/99-open-questions.md) | Everything unresolved, in one place |
 

@@ -110,3 +110,40 @@ The inventory-management argument in D7 was weak and is withdrawn: with 60–100
 **Amended:** **Stripe Payment Links are the right tool for Phase 0** — no fee, no website, `limit payments = 1` prevents a double sale, SAQ A. Better than what [07](07-roadmap.md) currently specifies. Updated there.
 
 **Also recorded:** Shopify → custom later is easy; custom → Shopify means rebuilding the front end. Shopify is the reversible choice.
+
+---
+
+### D9 · Support — email only
+**2026-09-22 · Decided**
+
+No live chat, no phone, no helpdesk software. An inbox and a stated response time. At 30 orders a month the volume does not justify anything more, and a slow reply from a named human beats a fast one from a widget. Revisit if order volume passes ~100/month or if pre-purchase questions start costing sales.
+
+---
+
+### D10 · AI photography pipeline — yes, with the evidence frames ring-fenced
+**2026-09-22 · Decided**
+
+AI for background replacement, colour correction, shadow synthesis, crop and upscale, and — highest value — **on-model generation for scale**, which is otherwise impossible on one-of-one stock at 45–60 minutes a piece.
+
+**Never** for plating loss, scratches, chips, missing or replaced stones, repairs, or patina.
+
+**One policy covering grain and AI together**, extending [D6](DECISIONS.md): frames 1 and 3 may be grained and AI-worked; **frames 2 and 4 — the maker's-mark macro and the condition frame — are evidence, stay unretouched, and are labelled as such.**
+
+*Rationale:* [13](13-photography-pipeline.md). Commercial before legal — a piece that looks better on screen than in the hand produces a return, a review and sometimes a chargeback, and at 50% margin a returned order costs more than the next one earns. Legally, CAP's guidance is explicit that a disclosure does not rescue a misleading image.
+
+**Turn it into an asset:** publish the retouching policy. Nobody in the category does, and it converts the biggest objection in [03](03-customer.md) into a reason to buy.
+
+---
+
+### D11 · Paid media — optimise for the list, not for sales
+**2026-09-22 · Decided**
+
+Ads point at the sourcing story and the Edition sign-up, never at individual pieces.
+
+*Rationale:* [14](14-marketing.md). On one-of-one stock an ad for a sold piece is wasted spend, and every winning creative dies when its subject sells — you can never scale an ad whose product no longer exists. The brand and the sourcing story never sell out. Paid spend then builds an owned asset instead of renting attention.
+
+**Channels:** Meta primary (fashion has the platform's lowest CPCs; Reels 20–35% cheaper than feed), **Pinterest alongside it from the start** — CPMs run roughly a quarter of Meta's and pins last years. TikTok organic only for now. Google Ads on generic terms only.
+
+**Budget:** £10–15/day Meta + £5/day Pinterest ≈ £450–600/month, and not until the weekly Edition works organically ([05](05-social.md)). Max £30 CAC on a first order. Measure **cost per subscriber**, not cost per sale.
+
+**Refines [04](04-site-ia.md):** its blanket "never bid on brand names" was too crude. Google permits reseller use of marks as keywords and in ad text where the landing page genuinely sells those goods and the advertiser is clearly identified, with the UK applying a stricter identity standard. It is *permitted rather than safe*, and the risk is asymmetric — so generic terms only until the business is worth defending, and never Chanel.

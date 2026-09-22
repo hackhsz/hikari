@@ -121,3 +121,19 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 | 34 | **Photography in-house or outsourced.** At £15–40/piece outsourced it costs more than the website and recurs with every batch; in-house it is 45–60 min/piece, the real constraint on the business. Neither is cheap — decide deliberately. | [12](12-build-cost.md), [06](06-unit-economics.md) |
 | 35 | Get one freelance quote briefed as *conversion of a finished design*, not a design project, to test the £2,500–6,000 estimate | [12](12-build-cost.md) |
 | 36 | Confirm UK IPO trademark fees and whether Class 14 alone or 14 + 35 | [12](12-build-cost.md), [00](00-brief.md) |
+
+## Update · 2026-09-22 (vi)
+
+### Resolved
+- **#34 — photography.** In-house capture, AI post-production ([D10](DECISIONS.md), [13](13-photography-pipeline.md)). Outsourcing at £15–40/piece avoided; the base capture of the real object, flaws included, stays in-house.
+- **Support model** — email only ([D9](DECISIONS.md)).
+
+### Newly open
+
+| # | Question | Where |
+|---|---|---|
+| 37 | Which AI tool, after trialling two on real stock. Jewellery is hard for AI — it refracts, and cheap engines make stones look plastic. Reject plastic. | [13](13-photography-pipeline.md) |
+| 38 | Landing-page sign-up conversion (assumed 15–25%). The whole paid model scales off it — measure in month one. | [14](14-marketing.md) |
+| 39 | Should hero frames be AI-worked at all, or is straight photography truer to the grain-and-daylight argument in [08](08-brand.md)? Instinct: straight. | [13](13-photography-pipeline.md) |
+| 40 | Write and publish the retouching policy page — a trust asset nobody else in the category has | [13](13-photography-pipeline.md), [04](04-site-ia.md) |
+| 41 | Spend harder in Q2–Q3 to build the list cheaply ahead of Q4's 60% fashion CPM rise? | [14](14-marketing.md) |
