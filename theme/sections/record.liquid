@@ -3,15 +3,23 @@
   <div class="shell pad" id="record">
     <p class="eyebrow">{{ section.settings.heading }}</p>
     <div class="grid6">
-      {%- assign col = collections[section.settings.collection] -%}
-      {%- for p in col.products limit: 6 -%}
+      {%- if section.settings.collection != blank -%}
+        {%- assign recs = collections[section.settings.collection].products -%}
+      {%- else -%}
+        {%- comment -%} No collection chosen — the Record is simply everything sold out. {%- endcomment -%}
+        {%- assign recs = collections.all.products -%}
+      {%- endif -%}
+      {%- assign shown = 0 -%}
+      {%- for p in recs -%}
+        {%- if section.settings.collection == blank and p.available -%}{%- continue -%}{%- endif -%}
+        {%- if shown >= 6 -%}{%- break -%}{%- endif -%}
+        {%- assign shown = shown | plus: 1 -%}
         <a class="rec" href="{{ p.url }}">
           {%- if p.featured_image -%}{{ p.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', alt: p.title, style: 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover' }}{%- endif -%}
           <b>{{ p.vendor | default: p.title | truncate: 14 }} · sold</b>
         </a>
-      {%- else -%}
-        {%- for i in (1..6) -%}<div class="rec"><b>—</b></div>{%- endfor -%}
       {%- endfor -%}
+      {%- if shown == 0 -%}{%- for i in (1..6) -%}<div class="rec"><b>—</b></div>{%- endfor -%}{%- endif -%}
     </div>
   </div>
 </section>

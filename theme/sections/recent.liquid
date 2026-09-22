@@ -2,15 +2,27 @@
   <div class="shell">
     <p class="eyebrow">{{ section.settings.heading }}</p>
     <div class="grid4">
-      {%- assign col = collections[section.settings.collection] -%}
-      {%- for p in col.products limit: 4 -%}
-        {%- render 'product-card', card_product: p, tone: 'dark' -%}
+      {%- if section.settings.collection != blank -%}
+        {%- assign items = collections[section.settings.collection].products -%}
+        {%- for p in items limit: 4 -%}{%- render 'product-card', card_product: p, tone: 'dark' -%}{%- endfor -%}
       {%- else -%}
-        {%- for i in (1..4) -%}
-          <a class="card" href="#">{%- render 'plate', ratio: 1.25, seed: i, tone: 'dark', comp: 'single' -%}
-          <div class="cinfo"><h3 class="chouse">—</h3></div></a>
+        {%- comment -%} No collection chosen — show what is in stock, after the four already above. {%- endcomment -%}
+        {%- assign n = 0 -%}{%- assign shown = 0 -%}
+        {%- for p in collections.all.products -%}
+          {%- if p.available -%}
+            {%- assign n = n | plus: 1 -%}
+            {%- if n > 4 and shown < 4 -%}
+              {%- assign shown = shown | plus: 1 -%}
+              {%- render 'product-card', card_product: p, tone: 'dark' -%}
+            {%- endif -%}
+          {%- endif -%}
         {%- endfor -%}
-      {%- endfor -%}
+        {%- if shown == 0 -%}
+          {%- for i in (1..4) -%}<a class="card" href="{{ routes.all_products_collection_url }}">
+            {%- render 'plate', ratio: 1.25, seed: i, tone: 'dark', comp: 'single' -%}
+            <div class="cinfo"><h3 class="chouse">—</h3></div></a>{%- endfor -%}
+        {%- endif -%}
+      {%- endif -%}
     </div>
   </div>
 </section>
