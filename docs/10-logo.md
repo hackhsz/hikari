@@ -411,3 +411,20 @@ The 16px cells make the case: light 200 is a smudge, regular 400 holds. **The lo
 ### The question this leaves
 
 **Mincho or gothic — it is a brand question, not a weight question, and it is now the live one.** If the answer turns out to be gothic after all, that is legitimate and arguably better aligned with [02](02-positioning.md) — **but then the Latin goes gothic too.** A light gothic kanji beside a light gothic Latin is coherent; beside a serif it is the accident this whole thread started from.
+
+---
+
+## Update · 2026-09-22 (viii) — PNG exports
+
+**Files:** [`brand/logo/`](../brand/logo/) — eleven PNGs plus a [README](../brand/logo/README.md) naming what each one is for.
+
+Rendered from the light-mincho specification: kanji Noto Serif JP 200 in the lockup, 400 standalone, **500 at 32px and below**; Latin Newsreader 300 tracked 0.28 em; divider 1.1 at cap height 40. Transparent ground, one colour, ink `#14171A` with reversed `#EFF0EC` variants.
+
+The set: horizontal lockup at 2400 and 1200, reversed lockup, a version baked onto `#EFF0EC` for anything that cannot take alpha, the compact 光 at 1024 and 512 plus reversed, the struck-in punch as a solid square with the glyph knocked out to transparent, and favicons at 180 / 32 / 16.
+
+**Two notes for whoever uses them:**
+
+- **The favicons are downsampled from a 1024 master, not rendered small.** Headless Chromium will not render reliably into a tiny window, so they are box-filtered down from the heavy-weight master. This also matches the spec — the standalone mark gains weight as it shrinks.
+- **The punch is ink-on-transparent with the glyph cut out.** On a dark ground the square disappears; use the reversed mark there instead.
+
+**Status, stated in the folder README so it travels with the files:** these are the open font set to spec, not drawn artwork, and the direction is still open on two counts — set versus drawn ([99](99-open-questions.md) #39) and mincho versus gothic (#41). Fine for mockups and internal work. **Nothing printed, registered, or shown to a customer until the name clears Classes 14 and 35** (#4).
