@@ -124,3 +124,30 @@ Required at launch:
 - No forced account creation. Guest checkout, always.
 
 Also from [08](08-brand.md): the homepage leads with **one piece** (The Alcove), not a grid. The grid begins below the fold. Sold pieces stay live as **The Record**.
+
+---
+
+## Update · 2026-09-22 — homepage layout
+
+**Prototype:** https://claude.ai/artifact/SSwHryr1Tu735AVHKxdo5s
+
+The tokonoma principle in [08](08-brand.md) says one object at a time. A shop needs to show more than one. The resolution is a **scale ladder**, not a compromise:
+
+| Section | Count | Scale |
+|---|---|---|
+| The Alcove | 1 | Full width |
+| This Edition | 3 | Asymmetric, half to two-thirds width |
+| Shop by house | — | Type only, no images |
+| Found in Japan | 1 | Half width, beside text |
+| Recently found | 4 | Quarter width |
+| The Record | 6 | Sixth width, desaturated |
+
+**Density is earned.** The page never shows two things at the same size until it has earned the right to, so the entrance stays quiet while the shop underneath is still a shop.
+
+**Featured pieces are composed, not gridded.** The three in This Edition sit on a 12-column grid at different spans (`1/7`, `8/13`, `3/10`) with different vertical offsets. An even 3-up grid reads as stock; an asymmetric one reads as chosen — which is the entire proposition in [02](02-positioning.md). It collapses to a single column under 720px.
+
+**Houses became a section, not a menu.** The brand-as-navigation requirement at the top of this document is rendered as a band of house names set large in the display serif. It satisfies the SEO and navigation need while doubling as a design element — and it is the most legible statement of what the shop actually sells.
+
+**Chanel appears in the house band and the Record only.** Consistent with the caution above: it is the most litigious rights-holder in the category, and it should be a smaller share of the mix than Dior, Givenchy, YSL, Nina Ricci and Grosse.
+
+**Information stays below the image at every scale** — Alcove, featured card, quarter-width card alike. No overlaid type anywhere, so no scrim anywhere.

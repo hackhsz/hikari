@@ -71,3 +71,25 @@ Heavy film grain over the whole page (image and type alike), imagery at full wid
 **Carries one hard constraint.** Grain applies to the composed and on-body frames only. The maker's-mark macro and the condition frame are evidence and stay clean — grain hides precisely the wear that [03](03-customer.md) and [04](04-site-ia.md) require the buyer to see. Texture on the seduction, never on the proof.
 
 *Open:* whether "用画" meant large imagery or actual paintings ([99](99-open-questions.md) #24), and mid-range Android performance before Phase 1 commits ([99](99-open-questions.md) #26).
+
+---
+
+### D7 · Platform — Shopify Basic, Shopify Payments, custom theme
+**2026-09-22 · Decided**
+
+Not a bespoke Stripe build, and specifically **not** Stripe as a third-party gateway on Shopify — that combination pays Stripe's rate *and* Shopify's penalty (~£6.50 on a £180 sale against £3.85).
+
+*Rationale:* [11](11-platform.md). Shopify Payments is powered by Stripe, so "build it on Stripe" is what Shopify Payments already is, with the commerce layer supplied. A custom build saves roughly £565 a year and costs cart, inventory, orders, shipping, returns, email, tax, PCI scope, fraud, CMS and search — built and then maintained forever. Design freedom is not the constraint: a hand-built Liquid theme controls every page except checkout, and everything in the prototypes is ordinary theme work.
+
+*Review triggers:* Basic → Grow at ~£10,000/month revenue (set the review at £8,000). Headless only if the storefront outgrows Liquid — and it would not change the checkout anyway.
+
+---
+
+### D8 · Homepage layout — the scale ladder
+**2026-09-22 · Decided**
+
+One piece at full width, three composed asymmetrically, then four, then six. Density is earned. Featured pieces sit at different grid spans and vertical offsets rather than in an even row. House names are a display-type section rather than a filter menu. Information below the image at every scale.
+
+*Rationale:* [04](04-site-ia.md). Resolves the tension between the tokonoma principle and the fact that a shop has to show stock.
+
+*Prototype:* https://claude.ai/artifact/SSwHryr1Tu735AVHKxdo5s

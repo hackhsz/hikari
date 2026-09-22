@@ -87,3 +87,19 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 | 24 | **What "用画" means** — imagery at large scale (assumed), or actual paintings/artworks as backdrops? The latter is public-domain-only and is its own cliché in vintage retail. | [08](08-brand.md) |
 | 25 | Confirm the hard rule: grain on frames 1 and 3, never on 2 (maker's mark) and 4 (condition). Grain hides exactly what [03](03-customer.md) says must be visible. | [08](08-brand.md) |
 | 26 | Scroll-colour and full-page blend-mode need testing on a real mid-range Android before Phase 1 commits to them | [08](08-brand.md), [07](07-roadmap.md) |
+
+## Update · 2026-09-22 (iii)
+
+### Resolved
+- **#18 — payment rails.** Card checkout confirmed, via Shopify Payments ([D7](DECISIONS.md), [11](11-platform.md)).
+- **#23 — palette.** Treating **B (銀鼠)** as adopted: the supplied lockup specimen is built on palette B's tokens throughout. **Confirm explicitly** — it is currently inferred, not stated.
+- **#20 — type.** Newsreader for Latin, **Noto Serif JP** for the kanji ([10](10-logo.md)). Instrument Sans remains the UI face.
+
+### Newly open
+
+| # | Question | Where |
+|---|---|---|
+| 27 | **Mincho or gothic for the kanji** — a voice decision, not a weight one. Mincho reads *written* and editorial; gothic reads *neutral* and Muji-like, which is closer to what [02](02-positioning.md) argues for. If gothic wins, the Latin must go gothic too. | [10](10-logo.md) |
+| 28 | Verify Shopify Starter's current price for Phase 0 payment links | [11](11-platform.md) |
+| 29 | Shopify Payments approval needs the UK company and business bank account — start it before launch week | [11](11-platform.md), [07](07-roadmap.md) |
+| 30 | Branded resale can attract processor counterfeit-risk review, holds or reserves. Mitigation is the per-piece acquisition record already required for the exhaustion defence — now serving three purposes. | [11](11-platform.md), [04](04-site-ia.md) |
