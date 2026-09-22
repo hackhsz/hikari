@@ -235,3 +235,43 @@ The obvious compromise, and the domains are free (`hikarivintage.com` and `.co.u
 One hour now decides four questions instead of one.
 
 **Neither TMview's detail endpoint nor UKIPO's search will serve the specification to an automated request** — UKIPO returns 403. This step has to be done by hand or by the attorney.
+
+---
+
+## Two routes that don't work, and one that does
+
+### An overseas company does not help
+
+**Trade mark rights are territorial as to *use*, not as to the user.** TMA 1994 s.10 prohibits use "in the course of trade in the United Kingdom". A Singapore or Hong Kong company selling to UK consumers is using the mark in the UK. Where it is incorporated is irrelevant to infringement.
+
+It makes three things worse:
+
+1. **It costs 7.8% of revenue on day one.** A non-established taxable person has a **zero** VAT threshold and must register from the first UK sale ([16](16-vat.md) §2). Staying unregistered is worth **£14 a piece — 7.8%** ([D14](DECISIONS.md)). An overseas entity throws that away and buys nothing with it. Holding UK stock triggers registration regardless.
+2. **Enforcement is unchanged; our position is worse.** Infringement occurring in the UK gives the UK courts jurisdiction. DCK could seek an injunction, a customs Application for Action, and platform and registrar cooperation. An overseas entity is harder to *defend from*, not harder to sue.
+3. **It destroys the trust proposition.** [03](03-customer.md) concludes the barrier at £185 is trust, not price, and the Consumer Contracts Regulations require a geographic address. Publishing a Singapore address under the story *"a British shop that goes to Japan"* defeats the story itself.
+
+**The one legitimate use** remains the sourcing entity described in [15](15-competitor-etvous.md): a Japanese or Hong Kong company that buys stock and sells on to the UK entity, raising ordinary transfer-pricing questions. **It has no bearing on the brand name.**
+
+### Using the kanji 光 alone probably escapes the mark — and fails as a brand
+
+The legal analysis is genuinely favourable. Similarity is assessed visually, aurally and conceptually, against the **relevant public** — here, UK consumers, most of whom cannot read kanji. Registry practice generally treats non-Latin characters as a **device** for a public that cannot read them, and conceptual similarity needs comprehension. 光 and "HIKARI" are visually unrelated. An attorney would likely say no confusion.
+
+**But it cannot carry a brand**, for two reasons, the second decisive:
+
+1. **Customers cannot read, pronounce, type or search it.** The whole route to market — SEO, handles, word of mouth, press — requires a customer who likes the shop to be able to *tell someone its name*. A single glyph fails every one.
+2. **A romanisation is unavoidable, and it restores the problem.** The lockup at [10](10-logo.md) *is* 光 + rule + "Hikari". Beyond that, a domain, a handle, an email address, a meta title and an invoice all need letters. **The moment "Hikari" appears anywhere, the word mark is in use.** This is not a loophole that fails; it is a route that cannot physically be walked.
+
+### If the attachment is to *light*, the answer is Tomoshibi 灯
+
+**Tomoshibi 灯** — a small light, a lamp.
+
+- 🟢 **No live GB mark in Class 14 or 35**
+- `tomoshibi.co.uk` free; `tomoshibivintage.com` free
+- **灯 is a single kanji**, so the whole proportional system in [10](10-logo.md) transfers with only the glyph changed
+- **The meaning is closer to the business than 光 is.** Not abstract light, but *a lamp someone lit, illuminating one object* — which is The Alcove ([08](08-brand.md)) exactly
+
+For completeness, the rest of the light family: **Akari 灯り** is blocked (AKARI STUDIOS holds **Class 14** — identical problem to Hikari). **Yoake 夜明け** is clear but multi-character, so it breaks the single-glyph lockup.
+
+**Tomoshibi is the only option that keeps the light concept, keeps the lockup system, and is clear.** It joins the attorney brief.
+
+> Rank for risk: Hikari, Hikari Vintage, Enishi 縁, Meguri 巡, Tomoshibi 灯 — against the Class 14 specification of UK00917478348 and the Class 35 wording of UK00908114902.
