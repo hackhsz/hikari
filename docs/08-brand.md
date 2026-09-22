@@ -145,3 +145,33 @@ Which palette. **A third option is available:** B's cool grounds and greys with 
 ### Type note
 
 Recommending **Instrument Sans** over Inter as the free UI face. Inter is the current default-by-reflex in exactly the way `#F4F1EA` is — fine, but unconsidered. Instrument Sans sits closer to Suisse Int'l and takes the wide-tracked uppercase labels better. Newsreader remains the display serif.
+
+---
+
+## Update · 2026-09-22 — texture, scale and scroll
+
+**Live prototype:** https://claude.ai/artifact/3VLz1B1qzQ7P5tnbYnnWtb
+
+Direction requested: heavy grain, imagery used very large, background colour driven by scroll, piece information below the image. Built and specified below.
+
+### The four moves
+
+**1 · Grain as the surface, not a filter.** Animated film grain over the entire page at `mix-blend-mode: overlay`, *plus* per-pixel noise baked into each image. The distinction matters: grain applied only to photographs looks like a filter someone added; grain over image and type together reads as one emulsion. That is what makes it a material rather than an effect.
+
+**2 · One plate, nothing competing.** Each piece gets a full-width image and the page holds nothing else at that scale. This is the tokonoma principle from above, executed — and it is why the direction is compatible with the restraint the brand is built on, despite being more maximalist than the original spec.
+
+**3 · Colour is a function of scroll position.** Background and foreground interpolate continuously through the palette as the page moves — 白練 → 銀鼠 → 藍 → 濡羽色 — with type inverting against the ground. The page opens in daylight and ends in ink. Continuous interpolation, not stepped sections: the change should be barely perceptible moment to moment and obvious across the whole page.
+
+**4 · Information below the image, always.** House, piece, year, price, grade, measurements, mark, provenance — all beneath the plate. **The photograph is never asked to carry text.** This is a rule, not a layout preference: overlaid type forces a scrim, a scrim dulls the image, and a dulled image is the one thing this direction cannot afford.
+
+### Two conflicts this creates
+
+**Grain versus condition legibility — the real one.** [03](03-customer.md) and [04](04-site-ia.md) both turn on honest condition disclosure: the buyer must be able to see the plating loss, the missing stone, the wear. **Grain hides exactly that.** A heavily-grained condition photograph is, functionally, a misleading one — and the returns and disputes that follow cost more than the aesthetic gains.
+
+**Resolution:** grain is applied to frames 1 and 3 (the composed shot, the on-body shot) and **never** to frames 2 and 4 (the macro of the maker's mark, the condition frame). Those two are evidence and are presented clean, at full resolution, with a zoom. The texture belongs to the seduction; the evidence stays untouched. Worth stating in the photography spec above as a hard rule.
+
+**Build cost.** A scroll-driven colour system and full-page blend-mode overlay is a custom Shopify section, not a theme setting — it adds real front-end work to Phase 1, and `mix-blend-mode` across a full viewport is a known scroll-performance cost on mid-range Android. Needs testing on a real phone before it ships, with a `prefers-reduced-motion` path (already in the prototype) and a static-grain fallback.
+
+### Open — what "画" means
+
+Read here as *imagery used at large scale*. If the intent was **actual paintings or artworks** as backdrops, that is a different and legally narrower direction: only public-domain works are safe to use, and the effect is common enough in vintage fashion retail to be its own cliché. Worth confirming before it gets designed around. Logged as [99](99-open-questions.md) #24.

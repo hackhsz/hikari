@@ -79,3 +79,11 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 **#20 narrowed:** free type pairing is **Newsreader + Instrument Sans** (Instrument Sans replaces Inter — see [08](08-brand.md)). Licensed upgrade path unchanged: Canela + Suisse Int'l.
 
 **Contrast corrections applied** to both palettes; the values originally in [08](08-brand.md) failed WCAG AA at body size. Canonical tokens now in [`brand/tokens.css`](../brand/tokens.css).
+
+## Update · 2026-09-22 (ii)
+
+| # | Question | Where |
+|---|---|---|
+| 24 | **What "用画" means** — imagery at large scale (assumed), or actual paintings/artworks as backdrops? The latter is public-domain-only and is its own cliché in vintage retail. | [08](08-brand.md) |
+| 25 | Confirm the hard rule: grain on frames 1 and 3, never on 2 (maker's mark) and 4 (condition). Grain hides exactly what [03](03-customer.md) says must be visible. | [08](08-brand.md) |
+| 26 | Scroll-colour and full-page blend-mode need testing on a real mid-range Android before Phase 1 commits to them | [08](08-brand.md), [07](07-roadmap.md) |
