@@ -171,3 +171,15 @@ Divided lockup specified and the supplied reference glyph identified ([10](10-lo
 | 40 | Divider variant — A (cap height, recommended), B (kanji height), C (short centred tick) | [10](10-logo.md) |
 
 **#28 restated in a sharper form:** serif title case `Hikari` versus grotesque uppercase `HIKARI` beside the kanji are **different brands, not different renderings.** Test them as such.
+
+## Update · 2026-09-22 (ix)
+
+Lockup rebuilt in light mincho ([10](10-logo.md), studies: https://claude.ai/artifact/AkmvRHXTwTUfFvw2JBN9jn).
+
+**Resolved:** the weight problem. Mincho 200 against Newsreader 300 recovers the calm of the supplied reference. The pairing is specified as a **ratio** — kanji exactly one step below the Latin, both moving together with size (200/300 at hero, 300/400 at body and print) — because a designer given fixed hero weights will let the small sizes fall apart.
+
+| # | Question | Where |
+|---|---|---|
+| 41 | **Mincho or gothic for the kanji?** Light mincho reads *written* — editorial, warm, close to ReSee and the category's existing register. Light gothic reads *neutral* — Muji, Ginza, closer to what [02](02-positioning.md) actually argues for. The supplied reference was gothic **by accident**. This is a brand decision, and it sits with #39 (set or drawn) above the detail questions. **If the answer is gothic, the Latin goes gothic too** — a gothic kanji beside a serif Latin is the accident, not a style. | [10](10-logo.md), [02](02-positioning.md) |
+
+**Note against #28.** That question was "serif or grotesque for the Latin". It is not independent of #41 — the two sides have to agree. Decide them together.

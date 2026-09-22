@@ -362,3 +362,52 @@ Stated against **cap height (C)** so it can be rebuilt at any size. The supplied
 ### Note on where this sits
 
 This lockup keeps 光 as a *character*, which is a different branch from the constructed-and-drawn mark of the earlier studies. Both remain live: the lockup is what the name looks like set; the constructed mark is what the name looks like drawn. They are not in conflict — a house can have both — but only one can be the thing that gets registered and stamped.
+
+---
+
+## Update · 2026-09-22 (vii) — rebuilt in light mincho
+
+**Studies:** [`brand/lockup-light.html`](../brand/lockup-light.html) — open in a browser. Published copy: https://claude.ai/artifact/AkmvRHXTwTUfFvw2JBN9jn
+
+Kanji in **Noto Serif JP 200**, the lightest mincho available, against **Newsreader 300**. Shown line for line against the supplied original at a matched 40px cap height, so the kanji is the only variable.
+
+### The result, in three parts
+
+**It keeps the calm.** At 200 the mincho's stems come down close to the gothic's, so the kanji stops out-weighing the Latin — which was the entire reason the original reference worked.
+
+**It changes the voice, and that is the decision.** Light mincho still has teardrop dots, flared terminals and real thick/thin. It reads **written** — editorial, warm, close to *ReSee* and to the category's existing register. The gothic read **neutral** — Muji, Ginza retail, closer to the position [02](02-positioning.md) actually argues for. **The original was the second by accident.** Choosing the first is a real choice and should be made deliberately rather than inherited from a font-substitution bug.
+
+**It costs fragility.** Mincho's thin strokes are much thinner than a gothic's at the same apparent weight, because the contrast is real. The horizontals go first under grain.
+
+### The pairing is a ratio, not two numbers
+
+Tested across the matrix. **Keep the kanji exactly one step below the Latin, and move both together as size changes:**
+
+| Scale | Kanji | Latin |
+|---|---|---|
+| Hero | Mincho **200** | Newsreader **300** |
+| Body, print, signage | Mincho **300** | Newsreader **400** |
+
+Equal weights (200/200) is the mistake the rule exists to prevent — six strokes against one letter, and the kanji wins anyway. Two steps apart (200/400) is not wrong, but it inverts the hierarchy: the name leads and the character qualifies. Worth keeping for small sizes.
+
+**State it as a ratio in the brief**, or a designer will lock the hero weights and the small sizes will fall apart.
+
+### Spec changes
+
+| Element | Was | Now |
+|---|---|---|
+| Kanji face | Mincho, weight unstated | **Mincho 200** hero; **300** body and print |
+| Latin | Newsreader 300 | **300** hero; **400** where the kanji is 300 |
+| Pairing | "one to two steps lighter" | **Exactly one step**, both moving together |
+| Rule weight | `1.4` at C=40 | **`1.1`** at C=40 — a light pair needs a lighter rule, or the divider becomes the heaviest thing in the lockup |
+| Compact mark | One weight | **400** standalone, **300** inside the punch |
+
+Everything else unchanged: kanji 1.30 C, optical centre to cap centre, 0.55 C either side of the rule, rule 1.00 C, Latin tracked 0.28 em, Japanese 明朝 form.
+
+### The compact mark does not follow the lockup
+
+The 16px cells make the case: light 200 is a smudge, regular 400 holds. **The lockup's kanji is light because it has a Latin to be lighter *than*; alone it has nothing to defer to and needs the weight back.** Two drawn weights of one glyph, never one weight scaled.
+
+### The question this leaves
+
+**Mincho or gothic — it is a brand question, not a weight question, and it is now the live one.** If the answer turns out to be gothic after all, that is legitimate and arguably better aligned with [02](02-positioning.md) — **but then the Latin goes gothic too.** A light gothic kanji beside a light gothic Latin is coherent; beside a serif it is the accident this whole thread started from.

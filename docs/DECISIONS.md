@@ -132,3 +132,9 @@ Considered and dropped: ひかり and ひ ([99](99-open-questions.md), 2026-09-2
 **New branch, and it now sits above the open detail questions: set, or drawn?** The lockup keeps 光 as a character; the constructed mark of the earlier studies draws it. A house can carry both, but only one can be registered and stamped. Logged as [99](99-open-questions.md) #39.
 
 *Studies:* https://claude.ai/artifact/Xq1SCfUQnyXwrBoBnXtE2r
+
+**Amended 2026-09-22 (vii) — the lockup's weights, and the question underneath them.** Kanji in **Noto Serif JP 200** against **Newsreader 300** at hero scale; **300/400** at body scale and in print. The pairing is recorded as a **ratio — the kanji exactly one step below the Latin, both moving together with size** — not as fixed numbers, because fixed hero weights leave the small sizes to fall apart. Divider drops to `1.1` at C=40: a light pair needs a lighter rule or the divider becomes the heaviest thing in the lockup. Compact mark stays heavier — **400** standalone, **300** in the punch.
+
+**What this resolved and what it exposed.** Light mincho recovers the calm of the supplied reference, so the weight problem is solved. But it changes the *voice*: light mincho reads written and editorial; the gothic read neutral and industrial, and the reference was gothic **by accident**. That is now a live brand question ([99](99-open-questions.md) #41), and it is not independent of the Latin pairing (#28) — the two sides have to agree. **If the answer is gothic, the Latin goes gothic too.**
+
+*Studies:* https://claude.ai/artifact/AkmvRHXTwTUfFvw2JBN9jn
