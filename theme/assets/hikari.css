@@ -12,6 +12,12 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
+
+/* Each section paints its own ground as a fallback, so a page where the colour
+   script never ran still renders correctly — it just doesn't interpolate.
+   With the script alive, <html> gets .scroll-colour and the body takes over. */
+[data-bg]{background:var(--sec-bg,transparent);color:var(--sec-fg,inherit)}
+html.scroll-colour [data-bg]{background:transparent;color:inherit}
 img{max-width:100%;height:auto;display:block}
 .shell{max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
 .pad{padding-block:clamp(56px,11vw,132px)}
