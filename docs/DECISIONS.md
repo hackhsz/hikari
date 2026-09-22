@@ -124,3 +124,11 @@ Considered and dropped: ひかり and ひ ([99](99-open-questions.md), 2026-09-2
 **Rejected outright: hairline weight.** It reads as restraint and fails grain, stamping, embroidery and 16px at once.
 
 *Studies:* https://claude.ai/artifact/PXwnTn8fCqeoie3cew9pdM
+
+**Amended 2026-09-22 (vi) — the divided lockup, and a branch that now needs choosing.** A horizontal lockup is specified: `光` · hairline rule · `Hikari`, with every proportion stated against cap height (kanji 1.30 C, optical centre to cap centre, 0.55 C either side of the rule, rule at 1.00 C from cap line to baseline and no heavier than the Latin's thinnest stroke, Latin tracked 0.28 em). Compact mark: 光 alone, free-standing, in the punch, and struck in — **drawn at a heavier weight than the lockup's kanji**, because alone it has nothing to be lighter than and still has to survive 16px and the grain.
+
+**Diagnosis of the supplied reference, and the rule it produced.** Its kanji is a *gothic* paired with a *serif* Latin — a font-substitution mismatch — and that mismatch is why it reads calm: a kanji carries six strokes in one Latin letter's area, so at equal nominal weight it always reads heavier. **Match apparent stroke weight, not nominal weight; set the kanji one to two steps lighter; and pair a serif Latin with a light mincho, never a gothic.**
+
+**New branch, and it now sits above the open detail questions: set, or drawn?** The lockup keeps 光 as a character; the constructed mark of the earlier studies draws it. A house can carry both, but only one can be registered and stamped. Logged as [99](99-open-questions.md) #39.
+
+*Studies:* https://claude.ai/artifact/Xq1SCfUQnyXwrBoBnXtE2r

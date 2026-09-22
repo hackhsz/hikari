@@ -158,3 +158,16 @@ Glyph question settled and five simpler constructions drawn ([10](10-logo.md), s
 | 38 | Ring enclosure (01) — keep as an alternative to the rounded-square punch, or drop? Hairline ring only; a filled disc triggers the rayed-sun prohibition. | [10](10-logo.md) |
 
 **Rejected:** hairline weight (05). It reads as restraint and fails grain, stamping, embroidery and 16px simultaneously. Logged so it does not return in a design review as "make it lighter".
+
+## Update · 2026-09-22 (viii)
+
+Divided lockup specified and the supplied reference glyph identified ([10](10-logo.md), studies: https://claude.ai/artifact/Xq1SCfUQnyXwrBoBnXtE2r).
+
+**Finding worth keeping regardless of which direction wins:** the kanji in the supplied reference is a **gothic**, not a mincho, and the Latin beside it is a serif — a font-substitution mismatch. But it is *why the reference looks calm*: a kanji packs six strokes into one Latin letter's area, so at equal nominal weight it always reads heavier. **Match the kanji's apparent stroke weight to the Latin's stem weight; set the kanji one to two steps lighter.** And pair a serif Latin with a *light mincho*, never a gothic — that pairing is the one that happens by accident.
+
+| # | Question | Where |
+|---|---|---|
+| 39 | **Set, or drawn?** The lockup keeps 光 as a character; the constructed mark draws it. Both are live and a house can carry both, but **only one can be the thing registered and stamped.** This now sits above #33/#37 in the order of decisions. | [10](10-logo.md) |
+| 40 | Divider variant — A (cap height, recommended), B (kanji height), C (short centred tick) | [10](10-logo.md) |
+
+**#28 restated in a sharper form:** serif title case `Hikari` versus grotesque uppercase `HIKARI` beside the kanji are **different brands, not different renderings.** Test them as such.

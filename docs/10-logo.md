@@ -316,3 +316,49 @@ Three reasons it is the right kind of simple for this brand specifically:
 3. **Keep the drops (06) as what sits inside them.** Simple and generic is easy; simple and specific is the job. Everything in this set except the drops could belong to any business called 光.
 4. **Reject 05 outright, watch 04.**
 5. **Name the Japanese glyph convention in the brief.**
+
+---
+
+## Update · 2026-09-22 (vi) — the divided lockup, and what the supplied kanji was
+
+**Direction given:** a reference lockup reading `光  Hikari`, with a vertical rule between the two. Plus a compact 光-only mark.
+
+**Studies:** [`brand/lockup.html`](../brand/lockup.html) — open in a browser. Published copy: https://claude.ai/artifact/Xq1SCfUQnyXwrBoBnXtE2r
+
+### What the supplied 光 actually was
+
+Enlarged and compared against Noto Serif JP and Noto Sans JP at several weights:
+
+1. **It is a gothic, not a mincho.** Even stroke weight, flat terminals, plain diagonal ticks. Mincho — the Japanese equivalent of a serif — has modulated strokes, triangular *uroko* terminals and a fat teardrop for the left dot. The supplied glyph has none of these. Weight is not the difference; the *shapes* are.
+2. **The two faces in the image do not match.** The Latin beside it is a serif with fine bracketed serifs and real thick/thin. So the reference pairs **a serif Latin with a sans kanji** — almost certainly font substitution, the Latin face having no CJK glyphs and the system supplying its default.
+3. **And that mismatch is why it looks good.** This is the part worth keeping. A kanji packs six strokes into the space one Latin letter occupies, so at equal weight it always reads heavier. The accidental gothic reads *lighter* than the Latin, which is exactly why the pair looks calm.
+
+**The rule that follows — and it is the single most useful thing on that page:** match the kanji's *apparent* stroke weight to the Latin's stem weight, not its nominal font weight. In practice the kanji is set one to two weights lighter than the Latin. **The fix is a mincho set light, not a gothic** — pairing a serif with a gothic is the one combination to avoid, precisely because it is the one that happens by accident.
+
+### The lockup specification
+
+Stated against **cap height (C)** so it can be rebuilt at any size. The supplied reference measured 1.34 C for the kanji; this rounds it.
+
+| Element | Value | Why |
+|---|---|---|
+| Kanji height | **1.30 × C** | A kanji set to cap height looks small; 1.3 is the usual correction |
+| Kanji alignment | Optical centre to **cap centre** | Not the baseline. A kanji sits in a square and has none; aligning to a baseline makes it look like it is falling |
+| Gap · kanji → rule | **0.55 × C** | Measured from the ink, not the box — kanji have tight side bearings |
+| Gap · rule → Latin | **0.55 × C** | Same |
+| Rule height | **1.00 × C**, cap line to baseline | It measures the Latin; the kanji is allowed to overshoot it |
+| Rule weight | Match the Latin's **thinnest** stroke | If the rule is heavier than the type's hairlines it stops dividing and starts shouting |
+| Latin tracking | **0.28 em** | Wide tracking is what lets a six-letter word hold its own beside a dense character |
+| Kanji weight | One to two steps **lighter** than the Latin | Six strokes in one letter's area |
+| Glyph form | **Japanese 明朝**, never 宋体 | Carried forward from the previous update |
+
+**Divider variants tested:** A · cap height (**recommended** — divides without competing, and measures the Latin so the character stays the larger object), B · full kanji height (more assertive, starts competing), C · short centred tick (reads as punctuation, loses the separation that was the point), D · grotesque uppercase `HIKARI` (colder, more retail — the same open question as the type pairing, #28).
+
+### The compact mark
+
+光 alone, free-standing, inside the punch outline, and struck in (intaglio), at 16px / 24px / avatar.
+
+**One rule worth recording:** the compact mark gets *heavier* as it gets smaller, deliberately. The lockup's kanji is set light so it does not overpower the Latin; alone, with nothing to be lighter than, it needs weight to survive 16px and the grain. **Specify two weights of the same glyph** — light for the lockup, regular-to-medium for standalone use — rather than scaling one.
+
+### Note on where this sits
+
+This lockup keeps 光 as a *character*, which is a different branch from the constructed-and-drawn mark of the earlier studies. Both remain live: the lockup is what the name looks like set; the constructed mark is what the name looks like drawn. They are not in conflict — a house can have both — but only one can be the thing that gets registered and stamped.
