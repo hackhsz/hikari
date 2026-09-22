@@ -130,3 +130,56 @@ The voice rule from [08](08-brand.md) holds in both languages. The platform norm
 - Which reference account, and whether it is supplying subject or frame ([99](99-open-questions.md) #27).
 - Whether 小红书 is for UK Chinese speakers or is a mainland ambition — different businesses ([99](99-open-questions.md) #28).
 - What the three-column grid does in a week when only two pieces are ready ([99](99-open-questions.md) #29).
+
+---
+
+## Update · 2026-09-22 (ii) — the reference account, reviewed
+
+**Resolves [99](99-open-questions.md) #27.** The reference is [@thevisionnaire.studio](https://instagram.com/thevisionnaire.studio) — an Italian vintage jewellery and accessories dealer. ~335 posts, ~23k followers, ~7.6k following. Sells through **Depop**, not an owned storefront. The bio positions on feeling rather than stock — *"Oggetti e Reliquie per distinguersi"*, with a second line of business in *direzione estetica · bridal · occasion · editorial*. Category highlights for earrings, watches and pierced styles; a broadcast channel called *Club Visionario*.
+
+**It supplies the frame, not the subject** — warm brocade, gilt interiors, oil paintings, film grain, emotive Italian copy. Under the rule in the previous section that makes it a **reversal of [D2](DECISIONS.md)**, not a refinement, and it should not be adopted as-is.
+
+But that is the least useful thing to say about it, because **what this account gets right is not its Europeanness.**
+
+### Three things worth taking
+
+**1 · The atmosphere-to-product ratio — the real lesson.** Of six grid posts visible, two contain no product at all: a cat asleep on damask, an empty gilded room. The grid reads as a *world* rather than a catalogue, and that is what a 23k following is actually responding to. The four-frame spec in [08](08-brand.md) produces only product, and a feed built from it alone will be colder than this.
+
+**Hikari's version of this is strictly stronger.** The Visionnaire's atmosphere is borrowed and generic — an anonymous gilt interior, an oil painting it did not make. Hikari's atmosphere is **pillar 2, the Japan sourcing**: real rooms, real reuse-chain shops, a real hunt. Documentary rather than decorative, impossible for a UK competitor to copy ([02](02-positioning.md)), and free of the exposure below. The reference proves the *slot* exists in a vintage feed; it does not get to define what fills it.
+
+**2 · The two-surface split, which resolves a conflict D6 left open.** Instagram carries mood; Depop carries the evidence. [D6](DECISIONS.md) resolved the grain-versus-condition problem *per frame*; this is cleaner as a **channel rule**:
+
+> **Instagram is the seduction surface. The product page is the evidence surface.** Frame 4 need never appear on Instagram at all. Frame 2 appears there as texture, and again on the product page as proof, clean and zoomable.
+
+This keeps [03](03-customer.md)'s disclosure requirement fully intact while letting the feed be beautiful, and it removes the pressure to make a single image do both jobs.
+
+**3 · Category highlights and a broadcast channel.** Highlights by category (earrings / watches / pierced) are a free navigation layer. The broadcast channel is more interesting: [05](05-social.md) argues the mailing list is the most valuable asset in the business, and a broadcast channel is its **zero-cost precursor** — Edition previews to a self-selected group from week one, before there is a list or an ESP bill.
+
+### Three things to refuse
+
+**1 · The composites — the important one.** Two of the three posts seen place a product onto an image the account did not make: an earring onto a classical oil painting, and a gold clip earring, in colour, onto a grainy black-and-white fashion photograph. Two separate problems, either of which is disqualifying:
+
+- **Rights.** The fashion photograph is almost certainly still in copyright; the painting depends entirely on its date and artist, which the post does not state. [04](04-site-ia.md) already forbids using the houses' own campaign imagery — this is the same exposure arriving from a different direction, and it is not cured by the image being beautiful or old-looking. **This also answers [99](99-open-questions.md) #24:** paintings as backdrops is evidently the direction, and it is viable **only** with verified public-domain works, sourced deliberately.
+- **Evidence.** A pasted-on earring gives false scale and zero condition information. Frame 3 exists in [08](08-brand.md) *specifically* because statement vintage earrings are larger than people expect and the frame prevents returns. A composite is an anti-frame-3: it manufactures exactly the impression that causes the return.
+
+**2 · The warm register.** Brocade, damask, gilt, chandeliers, candlelight, sepia grade. This is the Italian cousin of the faux-Parisian gravity [02](02-positioning.md) and [08](08-brand.md) reject by name, and it sits squarely in the warm-neutral cluster the palette revision moved away from.
+
+**3 · The voice.** *"The accessory is never just a detail, but the story of an identity, timeless"*, with hearts and sparkles. [08](08-brand.md) forbids this vocabulary explicitly, and the ban should hold: at £100–300 from an unknown seller, specifics do the work that adjectives cannot.
+
+### The number that matters more than the look
+
+**~23k followers, ~7.6k following, 209 likes on the post shown.** Under 1% engagement, with a following-to-follower ratio that indicates growth-by-following rather than an audience that arrived on its own. [05](05-social.md) already warns that the vanity metric and the revenue metric point in different directions in this category; **this account is the worked example.**
+
+So: copy its register, not its growth method, and **do not read its follower count as evidence that the approach sells.** Note also that it sells through Depop rather than an owned storefront — the opposite of [D1](DECISIONS.md). What is being borrowed here is a visual posture, not a business model.
+
+### What this does to the three-column grid
+
+The column lock in the previous section was proposed before the reference was seen, and it is in real tension with point 1 above: a pure catalogue grid is colder at the top of the funnel than what this account gets right.
+
+**Recommendation — launch at three, revisit at volume.** Phase 1 inventory will not support six posts a week, so atmosphere lives entirely in Stories and Reels at launch. At the [07](07-roadmap.md) month-9 run rate (25–35 sales/month ≈ 6–8 pieces a week) a **six-post Edition** locks the columns just as well and buys two atmosphere slots per row.
+
+*Partial mitigation meanwhile:* the middle column is the maker's-mark macro, which reads as abstract texture rather than as product. The grid already has more rhythm than a straight product feed — but less than the reference, and that gap is real.
+
+### One find that is not about aesthetics at all
+
+The bio sells **bridal** as a named line. [03](03-customer.md) has three segments and bridal is not one of them — which looks like an omission rather than a decision. UK weddings have a literal *something old* convention, the intent is high, the timeline is fixed and the budget is separate from discretionary spend. Logged as [99](99-open-questions.md) #30.

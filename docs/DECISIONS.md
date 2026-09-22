@@ -86,4 +86,11 @@ Two structural proposals attached:
 
 The platform's cover-title convention collides with [08](08-brand.md)'s rule that the photograph never carries text. **Resolved in favour of the rule:** a plain `--paper-deep` type plate takes ~22% of the 3:4 cover, the photograph below it stays untouched. A plate, not an overlay — the same logic as information-below-the-image on the site.
 
-*Full reasoning:* [05](05-social.md). *Open:* the reference account itself is unreviewed ([99](99-open-questions.md) #27) and the 小红书 remit is unconfirmed (#28). **Awaiting your call.**
+*Full reasoning:* [05](05-social.md). *Open:* the 小红书 remit is unconfirmed ([99](99-open-questions.md) #28). **Awaiting your call.**
+
+**Amended 2026-09-22** — the reference account has now been reviewed (#27 resolved). It supplies the *frame*, so it is not adopted. Two amendments follow from it:
+
+- **The split is a channel rule, not just a frame rule.** *Instagram is the seduction surface; the product page is the evidence surface.* Frame 4 need never appear on Instagram at all. This supersedes nothing in [D6](DECISIONS.md) — it governs the feed, D6 governs the site — but it is the cleaner statement of the same principle.
+- **The grid needs atmosphere the four-frame spec does not produce.** Launch at three posts per Edition with atmosphere in Stories and Reels; revisit a six-post Edition at the [07](07-roadmap.md) month-9 run rate (#32). Hikari's atmosphere is pillar 2 — the Japan sourcing, shot documentary — not borrowed interiors.
+
+**One hard line added:** products are **never composited onto images the business did not make.** The reference does this with a classical painting and with a black-and-white fashion photograph; the second is almost certainly still in copyright, and both destroy scale and condition information that [08](08-brand.md)'s frame 3 exists to supply. Paintings as backdrops are viable only as verified public-domain works, sourced deliberately and recorded per asset ([99](99-open-questions.md) #31).

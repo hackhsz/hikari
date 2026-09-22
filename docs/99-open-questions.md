@@ -97,3 +97,19 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 | 29 | What happens to the three-column grid in a week when only two pieces are ready? The columns only hold at exactly three posts per Edition. | [05](05-social.md) |
 
 **#4 extended:** handle availability must be checked on **Instagram and 小红书** alongside the UK Class 14/35 clearance and the domain, and all four secured before design work is commissioned.
+
+## Update · 2026-09-22 (iv)
+
+### Resolved
+
+- **#27 — the reference account.** [@thevisionnaire.studio](https://instagram.com/thevisionnaire.studio), reviewed in [05](05-social.md). It supplies the **frame**, so adopting it wholesale reverses [D2](DECISIONS.md). What is worth taking from it is the *atmosphere-to-product ratio* and the *two-surface split* (Instagram = seduction, product page = evidence) — neither of which is European.
+- **#24 — what "用画" meant.** Answered by the reference: actual paintings, used as backdrops with the product composited on. Viable **only** with verified public-domain works. The reference also composites onto a black-and-white fashion photograph that is almost certainly still in copyright — do not follow it there.
+- **#25 — the grain rule.** Restated more usefully as a *channel* rule rather than a per-frame one ([05](05-social.md)): frame 4 need never appear on Instagram at all. The per-frame rule in [D6](DECISIONS.md) still governs the site.
+
+### Newly open
+
+| # | Question | Where |
+|---|---|---|
+| 30 | **Is bridal a fourth segment?** The reference account sells it as a named line. UK weddings have a literal *something old* convention, intent is high, the timeline is fixed, and the budget is separate from discretionary spend. [03](03-customer.md) omits it — decision or oversight? | [03](03-customer.md), [05](05-social.md) |
+| 31 | If paintings are used, who sources and verifies public-domain status, and is it recorded per asset? A wrong call here is a rights claim, not a design note. | [04](04-site-ia.md), [08](08-brand.md) |
+| 32 | Does the Edition move to six posts at the [07](07-roadmap.md) month-9 run rate, to buy two atmosphere slots per row while keeping the columns locked? | [05](05-social.md) |
