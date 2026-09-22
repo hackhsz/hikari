@@ -116,3 +116,15 @@ The painterly / old-photograph register of the reference account ([05](05-social
 *Full reasoning:* [10](10-imagery-rights.md). **The hard line from [D7](DECISIONS.md) is unchanged:** never composite a piece onto an image the business did not make. Route A complies with it rather than excepting it, because the photograph is Hikari's own.
 
 *Open:* who owns public-domain verification and per-asset licence records ([99](99-open-questions.md) #31), a model release template before the first on-body shoot (#33), and folding imagery into the pre-launch IP solicitor hour (#34). **None of this is legal advice** — the reasoning in [10](10-imagery-rights.md) carries the same caveat as the tax work in [09](09-payments-and-tax.md).
+
+**Amended 2026-09-22 · owner's call — generated backdrops adopted, in a narrowed form.**
+
+The recommendation above was against, and the reasoning is unchanged and worth re-reading before this scales. What was chosen is narrower than what was rejected:
+
+> **The backdrop is generated. The piece is always a real photograph.**
+
+This satisfies [D7](DECISIONS.md)'s evidence line — true scale and condition survive, because the piece in frame is the piece being sold — and it leaves the *"real object, real age, found in Tokyo"* claim intact, since a painted setting no more contradicts it than a studio sweep does. A synthetic *piece* would; that is not what is being made.
+
+**The ownership objection is not resolved by the narrowing and stands in full.** Generated output may carry no copyright anyone can enforce. Commercial use is generally permitted by the generating service's terms (#36 — verify per service), but **exclusivity is a separate question and the answer may be that there is none.** Proceed accepting that a competitor may copy the feed with no claim available.
+
+Production spec in [10](10-imagery-rights.md); prompts in [`brand/prompts.md`](../brand/prompts.md). One rule is load-bearing rather than stylistic: **generate the sitter with a bare ear, never generate the earring.** Open: recurring sitter or a new face each time ([99](99-open-questions.md) #35).

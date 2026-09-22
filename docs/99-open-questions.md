@@ -127,3 +127,12 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 
 - **Instagram-only posting does not reduce copyright exposure.** The infringing act is the communication to the public, which happens in full on Instagram; the UK has fair *dealing* on a closed list of purposes, not fair use. The operative risk is not litigation but **takedown and account loss** — the primary channel in [05](05-social.md) sits on rented land.
 - **AI-generated backdrops are not adopted.** They solve third-party copyright and create three problems, the decisive one being that [03](03-customer.md) identifies trust as *the* barrier and [08](08-brand.md) has already moved the palette away from looking AI-generated. A synthetic atmosphere argues against the product.
+
+## Update · 2026-09-22 (vi)
+
+**AI backdrops — owner's call, adopted in narrowed form.** The recommendation in [10](10-imagery-rights.md) §3 was against; the owner chose to proceed with a hybrid in which **only the backdrop is generated and the piece is always a real photograph**. Recorded as [D8](DECISIONS.md) amended. The narrowing resolves the evidence objection ([D7](DECISIONS.md)) but **not** the ownership one — generated output may carry no enforceable copyright, so exclusivity cannot be assumed even where commercial use is permitted.
+
+| # | Question | Where |
+|---|---|---|
+| 35 | **A recurring generated sitter, or a new face each time?** A fixed seed builds a brand asset over a year; it also sharpens the AI tell, since a face that recurs, never ages and never appears in Stories invites scrutiny. Suggested split: recurring in the painted register, one-off in the photographic one. | [10](10-imagery-rights.md), [08](08-brand.md) |
+| 36 | Confirm the commercial-use terms of whichever generation service is actually used — they differ between services and they change. | [10](10-imagery-rights.md) |

@@ -151,3 +151,45 @@ Skip AI backdrops. The cost is not legal — it is that the brand's entire argum
 - Who sources and verifies public-domain status, and is the licence recorded per asset? ([99](99-open-questions.md) #31 — this document answers *how*, not *who*.)
 - Add imagery rights to the pre-launch IP solicitor hour already logged in [04](04-site-ia.md): backdrops, model releases for on-body frames, and the disclaimer wording in one sitting.
 - Model release template for route C before the first on-body shoot — a signed release, or the image is unusable commercially later.
+
+---
+
+## Update · 2026-09-22 — the hybrid, and how to produce it
+
+**Owner's call, recorded: a generated backdrop is adopted in a narrowed form.** §3 above recommended against it and that reasoning is unchanged and still worth re-reading before this scales. What was chosen is **narrower than what §3 rejected**, and the narrowing matters:
+
+> **The backdrop is generated. The piece is photographed.** Only the environment is synthetic; the object remains a real photograph of the real item.
+
+This keeps the argument in §3's last paragraph mostly intact. The claim *"real object, real age, found in Tokyo"* is not contradicted by a painted setting any more than a studio sweep contradicts it — **what would contradict it is a synthetic piece**, and that is not what is being made. The evidence objection in [D7](DECISIONS.md) is likewise satisfied: true scale and condition survive, because the earring in frame is the earring being sold.
+
+**The ownership caveat in §3 is not resolved by the narrowing and stands in full.** Generated output may carry no copyright anyone can enforce. *Commercial use* is generally permitted by the generating service's terms — **check the specific service's terms, they differ and they change** — but *exclusivity* is a separate question, and the answer may be that there isn't any. Budget for the possibility that a competitor copies the feed and there is no claim to bring.
+
+### The production rule that decides whether this works
+
+**Generate the sitter with a bare ear. Never generate the earring.**
+
+Removing or overpainting a generated earring is far harder than dropping a real one onto a clean lobe, and every attempt leaves the artefacts that make composites read as cheap ([05](05-social.md)). A bare, well-lit, unobstructed ear is the entire output requirement.
+
+### Two register specifications
+
+Both are written to Hikari's palette rather than the reference's warm brocade, which is the point of specifying them here at all. Neither names a living artist, a named photographer's style or a real person — §3's second risk is a prompt risk, and it is avoided at the prompt.
+
+**A · The painted sitter.** East Asian woman, three-quarter turn away from camera, hair up, one ear fully visible and bare. Oil on canvas with visible brushwork and canvas tooth. Cool muted ground — grey-green, `銀鼠`, deep indigo in the shadows — with the skin warm against it. Soft directional north light. Plain dark neutral background, shallow depth, negative space to one side. No jewellery of any kind. 4:5.
+
+**B · The old photograph.** East Asian woman in strict profile, hair slicked into a low knot, ear fully exposed and bare. Black and white, medium format, heavy silver grain, hard side light, deep blacks and a clean highlight roll-off. Plain pale grey seamless. No jewellery. 4:5.
+
+B is the more valuable of the two: it is mechanically what the reference's strongest image is, and [10](10-imagery-rights.md) route C shoots it for real as soon as there is a shoot day. **Treat the generated version as a stand-in for route C, not as its replacement.**
+
+### Compositing — the five things that decide if it reads as real
+
+1. **Match the light direction first.** Read where the light falls in the generated frame, then shoot the piece under the same direction and quality. Nothing else on this list matters if this is wrong, and it is the single most common tell.
+2. **Add a contact shadow** where the piece meets the lobe. A floating earring is the second most common tell.
+3. **Grain goes on last, over everything.** Composite first, grain the flattened image second — the exact point [08](08-brand.md) makes about grain over image and type together. Grain applied only to the backdrop leaves the piece sitting visibly on top of it.
+4. **In register B, pull the piece's colour toward the photograph.** Keep it in colour, but desaturate slightly and match its white point to the frame's, or it detaches.
+5. **Check the scale against a real ear.** Frame 3 exists to prevent scale-driven returns ([08](08-brand.md)); a composite that gets this wrong causes exactly the returns the frame was meant to stop. Measure, don't eyeball.
+
+### One open decision — the recurring sitter
+
+A fixed seed and a fixed prompt produce the same face every Edition, which over a year becomes a brand asset in the way *The Alcove* is ([08](08-brand.md)).
+
+It also **sharpens the AI tell considerably**: a face that recurs but never ages, never appears in Stories and never has a name invites exactly the scrutiny §3 warns about. The safer pattern is a *painted* recurring sitter (register A), where a consistent face is a convention of portraiture rather than an anomaly, and one-off faces in register B. Logged as [99](99-open-questions.md) #35.
