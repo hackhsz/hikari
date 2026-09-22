@@ -115,3 +115,18 @@ Logo directions proposed in [10](10-logo.md). **Specimen:** https://claude.ai/ar
 | 32 | The angle of the three top ticks. It is where the whole personality of the mark sits, and it is the one thing worth real iteration. | [10](10-logo.md) |
 
 **Prohibition, logged so it cannot be lost in a design review:** the mark is never radial, never emanates from a disc, and never has more rays than the character has strokes. A rayed sun is the 旭日旗 — a repeated and serious crisis for fashion brands, and a real risk for a business whose whole story is Japanese sourcing. 光's asymmetry is the safeguard.
+
+## Update · 2026-09-22 (v)
+
+The two top dots of 光 become drop-shaped stones ([10](10-logo.md), studies: https://claude.ai/artifact/QV1zYGkdp8aGd4TyPWKCLg).
+
+**#31 changes shape.** The question was "how far to abstract the character". It is now "which pair setting, and then redraw the body to match" — the drops supply a reason to redraw that is specific to this business rather than generic tidying.
+
+| # | Question | Where |
+|---|---|---|
+| 33 | **Pair setting: B (converging) or C (splaying)?** B is the smallest edit that produces a pair and leaves the left stroke as the font drew it; C is more visibly a pair of drop earrings and further from the character. Same reader test as #31. | [10](10-logo.md) |
+| 34 | Drop profile — pear, briolette, or bezel-set cabochon. Solid silhouette only; a bezel outline will not survive 16px or the grain. | [10](10-logo.md) |
+
+**Second prohibition, logged alongside the 旭日旗 one:** **no facets, no sparkle, no third stone.** A gem in a jewellery logo is the category's single most common move; what keeps this clear of it is that the drops *replace* strokes the character already had, and that they are a pair (earrings) rather than a solitaire. Add ornament and that defence is gone.
+
+**Also noted:** the drops must be cut to the font's own contrast. The first pass drew them heavier than the character's own bar and legs, and the mismatch was visible — a text face's modulated strokes next to a geometric drop is how marks end up looking like clip art on type.

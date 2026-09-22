@@ -98,3 +98,11 @@ Open at the level below: step 02 vs step 03 of the abstraction ladder ([99](99-o
 *Studies:* https://claude.ai/artifact/PWCZnohGDgay5YfruvPKvj · *Argument:* [10](10-logo.md).
 
 **#4 still gates all of it.** None of this is artwork, and no designer is briefed, until the name clears UK Classes 14 and 35.
+
+**Amended 2026-09-22 (iii) — the two dots become drops.** The two top strokes of 光 are replaced by drop-shaped stones. The move works because a mincho 点 already swells toward its tail, so the teardrop exaggerates the stroke rather than decorating it. Mirroring the pair so both hang turns them into earrings — the hero product — at the cost of the right stroke's calligraphic identity; **setting B (converging) recommended**, C (splaying) as the fallback ([99](99-open-questions.md) #33).
+
+Carries a second standing prohibition, alongside the 旭日旗 one: **no facets, no sparkle, no third stone.** The drops survive the jewellery-logo cliché only because they substitute for strokes the character already had and read as a pair rather than a solitaire.
+
+Holding the font body untouched is right for deciding the idea and wrong for shipping it — it leaves two drops as the only distinctive element in a Class 14 mark. Once the pair is chosen, the constructed 光 takes the same drops.
+
+*Studies:* https://claude.ai/artifact/QV1zYGkdp8aGd4TyPWKCLg

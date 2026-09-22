@@ -172,3 +172,44 @@ Structurally the character is **three marks radiating above a horizontal bar, st
 ### What this does to the earlier directions
 
 The alcove (04 in the first pass) **comes back**. Step 03 draws light falling on a horizontal surface, which is the tokonoma — now as structure that can be stamped, embossed and reduced, rather than as a gradient that cannot. The idea survives; the execution that killed it does not.
+
+---
+
+## Update · 2026-09-22 (iii) — the two dots become drops
+
+**Direction given:** keep the mincho 光 as it is, and turn the two top dots into jewellery — drop-shaped stones.
+
+**Studies:** [`brand/drop-studies.html`](../brand/drop-studies.html) — open in a browser. Published copy: https://claude.ai/artifact/QV1zYGkdp8aGd4TyPWKCLg
+
+### Why the move is stronger than an ornament
+
+A mincho 点 **already swells toward its tail**. The teardrop is not a shape added to the stroke; it is the exaggeration of what the stroke is doing anyway. That distinction is the whole difference between a designed substitution and clip art stuck onto type, and it is also the answer to the category-cliché objection below.
+
+### The measurement that produced the fork
+
+The two dots were measured off a render rather than assumed, and they are **not mirror images**. In Noto Serif JP the left stroke carries its mass at the *inner bottom* and tapers up-and-out; the right stroke carries its mass at the *outer top* and tapers down-and-in. Rotationally symmetric, not mirrored — the ordinary calligraphic balance that stops a character reading as an ornament.
+
+So there is a real choice, and it is not a drawing preference:
+
+| | Setting | Reads as |
+|---|---|---|
+| **A · Faithful** | Each drop keeps its own stroke's weight | 光 first. The right stone rises rather than hangs, so it does not read as a pair — and on the page it reads as a stray comma. **Weakest of the three.** |
+| **B · Pair, converging** | Mirrored; both hang inward | Two drops falling toward the centre stroke, which they frame. Left stroke unchanged from the font — **the smallest edit that still produces a pair.** |
+| **C · Pair, splaying** | Mirrored; both swing outward | The most like a pair of drop earrings, and the furthest from the character. |
+
+**B is the efficient answer and C is the honest one.** For a business whose hero product is statement earrings, the pair is probably the point — and a pair is a far better thing to own than a stone.
+
+### Three things this costs
+
+1. **A gem in a jewellery logo is the category's most common move.** What saves this one is that it is a *substitution, not an addition* — the drops occupy positions the character already had — and that it is a pair, which reads as earrings rather than as a generic solitaire. **If anyone ever adds facets, a sparkle, or a third stone, the argument collapses.** Written into the brief as a prohibition.
+2. **Two hands in one mark.** A text face's modulated strokes beside a geometric drop is a weight mismatch, and it was visible in the first pass — the drops were heavier than the character's own bar and legs. Corrected: the drops are cut to the font's own contrast, bulb no heavier than the stroke's own tail. This is a permanent constraint, not a one-time fix.
+3. **We still own none of the body.** Noto Serif JP is open-licensed, so use is permitted — *distinctiveness* is the problem, not permission. With the body untouched, the only part of the mark that is ours is two drops, which is thin ground in Class 14.
+
+### Recommendation
+
+1. **Take B.** Keep C as the fallback if the pair does not read.
+2. **Cut the drops to the font's contrast**, not to a geometric ideal.
+3. **Then redraw the body.** Holding the font untouched is right for deciding the idea and wrong for shipping it. Once the pair is settled, the constructed 光 from the previous studies takes the same drops — and the whole mark becomes ours rather than two drops on a borrowed body.
+4. **No facets, no sparkle, no third stone. Ever.**
+
+This resolves the earlier abstraction question ([99](99-open-questions.md) #31) in a way neither step alone did: **the drops are the abstraction.** They give the character a reason to be redrawn that is specific to this business, rather than a generic tidying-up.

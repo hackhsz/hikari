@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Hikari — the drop pair. Standalone; open directly in a browser.
+     See docs/10-logo.md. Palette and type from brand/tokens.css.
+     The character is Noto Serif JP at 72/100, centred (50,51), with the two
+     dot positions masked out; dot bounding boxes were measured from a render,
+     not guessed. Drop paths are exact tangent-and-arc geometry. -->
+<title>The Drop Pair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Instrument+Sans:wght@400;500;600&family=Noto+Serif+JP:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#EFF0EC; --paper-deep:#DFE1DC; --rule:#C9CCC6;
+  --sumi:#14171A; --nezu:#5E625B; --ai:#2E4B6B; --kaki:#9E4730;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --jp:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+  --measure:34rem; --gutter:clamp(1rem,5vw,3.5rem);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--sumi);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:62rem;margin:0 auto;padding-inline:var(--gutter);padding-block:clamp(2.5rem,7vw,5rem) 6rem}
+.label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--nezu)}
+h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.3rem,6vw,3.5rem);line-height:1.05;letter-spacing:-.01em;margin:.5rem 0 0;text-wrap:balance}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.45rem,3.4vw,2rem);line-height:1.15;margin:0;text-wrap:balance}
+h3{font-size:13px;font-weight:600;letter-spacing:.02em;margin:0 0 .35rem}
+p{margin:0 0 1rem;max-width:var(--measure)}
+p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:var(--paper-deep);padding:.1em .35em}
+.jp{font-family:var(--jp)}
+.lede{font-size:17px;line-height:1.55}
+hr.rule{border:0;border-top:1px solid var(--rule);margin:3.5rem 0}
+header.masthead{border-bottom:1px solid var(--rule);padding-bottom:2rem;margin-bottom:2.5rem}
+
+.controls{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--rule);
+  margin-inline:calc(var(--gutter)*-1);padding:.75rem var(--gutter);display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.5rem;margin-top:2.5rem}
+.ctl-group{display:flex;align-items:center;gap:.5rem}
+.swatches{display:flex;gap:.35rem}
+button{font:inherit;cursor:pointer}
+.sw{width:1.65rem;height:1.65rem;border-radius:50%;border:1px solid var(--rule);padding:0;outline-offset:3px}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 1.5px var(--paper),0 0 0 3px var(--sumi)}
+.toggle{border:1px solid var(--rule);background:transparent;color:var(--sumi);border-radius:999px;padding:.3rem .85rem;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.12em}
+.toggle[aria-pressed="true"]{background:var(--sumi);color:var(--paper);border-color:var(--sumi)}
+
+.tint{position:relative;overflow:hidden;background:var(--ground,var(--paper-deep));color:var(--ink,var(--sumi));transition:background .5s ease,color .5s ease}
+.tint::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s ease;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+body.grain .tint::after{opacity:.62}
+
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2rem}
+.cellbox{padding:1.75rem 1.25rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:.9rem;text-align:center}
+.cellbox .glyph{display:flex;align-items:center;justify-content:center;min-height:8rem}
+.cellbox .cap{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;opacity:.55}
+.cellbox .nm{font-family:var(--serif);font-size:1.05rem;line-height:1.2}
+.cellbox .desc{font-size:12.5px;line-height:1.45;opacity:.78;max-width:14rem;margin:0}
+.cellbox .desc b{opacity:1;font-weight:600}
+
+.panel{border:1px solid var(--rule);padding:clamp(1.25rem,4vw,2rem);margin-top:2rem}
+.row{display:flex;flex-wrap:wrap;gap:2rem 2.75rem;align-items:flex-end}
+.cell{display:flex;flex-direction:column;align-items:flex-start;gap:.6rem}
+.cell .cap{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;opacity:.6}
+.cell .slot{display:flex;align-items:center;min-height:3.2rem}
+.avatar{width:2.9rem;height:2.9rem;border-radius:50%;background:currentColor;display:flex;align-items:center;justify-content:center}
+.avatar svg{color:var(--ground,var(--paper-deep))}
+
+.note{border-left:2px solid var(--kaki);padding:.15rem 0 .15rem 1rem;margin-top:1.5rem;font-size:14px;color:var(--nezu);max-width:var(--measure)}
+.note b{color:var(--sumi);font-weight:600}
+.rec{background:var(--paper-deep);border:1px solid var(--rule);padding:clamp(1.5rem,4vw,2.5rem);margin-top:3.5rem}
+.rec ol{margin:1rem 0 0;padding-left:1.2rem;max-width:var(--measure)}
+.rec li{margin-bottom:.6rem}
+.rec li::marker{color:var(--nezu);font-variant-numeric:tabular-nums}
+footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--rule);font-size:13px;color:var(--nezu)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+html,body{background:#EFF0EC}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <mask id="cutdots" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+    <rect x="0" y="0" width="100" height="100" fill="#fff"/>
+    <rect x="19.5" y="20" width="21" height="29" fill="#000"/>
+    <rect x="57.5" y="20" width="24.5" height="29" fill="#000"/>
+  </mask>
+</defs></svg>
+
+<div class="wrap">
+
+<header class="masthead">
+  <div class="label">Hikari &middot; brand &middot; 2026-09-22</div>
+  <h1>The two dots become drops</h1>
+  <p class="lede" style="margin-top:1.25rem">Direction: keep the mincho 光 as it is, and turn the two top dots into jewellery — drop-shaped stones. The move is better than an ornament, because a mincho 点 <em>already</em> swells toward its tail. A teardrop is not something added to the stroke; it is the exaggeration of what the stroke is already doing.</p>
+</header>
+
+<p><strong>One thing had to be measured before anything could be drawn.</strong> The two dots are not mirror images. In Noto Serif JP the left stroke carries its mass at the <em>inner bottom</em> and tapers up-and-out; the right stroke carries its mass at the <em>outer top</em> and tapers down-and-in. They are rotationally symmetric, not mirrored — the ordinary calligraphic balance that stops a character looking like an ornament.</p>
+
+<p><strong>That is the fork.</strong> Follow each stroke's own direction and the result is still unmistakably a character. Mirror them so both drops hang, and the pair reads as <em>earrings</em> — which is the hero product — at the cost of the right stroke's identity. This is the decision; everything else is drawing.</p>
+
+<div class="controls">
+  <div class="ctl-group">
+    <span class="label">Ground</span>
+    <div class="swatches" role="group" aria-label="Test ground">
+      <button class="sw" data-bg="#EFF0EC" data-ink="#14171A" aria-pressed="true" title="白練 shironeri" style="background:#EFF0EC"></button>
+      <button class="sw" data-bg="#DFE1DC" data-ink="#14171A" aria-pressed="false" title="銀鼠 gin-nezu" style="background:#DFE1DC"></button>
+      <button class="sw" data-bg="#2E4B6B" data-ink="#EFF0EC" aria-pressed="false" title="藍 ai" style="background:#2E4B6B"></button>
+      <button class="sw" data-bg="#14171A" data-ink="#EFF0EC" aria-pressed="false" title="濡羽色 nureba-iro" style="background:#14171A"></button>
+    </div>
+  </div>
+  <div class="ctl-group"><button class="toggle" id="grain-toggle" aria-pressed="false">Grain off</button></div>
+</div>
+
+<h2 style="margin-top:3rem">Three ways to set the pair</h2>
+<p style="margin-top:.75rem">The body of the character is untouched Noto Serif JP in all four. Only the two dots are replaced.</p>
+
+<div class="grid4 tint">
+
+  <div class="cellbox">
+    <span class="cap">Reference</span>
+    <div class="glyph">
+      <svg width="104" height="104" viewBox="0 0 100 100" role="img" aria-label="光 unmodified">
+        <text x="50" y="51" font-family="Noto Serif JP, serif" font-size="72" font-weight="500" fill="currentColor" text-anchor="middle" dominant-baseline="central">光</text>
+      </svg>
+    </div>
+    <div class="nm jp">未修正</div>
+    <p class="desc">As the font draws it. Note the left dot already ends in a rounded bulb — the drop is latent in the stroke.</p>
+  </div>
+
+  <div class="cellbox">
+    <span class="cap">A</span>
+    <div class="glyph">
+      <svg width="104" height="104" viewBox="0 0 100 100" role="img" aria-label="光 with drops following each stroke's own direction">
+        <text x="50" y="51" font-family="Noto Serif JP, serif" font-size="72" font-weight="500" fill="currentColor" text-anchor="middle" dominant-baseline="central" mask="url(#cutdots)">光</text>
+        <path d="M22.50 24.00 L30.80 43.50 A4.35 4.35 0 1 0 37.81 38.66 Z" fill="currentColor"/>
+        <path d="M60.50 46.50 L76.96 32.96 A4.35 4.35 0 1 0 70.34 27.59 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="nm">Faithful</div>
+    <p class="desc">Each drop keeps its own stroke's weight. <b>Reads as 光 first.</b> The right stone rises rather than hangs, so it does not quite read as a pair.</p>
+  </div>
+
+  <div class="cellbox">
+    <span class="cap">B</span>
+    <div class="glyph">
+      <svg width="104" height="104" viewBox="0 0 100 100" role="img" aria-label="光 with a mirrored pair of drops converging inward">
+        <text x="50" y="51" font-family="Noto Serif JP, serif" font-size="72" font-weight="500" fill="currentColor" text-anchor="middle" dominant-baseline="central" mask="url(#cutdots)">光</text>
+        <path d="M22.50 24.00 L30.80 43.50 A4.35 4.35 0 1 0 37.81 38.66 Z" fill="currentColor"/>
+        <path d="M77.50 24.00 L62.19 38.66 A4.35 4.35 0 1 0 69.20 43.50 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="nm">Pair, converging</div>
+    <p class="desc">Mirrored; both hang inward. <b>Reads as two drops falling</b> toward the centre stroke, and it frames the vertical. Left stroke unchanged from the font.</p>
+  </div>
+
+  <div class="cellbox">
+    <span class="cap">C</span>
+    <div class="glyph">
+      <svg width="104" height="104" viewBox="0 0 100 100" role="img" aria-label="光 with a mirrored pair of drops splaying outward">
+        <text x="50" y="51" font-family="Noto Serif JP, serif" font-size="72" font-weight="500" fill="currentColor" text-anchor="middle" dominant-baseline="central" mask="url(#cutdots)">光</text>
+        <path d="M37.20 24.00 L24.01 38.24 A4.35 4.35 0 1 0 31.35 42.51 Z" fill="currentColor"/>
+        <path d="M62.80 24.00 L68.65 42.51 A4.35 4.35 0 1 0 75.99 38.24 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="nm">Pair, splaying</div>
+    <p class="desc">Mirrored; both swing outward from a high inner point. <b>The most like a pair of drop earrings</b> — and the furthest from the character.</p>
+  </div>
+
+</div>
+
+<p class="note"><b>C is the most jewellery and the least 光.</b> B keeps the left stroke exactly as the font drew it and changes only the right, which is the smallest edit that still produces a pair. If the pair is the point — and for a business whose hero product is statement earrings, it probably is — <b>B is the efficient answer and C is the honest one.</b></p>
+
+<hr class="rule">
+
+<h2>Where it gets tested</h2>
+<p style="margin-top:.75rem">Variant B in the slots that matter. Turn the grain on and switch the ground to 濡羽色.</p>
+
+<div class="panel tint">
+  <div class="row">
+    <div class="cell"><span class="cap">48px</span><div class="slot">
+      <svg width="48" height="48" viewBox="0 0 100 100" aria-hidden="true">
+        <text x="50" y="51" font-family="Noto Serif JP, serif" font-size="72" font-weight="500" fill="currentColor" text-anchor="middle" dominant-baseline="central" mask="url(#cutdots)">光</text>
+        <path d="M22.50 24.00 L30.80 43.50 A4.35 4.35 0 1 0 37.81 38.66 Z" fill="currentColor"/>
+        <path d="M77.50 24.00 L62.19 38.66 A4.35 4.35 0 1 0 69.20 43.50 Z" fill="currentColor"/>
+      </svg></div></div>
+    <div class="cell"><span class="cap">24px</span><div class="slot">
+      <svg width="24" height="24" viewBox="0 0 100 100" aria-hidden="true">
+        <text x="50" y="51" font-family="Noto Serif JP, serif" font-size="72" font-weight="500" fill="currentColor" text-anchor="middle" dominant-baseline="central" mask="url(#cutdots)">光</text>
+        <path d="M22.50 24.00 L30.80 43.50 A4.35 4.35 0 1 0 37.81 38.66 Z" fill="currentColor"/>
+        <path d="M77.50 24.00 L62.19 38.66 A4.35 4.35 0 1 0 69.20 43.50 Z" fill="currentColor"/>
+      </svg></div></div>
+    <div class="cell"><span class="cap">16px favicon</span><div class="slot">
+      <svg width="16" height="16" viewBox="0 0 100 100" aria-hidden="true">
+        <text x="50" y="51" font-family="Noto Serif JP, serif" font-size="72" font-weight="500" fill="currentColor" text-anchor="middle" dominant-baseline="central" mask="url(#cutdots)">光</text>
+        <path d="M22.50 24.00 L30.80 43.50 A4.35 4.35 0 1 0 37.81 38.66 Z" fill="currentColor"/>
+        <path d="M77.50 24.00 L62.19 38.66 A4.35 4.35 0 1 0 69.20 43.50 Z" fill="currentColor"/>
+      </svg></div></div>
+    <div class="cell"><span class="cap">Avatar</span><div class="slot">
+      <div class="avatar"><svg width="28" height="28" viewBox="0 0 100 100" aria-hidden="true">
+        <text x="50" y="51" font-family="Noto Serif JP, serif" font-size="72" font-weight="500" fill="currentColor" text-anchor="middle" dominant-baseline="central" mask="url(#cutdots)">光</text>
+        <path d="M22.50 24.00 L30.80 43.50 A4.35 4.35 0 1 0 37.81 38.66 Z" fill="currentColor"/>
+        <path d="M77.50 24.00 L62.19 38.66 A4.35 4.35 0 1 0 69.20 43.50 Z" fill="currentColor"/>
+      </svg></div></div></div>
+    <div class="cell"><span class="cap">Intaglio punch</span><div class="slot">
+      <svg width="56" height="56" viewBox="0 0 100 100" aria-hidden="true" class="intaglio">
+        <rect x="2" y="2" width="96" height="96" rx="19" fill="currentColor"/>
+        <g transform="translate(50 50) scale(.66) translate(-50 -50)" fill="var(--ground,#DFE1DC)">
+          <text x="50" y="51" font-family="Noto Serif JP, serif" font-size="72" font-weight="500" fill="var(--ground,#DFE1DC)" text-anchor="middle" dominant-baseline="central" mask="url(#cutdots)">光</text>
+          <path d="M22.50 24.00 L30.80 43.50 A4.35 4.35 0 1 0 37.81 38.66 Z"/>
+          <path d="M77.50 24.00 L62.19 38.66 A4.35 4.35 0 1 0 69.20 43.50 Z"/>
+        </g>
+      </svg></div></div>
+    <div class="cell"><span class="cap">Lockup</span><div class="slot">
+      <svg width="176" height="56" viewBox="0 0 300 96" role="img" aria-label="Drop mark beside the HIKARI wordmark">
+        <g transform="translate(48 48) scale(.62) translate(-50 -50)">
+          <text x="50" y="51" font-family="Noto Serif JP, serif" font-size="72" font-weight="500" fill="currentColor" text-anchor="middle" dominant-baseline="central" mask="url(#cutdots)">光</text>
+          <path d="M22.50 24.00 L30.80 43.50 A4.35 4.35 0 1 0 37.81 38.66 Z" fill="currentColor"/>
+          <path d="M77.50 24.00 L62.19 38.66 A4.35 4.35 0 1 0 69.20 43.50 Z" fill="currentColor"/>
+        </g>
+        <line x1="96" y1="26" x2="96" y2="70" stroke="currentColor" stroke-width="1" opacity=".3"/>
+        <text x="116" y="48" font-family="Instrument Sans, sans-serif" font-size="23" font-weight="500" letter-spacing="8.5" fill="currentColor" dominant-baseline="central">HIKARI</text>
+      </svg></div></div>
+  </div>
+</div>
+
+<hr class="rule">
+
+<h2>Three things this costs</h2>
+
+<div class="grid4" style="grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))">
+  <div class="cellbox" style="align-items:flex-start;text-align:left">
+    <h3 style="color:var(--kaki)">A gem in a jewellery logo</h3>
+    <p class="desc" style="max-width:none">It is the single most common move in the entire category — the stone, the solitaire, the sparkle. <b>What saves this one is that it is a substitution, not an addition:</b> the drops occupy positions the character already had, and they are a <em>pair</em>, which reads as earrings rather than as a generic gem. If a designer ever adds facets, a sparkle or a third stone, the whole argument collapses.</p>
+  </div>
+  <div class="cellbox" style="align-items:flex-start;text-align:left">
+    <h3 style="color:var(--kaki)">Two hands in one mark</h3>
+    <p class="desc" style="max-width:none">A text face's modulated strokes beside a drawn geometric drop is a weight mismatch, and it is how marks end up looking like clip art stuck onto type. Keeping the font body is the brief, so <b>the drops must be cut to the font's own contrast</b> — the bulb no heavier than the stroke's own tail, the taper matching its rate. Not a free-standing shape placed on top.</p>
+  </div>
+  <div class="cellbox" style="align-items:flex-start;text-align:left">
+    <h3 style="color:var(--kaki)">You still own none of the body</h3>
+    <p class="desc" style="max-width:none">Noto Serif JP is open-licensed, so use is fine. <b>Distinctiveness is the problem, not permission.</b> With the body untouched, the only part of this mark that is ours is two drops — which is thin ground to stand on in Class 14. The fix is not to abandon the direction; it is to redraw the body to fit the drops once the pair is chosen.</p>
+  </div>
+</div>
+
+<div class="rec">
+  <div class="label">Where this lands</div>
+  <h2 style="margin-top:.5rem">Take B, then redraw the body to match</h2>
+  <ol>
+    <li><strong>Variant B is the smallest edit that produces a pair</strong> — the left stroke stays exactly as the font drew it, and only the right is mirrored. C is more jewellery and less 光; keep it as the fallback if the pair does not read.</li>
+    <li><strong>Cut the drops to the font's contrast, not to a geometric ideal.</strong> The bulb no heavier than the stroke's own tail. This is what stops it reading as an ornament pasted onto type.</li>
+    <li><strong>Then redraw the body.</strong> Holding the font untouched is right for deciding the idea and wrong for shipping it: it leaves two drops as the only distinctive thing we own, and it keeps a text face doing a logo's job. Once the pair is settled, the constructed 光 from the previous studies takes the same drops and the whole mark becomes ours.</li>
+    <li><strong>No facets, no sparkle, no third stone. Ever.</strong> The moment the drops become gems rather than strokes, this is the category cliché it currently avoids.</li>
+  </ol>
+</div>
+
+<footer>
+  <p>Specimen for <code>docs/10-logo.md</code>. The character is Noto Serif JP at 72/100 with the two dot positions masked out; the drops are exact tangent-and-arc geometry, generated rather than eyeballed. Proportion study at specification quality, not final artwork.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var grounds=document.querySelectorAll('.sw'), grainBtn=document.getElementById('grain-toggle');
+  function apply(btn){
+    var bg=btn.getAttribute('data-bg'), ink=btn.getAttribute('data-ink');
+    document.querySelectorAll('.tint').forEach(function(el){
+      el.style.setProperty('--ground',bg); el.style.setProperty('--ink',ink);
+    });
+    document.querySelectorAll('.intaglio g, .intaglio g text').forEach(function(g){ g.setAttribute('fill',bg); });
+    grounds.forEach(function(b){ b.setAttribute('aria-pressed',String(b===btn)); });
+  }
+  grounds.forEach(function(b){ b.addEventListener('click',function(){ apply(b); }); });
+  grainBtn.addEventListener('click',function(){
+    var on=document.body.classList.toggle('grain');
+    grainBtn.setAttribute('aria-pressed',String(on));
+    grainBtn.textContent=on?'Grain on':'Grain off';
+  });
+})();
+</script>
+</body>
+</html>
