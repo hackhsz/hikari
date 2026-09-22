@@ -13,6 +13,7 @@ Instagram and eBay/Etsy only. This exists to test the three assumptions in [00](
 - Buy 20–30 pieces through a proxy service ([06](06-unit-economics.md)). Budget `[ASSUMED]` ~£1,500–2,500.
 - Record **actual** landed cost per piece. This replaces every `[ASSUMED]` in the economics model.
 - Photograph to the four-frame standard in [02](02-positioning.md).
+- **Take payment with Stripe Payment Links** — no monthly fee, no website, and `limit payments = 1` per piece so a one-of-one cannot be sold twice. See [11](11-platform.md).
 - Sell at the intended £100–300 pricing. **Do not discount to force the test** — discounting answers a question you did not ask.
 - **Run the A/B:** foreground the Japan sourcing story on half, omit it on the other half. This is the cheapest available test of the differentiation assumption.
 - In parallel and off the critical path: the VAT specialist hour ([06](06-unit-economics.md)) and the trademark search on "Hikari" ([00](00-brief.md)).

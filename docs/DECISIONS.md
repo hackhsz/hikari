@@ -93,3 +93,20 @@ One piece at full width, three composed asymmetrically, then four, then six. Den
 *Rationale:* [04](04-site-ia.md). Resolves the tension between the tokonoma principle and the fact that a shop has to show stock.
 
 *Prototype:* https://claude.ai/artifact/SSwHryr1Tu735AVHKxdo5s
+
+---
+
+### D7a · Platform — reasoning revised, conclusion unchanged
+**2026-09-22 · Amends D7**
+
+The inventory-management argument in D7 was weak and is withdrawn: with 60–100 hand-listed one-of-one pieces and no 3PL, Shopify's inventory engine decides nothing. Re-argued in [11](11-platform.md) on better grounds:
+
+1. **Order-lifecycle email.** Stripe sends a payment receipt and nothing else. Shopify ships confirmation, dispatch-with-tracking, delivery, cancellation, refund and abandoned checkout, all editable. The dispatch email is where a £185 customer stops worrying — trust architecture, not an operational nicety.
+2. **The Edition is free to run.** 10,000 emails a month included on Basic. At 1,000 subscribers × 4 Editions that is 4,000 sends at no cost — the highest-leverage ritual in [05](05-social.md), costing nothing.
+3. **The saving was an artefact.** Priced with a transactional provider and an ESP, a custom Stripe build lands at £107–162/month against Shopify's £134.50 at 30 sales. Cost-neutral, plausibly worse.
+4. **Shipping labels** at Shopify's negotiated Royal Mail/Evri/DPD rates.
+5. **Compliance splits cleanly.** Stripe covers PCI (SAQ A on hosted Checkout) and SCA/3DS properly. Neither platform covers what actually bites a UK distance seller — Consumer Contracts Regulations, Consumer Rights Act, UK GDPR/PECR. Shopify supplies the furniture those regulations assume; a custom build writes it.
+
+**Amended:** **Stripe Payment Links are the right tool for Phase 0** — no fee, no website, `limit payments = 1` prevents a double sale, SAQ A. Better than what [07](07-roadmap.md) currently specifies. Updated there.
+
+**Also recorded:** Shopify → custom later is easy; custom → Shopify means rebuilding the front end. Shopify is the reversible choice.

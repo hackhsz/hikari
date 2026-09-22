@@ -79,3 +79,105 @@ The checkout itself can carry the logo, colours and typefaces. It cannot be rebu
 ## Note on VAT
 
 Per [D4](DECISIONS.md) and [09](09-payments-and-tax.md), the recommendation is card checkout with **no VAT registration while under the threshold**. Shopify must therefore be configured **not to charge VAT** — a settings change there, and one more thing to get right by hand on a custom build. Revisit at £75k rolling turnover.
+
+---
+
+## Revision · 2026-09-22 (ii) — the inventory argument was weak
+
+**Conceded.** With 60–100 hand-listed one-of-one pieces, no 3PL and no automation, Shopify's inventory engine is not a reason to choose it. That argument is withdrawn. Re-examined below on the grounds that do decide it.
+
+### The one thing that *is* an inventory problem
+
+Not managing stock — **preventing a double sale on a one-of-one piece at the drop.** Taking £185 from someone and then telling them the piece is gone is the worst outcome available, and it is most likely to happen at 19:00 on Thursday when everyone arrives at once.
+
+**Stripe handles this cleanly in the no-code route:** Payment Links support *"limit the number of payments"*, and the link auto-deactivates at the limit with a message you can customise ([Stripe docs](https://docs.stripe.com/payment-links/customize)). Set it to 1 and the piece cannot be sold twice.
+
+It is **not** automatic in a custom Stripe Checkout build — there you implement reservation yourself: create the session, hold the item, release it on expiry or abandonment. Ordinary work, and the classic race-condition bug, firing hardest at exactly the wrong moment.
+
+---
+
+## Compliance — what Stripe actually covers
+
+### Stripe covers, properly
+
+- **PCI DSS.** Hosted Checkout or Payment Links keep you at **SAQ A**, the simplest form — no card data touches your servers ([Stripe](https://stripe.com/guides/pci-compliance)). Note it reduces scope rather than removing the obligation: you still complete the SAQ yourself.
+- **SCA / 3D Secure 2.** Required for UK online card payments under the Payment Services Regulations 2017. Stripe handles it with no integration work.
+- **Tax calculation**, via Stripe Tax at 0.5% of taxed volume — **not needed** while unregistered under [D4](DECISIONS.md), and a cost to avoid switching on by reflex.
+
+**One trap.** If you embed a custom card form (Stripe Elements) to keep the checkout on-brand, you take on **PCI DSS 6.4.3 and 11.6.1** — client-side script integrity monitoring, new in PCI DSS 4.0 ([analysis](https://cside.com/blog/can-you-use-stripe-for-pci-dss)). Use hosted Checkout and you stay at SAQ A. The design instinct is exactly the one that creates the obligation.
+
+### Stripe does not cover — and this is the compliance that actually bites
+
+None of the following is a payments problem, so no processor solves it:
+
+- **Consumer Contracts Regulations 2013** — the 14-day right to cancel, the pre-contract information, the model cancellation form. Mandatory for UK distance selling ([03](03-customer.md)).
+- **Consumer Rights Act 2015** — description accuracy, which for graded secondhand goods is the live risk.
+- **UK GDPR and PECR** — you are the data controller in both architectures. Privacy policy, cookie consent, subject access requests, retention.
+- **Accessibility**, and the **trademark disclaimer** in [04](04-site-ia.md).
+
+Shopify does not magically supply consumer-law compliance either. What it supplies is the **furniture the regulations assume**: policy templates, a returns workflow, and the notification set below. On a custom build, each of those is a thing you write.
+
+---
+
+## Messaging and notifications — the real gap
+
+**Stripe sends one email: the payment receipt.** Plus a refund notification. That is the whole set.
+
+It does not send an order confirmation with the delivery address and estimate, a dispatch notification with tracking, a delivery notification, return or refund status updates, or abandoned-checkout recovery. At £185 from a seller she has never heard of, **the dispatch email with a tracking number is the moment the customer stops worrying** — it is part of the trust architecture in [03](03-customer.md), not an operational nicety.
+
+**Shopify ships all of them**, editable in Liquid: order confirmation, shipping confirmation with tracking, out for delivery, delivered, cancellation, refund, abandoned checkout ([Shopify Help](https://help.shopify.com/en/manual/fulfillment/setup/notifications/customizing-notification-template)).
+
+**And the marketing side, which decides the Edition strategy in [05](05-social.md):** Shopify Messaging gives **10,000 free emails per calendar month** on Basic and above, then ~$1 per 1,000; abandoned-checkout automations never count against it ([Shopify](https://help.shopify.com/en/manual/promoting-marketing/create-marketing/shopify-email/shopify-email-cost)).
+
+At 1,000 subscribers × 4 Editions a month = 4,000 sends. **Free.** The weekly drop — the single highest-leverage ritual in [05](05-social.md) — costs nothing to run.
+
+On a Stripe build the same capability needs a transactional provider (Resend, Postmark), a marketing ESP (Klaviyo, Buttondown, Mailchimp), every template written from scratch, and SPF/DKIM/DMARC set up and monitored.
+
+### What this does to the arithmetic
+
+The £565/year saving does not survive it. At 30 sales a month (£5,400 revenue):
+
+| | Monthly |
+|---|---|
+| **Shopify Basic + Shopify Payments** | £19 plan + £115.50 fees, 10k emails included = **£134.50** |
+| **Custom Stripe** | £87 fees + hosting £0–20 + transactional £0–15 + ESP £20–40 = **£107–162** |
+
+**Roughly cost-neutral, and plausibly worse.** The saving was an artefact of not pricing the email stack.
+
+*(Note: £19 is the annual-billing rate; monthly billing is higher.)*
+
+### Shipping labels, thrown in
+
+Shopify buys Royal Mail, Evri and DPD labels at its own negotiated rates from a UK location — merchants report Tracked 48 at roughly half the Click & Drop price ([Shopify Help](https://help.shopify.com/en/manual/fulfillment/fulfilling-orders/shipping-labels/shipping-carriers/royal-mail)). On 30 parcels a month that is real money and, more to the point, real time. Caveats: the negotiated rates do not extend to return labels, and Evri is domestic only.
+
+---
+
+## Revised recommendation
+
+**Unchanged in conclusion, changed in reasoning: Shopify Basic + Shopify Payments + a custom Liquid theme.** Not for inventory. For order-lifecycle email, shipping labels, a returns workflow, and the fact that it is cost-neutral once the email stack is priced honestly.
+
+The deciding constraint is the one in [06](06-unit-economics.md): **the ceiling on this business is sourcing throughput and the 45–60 minutes per piece.** Platform work is time not spent on the only thing that compounds.
+
+### Where Stripe is genuinely the right answer
+
+**Phase 0, and it is a better fit than what [07](07-roadmap.md) currently says.** Stripe **Payment Links** for the first 20 pieces: no monthly fee, no website, links from Instagram, `limit payments = 1` per piece so nothing can be double-sold, receipts automatic, PCI at SAQ A. That *is* the no-website test. Use it.
+
+Its limits are the reason it does not become the shop: **no cart** (two pieces means two checkouts and two shipping charges), no dispatch emails, no returns flow, and no customer list to build the Edition on.
+
+### If you want the Stripe build anyway
+
+It is defensible — not obviously wrong, just a different allocation of your time. The honest stack, so the decision is made with the bill visible:
+
+1. Static site (Astro or Next) on Vercel — the design work is identical either way.
+2. **Stripe hosted Checkout**, not Elements, to stay at SAQ A.
+3. Reservation logic for one-of-one stock, written and tested against the drop spike.
+4. Webhook handler → order record in a database.
+5. Transactional email (Resend/Postmark) with templates written for confirmation, dispatch and delivery.
+6. Marketing ESP for the Edition, with list sync.
+7. Returns: a process and an address, since Stripe gives you a refunds API and nothing else.
+8. Royal Mail Click & Drop, manually, at retail rates.
+9. Policy pages, cookie consent, DSAR process.
+
+At 30 orders a month, items 4–8 are perhaps an hour a week of manual work — survivable. At 60 they are not, and that is the same month the sourcing gets harder.
+
+**A migration note that matters:** Shopify → custom later is easy (export orders and customers, keep the URLs). Custom → Shopify later means rebuilding the front end against Liquid. If you are unsure, the reversible choice is Shopify.

@@ -103,3 +103,13 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 | 28 | Verify Shopify Starter's current price for Phase 0 payment links | [11](11-platform.md) |
 | 29 | Shopify Payments approval needs the UK company and business bank account — start it before launch week | [11](11-platform.md), [07](07-roadmap.md) |
 | 30 | Branded resale can attract processor counterfeit-risk review, holds or reserves. Mitigation is the per-piece acquisition record already required for the exhaustion defence — now serving three purposes. | [11](11-platform.md), [04](04-site-ia.md) |
+
+## Update · 2026-09-22 (iv)
+
+**#18 re-confirmed on better grounds** ([D7a](DECISIONS.md)). The inventory argument is withdrawn; the decision now rests on order-lifecycle email, the included 10k/month send allowance that makes the Edition free to run, shipping labels, and cost-neutrality once the email stack is priced.
+
+| # | Question | Where |
+|---|---|---|
+| 31 | If a custom card form is ever wanted for design reasons, note it moves you from SAQ A to owning PCI DSS 6.4.3 and 11.6.1 (client-side script integrity). Hosted Checkout avoids it. | [11](11-platform.md) |
+| 32 | Returns: negotiated carrier rates don't cover return labels. Decide who pays return postage and how the label is issued — a Consumer Contracts Regulations question as much as a logistics one. | [11](11-platform.md), [03](03-customer.md) |
+| 33 | Don't switch on Stripe Tax (0.5% of taxed volume) while unregistered — it's a cost with no obligation behind it | [11](11-platform.md), [09](09-payments-and-tax.md) |
