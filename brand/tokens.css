@@ -1,0 +1,36 @@
+/* Hikari — colour tokens
+ * Specimen: https://claude.ai/artifact/QoSDYMA9MnUJDPyeXTSsBE
+ * See docs/08-brand.md. Palette B (銀鼠 gin-nezu) is the recommendation;
+ * palette A (生成り kinari) is kept below, commented, pending the call.
+ *
+ * Accent discipline: 3–4 appearances per page, maximum.
+ * All pairs below clear WCAG AA (4.5:1) on both grounds at body size.
+ */
+
+:root{
+  /* ── ground ─────────────────────────────── */
+  --paper:      #EFF0EC;  /* 白練   shironeri    page ground        */
+  --paper-deep: #DFE1DC;  /* 銀鼠   gin-nezu     surfaces, cards    */
+  --rule:       #C9CCC6;  /*                     hairlines          */
+
+  /* ── ink ────────────────────────────────── */
+  --sumi:       #14171A;  /* 濡羽色 nureba-iro   body text   15.72  */
+  --nezu:       #5E625B;  /* 鼠色   nezumi-iro   secondary    5.44  */
+
+  /* ── accent ─────────────────────────────── */
+  --ai:         #2E4B6B;  /* 藍     ai           primary      7.86  */
+  --kaki:       #9E4730;  /* 柿渋   kakishibu    rare second  5.30  */
+}
+
+/* ── Palette A · 生成り kinari — warm alternative ──
+ * Persimmon darkened #C4553B → #9E4730 and secondary #6E6A62 → #635F54;
+ * the originally specified values failed AA at body size on both grounds.
+ *
+ * --paper:      #F2EDE3;   生成り kinari
+ * --paper-deep: #E7DFD1;   砂色   suna-iro
+ * --rule:       #D5CCBB;
+ * --sumi:       #1C1A17;   墨     sumi          14.88
+ * --stone:      #635F54;   利休鼠 rikyū-nezu     5.46
+ * --kaki:       #9E4730;   柿渋   kakishibu      5.30   (accent)
+ * --ai:         #2A3F54;   藍     ai             9.29   (rare)
+ */

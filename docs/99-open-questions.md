@@ -69,3 +69,13 @@ Stated plainly so they are not mistaken for findings:
 ### Note on #1
 
 Margin-scheme eligibility is **still the blocking question**, and the payment-rail discussion did not touch it. It is unaffected by how money is collected and remains the single highest-return hour available. Book the accountant.
+
+## Update · 2026-09-22
+
+| # | Question | Where |
+|---|---|---|
+| 23 | **Palette A, B, or C.** B (cool grey + indigo) recommended; C = B's grounds with persimmon kept as the single accent. Specimen published. | [08](08-brand.md) |
+
+**#20 narrowed:** free type pairing is **Newsreader + Instrument Sans** (Instrument Sans replaces Inter — see [08](08-brand.md)). Licensed upgrade path unchanged: Canela + Suisse Int'l.
+
+**Contrast corrections applied** to both palettes; the values originally in [08](08-brand.md) failed WCAG AA at body size. Canonical tokens now in [`brand/tokens.css`](../brand/tokens.css).

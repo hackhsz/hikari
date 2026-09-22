@@ -99,3 +99,49 @@ If an internal codename for the shop section is ever wanted: **kura** (蔵) — 
 
 - Licensed vs. free type. Newsreader + Inter is a genuinely good free pairing and can launch; Canela + Suisse is the upgrade when there's budget.
 - Does "Japanese editorial" read as premium to a UK audience, or as under-designed? Two landing-page variants before the full build ([99](99-open-questions.md) #9).
+
+---
+
+## Update · 2026-09-22 — palette revised, and why
+
+**Live specimen:** https://claude.ai/artifact/QoSDYMA9MnUJDPyeXTSsBE — both palettes shown in an Alcove and a trust strip, with measured contrast. Tokens live in [`brand/tokens.css`](../brand/tokens.css).
+
+### The problem with the palette specified above
+
+Warm cream `#F4F1EA` + a serif display + a terracotta accent — which is almost exactly what this document originally specified — is currently one of the most over-used combinations in design, and one of the recognisable signatures of AI-generated design.
+
+That matters more here than it would elsewhere. The entire argument in [02](02-positioning.md) is that every competitor in this category already looks like every other competitor. Trading the French-luxury default for the current warm-neutral default wins nothing.
+
+### Palette B · 銀鼠 gin-nezu — recommended
+
+Cool paper, raven-black ink, **indigo as the primary accent**, persimmon demoted to a rare second. Named for the Edo convention of 四十八茶百鼠 — *"forty-eight browns, a hundred greys"* — the subtlety townspeople developed in muted colour when sumptuary law forbade bright dress. That is the actual root of the restraint this brand is borrowing, and it is a better story than "warm minimalism".
+
+| Token | JP | Hex | Role | On paper | On deep |
+|---|---|---|---|---|---|
+| `--paper` | 白練 shironeri | `#EFF0EC` | Ground | — | — |
+| `--paper-deep` | 銀鼠 gin-nezu | `#DFE1DC` | Surfaces | — | — |
+| `--rule` | — | `#C9CCC6` | Hairlines | — | — |
+| `--sumi` | 濡羽色 nureba-iro | `#14171A` | Body text | 15.72 | 13.66 |
+| `--nezu` | 鼠色 nezumi-iro | `#5E625B` | Secondary | 5.44 | 4.72 |
+| `--ai` | 藍 ai | `#2E4B6B` | **Primary accent** | 7.86 | 6.83 |
+| `--kaki` | 柿渋 kakishibu | `#9E4730` | Rare second | 5.30 | 4.67 |
+
+Three reasons beyond novelty:
+
+1. **Indigo is more honest to the sourcing.** Indigo and grey are the actual colours of Japanese textile, Muji and Ginza packaging. Terracotta is Mediterranean in origin and reads that way.
+2. **Cool grounds photograph better with gold-tone metal**, which is most of the stock. Warm paper under warm metal in warm daylight flattens; a cool ground separates the piece in every frame. This affects the four-frame spec above directly.
+3. **Indigo clears AAA**, so the accent can carry links and body-size text. Persimmon cannot — it only ever clears AA.
+
+### Contrast corrections (apply to either palette)
+
+The originally specified values failed WCAG AA at body size:
+- Persimmon `#C4553B` → **`#9E4730`** (was 4.22 on warm paper, below the 4.5 threshold)
+- Secondary `#6E6A62` → **`#635F54`** (was 4.08 on the deeper ground)
+
+### Still open
+
+Which palette. **A third option is available:** B's cool grounds and greys with **persimmon** kept as the single accent instead of indigo — avoids the warm-cream cluster while keeping the more distinctive accent colour. Logged as [99](99-open-questions.md) #23.
+
+### Type note
+
+Recommending **Instrument Sans** over Inter as the free UI face. Inter is the current default-by-reflex in exactly the way `#F4F1EA` is — fine, but unconsidered. Instrument Sans sits closer to Suisse Int'l and takes the wide-tracked uppercase labels better. Newsreader remains the display serif.
