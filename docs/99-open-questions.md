@@ -104,3 +104,14 @@ Logo directions proposed in [10](10-logo.md). **Specimen:** https://claude.ai/ar
 | 30 | Which qualified handle, given `@hikari` is gone — and it should be settled before the lockup is drawn, not after | [10](10-logo.md), [05](05-social.md) |
 
 **#12 gains a second half.** The hallmarking exposure logged there is about stock; the Hallmarking Act 1973 also constrains *the brand's own mark* — striking an article with a mark purporting to be an authorised sponsor's mark is an offence, and an assay office may obliterate marks likely to be confused with a hallmark. Rule established in [10](10-logo.md): the mark goes on paper, never into metal.
+
+## Update · 2026-09-22 (iv)
+
+**#27 narrows.** The punch's interior is **光** — drawn as a constructed mark, not set as a font glyph ([10](10-logo.md), studies: https://claude.ai/artifact/PWCZnohGDgay5YfruvPKvj). The remaining question is how far to abstract it, and it has a cheap answer.
+
+| # | Question | Where |
+|---|---|---|
+| 31 | **Step 02 (constructed) or step 03 (reduced, four parts)?** Decided by a five-minute test: does a Japanese reader still see 光 without hesitating? Run it *before* briefing a designer — it is a constraint on the brief, not a review of the output. | [10](10-logo.md) |
+| 32 | The angle of the three top ticks. It is where the whole personality of the mark sits, and it is the one thing worth real iteration. | [10](10-logo.md) |
+
+**Prohibition, logged so it cannot be lost in a design review:** the mark is never radial, never emanates from a disc, and never has more rays than the character has strokes. A rayed sun is the 旭日旗 — a repeated and serious crisis for fashion brands, and a real risk for a business whose whole story is Japanese sourcing. 光's asymmetry is the safeguard.

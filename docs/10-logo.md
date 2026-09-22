@@ -124,3 +124,51 @@ Not yet — #4 first. But so it is ready:
 - What goes inside the punch — 光, `H`, or nothing. Test alongside the [99](99-open-questions.md) #9 landing-page variants rather than deciding it in a review.
 - Whether the wordmark is Newsreader (serif, editorial) or Instrument Sans (grotesque, catalogue). The specimen shows both; the sans is closer to the Japanese-retail reference, the serif closer to the category.
 - Whether to register at all, and when. A device mark plus a word mark in two classes is not free, and the money competes directly with inventory in Phase 0 ([07](07-roadmap.md)).
+
+---
+
+## Update · 2026-09-22 (ii) — the interior is 光, drawn rather than set
+
+**Direction given:** 光 is the body of the mark, but it must not sit on the page as a character someone typed.
+
+**Studies:** [`brand/mark-studies.html`](../brand/mark-studies.html) — open in a browser. Published copy: https://claude.ai/artifact/PWCZnohGDgay5YfruvPKvj
+
+This closes [99](99-open-questions.md) #27 in principle — the punch's interior is 光 — and replaces it with a better question: *how far to abstract it.*
+
+### Why the instinct is right, in three registers
+
+1. **It answers the costume objection.** A drawn abstraction reads as a mark first and a character second, which is the whole of [08](08-brand.md)'s "restraint, never motif". The failure mode that rule guards against is a *borrowed* Japanese signifier; a constructed one is not borrowed.
+2. **It answers registrability.** A dictionary glyph in a licensed font is a weak device — there is nothing distinctive in it that belongs to us. A distinctively constructed form is a real device mark, and this is the same argument that killed the abstract alcove, running the other way.
+3. **It answers 16px.** Abstraction here is not a style. It is the mechanism that gets the part-count down far enough to survive a favicon under grain.
+
+### Why 光 in particular takes it well
+
+Structurally the character is **three marks radiating above a horizontal bar, standing on two legs**. It already draws light falling onto a surface — the tokonoma, in six strokes. Very few characters carry their meaning as usable geometry; this one does, and it means the abstraction has somewhere to go that is not merely "simplified".
+
+### The ladder, and where it stops
+
+| Step | What it is | Verdict |
+|---|---|---|
+| 00 · Typed | Mincho glyph, modulated strokes, text-face terminals | The comparison, not a candidate |
+| 01 · Monolinear | Same skeleton, one stroke weight, flat terminals | An object rather than a setting |
+| 02 · Constructed | Ticks on one shared angle, bar to full width, hook flick dropped, feet on one baseline | **Candidate** |
+| 03 · Reduced | Ticks detach and equalise, bar dominates, legs shorten and mirror — four visual parts | **Candidate** |
+| 04 · Too far | Legs dropped: three ticks over a bar | Rejected — a sunrise over a line, close to unownable, and no longer says the name |
+
+**The answer is 02 or 03**, and which one is a question about how much work the mark does at 16px, not a question of taste.
+
+**Two states, in the trade's own vocabulary:** a sponsor's mark is either raised (*cameo*) or impressed (*intaglio*). Positive on screen, knocked out of a filled punch for the stamp and the seal. Same artwork, and the pair is more specific to this business than any decorative variant would be.
+
+### Three ways this goes wrong
+
+- **Radiating rays — the serious one.** Never radial, never emanating from a disc, never more strokes than the character has. A rayed sun is the **旭日旗**, and for a brand sourcing from Japan and selling internationally that is not a subtle association; it has been a repeated crisis for fashion labels. The three ticks of 光 are asymmetric, and that asymmetry is the safeguard. **Written into the design brief as a prohibition, not a preference.**
+- **The middle zone.** Half-regularised is the worst place to stand: too tidy to be handwriting, too irregular to be construction. It reads as a character drawn by someone who cannot write it. Commit to 02 or 03; do not stop between them.
+- **Part-count.** Six strokes and two counters inside 16px under grain is too much information. The hook flick goes first.
+
+### The test that decides it
+
+**Does a Japanese reader still see 光 without hesitating?** We cannot answer this ourselves and should not try. A hesitation means the middle zone. Five minutes, a handful of readers, and it settles 02 vs 03 — and it is worth running *before* a designer is briefed, because it is a constraint on the brief rather than a review of the output.
+
+### What this does to the earlier directions
+
+The alcove (04 in the first pass) **comes back**. Step 03 draws light falling on a horizontal surface, which is the tokonoma — now as structure that can be stamped, embossed and reduced, rather than as a gradient that cannot. The idea survives; the execution that killed it does not.

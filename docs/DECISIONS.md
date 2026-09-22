@@ -90,3 +90,11 @@ Primary logo is the `HIKARI` wordmark, tracked uppercase, governed by a size *ru
 **Not decided here:** what goes inside the punch (光, `H`, or nothing — [99](99-open-questions.md) #27), and whether the wordmark is serif or grotesque (#28).
 
 **Blocked by #4.** [00](00-brief.md) commits to clearing the name in UK Classes 14 and 35 before any spend on brand design. It has not been done, `@hikari` is confirmed gone, and no designer should be briefed until it closes. **Awaiting your call on both #4 and this recommendation.**
+
+**Amended 2026-09-22 (ii) — the interior is settled in principle.** The punch contains **光**, constructed rather than set: drawn monolinear, one stroke weight, flat terminals, feet on one baseline, the three ticks sharing a single angle. Two states, cameo and intaglio, borrowed from the sponsor's-mark vocabulary. This also rescues the alcove idea dropped above — a reduced 光 *is* light falling on a horizontal surface, now in a form that can be stamped.
+
+Open at the level below: step 02 vs step 03 of the abstraction ladder ([99](99-open-questions.md) #31), and the tick angle (#32). Carries one prohibition that must survive every later design review: **never radial, never from a disc, never more rays than strokes** — a rayed sun is the 旭日旗.
+
+*Studies:* https://claude.ai/artifact/PWCZnohGDgay5YfruvPKvj · *Argument:* [10](10-logo.md).
+
+**#4 still gates all of it.** None of this is artwork, and no designer is briefed, until the name clears UK Classes 14 and 35.
