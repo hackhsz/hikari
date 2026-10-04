@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markets · Oct–Dec 2026</title>
+<meta name="description" content="Where Hikari can trade in person between 4 October and 6 December 2026: fashion-led vintage fairs at the £140–160 level, not antiques, not flea.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,300&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+/* Palette B, brand/tokens.css. Single theme: a brand surface does not invert. */
+:root{
+  --paper:#EFF0EC; --paper-deep:#DFE1DC; --rule:#C9CCC6;
+  --sumi:#14171A; --nezu:#5E625B; --ai:#2E4B6B; --kaki:#9E4730;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --gut:clamp(16px,4vw,52px); --max:980px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--sumi);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--ai);text-underline-offset:2px;text-decoration-thickness:1px;overflow-wrap:anywhere}
+a:hover{color:var(--kaki)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.01em;margin:0}
+h1{font-size:clamp(38px,7vw,68px);line-height:1;font-weight:200}
+h2{font-size:clamp(26px,4vw,36px);line-height:1.1;margin-bottom:6px}
+h3{font-size:clamp(22px,3vw,28px);line-height:1.12}
+.eyebrow{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--nezu);margin:0 0 14px}
+.sub{color:var(--nezu);margin:0;max-width:62ch}
+p{margin:0 0 12px}
+strong{font-weight:600}
+
+header{padding:56px 0 28px;border-bottom:1px solid var(--rule)}
+header h1{margin-bottom:18px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:22px;font-size:13px;color:var(--nezu)}
+
+section{padding:44px 0;border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:0}
+.sec-head{margin-bottom:24px}
+
+.answer{font-family:var(--serif);font-weight:300;font-size:clamp(19px,2.4vw,23px);line-height:1.45;max-width:46ch;margin:0 0 18px}
+.answer strong{font-weight:400}
+.answer + p{max-width:64ch;color:var(--nezu)}
+
+/* market cards */
+.cards{display:grid;gap:16px}
+.card{background:var(--paper-deep);padding:22px clamp(16px,3vw,28px) 20px;border-radius:2px}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+.where{color:var(--nezu);font-size:13.5px;margin:4px 0 14px}
+.dates{font-family:var(--serif);font-size:19px;font-weight:400;margin:0 0 14px}
+.dates small{font-family:var(--sans);font-size:12px;color:var(--nezu);font-weight:400;margin-left:4px}
+dl{display:grid;grid-template-columns:118px 1fr;gap:8px 18px;margin:0;font-size:14px}
+dt{color:var(--nezu);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding-top:2px}
+dd{margin:0}
+@media (max-width:560px){dl{grid-template-columns:1fr;gap:2px}dd{margin-bottom:10px}}
+
+.badge{display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px 3px;border:1px solid currentColor;border-radius:2px;white-space:nowrap;font-weight:500}
+.b-book{color:var(--kaki)}
+.b-test,.b-maybe{color:var(--nezu)}
+.b-wait{color:var(--ai)}
+
+.chk{font-family:var(--sans);font-size:12px;color:var(--nezu);white-space:nowrap}
+.chk.ok::before{content:"✓ ";color:var(--ai)}
+.watch{margin-top:14px;padding-top:12px;border-top:1px solid var(--rule);font-size:13.5px}
+.watch b{font-weight:600}
+
+/* calendar */
+.cal{display:grid;gap:28px}
+.month h3{font-size:20px;margin-bottom:8px;color:var(--nezu);font-style:italic}
+.row{display:grid;grid-template-columns:132px 1fr auto;gap:4px 18px;align-items:baseline;padding:10px 0;border-top:1px solid var(--rule);font-size:14px}
+.row .d{font-variant-numeric:tabular-nums;font-weight:500}
+.row .n{min-width:0}
+.row .n span{display:block;color:var(--nezu);font-size:13px}
+@media (max-width:560px){.row{grid-template-columns:1fr auto}.row .d{grid-column:1/-1}}
+
+/* steps */
+ol.steps{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;gap:14px;max-width:70ch}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:0 10px}
+ol.steps li::before{content:counter(s);font-family:var(--serif);font-size:26px;font-weight:200;line-height:1;color:var(--nezu)}
+
+/* notes + rejected */
+.notes{display:grid;gap:24px 32px;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))}
+.note h3{font-size:19px;margin-bottom:6px;font-weight:400}
+.note p{font-size:14px;color:var(--sumi)}
+.calc{font-variant-numeric:tabular-nums;font-size:14px;width:100%;border-collapse:collapse;margin-top:6px}
+.calc td{padding:5px 0;border-top:1px solid var(--rule)}
+.calc td:last-child{text-align:right}
+
+.rej{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.rej h3{font-size:18px;font-weight:400;margin-bottom:8px}
+.rej ul{margin:0;padding:0;list-style:none;font-size:13.5px}
+.rej li{padding:6px 0;border-top:1px solid var(--rule)}
+.rej li span{color:var(--nezu)}
+
+.sources{columns:2 300px;column-gap:28px;font-size:13px;padding:0;margin:0;list-style:none}
+.sources li{break-inside:avoid;padding:3px 0}
+.legend{font-size:13px;color:var(--nezu);max-width:70ch}
+footer{padding:28px 0 56px;font-size:12.5px;color:var(--nezu)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Hikari · 19 · In person</p>
+    <h1>Markets, October to December</h1>
+    <p class="sub">Where Hikari can take a stall between 4 October and 6 December 2026. The rule was fairs led by clothing and jewellery, whose buyers will pay £140–160 for a piece. Antiques fairs with furniture are out, and so are flea, kilo and thrift sales.</p>
+    <div class="meta">
+      <span>Researched 4 Oct 2026</span>
+      <span>London first, plus Brighton, Bristol, Bath, Manchester, Leeds, Glasgow, Edinburgh and day trips from London</span>
+      <span>About 70 events checked</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">The short answer</p>
+    <p class="answer">The two London fairs whose buyers match Hikari, <strong>Frock Me!</strong> and <strong>A Current Affair</strong>, are closed to new traders this season. Two good ones can still be booked: <strong>Vintage Fashion Fair Farnham</strong> and <strong>The Good Clothes Show</strong> in Manchester. A Friday at <strong>Portobello Green</strong> is the cheap way to test a stall first.</p>
+    <p>Farnham is the only fair within reach that sells nothing but vintage fashion. The Good Clothes Show is the only one with paid entry and a stand sized for jewellery. Nothing in Brighton, Bristol, Leeds, Glasgow or Edinburgh fits: what runs there is flea, thrift, kilo, or antiques with furniture. There is no fair anywhere in the UK just for vintage costume jewellery that isn't a traditional antiques fair.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Book these</p>
+      <h2>Bookable in the window</h2>
+      <p class="sub">Ranked by fit. "Break-even" is how many pieces cover the stall fee, assuming about £75 contribution on a £150 sale (roughly the 50% margin in docs 06 and 14).</p>
+    </div>
+
+    <div class="cards">
+
+      <article class="card">
+        <div class="card-top">
+          <h3>Vintage Fashion Fair Farnham</h3>
+          <span class="badge b-book">Strong · book</span>
+        </div>
+        <p class="where">Farnham Maltings, Bridge Square, Farnham GU9 7QR · about an hour from London, next to Guildford</p>
+        <p class="dates">Sat 31 Oct &nbsp;·&nbsp; Sat 28 Nov <small>10:00–16:00</small> <span class="chk ok">organiser's site</span></p>
+        <dl>
+          <dt>What's sold</dt><dd>"Strictly an authentic vintage fashion only fair": clothing, accessories and textiles. <strong>Everything must be made before 1990.</strong> No crafts, homeware, reproductions or "vintage style". 27 hand-picked stalls. It runs every two months and started in 2016.</dd>
+          <dt>Crowd</dt><dd>£4 entry. The venue describes the range as "from budget-friendly items to premium designer pieces".</dd>
+          <dt>Stall</dt><dd>About 3m × 2m: two rails plus a table, with chairs, extra tables and one parking space included. <strong>About £95</strong>, a figure from a third-party listing; the organiser doesn't publish its fee.</dd>
+          <dt>Apply</dt><dd>Email <a href="mailto:fair@vintagefashionfairfarnham.co.uk">fair@vintagefashionfairfarnham.co.uk</a> with who you are, your stock, where you sell now, and links to your website and socials. No deadline is published.</dd>
+          <dt>Break-even</dt><dd>2 pieces</dd>
+        </dl>
+        <p class="watch"><b>Watch:</b> they ask for "an established Instagram presence", and Hikari's handles aren't settled yet (99 #59). Send photographs of ten pieces instead. Pieces from the 1990s can't be sold here.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3>The Good Clothes Show · Manchester</h3>
+          <span class="badge b-book">Strong · book</span>
+        </div>
+        <p class="where">Manchester Central · a target city for the core customer (doc 03)</p>
+        <p class="dates">Sat 7 – Sun 8 Nov <small>Sat 10–18 · Sun 11–17</small> <span class="chk ok">organiser's site</span></p>
+        <dl>
+          <dt>What's sold</dt><dd>"The largest UK exhibition of independent brands, artisans, vintage and preloved retailers and ethical startups." There's also a catwalk, talks and a Christmas market. <strong>Vintage sellers share the floor with new ethical brands</strong>; it isn't vintage-only. Past exhibitors include several vintage dealers and a vintage brooch seller.</dd>
+          <dt>Crowd</dt><dd><strong>Paid entry: £20 on Saturday, £17.50 on Sunday</strong> (students £7). The best filter for serious buyers of anything on this page, with a sustainability-minded crowd.</dd>
+          <dt>Stand</dt><dd>2m × 1m, <strong>£200 + VAT</strong>: "Recommended for jewellery and smaller items". It comes with one table (no rail), a chair, name branding and 2 exhibitor passes. Hikari isn't VAT-registered, so the VAT is a real cost: <strong>£240</strong>.</dd>
+          <dt>Apply</dt><dd><a href="https://www.thegoodclothesshow.com/exhibitor-enquiries/">Exhibitor enquiries</a> · <a href="https://www.thegoodclothesshow.com/exhibitor-form/">registration form</a>. No deadline is published. It's five weeks away.</dd>
+          <dt>Break-even</dt><dd>4 pieces for the stand, before travel and a hotel night</dd>
+        </dl>
+        <p class="watch"><b>Watch:</b> two days of trading plus travel from London. This is the only stand on the page that gets a jewellery seller in front of a paying fashion crowd in a target city before Christmas.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3>Portobello Green Market · Fridays</h3>
+          <span class="badge b-test">Test · walk-up</span>
+        </div>
+        <p class="where">Under the Westway canopy, Portobello Road, W10</p>
+        <p class="dates">Every Friday: 9, 16, 23, 30 Oct · 6, 13, 20, 27 Nov · 4 Dec <span class="chk">weekly pattern, inferred</span></p>
+        <dl>
+          <dt>What's sold</dt><dd><strong>Friday is "Vintage &amp; Antiques traders only"</strong>, and fashion-led. Stylists and trend-setters shop it, but so do bargain hunters, and there's plenty of costume jewellery already. It's outdoors.</dd>
+          <dt>Pitch</dt><dd><strong>£30 on Fridays</strong> (£50 on Saturdays). No pre-booking. Arrive from 6:30am at the Westway Trust, 1 Thorpe Close W10 5XL. Pitches go first come, first served after 8:30am, and a place isn't guaranteed.</dd>
+          <dt>Contact</dt><dd><a href="mailto:Pgm-enquiries@everydayurbanism.co.uk">Pgm-enquiries@everydayurbanism.co.uk</a></dd>
+          <dt>Break-even</dt><dd>1 piece</dd>
+        </dl>
+        <p class="watch"><b>Use it for:</b> a rehearsal before Farnham. Practise the display, find out how people react to £150, and note every question asked before someone buys.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3>Lou Lou's Vintage Fair · London &amp; Manchester</h3>
+          <span class="badge b-maybe">Possible</span>
+        </div>
+        <p class="where">Corner Corner, Canada Water SE16 7LL · Victoria Baths, Manchester M13 0FE</p>
+        <p class="dates">Sun 15 Nov (London) &nbsp;·&nbsp; Sun 22 Nov (Manchester) <small>11:00–16:00</small> <span class="chk ok">organiser's site</span></p>
+        <dl>
+          <dt>What's sold</dt><dd>Stock from the 1920s to the 1980s: women's wear, menswear, jewellery, collectables and some homeware. Jewellery traders are invited.</dd>
+          <dt>Crowd</dt><dd>£3 entry. It promotes finds "at an affordable price", so Hikari would be the most expensive stall in the room.</dd>
+          <dt>Apply</dt><dd>Apply separately for each event on <a href="https://eventaly.com/event/lou-lous-london-canada-water/">Eventaly (London)</a> or <a href="https://eventaly.com/event/lou-lous-manchester/">Eventaly (Manchester)</a>. They reply within 10 working days. Fees show only after a free login. <a href="mailto:trade@loulousvintage.com">trade@loulousvintage.com</a></dd>
+        </dl>
+        <p class="watch"><b>Watch:</b> 15 Nov is the same day as Frock Me! in Victoria, which is the better day to spend walking the room as a visitor. Nothing from the 1990s.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3>Old Spitalfields Market</h3>
+          <span class="badge b-maybe">Possible</span>
+        </div>
+        <p class="where">16 Horner Square, E1 6EW</p>
+        <p class="dates">Daily (not Thursdays) · Thursday Antiques &amp; Vintage, 8:00–17:00 <span class="chk">weekly; Christmas switch-on Wed 11 Nov ✓</span></p>
+        <dl>
+          <dt>What's sold</dt><dd>The Daily Market has 70+ fashion, homeware and art stalls. On Thursdays, 80+ stalls sell "vintage art, maps, furniture, home-wares, jewellery and fashion": jewellery is strong there, but it shares the day with furniture.</dd>
+          <dt>Crowd</dt><dd>Tourists, City workers and East Londoners, with collectors and stylists on Thursdays. A lot of people, but not a premium crowd.</dd>
+          <dt>Pitch</dt><dd>Daily: register on the <a href="https://oldspitalfieldsmarket.com/become-a-trader">trader portal</a>, then book in the app. Fees aren't published. Thursday: £40 / £45 / £60 by size, via <a href="https://www.shermanandwaterman.co.uk/spitalfields-antique-market/">Sherman &amp; Waterman</a> (third-party and undated).</dd>
+        </dl>
+        <p class="watch"><b>Don't confuse it with</b> the Spitalfields Traders Market in Crispin Place, run by a different operator. Its own FAQ says it is <strong>not accepting new jewellery applications</strong> because the category is oversubscribed.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Right buyers, closed this season</p>
+      <h2>Visit now, apply for 2027</h2>
+      <p class="sub">These are the fairs whose buyers are actually Hikari's. None can be booked in this window. Go to them as a visitor, talk to the jewellery dealers, and get on the lists.</p>
+    </div>
+    <div class="cards">
+
+      <article class="card">
+        <div class="card-top">
+          <h3>Frock Me! Vintage Fashion Fair</h3>
+          <span class="badge b-wait">Waiting list</span>
+        </div>
+        <p class="where">Running since 1997. Designers, stylists and costume departments buy here. £8 entry.</p>
+        <p class="dates">Sun 18 Oct, Kensington Town Hall · Sun 15 Nov, RHS Lindley Hall, Victoria · Sun 6 Dec, Chelsea Old Town Hall <small>11:00–17:30</small> <span class="chk ok">organiser's site</span></p>
+        <dl>
+          <dt>What's sold</dt><dd>Vintage clothing, jewellery and textiles, from Victorian pieces to pre-loved designer labels. Highly curated, with no furniture. The Victoria fair is billed with "vintage jewellery dealers". <strong>This is the closest match to Hikari in the country.</strong></dd>
+          <dt>Status</dt><dd>"Currently fully-booked… a substantial waiting list for stands." "Applications on hold." New stands open only "when a current exhibitor bows out (which is very rare)".</dd>
+          <dt>Contact</dt><dd><a href="mailto:bookings@frockmevintagefashion.com">bookings@frockmevintagefashion.com</a> · 020 7503 9171. They "always welcome meeting prospective applicants at the fair."</dd>
+        </dl>
+        <p class="watch"><b>Do:</b> join the waiting list this week, then walk the 18 Oct fair and introduce yourself. Seeing what the jewellery dealers there charge also checks the £140–160 pricing.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3>A Current Affair · London</h3>
+          <span class="badge b-wait">Apply for 2027</span>
+        </div>
+        <p class="where">A US vintage fashion fair (LA and Brooklyn). Its second London edition. £10 RSVP. The venue isn't on the organiser's site; listings give Ladbroke Hall, W10.</p>
+        <p class="dates">Fri 23 – Sun 25 Oct <span class="chk ok">organiser's site</span></p>
+        <dl>
+          <dt>What's sold</dt><dd>40+ "premier vintage dealers" from the UK and US selling clothing, accessories and jewellery. Fashion-led and premium. The first London edition (March 2026) expected more than 1,000 visitors.</dd>
+          <dt>Status</dt><dd>The <a href="https://itsacurrentaffair.com/pages/become-an-exhibitor">exhibitor form</a> only adds you to a prospective list, and they are "unable to respond to individual inquiries". It's three weeks away.</dd>
+        </dl>
+        <p class="watch"><b>Do:</b> fill in the form now for the next London edition. Since the first was in March, spring 2027 is likely, but that's an inference.</p>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <h3>The Classic Car Boot Sale</h3>
+          <span class="badge b-wait">April 2027</span>
+        </div>
+        <p class="where">Ran at King's Cross in September. Upmarket despite the name: 100+ "handpicked fashion specialists", £8 entry. The April venue isn't announced yet.</p>
+        <p class="dates">Next: 24–25 Apr 2027 <span class="chk ok">organiser's site</span></p>
+        <dl>
+          <dt>Status</dt><dd>The last one was 26–27 Sep 2026, before this window. Apply for April.</dd>
+        </dl>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Calendar</p>
+      <h2>Every date in the window</h2>
+    </div>
+    <div class="cal">
+      <div class="month">
+        <h3>October</h3>
+        <div class="row"><span class="d">Fridays from 9 Oct</span><span class="n">Portobello Green, vintage day<span>W10 · £30 walk-up</span></span><span class="badge b-test">Test</span></div>
+        <div class="row"><span class="d">Sun 18 Oct</span><span class="n">Frock Me! · Kensington Town Hall<span>Go as a visitor; meet the dealers</span></span><span class="badge b-wait">Visit</span></div>
+        <div class="row"><span class="d">Fri 23 – Sun 25 Oct</span><span class="n">A Current Affair · London W10<span>Go as a visitor; apply for 2027</span></span><span class="badge b-wait">Visit</span></div>
+        <div class="row"><span class="d">Sat 31 Oct</span><span class="n">Vintage Fashion Fair Farnham<span>Farnham Maltings · about £95</span></span><span class="badge b-book">Book</span></div>
+      </div>
+      <div class="month">
+        <h3>November</h3>
+        <div class="row"><span class="d">Sat 7 – Sun 8 Nov</span><span class="n">The Good Clothes Show · Manchester Central<span>2m × 1m jewellery stand · £240 incl. VAT</span></span><span class="badge b-book">Book</span></div>
+        <div class="row"><span class="d">Wed 11 Nov</span><span class="n">Old Spitalfields Christmas light switch-on<span>Christmas trading starts; casual stalls via the portal</span></span><span class="badge b-maybe">Possible</span></div>
+        <div class="row"><span class="d">Sun 15 Nov</span><span class="n">Frock Me! · RHS Lindley Hall, Victoria<span>Same day as Lou Lou's Canada Water. Visit Frock Me!</span></span><span class="badge b-wait">Visit</span></div>
+        <div class="row"><span class="d">Sun 22 Nov</span><span class="n">Lou Lou's · Victoria Baths, Manchester<span>Affordable crowd; 1920s–80s only</span></span><span class="badge b-maybe">Possible</span></div>
+        <div class="row"><span class="d">Sat 28 Nov</span><span class="n">Vintage Fashion Fair Farnham<span>Second chance at this fair, or a repeat</span></span><span class="badge b-book">Book</span></div>
+      </div>
+      <div class="month">
+        <h3>December</h3>
+        <div class="row"><span class="d">Fri 4 Dec</span><span class="n">Portobello Green, last Friday in the window<span>Christmas shoppers, outdoors</span></span><span class="badge b-test">Test</span></div>
+        <div class="row"><span class="d">Sun 6 Dec</span><span class="n">Frock Me! · Chelsea Old Town Hall<span>Ask about late cancellations</span></span><span class="badge b-wait">Visit</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">This week</p>
+      <h2>What to send, in order</h2>
+    </div>
+    <ol class="steps">
+      <li><div><strong>Email Farnham for 31 Oct and 28 Nov.</strong> The first fair is four weeks away. With no Instagram yet, attach photographs of ten pieces and a line on the Japan sourcing.</div></li>
+      <li><div><strong>Enquire with The Good Clothes Show about a 2m × 1m stand.</strong> It's five weeks away. Ask whether any other vintage jewellery sellers are booked.</div></li>
+      <li><div><strong>Email Frock Me! to join the waiting list</strong>, and ask to hear about cancellations for 15 Nov and 6 Dec. Put 18 Oct in the diary as a visit.</div></li>
+      <li><div><strong>Fill in A Current Affair's exhibitor form</strong>, aiming at the next London edition.</div></li>
+      <li><div><strong>Optional:</strong> do one Friday at Portobello Green before 31 Oct, as a rehearsal.</div></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Before trading</p>
+      <h2>Notes</h2>
+    </div>
+    <div class="notes">
+      <div class="note">
+        <h3>What each stall has to sell</h3>
+        <p>About £75 contribution per £150 piece.</p>
+        <table class="calc">
+          <tr><td>Portobello Green, Friday</td><td>£30 → 1 piece</td></tr>
+          <tr><td>Farnham</td><td>~£95 → 2 pieces</td></tr>
+          <tr><td>Good Clothes Show, 2 days</td><td>£240 → 4 pieces + travel</td></tr>
+        </table>
+      </div>
+      <div class="note">
+        <h3>Era rules</h3>
+        <p>Farnham accepts only pre-1990 stock, and Lou Lou's only 1920s–1980s. Leave 1990s Dior and Chanel at home for those two. The Good Clothes Show, Portobello Green and Frock Me! have no era cut-off.</p>
+      </div>
+      <div class="note">
+        <h3>It fits the plan</h3>
+        <p>Doc 14 (item 5) already treats a stall as list-building, not a breach of <a href="DECISIONS.md">D3</a>. So the stall's main job is <strong>collecting email addresses</strong> for Edition night. Take card payments; a bank transfer at a stall undoes the trust work (<a href="DECISIONS.md">D4</a>).</p>
+      </div>
+      <div class="note">
+        <h3>The name</h3>
+        <p>A stall puts "Hikari" in front of the public while the Class 14 question (99 #57) is still open. Keep signage cheap and printed until it's answered, not a made sign.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Ruled out</p>
+      <h2>Looked at and dropped</h2>
+    </div>
+    <div class="rej">
+      <div>
+        <h3>Not running, or no dates</h3>
+        <ul>
+          <li>Clerkenwell Vintage Fashion Fair <span>· held its final fair in April 2025</span></li>
+          <li>Pop Up Vintage Fairs <span>· no 2026 dates published</span></li>
+          <li>Vintage Fashion, Textiles &amp; Accessories Fair (Hammersmith) <span>· no date found in the window</span></li>
+          <li>Judy's Vintage Fair <span>· now furniture and flea markets</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Makers only, no resale</h3>
+        <ul>
+          <li>Crafty Fox Christmas markets</li>
+          <li>Spitalfields Arts Market · Old Spitalfields Urban Makers</li>
+          <li>Greenwich Market <span>· "imported jewellery traders will not be accepted"</span></li>
+          <li>Handmade Chelsea · N4 Xmas Indie Jewellers' Market · SoLo Craft Fair</li>
+          <li>Country Living Christmas Market · Selvedge Winter Fair</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Jewellery closed</h3>
+        <ul>
+          <li>Spitalfields Traders Market and Saturday Style Market, Crispin Place <span>· jewellery, bags and leather oversubscribed</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Antiques-led</h3>
+        <ul>
+          <li>Chelsea Jewellery &amp; Antiques Market, 17 Oct <span>· jewellery alongside ceramics and silver; no way to apply found</span></li>
+          <li>Bath Vintage &amp; Antiques Market, 25 Oct and 29 Nov <span>· mostly furniture and décor</span></li>
+          <li>Brighton Racecourse fair · St Albans market · Covent Garden on Mondays · LAPADA</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Too cheap</h3>
+        <ul>
+          <li>Hackney Flea · Big London Flea · Big Kensington Flea · Go East</li>
+          <li>Clothes Cycle thrift festivals <span>· Bristol, Edinburgh, Manchester</span></li>
+          <li>Secondhand Wonderland, Glasgow <span>· Y2K, around £10–20</span></li>
+          <li>Saltaire Vintage Home &amp; Fashion Fair <span>· half homeware; dates unverified</span></li>
+          <li>Every kilo sale</li>
+        </ul>
+      </div>
+      <div>
+        <h3>No way in, or couldn't verify</h3>
+        <ul>
+          <li>Liberty · Selfridges · Dover Street Market · Browns <span>· no open call this window</span></li>
+          <li>Southbank Winter Market · Spirit of Christmas, Olympia <span>· tourist chalets, or a vetted 7-day stand</span></li>
+          <li>Cabbages &amp; Frocks, Marylebone <span>· site down; may have closed. Phone before ruling it in.</span></li>
+          <li>Truman Brewery markets, Brick Lane <span>· sites down; trading terms unverified</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Method</p>
+      <h2>Sources</h2>
+    </div>
+    <p class="legend"><span class="chk ok">organiser's site</span> means the date was read on the organiser's own page on 4 Oct 2026; it was checked a second time for the fairs on this page that can be booked or waitlisted. "Inferred" means it was worked out from a weekly pattern. Stall fees are the organisers' own unless the card says otherwise. Organisers move dates, so confirm before paying.</p>
+    <ul class="sources">
+      <li><a href="https://www.vintagefashionfairfarnham.co.uk/fair-dates.html">Farnham: fair dates</a></li>
+      <li><a href="https://www.vintagefashionfairfarnham.co.uk/stallholders.html">Farnham: stallholders</a></li>
+      <li><a href="https://farnhammaltings.com/events/vintage-fashion-fair">Farnham Maltings: event page</a></li>
+      <li><a href="https://www.stallandcraftcollective.co.uk/vintage-fashion-fair-farnham-56580-event">Stall &amp; Craft Collective: Farnham fee</a></li>
+      <li><a href="https://www.thegoodclothesshow.com/">The Good Clothes Show</a></li>
+      <li><a href="https://www.thegoodclothesshow.com/exhibitor-enquiries/">Good Clothes Show: stands</a></li>
+      <li><a href="https://www.thegoodclothesshow.com/event-tickets/">Good Clothes Show: tickets</a></li>
+      <li><a href="https://www.portobellofashionmarket.com/trade.html">Portobello Green: trade</a></li>
+      <li><a href="https://www.loulousvintagefair.com/">Lou Lou's: dates</a></li>
+      <li><a href="https://oldspitalfieldsmarket.com/become-a-trader">Old Spitalfields: become a trader</a></li>
+      <li><a href="https://oldspitalfieldsmarket.com/events/antiques-market">Old Spitalfields: Thursday market</a></li>
+      <li><a href="https://oldspitalfieldsmarket.com/events/christmas-2026-light-switch-on">Old Spitalfields: Christmas 2026</a></li>
+      <li><a href="https://www.spitalfields.co.uk/wp-content/uploads/2025/02/Spitalfields-Traders-Market-New-Applications-FAQ.pdf">Spitalfields Traders Market: FAQ (PDF)</a></li>
+      <li><a href="https://www.frockmevintagefashion.com/2026-dates">Frock Me!: 2026 dates</a></li>
+      <li><a href="https://www.frockmevintagefashion.com/exhibitors">Frock Me!: exhibitors</a></li>
+      <li><a href="https://itsacurrentaffair.com/">A Current Affair</a></li>
+      <li><a href="https://www.chicmi.com/event/a-current-affair-pop-up-vintage-marketplace-london/">Chicmi: A Current Affair London</a></li>
+      <li><a href="https://www.theindustry.fashion/resale-is-booming-two-vintage-fashion-fairs-coming-to-london/">TheIndustry.fashion: London fairs</a></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">Hikari planning docs · 19 · Markets · 4 October 2026. Companion to <a href="14-marketing.md">14 Marketing</a> and <a href="07-roadmap.md">07 Roadmap</a>.</div>
+</footer>
+
+</body>
+</html>

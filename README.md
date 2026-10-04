@@ -33,6 +33,7 @@ These documents are the working plan. They are meant to be returned to and revis
 | [16 — VAT](docs/16-vat.md) | **Full reference: who pays, reliefs, schemes, and the numbers on our economics** |
 | [17 — Entity & tax](docs/17-entity-and-tax.md) | **Checkout tax when unregistered, income tax, and sole trader vs company** |
 | [18 — Name clearance](docs/18-name-clearance.md) | ⚠️ **"HIKARI" is registered in Class 14 by another UK company. Domains, handles, options.** |
+| [19 — Markets](docs/19-markets.html) | **Where to take a stall, Oct–Dec 2026: fashion-led fairs at £140–160, not antiques, not flea** |
 | [Decisions](docs/DECISIONS.md) | **Dated log of what's settled, proposed, or reversed** |
 | [99 — Open questions](docs/99-open-questions.md) | Everything unresolved, in one place |
 
