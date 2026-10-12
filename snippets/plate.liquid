@@ -5,9 +5,10 @@
   are evidence and stay unretouched (D6, D10).
 {%- endcomment -%}
 {%- assign r = ratio | default: 0.8 -%}
+{%- assign w = width | default: 1400 -%}
 <div class="plate">
   {%- if image -%}
-    {{ image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: alt | default: '' }}
+    {{ image | image_url: width: w | image_tag: loading: 'lazy', alt: alt | default: '' }}
   {%- else -%}
     <canvas data-seed="{{ seed | default: 1 }}" data-tone="{{ tone | default: 'light' }}"
             data-comp="{{ comp | default: 'pair' }}" data-ratio="{{ r }}" role="img"

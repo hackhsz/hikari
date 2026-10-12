@@ -1,0 +1,36 @@
+{%- comment -%}
+  The bag drawer. Rendered once in the layout, then re-rendered by Shopify on every change
+  through the Section Rendering API (assets/hikari.js asks for it by id: "bag-drawer").
+  Only [data-bag-body] is swapped, so the panel, its heading and focus stay put.
+
+  One of one shapes it: no quantity steppers, every line reads "One of one", and the bag
+  says plainly that a piece in it is not held. Checkout is Shopify's own.
+{%- endcomment -%}
+<div class="sheet bag" id="bag" data-sheet aria-hidden="true" inert>
+  <div class="sheet-scrim" data-sheet-close></div>
+  <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="bag-title" tabindex="-1">
+    <div class="sheet-head">
+      <h2 class="sheet-title" id="bag-title">Bag</h2>
+      <button type="button" class="sheet-x" data-sheet-close>Close</button>
+    </div>
+    <p class="bag-note" data-bag-note role="status" aria-live="polite" hidden></p>
+
+    <div class="bag-body" data-bag-body data-count="{{ cart.item_count }}">
+      {%- if cart.item_count > 0 -%}
+        <ul class="bag-lines" role="list">
+          {%- for item in cart.items -%}{%- render 'bag-line', item: item -%}{%- endfor -%}
+        </ul>
+        {%- render 'bag-foot', cart: cart -%}
+      {%- else -%}
+        <div class="bag-empty">
+          <p class="bag-empty-h">Nothing in the bag yet.</p>
+          <p>Every piece here is one of one. When it sells, it goes to the Record.</p>
+          <a class="bag-link" href="{{ routes.all_products_collection_url }}">See every piece</a>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+{ "name": "Bag drawer", "settings": [] }
+{% endschema %}
