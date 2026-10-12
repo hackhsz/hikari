@@ -231,3 +231,23 @@ The per-piece acquisition record from [04](04-site-ia.md) now serves five purpos
 3. **The timing is inverted.** Exposure grows with revenue; detection risk grows faster — payment data, platform reporting, Companies House, a lease, staff, an accountant who resigns. The structure is cheapest when there is least to lose and most expensive when there is most.
 4. **Being clean costs us almost nothing at current scale.** Unregistered and under £90,000, the entire cost of compliance is **£16 a piece of import VAT**. There is no output VAT to avoid because we are not registered. £16 on £180, plus one accountant's hour. The "everyone does it" advantage is mostly an advantage *at scale* — which is also when it ends businesses.
 5. **The cost we do accept, honestly:** our price will look higher in a side-by-side. That is real, it is already accepted at [D12](DECISIONS.md), and it is why all-in pricing has to be stated as a *claim about us* rather than left for the customer to discover.
+
+---
+
+### D16 · The homepage opens on a brand image, then the Alcove
+**2026-10-12 · Decided**
+
+A full width brand image now sits above the Alcove (`theme/sections/brand-hero.liquid`). This amends [08](08-brand.md) "the homepage shows one piece, large, above everything else" and the scale ladder in [04](04-site-ia.md): the Alcove is now second, still the first piece anyone sees.
+
+What does not change: type sits below the image, never on it, so there is still no scrim anywhere. The brand image is our own photography. Until it exists the section shows a plain daylight study with no object in it, so it can never be mistaken for a product.
+
+---
+
+### D17 · Bag drawer, then Shopify's checkout
+**2026-10-12 · Decided**
+
+Add to bag opens a drawer instead of leaving the page (`theme/sections/bag-drawer.liquid`). Checkout stays Shopify's own, per [11](11-platform.md).
+
+The drawer carries the trust block, the accepted payment marks, express checkout buttons and the VAT line, per the 2026-09-21 update in [04](04-site-ia.md). One of one shapes it: no quantity controls, adding a piece already in the bag says so, a piece that sells while someone is looking turns to Sold, and the bag states that a piece in it is not held. Shopify does not reserve stock in a cart, so the copy must never suggest it does.
+
+The total in the bag is the price paid ([D12](DECISIONS.md)). That holds only while UK delivery is free on every order, which "UK next day over £100" implies for stock at £110 and up. If a delivery charge is ever added, the bag needs a delivery line.
