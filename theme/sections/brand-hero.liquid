@@ -1,0 +1,89 @@
+{%- comment -%}
+  Brand image, above the Alcove (D16). The campaign picture first, then the one piece.
+
+  Type sits below the image, never on it, the same rule as every other plate
+  (docs/04-site-ia.md, "Information stays below the image at every scale"), so no scrim.
+  A separate phone image is optional: without one, the desktop image is cropped to 4:5
+  around its focal point, which is set on the image itself in Shopify (Edit image > Focal point).
+  Until a picture is chosen, a quiet daylight study holds the space. It has no object in it,
+  so it can't be mistaken for a product.
+{%- endcomment -%}
+{%- liquid
+  assign img = section.settings.image
+  assign img_m = section.settings.image_mobile
+  assign fit = section.settings.height
+  case fit
+    when 'wide'
+      assign ratio = 0.4286
+    when 'tall'
+      assign ratio = 0.75
+    else
+      assign ratio = 0.5625
+  endcase
+-%}
+<section class="hero" id="brand" data-bg="#EFF0EC" data-fg="#14171A" style="--sec-bg:#EFF0EC;--sec-fg:#14171A;">
+  <div class="hero-media hero-media--{{ fit }}{% if img_m %} has-mobile{% endif %}{% unless img %} is-empty{% endunless %}">
+    {%- if img -%}
+      <picture>
+        {%- if img_m -%}
+          <source media="(max-width: 749px)"
+            srcset="{{ img_m | image_url: width: 750 }} 750w, {{ img_m | image_url: width: 1100 }} 1100w, {{ img_m | image_url: width: 1500 }} 1500w"
+            sizes="100vw">
+        {%- endif -%}
+        {%- liquid
+          assign focal = img.presentation.focal_point | default: '50% 50%'
+          assign obj_style = 'object-position: ' | append: focal
+          assign alt_text = section.settings.image_alt | default: img.alt
+        -%}
+        {{ img | image_url: width: 3000 | image_tag:
+            widths: '750, 1100, 1500, 2000, 2600, 3000', sizes: '100vw',
+            loading: 'eager', fetchpriority: 'high', alt: alt_text, style: obj_style }}
+      </picture>
+    {%- else -%}
+      <canvas data-seed="3" data-tone="light" data-comp="none" data-ratio="{{ ratio }}" data-fill="1"
+              role="img" aria-label="Brand image to follow"></canvas>
+      {%- if request.design_mode -%}
+        <span class="stamp">Brand image · choose it in this section's settings</span>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+
+  <div class="shell hero-txt">
+    <div class="hero-lead">
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h1 class="hero-h">{{ section.settings.heading }}</h1>
+    </div>
+    <div class="hero-side">
+      {%- if section.settings.body != blank -%}<div class="hero-b">{{ section.settings.body }}</div>{%- endif -%}
+      {%- if section.settings.link_label != blank and section.settings.link != blank -%}
+        <a class="hero-link" href="{{ section.settings.link }}">{{ section.settings.link_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "Brand image",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image",
+      "info": "Landscape, at least 2400px wide. Set the focal point on the image so phone crops keep the subject." },
+    { "type": "image_picker", "id": "image_mobile", "label": "Phone image (optional)",
+      "info": "Portrait. Used under 750px wide instead of cropping the image above." },
+    { "type": "text", "id": "image_alt", "label": "Image description",
+      "info": "Read aloud by screen readers. Describe the picture, not the brand." },
+    { "type": "select", "id": "height", "label": "Shape on desktop", "default": "standard",
+      "options": [
+        { "value": "wide", "label": "Wide, 21:9" },
+        { "value": "standard", "label": "Standard, 16:9" },
+        { "value": "tall", "label": "Tall, 4:3" },
+        { "value": "adapt", "label": "As the image" }
+      ] },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Vintage designer jewellery · Found in Japan" },
+    { "type": "text", "id": "heading", "label": "Heading",
+      "default": "Vintage Dior, Chanel and Givenchy, found in Japan and brought to London." },
+    { "type": "richtext", "id": "body", "label": "Text",
+      "default": "<p>Every piece is authenticated and photographed on our own table. Duty is paid before it reaches you. There is one of each, and none is ever restocked.</p>" },
+    { "type": "text", "id": "link_label", "label": "Link label", "default": "See every piece" },
+    { "type": "url", "id": "link", "label": "Link", "default": "/collections/all" }
+  ],
+  "presets": [{ "name": "Brand image" }] }
+{% endschema %}

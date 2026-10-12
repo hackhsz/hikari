@@ -10,6 +10,21 @@ Custom Liquid theme built from the prototypes. Palette B ([`brand/tokens.css`](.
 
 Preferred is (3), so changes here go live without a manual step.
 
+## Brand image (top of the home page)
+
+Theme editor → Home page → **Brand image**. Choose a landscape picture at least 2400px wide, and optionally a portrait one for phones. Without a phone picture, the landscape one is cropped to 4:5 around its focal point, so set the focal point on the image (Content → Files, or the image's Edit menu). Type sits below the picture, never on it (D16). Until a picture is chosen, the section shows a plain daylight study.
+
+## The bag and checkout
+
+Add to bag opens the bag drawer (`sections/bag-drawer.liquid`) instead of leaving the page. The drawer is re-rendered by Shopify after every change, through the Section Rendering API, so the bag has one template. Without JavaScript everything still works through the plain `/cart` page, which uses the same lines and footer (`snippets/bag-line`, `snippets/bag-foot`). See D17.
+
+Checkout is Shopify's own. What to set in the admin so it matches the store:
+
+1. **Settings → Payments.** Turn on Shopify Payments, then Apple Pay, Google Pay and Shop Pay. Their express buttons and the card marks appear in the bag on their own; nothing to change in the theme.
+2. **Settings → Checkout → Customize.** Add the lockup (`brand/logo/hikari-lockup-ink-1200.png`, on the `claude/busy-mccarthy-wbjzvh` branch) and set the colours to paper `#EFF0EC`, sumi `#14171A` and ai `#2E4B6B` for buttons.
+3. **Guest checkout.** Make sure customers are not required to sign in (Settings → Customer accounts).
+4. **Settings → Shipping and delivery.** Make UK delivery free over £100, so the total in the bag is what checkout charges (D12, D17).
+
 ## Name is not hard-coded — on purpose
 
 Per [`docs/18-name-clearance.md`](../docs/18-name-clearance.md), the name may have to change. It is a single theme setting:

@@ -51,9 +51,12 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .mast{position:sticky;top:0;z-index:70;mix-blend-mode:difference;color:#fff}
 .mast .inner{max-width:var(--max);margin:0 auto;padding:16px var(--gut);display:flex;align-items:center;justify-content:space-between;gap:18px}
 .mast nav{display:flex;gap:22px}
-.mast nav a,.mast .bag{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.82;transition:opacity .25s}
-.mast nav a:hover{opacity:1}
-@media (max-width:760px){.mast nav{display:none}}
+.mast-r{display:flex;gap:20px;align-items:center}
+.mast nav a,.mast .bag-btn,.mast .menu-btn{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.82;transition:opacity .25s;
+  padding-block:8px;margin-block:-8px}
+.mast nav a:hover,.mast .bag-btn:hover,.mast .menu-btn:hover{opacity:1}
+.mast .menu-btn{display:none}
+@media (max-width:760px){.mast nav{display:none}.mast .menu-btn{display:inline}}
 
 /* type */
 .eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;opacity:.58;margin:0 0 clamp(16px,3vw,26px)}
@@ -156,3 +159,111 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .fcols a{display:block;font-size:13.5px;opacity:.76;padding:3px 0}
 .fcols a:hover{opacity:1}
 .legal{margin-top:clamp(40px,7vw,68px);padding-top:18px;border-top:1px solid;border-color:color-mix(in srgb,currentColor 16%,transparent);font-size:11.5px;line-height:1.6;opacity:.5;max-width:66ch}
+
+/* ── brand image (sections/brand-hero.liquid) ──────────────
+   Full bleed: the brand's world runs edge to edge, the one piece below sits in the shell.
+   Type below the image, never on it. */
+.hero-media{position:relative;overflow:hidden;background:color-mix(in srgb,currentColor 7%,transparent)}
+.hero-media picture,.hero-media img,.hero-media canvas{display:block;width:100%}
+.hero-media--wide{aspect-ratio:21/9}
+.hero-media--standard{aspect-ratio:16/9}
+.hero-media--tall{aspect-ratio:4/3}
+.hero-media--adapt.is-empty{aspect-ratio:16/9}
+.hero-media:not(.hero-media--adapt) picture,.hero-media:not(.hero-media--adapt) img,.hero-media canvas{height:100%}
+.hero-media img{object-fit:cover}
+@media (max-width:749px){
+  .hero-media:not(.has-mobile){aspect-ratio:4/5}
+  .hero-media:not(.has-mobile) picture,.hero-media:not(.has-mobile) img{height:100%}
+  .hero-media.has-mobile{aspect-ratio:auto}
+  .hero-media.has-mobile img{height:auto}
+}
+.hero-media .stamp{position:absolute;left:max(var(--gut),calc((100% - var(--max)) / 2 + var(--gut)));bottom:12px;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#fff;mix-blend-mode:difference;opacity:.75}
+.hero-txt{display:grid;grid-template-columns:repeat(12,1fr);column-gap:clamp(16px,3vw,44px);row-gap:22px;align-items:end;
+  padding-top:clamp(24px,4vw,44px);padding-bottom:clamp(64px,10vw,124px)}
+.hero-lead{grid-column:1/9;min-width:0}
+.hero-side{grid-column:9/13;min-width:0}
+.hero-h{font-family:var(--serif);font-weight:200;font-size:clamp(30px,5.2vw,60px);line-height:1.04;letter-spacing:-.014em;margin:0;text-wrap:balance;max-width:20ch}
+.hero-b p{font-size:14.5px;line-height:1.68;opacity:.72;margin:0 0 14px;max-width:42ch}
+.hero-link{display:inline-block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+  padding:8px 0 5px;border-bottom:1px solid;border-color:color-mix(in srgb,currentColor 45%,transparent);transition:border-color .25s}
+.hero-link:hover{border-color:currentColor}
+@media (max-width:760px){.hero-lead,.hero-side{grid-column:1/-1}}
+
+/* ── sheets: bag drawer and phone menu ─────────────────────
+   Fixed surfaces in paper and sumi, whatever colour the page has scrolled to.
+   z 80: above the masthead (70), under the grain (90) so they share the texture. */
+html.sheet-open{overflow:hidden}
+.sheet{position:fixed;inset:0;z-index:80;visibility:hidden;pointer-events:none;transition:visibility 0s linear .26s}
+.sheet.is-open{visibility:visible;pointer-events:auto;transition-delay:0s}
+.sheet-scrim{position:absolute;inset:0;background:color-mix(in srgb,var(--sumi) 36%,transparent);opacity:0;transition:opacity .26s ease-out}
+.sheet.is-open .sheet-scrim{opacity:1}
+.sheet-panel{position:absolute;top:0;right:0;bottom:0;width:min(440px,100%);display:flex;flex-direction:column;
+  background:var(--paper);color:var(--sumi);outline:none;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  opacity:0;transform:translateX(18px);transition:opacity .26s ease-out,transform .26s ease-out}
+.sheet--left .sheet-panel{right:auto;left:0;transform:translateX(-18px)}
+.sheet.is-open .sheet-panel{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.sheet,.sheet-scrim,.sheet-panel{transition:none!important}}
+.sheet-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:20px 24px 16px;
+  border-bottom:1px solid var(--rule)}
+.sheet-title{font-family:var(--serif);font-weight:200;font-size:30px;line-height:1;margin:0}
+.sheet-x{background:none;border:0;color:inherit;font:inherit;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+  padding:10px 0;cursor:pointer;opacity:.7;transition:opacity .25s}
+.sheet-x:hover{opacity:1}
+
+/* phone menu */
+.menu-links{display:flex;flex-direction:column;padding:12px 24px;flex:1;overflow-y:auto}
+.menu-links a{font-family:var(--serif);font-weight:200;font-size:34px;line-height:1.1;padding:12px 0;border-bottom:1px solid var(--rule)}
+.menu-foot{padding:24px}
+
+/* ── the bag ─────────────────────────────────────────────── */
+.bag-note{margin:0;padding:11px 24px;font-size:12.5px;background:var(--paper-deep);border-bottom:1px solid var(--rule)}
+.bag-note[hidden]{display:none}
+.bag-body{flex:1;min-height:0;display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain}
+.sheet .bag-lines{padding:0 24px}
+.bag-lines{list-style:none;margin:0;padding:0}
+.bag-line{display:grid;grid-template-columns:76px 1fr auto;gap:16px;align-items:start;padding:18px 0;border-bottom:1px solid var(--rule)}
+.bag-thumb{display:block}
+.bag-info{min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+.bag-house{font-family:var(--serif);font-weight:300;font-size:20px;line-height:1.08}
+.bag-piece{font-family:var(--serif);font-style:italic;font-weight:300;font-size:14px;line-height:1.35;margin:3px 0 0;opacity:.72}
+.bag-oneof{font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;opacity:.5;margin:8px 0 0}
+.bag-remove{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;opacity:.55;margin-top:10px;
+  padding:6px 0;border-bottom:1px solid transparent;transition:opacity .25s,border-color .25s}
+.bag-remove:hover{opacity:1;border-color:currentColor}
+.bag-price{font-size:18px;padding-top:2px}
+.bag-foot{margin-top:auto}
+.bag-pay{padding:16px 24px 18px;border-top:1px solid var(--rule);background:var(--paper)}
+.sheet .bag-pay{position:sticky;bottom:0;z-index:1}
+.bag-more{padding:14px 24px 26px}
+.bag-total{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:8px}
+.bag-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;opacity:.6}
+.bag-sum{font-size:28px}
+.bag-fine{font-size:12px;line-height:1.5;opacity:.62;margin:0 0 6px}
+.bag-checkout{margin:12px 0 0}
+.bag-checkout .btn{font-size:11.5px;padding:17px 26px}
+.bag-express{margin-top:12px;
+  --shopify-accelerated-checkout-button-border-radius:2px;
+  --shopify-accelerated-checkout-button-block-size:48px}
+.pay{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0;padding:0}
+.pay-icon{display:block;height:22px;width:auto}
+.bag-trust{margin-top:14px}
+.bag-empty{padding:32px 24px;max-width:40ch}
+.bag-empty-h{font-family:var(--serif);font-style:italic;font-weight:300;font-size:24px;line-height:1.2;margin:0 0 10px}
+.bag-empty p{margin:0 0 18px;opacity:.72;font-size:14px}
+.bag-link{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;padding:6px 0 4px;border-bottom:1px solid}
+
+/* bag page: same parts, wider */
+.bag-page{max-width:760px}
+.bag-page-h{font-family:var(--serif);font-weight:200;font-size:clamp(30px,6vw,54px);line-height:1;margin:0 0 20px}
+.bag-page .bag-line{grid-template-columns:110px 1fr auto}
+.bag-page .bag-foot{margin-top:0}
+.bag-page .bag-pay,.bag-page .bag-more{padding-inline:0}
+.bag-page .bag-pay{border-top:0;padding-top:24px}
+.bag-page .bag-empty{padding:12px 0}
+
+/* product page */
+.btn[aria-busy="true"]{opacity:.6;cursor:progress}
+.btn[data-in-bag]{background:transparent;color:inherit;box-shadow:inset 0 0 0 1px currentColor}
+.pdp-note{font-size:12.5px;margin:10px 0 0;min-height:1em;opacity:.8}
+.pdp-note:empty{margin:0}
