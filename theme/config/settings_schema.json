@@ -30,7 +30,8 @@
   { "name": "Legal",
     "settings": [
       { "type": "textarea", "id": "legal_disclaimer", "label": "Trademark disclaimer",
-        "default": "{{ shop.name }} is an independent reseller of pre-owned items. We are not affiliated with, authorised by, endorsed by or connected to any of the brands featured. All trademarks are the property of their respective owners." },
+        "info": "[brand] is replaced with the brand name set above.",
+        "default": "[brand] is an independent reseller of pre-owned items. We are not affiliated with, authorised by, endorsed by or connected to any of the brands featured. All trademarks are the property of their respective owners." },
       { "type": "text", "id": "company_name", "label": "Registered company name", "info": "Required by the Companies Act and the E-Commerce Regulations 2002." },
       { "type": "text", "id": "company_number", "label": "Company number" },
       { "type": "textarea", "id": "company_address", "label": "Registered office address" },
