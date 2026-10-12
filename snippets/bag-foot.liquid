@@ -1,0 +1,42 @@
+{%- comment -%}
+  Total, checkout and the trust block, shared by the drawer and the bag page.
+  docs/04-site-ia.md: the payment step is the last and most fragile moment of the trust
+  architecture, so the trust block repeats here and the accepted payment marks are visible.
+  D12: all-in pricing, so the total is the price paid. No fee or tax line, ever.
+
+  In the drawer, .bag-pay (total and Checkout) stays pinned to the bottom while the pieces
+  scroll, and .bag-more follows the list, so a phone still shows the pieces.
+{%- endcomment -%}
+<div class="bag-foot">
+  <div class="bag-pay">
+    <div class="bag-total">
+      <span class="bag-label">Total</span>
+      <span class="price bag-sum">{{ cart.total_price | money }}</span>
+    </div>
+    <p class="bag-fine">{{ settings.vat_line }}</p>
+    <form action="{{ routes.cart_url }}" method="post" class="bag-checkout">
+      <button type="submit" name="checkout" class="btn">Checkout</button>
+    </form>
+  </div>
+
+  <div class="bag-more">
+    <p class="bag-fine">One of one. A piece in your bag is not held for you until you check out.</p>
+
+    {%- if additional_checkout_buttons -%}
+      <div class="bag-express additional-checkout-buttons--vertical">{{ content_for_additional_checkout_buttons }}</div>
+    {%- endif -%}
+
+    {%- if shop.enabled_payment_types.size > 0 -%}
+      <ul class="pay" role="list" aria-label="Payment methods we accept">
+        {%- for type in shop.enabled_payment_types -%}
+          <li>{{ type | payment_type_svg_tag: class: 'pay-icon' }}</li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    <ul class="trust-list bag-trust" role="list">
+      <li>{{ settings.trust_1 }}</li><li>{{ settings.trust_2 }}</li>
+      <li>{{ settings.trust_3 }}</li><li>{{ settings.trust_4 }}</li>
+    </ul>
+  </div>
+</div>
