@@ -7,7 +7,7 @@
     {%- if cp.available -%}{%- assign p = cp -%}{%- break -%}{%- endif -%}
   {%- endfor -%}
 {%- endunless -%}
-<section data-bg="#EFF0EC" data-fg="#14171A" style="--sec-bg:#EFF0EC;--sec-fg:#14171A;padding-top:clamp(6px,1.5vw,16px)">
+<section id="alcove" data-bg="#EFF0EC" data-fg="#14171A" style="--sec-bg:#EFF0EC;--sec-fg:#14171A;padding-top:clamp(6px,1.5vw,16px)">
   <div class="shell">
     {%- if p -%}
       {%- render 'plate', image: p.featured_image, ratio: 0.70, seed: p.id, tone: 'light',
@@ -15,7 +15,7 @@
       <div class="al-info">
         <div>
           <p class="eyebrow" style="margin-bottom:14px">The Alcove · Edition No. {{ settings.edition_no }} · {{ settings.edition_day }}</p>
-          <h1 class="al-house">{{ p.vendor | default: p.title }}</h1>
+          <h2 class="al-house">{{ p.vendor | default: p.title }}</h2>
           <p class="al-piece">{{ p.metafields.hikari.piece | default: p.title }}</p>
         </div>
         <div style="text-align:right"><span class="price al-price">{% if p.available %}{{ p.price | money }}{% else %}Sold{% endif %}</span></div>
@@ -29,7 +29,7 @@
       </div>
     {%- else -%}
       {%- render 'plate', ratio: 0.70, seed: 1, tone: 'light', comp: 'pair', stamp: 'Select a piece in the theme editor' -%}
-      <div class="al-info"><div><p class="eyebrow">The Alcove</p><h1 class="al-house">Choose a piece</h1>
+      <div class="al-info"><div><p class="eyebrow">The Alcove</p><h2 class="al-house">Choose a piece</h2>
       <p class="al-piece">Theme editor → The Alcove → Product</p></div></div>
     {%- endif -%}
   </div>

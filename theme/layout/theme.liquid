@@ -13,6 +13,13 @@
 
   {{ content_for_header }}
   {{ 'hikari.css' | asset_url | stylesheet_tag }}
+  <script>
+    window.HikariRoutes = {
+      cart_url: {{ routes.cart_url | json }},
+      cart_add_url: {{ routes.cart_add_url | json }},
+      cart_change_url: {{ routes.cart_change_url | json }}
+    };
+  </script>
   <script src="{{ 'hikari.js' | asset_url }}" defer></script>
 </head>
 <body class="template-{{ template.name }}">
@@ -26,5 +33,6 @@
   </main>
 
   {% section 'footer' %}
+  {% section 'bag-drawer' %}
 </body>
 </html>

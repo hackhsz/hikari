@@ -1,7 +1,12 @@
 {%- assign p = card_product -%}
+{%- comment -%}
+  render only passes a value, not a comparison: `sold: p.available == false` arrived as
+  p.available and badged every piece in stock. Work the boolean out first.
+{%- endcomment -%}
+{%- assign is_sold = true -%}{%- if p.available -%}{%- assign is_sold = false -%}{%- endif -%}
 <a class="card" href="{{ p.url }}">
   {%- render 'plate', image: p.featured_image, ratio: 1.25, seed: p.id, tone: tone,
-      comp: 'single', alt: p.title, sold: p.available == false -%}
+      comp: 'single', alt: p.title, sold: is_sold -%}
   <div class="cinfo">
     <h3 class="chouse">{{ p.vendor | default: p.title }}</h3>
     <p class="cpiece">{{ p.metafields.hikari.piece | default: p.title }}</p>
