@@ -336,3 +336,13 @@ Divided lockup specified and the supplied reference glyph identified ([10](10-lo
 |---|---|---|
 | 83 | **A recurring generated sitter, or a new face each time?** A fixed seed builds a brand asset over a year; it also sharpens the AI tell, since a face that recurs, never ages and never appears in Stories invites scrutiny. Suggested split: recurring in the painted register, one-off in the photographic one. | [20](20-imagery-rights.md), [08](08-brand.md) |
 | 84 | Confirm the commercial-use terms of whichever generation service is actually used — they differ between services and they change. | [20](20-imagery-rights.md) |
+
+## Update · 2026-09-22 — lockup rebuilt in light mincho *(logo branch, merged 2026-10-13)*
+
+Lockup rebuilt in light mincho ([10](10-logo.md), studies: https://claude.ai/artifact/AkmvRHXTwTUfFvw2JBN9jn).
+
+**Resolved:** the weight problem. Mincho 200 against Newsreader 300 recovers the calm of the supplied reference. The pairing is specified as a **ratio** — kanji exactly one step below the Latin, both moving together with size (200/300 at hero, 300/400 at body and print) — because a designer given fixed hero weights will let the small sizes fall apart.
+
+**#27, restated on the logo branch (where it was numbered #41):** **Mincho or gothic for the kanji?** Light mincho reads *written* — editorial, warm, close to ReSee and the category's existing register. Light gothic reads *neutral* — Muji, Ginza, closer to what [02](02-positioning.md) actually argues for. The supplied reference was gothic **by accident**. This is a brand decision, and it sits with #73 (set or drawn) above the detail questions. **If the answer is gothic, the Latin goes gothic too** — a gothic kanji beside a serif Latin is the accident, not a style. — [10](10-logo.md), [02](02-positioning.md)
+
+**Note against #62.** That question was "serif or grotesque for the Latin". It is not independent of #27 — the two sides have to agree. Decide them together.
