@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Hikari — the name in kana, and six simpler marks. Standalone; open in a browser.
+     See docs/10-logo.md. Palette and type from brand/tokens.css.
+     Marks 01, 05 and 06 are hand-built geometry; 02-04 are font studies. -->
+<title>Six Simpler Marks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Instrument+Sans:wght@400;500;600&family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#EFF0EC; --paper-deep:#DFE1DC; --rule:#C9CCC6;
+  --sumi:#14171A; --nezu:#5E625B; --ai:#2E4B6B; --kaki:#9E4730;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mincho:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+  --gothic:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  --measure:34rem; --gutter:clamp(1rem,5vw,3.5rem);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--sumi);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:64rem;margin:0 auto;padding-inline:var(--gutter);padding-block:clamp(2.5rem,7vw,5rem) 6rem}
+.label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--nezu)}
+h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.3rem,6vw,3.5rem);line-height:1.05;letter-spacing:-.01em;margin:.5rem 0 0;text-wrap:balance}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.45rem,3.4vw,2rem);line-height:1.15;margin:0;text-wrap:balance}
+h3{font-size:13px;font-weight:600;letter-spacing:.02em;margin:0 0 .35rem}
+p{margin:0 0 1rem;max-width:var(--measure)}
+p:last-child{margin-bottom:0}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:var(--paper-deep);padding:.1em .35em}
+.lede{font-size:17px;line-height:1.55}
+hr.rule{border:0;border-top:1px solid var(--rule);margin:3.5rem 0}
+header.masthead{border-bottom:1px solid var(--rule);padding-bottom:2rem;margin-bottom:2.5rem}
+
+.controls{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--rule);
+  margin-inline:calc(var(--gutter)*-1);padding:.75rem var(--gutter);display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.5rem;margin-top:2.5rem}
+.ctl-group{display:flex;align-items:center;gap:.5rem}
+.swatches{display:flex;gap:.35rem}
+button{font:inherit;cursor:pointer}
+.sw{width:1.65rem;height:1.65rem;border-radius:50%;border:1px solid var(--rule);padding:0;outline-offset:3px}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 1.5px var(--paper),0 0 0 3px var(--sumi)}
+.toggle{border:1px solid var(--rule);background:transparent;color:var(--sumi);border-radius:999px;padding:.3rem .85rem;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.12em}
+.toggle[aria-pressed="true"]{background:var(--sumi);color:var(--paper);border-color:var(--sumi)}
+
+.tint{position:relative;overflow:hidden;background:var(--ground,var(--paper-deep));color:var(--ink,var(--sumi));transition:background .5s ease,color .5s ease}
+.tint::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s ease;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+body.grain .tint::after{opacity:.62}
+
+/* scripts row */
+.scripts{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2rem}
+.script{padding:1.5rem 1.15rem;display:flex;flex-direction:column;align-items:center;gap:.7rem;text-align:center}
+.script .big{font-size:2.9rem;line-height:1.15;font-weight:500}
+.script .rom{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;opacity:.55}
+.script p{font-size:12.5px;line-height:1.45;opacity:.78;max-width:13rem;margin:0}
+.script p b{opacity:1;font-weight:600}
+
+/* marks */
+.marks{display:grid;grid-template-columns:repeat(auto-fit,minmax(13.5rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:2rem}
+.mark{padding:1.6rem 1.15rem 1.4rem;display:flex;flex-direction:column;align-items:center;gap:.85rem;text-align:center}
+.mark.pick{outline:2px solid var(--ai);outline-offset:-2px}
+.mark .glyph{display:flex;align-items:center;justify-content:center;min-height:7.5rem}
+.mark .cap{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;opacity:.55}
+.mark .nm{font-family:var(--serif);font-size:1.05rem;line-height:1.2}
+.mark p{font-size:12.5px;line-height:1.45;opacity:.78;max-width:13rem;margin:0}
+.mark p b{opacity:1;font-weight:600}
+.tiny{display:flex;align-items:center;gap:.55rem;font-size:9.5px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;opacity:.5}
+
+.note{border-left:2px solid var(--kaki);padding:.15rem 0 .15rem 1rem;margin-top:1.5rem;font-size:14px;color:var(--nezu);max-width:var(--measure)}
+.note b{color:var(--sumi);font-weight:600}
+.rec{background:var(--paper-deep);border:1px solid var(--rule);padding:clamp(1.5rem,4vw,2.5rem);margin-top:3.5rem}
+.rec ol{margin:1rem 0 0;padding-left:1.2rem;max-width:var(--measure)}
+.rec li{margin-bottom:.6rem}
+.rec li::marker{color:var(--nezu);font-variant-numeric:tabular-nums}
+footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid var(--rule);font-size:13px;color:var(--nezu)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+html,body{background:#EFF0EC}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="label">Hikari &middot; brand &middot; 2026-09-22</div>
+  <h1>The name in kana, and five ways to get simpler</h1>
+  <p class="lede" style="margin-top:1.25rem">One fact first, because it changes what the mark is allowed to be: <strong>光 on its own does not reliably say "Hikari."</strong> Its on-reading is コウ <em>kō</em>; its kun-readings are ひかり <em>hikari</em> and ひかる <em>hikaru</em>; as a name it is also read みつ, てる, あきら and more. A Japanese reader meeting the character cold is as likely to say <em>kō</em> or <em>hikaru</em>.</p>
+</header>
+
+<p>That is not fatal — <strong>the Latin wordmark carries the name, so the mark never has to</strong>. But it removes one argument for the kanji. If we want the Japanese side of the identity to <em>say</em> the name — on a supplier's invoice, a Tokyo business card, a packing slip going back to a dealer — that job belongs to kana, not to 光.</p>
+
+<h2 style="margin-top:2.5rem">The four ways to write it</h2>
+
+<div class="scripts tint">
+  <div class="script">
+    <div class="big" style="font-family:var(--mincho)">光</div>
+    <div class="rom">kanji · kō / hikari</div>
+    <p><b>Intellectual, sincere, trustworthy</b> — and stiff. Carries the meaning, not the sound. One character, so the densest and the best in a square.</p>
+  </div>
+  <div class="script">
+    <div class="big" style="font-family:var(--mincho)">ひかり</div>
+    <div class="rom">hiragana · hikari</div>
+    <p><b>Soft and approachable</b>, and the only writing that says the name unambiguously. Three curved characters — the hardest of the four to compress.</p>
+  </div>
+  <div class="script">
+    <div class="big" style="font-family:var(--gothic)">ヒカリ</div>
+    <div class="rom">katakana · hikari</div>
+    <p><b>Light, modern, and the easiest to arrange</b> — its base forms are the simplest in the language. Six straight strokes, no curves. The script built for this job.</p>
+  </div>
+  <div class="script">
+    <div class="big" style="font-family:var(--sans);font-size:1.6rem;letter-spacing:.14em;padding-top:.9rem">HIKARI</div>
+    <div class="rom">latin · the wordmark</div>
+    <p><b>Already decided.</b> It carries the name for the people buying. Everything on this page is the <em>mark</em> beside it, never a replacement.</p>
+  </div>
+</div>
+
+<p class="note"><b>Katakana is the answer to "simpler" if the answer is typographic.</b> It is described in Japanese design writing exactly this way: lighter and more contemporary than kanji, and easier to arrange because its letterforms are already simple. Hiragana is warmer but curvier; kanji is denser but stiffer and, here, ambiguous.</p>
+
+<div class="controls">
+  <div class="ctl-group">
+    <span class="label">Ground</span>
+    <div class="swatches" role="group" aria-label="Test ground">
+      <button class="sw" data-bg="#EFF0EC" data-ink="#14171A" aria-pressed="true" title="白練" style="background:#EFF0EC"></button>
+      <button class="sw" data-bg="#DFE1DC" data-ink="#14171A" aria-pressed="false" title="銀鼠" style="background:#DFE1DC"></button>
+      <button class="sw" data-bg="#2E4B6B" data-ink="#EFF0EC" aria-pressed="false" title="藍" style="background:#2E4B6B"></button>
+      <button class="sw" data-bg="#14171A" data-ink="#EFF0EC" aria-pressed="false" title="濡羽色" style="background:#14171A"></button>
+    </div>
+  </div>
+  <div class="ctl-group"><button class="toggle" id="grain-toggle" aria-pressed="false">Grain off</button></div>
+</div>
+
+<h2 style="margin-top:3rem">Six marks, simplest last</h2>
+<p style="margin-top:.75rem">Each shown large, then at 16px beside it. Nothing here is more than one colour.</p>
+
+<div class="marks tint">
+
+  <!-- 1 -->
+  <div class="mark pick">
+    <span class="cap">01</span>
+    <div class="glyph">
+      <svg width="98" height="98" viewBox="0 0 100 100" role="img" aria-label="Constructed 光 with the two top strokes as drops">
+        <g fill="none" stroke="currentColor" stroke-width="9.5" stroke-linecap="butt">
+          <path d="M50 13 V33"/><path d="M6 47 H94"/><path d="M40 54 L26 85"/><path d="M63 54 L72 85"/>
+        </g>
+        <path d="M27.00 16.50 L28.32 32.49 A5.90 5.90 0 1 0 38.36 27.82 Z" fill="currentColor"/>
+        <path d="M73.00 16.50 L61.64 27.82 A5.90 5.90 0 1 0 71.68 32.49 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="nm">光, drawn &middot; drops</div>
+    <div class="tiny">16px
+      <svg width="16" height="16" viewBox="0 0 100 100" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="11" stroke-linecap="butt">
+          <path d="M50 13 V33"/><path d="M6 47 H94"/><path d="M40 54 L26 85"/><path d="M63 54 L72 85"/></g>
+        <path d="M27.00 16.50 L28.32 32.49 A5.90 5.90 0 1 0 38.36 27.82 Z" fill="currentColor"/>
+        <path d="M73.00 16.50 L61.64 27.82 A5.90 5.90 0 1 0 71.68 32.49 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <p><b>The synthesis.</b> Four parts, no font, entirely ours — the constructed 光 with the drop pair in place of the two top strokes. Simple <em>and</em> specific.</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="mark">
+    <span class="cap">02</span>
+    <div class="glyph">
+      <svg width="98" height="98" viewBox="0 0 100 100" role="img" aria-label="ヒカリ set vertically in a gothic face">
+        <text x="50" y="22" font-family="Noto Sans JP, sans-serif" font-size="25" font-weight="500" fill="currentColor" text-anchor="middle">ヒ</text>
+        <text x="50" y="55" font-family="Noto Sans JP, sans-serif" font-size="25" font-weight="500" fill="currentColor" text-anchor="middle">カ</text>
+        <text x="50" y="88" font-family="Noto Sans JP, sans-serif" font-size="25" font-weight="500" fill="currentColor" text-anchor="middle">リ</text>
+      </svg>
+    </div>
+    <div class="nm">ヒカリ &middot; 縦組</div>
+    <div class="tiny">16px
+      <svg width="16" height="16" viewBox="0 0 100 100" aria-hidden="true">
+        <text x="50" y="24" font-family="Noto Sans JP, sans-serif" font-size="28" font-weight="600" fill="currentColor" text-anchor="middle">ヒ</text>
+        <text x="50" y="58" font-family="Noto Sans JP, sans-serif" font-size="28" font-weight="600" fill="currentColor" text-anchor="middle">カ</text>
+        <text x="50" y="92" font-family="Noto Sans JP, sans-serif" font-size="28" font-weight="600" fill="currentColor" text-anchor="middle">リ</text>
+      </svg>
+    </div>
+    <p>Six straight strokes in a column. <b>Composition, not motif</b> — which is exactly the rule the brand set. Says the name. Fails at 16px.</p>
+  </div>
+
+  <!-- 3 -->
+  <div class="mark">
+    <span class="cap">03</span>
+    <div class="glyph">
+      <svg width="98" height="98" viewBox="0 0 100 100" role="img" aria-label="ひ, a single hiragana">
+        <text x="50" y="51" font-family="Noto Serif JP, serif" font-size="74" font-weight="500" fill="currentColor" text-anchor="middle" dominant-baseline="central">ひ</text>
+      </svg>
+    </div>
+    <div class="nm">ひ &middot; one stroke</div>
+    <div class="tiny">16px
+      <svg width="16" height="16" viewBox="0 0 100 100" aria-hidden="true">
+        <text x="50" y="51" font-family="Noto Serif JP, serif" font-size="80" font-weight="600" fill="currentColor" text-anchor="middle" dominant-baseline="central">ひ</text>
+      </svg>
+    </div>
+    <p>A single continuous form, and the first sound of the name. <b>The most beautiful of the six</b> — and it says <em>hi</em>, not <em>hikari</em>.</p>
+  </div>
+
+  <!-- 4 -->
+  <div class="mark">
+    <span class="cap">04</span>
+    <div class="glyph">
+      <svg width="130" height="98" viewBox="0 0 160 100" role="img" aria-label="ひかり set horizontally in a mincho face">
+        <text x="80" y="53" font-family="Noto Serif JP, serif" font-size="34" font-weight="400" fill="currentColor" text-anchor="middle" dominant-baseline="central" letter-spacing="3">ひかり</text>
+      </svg>
+    </div>
+    <div class="nm">ひかり &middot; 横組</div>
+    <div class="tiny">16px
+      <svg width="26" height="16" viewBox="0 0 160 100" aria-hidden="true">
+        <text x="80" y="53" font-family="Noto Serif JP, serif" font-size="34" font-weight="500" fill="currentColor" text-anchor="middle" dominant-baseline="central" letter-spacing="3">ひかり</text>
+      </svg>
+    </div>
+    <p>The softest, and the only one that <b>unambiguously says the name</b> in Japanese. A second wordmark rather than a mark — no square use at all.</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="mark">
+    <span class="cap">05</span>
+    <div class="glyph">
+      <svg width="98" height="98" viewBox="0 0 100 100" role="img" aria-label="The drop pair alone, converging">
+        <path d="M28.00 19.00 L32.06 51.01 A8.00 8.00 0 1 0 46.55 45.40 Z" fill="currentColor"/>
+        <path d="M72.00 19.00 L53.45 45.40 A8.00 8.00 0 1 0 67.94 51.01 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="nm">The pair alone</div>
+    <div class="tiny">16px
+      <svg width="16" height="16" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M28.00 19.00 L32.06 51.01 A8.00 8.00 0 1 0 46.55 45.40 Z" fill="currentColor"/>
+        <path d="M72.00 19.00 L53.45 45.40 A8.00 8.00 0 1 0 67.94 51.01 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <p>Two shapes and nothing else. <b>Survives anything</b> — 16px, grain, a stamp, embroidery. Says earrings and light; says no language at all.</p>
+  </div>
+
+  <!-- 6 -->
+  <div class="mark">
+    <span class="cap">06</span>
+    <div class="glyph">
+      <svg width="98" height="98" viewBox="0 0 100 100" role="img" aria-label="Constructed 光 without drops">
+        <g fill="none" stroke="currentColor" stroke-width="9.5" stroke-linecap="butt">
+          <path d="M50 14 V34"/><path d="M31 18 L26 34"/><path d="M69 18 L74 34"/>
+          <path d="M6 47 H94"/><path d="M40 54 L26 85"/><path d="M63 54 L72 85"/>
+        </g>
+      </svg>
+    </div>
+    <div class="nm">光, drawn &middot; plain</div>
+    <div class="tiny">16px
+      <svg width="16" height="16" viewBox="0 0 100 100" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="butt">
+          <path d="M50 12 V33"/><path d="M30 16 L24 33"/><path d="M70 16 L76 33"/>
+          <path d="M5 48 H95"/><path d="M40 56 L26 86"/><path d="M63 56 L73 86"/></g>
+      </svg>
+    </div>
+    <p>The previous recommendation, for comparison. Simple, but <b>nothing in it is about jewellery</b> — it could belong to any business called Hikari.</p>
+  </div>
+
+</div>
+
+<div class="rec">
+  <div class="label">Recommendation</div>
+  <h2 style="margin-top:.5rem">01 for the mark, ヒカリ as the Japanese signature, ひかり nowhere</h2>
+  <p style="margin-top:1rem">"Simpler" and "more distinctive" usually pull against each other. Here they do not, because the drops are the one simplification that also adds meaning.</p>
+  <ol>
+    <li><strong>01 is the mark.</strong> Four parts, no font, no borrowed glyph — and the two drops are the only element on this page that is about <em>jewellery</em> rather than about Japan. 06 is simpler still and says nothing; that is the whole argument.</li>
+    <li><strong>05 is the fallback, and the better one if this has to get smaller.</strong> Two shapes survive embroidery, hot foil, a 16px favicon and a bad printer. Keep it as the monogram inside the punch when the full mark will not fit.</li>
+    <li><strong>ヒカリ, vertical, is the Japanese-facing signature</strong> — on the Tokyo business card, the supplier paperwork, the box tape. Katakana because it is the script built to be arranged, and vertical because a column is composition rather than decoration.</li>
+    <li><strong>Drop ひかり and ひ.</strong> ひ is the most beautiful object here and says one syllable; ひかり is three curves that will not compress. Neither earns a slot the Latin wordmark already fills.</li>
+    <li><strong>Nothing changes about what gates this.</strong> Trade mark clearance in Classes 14 and 35 comes before a designer is briefed.</li>
+  </ol>
+</div>
+
+<footer>
+  <p>Specimen for <code>docs/10-logo.md</code>. Marks 01, 05 and 06 are hand-built geometry; 02, 03 and 04 are Noto Sans JP and Noto Serif JP, shown as script studies rather than as finished logotypes. Readings and script conventions are sourced in the doc.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var grounds=document.querySelectorAll('.sw'), grainBtn=document.getElementById('grain-toggle');
+  function apply(btn){
+    var bg=btn.getAttribute('data-bg'), ink=btn.getAttribute('data-ink');
+    document.querySelectorAll('.tint').forEach(function(el){
+      el.style.setProperty('--ground',bg); el.style.setProperty('--ink',ink);
+    });
+    grounds.forEach(function(b){ b.setAttribute('aria-pressed',String(b===btn)); });
+  }
+  grounds.forEach(function(b){ b.addEventListener('click',function(){ apply(b); }); });
+  grainBtn.addEventListener('click',function(){
+    var on=document.body.classList.toggle('grain');
+    grainBtn.setAttribute('aria-pressed',String(on));
+    grainBtn.textContent=on?'Grain on':'Grain off';
+  });
+})();
+</script>
+</body>
+</html>

@@ -196,3 +196,143 @@ Margin-scheme eligibility is **still the blocking question**, and the payment-ra
 | 58 | ~~Alternative names~~ **Done — 22 screened, shortlist of five.** Recommendation **Enishi 縁**; second **Meguri 巡**. Pick two or three for the attorney hour. | [18](18-name-clearance.md) |
 | 59 | Instagram / TikTok / Pinterest / Xiaohongshu handle checks, once a name clears. Cannot be automated — Instagram redirects bots. | [18](18-name-clearance.md), [05](05-social.md) |
 | 60 | **Do not buy domains until #57 is answered.** `hikarivintage.com` and `.co.uk` are both free today, which is the best pair available, but a domain for an unusable name anchors the decision. | [18](18-name-clearance.md) |
+
+---
+
+## Merged 2026-10-13 — the brand line (logo, social, imagery)
+
+The logo, social and imagery work ran on a separate line and numbered its questions #27–#50, the same numbers the website line used. They are renumbered **#61–#84** below, and every reference in the files that came from that line has been updated to match. Nothing else changed.
+
+
+## Update · 2026-09-22 (iii)
+
+Logo directions proposed in [10](10-logo.md). **Specimen:** https://claude.ai/artifact/2fopZe4vn7LYhmL6JTJxtS
+
+**#4 is now the gate, not a background item.** [00](00-brief.md) says the trade-mark and handle check happens before any spend on brand design, and that spend is the next thing queued. It could not be resolved from public search: the UK IPO register needs a direct search. Known collisions sit outside Class 14 (Kyorin's Hikari fish food, Hikari Miso, NTT's フレッツ光); the closest in-class hit found is a "Hikari Pearls and Jewellery" trade-directory listing. **One hour, before a designer is briefed.**
+
+**Part of #4 is answered and it is a no.** `@hikari` is held by Hikari Mori (森星), a Japanese model with ~1M followers — a fashion-adjacent namesake, so this is an association and SEO problem as well as a handle problem. The handle will carry a qualifier; the lockup has to survive one.
+
+| # | Question | Where |
+|---|---|---|
+| 61 | **What goes inside the punch** — 光, `H`, or nothing. 光 performs best at small size and carries the costume risk [08](08-brand.md) warns about. Test alongside the #9 landing-page variants. | [10](10-logo.md) |
+| 62 | Wordmark in Newsreader (serif, category) or Instrument Sans (grotesque, closer to the Japanese-retail reference) | [10](10-logo.md) |
+| 63 | Register a trade mark at all, and when? A word mark plus a device in two classes competes directly with inventory in Phase 0 | [10](10-logo.md), [07](07-roadmap.md) |
+| 64 | Which qualified handle, given `@hikari` is gone — and it should be settled before the lockup is drawn, not after | [10](10-logo.md), [05](05-social.md) |
+
+**#12 gains a second half.** The hallmarking exposure logged there is about stock; the Hallmarking Act 1973 also constrains *the brand's own mark* — striking an article with a mark purporting to be an authorised sponsor's mark is an offence, and an assay office may obliterate marks likely to be confused with a hallmark. Rule established in [10](10-logo.md): the mark goes on paper, never into metal.
+
+## Update · 2026-09-22 (iv)
+
+**#61 narrows.** The punch's interior is **光** — drawn as a constructed mark, not set as a font glyph ([10](10-logo.md), studies: https://claude.ai/artifact/PWCZnohGDgay5YfruvPKvj). The remaining question is how far to abstract it, and it has a cheap answer.
+
+| # | Question | Where |
+|---|---|---|
+| 65 | **Step 02 (constructed) or step 03 (reduced, four parts)?** Decided by a five-minute test: does a Japanese reader still see 光 without hesitating? Run it *before* briefing a designer — it is a constraint on the brief, not a review of the output. | [10](10-logo.md) |
+| 66 | The angle of the three top ticks. It is where the whole personality of the mark sits, and it is the one thing worth real iteration. | [10](10-logo.md) |
+
+**Prohibition, logged so it cannot be lost in a design review:** the mark is never radial, never emanates from a disc, and never has more rays than the character has strokes. A rayed sun is the 旭日旗 — a repeated and serious crisis for fashion brands, and a real risk for a business whose whole story is Japanese sourcing. 光's asymmetry is the safeguard.
+
+## Update · 2026-09-22 (v)
+
+The two top dots of 光 become drop-shaped stones ([10](10-logo.md), studies: https://claude.ai/artifact/QV1zYGkdp8aGd4TyPWKCLg).
+
+**#65 changes shape.** The question was "how far to abstract the character". It is now "which pair setting, and then redraw the body to match" — the drops supply a reason to redraw that is specific to this business rather than generic tidying.
+
+| # | Question | Where |
+|---|---|---|
+| 67 | **Pair setting: B (converging) or C (splaying)?** B is the smallest edit that produces a pair and leaves the left stroke as the font drew it; C is more visibly a pair of drop earrings and further from the character. Same reader test as #65. | [10](10-logo.md) |
+| 68 | Drop profile — pear, briolette, or bezel-set cabochon. Solid silhouette only; a bezel outline will not survive 16px or the grain. | [10](10-logo.md) |
+
+**Second prohibition, logged alongside the 旭日旗 one:** **no facets, no sparkle, no third stone.** A gem in a jewellery logo is the category's single most common move; what keeps this clear of it is that the drops *replace* strokes the character already had, and that they are a pair (earrings) rather than a solitaire. Add ornament and that defence is gone.
+
+**Also noted:** the drops must be cut to the font's own contrast. The first pass drew them heavier than the character's own bar and legs, and the mismatch was visible — a text face's modulated strokes next to a geometric drop is how marks end up looking like clip art on type.
+
+## Update · 2026-09-22 (vi)
+
+Kana and simpler-mark options explored ([10](10-logo.md), studies: https://claude.ai/artifact/43BGDvL4z4U983z4gnZWJg).
+
+**New fact, and it is load-bearing:** **光 alone does not reliably read as "Hikari"** — コウ *kō*, ひかる *hikaru*, みつ, てる and others are all available readings. The Latin wordmark carries the name so the mark need not, but anywhere the Japanese side must *say* the name (supplier invoices, a Tokyo card, packing slips to dealers) **that is kana's job, not 光's.**
+
+**#67 and #68 stand.** #65 is effectively answered: the drops supply the abstraction.
+
+| # | Question | Where |
+|---|---|---|
+| 69 | Adopt **ヒカリ set vertically** as the Japanese-facing signature for supplier-side and Tokyo-side material? Katakana is the script built to be arranged; a column is composition rather than decoration. | [10](10-logo.md) |
+| 70 | Keep **the drop pair alone** as the reduced monogram for embroidery, hot foil and anything below 16px? | [10](10-logo.md) |
+
+**Considered and dropped:** ひかり (soft, unambiguous, but three curves that will not compress — a second wordmark, not a mark) and ひ alone (one continuous stroke, the most beautiful form in the set, but it says *hi*, not *hikari*).
+
+## Update · 2026-09-22 (vii)
+
+Glyph question settled and five simpler constructions drawn ([10](10-logo.md), studies: https://claude.ai/artifact/PXwnTn8fCqeoie3cew9pdM).
+
+**Settled:** Japanese uses the same character — U+5149, six strokes, no separate simplified form. **But the regional drawn proportions differ, and the difference is on the two top strokes:** the Japanese 明朝 convention draws them short with clear air above the bar; Chinese conventions draw them long, nearly closing the gap. Two consequences — the brief must **name the Japanese form** as a constraint, and the Japanese convention happens to be the one that leaves room for the drops.
+
+| # | Question | Where |
+|---|---|---|
+| 71 | **Adopt "the shared rule" (03)?** The character's horizontal *is* the page's hairline rule; the layout completes the mark. The most genuinely simple option, and a behaviour rather than a shape — but it needs a fallback everywhere no rule exists, which is 02. | [10](10-logo.md), [04](04-site-ia.md) |
+| 72 | Ring enclosure (01) — keep as an alternative to the rounded-square punch, or drop? Hairline ring only; a filled disc triggers the rayed-sun prohibition. | [10](10-logo.md) |
+
+**Rejected:** hairline weight (05). It reads as restraint and fails grain, stamping, embroidery and 16px simultaneously. Logged so it does not return in a design review as "make it lighter".
+
+## Update · 2026-09-22 (viii)
+
+Divided lockup specified and the supplied reference glyph identified ([10](10-logo.md), studies: https://claude.ai/artifact/Xq1SCfUQnyXwrBoBnXtE2r).
+
+**Finding worth keeping regardless of which direction wins:** the kanji in the supplied reference is a **gothic**, not a mincho, and the Latin beside it is a serif — a font-substitution mismatch. But it is *why the reference looks calm*: a kanji packs six strokes into one Latin letter's area, so at equal nominal weight it always reads heavier. **Match the kanji's apparent stroke weight to the Latin's stem weight; set the kanji one to two steps lighter.** And pair a serif Latin with a *light mincho*, never a gothic — that pairing is the one that happens by accident.
+
+| # | Question | Where |
+|---|---|---|
+| 73 | **Set, or drawn?** The lockup keeps 光 as a character; the constructed mark draws it. Both are live and a house can carry both, but **only one can be the thing registered and stamped.** This now sits above #67/#71 in the order of decisions. | [10](10-logo.md) |
+| 74 | Divider variant — A (cap height, recommended), B (kanji height), C (short centred tick) | [10](10-logo.md) |
+
+**#62 restated in a sharper form:** serif title case `Hikari` versus grotesque uppercase `HIKARI` beside the kanji are **different brands, not different renderings.** Test them as such.
+
+## Update · 2026-09-22 (ix)
+
+| # | Question | Where |
+|---|---|---|
+| 75 | **Which Instagram account is the style reference, and is it supplying subject or frame?** Not named and not reviewed — Instagram is login-walled. If it supplies the *frame* (dark ground, high-contrast serif, heavy grade) then adopting it reverses [D2](DECISIONS.md), and that should be a logged decision rather than a drift. Needs the handle or screenshots. | [05](05-social.md), [08](08-brand.md) |
+| 76 | **What job does 小红书 do?** UK/EU Chinese-speaking buyers and evergreen search (recommended), or a mainland-China ambition (a different business — customs, payment rails, returns and consumer law all change, and none of it is modelled). | [05](05-social.md), [06](06-unit-economics.md) |
+| 77 | What happens to the three-column grid in a week when only two pieces are ready? The columns only hold at exactly three posts per Edition. | [05](05-social.md) |
+
+**#4 extended:** handle availability must be checked on **Instagram and 小红书** alongside the UK Class 14/35 clearance and the domain, and all four secured before design work is commissioned.
+
+## Update · 2026-09-22 (x)
+
+### Resolved
+
+- **#75 — the reference account.** [@thevisionnaire.studio](https://instagram.com/thevisionnaire.studio), reviewed in [05](05-social.md). It supplies the **frame**, so adopting it wholesale reverses [D2](DECISIONS.md). What is worth taking from it is the *atmosphere-to-product ratio* and the *two-surface split* (Instagram = seduction, product page = evidence) — neither of which is European.
+- **#24 — what "用画" meant.** Answered by the reference: actual paintings, used as backdrops with the product composited on. Viable **only** with verified public-domain works. The reference also composites onto a black-and-white fashion photograph that is almost certainly still in copyright — do not follow it there.
+- **#25 — the grain rule.** Restated more usefully as a *channel* rule rather than a per-frame one ([05](05-social.md)): frame 4 need never appear on Instagram at all. The per-frame rule in [D6](DECISIONS.md) still governs the site.
+
+### Newly open
+
+| # | Question | Where |
+|---|---|---|
+| 78 | **Is bridal a fourth segment?** The reference account sells it as a named line. UK weddings have a literal *something old* convention, intent is high, the timeline is fixed, and the budget is separate from discretionary spend. [03](03-customer.md) omits it — decision or oversight? | [03](03-customer.md), [05](05-social.md) |
+| 79 | If paintings are used, who sources and verifies public-domain status, and is it recorded per asset? A wrong call here is a rights claim, not a design note. | [04](04-site-ia.md), [08](08-brand.md) |
+| 80 | Does the Edition move to six posts at the [07](07-roadmap.md) month-9 run rate, to buy two atmosphere slots per row while keeping the columns locked? | [05](05-social.md) |
+
+## Update · 2026-09-22 (xi)
+
+**#79 answered in method, still open in ownership.** [20](20-imagery-rights.md) sets out how to use paintings lawfully — open-access museum sources (Met, Rijksmuseum, Art Institute of Chicago, NGA, Getty, Smithsonian) where the licence is stated on the record, and **shot physically rather than composited**, so the resulting photograph is Hikari's own work. What remains open is *who owns the process* and whether the licence is recorded per asset at intake.
+
+| # | Question | Where |
+|---|---|---|
+| 81 | **Model release for on-body frames.** Route C in [20](20-imagery-rights.md) needs a signed release before the first shoot, or the images cannot be used commercially later. Template needed. | [20](20-imagery-rights.md), [08](08-brand.md) |
+| 82 | Extend the pre-launch IP solicitor hour ([04](04-site-ia.md)) to cover imagery: backdrop sourcing, model releases, and the disclaimer wording in one sitting. | [04](04-site-ia.md), [20](20-imagery-rights.md) |
+
+### Settled by [20](20-imagery-rights.md)
+
+- **Instagram-only posting does not reduce copyright exposure.** The infringing act is the communication to the public, which happens in full on Instagram; the UK has fair *dealing* on a closed list of purposes, not fair use. The operative risk is not litigation but **takedown and account loss** — the primary channel in [05](05-social.md) sits on rented land.
+- **AI-generated backdrops are not adopted.** They solve third-party copyright and create three problems, the decisive one being that [03](03-customer.md) identifies trust as *the* barrier and [08](08-brand.md) has already moved the palette away from looking AI-generated. A synthetic atmosphere argues against the product.
+
+## Update · 2026-09-22 (xii)
+
+**AI backdrops — owner's call, adopted in narrowed form.** The recommendation in [20](20-imagery-rights.md) §3 was against; the owner chose to proceed with a hybrid in which **only the backdrop is generated and the piece is always a real photograph**. Recorded as [D20](DECISIONS.md) amended. The narrowing resolves the evidence objection ([D19](DECISIONS.md)) but **not** the ownership one — generated output may carry no enforceable copyright, so exclusivity cannot be assumed even where commercial use is permitted.
+
+| # | Question | Where |
+|---|---|---|
+| 83 | **A recurring generated sitter, or a new face each time?** A fixed seed builds a brand asset over a year; it also sharpens the AI tell, since a face that recurs, never ages and never appears in Stories invites scrutiny. Suggested split: recurring in the painted register, one-off in the photographic one. | [20](20-imagery-rights.md), [08](08-brand.md) |
+| 84 | Confirm the commercial-use terms of whichever generation service is actually used — they differ between services and they change. | [20](20-imagery-rights.md) |
