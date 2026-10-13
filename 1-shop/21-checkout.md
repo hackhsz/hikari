@@ -80,7 +80,7 @@ Use the development store with **Bogus Gateway** (Settings → Payments). Card n
 | ☐ | JavaScript off: add, remove, check out through `/cart` | All three work |
 | ☐ | A phone at 375px wide, gift note open, keyboard up | Checkout is still reachable |
 
-**Already checked in code, 13 Oct.** Theme Check passes with no errors. The two errors it found before, in `main-product.liquid`, are fixed. The bag and house templates were rendered against sample carts, covering sold, live, mixed, gift, under-threshold and all-sold. The drawer's script was driven in a browser through gift tick, typing, untick, refresh-while-typing, and a piece selling between page load and opening the bag. None of that replaces the cases above on a real store.
+**Automated in [scripts/verify](../scripts/verify/README.md).** Without a store, it covers the bag's logic and script for sold, live, mixed, gift, under-threshold and all-sold bags. With the store settings, it covers the first purchase case up to payment, the gift attributes, the tax line and the no-JavaScript bag on the store itself. The rest of the table, and paying, stays a hand check.
 
 ## Open
 

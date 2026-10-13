@@ -38,6 +38,7 @@ The shared folders belong to no single thread:
 ## Things that are easy to break
 
 - **`theme/` must stay at the repo root.** [`scripts/sync-theme.sh`](scripts/sync-theme.sh) splits it into the `shopify` branch, which the store reads. `shopify-preview` is the preview theme. Never commit to either by hand.
+- **Run `scripts/verify/run.sh` before pushing anything in `theme/`.** It stops at the first failure ([scripts/verify](scripts/verify/README.md)).
 - **Never hard-code the brand name** in the theme. It is a setting, because the name may change ([`0-plan/18-name-clearance.md`](0-plan/18-name-clearance.md), #57).
 - **The repo is public.** No photographs of other people's work, no customer data, no keys. Piece photos live in a private Drive folder ([`2-photos/`](2-photos/README.md), stage 7).
 - **Frames 2 and 4 are evidence.** No AI, no grain, ever ([D10](0-plan/DECISIONS.md)).

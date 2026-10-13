@@ -22,6 +22,7 @@ Everything a customer touches on the owned site: the theme, the store's settings
 - **House pages** ([D22](../0-plan/DECISIONS.md)): one per designer at `/collections/vintage-{house}-jewellery`, with the pieces in stock, notes on the house, the marks by period, the house's Record and the disclaimer. The homepage band and the product page link to them, and *More from this house* sits under every piece. The words wait on [Thread 3](../3-copy/README.md).
 - **Phone menu.**
 - **Grain and scroll-driven colour,** both adjustable in theme settings.
+- **A verification loop** ([scripts/verify](../scripts/verify/README.md)): Theme Check, then our Liquid and the bag script tested without a store. Once the store settings are added, it deploys to a verification theme and tests it on the store with Playwright. That half is written but hasn't run yet.
 - **No hard-coded brand name.** The name is a theme setting, because it may change ([18](../0-plan/18-name-clearance.md)).
 - **Pictures before photography.** A product without photographs shows a drawn daylight study, so the store looks finished before photography exists.
 
@@ -61,6 +62,7 @@ Everything a customer touches on the owned site: the theme, the store's settings
 
 ## Next
 
+0. **Give the loop the store** ([scripts/verify](../scripts/verify/README.md), *What it needs*): the store address, the storefront password and a Theme Access password, as environment variables.
 1. **Put the trunk on preview and try it on the store:** the house pages and the D23 bag. Then decide whether it all goes live; if yes, run `scripts/sync-theme.sh` from `main`.
 2. **Work through [21 Checkout](21-checkout.md):** the admin settings in order, then the test script on the development store with Bogus Gateway.
 3. **Create the house collections** ([theme/README](../theme/README.md), *House pages*), and ask Thread 3 for the first house's words: Christian Dior.
