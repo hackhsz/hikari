@@ -8,9 +8,9 @@
   { "name": "Brand",
     "settings": [
       { "type": "text", "id": "brand_name", "label": "Brand name", "default": "Hikari Vintage",
-        "info": "Change this and the whole site follows. The name is deliberately not hard-coded anywhere — see docs/18-name-clearance.md." },
+        "info": "Change this and the whole site follows. The name is deliberately not hard-coded anywhere — see 0-plan/18-name-clearance.md." },
       { "type": "text", "id": "brand_kanji", "label": "Kanji", "default": "光",
-        "info": "Single character. Set at 1.30 cap height beside the Latin, one weight step lighter — see docs/10-logo.md." },
+        "info": "Single character. Set at 1.30 cap height beside the Latin, one weight step lighter — see brand/10-logo.md." },
       { "type": "text", "id": "edition_no", "label": "Current Edition number", "default": "01" },
       { "type": "text", "id": "edition_day", "label": "Edition day and time", "default": "Thursday 19:00" }
     ]},

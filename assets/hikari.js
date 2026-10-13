@@ -1,6 +1,6 @@
 /* Hikari — grain, scroll-driven colour, and canvas plate fallback.
    The plate fallback draws a daylight study wherever a product has no image yet,
-   so the store is presentable before photography exists. See docs/13-photography-pipeline.md */
+   so the store is presentable before photography exists. See 2-photos/13-photography-pipeline.md */
 (function(){
   "use strict";
   var root=document.documentElement;
@@ -156,7 +156,7 @@
   }
 
   /* ── sheets: the bag drawer and the phone menu ──────────
-     Opacity and an 18px slide, 260ms ease-out, per docs/08-brand.md "Motion". */
+     Opacity and an 18px slide, 260ms ease-out, per brand/08-brand.md "Motion". */
   var openSheet=null, lastTrigger=null;
   function focusables(el){
     return [].slice.call(el.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]):not([type="hidden"]),select,textarea,[tabindex]:not([tabindex="-1"])'))
