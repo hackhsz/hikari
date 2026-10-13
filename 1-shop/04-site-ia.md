@@ -8,7 +8,7 @@ Yes. Brand should be a **first-class navigation axis**, and this is settled prac
 
 ## Navigation: three axes
 
-Every piece is tagged on all three. This mirrors how the category already works and, more importantly, how the three customer segments in [03](03-customer.md) actually search.
+Every piece is tagged on all three. This mirrors how the category already works and, more importantly, how the three customer segments in [03](../0-plan/03-customer.md) actually search.
 
 ```
 DESIGNER          TYPE              ERA
@@ -75,7 +75,7 @@ Plus:
 - **Never sell a fake, even unknowingly.** Exhaustion protects genuine goods only. A counterfeit turns a trademark question into an infringement claim with no defence.
 - **Chanel is the most aggressive rights-holder in this space.** Given that, consider whether Chanel should be a *smaller* part of the mix than Dior, Givenchy, YSL, Nina Ricci and Grosse — which are commercially comparable, aesthetically at least as strong, and carry materially less legal heat. This is a real strategic choice, not a compliance footnote.
 
-**None of this is legal advice.** Before launch, an hour with a UK IP solicitor to review the site's use of marks is a small, well-spent cost. Logged in [99](99-open-questions.md).
+**None of this is legal advice.** Before launch, an hour with a UK IP solicitor to review the site's use of marks is a small, well-spent cost. Logged in [99](../0-plan/99-open-questions.md).
 
 ---
 
@@ -83,7 +83,7 @@ Plus:
 
 The product page is where a £180 decision is made. Everything else on the site exists to deliver traffic to it.
 
-1. **Four photographs** — composed, macro of the signature mark, on-body for scale, honest condition. See [02](02-positioning.md).
+1. **Four photographs** — composed, macro of the signature mark, on-body for scale, honest condition. See [02](../0-plan/02-positioning.md).
 2. **Title** — `Vintage Christian Dior Crystal Clip Earrings, c.1987`
 3. **Price** and `One of one — when it's gone, it's gone`
 4. **Condition grade** from a published scale, plus a written note on specific wear
@@ -106,24 +106,24 @@ Flagged, not resolved — each needs confirming with someone qualified:
 
 - **Hallmarking.** The Hallmarking Act applies to items described as precious metal above weight thresholds (broadly 7.78g for silver, 1g for gold). Most costume jewellery is unaffected, but Japanese-sourced sterling pieces are common and frequently carry no UK hallmark. **Do not describe anything as "silver" or "gold" without checking the rule.** "Silver-tone" and "gold-plated" are the safe descriptors for plated costume pieces, and are also simply more accurate.
 - **Nickel release limits** under UK REACH apply to items in prolonged skin contact — earrings above all. Vintage costume jewellery is a genuine grey area here. Worth a specific answer rather than an assumption.
-- **Distance selling** — 14-day cancellation rights, per [03](03-customer.md).
+- **Distance selling** — 14-day cancellation rights, per [03](../0-plan/03-customer.md).
 - **Online Dispute Resolution / consumer terms** — standard, but must actually exist on the site at launch.
 
 ---
 
 ## Update · 2026-09-21 — checkout is part of the trust architecture
 
-A proposal to take payment peer-to-peer (bank transfer, website as catalogue only) is analysed in [09 — Payments & Tax](09-payments-and-tax.md) and logged as [D4](DECISIONS.md). The recommendation is **normal card checkout**.
+A proposal to take payment peer-to-peer (bank transfer, website as catalogue only) is analysed in [09 — Payments & Tax](../0-plan/09-payments-and-tax.md) and logged as [D4](../0-plan/DECISIONS.md). The recommendation is **normal card checkout**.
 
 The IA consequence is worth stating here, because it's easy to treat checkout as a separate concern from site design: **everything in this document is trust architecture, and the payment step is its last and most fragile moment.** A site that does all the work above — authentication page, condition grades, honest condition photography, 14-day returns stated plainly, a named founder — and then asks for a bank transfer has undone every bit of it in one screen. The customer's final read of whether you are real is the checkout.
 
 Required at launch:
 - Card checkout (Shopify Payments), with the accepted-card marks visible
-- Klarna/Clearpay — real basket-size effect in the £150–300 band ([03](03-customer.md)); confirm current FCA requirements first
+- Klarna/Clearpay — real basket-size effect in the £150–300 band ([03](../0-plan/03-customer.md)); confirm current FCA requirements first
 - Trust block repeated at checkout: authenticated · duty paid, no customs charges · UK next-day · 14-day returns
 - No forced account creation. Guest checkout, always.
 
-Also from [08](08-brand.md): the homepage leads with **one piece** (The Alcove), not a grid. The grid begins below the fold. Sold pieces stay live as **The Record**.
+Also from [08](../brand/08-brand.md): the homepage leads with **one piece** (The Alcove), not a grid. The grid begins below the fold. Sold pieces stay live as **The Record**.
 
 ---
 
@@ -131,7 +131,7 @@ Also from [08](08-brand.md): the homepage leads with **one piece** (The Alcove),
 
 **Prototype:** https://claude.ai/artifact/SSwHryr1Tu735AVHKxdo5s
 
-The tokonoma principle in [08](08-brand.md) says one object at a time. A shop needs to show more than one. The resolution is a **scale ladder**, not a compromise:
+The tokonoma principle in [08](../brand/08-brand.md) says one object at a time. A shop needs to show more than one. The resolution is a **scale ladder**, not a compromise:
 
 | Section | Count | Scale |
 |---|---|---|
@@ -144,7 +144,7 @@ The tokonoma principle in [08](08-brand.md) says one object at a time. A shop ne
 
 **Density is earned.** The page never shows two things at the same size until it has earned the right to, so the entrance stays quiet while the shop underneath is still a shop.
 
-**Featured pieces are composed, not gridded.** The three in This Edition sit on a 12-column grid at different spans (`1/7`, `8/13`, `3/10`) with different vertical offsets. An even 3-up grid reads as stock; an asymmetric one reads as chosen — which is the entire proposition in [02](02-positioning.md). It collapses to a single column under 720px.
+**Featured pieces are composed, not gridded.** The three in This Edition sit on a 12-column grid at different spans (`1/7`, `8/13`, `3/10`) with different vertical offsets. An even 3-up grid reads as stock; an asymmetric one reads as chosen — which is the entire proposition in [02](../0-plan/02-positioning.md). It collapses to a single column under 720px.
 
 **Houses became a section, not a menu.** The brand-as-navigation requirement at the top of this document is rendered as a band of house names set large in the display serif. It satisfies the SEO and navigation need while doubling as a design element — and it is the most legible statement of what the shop actually sells.
 

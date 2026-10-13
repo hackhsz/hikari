@@ -83,13 +83,13 @@ Business rates if a physical space is taken ([D3](DECISIONS.md)); PAYE and emplo
 
 ### But incorporate anyway — and not for Shopify's sake
 
-**1 · Limited liability.** We are reselling goods carrying Dior, Chanel and YSL marks ([04](04-site-ia.md)). The trademark risk is real and Chanel in particular litigates. **As a sole trader, personal assets are exposed to it.** A company contains it. For this business specifically, this is the argument that decides it.
+**1 · Limited liability.** We are reselling goods carrying Dior, Chanel and YSL marks ([04](../1-shop/04-site-ia.md)). The trademark risk is real and Chanel in particular litigates. **As a sole trader, personal assets are exposed to it.** A company contains it. For this business specifically, this is the argument that decides it.
 
 **2 · Your home address, published.** The Consumer Contracts Regulations require a trader's identity and **geographic address** to be disclosed to consumers. **A sole trader publishes their home address on the website.** A company uses a registered office service instead. This is not a small point for a consumer-facing brand run from a flat.
 
 **3 · The wholesale channel needs it.** Brand Off's B2B programme requires verification as a registered business ([06](06-unit-economics.md)) — the only channel that supports volume.
 
-**4 · Payment-processor risk appetite.** Branded resale attracts counterfeit-risk review ([11](11-platform.md)). A registered company with filed accounts clears it more easily.
+**4 · Payment-processor risk appetite.** Branded resale attracts counterfeit-risk review ([11](../1-shop/11-platform.md)). A registered company with filed accounts clears it more easily.
 
 **5 · Credibility at £185.** A company number and registered office in the footer is a trust signal on a purchase from an unknown seller ([03](03-customer.md)).
 
@@ -99,7 +99,7 @@ Business rates if a physical space is taken ([D3](DECISIONS.md)); PAYE and emplo
 
 **Companies House incorporation is £100 for digital filings from 1 February 2026** — doubled from £50 ([ICAEW](https://www.icaew.com/insights/viewpoints-on-the-news/2025/nov-2025/significant-hikes-to-companies-house-fees-in-2026)). Accountant, roughly £600–1,500 a year for accounts and the return. Against the exposure in point 1, that is cheap.
 
-**Sequencing note:** a company is also the prerequisite for a business bank account, which is the prerequisite for Shopify Payments approval ([11](11-platform.md)). Start it early in Phase 1, not in launch week.
+**Sequencing note:** a company is also the prerequisite for a business bank account, which is the prerequisite for Shopify Payments approval ([11](../1-shop/11-platform.md)). Start it early in Phase 1, not in launch week.
 
 ## Open
 

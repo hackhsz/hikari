@@ -42,14 +42,14 @@ Proof that the exact Japan-sourcing arbitrage works, from inside Japan.
 - Stocks vintage YSL, Chanel, Dior, Givenchy, Celine, Kenzo, Moschino — "the largest selection of very rare vintage jewelry of couture houses".
 - **~20 brands sitting directly in the top navigation.** The most brand-forward IA in the set.
 - Prices $96.50–$425.
-- **Free worldwide shipping** via EMS/DHL, 3–7 days — "import taxes are the buyer's responsibility". *This is the weakness Hikari attacks* (see [02](02-positioning.md)).
+- **Free worldwide shipping** via EMS/DHL, 3–7 days — "import taxes are the buyer's responsibility". *This is the weakness Hikari attacks* (see [02](../0-plan/02-positioning.md)).
 - Minimal aesthetic, muted palette, heavy on product photography.
 
 ### Others worth a look
 - **[ReSee](https://www.resee.com/en/)** — archival luxury, Paris. The best *editorial* execution in resale; treats each piece as a magazine page. Aspirational reference for photography and copy.
 - **[Pippin Vintage](https://pippinvintage.com/)** (NYC), **[Garden Party Collection](https://costumejewel.com/)**, **[Vintage Jewelry Girl](https://vintagejewelrygirl.com/)** — US independents with deep maker knowledge (Sherman, Boucher, Joan Rivers). Strong on scholarship, weaker on design.
 - **[Modern Vintage Style](https://www.modernvintagestyle.co.uk/christian-dior-jewellery-uk)** (UK) — competes on the "vintage Dior jewellery UK" keyword. A direct SEO rival.
-- **[Vintage Qoo Tokyo](https://qoo-online.com/en)**, **[Amore Vintage Tokyo](https://amorevintagejapan.com/collections/chanel)**, **[Atlantis Vintage Tokyo](https://atlantisvintagetokyo.com/)** — Japan-side sellers. These are simultaneously *competitors for UK buyers* and *a map of the supply chain*. See [06](06-unit-economics.md).
+- **[Vintage Qoo Tokyo](https://qoo-online.com/en)**, **[Amore Vintage Tokyo](https://amorevintagejapan.com/collections/chanel)**, **[Atlantis Vintage Tokyo](https://atlantisvintagetokyo.com/)** — Japan-side sellers. These are simultaneously *competitors for UK buyers* and *a map of the supply chain*. See [06](../0-plan/06-unit-economics.md).
 
 ---
 
@@ -79,11 +79,11 @@ Fees on a £180 item, indicatively: Etsy ~£12–15 · eBay ~£23 · Vestiaire c
 
 **1. The winners at £100–300 are all curated independents, not marketplaces.** Susan Caplan and Jagged Metal both sit precisely in the Hikari band and both run owned, branded, editorially-led stores. Nobody has won this band by being a cheaper Vestiaire.
 
-**2. Everyone converges on the same three-axis navigation.** Designer / Type / Decade. Caplan has "Shop by Designer"; Jagged Metal splits all three; Bujor puts twenty brands in the top nav. This is settled practice, not an open question — the brands *should* be clickable. See [04](04-site-ia.md).
+**2. Everyone converges on the same three-axis navigation.** Designer / Type / Decade. Caplan has "Shop by Designer"; Jagged Metal splits all three; Bujor puts twenty brands in the top nav. This is settled practice, not an open question — the brands *should* be clickable. See [04](../1-shop/04-site-ia.md).
 
 **3. Authentication is the product's second half.** Every credible player leads with it — in the header bar, in a dedicated page, in blog content. At £180, the customer's question is never "is this nice" (the photo answers that). It is "am I being had".
 
-**4. The aesthetic default in this category is French.** Black on white, high-contrast serif, Parisian restraint. Caplan, Bujor, ReSee, Jagged Metal — all variations on one visual idea. **Nobody is doing a Japanese visual identity, despite Japan being where a huge share of the world's vintage supply actually comes from.** This is the open aesthetic position, and it is the one honest to Hikari's sourcing. Developed in [02](02-positioning.md).
+**4. The aesthetic default in this category is French.** Black on white, high-contrast serif, Parisian restraint. Caplan, Bujor, ReSee, Jagged Metal — all variations on one visual idea. **Nobody is doing a Japanese visual identity, despite Japan being where a huge share of the world's vintage supply actually comes from.** This is the open aesthetic position, and it is the one honest to Hikari's sourcing. Developed in [02](../0-plan/02-positioning.md).
 
 **5. The Japan sellers ship direct and dump the customs problem on the buyer.** Bujor's "import taxes are the buyer's responsibility" means a UK customer buying a $300 necklace gets an unexpected ~£60+ bill from the courier at the door, days later. That is the single worst moment in e-commerce and it is *structural* for every Japan-based competitor. A UK-stocked, duty-paid, next-day-delivered, free-returns proposition is a genuine advantage — not a marketing claim, a real one.
 
@@ -106,4 +106,4 @@ Full teardown of the closest example in [15](15-competitor-etvous.md). The short
 
 This pole competes on **headline price**, and it does so by moving 20% of the price behind the checkout door. It is the reason a £228 listing is really £273.60 — and, since the DMCC Act took effect in April 2025, the reason that model now carries regulatory risk.
 
-**Our attack on it is already written into [02](02-positioning.md):** stock held in the UK, duty paid, next day, and the price on the page is the price at the till. Against a Japan-based seller the advantage was speed and no customs ambush. Against this pole it is the same advantage, arriving one step earlier — at the moment the total updates.
+**Our attack on it is already written into [02](../0-plan/02-positioning.md):** stock held in the UK, duty paid, next day, and the price on the page is the price at the till. Against a Japan-based seller the advantage was speed and no customs ambush. Against this pole it is the same advantage, arriving one step earlier — at the moment the total updates.

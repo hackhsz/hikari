@@ -1,6 +1,6 @@
 # 13 — Photography & the AI Pipeline
 
-**Yes — build it.** It is the cheapest fix available for the business's biggest photography problem, and it directly attacks the £15–40/piece outsourcing cost in [12](12-build-cost.md).
+**Yes — build it.** It is the cheapest fix available for the business's biggest photography problem, and it directly attacks the £15–40/piece outsourcing cost in [12](../1-shop/12-build-cost.md).
 
 There is one line that has to be drawn clearly, and it is commercial before it is legal.
 
@@ -13,7 +13,7 @@ There is one line that has to be drawn clearly, and it is commercial before it i
 | **Background replacement** onto a consistent paper ground | Consistency across a catalogue shot over months is what makes a small seller look established |
 | **White balance and colour correction** | Gold-tone must read as the metal actually reads in the hand |
 | **Dust and lint on the backdrop** | Cleaning the *set*, not the object |
-| **Shadow synthesis / relight** | Rescues a shot taken on a grey day; keeps the daylight look in [08](08-brand.md) consistent |
+| **Shadow synthesis / relight** | Rescues a shot taken on a grey day; keeps the daylight look in [08](../brand/08-brand.md) consistent |
 | **Crop, aspect ratio, upscale** | Feeds the four-frame spec and the plate ratios in the layout |
 | **On-model generation** | **The highest-value use by far — see below** |
 
@@ -25,7 +25,7 @@ Removing or softening **plating loss, scratches, chips, missing or replaced ston
 
 ## The rule — one policy, covering grain and AI together
 
-This extends [D6](DECISIONS.md)'s grain rule rather than adding a second one. Same logic, same boundary:
+This extends [D6](../0-plan/DECISIONS.md)'s grain rule rather than adding a second one. Same logic, same boundary:
 
 | Frame | Grain | AI | Label |
 |---|---|---|---|
@@ -36,7 +36,7 @@ This extends [D6](DECISIONS.md)'s grain rule rather than adding a second one. Sa
 
 **Texture and generation belong to the seduction. Frames 2 and 4 are evidence and stay untouched.**
 
-And then — this is the part that turns a constraint into an asset — **publish the policy.** A page saying exactly what is retouched and what never is, on a site where every listing carries an unretouched condition frame, is a stronger trust signal than any badge. Nobody else in the category is doing it. It converts the single biggest objection in [03](03-customer.md) into a reason to buy.
+And then — this is the part that turns a constraint into an asset — **publish the policy.** A page saying exactly what is retouched and what never is, on a site where every listing carries an unretouched condition frame, is a stronger trust signal than any badge. Nobody else in the category is doing it. It converts the single biggest objection in [03](../0-plan/03-customer.md) into a reason to buy.
 
 ### Why this is commercial before it is legal
 
@@ -53,7 +53,7 @@ A piece that looks better on screen than in the hand produces a return, a bad re
 
 ## On-model — the most valuable piece of this
 
-**Scale is the number-one driver of returns on statement vintage jewellery.** People consistently imagine 1980s Dior earrings smaller than they are. Frame 3 exists to fix that, and shooting every one-of-one piece on a real model is impossible at 45–60 minutes per piece ([06](06-unit-economics.md)).
+**Scale is the number-one driver of returns on statement vintage jewellery.** People consistently imagine 1980s Dior earrings smaller than they are. Frame 3 exists to fix that, and shooting every one-of-one piece on a real model is impossible at 45–60 minutes per piece ([06](../0-plan/06-unit-economics.md)).
 
 AI on-model generation solves exactly this: take the flat shot, place it on a model, give the buyer a scale reference ([Photta](https://www.photta.app/blog/best-ai-jewelry-model-tools-2026), [Wearview](https://www.wearview.co/blog/best-ai-jewelry-product-photography-tools)).
 
@@ -73,5 +73,5 @@ Landscape as of 2026, not a recommendation — trial two with your own pieces be
 
 ## Open
 
-- Which tool, after a trial on real stock ([99](99-open-questions.md) #37).
-- Whether the *hero* frames should be AI-worked at all, or whether the grain-and-daylight look in [08](08-brand.md) is better served by straight photography with the AI reserved for background, colour and on-model. **My instinct is the latter** — the brand's whole texture argument is that the image looks captured, not made.
+- Which tool, after a trial on real stock ([99](../0-plan/99-open-questions.md) #37).
+- Whether the *hero* frames should be AI-worked at all, or whether the grain-and-daylight look in [08](../brand/08-brand.md) is better served by straight photography with the AI reserved for background, colour and on-model. **My instinct is the latter** — the brand's whole texture argument is that the image looks captured, not made.

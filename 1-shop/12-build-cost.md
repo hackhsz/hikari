@@ -10,7 +10,7 @@ UK, 2026. Ranges are market rates from the sources linked; the specific figures 
 
 **The design is the expensive part of a Shopify build, and for Hikari it is already done.**
 
-UK agencies quote **£3,000–£10,000 for the design phase alone** — wireframes, visual design, responsive comps across templates ([Frooition](https://www.frooition.com/blog/custom-shopify-website-design-cost-2026/)). That is substantially the work already sitting in this repo and the three prototypes: palette with measured contrast ([08](08-brand.md)), lockup spec ([10](10-logo.md)), homepage layout and scale ladder ([04](04-site-ia.md)), product-page anatomy, grain and scroll-colour systems, working code for all of it.
+UK agencies quote **£3,000–£10,000 for the design phase alone** — wireframes, visual design, responsive comps across templates ([Frooition](https://www.frooition.com/blog/custom-shopify-website-design-cost-2026/)). That is substantially the work already sitting in this repo and the three prototypes: palette with measured contrast ([08](../brand/08-brand.md)), lockup spec ([10](../brand/10-logo.md)), homepage layout and scale ladder ([04](04-site-ia.md)), product-page anatomy, grain and scroll-colour systems, working code for all of it.
 
 So you are buying **build**, not design. Quote the job that way and the number should come in well under the headline bands below. Anyone quoting you a full design phase has not looked at what exists.
 
@@ -51,15 +51,15 @@ The website is not the whole bill. Estimates — verify each.
 | Domain | **£10–15/yr** | |
 | Theme | **£0** | Built from scratch |
 | Apps | **£0–30/mo** | Ship with none. Reviews can wait; email is included ([11](11-platform.md)) |
-| UK trademark, 2 classes | **£265** | £205 first class + £60 additional. UKIPO fees rose 1 April 2026. See [18](18-name-clearance.md) — **and the name may not be available**. |
+| UK trademark, 2 classes | **£265** | £205 first class + £60 additional. UKIPO fees rose 1 April 2026. See [18](../0-plan/18-name-clearance.md) — **and the name may not be available**. |
 | IP solicitor review | **£300–800** | One to two hours on trademark use ([04](04-site-ia.md)) |
-| Accountant — VAT and imports | **£150–300** | The blocking hour ([06](06-unit-economics.md)). Highest-return spend available |
-| Photography setup | **£100–200** | Tripod, backdrop paper, a reflector. Daylight is free ([08](08-brand.md)) |
+| Accountant — VAT and imports | **£150–300** | The blocking hour ([06](../0-plan/06-unit-economics.md)). Highest-return spend available |
+| Photography setup | **£100–200** | Tripod, backdrop paper, a reflector. Daylight is free ([08](../brand/08-brand.md)) |
 | Packaging, first run | **£150–400** | Boxes, tissue, cards, tape |
 
 ### The line people underestimate
 
-**Photography, if outsourced, will cost more than the website.** At £15–40 per piece and 60–100 pieces for an opening catalogue, that is **£900–£4,000** — and it recurs with every batch forever. Shooting it yourself is 45–60 minutes per piece ([06](06-unit-economics.md)), which is the real constraint on the whole business. Neither is cheap. It is worth deciding deliberately rather than discovering it.
+**Photography, if outsourced, will cost more than the website.** At £15–40 per piece and 60–100 pieces for an opening catalogue, that is **£900–£4,000** — and it recurs with every batch forever. Shooting it yourself is 45–60 minutes per piece ([06](../0-plan/06-unit-economics.md)), which is the real constraint on the whole business. Neither is cheap. It is worth deciding deliberately rather than discovering it.
 
 ---
 
@@ -78,13 +78,13 @@ All exclude inventory.
 
 ## The comparison that should decide it
 
-Phase 0 inventory is budgeted at **£1,500–2,500** for 20–30 pieces ([07](07-roadmap.md)). At a landed cost around £80 a piece:
+Phase 0 inventory is budgeted at **£1,500–2,500** for 20–30 pieces ([07](../0-plan/07-roadmap.md)). At a landed cost around £80 a piece:
 
 > **Every £1,000 spent on the website is roughly 12 pieces of stock not bought.**
 
 An agency build at £10,000 is **125 pieces** — more than a full opening catalogue, spent before a single customer has proved they will pay £185 to a stranger.
 
-The moat is stock and access, not the storefront ([02](02-positioning.md)). The storefront has to be good; it does not have to be expensive, and it is the one part of this business that can be rebuilt later for a fraction of what it costs to buy inventory twice.
+The moat is stock and access, not the storefront ([02](../0-plan/02-positioning.md)). The storefront has to be good; it does not have to be expensive, and it is the one part of this business that can be rebuilt later for a fraction of what it costs to buy inventory twice.
 
 ## Recommendation
 
@@ -96,6 +96,6 @@ Then revisit at scale. A £5,000 rebuild is easy to justify against proven reven
 
 ## Open
 
-- Freelance scoping is an estimate until someone quotes the actual job. Brief them as **conversion of a finished design**, and send them [08](08-brand.md), [04](04-site-ia.md) and the prototypes.
+- Freelance scoping is an estimate until someone quotes the actual job. Brief them as **conversion of a finished design**, and send them [08](../brand/08-brand.md), [04](04-site-ia.md) and the prototypes.
 - Trademark fees, and whether two classes or one.
-- Photography: in-house or outsourced. Logged as [99](99-open-questions.md) #34.
+- Photography: in-house or outsourced. Logged as [99](../0-plan/99-open-questions.md) #34.

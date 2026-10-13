@@ -176,7 +176,7 @@ And on the sale itself: **VAT does not vary by channel.** Registered means VAT o
 
 **Channel-dependent VAT is consistent with neither lawful position.** That is a genuine logical observation, and it is *still* not proof — we have not seen their books, their registration, or their stock.
 
-**Corrected 2026-09-22 (ii):** this paragraph originally added that their threshold might be **zero** as a non-established person. Companies House shows **ETVOUS LTD (16401166)**, a UK private limited company incorporated 23 April 2025 with matching SIC codes ([15](15-competitor-etvous.md)). If that is the seller of record, the ordinary £90,000 threshold applies and the zero-threshold point does not.
+**Corrected 2026-09-22 (ii):** this paragraph originally added that their threshold might be **zero** as a non-established person. Companies House shows **ETVOUS LTD (16401166)**, a UK private limited company incorporated 23 April 2025 with matching SIC codes ([15](../6-inspiration/15-competitor-etvous.md)). If that is the seller of record, the ordinary £90,000 threshold applies and the zero-threshold point does not.
 
 **[D13](DECISIONS.md) stands unchanged.** The asymmetry argument does not improve because the suspicion got sharper: our own trademark, VAT and IP positions are still open, and we are still the less-prepared party.
 
@@ -210,7 +210,7 @@ Passing the full 20% on leaves us **£16 a piece better off than today** — exa
 
 ### Two practical points for the plain-language version
 
-**Pre-registration input tax.** VAT on **goods still held at the registration date** can be reclaimed up to **4 years back** (services: 6 months). Import VAT on unsold stock bought while unregistered is therefore recoverable later — **but only with the paperwork.** Another reason the per-piece acquisition record from [04](04-site-ia.md) earns its keep: margin scheme, exhaustion defence, processor review, and now retrospective input tax.
+**Pre-registration input tax.** VAT on **goods still held at the registration date** can be reclaimed up to **4 years back** (services: 6 months). Import VAT on unsold stock bought while unregistered is therefore recoverable later — **but only with the paperwork.** Another reason the per-piece acquisition record from [04](../1-shop/04-site-ia.md) earns its keep: margin scheme, exhaustion defence, processor review, and now retrospective input tax.
 
 **Japanese consumption tax is not reclaimable in the UK.** It is not UK VAT and HMRC will not repay it. The only route back is Japan's own refund scheme ([06](06-unit-economics.md)). Easy to assume otherwise.
 
@@ -245,7 +245,7 @@ Not a statement of virtue — a liability boundary:
 
 The reason is specific: **if we are the importer of record but someone else entered the value, the liability is ours, not theirs.** So: do not share a freight agent or customs broker with another seller, do not consolidate consignments with anyone, and do not buy stock from a business whose import valuations we cannot see.
 
-This runs on the acquisition record already in place ([04](04-site-ia.md)). That one process now serves five purposes: margin-scheme evidence, trademark exhaustion defence, payment-processor review, retrospective input tax on registration, and proof of customs value.
+This runs on the acquisition record already in place ([04](../1-shop/04-site-ia.md)). That one process now serves five purposes: margin-scheme evidence, trademark exhaustion defence, payment-processor review, retrospective input tax on registration, and proof of customs value.
 
 ### Competitive read
 

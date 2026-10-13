@@ -2,13 +2,13 @@
 
 **Status: directions proposed, nothing decided (2026-09-22).** Reading order: [08](08-brand.md) first — the aesthetic, palette, type and texture are already settled and the mark has to live inside them, not restate them.
 
-**Specimen:** [`brand/mark-specimen.html`](../brand/mark-specimen.html) — open it in a browser. Published copy: https://claude.ai/artifact/2fopZe4vn7LYhmL6JTJxtS — the four directions drawn, at 48px / 24px / 16px favicon / avatar, on all four scroll grounds, with the grain toggle.
+**Specimen:** [`brand/mark-specimen.html`](mark-specimen.html) — open it in a browser. Published copy: https://claude.ai/artifact/2fopZe4vn7LYhmL6JTJxtS — the four directions drawn, at 48px / 24px / 16px favicon / avatar, on all four scroll grounds, with the grain toggle.
 
 ---
 
 ## Start here: this is the wrong order, and it's fixable in an hour
 
-[00](00-brief.md) says the trade mark and handle check happens **before any spend on brand design**. It is logged as [99](99-open-questions.md) #4 and it has not been done. What the research below found is enough to say the risk is real rather than theoretical, and the check is an hour of work.
+[00](../0-plan/00-brief.md) says the trade mark and handle check happens **before any spend on brand design**. It is logged as [99](../0-plan/99-open-questions.md) #4 and it has not been done. What the research below found is enough to say the risk is real rather than theoretical, and the check is an hour of work.
 
 Nothing stops the *thinking* happening now — that is this document. What should not happen is a designer being briefed, or artwork being paid for, before #4 closes.
 
@@ -16,15 +16,15 @@ Nothing stops the *thinking* happening now — that is this document. What shoul
 
 This is where the brief is unusual, and it is why the answer isn't "pick a nice typeface". Three constraints come from decisions already taken.
 
-**1 · The ground moves.** [D6](DECISIONS.md) makes the background a continuous function of scroll position — 白練 → 銀鼠 → 藍 → 濡羽色. The mark must therefore be **one colour, no two-tone, no white knockout, no gradient**, and legible on all four. That single constraint eliminates most contemporary logo fashion by itself.
+**1 · The ground moves.** [D6](../0-plan/DECISIONS.md) makes the background a continuous function of scroll position — 白練 → 銀鼠 → 藍 → 濡羽色. The mark must therefore be **one colour, no two-tone, no white knockout, no gradient**, and legible on all four. That single constraint eliminates most contemporary logo fashion by itself.
 
-**2 · Grain sits over everything.** [D6](DECISIONS.md) again: animated film grain at `mix-blend-mode: overlay` across image *and type*. Fine strokes do not survive it at small size. **Minimum stroke weight becomes a specification, not a preference** — this is the same class of constraint as the one already accepted for condition photography, and it points the same way: the delicate version is the one that fails.
+**2 · Grain sits over everything.** [D6](../0-plan/DECISIONS.md) again: animated film grain at `mix-blend-mode: overlay` across image *and type*. Fine strokes do not survive it at small size. **Minimum stroke weight becomes a specification, not a preference** — this is the same class of constraint as the one already accepted for condition photography, and it points the same way: the delicate version is the one that fails.
 
 **3 · The mark's own category is authentication.** Frame 2 of the photography spec ([08](08-brand.md)) is a macro of *somebody else's maker's mark* — the `Chr. Dior` on the reverse. That is the brand's core evidence format, shot every week, on every piece. A brand mark in the same grammar is not a pun; it is the house speaking the language its own product is written in.
 
 And one from the market:
 
-**4 · Every competitor is wordmark-only.** Susan Caplan, Jagged Metal and ReSee all use plain text logos with no device at all. This is the same finding as [01](01-landscape.md) #4 in a different register: the category converges, and nobody has a mark. Whether that is an opportunity or evidence that marks don't matter here is a real question — but it does mean a wordmark alone cannot differentiate, because a wordmark alone is what differentiation would have to be measured against.
+**4 · Every competitor is wordmark-only.** Susan Caplan, Jagged Metal and ReSee all use plain text logos with no device at all. This is the same finding as [01](../6-inspiration/01-landscape.md) #4 in a different register: the category converges, and nobody has a mark. Whether that is an opportunity or evidence that marks don't matter here is a real question — but it does mean a wordmark alone cannot differentiate, because a wordmark alone is what differentiation would have to be measured against.
 
 ---
 
@@ -39,7 +39,7 @@ A punch: a closed contour with something struck inside it. One grammar shared by
 - **For:** holds at 16px, which no wordmark does. Registrable in a way a bare shape is not. Physical from day one — a rubber stamp on the mailer is the cheapest premium signal available, and the care card gets a seal rather than a printed logo.
 - **Against:** initials-in-a-cartouche is the antiques trade's own cliché. It survives only if drawn as a modern punch, never as an engraved crest.
 
-> **Hard legal constraint.** Under the Hallmarking Act 1973 it is an offence to strike an article with a mark purporting to be an authorised sponsor's mark, and an assay office may cancel or obliterate any mark it considers likely to be confused with a hallmark. **The mark is never struck into metal — only into paper.** The outline must also stay clear of the shield and lozenge shapes the 1973 punch regulations use; a rounded square (角印 logic) is clear of them. This connects directly to the hallmarking exposure already logged at [99](99-open-questions.md) #12.
+> **Hard legal constraint.** Under the Hallmarking Act 1973 it is an offence to strike an article with a mark purporting to be an authorised sponsor's mark, and an assay office may cancel or obliterate any mark it considers likely to be confused with a hallmark. **The mark is never struck into metal — only into paper.** The outline must also stay clear of the shield and lozenge shapes the 1973 punch regulations use; a rounded square (角印 logic) is clear of them. This connects directly to the hallmarking exposure already logged at [99](../0-plan/99-open-questions.md) #12.
 
 ### 02 · 白練 — the wordmark that never grows
 
@@ -77,7 +77,7 @@ They are not four competing logos. Three are one system and the fourth is the on
 
 1. **Primary logo: the wordmark (02)**, governed by a size *rule* rather than a size spec — never larger than the piece on the page.
 2. **Compact mark: a struck punch (01)**, earning its place by doing the four jobs the wordmark provably fails: favicon, avatar, the stamp on the mailer, the seal on the care card.
-3. **The interior of the punch is the one genuinely open question** — 光 (03) performs best and carries the most risk; `H` in Newsreader is safe and generic. This is a smaller and much cheaper question to test than "what should the logo be", and it is the right thing to put in front of the two landing-page variants already planned at [99](99-open-questions.md) #9.
+3. **The interior of the punch is the one genuinely open question** — 光 (03) performs best and carries the most risk; `H` in Newsreader is safe and generic. This is a smaller and much cheaper question to test than "what should the logo be", and it is the right thing to put in front of the two landing-page variants already planned at [99](../0-plan/99-open-questions.md) #9.
 4. **Drop the alcove (04).** Most attractive drawing, least usable mark.
 
 This also answers the category question honestly: the *wordmark* matches the competitive set, and the *mark* is the part nobody has. The differentiation sits in the artefact a customer holds — a stamped mailer and a sealed card — rather than in a header they scroll past.
@@ -121,9 +121,9 @@ Not yet — #4 first. But so it is ready:
 ## Open
 
 - **#4 is blocking and unchanged.** UK IPO Classes 14 and 35, plus `.co.uk`/`.com` and the handle. An hour, before a designer is briefed.
-- What goes inside the punch — 光, `H`, or nothing. Test alongside the [99](99-open-questions.md) #9 landing-page variants rather than deciding it in a review.
+- What goes inside the punch — 光, `H`, or nothing. Test alongside the [99](../0-plan/99-open-questions.md) #9 landing-page variants rather than deciding it in a review.
 - Whether the wordmark is Newsreader (serif, editorial) or Instrument Sans (grotesque, catalogue). The specimen shows both; the sans is closer to the Japanese-retail reference, the serif closer to the category.
-- Whether to register at all, and when. A device mark plus a word mark in two classes is not free, and the money competes directly with inventory in Phase 0 ([07](07-roadmap.md)).
+- Whether to register at all, and when. A device mark plus a word mark in two classes is not free, and the money competes directly with inventory in Phase 0 ([07](../0-plan/07-roadmap.md)).
 
 ---
 
@@ -131,9 +131,9 @@ Not yet — #4 first. But so it is ready:
 
 **Direction given:** 光 is the body of the mark, but it must not sit on the page as a character someone typed.
 
-**Studies:** [`brand/mark-studies.html`](../brand/mark-studies.html) — open in a browser. Published copy: https://claude.ai/artifact/PWCZnohGDgay5YfruvPKvj
+**Studies:** [`brand/mark-studies.html`](mark-studies.html) — open in a browser. Published copy: https://claude.ai/artifact/PWCZnohGDgay5YfruvPKvj
 
-This closes [99](99-open-questions.md) #61 in principle — the punch's interior is 光 — and replaces it with a better question: *how far to abstract it.*
+This closes [99](../0-plan/99-open-questions.md) #61 in principle — the punch's interior is 光 — and replaces it with a better question: *how far to abstract it.*
 
 ### Why the instinct is right, in three registers
 
@@ -179,7 +179,7 @@ The alcove (04 in the first pass) **comes back**. Step 03 draws light falling on
 
 **Direction given:** keep the mincho 光 as it is, and turn the two top dots into jewellery — drop-shaped stones.
 
-**Studies:** [`brand/drop-studies.html`](../brand/drop-studies.html) — open in a browser. Published copy: https://claude.ai/artifact/QV1zYGkdp8aGd4TyPWKCLg
+**Studies:** [`brand/drop-studies.html`](drop-studies.html) — open in a browser. Published copy: https://claude.ai/artifact/QV1zYGkdp8aGd4TyPWKCLg
 
 ### Why the move is stronger than an ornament
 
@@ -212,7 +212,7 @@ So there is a real choice, and it is not a drawing preference:
 3. **Then redraw the body.** Holding the font untouched is right for deciding the idea and wrong for shipping it. Once the pair is settled, the constructed 光 from the previous studies takes the same drops — and the whole mark becomes ours rather than two drops on a borrowed body.
 4. **No facets, no sparkle, no third stone. Ever.**
 
-This resolves the earlier abstraction question ([99](99-open-questions.md) #65) in a way neither step alone did: **the drops are the abstraction.** They give the character a reason to be redrawn that is specific to this business, rather than a generic tidying-up.
+This resolves the earlier abstraction question ([99](../0-plan/99-open-questions.md) #65) in a way neither step alone did: **the drops are the abstraction.** They give the character a reason to be redrawn that is specific to this business, rather than a generic tidying-up.
 
 ---
 
@@ -220,7 +220,7 @@ This resolves the earlier abstraction question ([99](99-open-questions.md) #65) 
 
 **Asked:** how is 光 expressed in Japanese, and what simpler marks are available.
 
-**Studies:** [`brand/kana-marks.html`](../brand/kana-marks.html) — open in a browser. Published copy: https://claude.ai/artifact/43BGDvL4z4U983z4gnZWJg
+**Studies:** [`brand/kana-marks.html`](kana-marks.html) — open in a browser. Published copy: https://claude.ai/artifact/43BGDvL4z4U983z4gnZWJg
 
 ### The reading, and why it matters to the mark
 
@@ -266,7 +266,7 @@ Full set in the studies. The result:
 
 ## Update · 2026-09-22 (v) — the glyph question, and five simpler constructions
 
-**Studies:** [`brand/constructions.html`](../brand/constructions.html) — open in a browser. Published copy: https://claude.ai/artifact/PXwnTn8fCqeoie3cew9pdM
+**Studies:** [`brand/constructions.html`](constructions.html) — open in a browser. Published copy: https://claude.ai/artifact/PXwnTn8fCqeoie3cew9pdM
 
 ### Is Japanese 光 the same character?
 
@@ -323,7 +323,7 @@ Three reasons it is the right kind of simple for this brand specifically:
 
 **Direction given:** a reference lockup reading `光  Hikari`, with a vertical rule between the two. Plus a compact 光-only mark.
 
-**Studies:** [`brand/lockup.html`](../brand/lockup.html) — open in a browser. Published copy: https://claude.ai/artifact/Xq1SCfUQnyXwrBoBnXtE2r
+**Studies:** [`brand/lockup.html`](lockup.html) — open in a browser. Published copy: https://claude.ai/artifact/Xq1SCfUQnyXwrBoBnXtE2r
 
 ### What the supplied 光 actually was
 
@@ -367,7 +367,7 @@ This lockup keeps 光 as a *character*, which is a different branch from the con
 
 ## Update · 2026-09-22 (vii) — rebuilt in light mincho
 
-**Studies:** [`brand/lockup-light.html`](../brand/lockup-light.html) — open in a browser. Published copy: https://claude.ai/artifact/AkmvRHXTwTUfFvw2JBN9jn
+**Studies:** [`brand/lockup-light.html`](lockup-light.html) — open in a browser. Published copy: https://claude.ai/artifact/AkmvRHXTwTUfFvw2JBN9jn
 
 Kanji in **Noto Serif JP 200**, the lightest mincho available, against **Newsreader 300**. Shown line for line against the supplied original at a matched 40px cap height, so the kanji is the only variable.
 
@@ -375,7 +375,7 @@ Kanji in **Noto Serif JP 200**, the lightest mincho available, against **Newsrea
 
 **It keeps the calm.** At 200 the mincho's stems come down close to the gothic's, so the kanji stops out-weighing the Latin — which was the entire reason the original reference worked.
 
-**It changes the voice, and that is the decision.** Light mincho still has teardrop dots, flared terminals and real thick/thin. It reads **written** — editorial, warm, close to *ReSee* and to the category's existing register. The gothic read **neutral** — Muji, Ginza retail, closer to the position [02](02-positioning.md) actually argues for. **The original was the second by accident.** Choosing the first is a real choice and should be made deliberately rather than inherited from a font-substitution bug.
+**It changes the voice, and that is the decision.** Light mincho still has teardrop dots, flared terminals and real thick/thin. It reads **written** — editorial, warm, close to *ReSee* and to the category's existing register. The gothic read **neutral** — Muji, Ginza retail, closer to the position [02](../0-plan/02-positioning.md) actually argues for. **The original was the second by accident.** Choosing the first is a real choice and should be made deliberately rather than inherited from a font-substitution bug.
 
 **It costs fragility.** Mincho's thin strokes are much thinner than a gothic's at the same apparent weight, because the contrast is real. The horizontals go first under grain.
 
@@ -410,13 +410,13 @@ The 16px cells make the case: light 200 is a smudge, regular 400 holds. **The lo
 
 ### The question this leaves
 
-**Mincho or gothic — it is a brand question, not a weight question, and it is now the live one.** If the answer turns out to be gothic after all, that is legitimate and arguably better aligned with [02](02-positioning.md) — **but then the Latin goes gothic too.** A light gothic kanji beside a light gothic Latin is coherent; beside a serif it is the accident this whole thread started from.
+**Mincho or gothic — it is a brand question, not a weight question, and it is now the live one.** If the answer turns out to be gothic after all, that is legitimate and arguably better aligned with [02](../0-plan/02-positioning.md) — **but then the Latin goes gothic too.** A light gothic kanji beside a light gothic Latin is coherent; beside a serif it is the accident this whole thread started from.
 
 ---
 
 ## Update · 2026-09-22 (viii) — PNG exports
 
-**Files:** [`brand/logo/`](../brand/logo/) — eleven PNGs plus a [README](../brand/logo/README.md) naming what each one is for.
+**Files:** [`brand/logo/`](logo) — eleven PNGs plus a [README](logo/README.md) naming what each one is for.
 
 Rendered from the light-mincho specification: kanji Noto Serif JP 200 in the lockup, 400 standalone, **500 at 32px and below**; Latin Newsreader 300 tracked 0.28 em; divider 1.1 at cap height 40. Transparent ground, one colour, ink `#14171A` with reversed `#EFF0EC` variants.
 
@@ -427,4 +427,4 @@ The set: horizontal lockup at 2400 and 1200, reversed lockup, a version baked on
 - **The favicons are downsampled from a 1024 master, not rendered small.** Headless Chromium will not render reliably into a tiny window, so they are box-filtered down from the heavy-weight master. This also matches the spec — the standalone mark gains weight as it shrinks.
 - **The punch is ink-on-transparent with the glyph cut out.** On a dark ground the square disappears; use the reversed mark there instead.
 
-**Status, stated in the folder README so it travels with the files:** these are the open font set to spec, not drawn artwork, and the direction is still open on two counts — set versus drawn ([99](99-open-questions.md) #39) and mincho versus gothic (#41). Fine for mockups and internal work. **Nothing printed, registered, or shown to a customer until the name clears Classes 14 and 35** (#4).
+**Status, stated in the folder README so it travels with the files:** these are the open font set to spec, not drawn artwork, and the direction is still open on two counts — set versus drawn ([99](../0-plan/99-open-questions.md) #39) and mincho versus gothic (#41). Fine for mockups and internal work. **Nothing printed, registered, or shown to a customer until the name clears Classes 14 and 35** (#4).

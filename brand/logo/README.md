@@ -1,6 +1,6 @@
 # Logo — PNG exports
 
-Generated 2026-09-22 from the specification in [`../../docs/10-logo.md`](../../docs/10-logo.md).
+Generated 2026-09-22 from the specification in [`../10-logo.md`](../10-logo.md).
 Source of truth is that document, not these files. **Regenerate rather than edit.**
 
 Kanji: Noto Serif JP 200 (lockup) / 400 (standalone) / 500 (≤32px).
@@ -32,4 +32,4 @@ These are rendered from HTML through headless Chromium; the generator lives in t
 
 ## Status
 
-**Not final artwork.** The kanji is a licensed open font (Noto Serif JP, OFL) set to spec, not a drawn logotype, and the direction is still open on two counts — set versus drawn, and mincho versus gothic (see [`../../docs/99-open-questions.md`](../../docs/99-open-questions.md) #39 and #41). Use these for mockups and internal work. **Do not print them on anything, register them, or put them in front of a customer** until the name clears UK Classes 14 and 35 (#4).
+**Not final artwork.** The kanji is a licensed open font (Noto Serif JP, OFL) set to spec, not a drawn logotype, and the direction is still open on two counts — set versus drawn, and mincho versus gothic (see [`../../0-plan/99-open-questions.md`](../../0-plan/99-open-questions.md) #73 and #27). Use these for mockups and internal work. **Do not print them on anything, register them, or put them in front of a customer** until the name clears UK Classes 14 and 35 (#4).

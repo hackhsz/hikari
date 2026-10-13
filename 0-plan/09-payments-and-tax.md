@@ -70,7 +70,7 @@ You want: no VAT registration burden, maximum margin retained, trust intact. All
 3. **Don't register for VAT** while under the threshold. Legitimate, requires no structuring, and is where your planned volume already sits.
 4. **Track rolling 12-month turnover monthly.** Set an alert at £75,000 — that's the point to revisit, not £89,000.
 5. **Answer the margin-scheme question now** ([06](06-unit-economics.md), [99](99-open-questions.md) #1). If imported second-hand goods *can* use it, voluntary registration may beat staying unregistered even at low volume, because import VAT becomes recoverable. **This is the real lever. It is worth one paid hour.**
-6. **Keep the acquisition record for every piece** — required for the margin scheme if it applies, and separately your trademark exhaustion defence ([04](04-site-ia.md)). One process, two purposes.
+6. **Keep the acquisition record for every piece** — required for the margin scheme if it applies, and separately your trademark exhaustion defence ([04](../1-shop/04-site-ia.md)). One process, two purposes.
 
 ---
 

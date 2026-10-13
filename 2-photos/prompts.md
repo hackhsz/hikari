@@ -1,6 +1,6 @@
 # Generated backdrop prompts
 
-Paste-ready. Written to the [08](../docs/08-brand.md) palette, not the reference account's warm brocade. See [20](../docs/20-imagery-rights.md) for why the piece is never generated and how to composite it.
+Paste-ready. Written to the [08](../brand/08-brand.md) palette, not the reference account's warm brocade. See [20](20-imagery-rights.md) for why the piece is never generated and how to composite it.
 
 **Two rules that are not stylistic:**
 1. **Bare ear, no jewellery.** The earring is a real photograph, dropped in afterwards. Generating one and painting it out leaves artefacts.
@@ -67,7 +67,7 @@ Still, composed, unsmiling. Editorial rather than commercial.
 | Not enough room for the piece | Add `ear positioned right of centre with empty space around it` |
 | Grain too clean (register B) | Add `pronounced film grain, slightly uneven, visible in the mid-tones` |
 
-**Generate several and keep the ones whose light direction you can actually match on a shoot day.** That constraint eliminates more candidates than aesthetics does, and it is the one that decides whether the composite reads as real ([20](../docs/20-imagery-rights.md)).
+**Generate several and keep the ones whose light direction you can actually match on a shoot day.** That constraint eliminates more candidates than aesthetics does, and it is the one that decides whether the composite reads as real ([20](20-imagery-rights.md)).
 
 ---
 
@@ -89,4 +89,4 @@ black and white photograph of an East Asian woman in strict profile facing left,
 
 **Flag notes.** `--style raw` suppresses Midjourney's default prettifying, which is what pushes faces toward glamour and away from both registers. Low `--stylize` keeps it literal — B wants it lower than A, because a photograph tolerates less invention than a painting. Raise `--ar` only if a wider crop is wanted; 4:5 is the Instagram portrait frame.
 
-**Whichever tool:** the output requirement is the same — **a bare, clearly lit, unobstructed ear.** Reject anything else before judging it on looks ([20](../docs/20-imagery-rights.md)).
+**Whichever tool:** the output requirement is the same — **a bare, clearly lit, unobstructed ear.** Reject anything else before judging it on looks ([20](20-imagery-rights.md)).

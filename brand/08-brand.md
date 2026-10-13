@@ -1,6 +1,6 @@
 # 08 — Brand & Aesthetic
 
-**Status: decided (2026-09-21).** Japanese editorial, not French luxury. See [02](02-positioning.md) for why this is the competitive position and not just a taste preference.
+**Status: decided (2026-09-21).** Japanese editorial, not French luxury. See [02](../0-plan/02-positioning.md) for why this is the competitive position and not just a taste preference.
 
 ---
 
@@ -11,7 +11,7 @@ A *tokonoma* is the alcove in a Japanese room where a single beautiful object is
 **This is precisely what one-of-one inventory is**, and it should govern the design rather than sit in a moodboard. Concretely:
 
 - The homepage shows **one piece**, large, above everything else. Not a grid. The grid starts below the fold.
-- That piece changes on the drop rhythm ([05](05-social.md)). The homepage is a ritual, not a shop window.
+- That piece changes on the drop rhythm ([05](../5-social/05-social.md)). The homepage is a ritual, not a shop window.
 - Product pages give the object a whole page and a lot of empty space around it. Empty space is the luxury signal — not gold, not serif flourishes, not a dark theme.
 - Density is *earned*: collection grids can be dense, the entrance never is.
 
@@ -58,7 +58,7 @@ This matters more than the layout. At £100–300 on a secondhand object, photog
 | Frame | Spec |
 |---|---|
 | **1 · Composed** | North-facing window, morning. Piece on `paper` ground. Let the shadow fall — don't fill it. This is the Instagram frame. |
-| **2 · Macro** | The signature mark, clasp, setting. ~1:1. This is authentication evidence *and* the best-performing content format ([05](05-social.md)). |
+| **2 · Macro** | The signature mark, clasp, setting. ~1:1. This is authentication evidence *and* the best-performing content format ([05](../5-social/05-social.md)). |
 | **3 · On-body** | Scale. ~50mm equivalent, same daylight. Statement vintage earrings are far larger than people expect; this frame prevents a meaningful share of returns. |
 | **4 · Condition** | The wear, the plating loss, the missing stone — shown clearly and without apology. Counter-intuitively this *raises* conversion: it proves frames 1–3 aren't hiding anything. |
 
@@ -91,26 +91,26 @@ Short declarative sentences. Name the object, the house, the year, the condition
 | Sold pieces, kept live | **The Record** | Sold-out listings are an SEO asset and proof of demand. Naming it stops anyone deleting it. |
 | Condition scale | **Grade I – IV** | Published, defined, applied to every piece without exception |
 | Provenance line | **Found in Tokyo, March 2026** | On every piece. The differentiator, stated as fact rather than marketing. |
-| Physical space, later | **The Room** | Reserved. See [DECISIONS](DECISIONS.md) D3. |
+| Physical space, later | **The Room** | Reserved. See [DECISIONS](../0-plan/DECISIONS.md) D3. |
 
 If an internal codename for the shop section is ever wanted: **kura** (蔵) — the storehouse where a Japanese family keeps what it values. Good as a repo directory or a project name; too obscure to put in front of a UK customer.
 
 ## Open
 
 - Licensed vs. free type. Newsreader + Inter is a genuinely good free pairing and can launch; Canela + Suisse is the upgrade when there's budget.
-- Does "Japanese editorial" read as premium to a UK audience, or as under-designed? Two landing-page variants before the full build ([99](99-open-questions.md) #9).
+- Does "Japanese editorial" read as premium to a UK audience, or as under-designed? Two landing-page variants before the full build ([99](../0-plan/99-open-questions.md) #9).
 
 ---
 
 ## Update · 2026-09-22 — palette revised, and why
 
-**Live specimen:** https://claude.ai/artifact/QoSDYMA9MnUJDPyeXTSsBE — both palettes shown in an Alcove and a trust strip, with measured contrast. Tokens live in [`brand/tokens.css`](../brand/tokens.css).
+**Live specimen:** https://claude.ai/artifact/QoSDYMA9MnUJDPyeXTSsBE — both palettes shown in an Alcove and a trust strip, with measured contrast. Tokens live in [`brand/tokens.css`](tokens.css).
 
 ### The problem with the palette specified above
 
 Warm cream `#F4F1EA` + a serif display + a terracotta accent — which is almost exactly what this document originally specified — is currently one of the most over-used combinations in design, and one of the recognisable signatures of AI-generated design.
 
-That matters more here than it would elsewhere. The entire argument in [02](02-positioning.md) is that every competitor in this category already looks like every other competitor. Trading the French-luxury default for the current warm-neutral default wins nothing.
+That matters more here than it would elsewhere. The entire argument in [02](../0-plan/02-positioning.md) is that every competitor in this category already looks like every other competitor. Trading the French-luxury default for the current warm-neutral default wins nothing.
 
 ### Palette B · 銀鼠 gin-nezu — recommended
 
@@ -140,7 +140,7 @@ The originally specified values failed WCAG AA at body size:
 
 ### Still open
 
-Which palette. **A third option is available:** B's cool grounds and greys with **persimmon** kept as the single accent instead of indigo — avoids the warm-cream cluster while keeping the more distinctive accent colour. Logged as [99](99-open-questions.md) #23.
+Which palette. **A third option is available:** B's cool grounds and greys with **persimmon** kept as the single accent instead of indigo — avoids the warm-cream cluster while keeping the more distinctive accent colour. Logged as [99](../0-plan/99-open-questions.md) #23.
 
 ### Type note
 
@@ -166,7 +166,7 @@ Direction requested: heavy grain, imagery used very large, background colour dri
 
 ### Two conflicts this creates
 
-**Grain versus condition legibility — the real one.** [03](03-customer.md) and [04](04-site-ia.md) both turn on honest condition disclosure: the buyer must be able to see the plating loss, the missing stone, the wear. **Grain hides exactly that.** A heavily-grained condition photograph is, functionally, a misleading one — and the returns and disputes that follow cost more than the aesthetic gains.
+**Grain versus condition legibility — the real one.** [03](../0-plan/03-customer.md) and [04](../1-shop/04-site-ia.md) both turn on honest condition disclosure: the buyer must be able to see the plating loss, the missing stone, the wear. **Grain hides exactly that.** A heavily-grained condition photograph is, functionally, a misleading one — and the returns and disputes that follow cost more than the aesthetic gains.
 
 **Resolution:** grain is applied to frames 1 and 3 (the composed shot, the on-body shot) and **never** to frames 2 and 4 (the macro of the maker's mark, the condition frame). Those two are evidence and are presented clean, at full resolution, with a zoom. The texture belongs to the seduction; the evidence stays untouched. Worth stating in the photography spec above as a hard rule.
 
@@ -174,4 +174,4 @@ Direction requested: heavy grain, imagery used very large, background colour dri
 
 ### Open — what "画" means
 
-Read here as *imagery used at large scale*. If the intent was **actual paintings or artworks** as backdrops, that is a different and legally narrower direction: only public-domain works are safe to use, and the effect is common enough in vintage fashion retail to be its own cliché. Worth confirming before it gets designed around. Logged as [99](99-open-questions.md) #24.
+Read here as *imagery used at large scale*. If the intent was **actual paintings or artworks** as backdrops, that is a different and legally narrower direction: only public-domain works are safe to use, and the effect is common enough in vintage fashion retail to be its own cliché. Worth confirming before it gets designed around. Logged as [99](../0-plan/99-open-questions.md) #24.

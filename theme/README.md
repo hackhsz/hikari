@@ -1,6 +1,6 @@
 # Hikari — Shopify theme
 
-Custom Liquid theme built from the prototypes. Palette B ([`brand/tokens.css`](../brand/tokens.css)), lockup per [`docs/10-logo.md`](../docs/10-logo.md), layout per [`docs/04-site-ia.md`](../docs/04-site-ia.md).
+Custom Liquid theme built from the prototypes. Palette B ([`brand/tokens.css`](../brand/tokens.css)), lockup per [`brand/10-logo.md`](../brand/10-logo.md), layout per [`1-shop/04-site-ia.md`](../1-shop/04-site-ia.md).
 
 ## Getting it live today — free, no card
 
@@ -27,7 +27,7 @@ Checkout is Shopify's own. What to set in the admin so it matches the store:
 
 ## Name is not hard-coded — on purpose
 
-Per [`docs/18-name-clearance.md`](../docs/18-name-clearance.md), the name may have to change. It is a single theme setting:
+Per [`0-plan/18-name-clearance.md`](../0-plan/18-name-clearance.md), the name may have to change. It is a single theme setting:
 
 **Theme settings → Brand → Brand name / Kanji.** Change those two fields and the masthead, footer, lockup and legal text all follow. There is no `Hikari` string anywhere in the markup.
 
@@ -51,7 +51,7 @@ Use **Vendor** for the house (Christian Dior, Givenchy). The cards and product p
 
 ## Before the first sale
 
-- **Settings → Taxes: charge no VAT.** Charging or displaying VAT while unregistered is an offence ([`docs/16-vat.md`](../docs/16-vat.md)). The store will add a tax line on defaults — turn it off and check it again after any settings change.
+- **Settings → Taxes: charge no VAT.** Charging or displaying VAT while unregistered is an offence ([`0-plan/16-vat.md`](../0-plan/16-vat.md)). The store will add a tax line on defaults — turn it off and check it again after any settings change.
 - **Theme settings → Legal:** company name, number and registered office. Required by the Companies Act and the E-Commerce Regulations 2002.
 - Inventory: **quantity 1**, "continue selling when out of stock" **off**. One of one means one.
 
@@ -59,11 +59,11 @@ Use **Vendor** for the house (Christian Dior, Givenchy). The cards and product p
 
 Any product without an image renders a drawn daylight study at the right tonality and aspect, so the store is presentable from day one. Real photographs replace them automatically.
 
-**Frames 2 and 4 are labelled "Unretouched" and carry no grain** — the maker's-mark macro and the condition frame are evidence ([D6](../docs/DECISIONS.md), [D10](../docs/DECISIONS.md)).
+**Frames 2 and 4 are labelled "Unretouched" and carry no grain** — the maker's-mark macro and the condition frame are evidence ([D6](../0-plan/DECISIONS.md), [D10](../0-plan/DECISIONS.md)).
 
 ## Settings worth knowing
 
-Grain strength and animation, and the scroll-driven colour, are all theme settings — dial the grain down if it fights the photography once real images land ([`docs/08-brand.md`](../docs/08-brand.md)).
+Grain strength and animation, and the scroll-driven colour, are all theme settings — dial the grain down if it fights the photography once real images land ([`brand/08-brand.md`](../brand/08-brand.md)).
 
 ## Not yet built
 

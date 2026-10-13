@@ -13,7 +13,7 @@ Instagram and eBay/Etsy only. This exists to test the three assumptions in [00](
 - Buy 20–30 pieces through a proxy service ([06](06-unit-economics.md)). Budget `[ASSUMED]` ~£1,500–2,500.
 - Record **actual** landed cost per piece. This replaces every `[ASSUMED]` in the economics model.
 - Photograph to the four-frame standard in [02](02-positioning.md).
-- **Take payment with Stripe Payment Links** — no monthly fee, no website, and `limit payments = 1` per piece so a one-of-one cannot be sold twice. See [11](11-platform.md).
+- **Take payment with Stripe Payment Links** — no monthly fee, no website, and `limit payments = 1` per piece so a one-of-one cannot be sold twice. See [11](../1-shop/11-platform.md).
 - Sell at the intended £100–300 pricing. **Do not discount to force the test** — discounting answers a question you did not ask.
 - **Run the A/B:** foreground the Japan sourcing story on half, omit it on the other half. This is the cheapest available test of the differentiation assumption.
 - In parallel and off the critical path: the VAT specialist hour ([06](06-unit-economics.md)) and the trademark search on "Hikari" ([00](00-brief.md)).
@@ -27,14 +27,14 @@ Only on a Phase 0 pass.
 - Register the company; open a business bank account; **begin Brand Off B2B verification now** — it is slow and it gates the only channel that scales ([06](06-unit-economics.md)).
 - Resolve VAT registration and the margin-scheme question. **Blocking.**
 - Brand identity per the Japanese-editorial direction in [02](02-positioning.md).
-- Shopify build on the IA in [04](04-site-ia.md): three navigation axes, designer landing pages, the product-page anatomy, the condition scale, the authentication page.
+- Shopify build on the IA in [04](../1-shop/04-site-ia.md): three navigation axes, designer landing pages, the product-page anatomy, the condition scale, the authentication page.
 - Legal: terms, returns, privacy, the trademark disclaimer, and an IP solicitor's review of how the marks are used.
 - 60–100 pieces in stock before opening. Ten pieces is not a shop.
 - Klarna, Royal Mail tracked, packaging.
 
 ## Phase 2 — Rhythm · *months 3–9*
 
-- **Launch the weekly drop** ([05](05-social.md)). This is the phase's real deliverable — everything else supports it.
+- **Launch the weekly drop** ([05](../5-social/05-social.md)). This is the phase's real deliverable — everything else supports it.
 - Email list from zero. Target `[ASSUMED]` 1,000 engaged subscribers by month 9.
 - Designer landing pages and authentication guides published steadily — the SEO compounding starts here and pays out in Phase 3.
 - Marketplace listings as a discovery tap at a 10–15% premium.
@@ -66,7 +66,7 @@ Only once the core rhythm is stable. Options, not commitments:
 
 ## Update · 2026-09-21
 
-Phase 1 now also carries: the brand system in [08](08-brand.md) (palette, type, the four-frame photography setup, the published Grade I–IV scale), and the payment-rail decision in [09](09-payments-and-tax.md) — which **blocks the Shopify build**, since checkout choice determines the theme, the apps and the trust blocks.
+Phase 1 now also carries: the brand system in [08](../brand/08-brand.md) (palette, type, the four-frame photography setup, the published Grade I–IV scale), and the payment-rail decision in [09](09-payments-and-tax.md) — which **blocks the Shopify build**, since checkout choice determines the theme, the apps and the trust blocks.
 
 Phase 3's physical-retail option is confirmed as correctly sequenced by [D3](DECISIONS.md), with an explicit trigger rather than a date: ≥60% 90-day sell-through sustained over two quarters, plus a list that clears the strongest pieces on Edition night.
 
@@ -76,4 +76,4 @@ Phase 3's physical-retail option is confirmed as correctly sequenced by [D3](DEC
 3. Trademark and domain search on "Hikari".
 4. Open a proxy account. Watch Yahoo Auctions daily for two weeks **without bidding** — price intuition is the core skill and it's only acquired by looking.
 5. Pick Edition night and commit to it.
-6. Buy the first 5 pieces. Shoot them on the four-frame setup in [08](08-brand.md), in daylight. Measure everything.
+6. Buy the first 5 pieces. Shoot them on the four-frame setup in [08](../brand/08-brand.md), in daylight. Measure everything.

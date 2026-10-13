@@ -16,7 +16,7 @@ Not Shopify, not a Stripe build.
 
 SHOPLINE is a Shopify-equivalent SaaS built for Greater China cross-border sellers. The checkout is a close copy of Shopify's, and the tells are small English slips: **"Coupon code"** where Shopify says "Discount code", title-case **"Continue to Shipping"** where Shopify uses sentence case, **"Receive exclusive offers and marketing updates"** where Shopify says "Email me with news and offers", and a default blue CTA.
 
-**Worth noticing commercially:** those slips read, faintly, as *not a UK brand*. On a £274 purchase from an unknown seller, where the entire barrier is trust ([03](03-customer.md)), small wrongness in the checkout copy is not cosmetic. It is the last screen before the money moves.
+**Worth noticing commercially:** those slips read, faintly, as *not a UK brand*. On a £274 purchase from an unknown seller, where the entire barrier is trust ([03](../0-plan/03-customer.md)), small wrongness in the checkout copy is not cosmetic. It is the last screen before the money moves.
 
 ---
 
@@ -58,7 +58,7 @@ On the site, in the merchant's own words.
 
 Two things follow.
 
-**One — it validates the peer-to-peer instinct and shows its shape.** This is the model considered and set aside at [D4](DECISIONS.md): the site as catalogue, payment pushed to a direct rail. Somebody in this exact niche is doing it, which is worth knowing. Note *why*: SHOPLINE charges them a platform fee steep enough to be worth a public workaround. **Shopify Basic has no 5% platform fee** — 2% + 25p through Shopify Payments ([11](11-platform.md)) — so the pressure that produced this behaviour does not exist for us.
+**One — it validates the peer-to-peer instinct and shows its shape.** This is the model considered and set aside at [D4](../0-plan/DECISIONS.md): the site as catalogue, payment pushed to a direct rail. Somebody in this exact niche is doing it, which is worth knowing. Note *why*: SHOPLINE charges them a platform fee steep enough to be worth a public workaround. **Shopify Basic has no 5% platform fee** — 2% + 25p through Shopify Payments ([11](../1-shop/11-platform.md)) — so the pressure that produced this behaviour does not exist for us.
 
 **Two — it is another disclosure problem**, since the price now depends on the rail the customer picks, which cuts against the same transparency rules.
 
@@ -72,7 +72,7 @@ Inference, not fact: this reads as either caution about trademark exposure, or c
 
 **Either way it is an own goal.** Nobody searches for "C Camellia". They search for *vintage Chanel ring UK*. That naming choice forfeits the entire organic channel — the one Jagged Metal and Modern Vintage Style are already winning ([01](01-landscape.md)).
 
-**Our approach is both more honest and better business:** name the house plainly, keep the acquisition record, carry the disclaimer, and rely on exhaustion of rights ([04](04-site-ia.md)). Referential use of a mark to describe genuine secondhand goods is lawful. Hiding it helps nobody and costs the search traffic.
+**Our approach is both more honest and better business:** name the house plainly, keep the acquisition record, carry the disclaimer, and rely on exhaustion of rights ([04](../1-shop/04-site-ia.md)). Referential use of a mark to describe genuine secondhand goods is lawful. Hiding it helps nobody and costs the search traffic.
 
 ---
 
@@ -80,13 +80,13 @@ Inference, not fact: this reads as either caution about trademark exposure, or c
 
 **1. Their real price is £273.60, not £228.** Against that, an all-in £185 with nothing added at checkout is not a small difference. It is a different proposition.
 
-**2. "Duty paid. The price you see is the price you pay." is now a legal requirement *and* a weapon** — pointed at this competitor specifically. The line already in [02](02-positioning.md) lands harder than when it was written. Put the all-in price in the headline, say so on the product page, and say so again at checkout.
+**2. "Duty paid. The price you see is the price you pay." is now a legal requirement *and* a weapon** — pointed at this competitor specifically. The line already in [02](../0-plan/02-positioning.md) lands harder than when it was written. Put the all-in price in the headline, say so on the product page, and say so again at checkout.
 
 **3. They are losing sales at the final screen.** A 20% surprise at checkout step one is among the most reliable causes of cart abandonment there is. We win those customers by not doing it.
 
-**4. Name the honest cost of honesty.** All-in pricing looks *more expensive* in a side-by-side ad or a Google Shopping row — that is exactly why drip pricing exists. Our answer is brand, trust and the Edition list ([D11](DECISIONS.md)), not a race we would lose anyway. Worth stating plainly so nobody is surprised by the comparison later.
+**4. Name the honest cost of honesty.** All-in pricing looks *more expensive* in a side-by-side ad or a Google Shopping row — that is exactly why drip pricing exists. Our answer is brand, trust and the Edition list ([D11](../0-plan/DECISIONS.md)), not a race we would lose anyway. Worth stating plainly so nobody is surprised by the comparison later.
 
-**5. SHOPLINE is not for us.** A capable platform, built for Greater China cross-border. For a UK-facing brand, Shopify's UK ecosystem — Royal Mail and Evri labels, Klarna, UK tax configuration, native-sounding English — is worth more than anything SHOPLINE adds. [D7](DECISIONS.md) stands.
+**5. SHOPLINE is not for us.** A capable platform, built for Greater China cross-border. For a UK-facing brand, Shopify's UK ecosystem — Royal Mail and Evri labels, Klarna, UK tax configuration, native-sounding English — is worth more than anything SHOPLINE adds. [D7](../0-plan/DECISIONS.md) stands.
 
 ## Caveats
 
@@ -119,7 +119,7 @@ We cannot see their VAT registration, their shipping origin, or their books. **R
 
 **1. Winning gains us nothing.** Best case they add 20% to the headline and their ring lists at £274. That makes our £185 look better — and brings us zero customers. The CMA is already running this sector. If the model is non-compliant it will be found without us.
 
-**2. The retaliation risk is real and currently asymmetric.** As of today Hikari has **not** cleared the trademark ([99](99-open-questions.md) #4), **not** settled the VAT and margin-scheme position ([99](99-open-questions.md) #1), **not** had an IP solicitor review our use of the Dior and Chanel marks ([04](04-site-ia.md)), and **not** published policies, returns terms or condition grades. A competitor who feels attacked can file a report as easily as we can — and right now **we are the less-prepared party.** This is the argument that decides it.
+**2. The retaliation risk is real and currently asymmetric.** As of today Hikari has **not** cleared the trademark ([99](../0-plan/99-open-questions.md) #4), **not** settled the VAT and margin-scheme position ([99](../0-plan/99-open-questions.md) #1), **not** had an IP solicitor review our use of the Dior and Chanel marks ([04](../1-shop/04-site-ia.md)), and **not** published policies, returns terms or condition grades. A competitor who feels attacked can file a report as easily as we can — and right now **we are the less-prepared party.** This is the argument that decides it.
 
 **3. A competitor complaint is weighted as interested.** Regulators know. It does not invalidate a report, but a single competitor complaint about one screenshot rarely moves anything. A real customer surprised by 20% at checkout is a far stronger complainant — and if one of ours arrives from their site, telling them their rights is legitimate and costs us nothing.
 
@@ -135,7 +135,7 @@ We cannot see their VAT registration, their shipping origin, or their books. **R
 
 ### Never
 
-Publishing it, posting about it, contacting their customers, or briefing press. That is where the legal risk lands on **us** — defamation and malicious falsehood — and it is already ruled out at [D12](DECISIONS.md).
+Publishing it, posting about it, contacting their customers, or briefing press. That is where the legal risk lands on **us** — defamation and malicious falsehood — and it is already ruled out at [D12](../0-plan/DECISIONS.md).
 
 ### What to do instead, today
 
@@ -158,11 +158,11 @@ If it is import VAT, their model is legible: **no UK stock. Each order ships dir
 | Customs | Per order, repeatedly | Once per batch |
 | Price the customer sees | £228, then £273.60 | £185, and £185 |
 
-**Their model has a real advantage and we should be honest about it:** it is capital-light. They are not funding inventory, which is the single largest cost and risk in our plan ([06](06-unit-economics.md)). That is not nothing.
+**Their model has a real advantage and we should be honest about it:** it is capital-light. They are not funding inventory, which is the single largest cost and risk in our plan ([06](../0-plan/06-unit-economics.md)). That is not nothing.
 
-**But it costs them exactly what we sell.** No stock in the UK means no next-day delivery, painful returns, a customs event on every order, and a 20% surprise at the final screen. The "duty paid, next day, one price" line in [02](02-positioning.md) is not rhetoric against this competitor — it is a structural consequence of holding stock that they cannot match without changing their whole model.
+**But it costs them exactly what we sell.** No stock in the UK means no next-day delivery, painful returns, a customs event on every order, and a 20% surprise at the final screen. The "duty paid, next day, one price" line in [02](../0-plan/02-positioning.md) is not rhetoric against this competitor — it is a structural consequence of holding stock that they cannot match without changing their whole model.
 
-That is the trade: they keep the cash, we keep the experience. At £100–300 on a trust purchase from an unknown seller ([03](03-customer.md)), the experience is the thing that converts.
+That is the trade: they keep the cash, we keep the experience. At £100–300 on a trust purchase from an unknown seller ([03](../0-plan/03-customer.md)), the experience is the thing that converts.
 
 ---
 
@@ -186,7 +186,7 @@ Companies House, searched 2026-09-22:
 
 ### This corrects an earlier inference
 
-[16](16-vat.md) §8 raised the possibility that they are a **non-established taxable person** with a zero VAT threshold. **If ETVOUS LTD is the seller of record, that does not apply** — it is a UK company and the ordinary £90,000 threshold governs it. Corrected so the wrong version is not carried forward.
+[16](../0-plan/16-vat.md) §8 raised the possibility that they are a **non-established taxable person** with a zero VAT threshold. **If ETVOUS LTD is the seller of record, that does not apply** — it is a UK company and the ordinary £90,000 threshold governs it. Corrected so the wrong version is not carried forward.
 
 ### The reported Singapore entity
 
@@ -212,4 +212,4 @@ Unlike everything else in this document, this needs no inference — it is a pla
 
 ### For us
 
-**Display it properly from day one:** registered company name, company number, registered office, and a working email in the footer and in the terms. It costs nothing, it is legally required, and on a £185 purchase from an unknown seller it is a trust signal ([03](03-customer.md)) that this competitor is currently leaving on the table.
+**Display it properly from day one:** registered company name, company number, registered office, and a working email in the footer and in the terms. It costs nothing, it is legally required, and on a £185 purchase from an unknown seller it is a trust signal ([03](../0-plan/03-customer.md)) that this competitor is currently leaving on the table.

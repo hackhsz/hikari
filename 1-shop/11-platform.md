@@ -52,22 +52,22 @@ Worth stating plainly, because it is the usual reason to reach for a custom buil
 
 Everything in the prototypes — the grain overlay, the scroll-driven colour interpolation, the asymmetric 12-column featured composition, the canvas plates, the lockup in a difference-blend masthead — is ordinary front-end work inside a Shopify theme. Nothing about it needs Hydrogen and nothing about it needs a bespoke platform. Build the theme from scratch rather than buying one; that is where the design budget goes.
 
-The checkout itself can carry the logo, colours and typefaces. It cannot be rebuilt below Plus, and it does not need to be: a conventional checkout at the end of a highly art-directed site is *reassuring* at £180 from an unknown seller — which is the argument in [03](03-customer.md).
+The checkout itself can carry the logo, colours and typefaces. It cannot be rebuilt below Plus, and it does not need to be: a conventional checkout at the end of a highly art-directed site is *reassuring* at £180 from an unknown seller — which is the argument in [03](../0-plan/03-customer.md).
 
 ---
 
 ## Two things that need attention early
 
-**Shopify Payments approval.** Requires the UK company and business bank account ([07](07-roadmap.md) Phase 1). Do not leave it to launch week.
+**Shopify Payments approval.** Requires the UK company and business bank account ([07](../0-plan/07-roadmap.md) Phase 1). Do not leave it to launch week.
 
 **Branded resale is a category payment processors watch.** Selling goods carrying Dior, Chanel and YSL marks can attract counterfeit-risk review, holds, or reserves. The mitigation is the acquisition record already required for the trademark exhaustion defence in [04](04-site-ia.md) — invoice, lot number, seller, date, photographs on arrival, for every piece. One process, now three purposes: margin scheme, exhaustion defence, processor review. Build it into intake from piece number one.
 
 ## Also considered
 
-- **Shopify Starter** (buy buttons and payment links, no storefront) — genuinely fits [07](07-roadmap.md) **Phase 0**, where the point is to sell 20 pieces with no website. Cheap way to take card payments off Instagram. *Verify current price.*
+- **Shopify Starter** (buy buttons and payment links, no storefront) — genuinely fits [07](../0-plan/07-roadmap.md) **Phase 0**, where the point is to sell 20 pieces with no website. Cheap way to take card payments off Instagram. *Verify current price.*
 - **Squarespace / Webflow commerce** — fine sites, weaker commerce, and less control than a hand-built Liquid theme for this specific design.
 - **Medusa, Swell, self-hosted** — all the custom-build costs above, plus hosting.
-- **Marketplaces only** — rejected at [D1](DECISIONS.md).
+- **Marketplaces only** — rejected at [D1](../0-plan/DECISIONS.md).
 
 ## When to revisit
 
@@ -78,7 +78,7 @@ The checkout itself can carry the logo, colours and typefaces. It cannot be rebu
 
 ## Note on VAT
 
-Per [D4](DECISIONS.md) and [09](09-payments-and-tax.md), the recommendation is card checkout with **no VAT registration while under the threshold**. Shopify must therefore be configured **not to charge VAT** — a settings change there, and one more thing to get right by hand on a custom build. Revisit at £75k rolling turnover.
+Per [D4](../0-plan/DECISIONS.md) and [09](../0-plan/09-payments-and-tax.md), the recommendation is card checkout with **no VAT registration while under the threshold**. Shopify must therefore be configured **not to charge VAT** — a settings change there, and one more thing to get right by hand on a custom build. Revisit at £75k rolling turnover.
 
 ---
 
@@ -102,7 +102,7 @@ It is **not** automatic in a custom Stripe Checkout build — there you implemen
 
 - **PCI DSS.** Hosted Checkout or Payment Links keep you at **SAQ A**, the simplest form — no card data touches your servers ([Stripe](https://stripe.com/guides/pci-compliance)). Note it reduces scope rather than removing the obligation: you still complete the SAQ yourself.
 - **SCA / 3D Secure 2.** Required for UK online card payments under the Payment Services Regulations 2017. Stripe handles it with no integration work.
-- **Tax calculation**, via Stripe Tax at 0.5% of taxed volume — **not needed** while unregistered under [D4](DECISIONS.md), and a cost to avoid switching on by reflex.
+- **Tax calculation**, via Stripe Tax at 0.5% of taxed volume — **not needed** while unregistered under [D4](../0-plan/DECISIONS.md), and a cost to avoid switching on by reflex.
 
 **One trap.** If you embed a custom card form (Stripe Elements) to keep the checkout on-brand, you take on **PCI DSS 6.4.3 and 11.6.1** — client-side script integrity monitoring, new in PCI DSS 4.0 ([analysis](https://cside.com/blog/can-you-use-stripe-for-pci-dss)). Use hosted Checkout and you stay at SAQ A. The design instinct is exactly the one that creates the obligation.
 
@@ -110,7 +110,7 @@ It is **not** automatic in a custom Stripe Checkout build — there you implemen
 
 None of the following is a payments problem, so no processor solves it:
 
-- **Consumer Contracts Regulations 2013** — the 14-day right to cancel, the pre-contract information, the model cancellation form. Mandatory for UK distance selling ([03](03-customer.md)).
+- **Consumer Contracts Regulations 2013** — the 14-day right to cancel, the pre-contract information, the model cancellation form. Mandatory for UK distance selling ([03](../0-plan/03-customer.md)).
 - **Consumer Rights Act 2015** — description accuracy, which for graded secondhand goods is the live risk.
 - **UK GDPR and PECR** — you are the data controller in both architectures. Privacy policy, cookie consent, subject access requests, retention.
 - **Accessibility**, and the **trademark disclaimer** in [04](04-site-ia.md).
@@ -123,13 +123,13 @@ Shopify does not magically supply consumer-law compliance either. What it suppli
 
 **Stripe sends one email: the payment receipt.** Plus a refund notification. That is the whole set.
 
-It does not send an order confirmation with the delivery address and estimate, a dispatch notification with tracking, a delivery notification, return or refund status updates, or abandoned-checkout recovery. At £185 from a seller she has never heard of, **the dispatch email with a tracking number is the moment the customer stops worrying** — it is part of the trust architecture in [03](03-customer.md), not an operational nicety.
+It does not send an order confirmation with the delivery address and estimate, a dispatch notification with tracking, a delivery notification, return or refund status updates, or abandoned-checkout recovery. At £185 from a seller she has never heard of, **the dispatch email with a tracking number is the moment the customer stops worrying** — it is part of the trust architecture in [03](../0-plan/03-customer.md), not an operational nicety.
 
 **Shopify ships all of them**, editable in Liquid: order confirmation, shipping confirmation with tracking, out for delivery, delivered, cancellation, refund, abandoned checkout ([Shopify Help](https://help.shopify.com/en/manual/fulfillment/setup/notifications/customizing-notification-template)).
 
-**And the marketing side, which decides the Edition strategy in [05](05-social.md):** Shopify Messaging gives **10,000 free emails per calendar month** on Basic and above, then ~$1 per 1,000; abandoned-checkout automations never count against it ([Shopify](https://help.shopify.com/en/manual/promoting-marketing/create-marketing/shopify-email/shopify-email-cost)).
+**And the marketing side, which decides the Edition strategy in [05](../5-social/05-social.md):** Shopify Messaging gives **10,000 free emails per calendar month** on Basic and above, then ~$1 per 1,000; abandoned-checkout automations never count against it ([Shopify](https://help.shopify.com/en/manual/promoting-marketing/create-marketing/shopify-email/shopify-email-cost)).
 
-At 1,000 subscribers × 4 Editions a month = 4,000 sends. **Free.** The weekly drop — the single highest-leverage ritual in [05](05-social.md) — costs nothing to run.
+At 1,000 subscribers × 4 Editions a month = 4,000 sends. **Free.** The weekly drop — the single highest-leverage ritual in [05](../5-social/05-social.md) — costs nothing to run.
 
 On a Stripe build the same capability needs a transactional provider (Resend, Postmark), a marketing ESP (Klaviyo, Buttondown, Mailchimp), every template written from scratch, and SPF/DKIM/DMARC set up and monitored.
 
@@ -156,11 +156,11 @@ Shopify buys Royal Mail, Evri and DPD labels at its own negotiated rates from a 
 
 **Unchanged in conclusion, changed in reasoning: Shopify Basic + Shopify Payments + a custom Liquid theme.** Not for inventory. For order-lifecycle email, shipping labels, a returns workflow, and the fact that it is cost-neutral once the email stack is priced honestly.
 
-The deciding constraint is the one in [06](06-unit-economics.md): **the ceiling on this business is sourcing throughput and the 45–60 minutes per piece.** Platform work is time not spent on the only thing that compounds.
+The deciding constraint is the one in [06](../0-plan/06-unit-economics.md): **the ceiling on this business is sourcing throughput and the 45–60 minutes per piece.** Platform work is time not spent on the only thing that compounds.
 
 ### Where Stripe is genuinely the right answer
 
-**Phase 0, and it is a better fit than what [07](07-roadmap.md) currently says.** Stripe **Payment Links** for the first 20 pieces: no monthly fee, no website, links from Instagram, `limit payments = 1` per piece so nothing can be double-sold, receipts automatic, PCI at SAQ A. That *is* the no-website test. Use it.
+**Phase 0, and it is a better fit than what [07](../0-plan/07-roadmap.md) currently says.** Stripe **Payment Links** for the first 20 pieces: no monthly fee, no website, links from Instagram, `limit payments = 1` per piece so nothing can be double-sold, receipts automatic, PCI at SAQ A. That *is* the no-website test. Use it.
 
 Its limits are the reason it does not become the shop: **no cart** (two pieces means two checkouts and two shipping charges), no dispatch emails, no returns flow, and no customer list to build the Edition on.
 

@@ -49,15 +49,15 @@ Class 35 is retail services — the other class we wanted. **But the specificati
 
 ### Recommendation
 
-**Treat the name as unresolved, and decide before any further spend on brand.** Get an attorney to pull the Class 14 specification and the Class 35 wording — one hour, well inside the £300–800 already budgeted at [12](12-build-cost.md). That hour decides between "change the name" and "proceed", and it is the cheapest hour in the plan.
+**Treat the name as unresolved, and decide before any further spend on brand.** Get an attorney to pull the Class 14 specification and the Class 35 wording — one hour, well inside the £300–800 already budgeted at [12](../1-shop/12-build-cost.md). That hour decides between "change the name" and "proceed", and it is the cheapest hour in the plan.
 
 ### What is *not* lost if the name changes
 
 Almost nothing, which is the point of having checked now:
 
-- The **palette** ([08](08-brand.md)) is name-independent
-- The **grain, scroll-colour and layout systems** ([04](04-site-ia.md), prototypes) are name-independent
-- The **lockup's proportional system** — kanji at 1.30 cap height, one weight step below the Latin, rule at 1.00 C, 0.28 em tracking ([10](10-logo.md)) — **transfers to any kanji + Latin name.** Only the glyphs change.
+- The **palette** ([08](../brand/08-brand.md)) is name-independent
+- The **grain, scroll-colour and layout systems** ([04](../1-shop/04-site-ia.md), prototypes) are name-independent
+- The **lockup's proportional system** — kanji at 1.30 cap height, one weight step below the Latin, rule at 1.00 C, 0.28 em tracking ([10](../brand/10-logo.md)) — **transfers to any kanji + Latin name.** Only the glyphs change.
 - Positioning, customer, pricing, platform, tax: all untouched
 
 The switching cost today is one SVG and a domain. In six months it is the domain, the handle, the packaging, the SEO, and any press coverage — some of which cannot be recovered at all.
@@ -89,13 +89,13 @@ Note the pattern: **`hikari.store`, `hikariarchive.com` and `shophikari.com` wer
 
 Instagram returns a login redirect (HTTP 302) to automated requests, so `@hikari`, `@hikarivintage`, `@hikari.vintage`, `@hikarilondon`, `@shophikari` and `@hikari.archive` are **unverified**. Xiaohongshu likewise.
 
-**Two minutes each, manually:** open `instagram.com/<handle>` in a browser — "Sorry, this page isn't available" means free. Check Instagram, TikTok, Pinterest and Xiaohongshu for whichever name survives clearance. Handles matter disproportionately here because the Edition strategy ([05](05-social.md)) runs on Instagram.
+**Two minutes each, manually:** open `instagram.com/<handle>` in a browser — "Sorry, this page isn't available" means free. Check Instagram, TikTok, Pinterest and Xiaohongshu for whichever name survives clearance. Handles matter disproportionately here because the Edition strategy ([05](../5-social/05-social.md)) runs on Instagram.
 
 ## Cost, if registering
 
 **£205 for the first class + £60 for each additional = £265 for Classes 14 and 35.**
 
-**UKIPO fees rose on 1 April 2026** (from £170 + £50). [12](12-build-cost.md) quotes the old ~£220 and is corrected.
+**UKIPO fees rose on 1 April 2026** (from £170 + £50). [12](../1-shop/12-build-cost.md) quotes the old ~£220 and is corrected.
 
 ## Open
 
@@ -138,13 +138,13 @@ All show **no live GB mark in Class 14 or 35**, and `.co.uk` is free for each.
 | 8 | Kioku | 記憶 | Memory | 2 chars |
 | 9 | Mitsuke | 見つけ | Finding | ✗ |
 
-**Single-kanji names score higher for a specific reason:** the lockup spec at [10](10-logo.md) is built around **one glyph** at 1.30 cap height beside the Latin. A three-character name with okurigana does not fit that system and would need the mark redesigned, not just re-set.
+**Single-kanji names score higher for a specific reason:** the lockup spec at [10](../brand/10-logo.md) is built around **one glyph** at 1.30 cap height beside the Latin. A three-character name with okurigana does not fit that system and would need the mark redesigned, not just re-set.
 
 ### Recommendation — Enishi 縁
 
 **On meaning.** 縁 is the thread of connection — the idea that an object and a person were bound to find each other. For a shop whose entire proposition is *there is one of this, and it is now yours* ([02](02-positioning.md)), no other word on the list is as close. It also quietly carries the sourcing story: the piece travelled from Paris to Tokyo to London to reach one person.
 
-**On form.** Single kanji, visually dense and balanced, holds its weight against the Latin at 1.30 cap height. The entire proportional system from [10](10-logo.md) transfers with only the glyph changed.
+**On form.** Single kanji, visually dense and balanced, holds its weight against the Latin at 1.30 cap height. The entire proportional system from [10](../brand/10-logo.md) transfers with only the glyph changed.
 
 **On sound.** *eh-NEE-shee.* Three syllables, no ambiguous consonants, spellable from hearing it — the same test Hikari passed.
 
@@ -250,7 +250,7 @@ It makes three things worse:
 2. **Enforcement is unchanged; our position is worse.** Infringement occurring in the UK gives the UK courts jurisdiction. DCK could seek an injunction, a customs Application for Action, and platform and registrar cooperation. An overseas entity is harder to *defend from*, not harder to sue.
 3. **It destroys the trust proposition.** [03](03-customer.md) concludes the barrier at £185 is trust, not price, and the Consumer Contracts Regulations require a geographic address. Publishing a Singapore address under the story *"a British shop that goes to Japan"* defeats the story itself.
 
-**The one legitimate use** remains the sourcing entity described in [15](15-competitor-etvous.md): a Japanese or Hong Kong company that buys stock and sells on to the UK entity, raising ordinary transfer-pricing questions. **It has no bearing on the brand name.**
+**The one legitimate use** remains the sourcing entity described in [15](../6-inspiration/15-competitor-etvous.md): a Japanese or Hong Kong company that buys stock and sells on to the UK entity, raising ordinary transfer-pricing questions. **It has no bearing on the brand name.**
 
 ### Using the kanji 光 alone probably escapes the mark — and fails as a brand
 
@@ -259,7 +259,7 @@ The legal analysis is genuinely favourable. Similarity is assessed visually, aur
 **But it cannot carry a brand**, for two reasons, the second decisive:
 
 1. **Customers cannot read, pronounce, type or search it.** The whole route to market — SEO, handles, word of mouth, press — requires a customer who likes the shop to be able to *tell someone its name*. A single glyph fails every one.
-2. **A romanisation is unavoidable, and it restores the problem.** The lockup at [10](10-logo.md) *is* 光 + rule + "Hikari". Beyond that, a domain, a handle, an email address, a meta title and an invoice all need letters. **The moment "Hikari" appears anywhere, the word mark is in use.** This is not a loophole that fails; it is a route that cannot physically be walked.
+2. **A romanisation is unavoidable, and it restores the problem.** The lockup at [10](../brand/10-logo.md) *is* 光 + rule + "Hikari". Beyond that, a domain, a handle, an email address, a meta title and an invoice all need letters. **The moment "Hikari" appears anywhere, the word mark is in use.** This is not a loophole that fails; it is a route that cannot physically be walked.
 
 ### If the attachment is to *light*, the answer is Tomoshibi 灯
 
@@ -267,8 +267,8 @@ The legal analysis is genuinely favourable. Similarity is assessed visually, aur
 
 - 🟢 **No live GB mark in Class 14 or 35**
 - `tomoshibi.co.uk` free; `tomoshibivintage.com` free
-- **灯 is a single kanji**, so the whole proportional system in [10](10-logo.md) transfers with only the glyph changed
-- **The meaning is closer to the business than 光 is.** Not abstract light, but *a lamp someone lit, illuminating one object* — which is The Alcove ([08](08-brand.md)) exactly
+- **灯 is a single kanji**, so the whole proportional system in [10](../brand/10-logo.md) transfers with only the glyph changed
+- **The meaning is closer to the business than 光 is.** Not abstract light, but *a lamp someone lit, illuminating one object* — which is The Alcove ([08](../brand/08-brand.md)) exactly
 
 For completeness, the rest of the light family: **Akari 灯り** is blocked (AKARI STUDIOS holds **Class 14** — identical problem to Hikari). **Yoake 夜明け** is clear but multi-character, so it breaks the single-glyph lockup.
 

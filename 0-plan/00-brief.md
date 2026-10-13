@@ -12,7 +12,7 @@ Hikari buys vintage designer costume jewellery in Japan — where forty years of
 | Sourcing market | Japan | Settled |
 | Selling market | United Kingdom | Settled |
 | Retail band | £100–300 | Settled |
-| Brand names clickable/browsable | Yes — brand is a primary navigation axis | Settled (see [04](04-site-ia.md) for the legal shape it must take) |
+| Brand names clickable/browsable | Yes — brand is a primary navigation axis | Settled (see [04](../1-shop/04-site-ia.md) for the legal shape it must take) |
 | Positioning | Independent-curated, own storefront primary | **Recommended, not yet confirmed** — see [02](02-positioning.md) |
 
 ## What this is not
@@ -20,7 +20,7 @@ Hikari buys vintage designer costume jewellery in Japan — where forty years of
 Stating the negatives early, because they close off a lot of expensive detours:
 
 - **Not a marketplace.** No third-party sellers, no consignment from the public. Owned inventory only.
-- **Not fine jewellery.** No precious-stone valuation, no hallmarking obligations for most stock, no insurance-grade appraisal. Costume jewellery is a *design* purchase, not a *materials* purchase. (One caveat on silver in [04](04-site-ia.md).)
+- **Not fine jewellery.** No precious-stone valuation, no hallmarking obligations for most stock, no insurance-grade appraisal. Costume jewellery is a *design* purchase, not a *materials* purchase. (One caveat on silver in [04](../1-shop/04-site-ia.md).)
 - **Not a bag business.** The £100–300 band is the specific reason this works. Vintage Chanel handbags start at four figures and drag in a completely different risk profile — capital lock-up, superfake exposure, and a buyer who expects a certificate. Jewellery at £180 is a category where a small operator can genuinely compete.
 - **Not dropshipped.** Every piece is physically in hand, in the UK, photographed by us. This is a constraint on growth and it is also the entire product.
 

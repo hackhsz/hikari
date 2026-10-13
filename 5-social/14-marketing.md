@@ -16,7 +16,7 @@ Three reasons, and they compound:
 2. **Every winning creative dies when its subject sells.** You can never scale an ad whose product no longer exists. This is the single biggest structural difference between this business and a normal store, and it is what makes conventional product advertising a poor fit.
 3. **The brand and the sourcing story never sell out.** An ad about *going to Japan* can run for a year and improve.
 
-So: **optimise ads for Edition sign-ups, not purchases. The Edition email does the selling.** That is already the highest-converting channel in [05](05-social.md), it costs nothing to run on Shopify's included 10,000 emails a month ([11](11-platform.md)), and it turns paid spend into an owned asset rather than a rented one.
+So: **optimise ads for Edition sign-ups, not purchases. The Edition email does the selling.** That is already the highest-converting channel in [05](05-social.md), it costs nothing to run on Shopify's included 10,000 emails a month ([11](../1-shop/11-platform.md)), and it turns paid spend into an owned asset rather than a rented one.
 
 **The funnel:** Paid → landing page (the sourcing story, not a product grid) → Edition sign-up → Thursday email → sale.
 
@@ -60,7 +60,7 @@ Cheap, but the audience skews younger and more international than a UK 30-someth
 
 Generic terms only, for now: *"vintage costume jewellery uk"*, *"vintage statement earrings"*, *"1980s jewellery"*. Low volume, high intent, cheap.
 
-**On bidding for house names — refining what [04](04-site-ia.md) says.** That document's blanket "never bid on brand names" is too crude; the accurate position:
+**On bidding for house names — refining what [04](../1-shop/04-site-ia.md) says.** That document's blanket "never bid on brand names" is too crude; the accurate position:
 
 - Google's policy **does not restrict trademarks used as keywords**, and **genuine resellers may use the mark in ad text** where the landing page genuinely sells those goods and clearly identifies the advertiser ([Google Ads trademark policy Q&A](https://bluepear.net/blog/google-ads-trademark-policy)).
 - **The UK and EU apply a stricter standard** than the US: your identity must be unmistakable in the ad ([analysis](https://www.admapix.com/blog/best-practices/competitor-brand-keywords-google-ads)).
@@ -70,7 +70,7 @@ So it is permitted rather than safe, and the risk is asymmetric: the upside is s
 
 **Recommendation: generic terms only until the business is worth defending.** If house-name bidding is revisited later — identity unmistakable in the ad copy, landing page genuinely selling that house, never the mark in the display URL, and **never Chanel**.
 
-Meanwhile the *organic* version of this is unambiguously safe and more valuable anyway: the designer landing pages in [04](04-site-ia.md) ranking for "vintage Dior earrings UK". Jagged Metal already does it.
+Meanwhile the *organic* version of this is unambiguously safe and more valuable anyway: the designer landing pages in [04](../1-shop/04-site-ia.md) ranking for "vintage Dior earrings UK". Jagged Metal already does it.
 
 ---
 
@@ -80,7 +80,7 @@ Meanwhile the *organic* version of this is unambiguously safe and more valuable 
 
 At Meta CPC £0.45–1.10 and a landing page converting 15–25% to sign-up, a subscriber costs roughly **£2–7**.
 
-Against that: at £180 AOV and ~50% gross margin, each sale contributes ~£90. If 1 in 10 subscribers buys within 90 days, a subscriber is worth ~£9 in contribution. **That pays back at £7 and pays back well at £3** — before any repeat purchase, and segment A in [03](03-customer.md) buys 2–4 times a year.
+Against that: at £180 AOV and ~50% gross margin, each sale contributes ~£90. If 1 in 10 subscribers buys within 90 days, a subscriber is worth ~£9 in contribution. **That pays back at £7 and pays back well at £3** — before any repeat purchase, and segment A in [03](../0-plan/03-customer.md) buys 2–4 times a year.
 
 Ceilings to hold to:
 - **Max £30 CAC on a first order** — leaves £60 contribution against returns and overheads.
@@ -96,14 +96,14 @@ Ceilings to hold to:
 
 Listed roughly by leverage per pound:
 
-1. **Press and shopping roundups.** *Stylist*, *Refinery29*, *Who What Wear*, *Hello!*, *The Good Trade* all run "best places to buy vintage jewellery" pieces — several turned up in the [01](01-landscape.md) research, which is itself the evidence they drive traffic. Getting listed is free, has buying intent behind it, and lasts for years. **Pitch them.** The Japan sourcing story is an actual editorial hook, which most sellers do not have.
+1. **Press and shopping roundups.** *Stylist*, *Refinery29*, *Who What Wear*, *Hello!*, *The Good Trade* all run "best places to buy vintage jewellery" pieces — several turned up in the [01](../6-inspiration/01-landscape.md) research, which is itself the evidence they drive traffic. Getting listed is free, has buying intent behind it, and lasts for years. **Pitch them.** The Japan sourcing story is an actual editorial hook, which most sellers do not have.
 2. **Creator seeding.** Send pieces to UK micro-influencers (5–50k, vintage and fashion). Cost is the piece, ~£80 landed — cheaper than most CAC, with content you can reuse. Ask for usage rights up front.
 3. **SEO, via designer landing pages and authentication guides.** Six months to work, then permanent.
-4. **Marketplace outposts** ([D1](DECISIONS.md)). eBay and Etsy buyers cost nothing to acquire; the fee is the ad spend, and it only charges on success.
-5. **Vintage fairs as list-building.** Frock Me, Spitalfields, the kilo sales. Note this is *not* a breach of [D3](DECISIONS.md) — a stall is customer acquisition and market research, not a retail commitment. Face-to-face is also the fastest way to learn what people ask before they buy.
+4. **Marketplace outposts** ([D1](../0-plan/DECISIONS.md)). eBay and Etsy buyers cost nothing to acquire; the fee is the ad spend, and it only charges on success.
+5. **Vintage fairs as list-building.** Frock Me, Spitalfields, the kilo sales. Note this is *not* a breach of [D3](../0-plan/DECISIONS.md) — a stall is customer acquisition and market research, not a retail commitment. Face-to-face is also the fastest way to learn what people ask before they buy.
 
 ## Open
 
-- Landing-page conversion of 15–25% is an assumption. Measure it in the first month; everything above scales off it ([99](99-open-questions.md) #38).
+- Landing-page conversion of 15–25% is an assumption. Measure it in the first month; everything above scales off it ([99](../0-plan/99-open-questions.md) #38).
 - Which single sourcing-trip Reel becomes the first paid creative.
 - Whether to spend harder in Q2–Q3 to build the list cheaply ahead of Q4's 60% CPM rise.
