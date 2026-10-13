@@ -267,3 +267,58 @@ html.sheet-open{overflow:hidden}
 .btn[data-in-bag]{background:transparent;color:inherit;box-shadow:inset 0 0 0 1px currentColor}
 .pdp-note{font-size:12.5px;margin:10px 0 0;min-height:1em;opacity:.8}
 .pdp-note:empty{margin:0}
+
+/* bag: delivery line, cut-off notice, a piece that sold while in the bag, the gift note */
+.bag-notice{margin:0 0 12px;padding:9px 12px;font-size:12.5px;line-height:1.45;background:var(--paper-deep)}
+.bag-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-size:12.5px;
+  margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+.bag-warn{margin:10px 0 0;font-size:12.5px;line-height:1.45;color:var(--kaki)}
+.bag-line.is-sold .bag-thumb{opacity:.45;filter:saturate(.3)}
+.bag-line.is-sold .bag-house,.bag-line.is-sold .bag-piece{opacity:.5}
+.bag-line.is-sold .bag-oneof{opacity:1;color:var(--kaki)}
+.bag-line.is-sold .bag-price{font-family:var(--sans);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding-top:6px}
+.bag-gift{padding:16px 24px}
+.bag-page .bag-gift{padding-inline:0}
+.bag-check{display:flex;align-items:center;gap:10px;font-size:13.5px;cursor:pointer}
+.bag-check input{width:16px;height:16px;margin:0;accent-color:var(--ai)}
+.bag-gift-note{margin-top:12px}
+.bag-gift-note[hidden]{display:none}
+.bag-gift-note textarea{display:block;width:100%;min-height:68px;margin:6px 0 8px;padding:8px 2px;background:transparent;color:inherit;
+  border:0;border-bottom:1px solid color-mix(in srgb,currentColor 34%,transparent);font:inherit;font-size:14px;resize:vertical}
+
+/* ── house pages (sections/main-house.liquid) ──────────────
+   The house set large in our own serif, never its lettering (1-shop/04-site-ia.md). */
+.house-head{margin-bottom:clamp(40px,7vw,72px)}
+.house-head .eyebrow a{border-bottom:1px solid transparent;transition:border-color .25s}
+.house-head .eyebrow a:hover{border-color:currentColor}
+.house-h{font-family:var(--serif);font-weight:200;font-size:clamp(40px,9vw,92px);line-height:.96;letter-spacing:-.016em;margin:0}
+.house-h-sub{display:block;font-style:italic;font-weight:300;font-size:clamp(16px,2.4vw,22px);letter-spacing:0;margin-top:14px;opacity:.72}
+.house-lede{font-size:15px;line-height:1.68;opacity:.76;margin:22px 0 0;max-width:56ch}
+.house-empty{max-width:46ch}
+.house-empty p{margin:0 0 16px;opacity:.72;font-size:14.5px}
+.house-empty .bag-empty-h{opacity:1}
+.house-notes{display:grid;grid-template-columns:repeat(12,1fr);column-gap:clamp(16px,3vw,44px);row-gap:40px;align-items:start}
+.house-essay{grid-column:1/8}
+.house-marks{grid-column:8/13}
+.house-notes > :only-child{grid-column:1/9}
+@media (max-width:860px){.house-essay,.house-marks,.house-notes > :only-child{grid-column:1/-1}}
+.house-essay .rte{font-size:15px;line-height:1.72;max-width:60ch}
+.house-essay .rte p{margin:0 0 14px}
+.house-essay .rte h2,.house-essay .rte h3{font-family:var(--serif);font-weight:300;font-size:22px;line-height:1.2;margin:28px 0 10px}
+.marks{width:100%;border-collapse:collapse;font-size:13.5px}
+.marks th,.marks td{text-align:left;vertical-align:top;padding:10px 0;border-bottom:1px solid;border-color:color-mix(in srgb,currentColor 14%,transparent)}
+.marks thead th{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.55;padding-top:0}
+.marks tbody th{font-family:var(--serif);font-weight:300;font-size:15px;width:36%;padding-right:14px}
+.marks-note{display:block;font-size:12.5px;opacity:.62;margin-top:3px}
+.house-fine{font-size:12px;opacity:.6;margin:12px 0 0}
+.house-legal{margin:clamp(48px,8vw,80px) 0 0;padding-top:16px;border-top:1px solid;border-color:color-mix(in srgb,currentColor 16%,transparent);
+  font-size:11.5px;line-height:1.6;opacity:.5;max-width:66ch}
+.houses a[aria-current="page"]{opacity:.35}
+
+/* product page: house link, and more from this house */
+.spec-link{border-bottom:1px solid color-mix(in srgb,currentColor 40%,transparent);transition:border-color .25s}
+.spec-link:hover{border-color:currentColor}
+.more-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px 24px;margin-bottom:clamp(16px,3vw,26px)}
+.more-head .eyebrow{margin:0}
+.bag-again{margin:16px 0 4px}
+.bag-pay > .bag-warn:first-child{margin-top:0}

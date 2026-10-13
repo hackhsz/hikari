@@ -1,28 +1,99 @@
 {%- comment -%}
   Total, checkout and the trust block, shared by the drawer and the bag page.
+  `ctx` is 'drawer' or 'page': the cart page renders both, so ids need telling apart.
+
   1-shop/04-site-ia.md: the payment step is the last and most fragile moment of the trust
   architecture, so the trust block repeats here and the accepted payment marks are visible.
-  D12: all-in pricing, so the total is the price paid. No fee or tax line, ever.
+  D12: all-in pricing, so the total is the price paid. No fee or tax line, ever. Delivery gets
+  its own line so that stays true: free at or over the threshold, and only below it does the
+  total become a subtotal (1-shop/21-checkout.md).
+
+  A piece that has sold since it was added is left out of the total, and checkout waits until
+  it is removed. Shopify would otherwise drop it on its own stock-problem screen, which is
+  a worse way to find out.
+
+  The gift fields belong to the checkout form (the form attribute), so they reach the order as
+  cart attributes with or without JavaScript. The script also saves them as they change, because the drawer
+  re-renders on every add and remove.
 
   In the drawer, .bag-pay (total and Checkout) stays pinned to the bottom while the pieces
   scroll, and .bag-more follows the list, so a phone still shows the pieces.
 {%- endcomment -%}
+{%- liquid
+  assign ctx = ctx | default: 'drawer'
+  assign live_total = 0
+  assign live_n = 0
+  assign sold_n = 0
+  for item in cart.items
+    if item.variant.available
+      assign live_total = live_total | plus: item.final_line_price
+      assign live_n = live_n | plus: 1
+    else
+      assign sold_n = sold_n | plus: 1
+    endif
+  endfor
+  assign free_over = settings.delivery_free_over | default: 0 | times: 100
+  assign delivery_free = false
+  if live_total >= free_over
+    assign delivery_free = true
+  endif
+  assign is_gift = false
+  if cart.attributes['Gift'] == 'Yes'
+    assign is_gift = true
+  endif
+-%}
 <div class="bag-foot">
+  {%- comment -%} Before the pinned total, so it scrolls with the pieces; form= ties it to checkout. {%- endcomment -%}
+  {%- if settings.gift_enabled and live_n > 0 -%}
+    {%- assign f = 'bag-checkout-' | append: ctx -%}
+    <div class="bag-gift" data-bag-gift>
+      <input type="hidden" name="attributes[Gift]" value="" form="{{ f }}">
+      <label class="bag-check">
+        <input type="checkbox" name="attributes[Gift]" value="Yes" form="{{ f }}" data-gift-toggle
+               aria-controls="gift-{{ ctx }}"{% if is_gift %} checked{% endif %}>
+        <span>{{ settings.gift_label }}</span>
+      </label>
+      <div class="bag-gift-note" id="gift-{{ ctx }}"{% unless is_gift %} hidden{% endunless %}>
+        <label class="bag-label" for="gift-note-{{ ctx }}">Note for the card</label>
+        <textarea id="gift-note-{{ ctx }}" name="attributes[Gift note]" form="{{ f }}" rows="3" maxlength="240"
+                  data-gift-note{% unless is_gift %} disabled{% endunless %}>{{ cart.attributes['Gift note'] }}</textarea>
+        {%- if settings.gift_info != blank -%}<p class="bag-fine">{{ settings.gift_info }}</p>{%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
   <div class="bag-pay">
+    {%- if live_n == 0 -%}
+      <p class="bag-warn">
+        {%- if sold_n == 1 -%}This piece sold while it was in your bag.{%- else -%}These pieces sold while they were in your bag.{%- endif -%}
+        {{- ' ' -}}Sold pieces stay on the Record.</p>
+      <p class="bag-again"><a class="bag-link" href="{{ routes.all_products_collection_url }}">See every piece</a></p>
+    {%- else -%}
+    {%- if settings.bag_notice != blank -%}<p class="bag-notice">{{ settings.bag_notice }}</p>{%- endif -%}
+    <div class="bag-row">
+      <span class="bag-label">UK delivery</span>
+      <span>{% if delivery_free %}Free{% else %}Added at checkout{% endif %}</span>
+    </div>
     <div class="bag-total">
-      <span class="bag-label">Total</span>
-      <span class="price bag-sum">{{ cart.total_price | money }}</span>
+      <span class="bag-label">{% if delivery_free %}Total{% else %}Subtotal{% endif %}</span>
+      <span class="price bag-sum">{{ live_total | money }}</span>
     </div>
     <p class="bag-fine">{{ settings.vat_line }}</p>
-    <form action="{{ routes.cart_url }}" method="post" class="bag-checkout">
-      <button type="submit" name="checkout" class="btn">Checkout</button>
+    {%- if sold_n > 0 -%}
+      <p class="bag-warn">
+        {%- if sold_n == 1 -%}A piece in your bag sold while it was there. Remove it to check out.
+        {%- else -%}Some pieces in your bag sold while they were there. Remove them to check out.{%- endif -%}
+      </p>
+    {%- endif -%}
+    <form action="{{ routes.cart_url }}" method="post" class="bag-checkout" id="bag-checkout-{{ ctx }}">
+      <button type="submit" name="checkout" class="btn"{% if sold_n > 0 %} disabled{% endif %}>Checkout</button>
     </form>
+    {%- endif -%}
   </div>
 
   <div class="bag-more">
     <p class="bag-fine">One of one. A piece in your bag is not held for you until you check out.</p>
 
-    {%- if additional_checkout_buttons -%}
+    {%- if additional_checkout_buttons and sold_n == 0 -%}
       <div class="bag-express additional-checkout-buttons--vertical">{{ content_for_additional_checkout_buttons }}</div>
     {%- endif -%}
 

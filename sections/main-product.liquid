@@ -19,8 +19,9 @@
           {%- endif -%}
         {%- endfor -%}
       {%- else -%}
+        {%- assign seed2 = p.id | plus: 7 -%}
         {%- render 'plate', ratio: 0.8, seed: p.id, tone: 'light', comp: 'pair', stamp: 'Plate 01 · daylight' -%}
-        {%- render 'plate', ratio: 0.8, seed: p.id | plus: 7, tone: 'light', comp: 'single', stamp: "Plate 02 · maker's mark" -%}
+        {%- render 'plate', ratio: 0.8, seed: seed2, tone: 'light', comp: 'single', stamp: "Plate 02 · maker's mark" -%}
         <p class="unret">Unretouched</p>
       {%- endif -%}
     </div>
@@ -41,6 +42,10 @@
       <table class="spec">
         {%- if p.metafields.hikari.grade -%}<tr><th>Condition</th><td>Grade {{ p.metafields.hikari.grade }}{% if p.metafields.hikari.condition %} — {{ p.metafields.hikari.condition }}{% endif %}</td></tr>{%- endif -%}
         <tr><th>Availability</th><td>One of one</td></tr>
+        {%- if p.vendor != blank -%}
+          {%- capture house_url -%}{%- render 'house-url', name: p.vendor -%}{%- endcapture -%}
+          <tr><th>House</th><td><a class="spec-link" href="{{ house_url }}">{{ p.vendor }}</a></td></tr>
+        {%- endif -%}
         {%- if p.metafields.hikari.size -%}<tr><th>Measurements</th><td>{{ p.metafields.hikari.size }}</td></tr>{%- endif -%}
         {%- if p.metafields.hikari.mark -%}<tr><th>Maker's mark</th><td>{{ p.metafields.hikari.mark }}</td></tr>{%- endif -%}
         {%- if p.metafields.hikari.era -%}<tr><th>Era</th><td>{{ p.metafields.hikari.era }}</td></tr>{%- endif -%}

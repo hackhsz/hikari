@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-house"
+    },
+    "record": {
+      "type": "record",
+      "settings": {
+        "heading": "On the Record — pieces from this house that have passed through"
+      }
+    },
+    "houses": {
+      "type": "houses",
+      "settings": {
+        "heading": "Other houses"
+      }
+    },
+    "signup": {
+      "type": "signup"
+    }
+  },
+  "order": [
+    "main",
+    "record",
+    "houses",
+    "signup"
+  ]
+}

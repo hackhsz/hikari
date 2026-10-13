@@ -1,9 +1,13 @@
 {%- comment -%}
   One line in the bag, shared by the drawer and the bag page.
   `item` is a cart line item. data-variant-id lets the script tell what is already in the bag.
+
+  Shopify does not hold stock in a cart (D17), so a piece can sell to someone else while it
+  sits in this bag. The line then says so, and bag-foot stops the checkout until it is removed.
 {%- endcomment -%}
 {%- assign piece = item.product.metafields.hikari.piece | default: item.product.title -%}
-<li class="bag-line" data-variant-id="{{ item.variant_id }}">
+{%- assign gone = true -%}{%- if item.variant.available -%}{%- assign gone = false -%}{%- endif -%}
+<li class="bag-line{% if gone %} is-sold{% endif %}" data-variant-id="{{ item.variant_id }}">
   <a class="bag-thumb" href="{{ item.url }}" tabindex="-1" aria-hidden="true">
     {%- render 'plate', image: item.image, ratio: 1.25, seed: item.product_id, tone: 'grey',
         comp: 'single', alt: piece, width: 240 -%}
@@ -11,9 +15,9 @@
   <div class="bag-info">
     <a class="bag-house" href="{{ item.url }}">{{ item.vendor | default: item.product.title }}</a>
     <p class="bag-piece">{{ piece }}</p>
-    <p class="bag-oneof">One of one</p>
+    <p class="bag-oneof">{% if gone %}Sold since you added it{% else %}One of one{% endif %}</p>
     <a class="bag-remove" href="{{ item.url_to_remove }}" data-bag-remove="{{ item.key }}"
        aria-label="Remove {{ item.vendor | default: piece | escape }}, {{ piece | escape }}">Remove</a>
   </div>
-  <span class="price bag-price">{{ item.final_line_price | money }}</span>
+  <span class="price bag-price">{% if gone %}Sold{% else %}{{ item.final_line_price | money }}{% endif %}</span>
 </li>

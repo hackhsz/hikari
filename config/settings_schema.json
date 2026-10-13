@@ -27,6 +27,18 @@
       { "type": "text", "id": "trust_3", "label": "3", "default": "UK next day over £100" },
       { "type": "text", "id": "trust_4", "label": "4", "default": "14-day returns" }
     ]},
+  { "name": "Bag & checkout",
+    "settings": [
+      { "type": "number", "id": "delivery_free_over", "label": "Free UK delivery from (£)", "default": 100,
+        "info": "Must match Settings → Shipping and delivery. At or over this the bag says delivery is free and shows a Total; under it the bag says delivery is added at checkout and shows a Subtotal (D12). 0 means always free." },
+      { "type": "text", "id": "bag_notice", "label": "Bag notice",
+        "info": "One line above the total, for delivery cut-offs. E.g. Order by Thursday 18 December for Christmas delivery. Leave empty to hide." },
+      { "type": "checkbox", "id": "gift_enabled", "label": "Offer a gift note", "default": true,
+        "info": "The note reaches the order as a cart attribute, under Additional details. Someone has to write it on a card: see 1-shop/21-checkout.md." },
+      { "type": "text", "id": "gift_label", "label": "Gift checkbox", "default": "This is a gift" },
+      { "type": "text", "id": "gift_info", "label": "Gift promise", "default": "We write your note on a card and leave the price out of the parcel.",
+        "info": "Only promise what is actually done when the parcel is packed." }
+    ]},
   { "name": "Legal",
     "settings": [
       { "type": "textarea", "id": "legal_disclaimer", "label": "Trademark disclaimer",

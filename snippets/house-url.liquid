@@ -1,0 +1,18 @@
+{%- comment -%}
+  The URL for a house, from its name (the product's Vendor). Capture it:
+    {%- capture url -%}{%- render 'house-url', name: product.vendor -%}{%- endcapture -%}
+
+  A house page is a collection whose handle follows 1-shop/04-site-ia.md:
+  "Christian Dior" → /collections/vintage-christian-dior-jewellery. Until that collection
+  exists, Shopify's own vendor listing stands in, so no house link is ever dead.
+{%- endcomment -%}
+{%- liquid
+  assign hz = name | handleize
+  assign handle = 'vintage-' | append: hz | append: '-jewellery'
+  assign hc = collections[handle]
+  if hc.id
+    echo hc.url
+  else
+    echo name | url_for_vendor
+  endif
+-%}

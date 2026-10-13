@@ -1,1 +1,1 @@
-{ "sections": { "main": { "type": "main-product" } }, "order": ["main"] }
+{ "sections": { "main": { "type": "main-product" }, "more": { "type": "more-from-house" } }, "order": ["main", "more"] }
