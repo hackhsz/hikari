@@ -1,0 +1,20 @@
+# Market scout tracker. Schema and rules: AGENT.md. Validate with: python3 scout/check.py
+#
+# id            stable lowercase slug
+# type          fair | market | arcade | popup | marketplace
+# city          London | Manchester | Bristol | Glasgow | Brighton | Online
+# url           organiser's own info page (primary source)
+# apply_url     application form or page, or null
+# dates         human-readable schedule; next_date is the next event (ISO) or null
+# apply         status: open | rolling | opens-later | closed | invite-only | unknown
+#               deadline / opens: ISO dates or null
+# window        the usual application cycle, so next year can be anticipated
+# fee_gbp       the fee for the period in `cost` (drives break-even); commission_pct for marketplaces
+# requires      what the application asks for
+# watch_out     rules or catches that could rule us out
+# fit           1-5, rubric in AGENT.md;  why: the reasoning
+# checked       date last verified against the primary source
+# decision      OURS: new | shortlist | applied | accepted | rejected | passed   (agent only sets `new`)
+# our_notes     OURS
+
+markets: []
