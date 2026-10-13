@@ -111,6 +111,11 @@ def cell(value):
     return str(value).replace("|", "\\|").replace("\n", " ")
 
 
+def short(value, limit=80):
+    text = cell(value)
+    return text if len(text) <= limit else text[: limit - 1].rstrip() + "…"
+
+
 def link(m):
     return f"[{cell(m['name'])}]({m['url']})"
 
@@ -126,7 +131,7 @@ def apply_text(m):
 
 
 def next_text(m):
-    return f"{m['next_date']:%d %b %Y}" if m.get("next_date") else cell(m.get("dates"))
+    return f"{m['next_date']:%d %b %Y}" if m.get("next_date") else short(m.get("dates"), 60)
 
 
 def break_even(m):
@@ -145,11 +150,18 @@ def render(markets, today):
     active = [m for m in markets if m["fit"] >= 2 and m["decision"] not in out_of_play]
     by_rank = lambda m: (-m["fit"], m.get("next_date") or dt.date.max, m["name"])  # noqa: E731
 
+    # Few organisers publish a deadline, so an open event inside the horizon counts as one.
     horizon = today + dt.timedelta(days=DEADLINE_HORIZON_DAYS)
-    deadlines = sorted(
-        (m for m in active if m["apply"].get("deadline") and today <= m["apply"]["deadline"] <= horizon),
-        key=lambda m: m["apply"]["deadline"],
-    )
+
+    def due(m):
+        deadline, event = m["apply"].get("deadline"), m.get("next_date")
+        if deadline and today <= deadline <= horizon:
+            return deadline
+        if event and today <= event <= horizon and m["apply"]["status"] in ("open", "rolling") and m["fit"] >= 3:
+            return event
+        return None
+
+    upcoming = sorted((m for m in active if due(m)), key=lambda m: (due(m), -m["fit"]))
     pipeline = sorted((m for m in markets if m["decision"] in PIPELINE),
                       key=lambda m: (PIPELINE.index(m["decision"]), m["name"]))
     physical = sorted((m for m in active if m["type"] != "marketplace"), key=by_rank)
@@ -158,10 +170,11 @@ def render(markets, today):
 
     lines = [START, f"_Tables generated from [`markets.yaml`](markets.yaml) on {today:%d %b %Y}. "
              f"{len(markets)} tracked._", ""]
-    lines += [f"## Deadlines in the next {DEADLINE_HORIZON_DAYS} days", ""]
-    lines += table(["Closes", "Name", "City", "Event", "Fit", "Decision"], [
-        [f"**{m['apply']['deadline']:%d %b}**", link(m), m["city"], next_text(m), str(m["fit"]), m["decision"]]
-        for m in deadlines])
+    lines += [f"## Coming up in the next {DEADLINE_HORIZON_DAYS} days", "",
+              "Published deadlines, plus events at fit 3+ still taking applications.", ""]
+    lines += table(["By", "Name", "City", "Apply", "Event", "Fit", "Decision"], [
+        [f"**{due(m):%d %b}**", link(m), m["city"], apply_text(m), next_text(m), str(m["fit"]), m["decision"]]
+        for m in upcoming])
     lines += ["", "## Our pipeline", ""]
     lines += table(["Decision", "Name", "City", "Apply", "Next", "Our notes"], [
         [m["decision"], link(m), m["city"], apply_text(m), next_text(m), cell(m.get("our_notes"))]
@@ -169,7 +182,7 @@ def render(markets, today):
     lines += ["", "## Fairs, markets and spaces", "",
               f"Break-even is pitch fee ÷ £{CONTRIBUTION_GBP} contribution per piece (D14).", ""]
     lines += table(["Fit", "Name", "Type", "City", "Next", "Apply", "Cost", "Break-even"], [
-        [str(m["fit"]), link(m), m["type"], m["city"], next_text(m), apply_text(m), cell(m.get("cost")),
+        [str(m["fit"]), link(m), m["type"], m["city"], next_text(m), apply_text(m), short(m.get("cost")),
          break_even(m)]
         for m in physical])
     lines += ["", "## Online marketplaces", "",
@@ -178,10 +191,10 @@ def render(markets, today):
         [str(m["fit"]), link(m), apply_text(m),
          f"{m['commission_pct']}%" if m.get("commission_pct") is not None else "—",
          f"£{OUTPOST_PRICE_GBP * m['commission_pct'] / 100:.0f}" if m.get("commission_pct") is not None else "—",
-         cell(m.get("cost"))]
+         short(m.get("cost"))]
         for m in online])
     lines += ["", "## Ruled out", "", "Kept so the weekly run doesn't rediscover them.", ""]
-    lines += [f"- {link(m)} ({m['city']}) — {cell(m.get('watch_out') or m['why'])}" for m in out] or ["_None._"]
+    lines += [f"- {link(m)} ({m['city']}) — {short(m.get('watch_out') or m['why'], 160)}" for m in out] or ["_None._"]
     lines += ["", END]
 
     text = REPORT.read_text()

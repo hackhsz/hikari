@@ -5,7 +5,8 @@
 # city          London | Manchester | Bristol | Glasgow | Brighton | Online
 # url           organiser's own info page (primary source)
 # apply_url     application form or page, or null
-# dates         human-readable schedule; next_date is the next event (ISO) or null
+# dates         human-readable schedule
+# next_date     next event (ISO) for fairs and monthly-or-rarer markets; null for weekly markets, arcades, online
 # apply         status: open | rolling | opens-later | closed | invite-only | unknown
 #               deadline / opens: ISO dates or null
 # window        the usual application cycle, so next year can be anticipated
@@ -17,4 +18,2013 @@
 # decision      OURS: new | shortlist | applied | accepted | rejected | passed   (agent only sets `new`)
 # our_notes     OURS
 
-markets: []
+markets:
+
+- id: frock-me-vintage-fashion-fair
+  name: Frock Me! Vintage Fashion Fair
+  type: fair
+  city: London
+  where: 'Rotating: Kensington Town Hall W8 7NX; Chelsea Old Town Hall SW3 5EE; Lindley Hall, Royal Horticultural
+    Halls SW1P 2QW'
+  organiser: Frock Me!
+  url: https://www.frockmevintagefashion.com/fair-dates
+  apply_url: https://www.frockmevintagefashion.com/exhibitors
+  dates: Sun 18 Oct 2026 (Kensington, 100+ exhibitors); Sun 15 Nov 2026 (Victoria, ~80); Sun 6 Dec 2026 (Chelsea,
+    60+). 10 fairs in 2026; 2027 dates not yet published
+  next_date: 2026-10-18
+  apply: {status: closed, deadline: null, opens: null}
+  window: No cycle. Stands are fully booked with a 'substantial waiting list'; new exhibitors are considered only
+    when a current one leaves ('very rare')
+  fee_gbp: null
+  cost: Stand fee not published; ask info@frockmevintagefashion.com / 020 7503 9171. Visitor admission £8 (students
+    £5 from noon)
+  commission_pct: null
+  requires: [Application form or email to bookings@frockmevintagefashion.com, Photos of recent stock or stand set-ups
+      at other events, 'Strictly vintage or antique stock: no craft or modified products']
+  watch_out: The exhibitors page says applications are on hold. The visitor FAQ says they still accept applications
+    onto the waiting list and suggests reminding them from time to time. Meet the team in person at a fair.
+  fit: 5
+  why: London's benchmark vintage fashion fair. Dealers are vetted ('the very best in their chosen field'), the
+    Victoria edition names vintage jewellery dealers as a core category, and visitors pay £8 to get in. The audience
+    is ideal, but it is effectively closed (waitlist), so treat it as a long-term goal.
+  checked: 2026-10-13
+  sources: ['https://www.frockmevintagefashion.com/fair-dates', 'https://www.frockmevintagefashion.com/exhibitors',
+    'https://www.frockmevintagefashion.com/frockmevictoria', 'https://www.frockmevintagefashion.com/plan-your-visit']
+  decision: new
+  our_notes: null
+
+- id: midcentury-modern-dulwich
+  name: Midcentury Modern (Dulwich)
+  type: fair
+  city: London
+  where: Dulwich College, London SE21 7LD
+  organiser: Modern Shows
+  url: https://www.modernshows.com/shows/dulwich-1/
+  apply_url: null
+  dates: Sun 15 Nov 2026, 10am-4pm; next fair Sun 21 Mar 2027; twice a year at Dulwich
+  next_date: 2026-11-15
+  apply: {status: open, deadline: null, opens: null}
+  window: Twice a year (Mar and Nov). The Oct 2026 newsletter says 'a couple of spaces left' for 15 Nov and applications
+    are 'now opening' for 21 Mar 2027
+  fee_gbp: null
+  cost: Stand fee not published; ask petra@modernshows.com (midcentury section)
+  commission_pct: null
+  requires: [Email petra@modernshows.com (midcentury dealers) to apply]
+  watch_out: Furniture-led (billed as '85 top furniture dealers'), though the newsletter promises 'more vintage
+    smalls dealers than ever'. Jewellery is not a stated category, so pitch mid-century American costume pieces
+    as collectable design objects.
+  fit: 4
+  why: 'Affluent, design-literate crowd (advance tickets £11, trade early entry £20) shopping for ''sustainable,
+    collectable design''. It fits the editorial brand and the mid-century American makers closely. Weaknesses: jewellery
+    is not the core category and the stand fee is unknown.'
+  checked: 2026-10-13
+  sources: ['https://www.modernshows.com/shows/dulwich-1/', 'https://www.modernshows.com/newsletters/october-2026-newsletter/',
+    'https://www.modernshows.com/contact/']
+  decision: new
+  our_notes: null
+
+- id: alfies-antique-market
+  name: Alfies Antique Market
+  type: arcade
+  city: London
+  where: Church Street, Marylebone, London NW8
+  organiser: Alfies Antique Market
+  url: https://alfiesantiques.com/dealers-at-alfies/
+  apply_url: null
+  dates: Permanent; open Tue-Sat 10am-6pm
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: Rolling. The recruitment post (published Mar 2026, updated Apr 2026) says 'Availability has recently arisen
+    within the building'
+  fee_gbp: null
+  cost: Stand/cabinet rent not published; ask the Management Office (020 7723 6066)
+  commission_pct: null
+  requires: [Email info@alfiesantiques.com with a short introduction, 'Images, a portfolio or a website link']
+  watch_out: The call invites 'experienced antiques dealers and specialists', so a new business needs a strong visual
+    portfolio. It is a permanent monthly commitment. Whether a stand must be staffed Tue-Sat or a cabinet can be
+    left with a central till was not verified.
+  fit: 4
+  why: '70-80+ dealers on four floors, including established vintage fashion (Linda Bee) and antique/vintage jewellery
+    stands, drawing collectors, curators, stylists and interior designers. A Marylebone address builds the brand
+    and resellers are the norm. Main weakness: unknown ongoing rent and staffing load for a one-person business.'
+  checked: 2026-10-13
+  sources: ['https://alfiesantiques.com/dealers-at-alfies/', 'https://alfiesantiques.com/faqs/', 'https://alfiesantiques.com/the-eclectic-elegance-of-linda-bee-at-alfies-antiques-market/']
+  decision: new
+  our_notes: null
+
+- id: camden-passage-pierrepont-charlton
+  name: Camden Passage - Pierrepont Arcade & Charlton Place Markets
+  type: market
+  city: London
+  where: Pierrepont Arcade & Charlton Place, Camden Passage, Angel, Islington N1 8EF
+  organiser: Camden Passage Companies (Pierrepont Arcade & Charlton Place). The outdoor Camden Passage Market section
+    is run by Islington Council
+  url: https://www.camdenpassageislington.co.uk/markets/pierrepont-arcade-market.html
+  apply_url: https://www.camdenpassageislington.co.uk/market-stall-enquiry.html
+  dates: Antiques Wed & Sat (also general antiques/collectables Fri & Sun at Pierrepont); vintage fashion market
+    Thursdays 9am-6pm at Pierrepont Arcade
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: Rolling online enquiry form
+  fee_gbp: null
+  cost: Not published. Covered, lit stall with a ~6ft x 3ft trestle table provided; bring your own seating
+  commission_pct: null
+  requires: ['Enquiry form: description of items to sell, preferred days/dates', Own insurance for goods and for
+      damage to the public, Reproductions must be clearly marked]
+  watch_out: 'About 20 stalls per area; early starts (Wed tables out ~6:30am, dealers gone by ~3:30pm). Existing
+    vintage costume jewellery stalls (Glitz & Glam: Trifari, Boucher, Lea Stein; BijouxB) advertise ''retail and
+    dealer friendly prices'', which sets a lower price frame. The outdoor Camden Passage Market needs a separate
+    Islington Council application.'
+  fit: 4
+  why: 'An Angel/Islington antiques destination where vintage designer costume jewellery is already an established
+    category, with a dedicated Thursday vintage fashion day and a simple enquiry route. Weaknesses: lower-priced
+    costume jewellery competitors and an unpublished fee.'
+  checked: 2026-10-13
+  sources: ['https://www.camdenpassageislington.co.uk/market-stall-enquiry.html', 'https://www.camdenpassageislington.co.uk/markets/pierrepont-arcade-market.html',
+    'https://www.camdenpassageislington.co.uk/markets/camden-passage-market.html', 'https://www.islington.gov.uk/business/markets/market-information-for-customers']
+  decision: new
+  our_notes: null
+
+- id: old-spitalfields-market
+  name: Old Spitalfields Market (incl. Thursday Antiques & Vintage Market)
+  type: market
+  city: London
+  where: 16 Horner Square, Spitalfields, London E1 6EW
+  organiser: Old Spitalfields Market
+  url: https://oldspitalfieldsmarket.com/become-a-trader
+  apply_url: https://portal.oldspitalfieldsmarket.com/uk/org-application/01d23733-2c6f-477e-a046-2677d9c1d1c2
+  dates: Stalls 7 days a week; Antiques Market every Thursday 8am-5pm (80+ stalls of vintage art, maps, furniture,
+    homewares, jewellery and fashion)
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: 'Rolling: register, wait for approval, then book individual days via the booking portal/app. ''We are
+    currently recruiting new traders'''
+  fee_gbp: null
+  cost: 'Day rates not published by the market (the 2026 trader pack covers stall spec only). Indicative only: Urban
+    Makers'' booking forms quote OSM-set prices of £45-£60/day (Wednesdays) and £95-£100/day (weekend guest market)
+    incl. VAT. The stall is 2x2m, walk-in or table-top, with 2 shelves/rails, storage and 2 sockets'
+  commission_pct: null
+  requires: [Register an account on the trader portal, Approval that brand and products fit the market, Own clip-on
+      lighting if needed]
+  watch_out: Thursday is the antiques/vintage day; weekends are a tourist-heavy general market. Must be set up by
+    10am. No on-site unloading (20-min bay on Commercial Street); car parks are cash only.
+  fit: 4
+  why: 'The Thursday antiques market explicitly lists jewellery and fashion among 80+ stalls and draws stylists
+    and vintage collectors. Open registration with day-by-day booking makes it an easy, repeatable test. Weaknesses:
+    mixed/tourist audience on other days and unpublished fees.'
+  checked: 2026-10-13
+  sources: ['https://oldspitalfieldsmarket.com/become-a-trader', 'https://oldspitalfieldsmarket.com/events/antiques-market',
+    'https://oldspitalfieldsmarket.com/cms/2026/09/New-trader-information-pack-26.pdf', 'https://oldspitalfieldsmarket.com/trader-information']
+  decision: new
+  our_notes: null
+
+- id: kings-cross-lower-stable-street-shotengai
+  name: Lower Stable Street Market & Shotengai pan-Asian Market (King's Cross)
+  type: market
+  city: London
+  where: Lower Stable Street, Coal Drops Yard, King's Cross N1C 4LW
+  organiser: Kiosk N1C (hosts Lower Stable Street); Shotengai market co-curated by Beams & Co
+  url: https://www.kingscross.co.uk/event/lower-stable-street-market
+  apply_url: https://kioskn1c.com/pages/market
+  dates: 'Lower Stable Street Market Thu-Sun + bank holiday Mondays 11am-6pm; Shotengai pan-Asian market monthly:
+    15-18 Oct and 19-22 Nov 2026 (craft stalls Fri-Sun)'
+  next_date: 2026-10-15
+  apply: {status: rolling, deadline: null, opens: null}
+  window: Rolling enquiries; Shotengai runs monthly, so aim for a Nov 2026 or early-2027 edition
+  fee_gbp: null
+  cost: Not published
+  commission_pct: null
+  requires: [Email enquiry to market@kioskn1c.com]
+  watch_out: Kiosk N1C describes its stallholders as 'specialising in food, drink and craft' with a sustainability
+    focus, and acceptance of vintage resale is unconfirmed, so lead with the circular/pre-loved angle. Shotengai
+    is themed pan-Asian homeware and food, so a Japan-sourced Western designer jewellery stall needs to be framed
+    for the curators.
+  fit: 4
+  why: Design-led King's Cross crowd. The Japan-curated Shotengai market (Beams & Co, past vendors like (kits) London
+    selling Japanese accessories and fashion) matches the brand's Japan-minimal story closely and would build the
+    brand. Resale acceptance and fees are unverified.
+  checked: 2026-10-13
+  sources: ['https://www.kingscross.co.uk/event/lower-stable-street-market', 'https://www.kingscross.co.uk/event/shotengai-market',
+    'https://www.kingscross.co.uk/the-shotengai-market', 'https://kioskn1c.com/pages/market']
+  decision: new
+  our_notes: null
+
+- id: grays-antiques-mayfair
+  name: Grays Antiques
+  type: arcade
+  city: London
+  where: 58 Davies Street, Mayfair, London W1K 5LP (opposite Bond Street station)
+  organiser: Grays Antiques
+  url: https://www.graysantiques.com/contact
+  apply_url: https://www.graysantiques.com/contact
+  dates: Permanent; open Mon-Fri 10am-6pm, closed weekends and bank holidays (plus some December Saturdays)
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: 'Always recruiting: ''always looking for new dealers with unique and beautiful stock to join our Mayfair
+    marketplace'''
+  fee_gbp: null
+  cost: Rent not published; send the retail-space enquiry form
+  commission_pct: null
+  requires: [Retail-space enquiry form on the contact page]
+  watch_out: Weekday-only trading. The jewellery offer leans to fine antique jewellery, diamonds and watches, so
+    £100-300 costume pieces sit at the bottom of the price frame. Rent and staffing model unknown.
+  fit: 3
+  why: Nearly 100 dealers, about 29 of them listing jewellery, next to Bond Street, with Elizabeth line traffic.
+    Strong jewellery footfall, but the fine-jewellery price frame, weekday-only hours and unknown rent make it a
+    later-stage option.
+  checked: 2026-10-13
+  sources: ['https://www.graysantiques.com/contact', 'https://www.graysantiques.com/dealers', 'https://www.graysantiques.com/']
+  decision: new
+  our_notes: null
+
+- id: decorative-antiques-textiles-fair
+  name: The Decorative Antiques & Textiles Fair
+  type: fair
+  city: London
+  where: Battersea Park, London SW11
+  organiser: The Decorative Antiques & Textiles Fair (family-owned, est. 1985)
+  url: https://decorativefair.com/winter-fair/
+  apply_url: https://decorativefair.com/exhibit-or-sell/
+  dates: Winter Fair 19-24 Jan 2027; Spring Fair 11-16 May 2027; Autumn Fair late Sep/early Oct 2027 (dates 'coming
+    soon')
+  next_date: 2027-01-19
+  apply: {status: rolling, deadline: null, opens: null}
+  window: Three fairs a year (Jan, mid-May, late Sep/early Oct). Send an enquiry; if you meet the criteria you are
+    invited to apply, then a selection committee reviews
+  fee_gbp: null
+  cost: Stand fees not published
+  commission_pct: null
+  requires: ['Enquiry form (physical space, online marketplace, or both)', 'Two references, one from a dealer known
+      to the Fair', Stock meeting its Vetting Standards Criteria, Selection committee approval]
+  watch_out: For 'firmly established businesses'. Interiors and trade-led (furniture, lighting, textiles, art),
+    130+ dealers. A six-day fair, so likely a high stand fee and a long staffing commitment. There is also an online
+    marketplace with a 'Jewellery & Bags' category.
+  fit: 3
+  why: 'The audience is right: the Fair cites a dealer saying more than half their sales go to 25-40-year-olds,
+    alongside interior designers. But jewellery is a side category and the dealer references and vetting are a real
+    barrier for a new business. A target for 2027-28 once established.'
+  checked: 2026-10-13
+  sources: ['https://decorativefair.com/exhibit-or-sell/', 'https://decorativefair.com/winter-fair/', 'https://decorativefair.com/']
+  decision: new
+  our_notes: null
+
+- id: classic-car-boot-sale-kings-cross
+  name: The Classic Car Boot Sale
+  type: fair
+  city: London
+  where: King's Cross, London N1C (exact site within King's Cross not stated)
+  organiser: The Classic Car Boot Sale (Wayne & Gerardine Hemingway / Hemingway Design)
+  url: https://www.classiccarbootsale.co.uk/
+  apply_url: http://www.classiccarbootsale.co.uk/exhibitor-application/
+  dates: Sat 24 - Sun 25 Apr 2027, King's Cross; held up to three times a year
+  next_date: 2027-04-24
+  apply: {status: open, deadline: null, opens: null}
+  window: The exhibitor form is live for April 2027; vehicle spots 'will also be open very shortly'
+  fee_gbp: null
+  cost: Not published on the site. A 'trade with us' deck is linked (Adobe-hosted, unreadable by fetch); ask info@classiccarbootsale.co.uk
+  commission_pct: null
+  requires: ['Exhibitor form: name, business, vehicle make/model/year, email, phone, days (full weekend / Sat /
+      Sun)', A classic vehicle to trade from]
+  watch_out: Traders sell from 'very handsome classic vehicles' and the form asks for your vehicle details, so without
+    one (or a partner who has one) you may not qualify. Two-day ticketed weekend; heavy for one person.
+  fit: 3
+  why: Curated, style-conscious vintage crowd in King's Cross; the site lists vintage clothing, accessories and
+    jewellery. The vehicle requirement and unknown fees make it a plausible test rather than a core channel.
+  checked: 2026-10-13
+  sources: ['https://www.classiccarbootsale.co.uk/', 'https://www.classiccarbootsale.co.uk/trader-applications/',
+    'http://www.classiccarbootsale.co.uk/exhibitor-application/', 'https://www.classiccarbootsale.co.uk/about/']
+  decision: new
+  our_notes: null
+
+- id: covent-garden-monday-antiques
+  name: Covent Garden Monday Antiques (Jubilee Market & Apple Market)
+  type: market
+  city: London
+  where: Jubilee Market Hall, 1 Tavistock Street WC2E 8BD; Apple Market, Covent Garden Market Building, WC2
+  organiser: Jubilee Market Hall (trader-owned); Apple Market run by the Covent Garden estate
+  url: https://www.coventgarden.london/shop/markets
+  apply_url: null
+  dates: 'Every Monday: Jubilee Market Antiques & Collectables 5am-5pm; Apple Market one-off antiques and collectables'
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Not published
+  commission_pct: null
+  requires: []
+  watch_out: jubileemarket.co.uk blocked automated access. The trading-enquiry contact (Jubilee Market Manager,
+    0207 379 4242) comes from an indexed Covent Garden contact page that may be out of date. The Apple Market is
+    handmade-focused Tue-Sun and Jubilee weekends are arts & crafts. An Appear Here listing for a Jubilee Sunday
+    stall said 'Jewellery brands cannot be accommodated'.
+  fit: 3
+  why: Central, high-footfall Monday antiques market where jewellery is part of the stock, but the crowd is largely
+    tourists, and no application route or fee could be verified. Worth a phone call to confirm.
+  checked: 2026-10-13
+  sources: ['https://www.coventgarden.london/shop/markets', 'https://www.appearhere.co.uk/spaces/tavistock-court-market-sunday-market-stall-2']
+  decision: new
+  our_notes: null
+
+- id: appear-here-london
+  name: Appear Here (short-let pop-up marketplace)
+  type: popup
+  city: London
+  where: 'Various London districts and places: Shoreditch, Soho, Covent Garden, Notting Hill, Marylebone, Old Spitalfields,
+    Burlington Arcade, Carnaby, Truman Brewery, etc.'
+  organiser: Appear Here
+  url: https://www.appearhere.co.uk/destinations/london
+  apply_url: https://www.appearhere.co.uk/how-it-works
+  dates: Always-on marketplace; book by the day, week, month or year
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: Rolling; listings change constantly
+  fee_gbp: null
+  cost: 'Varies by listing. Homepage examples on 13 Oct 2026: from £99/day (Kingsland Road, Dalston, 283 sq ft),
+    from £164/day (The Sidings, Waterloo, 886 sq ft), from £2,000/day (Soho gallery). Many have minimum bookings
+    (often 7 days) and damage deposits'
+  commission_pct: null
+  requires: [Appear Here account, Booking request approved by the landlord, Damage deposit and insurance as each
+      listing specifies]
+  watch_out: 'Read each listing''s rules: e.g. a Jubilee Market Hall stall listing said ''Jewellery brands cannot
+    be accommodated''. A one-week shop at £99-£164/day needs roughly 8-14 sales just to cover rent, so it only works
+    with an email list or event driving traffic.'
+  fit: 3
+  why: The main application route for short-let pop-ups in London, including market stalls and shop-in-shops in
+    brand-enhancing districts. Fit depends on the specific listing and day rate, so it's a plausible test with careful
+    selection.
+  checked: 2026-10-13
+  sources: ['https://www.appearhere.co.uk/', 'https://www.appearhere.co.uk/destinations/london', 'https://www.appearhere.co.uk/how-it-works']
+  decision: new
+  our_notes: null
+
+- id: sandown-antiques-fair
+  name: Sandown Antiques, Home & Interiors Fair
+  type: market
+  city: London
+  where: Sandown Park Racecourse, Portsmouth Road, Esher KT10 9AJ (just outside London; ~25 min from Waterloo)
+  organiser: Sunbury Antiques (Surrey Antiques Ltd)
+  url: https://www.sunburyantiques.com/sandown/
+  apply_url: null
+  dates: 'Sundays 10am-3pm: 18 Oct 2026; 17 Jan, 18 Apr, 1 Aug, 17 Oct 2027'
+  next_date: 2026-10-18
+  apply: {status: open, deadline: null, opens: null}
+  window: Book any listed date by email; all inside stalls must be pre-booked (no casual pitches)
+  fee_gbp: 80
+  cost: Inside tabletop pitch (6ft x 2.5ft table supplied) £80 incl. VAT per fair, extra table £10; furniture pitches
+    £90-£110; outside pre-booked car £80 / van £90
+  commission_pct: null
+  requires: [Email booking request stating the date (address obfuscated on site; Jockey Club listing gives enquiries@sunburyantiques.com),
+    Payment in advance by BACS, PAT-tested lights; bring an extension lead]
+  watch_out: Quarterly only. Broad suburban antiques/homewares crowd; outside the London postcode.
+  fit: 3
+  why: A Sunday fair aimed at private buyers ('decorative antiques, vintage ... vintage clothing, jewellery'), and
+    the £80 table breaks even on about one sale, so it's a low-risk test. The audience is broader and more bargain-minded
+    than the target customer.
+  checked: 2026-10-13
+  sources: ['https://www.sunburyantiques.com/sandown/', 'https://www.sunburyantiques.com/', 'https://www.thejockeyclub.co.uk/kempton/events-tickets/sunbury-antiques-market-7/sunbury-antiques-market/']
+  decision: new
+  our_notes: null
+
+- id: church-street-antiques-fair
+  name: Church Street Antiques Fair
+  type: fair
+  city: London
+  where: Church Street, Marylebone, London NW8 (outside Alfies Antique Market)
+  organiser: Church Street Antiques Fair (promoted by Alfies Antique Market)
+  url: https://alfiesantiques.com/church-street-antiques-fair/
+  apply_url: null
+  dates: Annual Sunday street fair; last confirmed edition Sun 29 Jun 2025, 11am-5pm. No 2026 or 2027 date found
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: Annual, early summer (2025 edition announced in April for late June)
+  fee_gbp: null
+  cost: Not published
+  commission_pct: null
+  requires: [Email thechurchstreetantiquesfair@gmail.com]
+  watch_out: 'Irregular history (trade press: returned in 2023 after a four-year gap); 2026 edition unconfirmed.
+    Outdoor street fair.'
+  fit: 3
+  why: One-day Marylebone street fair (5,000+ visitors expected in 2025) aimed at the Alfies collector crowd. A
+    low-commitment way to test that audience before taking a stand, but no future date has been confirmed.
+  checked: 2026-10-13
+  sources: ['https://alfiesantiques.com/church-street-antiques-fair/']
+  decision: new
+  our_notes: null
+
+- id: judys-vintage-flea-london
+  name: Judy's Vintage Furniture & Flea / Big Kensington Vintage Flea Markets
+  type: fair
+  city: London
+  where: 'Rotating London venues: Sands End (Fulham) SW6, Leadenhall Market EC3, Phillimore Walk W8, Cecil Sharp
+    House NW1, Chelsea Town Hall SW3, St John''s Hyde Park W2, Hornsey Town Hall N8, Blackheath Halls SE3, Battersea
+    SW11, St Cyprian''s Marylebone NW1'
+  organiser: Judy's Vintage Fair
+  url: https://judysvintagefair.com/traders/
+  apply_url: https://judysvintagefair.com/become-a-trader/
+  dates: 'London dates roughly weekly: 24 Oct 2026 (Fulham, sold out), 25 Oct (Leadenhall), 31 Oct and 28 Nov (Big
+    Kensington Flea), 1, 8, 14, 15, 21, 22, 28 Nov 2026'
+  next_date: 2026-10-24
+  apply: {status: rolling, deadline: null, opens: null}
+  window: Register once as an approved trader, then book individual dates in the trader portal; popular dates sell
+    out
+  fee_gbp: null
+  cost: Stall prices shown only to logged-in approved traders; not published. Cancellations refunded only if the
+    pitch is re-sold, minus a £20 admin fee
+  commission_pct: null
+  requires: [Become a Trader form with full written stock description, Up to 5 photos of stock/stall, Approval before
+      booking, 'Own public liability insurance, minimum £1m']
+  watch_out: Flea/furniture format with general vintage at bargain price points; some dates are 'approved traders
+    only'. T&Cs ban stock misrepresented as vintage and new wholesale stock.
+  fit: 2
+  why: Accepts vintage and handmade jewellery traders and is easy to get into, but the flea-market framing and mixed
+    homewares crowd pull prices well below £100-300. Only useful as a cheap volume or awareness test.
+  checked: 2026-10-13
+  sources: ['https://judysvintagefair.com/traders/', 'https://judysvintagefair.com/become-a-trader/', 'https://judysvintagefair.com/terms-conditions-of-booking/']
+  decision: new
+  our_notes: null
+
+- id: sunbury-antiques-kempton
+  name: Sunbury Antiques Market at Kempton Park
+  type: market
+  city: London
+  where: Kempton Park Racecourse, Staines Road East, Sunbury-on-Thames TW16 5AQ (just outside London)
+  organiser: Sunbury Antiques (Surrey Antiques Ltd)
+  url: https://www.sunburyantiques.com/kempton/
+  apply_url: null
+  dates: '2nd and last Tuesday of every month, 6:30am-2pm. Next: 27 Oct, 10 & 24 Nov, 8 Dec 2026; full 2027 list
+    published (12 & 26 Jan ... 14 Dec 2027)'
+  next_date: 2026-10-27
+  apply: {status: open, deadline: null, opens: null}
+  window: Book any date by email. Outside-pitch payment due by 5pm the Friday before; inside stalls must be pre-booked
+  fee_gbp: 85
+  cost: Inside stall incl. 6ft x 2.5ft table £85 incl. VAT (extra table £10); outside pre-booked car pitch £90 /
+    van £100; casual outside £105 / £115
+  commission_pct: null
+  requires: [Email booking request stating the date, Payment in advance by BACS, PAT-tested lights; bring an extension
+      lead]
+  watch_out: 700+ traders and a mostly trade crowd arriving at dawn (inside unloading from 4:30am, early entry £5
+    6:30-8am). Buyers expect dealer prices.
+  fit: 2
+  why: Low fee (about one sale breaks even) and jewellery and vintage clothing are staples, but it's a trade and
+    bargain-hunting antiques market. Better for sourcing and dealer sales than for brand-led retail at £100-300.
+  checked: 2026-10-13
+  sources: ['https://www.sunburyantiques.com/kempton/', 'https://www.sunburyantiques.com/']
+  decision: new
+  our_notes: null
+
+- id: bermondsey-antiques-market
+  name: Bermondsey Square Antiques Market
+  type: market
+  city: London
+  where: Bermondsey Square, Long Lane, London SE1 4QB
+  organiser: Bermondsey Antique Market (private operator; listed by Southwark Council)
+  url: https://www.southwark.gov.uk/business-and-licences/markets-and-street-trading/private-and-community-run-markets/bermondsey
+  apply_url: null
+  dates: Every Friday 6am-2pm
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Not published; ask the organiser (paul@bermondseyantiquemarket.co.uk, 0333 358 3688 or 07312 096993)
+  commission_pct: null
+  requires: [Email or phone the organisers]
+  watch_out: Early-morning outdoor trade market; most stallholders pack up by lunchtime. The organiser's own website
+    could not be reached.
+  fit: 2
+  why: Historic antiques market where jewellery is a staple, but its dawn, dealer-to-dealer crowd negotiates hard.
+    It suits buying stock more than selling £100-300 pieces to design-aware customers.
+  checked: 2026-10-13
+  sources: ['https://www.southwark.gov.uk/business-and-licences/markets-and-street-trading/private-and-community-run-markets/bermondsey']
+  decision: new
+  our_notes: null
+
+- id: greenwich-market
+  name: Greenwich Market
+  type: market
+  city: London
+  where: Greenwich Market, Greenwich, London SE10
+  organiser: Greenwich Market
+  url: https://greenwichmarket.london/become-a-trader/
+  apply_url: https://greenwichmarket.london/become-a-trader/apply-now/
+  dates: Open daily 10am-5:30pm (closed Christmas Day and the first six Mondays of the year)
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: 'Rolling: application, then a one-to-one meeting, then an assessed trial trading day before any casual
+    stall is offered'
+  fee_gbp: 69
+  cost: 'Craft & Collectables per day incl. VAT (published as ''from 1 September 2023''): Mon £18, Tue-Wed £21,
+    Thu £22, Fri £27, Sat-Sun £69, bank holiday £45. 7ft-wide stall frame with table and power point'
+  commission_pct: null
+  requires: [Online application, Jewellery applicants must email product images before an appointment, One-to-one
+      exhibition/trial day graded by management, Hard copy of £5m public liability insurance, 'Own signage, lighting,
+      extension lead and stall covers']
+  watch_out: The page states 'Imported jewellery Traders will not be accepted.' Grading favours UK designer-makers
+    and lists 'Imported/wholesale products' and 'Lack of creative input' as negatives. Japan-sourced resale jewellery
+    is likely to grade low or be refused, so confirm with the manager before applying.
+  fit: 2
+  why: Cheap, busy and accepts antiques and collectables traders, but its stated rules bar imported jewellery and
+    its grading rewards handmade work. The crowd is largely tourists, so at best a long-shot query.
+  checked: 2026-10-13
+  sources: ['https://greenwichmarket.london/become-a-trader/', 'https://greenwichmarket.london/faqs/']
+  decision: new
+  our_notes: null
+
+- id: southbank-centre-winter-market
+  name: Southbank Centre Winter Market
+  type: fair
+  city: London
+  where: Queen's Walk, Southbank Centre, London SE1
+  organiser: Southbank Centre (2025 edition delivered by Peppermint / Between The Bridges)
+  url: https://southbank.london/whats-on/winter-market
+  apply_url: null
+  dates: 2 Nov 2026 - 4 Jan 2027, daily 11am-10pm (craft traders until 9pm); closed 25 and 31 Dec
+  next_date: 2026-11-02
+  apply: {status: unknown, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Chalet rates not published
+  commission_pct: null
+  requires: []
+  watch_out: 'No public application route found for craft chalets: Peppermint''s ''Apply to become a trader'' page
+    is for food/concessions, and Southbank''s guest-trader form is for its weekend food market. A nine-week daily
+    run, cash-free, with Christmas tourist footfall.'
+  fit: 2
+  why: Gift stalls including jewellery and fashion are part of the mix, but this is mass-footfall seasonal gifting
+    with long daily hours that a one-person business can't staff. No application route could be verified, and the
+    2026 market opens in three weeks.
+  checked: 2026-10-13
+  sources: ['https://southbank.london/whats-on/winter-market', 'https://peppermintbars.co.uk/peppermint-southbank-centres-winter-market-2025/',
+    'https://peppermintbars.co.uk/service/concessions-and-food/']
+  decision: new
+  our_notes: null
+
+- id: boxpark-shoreditch-popup
+  name: BOXPARK Shoreditch one-week pop-up unit
+  type: popup
+  city: London
+  where: BOXPARK Shoreditch, London E1
+  organiser: BOXPARK (booked via Appear Here)
+  url: https://www.appearhere.co.uk/spaces/boxpark-1-week-retail-pop-up
+  apply_url: https://www.appearhere.co.uk/spaces/boxpark-1-week-retail-pop-up
+  dates: 'One-week bookings: keys Monday 5pm, trade Tue-Sun, return keys by Monday midday'
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: null
+  fee_gbp: 1000
+  cost: £1,000 + VAT per week (300 sq ft unit) incl. service charge, electricity and container insurance; £500 damage
+    deposit
+  commission_pct: null
+  requires: [Booking request via Appear Here, £500 damage deposit]
+  watch_out: 'The listing is marked ''no longer available''. The Shoreditch site''s future is uncertain: the latest
+    reports found mention a lease extension only to Sept 2025 and a consented redevelopment. No signage pack for
+    bookings under 4 weeks.'
+  fit: 2
+  why: Youth, streetwear and food-hall audience, a weekly cost of about 14 sales, and no currently bookable unit
+    or confirmed site status.
+  checked: 2026-10-13
+  sources: ['https://www.appearhere.co.uk/spaces/boxpark-1-week-retail-pop-up']
+  decision: new
+  our_notes: null
+
+- id: portobello-road-council-pitches
+  name: Portobello Road & Golborne Market (council casual pitches)
+  type: market
+  city: London
+  where: Portobello Road & Golborne Road, London W10/W11 (Saturday antiques section at the southern end)
+  organiser: Royal Borough of Kensington and Chelsea - Street Trading
+  url: https://www.rbkc.gov.uk/markets
+  apply_url: null
+  dates: Street market Mon-Sat; antiques mainly Saturdays
+  next_date: null
+  apply: {status: closed, deadline: null, opens: null}
+  window: Casual applications closed; Friday/Saturday applications on hold; the council said 'Check back in March
+    2026' (no update seen on 13 Oct 2026)
+  fee_gbp: null
+  cost: Daily casual fees are paid at the Street Trading Office; the fee page (rbkc.gov.uk/node/4051) blocked automated
+    fetching, so not verified
+  commission_pct: null
+  requires: [Email with a full description of goods, Images of goods, Website if any, Full contact details]
+  watch_out: The council is not registering stalls for 'jewellery including charms, crystals, precious and semi-precious
+    gemstones, and adornments' (also ladies' clothing, bags) at Portobello/Golborne, and suggests the World's End
+    site instead. The privately run Portobello antiques arcades (e.g. Red Lion) are separate; no application route
+    was found for them.
+  fit: 1
+  why: 'Excluded: council street pitches explicitly refuse jewellery and casual applications are closed.'
+  checked: 2026-10-13
+  sources: ['https://www.rbkc.gov.uk/markets']
+  decision: new
+  our_notes: null
+
+- id: crafty-fox-market
+  name: Crafty Fox Market
+  type: fair
+  city: London
+  where: The Crossing, Granary Square, King's Cross N1C; British Library NW1; RSA House; other one-off venues
+  organiser: Crafty Fox Market
+  url: https://www.craftyfoxmarket.co.uk/applytotrade
+  apply_url: https://www.craftyfoxmarket.co.uk/applytotrade
+  dates: British Library 14-15 Nov 2026; RSA House 5 Dec 2026; The Crossing King's Cross in Apr, Jul and Dec; British
+    Library in May and Nov
+  next_date: 2026-11-14
+  apply: {status: opens-later, deadline: null, opens: null}
+  window: Calls open about 2-3 months before each market and stay open two weeks; Christmas applications open late
+    July/early August; members get one week early access
+  fee_gbp: 70
+  cost: £70-£99 per market day, varies by venue and event
+  commission_pct: null
+  requires: [Separate online application per event, Link to product images online, Handmade element in products]
+  watch_out: Looks for 'items with a handmade element - whether made by you directly or produced in small runs in
+    the UK from your original designs'.
+  fit: 1
+  why: 'Excluded: maker-only curation requiring a handmade or own-design element; resold vintage doesn''t qualify.'
+  checked: 2026-10-13
+  sources: ['https://www.craftyfoxmarket.co.uk/applytotrade', 'https://www.craftyfoxmarket.co.uk/market-dates/british-library-christmas-2026']
+  decision: new
+  our_notes: null
+
+- id: urban-makers-markets
+  name: Urban Makers markets (Mile End Christmas, Old Spitalfields guest markets, Christmas in the Garden Covent
+    Garden, Roman Road shop)
+  type: fair
+  city: London
+  where: Ecology Pavilion, Mile End Park E3; Old Spitalfields Market E1; St Paul's Church courtyard, Covent Garden
+    WC2; 347 Roman Road E3
+  organiser: Urban Makers Ltd
+  url: https://urbanmakers.co.uk/sell-with-us
+  apply_url: https://urbanmakers.co.uk/sell-with-us
+  dates: Christmas Makers' Market 28-29 Nov and 12-13 Dec 2026 (Mile End); Christmas in the Garden 17 Nov 2026 -
+    3 Jan 2027 (Covent Garden huts); Wednesdays and monthly weekends at Old Spitalfields
+  next_date: 2026-11-28
+  apply: {status: closed, deadline: 2026-08-20, opens: null}
+  window: Mile End Christmas applications close around 20 August; Spitalfields dates released in batches through
+    the year
+  fee_gbp: 95
+  cost: Mile End Christmas £95/day per 6ft table (half £50) + £20 deposit; Spitalfields guest markets £45-£60/day
+    (Wed) and £95-£100/day (weekends); Christmas in the Garden huts £100-£125/day; Roman Road shop £160 + VAT per
+    two months + 20% commission
+  commission_pct: null
+  requires: [Google Form application per market]
+  watch_out: 'Christmas form: ''We do not accept vintage traders or re-sellers''. Spitalfields Wednesday form: ''Resellers
+    and mass-produced goods ... will not be accepted''. Roman Road shop: ''no resellers please''. Christmas in the
+    Garden wants products ''designed by you''.'
+  fit: 1
+  why: 'Excluded: every Urban Makers channel, including the Covent Garden Christmas huts it curates, bars vintage
+    traders and resellers.'
+  checked: 2026-10-13
+  sources: ['https://urbanmakers.co.uk/sell-with-us', 'https://docs.google.com/forms/d/e/1FAIpQLSd4vdJOFpUXyYMhAvM4856ygFcbffpapBL_sd3GYa8OzKbz_g/viewform',
+    'https://docs.google.com/forms/d/e/1FAIpQLScrp7fU6yI-BtqbhePbowdbzik953wONh9OHvubI822XCqY8A/viewform', 'https://docs.google.com/forms/d/e/1FAIpQLSfTpAXZVeWnPN39nI4WMFLoSIdfShMcU-OWPxBO_jbqHYnr1w/viewform']
+  decision: new
+  our_notes: null
+
+- id: seven-dials-market
+  name: Seven Dials Market
+  type: market
+  city: London
+  where: Earlham Street, Seven Dials, Covent Garden, London WC2
+  organiser: Seven Dials Market
+  url: https://www.sevendialsmarket.com/
+  apply_url: null
+  dates: Daily food hall
+  next_date: null
+  apply: {status: closed, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Not applicable
+  commission_pct: null
+  requires: []
+  watch_out: Street-food hall (21 food traders, two bars); no retail stalls. Seven Dials retail pop-ups go through
+    Appear Here listings instead.
+  fit: 1
+  why: 'Excluded: food and drink only, with no retail or vintage pitches.'
+  checked: 2026-10-13
+  sources: ['https://www.sevendialsmarket.com/']
+  decision: new
+  our_notes: null
+
+- id: loulous-vintage-fair-manchester
+  name: Lou Lou's Vintage Fair — Manchester
+  type: fair
+  city: Manchester
+  where: Victoria Baths, Hathersage Road, Chorlton-on-Medlock, Manchester M13 0FE
+  organiser: Lou Lou's Vintage Fair
+  url: https://www.loulousvintagefair.com/
+  apply_url: https://eventaly.com/event/lou-lous-manchester/
+  dates: Sun 22 Nov 2026, 11am–4pm (trader set-up from 9am)
+  next_date: 2026-11-22
+  apply: {status: open, deadline: null, opens: null}
+  window: Each event needs its own application on Eventaly; organiser says replies usually come within 10 working
+    days, and the stall is confirmed only when the pitch-fee invoice (due 1 week from issue) is paid.
+  fee_gbp: null
+  cost: Pitch fee not published; Eventaly shows stall types and prices only after you log in
+  commission_pct: null
+  requires: [Eventaly trader account, Separate application per event, Pitch fee paid within 1 week of invoice, Public
+      and product liability insurance recommended (not required)]
+  watch_out: Era focus is 1920s–1980s authentic vintage, so keep stock in that range. Fees are non-refundable; transfers
+    only if they find a replacement trader (£20 fee). The search snippet that said 'Sat 14 Nov' was wrong; the organiser's
+    homepage and Eventaly both say Sun 22 Nov.
+  fit: 4
+  why: Curated vintage fashion fair whose listed categories include jewellery, held in a striking venue, and resellers
+    are its whole model. One notch below 5 because it's a broad 'affordable vintage' crowd rather than designer
+    buyers, the fee is unknown and you'd travel from London.
+  checked: 2026-10-13
+  sources: ['https://www.loulousvintagefair.com/', 'https://eventaly.com/event/lou-lous-manchester/', 'https://eventaly.com/organiser/lou-lous-vintage-market/',
+    'https://www.loulousvintagefair.com/trader-terms-and-conditions']
+  decision: new
+  our_notes: null
+
+- id: textile-society-manchester-fair
+  name: The Textile Society — Manchester Antique & Vintage Textile Fair
+  type: fair
+  city: Manchester
+  where: The Armitage Centre, Moseley Road, Fallowfield, Manchester M14 6PA
+  organiser: The Textile Society
+  url: https://www.textilesociety.org.uk/event/manchester-antique-vintage-textile-fair
+  apply_url: null
+  dates: Sun 13 Jun 2027, 10am–4pm (early bird from 8am)
+  next_date: 2027-06-13
+  apply: {status: open, deadline: null, opens: null}
+  window: Annual fair in June (2026 edition was Sun 14 Jun 2026). Dealers book by emailing fairs@textilesociety.org.uk
+    to ask about availability.
+  fee_gbp: 110
+  cost: Stands from £110 for the day
+  commission_pct: null
+  requires: [Email fairs@textilesociety.org.uk for availability]
+  watch_out: The fair is textile-led (antique and world textiles, costume, mid-century). Jewellery isn't named as
+    a category, so confirm it's welcome when you enquire. The event page's ticket link is still labelled 2026, so
+    re-check the 2027 date nearer the time.
+  fit: 4
+  why: A serious collector, designer and stylist audience that pays proper prices for vintage fashion and accessories,
+    run by a respected society. Designer costume jewellery suits the 'costume and accessories' strand. The main
+    weakness is that textiles lead and jewellery is secondary. About 2 sales cover the stand.
+  checked: 2026-10-13
+  sources: ['https://www.textilesociety.org.uk/event/manchester-antique-vintage-textile-fair', 'https://www.textilesociety.org.uk/?p=15657']
+  decision: new
+  our_notes: null
+
+- id: vintage-at-the-monastery-manchester
+  name: Vintage@The Monastery (Decorative Fairs) — Manchester
+  type: fair
+  city: Manchester
+  where: The Monastery, 89 Gorton Lane, Manchester M12 5WF
+  organiser: Decorative Fairs
+  url: https://www.antiques-atlas.com/antique_fair/vintagethe_monastery/af2938
+  apply_url: null
+  dates: No current date found
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Not published; enquiries go to Decorative Fairs (decorativefairs@me.com, 07809 236 607 per older venue listings)
+  commission_pct: null
+  requires: []
+  watch_out: No 2026 or 2027 date could be verified. The Monastery's own site returned 403 to automated fetches,
+    and the last confirmed editions were Nov 2021 and Mar 2022. Decorative Fairs' separate 'The Vintage Fair – Manchester'
+    listing has been removed from Antiques Atlas.
+  fit: 4
+  why: 'If it still runs, it''s close to ideal: a ''top quality'' vintage fair of 30+ stalls with an even mix of
+    antique and vintage fashion, textiles and accessories, in a Pugin Gothic venue. Scored 4 rather than 5 because
+    whether it is still active is unconfirmed. Worth one phone call.'
+  checked: 2026-10-13
+  sources: ['https://www.antiques-atlas.com/antique_fair/vintagethe_monastery/af2938', 'https://www.antiquestradegazette.com/print-edition/2021/november/2517/fairs-markets-centres/have-fun-at-a-monastery-thanks-to-vintage/']
+  decision: new
+  our_notes: null
+
+- id: judys-vintage-furniture-flea-manchester
+  name: Judy's — Manchester Vintage Furniture & Flea Market
+  type: fair
+  city: Manchester
+  where: Campfield Studios, Upper Campfield Market Hall, Barton Street, Manchester M3 4NN
+  organiser: Judy's Vintage Fair (The Vintage Furniture Flea)
+  url: https://judysvintagefair.com/events/the-manchester-vintage-furniture-flea-market-sept/
+  apply_url: https://judysvintagefair.com/become-a-trader/
+  dates: Last held Sun 27 Sep 2026; no next Manchester date listed yet
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: Roughly quarterly in 2026 (June and September editions). Once you're approved through the 'Become a Trader'
+    form, you book stalls per event in the trader portal as dates appear.
+  fee_gbp: null
+  cost: Manchester stall prices not visible (the booking page appears only once an event is listed). For comparison,
+    Brighton's 2m x 2m costs £80.
+  commission_pct: null
+  requires: [Approval via online application with up to 5 stock photos and a full stock description, 'Public liability
+      insurance, minimum £1m']
+  watch_out: 'Furniture and homewares lead; the organiser describes ''a sprinkling of vintage fashion and jewellery''.
+    The application page says events are ''aimed at the affordable market''. Stalls are non-refundable (refund minus
+    £20 only if the pitch is resold). ''Judy''s Affordable Vintage Fair'' as a touring fashion fair no longer exists:
+    the old domains are dead and the brand now runs these flea markets.'
+  fit: 3
+  why: A design-led interiors crowd (stylists, designers) in a good city-centre hall with about 30 traders, and
+    vintage jewellery is a recognised application category. But jewellery is a side-line and the affordable framing
+    undercuts £100–300 pieces.
+  checked: 2026-10-13
+  sources: ['https://judysvintagefair.com/events/the-manchester-vintage-furniture-flea-market-sept/', 'https://judysvintagefair.com/events/',
+    'https://judysvintagefair.com/become-a-trader/', 'https://judysvintagefair.com/terms-conditions-of-booking/']
+  decision: new
+  our_notes: null
+
+- id: craft-and-flea-manchester
+  name: Craft & Flea — Manchester
+  type: fair
+  city: Manchester
+  where: Victoria Baths, Hathersage Road, Manchester M13 0FE
+  organiser: Craft & Flea
+  url: https://www.thecraftandflea.com/pages/trade-with-us
+  apply_url: https://eventaly.com/event/manchesters-craft-and-flea/
+  dates: Sun 15 Nov 2026
+  next_date: 2026-11-15
+  apply: {status: open, deadline: null, opens: null}
+  window: Per-event applications on Eventaly. They curate with category quotas and reply in 'a couple of working
+    weeks'; chase after 3 weeks. Unsuccessful applicants go on a reserve list.
+  fee_gbp: 60
+  cost: From £60 for a 6ft x 3ft table-top pitch (6ft x 6ft from £80, 12ft x 6ft from £120); table not included
+    (£10 hire). Prices vary by venue.
+  commission_pct: null
+  requires: [Eventaly trader profile, Separate application per event]
+  watch_out: Mainly a makers market. The organiser's call-out names 'collectors and sellers of retro homewares'
+    and 'handcrafted jewellery' but doesn't explicitly mention vintage jewellery resellers, and jewellery is a crowded
+    quota category. Same venue as Lou Lou's one week later.
+  fit: 3
+  why: A curated, Instagram-literate shopping crowd in a beautiful venue, and about 1 sale covers the fee. But it's
+    a mixed craft-and-flea audience with lower price expectations, and vintage resale sits at the edge of what they
+    recruit. A plausible test.
+  checked: 2026-10-13
+  sources: ['https://www.thecraftandflea.com/pages/trade-with-us', 'https://www.thecraftandflea.com/pages/trader-faqs',
+    'https://eventaly.com/event/manchesters-craft-and-flea/', 'https://eventaly.com/organiser/craft-flea/']
+  decision: new
+  our_notes: null
+
+- id: altrincham-market
+  name: Altrincham Market (covered market, incl. vintage)
+  type: market
+  city: Manchester
+  where: Altrincham Market (covered market), Altrincham town centre, Greater Manchester
+  organiser: Market Operations Ltd
+  url: https://visitaltrincham.com/business-directory/altrincham-market/
+  apply_url: null
+  dates: Covered market runs Tue, Fri, Sat and Sun
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Not published
+  commission_pct: null
+  requires: [Email iwanttotrade@marketoperations.co.uk]
+  watch_out: altrinchammarket.co.uk was unreachable during the check. The directory entry is from Altrincham BID,
+    not the operator. Secondary sources mention a themed Sunday rotation (design, vintage, craft) and a preference
+    for North-West traders; neither is verified.
+  fit: 3
+  why: An affluent, food-and-design-literate South Manchester crowd. The covered market explicitly hosts 'vintage
+    fashion and furniture', so a reseller fits. But terms, fees and any local-trader preference are unverified,
+    and it's a weekly general market with a long trip from London.
+  checked: 2026-10-13
+  sources: ['https://visitaltrincham.com/business-directory/altrincham-market/']
+  decision: new
+  our_notes: null
+
+- id: afflecks-manchester
+  name: Afflecks — trader units
+  type: arcade
+  city: Manchester
+  where: Afflecks, 52 Church Street, Northern Quarter, Manchester M4 1PW
+  organiser: Afflecks
+  url: https://afflecks.com/pages/space-to-let
+  apply_url: https://afflecks.com/pages/space-to-let
+  dates: Always-on (Mon–Fri 10:30–6, Sat 10–6, Sun 11–5)
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: Submit the online form; they contact you 'when the right space for you becomes available'.
+  fee_gbp: null
+  cost: Weekly licence fee, inclusive of VAT, utilities and business rates; amount not published
+  commission_pct: null
+  requires: [Online enquiry form]
+  watch_out: These are self-run units. Someone has to staff the unit during opening hours, which is impractical
+    for a one-person, London-based business. The audience is alternative and youth-skewed.
+  fit: 2
+  why: Iconic footfall and flexible weekly licences, but the subcultural, budget-skewed audience is off-brand for
+    editorial designer jewellery, and staffing a Manchester unit from London rules it out for now.
+  checked: 2026-10-13
+  sources: ['https://afflecks.com/pages/space-to-let']
+  decision: new
+  our_notes: null
+
+- id: manchester-specialist-markets-christmas
+  name: Manchester City Council Specialist Markets (incl. Manchester Christmas Markets)
+  type: market
+  city: Manchester
+  where: Manchester city-centre sites (Christmas Markets incl. Albert Square, Cathedral Gardens, etc.)
+  organiser: Manchester City Council — City Centre Markets
+  url: https://www.manchester.gov.uk/directory_record/451829/market_stalls_-_specialist_market_database_registration
+  apply_url: https://www.manchester.gov.uk/xfp/form/2275
+  dates: Rolling registration. Christmas Markets 2026 reportedly run Fri 6 Nov – Tue 22 Dec (unverified).
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: Register on the Specialist Markets database (processed within about 3 weeks). The council then invites
+    registered traders whose trade type suits each market.
+  fee_gbp: null
+  cost: No application fee; market occupancy charges apply but aren't published
+  commission_pct: null
+  requires: [Proof of identity, Proof of address, Public liability insurance or NMTF card, Photographs of products]
+  watch_out: Council pages returned 403 to automated fetches, so these details come from search-engine extracts
+    of the council's own pages. Christmas pitches are multi-week runs that need staffing every day, which isn't
+    feasible solo from London. Being registered doesn't guarantee an invitation.
+  fit: 2
+  why: Huge footfall but a tourist, gift-and-gluhwein frame, and month-plus commitments. Mainly useful as a free
+    registration in case one-off arts-and-crafts or specialist markets invite vintage.
+  checked: 2026-10-13
+  sources: ['https://www.manchester.gov.uk/directory_record/451829/market_stalls_-_specialist_market_database_registration',
+    'https://www.manchester.gov.uk/xfp/form/2275', 'https://www.manchestersfinest.com/christmas/manchester-christmas-markets-to-return-across-10-city-centre-locations-for-2026/']
+  decision: new
+  our_notes: null
+
+- id: manchester-craft-design-centre
+  name: Manchester Craft and Design Centre — studios
+  type: arcade
+  city: Manchester
+  where: Manchester Craft and Design Centre, Oak Street, Northern Quarter, Manchester
+  organiser: Manchester Craft and Design Centre
+  url: https://www.craftanddesign.com/wp-content/uploads/2025/06/Studio-Recruitment-with-Pricing-17-1.pdf
+  apply_url: null
+  dates: Always-on studios
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: Email contactus@craftanddesign.com with an introduction and 6 images of your work
+  fee_gbp: null
+  cost: 'Studio 20: £367.53 for 11.5 sqm (the 2025 sheet doesn''t state the period); 3- or 6-month rolling leases'
+  commission_pct: null
+  requires: [Introduction plus 6 images of your work]
+  watch_out: Studios are for makers who make and sell their own craft on site.
+  fit: 1
+  why: Excluded. It's a makers' studio centre ('space to make and sell your work', 'craft being made in Manchester'),
+    with no route for resold vintage.
+  checked: 2026-10-13
+  sources: ['https://www.craftanddesign.com/wp-content/uploads/2025/06/Studio-Recruitment-with-Pricing-17-1.pdf']
+  decision: new
+  our_notes: null
+
+- id: judys-vintage-furniture-flea-bristol
+  name: Judy's — Bristol Vintage Furniture & Flea Market
+  type: fair
+  city: Bristol
+  where: Paintworks Event Space, Bath Road, Bristol BS4 3EH
+  organiser: Judy's Vintage Fair (The Vintage Furniture Flea)
+  url: https://judysvintagefair.com/events/the-bristol-vintage-furniture-flea-market-october/
+  apply_url: https://judysvintagefair.com/become-a-trader/
+  dates: Last held Sun 11 Oct 2026; no next Bristol date listed yet
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: Runs every 1–3 months. The organiser's event URLs show 2026 editions on 31 Jan, 10 May, July (Sun 5 Jul
+    per its Eventbrite listing) and 11 Oct. New dates appear on judysvintagefair.com/traders/.
+  fee_gbp: null
+  cost: Bristol stall prices not visible until an event is listed (Brighton 2m x 2m is £80 for comparison)
+  commission_pct: null
+  requires: [Approval via online application with stock photos, 'Public liability insurance, minimum £1m']
+  watch_out: Furniture and homewares lead and the frame is 'affordable'. Stalls are non-refundable.
+  fit: 3
+  why: A design-literate interiors crowd in Bristol's creative quarter, and jewellery is accepted, but as an add-on
+    to furniture. A plausible test if the stall fee is around £80.
+  checked: 2026-10-13
+  sources: ['https://judysvintagefair.com/events/the-bristol-vintage-furniture-flea-market-october/', 'https://judysvintagefair.com/sitemap/',
+    'https://judysvintagefair.com/become-a-trader/']
+  decision: new
+  our_notes: null
+
+- id: bristol-indies-market
+  name: Bristol Indies' Market (St Nicholas Markets) + St Nick's Christmas umbrella pitches
+  type: market
+  city: Bristol
+  where: Outdoors on Corn Street and Wine Street, Bristol BS1
+  organiser: Bristol City Council — St Nicholas Markets
+  url: https://www.bristol.gov.uk/st-nicholas-markets/trade-with-us/trade-bristol-indies-market
+  apply_url: https://digital.bristol.gov.uk/markets-in-bristol/application-for-a-stall-at-the-nails-market
+  dates: Mon–Sat 10am–5pm. Christmas Market Fri 20 Nov – Thu 24 Dec 2026, with up to 25 umbrella pitches on Corn
+    St and Wine St.
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: Applications reviewed within 10 working days; casual pitches are first come, first served. Christmas chalet
+    applications for 2026 are already closed; non-food umbrella pitches go through this same Indies application.
+  fee_gbp: 34.12
+  cost: £34.12 per Saturday stall; £22.75 Mon–Fri (flat rate per trading day)
+  commission_pct: null
+  requires: ['Public liability insurance, minimum £5m', Online application, Read market terms and conditions]
+  watch_out: The council says it prefers 'goods produced locally or within Britain', though vintage clothing is
+    named as accepted. It's an outdoor street market (weather). The application URL says 'nails-market', but the
+    council links it as the Indies form.
+  fit: 2
+  why: Cheap, flexible city-centre pitches where vintage is welcome, but it's a general street-market and gift crowd,
+    not designer buyers. Good only as a low-cost December experiment.
+  checked: 2026-10-13
+  sources: ['https://www.bristol.gov.uk/st-nicholas-markets/trade-with-us/trade-bristol-indies-market', 'https://www.bristol.gov.uk/st-nicholas-markets/trade-with-us/trade-at-st-nicks-christmas-market',
+    'https://www.bristol.gov.uk/st-nicholas-markets/trade-with-us']
+  decision: new
+  our_notes: null
+
+- id: st-nicholas-market-indoor-stalls
+  name: St Nicholas Market — indoor stalls (Glass Arcade / Exchange)
+  type: arcade
+  city: Bristol
+  where: St Nicholas Market, The Exchange / Glass Arcade, Corn Street, Bristol
+  organiser: Bristol City Council — St Nicholas Markets
+  url: https://www.bristol.gov.uk/st-nicholas-markets/trade-with-us
+  apply_url: https://digital.bristol.gov.uk/markets/join-our-indoor-market-trading-waiting-list
+  dates: Always-on (permanent stalls)
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: No current indoor vacancies (as of check). Vacancies are advertised on @stnicksmarket Instagram/Facebook
+    with individual deadlines (e.g. Corn Exchange G04, deadline 10 Mar 2026). Selection is by shortlist and interview.
+  fee_gbp: null
+  cost: Varies by stall; set out in each vacancy's guidance pack
+  commission_pct: null
+  requires: ['Public liability insurance, minimum £5m', Business plan, Product images, Interview, Right to work
+      evidence]
+  watch_out: Permanent stalls need staffing six days a week.
+  fit: 2
+  why: Bristol's best-known indoor market, with existing vintage traders and tourist footfall. But a permanent staffed
+    stall doesn't suit a solo London business, and the frame is general rather than designer.
+  checked: 2026-10-13
+  sources: ['https://www.bristol.gov.uk/st-nicholas-markets/trade-with-us', 'https://www.bristol.gov.uk/files/documents/10711-exchange-g04-application-guidance-2026/file']
+  decision: new
+  our_notes: null
+
+- id: tobacco-factory-sunday-market
+  name: Tobacco Factory Sunday Market
+  type: market
+  city: Bristol
+  where: Tobacco Factory yard and Raleigh Road, Southville, Bristol
+  organiser: Tobacco Factory
+  url: https://tobaccofactory.com/sunday-market/
+  apply_url: https://eventaly.com/event/tobacco-factory-sunday-market/
+  dates: Weekly Sundays; Eventaly lists 18 Oct, 25 Oct, 1 Nov, 8 Nov, 15 Nov, 22 Nov 2026
+  next_date: null
+  apply: {status: open, deadline: null, opens: null}
+  window: Per-date applications on Eventaly. The organiser says it is 'highly oversubscribed'.
+  fee_gbp: 38
+  cost: £38 for a carport pitch of about 2m x 2m per Sunday (other pitches £32–£44); no tables supplied
+  commission_pct: null
+  requires: [Eventaly profile, Own tables and set-up, Accept market T&Cs]
+  watch_out: New jewellery traders are 'likely to be placed on a waitlist'. The market's own page frames it around
+    local makers, growers and producers, and it doesn't mention vintage resale.
+  fit: 2
+  why: An affluent Southville crowd, but a makers-and-food market where jewellery is already oversupplied and resold
+    vintage sits outside its local-maker pitch.
+  checked: 2026-10-13
+  sources: ['https://tobaccofactory.com/sunday-market/', 'https://eventaly.com/event/tobacco-factory-sunday-market/']
+  decision: new
+  our_notes: null
+
+- id: bristol-pop-up-shop
+  name: Bristol Pop-Up Shop (winter shop, The Galleries)
+  type: popup
+  city: Bristol
+  where: The Galleries shopping centre, Broadmead, Bristol
+  organiser: Bristol Pop-Up Shop collective (originally the Bristol Etsy Team)
+  url: https://bristolpopupshop.co.uk/pages/about
+  apply_url: null
+  dates: Six weeks before Christmas each year; 2026 run not confirmed
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: Annual winter shop since 2018
+  fee_gbp: null
+  cost: Not published
+  commission_pct: null
+  requires: []
+  watch_out: Products must be 'locally designed and made' by Bristol and South West creative businesses.
+  fit: 1
+  why: Excluded. It's a collective for local makers selling their own designs, with no place for resold vintage
+    from a London business.
+  checked: 2026-10-13
+  sources: ['https://bristolpopupshop.co.uk/pages/about']
+  decision: new
+  our_notes: null
+
+- id: craft-and-flea-glasgow
+  name: Craft & Flea — Glasgow (Christmas)
+  type: fair
+  city: Glasgow
+  where: Glasgow; venue not stated on the Eventaly listing (earlier editions were at The Briggait)
+  organiser: Craft & Flea
+  url: https://www.thecraftandflea.com/pages/trade-with-us
+  apply_url: https://eventaly.com/event/glasgows-craft-flea/
+  dates: Sat 21 Nov 2026
+  next_date: 2026-11-21
+  apply: {status: open, deadline: null, opens: null}
+  window: Per-event applications on Eventaly; decisions in about 2 weeks; reserve list for unsuccessful applicants
+  fee_gbp: 60
+  cost: From £60 for a 6ft x 3ft table-top pitch (prices vary by venue); table hire £10+
+  commission_pct: null
+  requires: [Eventaly trader profile, Separate application per event]
+  watch_out: A makers-led market with category quotas; vintage jewellery resale isn't explicitly named. You'd travel
+    from London to Glasgow (flight or sleeper), which roughly doubles the break-even.
+  fit: 3
+  why: The most curated option found in Glasgow, with a Christmas date and a modest fee. But it's a mixed craft
+    crowd and the travel cost makes it a stretch test.
+  checked: 2026-10-13
+  sources: ['https://eventaly.com/event/glasgows-craft-flea/', 'https://www.thecraftandflea.com/pages/trade-with-us',
+    'https://www.thecraftandflea.com/pages/trader-faqs']
+  decision: new
+  our_notes: null
+
+- id: barras-market-glasgow
+  name: The Barras Market — pop-up stalls
+  type: market
+  city: Glasgow
+  where: The Barras / Barrowland Market, Gallowgate, Glasgow East End
+  organiser: Barrowland (The Barras)
+  url: https://market.barrowland.co.uk/blogs/the-barras/pop-up-permanent
+  apply_url: null
+  dates: Every Sat and Sun, 10am–4pm
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: Email applications@barrowland.co.uk or call 0141 552 4601. Permanent pitches are possible after a site
+    visit.
+  fee_gbp: 15
+  cost: £15 per day for a pop-up stall (from an undated blog post)
+  commission_pct: null
+  requires: [Email or phone application]
+  watch_out: The post isn't dated, and the page's mailto link points to a different address (chris@barrowland.co.uk).
+    It's a historic bargain and flea market.
+  fit: 2
+  why: Almost free to try, but it's a bargain-flea frame where £100–300 designer pieces would be badly out of context.
+  checked: 2026-10-13
+  sources: ['https://market.barrowland.co.uk/blogs/the-barras/pop-up-permanent']
+  decision: new
+  our_notes: null
+
+- id: jac-fairs-glasgow-bellahouston
+  name: JAC Fairs — Glasgow Antique, Vintage & Collectors Fair
+  type: fair
+  city: Glasgow
+  where: Glasgow Club Bellahouston, 31 Bellahouston Drive, Glasgow G52 1HH
+  organiser: JAC Fairs
+  url: https://www.jacfairs.com/glasgow-sell-with-us
+  apply_url: https://www.jacfairs.com/glasgow-sell-with-us
+  dates: 'Monthly Sundays, 10am–4pm. Last confirmed on the organiser''s site: Sun 11 Oct 2026. Aggregators list
+    15 Nov and 6 Dec 2026 (unverified).'
+  next_date: null
+  apply: {status: closed, deadline: null, opens: null}
+  window: Casual stalls go through a waiting list; names can be re-submitted from 10am on the Monday after each
+    fair, and a booking form is sent by text when a table frees up
+  fee_gbp: 37
+  cost: Single stall (1 x 6ft table) from £37; double from £58
+  commission_pct: null
+  requires: [Public liability insurance, Waiting list]
+  watch_out: '''WE ARE NOT TAKING FURTHER JEWELLERY AT THIS TIME.'' Antiques, vintage and collectables only.'
+  fit: 1
+  why: 'Excluded for now: the organiser isn''t accepting more jewellery traders. Even if that changes, it''s a general
+    antiques-and-collectables crowd. Re-check the sell-with-us page occasionally.'
+  checked: 2026-10-13
+  sources: ['https://www.jacfairs.com/glasgow-sell-with-us', 'https://www.jacfairs.com/glasgow-homepage']
+  decision: new
+  our_notes: null
+
+- id: scottish-design-exchange-glasgow
+  name: Scottish Design Exchange (SDX) — Glasgow store
+  type: arcade
+  city: Glasgow
+  where: SDX Glasgow (moving from Buchanan Galleries to Sauchiehall Street in 2026)
+  organiser: Scottish Design Exchange (social enterprise)
+  url: https://www.scottishdesignexchange.com/
+  apply_url: https://www.scottishdesignexchange.com/pages/join-sdx
+  dates: Always-on
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Fixed monthly space rent; seller keeps 100% of sales (amount not published)
+  commission_pct: 0
+  requires: [Online application]
+  watch_out: The model exists to showcase 'Scotland's artists & designers'.
+  fit: 1
+  why: Excluded. It's a concept store for Scottish artists and designers selling their own work, with no route for
+    a London-based vintage reseller.
+  checked: 2026-10-13
+  sources: ['https://www.scottishdesignexchange.com/', 'https://www.scottishdesignexchange.com/pages/join-sdx',
+    'https://www.whatsonglasgow.co.uk/news/2026/02/24/iconic-scottish-design-exchange-announces-major-glasgow-move/']
+  decision: new
+  our_notes: null
+
+- id: judys-vintage-furniture-flea-brighton
+  name: Judy's — Brighton Vintage Furniture & Flea Market
+  type: fair
+  city: Brighton
+  where: St Bartholomew's Church, Ann Street, Brighton BN1 4GP
+  organiser: Judy's Vintage Fair (The Vintage Furniture Flea)
+  url: https://judysvintagefair.com/events/the-brighton-vintage-furniture-flea-market-october/
+  apply_url: https://judysvintagefair.com/become-a-trader/
+  dates: Sat 24 Oct 2026, 10:30am–3:30pm
+  next_date: 2026-10-24
+  apply: {status: open, deadline: null, opens: null}
+  window: Roughly quarterly at St Bart's (17 Jan, 18 Apr and 24 Oct 2026; Jun and Sep 2025). You need approval as
+    a trader before you can book a stall in the portal.
+  fee_gbp: 80
+  cost: £80 for a 2m x 2m wall stall (3m x 2m £120; 4m x 2m central aisle £160; outside 3x3 with your own gazebo
+    £120); tables limited and not included
+  commission_pct: null
+  requires: [Approval via online application with stock photos, 'Public liability insurance, minimum £1m', Own tables
+      recommended]
+  watch_out: The 2m x 2m central-aisle stalls are furniture and homewares only, so take the wall stall. Wall stalls
+    may sit in front of church furniture. Non-refundable. The 24 Oct date is 11 days away and new traders need approval
+    first, so the realistic target is the next (likely Jan 2027) edition.
+  fit: 3
+  why: A design-led vintage crowd in a dramatic venue, an hour from London, and about 1 sale covers the £80 stall.
+    But furniture leads, fashion and jewellery are a 'sprinkling', and the brand frames itself as affordable.
+  checked: 2026-10-13
+  sources: ['https://judysvintagefair.com/events/the-brighton-vintage-furniture-flea-market-october/', 'https://judysvintagefair.com/trader-bookings/?eventid=23561',
+    'https://judysvintagefair.com/traders/', 'https://judysvintagefair.com/terms-conditions-of-booking/']
+  decision: new
+  our_notes: null
+
+- id: love-fairs-brighton-racecourse
+  name: Love Fairs — Brighton Racecourse Antiques & Vintage Fair
+  type: fair
+  city: Brighton
+  where: Brighton Racecourse (two indoor halls), Brighton
+  organiser: Love Fairs
+  url: https://lovefairs.com/brighton_exhibitors/
+  apply_url: https://lovefairs.com/lingfield-brighton-exhibitor-booking-form/
+  dates: Sun 18 Oct 2026 and Sun 29 Nov 2026, 9:30am–3pm (set-up from 7am)
+  next_date: 2026-10-18
+  apply: {status: open, deadline: null, opens: null}
+  window: All pitches pre-booked and pre-paid; use the form to check availability, as pitches sometimes free up
+  fee_gbp: 75
+  cost: £75 single indoor pitch (6ft x 4ft, one table included); double £110; furniture £140
+  commission_pct: null
+  requires: ['Pre-booked, pre-paid pitch', No new items]
+  watch_out: About 120 stands across 2 halls, with trade buyers early. The organiser's own pitch is 'items for all
+    tastes and pockets from £1 upward', so expect dealers hunting margin.
+  fit: 2
+  why: Cheap to break even (about 1 sale), but it's a general antiques-and-collectables fair in a bargain-hunting
+    frame. Designer pieces will be haggled down, and there's no brand lift.
+  checked: 2026-10-13
+  sources: ['https://lovefairs.com/brighton_exhibitors/', 'https://lovefairs.com/brighton-racecourse/']
+  decision: new
+  our_notes: null
+
+- id: brighton-flea-market-kemptown
+  name: Brighton Flea Market (Kemptown) — stalls & cabinets
+  type: arcade
+  city: Brighton
+  where: 31a Upper St James's Street, Kemptown, Brighton BN2 1JN
+  organiser: Brighton and Lewes Flea Markets
+  url: https://www.flea-markets.co.uk/
+  apply_url: null
+  dates: Always-on, open 362 days a year
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: Email info@brightonfleamarket.co.uk or call 01273 624006
+  fee_gbp: null
+  cost: Stalls and cabinets from £22 to £78 per week
+  commission_pct: null
+  requires: [Email or phone enquiry]
+  watch_out: Commission and card-handling terms aren't published, so ask whether staff sell on your behalf and whether
+    cabinets lock. It's a bric-a-brac and antiques flea in Kemptown.
+  fit: 2
+  why: A locked cabinet is a cheap, always-on presence (one sale covers about a month), but the flea frame and footfall
+    don't match £100–300 editorial pieces. Only worth it as a low-cost overflow channel.
+  checked: 2026-10-13
+  sources: ['https://www.flea-markets.co.uk/']
+  decision: new
+  our_notes: null
+
+- id: brighton-open-market-plaza
+  name: Brighton Open Market — Plaza stalls
+  type: market
+  city: Brighton
+  where: Brighton Open Market (Plaza), off London Road, Brighton
+  organiser: Brighton Open Market
+  url: https://www.brightonopenmarket.co.uk/stall-hire.html
+  apply_url: https://www.brightonopenmarket.co.uk/stall-hire.html
+  dates: Plaza stalls available 7 days a week, with no minimum period
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: Application is assessed against market criteria; book at least 7 days ahead via the app; 3 days' notice
+    to cancel
+  fee_gbp: 25
+  cost: Saturday £25 per stall (£20 for stalls 2, 3, 10, 11, 14, 15, 22, 23); Fri and Sun 60% off; Wed and Thu 80%
+    off; Mon and Tue 90% off. Stalls are 183cm x 92cm.
+  commission_pct: null
+  requires: ['Public liability insurance, minimum £5m', Risk assessment, Book via app at least 7 days ahead]
+  watch_out: The market says it favours 'craft, handmade, and organic produce'. Minimum trading hours run 9am–5pm.
+    No electricity.
+  fit: 2
+  why: Very cheap and flexible, but it's a food-and-local-goods market whose stated preference is handmade and organic,
+    with a neighbourhood rather than designer audience.
+  checked: 2026-10-13
+  sources: ['https://www.brightonopenmarket.co.uk/trader-faqs.html', 'https://www.brightonopenmarket.co.uk/prices--stall-map.html',
+    'https://www.brightonopenmarket.co.uk/stall-hire.html']
+  decision: new
+  our_notes: null
+
+- id: brighton-etsy-christmas-market
+  name: Brighton Etsy Team Christmas Market
+  type: fair
+  city: Brighton
+  where: Brighton Dome Concert Hall Foyer, Church Street, Brighton BN1 1UE
+  organiser: Brighton Etsy Team (volunteer seller group)
+  url: https://www.brightonetsyteam.com/christmas-market
+  apply_url: null
+  dates: Sat 5 Dec 2026, 10am–4pm
+  next_date: 2026-12-05
+  apply: {status: closed, deadline: null, opens: null}
+  window: 'Applications usually open in early July and close in late July (2024: opened 4 Jul, closed 21 Jul). The
+    2026 round is closed.'
+  fee_gbp: null
+  cost: Not published
+  commission_pct: null
+  requires: []
+  watch_out: More than 90 stalls chosen from 200+ applications. The Dome describes them as 'local designers, artists
+    and makers'. The team does include vintage sellers, but a non-Brighton vintage reseller may not qualify.
+  fit: 2
+  why: A big, well-promoted Christmas date in a premium venue, but it's a local handmade-led selection. Eligibility
+    for a London-based vintage reseller is doubtful; check in July 2027.
+  checked: 2026-10-13
+  sources: ['https://www.brightonetsyteam.com/christmas-market', 'https://brightondome.org/whats-on/L1c-etsy-christmas-fair/',
+    'https://brightonetsyteam.wordpress.com/2024/07/04/christmas-market-applications-are-open/']
+  decision: new
+  our_notes: null
+
+- id: snoopers-paradise-brighton
+  name: Snoopers Paradise — stalls & cabinets
+  type: arcade
+  city: Brighton
+  where: Snoopers Paradise, 7–8 Kensington Gardens, North Laine, Brighton BN1 4AL
+  organiser: Snoopers Paradise
+  url: https://snoopersparadise.co.uk/trade-with-us
+  apply_url: https://snoopersparadise.co.uk/trade-with-us
+  dates: Always-on
+  next_date: null
+  apply: {status: closed, deadline: null, opens: null}
+  window: Vacancies are 'rare'. Terms are one week's rent in advance plus a two-week deposit.
+  fee_gbp: null
+  cost: Not published ('affordable')
+  commission_pct: null
+  requires: [Online stallholder application with a photo of goods]
+  watch_out: '''Our books are currently closed to clothes and jewellery traders.'' Snoopers Attic upstairs is a
+    separate makers and vintage-clothing collective with no published letting route.'
+  fit: 1
+  why: Excluded for now. Snoopers is explicitly closed to new jewellery traders, and its chaotic indoor-flea frame
+    is off-brand anyway. Re-check the trade page occasionally.
+  checked: 2026-10-13
+  sources: ['https://snoopersparadise.co.uk/trade-with-us', 'https://snoopersparadise.co.uk/about']
+  decision: new
+  our_notes: null
+
+- id: vintage-kilo-sale-brighton
+  name: Vintage Kilo Sale — Brighton
+  type: fair
+  city: Brighton
+  where: St Bartholomew's Church, Ann Street, Brighton BN1 4GP
+  organiser: Vintage Kilo Sale
+  url: https://www.eventbrite.co.uk/e/brightons-vintage-kilo-sale-tickets-1985593228798
+  apply_url: null
+  dates: Last held Sat 2 May 2026; no upcoming date found
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: No trader pitches. Shoppers pay about £20 per kilo.
+  commission_pct: null
+  requires: []
+  watch_out: Kilo sales here and in Manchester and Bristol are organiser-stocked, sold by weight, with no external-trader
+    application route on any listing. The prelovedkilo.com domain no longer resolves.
+  fit: 1
+  why: Excluded. Kilo sales sell the organiser's own stock by weight, so there's no route for outside traders, and
+    a £20/kg frame is the opposite of the brand. Recorded so future runs skip kilo events in all four cities.
+  checked: 2026-10-13
+  sources: ['https://www.eventbrite.co.uk/e/brightons-vintage-kilo-sale-tickets-1985593228798']
+  decision: new
+  our_notes: null
+
+- id: vestiaire-collective
+  name: Vestiaire Collective (Professional Seller programme)
+  type: marketplace
+  city: Online
+  where: Global designer-resale audience; UK site in GBP; Direct Shipping for UK sellers to buyers in Europe incl.
+    UK, US, CA, AU, SG, HK (items up to €1,000)
+  organiser: Vestiaire Collective
+  url: https://www.vestiairecollective.com/professional-sellers/
+  apply_url: https://www.vestiairecollective.com/professional-sellers/
+  dates: Always on
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: null
+  fee_gbp: 0
+  cost: 'No subscription or listing fee found. Pro commission in GBP, per the rate sheet updated 26 June 2026: Standard
+    is £15 flat on items up to £120, then 15% from £120 to £16,000. Reduced is £15 flat up to £120, then 12%. The
+    Reduced rate applies if your monthly repayment (cancellation) rate is 10% or less.'
+  commission_pct: 15
+  requires: [Proof of registered business (sole traders eligible), 'VAT number, per help centre (''valid VAT number'';
+      wording is inconsistent for small sole traders)', Pieces must be signed; unsigned jewellery can be refused,
+    Seller ships within 7 days on a prepaid label]
+  watch_out: Unsigned jewellery can be refused or delisted. Mother of pearl is on the import/export restricted list
+    and natural pearls are banned (faux pearls are fine). Listings can be rejected if Vestiaire judges the price
+    too high or too low against comparable sales. Cancellations for authenticity, conformity or late shipping count
+    toward the repayment rate that sets your commission tier. Buyers pay a £15 authentication fee on Authenticated
+    Shipping. Help centre says a VAT number is needed, but the professional-sellers page says sole traders are eligible,
+    so confirm what applies to a non-VAT-registered sole trader.
+  fit: 4
+  why: 'Strong existing market for signed Chanel/Dior/YSL costume pieces, and UK sellers are supported. On £180,
+    15% (£27) leaves a £153 payout, about £57 contribution (12% tier: £158.40, about £62). At a 12.5% premium (£202.50)
+    the payout is about £172, about £76 contribution. Docked from 5 because any registered business can join, so
+    acceptance is not a credential.'
+  checked: 2026-10-13
+  sources: ['https://www.vestiairecollective.com/professional-sellers/', 'https://faq.vestiairecollective.com/hc/en-gb/articles/11538017492241-Professional-seller-Commission',
+    'https://assets.vestiairecollective.com/email/CRM/2026/Commission+management+B2C.pdf', 'https://faq.vestiairecollective.com/hc/en-gb/articles/4408896527633-Becoming-a-Professional-Seller',
+    'https://faq.vestiairecollective.com/hc/en-gb/articles/16480403093393', 'https://faq.vestiairecollective.com/hc/en-gb/articles/16224868764049-Buyer-What-Shipping-Options-Are-Available-on-Vestiaire-Collective']
+  decision: new
+  our_notes: null
+
+- id: catawiki
+  name: Catawiki (expert-curated weekly auctions, incl. Vintage Fashion Jewellery)
+  type: marketplace
+  city: Online
+  where: EU-centred auction audience; ships worldwide; named-curator weekly 'Vintage/Fashion Costume Jewellery'
+    auctions
+  organiser: Catawiki B.V.
+  url: https://www.catawiki.com/en/help/become-a-seller/how-does-selling-on-catawiki-work
+  apply_url: https://www.catawiki.com/en/v/register
+  dates: Weekly themed auctions; lots submitted continuously
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: null
+  fee_gbp: 0
+  cost: 'Free to submit. Seller success fee per Seller Terms valid from 31 Oct 2025: 12.5% plus a fixed €2 for lots
+    selling at €150–299 (€3 at €300–499), excluding VAT. The Help Centre says a revised fee table applies to lots
+    submitted from 17 Aug 2026, but I could not read it (403). Buyers separately pay a Buyer Protection fee, usually
+    9% + £3.'
+  commission_pct: 12.5
+  requires: [Seller account declared Professional (sells as part of a trade or business), VAT ID for professional
+      sellers (registration page says 'if any'; UK sellers send their UK VAT number to switch to Pro), Each lot
+      approved by a Catawiki expert before auction, Ship within 3 business days with tracking, Professional sellers
+      outside the EU must use Catawiki's IOSS number on EU orders up to €150]
+  watch_out: Auctions mean uncertain prices, and no-reserve lots can sell low, which undercuts the 10–15% premium
+    (use reserves). Shipping from the UK to EU buyers brings customs and VAT friction. The 9% + £3 buyer fee sits
+    on top of the hammer price. The fixed-fee table changed for lots submitted from 17 Aug 2026 and needs re-verifying.
+  fit: 4
+  why: Expert-curated weekly costume-jewellery auctions put Chanel and Dior pieces in front of buyers who are looking
+    for them, and the commission is moderate. On £180 (€213), 12.5% + €2 is about £24.19, leaving about £155.81
+    payout and about £60 contribution, plus VAT on the fee if charged. Docked for auction price risk and post-Brexit
+    shipping to the EU.
+  checked: 2026-10-13
+  sources: ['https://cdn.catawiki.net/assets/marketing/terms/2025/web/seller-terms/seller-terms-en.pdf?t=491379',
+    'https://cdn.catawiki.net/assets/marketing/terms/2025/web/buyer-terms/buyer-terms-en.pdf?t=490641', 'https://www.catawiki.com/en/help/seller-success-fee-vat/how-does-the-seller-success-fee-work-and-how-is-it-calculated',
+    'https://www.catawiki.com/en/help/seller-terms/professional-seller-policy', 'https://www.catawiki.com/en/a/t/911-vintage-fashion-jewellery-auction']
+  decision: new
+  our_notes: null
+
+- id: 1stdibs
+  name: 1stDibs
+  type: marketplace
+  city: Online
+  where: Global; US-centred; sellers in 70+ countries (10-K). Median order about US$1,300 (FY2025)
+  organiser: 1stdibs.com, Inc.
+  url: https://www.1stdibs.com/about/vetted-sellers/
+  apply_url: https://www.1stdibs.com/dealer/application-form/
+  dates: Always on
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Not published. The support article (updated 11 Oct 2026) says sellers choose between a lower monthly subscription
+    with a higher commission and a higher subscription with a lower commission. The FY2025 10-K gives commission
+    of 5–50% of GMV depending on category and price, plus processing fees of about 3% of the buyer's payment. A
+    jewellery plan sheet would only come during the application.
+  commission_pct: null
+  requires: [Application with at least two references confirming you are a seller in good standing, 'Expert vetting
+      of inventory quality (may include sample requests, social media audit, editorial coverage)', 'No consumer-to-consumer
+      sellers: professional dealers only']
+  watch_out: A monthly subscription is a fixed cost at low volume. Median order of about $1,300 is far above £100–300
+    pieces. The support page describes the jewellery vertical as 'fine jewelry', although costume Chanel and Dior
+    pages do exist. The 10-K notes seller churn after subscription price rises.
+  fit: 3
+  why: Acceptance is a real credential and the buyers are design-literate. Costume Chanel listings exist, averaging
+    about $649 on the Chanel costume page. Net per £180 cannot be computed because fees are unpublished. With commission
+    somewhere in 5–50% plus about 3% processing plus a subscription, it only works if the jewellery plan quote is
+    low. Get the plan sheet before committing.
+  checked: 2026-10-13
+  sources: ['https://support.1stdibs.com/hc/en-us/articles/17416136155291-What-Is-the-Monthly-Fee-for-1stDibs',
+    'https://www.1stdibs.com/answers/how-do-you-become-a-dealer-on-1stdibs', 'https://www.1stdibs.com/about/vetted-sellers/',
+    'https://www.sec.gov/Archives/edgar/data/1600641/000160064126000007/dibs-20251231.htm', 'https://www.1stdibs.com/buy/vintage-chanel-costume-jewelry/']
+  decision: new
+  our_notes: null
+
+- id: ruby-lane
+  name: Ruby Lane
+  type: marketplace
+  city: Online
+  where: US-centred antiques/vintage collectors; global; UK-located jewellery shops listed in its shop directory
+  organiser: Ruby Lane
+  url: https://www.rubylane.com/sell
+  apply_url: https://www.rubylane.com/info/joinrubylane
+  dates: Always on
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: null
+  fee_gbp: 34
+  cost: US$45/month shop fee (about £34) covers unlimited items; joining and listing are free. Service fee is 9.9%
+    on the first $2,500 of each sale, including shipping charged. PayPal processing is charged separately (rate
+    not verified). Read from search-indexed rubylane.com/info/fees; the page blocks automated fetch.
+  commission_pct: 9.9
+  requires: [Shop application reviewed by Shop Review staff (about 3 business days), Existing online presence (website
+      or other marketplace) so the business can be vetted, Minimum 10 items listed at all times, Vintage means 20+
+      years old (2006 or earlier); vintage jewellery minimum price $10, 'Front and back photos of jewellery; real,
+      verifiable name']
+  watch_out: 'Fee pages conflict: an older FAQ shows $54/month and 6.7% capped at $250, so re-verify manually. The
+    buyer base is US-heavy and the look is dated rather than editorial. The US de minimis exemption has been suspended
+    since Aug 2025, so US buyers may face duties or brokerage fees on UK parcels.'
+  fit: 3
+  why: Deep collector base for signed vintage costume jewellery (CJCI partnership) and genuinely vetted shops. On
+    £180, 9.9% (£17.82) leaves about £162 payout before PayPal fees, or about £66 contribution. The $45/month fixed
+    fee hurts at 1–3 sales a month. Weak for UK/EU reach and brand image.
+  checked: 2026-10-13
+  sources: ['https://www.rubylane.com/info/fees', 'https://www.rubylane.com/info/lanereqs', 'https://www.rubylane.com/info/joinrubylane',
+    'https://www.rubylane.com/jewelry/shopdir/,location=UK,order=5', 'https://costumejewelrycollectors.com/conventions/cjci-convention-2020/cjci-partners-with-rubylane-com/']
+  decision: new
+  our_notes: null
+
+- id: etsy
+  name: Etsy (open, not vetted; fit reference)
+  type: marketplace
+  city: Online
+  where: Global; large UK and US vintage-jewellery audience
+  organiser: Etsy, Inc.
+  url: https://www.etsy.com/uk/sell
+  apply_url: null
+  dates: Always on
+  next_date: null
+  apply: {status: open, deadline: null, opens: null}
+  window: null
+  fee_gbp: 0.15
+  cost: Listing US$0.20 (about £0.15) per 4-month listing. Transaction fee 6.5% of item plus postage. UK payment
+    processing 4% + £0.20. UK Regulatory Operating Fee 0.48% from 22 Jun 2026. Offsite Ads 15% on attributed orders
+    (12% above $10k a year; optional below $10k). A one-time set-up fee may apply. All fees exclude VAT.
+  commission_pct: 11
+  requires: [Open sign-up; no vetting, Vintage items must be at least 20 years old, Etsy may ask for provenance
+      of vintage items]
+  watch_out: Offsite Ads can add 15% on an attributed sale (opt out while under $10k a year in sales). Pieces under
+    20 years old, such as late-1990s or 2000s Chanel or Dior, do not qualify as vintage. The listing context is
+    crowded and price-comparison driven, so it does little for the brand.
+  fit: 3
+  why: Open platform but a real vintage-jewellery buyer base and the lowest percentage fees among the big platforms.
+    On £180, fees are about £20.12 (6.5% + 4% + £0.20 + 0.48% + listing), leaving about £159.88 payout and about
+    £64 contribution, before VAT on fees. At £202.50 the payout is about £180, roughly own-site parity, unless Offsite
+    Ads fires.
+  checked: 2026-10-13
+  sources: ['https://web.archive.org/web/20260628111944/https://www.etsy.com/uk/legal/fees/', 'https://help.etsy.com/hc/en-gb/articles/115015628847-What-are-Payment-Processing-Fees-for-Selling-on-Etsy',
+    'https://help.etsy.com/hc/en-us/articles/1500011073202-What-is-a-Regulatory-Operating-Fee', 'https://www.etsy.com/legal/policy/vintage-items-on-etsy/242665563649']
+  decision: new
+  our_notes: null
+
+- id: ebay-uk
+  name: eBay UK (business seller; open)
+  type: marketplace
+  city: Online
+  where: UK plus global (international fee 1.05% EU, 1.8% US/CA)
+  organiser: eBay
+  url: https://www.ebay.co.uk/help/selling/fees-credits-invoices/fees-business-sellers-activated-managed-payments?id=4809
+  apply_url: null
+  dates: Always on
+  next_date: null
+  apply: {status: open, deadline: null, opens: null}
+  window: null
+  fee_gbp: 0.3
+  cost: 'Business seller, Jewellery & Watches (#281): 14.9% final value fee on the total sale (item plus postage)
+    up to £1,000, plus £0.40 per order over £10, plus 0.35% regulatory operating fee. International fee 1.05% (eurozone)
+    or 1.8% (US/CA). Without a shop, extra fixed-price listings cost 30p; the Basic shop is £27/month. Page last
+    updated 30 Sep 2026.'
+  commission_pct: 14.9
+  requires: [Open sign-up; register as a business account (trading seller)]
+  watch_out: Discount and auction framing. Final value fee is charged on postage too. eBay's 0% fees for UK private
+    sellers do NOT apply to a trading business. Currency conversion charge rises to 2.75% on 1 Dec 2026.
+  fit: 3
+  why: Plausible place to clear 90-day stock, with a big UK audience for signed costume jewellery, but no brand
+    value. On £180, fees are about £27.85 (14.9% + 0.35% + £0.40), leaving about £152.15 payout and about £56 contribution.
+    At £202.50 the payout is about £171.
+  checked: 2026-10-13
+  sources: ['https://www.ebay.co.uk/help/selling/fees-credits-invoices/fees-business-sellers-activated-managed-payments?id=4809',
+    'https://community.ebay.co.uk/t5/Announcements/Final-value-fee-increases-for-business-sellers-in-the-Jewellery/ba-p/7545376/',
+    'https://www.ebay.co.uk/sellercentre/news/2026-january/rate-card-change']
+  decision: new
+  our_notes: null
+
+- id: vinted-pro
+  name: Vinted Pro (business sellers; open)
+  type: marketplace
+  city: Online
+  where: UK and EU mass-market secondhand fashion
+  organiser: Vinted
+  url: https://www.vinted.co.uk/pro-guide
+  apply_url: null
+  dates: Always on
+  next_date: null
+  apply: {status: open, deadline: null, opens: null}
+  window: null
+  fee_gbp: 0
+  cost: Listing is free (Pro guide). The price list shows no seller commission; buyers pay the Vinted fee (usually
+    3–8% + £0.30–0.80). Bumps and Showcase visibility are optional and paid. Optional Item Verification costs the
+    buyer £10.
+  commission_pct: 0
+  requires: ['Registered business: sole trader, company or non-profit in the UK', 'Business name, address and registration
+      numbers; KYC/KYB checks', 14-day right of withdrawal for buyers; display business contact details]
+  watch_out: Strong discount framing and bargain-hunting buyers, so a premium price is unlikely to hold. A Pro badge
+    plus mandatory 14-day returns. The platform is not vetted. Catalogue and authenticity rules for designer items
+    were not checked.
+  fit: 3
+  why: 'Zero seller commission makes it the best payout per sale for clearing stale stock: £180 sale leaves £180
+    payout (about £84 contribution). Achievable prices for £100–300 designer costume pieces are likely lower, and
+    the context dilutes the brand. Use only for 90-day clearance.'
+  checked: 2026-10-13
+  sources: ['https://www.vinted.co.uk/pro-guide', 'https://www.vinted.co.uk/help/1460', 'https://www.vinted.co.uk/pricelist']
+  decision: new
+  our_notes: null
+
+- id: depop
+  name: Depop (open; business sellers allowed)
+  type: marketplace
+  city: Online
+  where: UK, US, AU; young fashion-resale audience
+  organiser: Depop
+  url: https://www.depop.com/sell/
+  apply_url: null
+  dates: Always on
+  next_date: null
+  apply: {status: open, deadline: null, opens: null}
+  window: null
+  fee_gbp: 0
+  cost: 0% selling fee for UK-located sellers on GBP sales (from 20 Mar 2024). Payment processing fee still applies;
+    rate not verified from Depop (third-party sites say 2.9% + £0.30). UK buyers pay a marketplace fee of up to
+    5% + up to £1. Boosted listings fee applies only if the boosted item sells (rate not verified).
+  commission_pct: 0
+  requires: [Open sign-up; no vetting]
+  watch_out: The young, price-sensitive audience skews below £100. The processing fee could not be verified from
+    Depop's own pages (help centre blocked).
+  fit: 2
+  why: Zero selling fee, but the audience and price expectations rarely support £100–300 designer costume pieces.
+    Payout on £180 is £180 minus unverified processing (about £5 if the third-party 2.9% + £0.30 is right). Weaker
+    than Vinted Pro or Etsy for this stock.
+  checked: 2026-10-13
+  sources: ['https://news.depop.com/company-news/evolving-our-fee-structure-with-zero-selling-fees-on-depop/', 'https://partnerapi.depop.com/api-docs/concepts/fees/',
+    'https://www.depop.com/sell/']
+  decision: new
+  our_notes: null
+
+- id: the-vintage-bar
+  name: The Vintage Bar (partner programme)
+  type: marketplace
+  city: Online
+  where: Europe/Scandinavia-centred vintage designer buyers; ships worldwide; UK locale on site
+  organiser: The Vintage Bar
+  url: https://thevintagebar.com/how-it-works
+  apply_url: https://thevintagebar.com/partner/become-a-partner
+  dates: Always on
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Partner commission is not published; per the partner page it is 'settled individually' at an onboarding
+    meeting. A third-party integrator (Koongo) says it is usually about 15%, which is unverified.
+  commission_pct: null
+  requires: ['Partner application (boutiques, brands, stores, stock suppliers)', Items pass The Vintage Bar quality
+      control and authentication before shipping to buyer]
+  watch_out: Unclear whether UK-based partners can use the prepaid-label flow; the how-it-works page does not name
+    seller countries. Commission is negotiated. The partner page timed out on fetch, so its wording comes from search-indexed
+    text.
+  fit: 3
+  why: Editorial-leaning vintage designer audience that lists jewellery (brooches, earrings, necklaces), with a
+    partner route for businesses. Net per £180 cannot be computed until commission is quoted. At the unverified
+    ~15% the payout would be about £153.
+  checked: 2026-10-13
+  sources: ['https://thevintagebar.com/how-it-works', 'https://thevintagebar.com/partner/become-a-partner', 'https://help.koongo.com/en/articles/8582841-introduction-to-the-vintage-bar']
+  decision: new
+  our_notes: null
+
+- id: pamono
+  name: Pamono
+  type: marketplace
+  city: Online
+  where: EU/US design buyers (Pamono is linked with Chairish; listings can appear on both)
+  organiser: Pamono (Chairish group)
+  url: https://www.pamono.com/becomeavendor
+  apply_url: https://www.pamono.com/becomeavendor-2
+  dates: Always on
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Commission and fees not published on the vendor pages (null).
+  commission_pct: null
+  requires: [Professional businesses only, Recommended at least 20 pieces ready to sell, 'Application with business
+      focus, stock count, concept and collection link']
+  watch_out: Furniture and lighting is the core. Fashion is excluded 'with the exception of jewelry', so jewellery
+    is a side category with probably thin traffic. Fees are unknown until application.
+  fit: 3
+  why: Design-aware audience and a vetted vendor list, and jewellery is explicitly allowed, but it is peripheral
+    to Pamono's buyers. Net per £180 cannot be computed (commission unpublished).
+  checked: 2026-10-13
+  sources: ['https://www.pamono.com/becomeavendor-2', 'https://www.pamono.com/becomeavendor', 'https://www.pamono.eu/help']
+  decision: new
+  our_notes: null
+
+- id: antiques-atlas
+  name: Antiques Atlas
+  type: marketplace
+  city: Online
+  where: UK antiques/vintage trade and collector buyers; prices shown in GBP/USD/EUR
+  organiser: Antiques Atlas
+  url: https://www.antiques-atlas.com/selling/packages/
+  apply_url: null
+  dates: Always on
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: null
+  fee_gbp: 40
+  cost: 'Subscription. The packages page mentions no commission, but does not explicitly confirm there is none.
+    New dealers start on a 3-month trial: £130 for 120 items. Gold is £40/month billed £480/yr (480 items/yr). Silver
+    is £130/yr for 50 items. Optional PayPal facility costs £25 one-off.'
+  commission_pct: null
+  requires: [Established dealer with a verifiable trade track record, Not open to the public; acceptance and renewal
+      at Antiques Atlas's discretion, 3-month trial period]
+  watch_out: The audience is antiques collectors, not fashion or editorial. Sales are enquiry or PayPal based, so
+    you handle payment and shipping yourself. Item caps are per year, not live at any one time.
+  fit: 3
+  why: Genuinely vetted UK trade site that already carries 1980s Dior costume jewellery at £75–345, and no commission
+    is mentioned (confirm on application). If there is none, £180 pays out £180 minus payment fees, about £84 contribution,
+    less a £40/month fixed fee. The audience is narrow and not brand-enhancing for an editorial label.
+  checked: 2026-10-13
+  sources: ['https://www.antiques-atlas.com/selling/packages/', 'https://www.antiques-atlas.com/antiques/jewellery/french']
+  decision: new
+  our_notes: null
+
+- id: sellingantiques
+  name: Sellingantiques.co.uk
+  type: marketplace
+  city: Online
+  where: UK-centred antiques trade marketplace; overseas buyers; about 500 dealers
+  organiser: Sellingantiques.co.uk
+  url: https://www.sellingantiques.co.uk/joinus.asp
+  apply_url: https://www.sellingantiques.co.uk/joinus.asp
+  dates: Always on
+  next_date: null
+  apply: {status: open, deadline: null, opens: null}
+  window: null
+  fee_gbp: 90
+  cost: 'Monthly subscription, no commission (buyers enquire and you agree the sale directly): £90/month for 75
+    items, £124/150, £225/250, £331/350.'
+  commission_pct: 0
+  requires: [Antiques businesses only (no private sellers), Every piece approved for dateline and photo quality,
+    Jewellery dateline is pre-1970]
+  watch_out: The pre-1970 jewellery dateline excludes most 1980s–90s Chanel, Dior and YSL costume pieces; mid-century
+    American makers and early Grosse or Dior qualify. The antiques audience is not fashion-led.
+  fit: 2
+  why: No commission, but the dateline rule shuts out much of the stock, and £90/month is heavy for a few clearance
+    pieces. Only mid-century pieces qualify.
+  checked: 2026-10-13
+  sources: ['https://www.sellingantiques.co.uk/joinus.asp', 'https://www.sellingantiques.co.uk/dateline.asp']
+  decision: new
+  our_notes: null
+
+- id: trocadero
+  name: Trocadero
+  type: marketplace
+  city: Online
+  where: US-centred online antiques mall (American, European, Asian dealers)
+  organiser: Trocadero
+  url: https://www.trocadero.com/join/
+  apply_url: https://www.trocadero.com/join/
+  dates: Always on
+  next_date: null
+  apply: {status: open, deadline: null, opens: null}
+  window: null
+  fee_gbp: 18
+  cost: 'Commission-free. Monthly plans: Business US$24 (about £18), E-Commerce $48, Enterprise $73. Up to 400 listings,
+    then $8 per extra 100. Checkout via PayPal or Authorize.net.'
+  commission_pct: 0
+  requires: [Registration and terms acceptance; no vetting or approval process stated]
+  watch_out: US-focused (US carriers, US state sales tax guidance) and an older collector audience. UK dealer eligibility
+    is not stated. US de minimis suspension adds duty friction.
+  fit: 2
+  why: Has an Estate Jewelry > Costume category and no commission, but it is not vetted, US-only in practice, and
+    adds nothing to the brand. Payout on £180 is about £180 minus PayPal fees, less about £18/month.
+  checked: 2026-10-13
+  sources: ['https://www.trocadero.com/join/', 'https://www.trocadero.com/directory/Estate-Jewelry/Costume']
+  decision: new
+  our_notes: null
+
+- id: uk-department-store-preloved
+  name: Department-store pre-loved jewellery (Reselfridges; John Lewis pre-loved)
+  type: marketplace
+  city: Online
+  where: UK luxury department-store shoppers (online and in-store)
+  organiser: Selfridges; John Lewis
+  url: https://www.selfridges.com/GB/en/inspiration/reselfridges-corner-shop
+  apply_url: null
+  dates: Ongoing; partner selection by the retailer
+  next_date: null
+  apply: {status: invite-only, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Not published. Reselfridges sells pre-loved Chanel costume brooches and earrings through partner vendors.
+    John Lewis says it works 'closely with a selection of suppliers who source and authenticate our pre-loved jewellery'
+    (e.g. Susan Caplan). Terms are likely wholesale or concession; unverified.
+  commission_pct: null
+  requires: [Retailer invitation or partnership; no public application route found, Authentication capability (supplier
+      authenticates)]
+  watch_out: No public application. Wholesale or concession economics could cut margin well below marketplace levels.
+    The Reselfridges Corner Shop page is marked as from the archive.
+  fit: 2
+  why: Being stocked would be a strong credential, and the stock category (pre-loved Chanel costume) matches exactly.
+    But there is no route in, and terms are unknown, so net per £180 cannot be computed. Revisit as a pitch target
+    once volume and authentication process are mature.
+  checked: 2026-10-13
+  sources: ['https://www.selfridges.com/GB/en/inspiration/reselfridges-corner-shop', 'https://www.selfridges.com/IE/en/cat/reselfridges-pre-loved-chanel-interlocking-c-metal-and-pearl-brooch_R03844700/',
+    'https://www.johnlewis.com/susan-caplan-pre-loved-chanel-textured-brooch/p111295618']
+  decision: new
+  our_notes: null
+
+- id: asos-vintage
+  name: ASOS (former ASOS Marketplace vintage boutiques)
+  type: marketplace
+  city: Online
+  where: UK/global young fast-fashion audience
+  organiser: ASOS plc
+  url: https://www.asosplc.com/news-and-media/latest-news/asos-finalises-integration-of-vintage-and-boutique-marketplace-sellers-onto-asoscom/
+  apply_url: null
+  dates: Standalone Marketplace wound into ASOS.com by April 2025
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Not published (null).
+  commission_pct: null
+  requires: [Must meet ASOS's (unpublished) criteria for selling on ASOS.com, 'Partner Fulfils: seller holds stock
+      and ships']
+  watch_out: No public application route for new vintage sellers found after the 2025 migration. The audience's
+    price expectations are well below £100–300.
+  fit: 2
+  why: The old curated vintage-boutique route is gone, and the ASOS.com audience is a poor fit for £100–300 designer
+    costume pieces. Net cannot be computed.
+  checked: 2026-10-13
+  sources: ['https://www.asosplc.com/news-and-media/latest-news/asos-finalises-integration-of-vintage-and-boutique-marketplace-sellers-onto-asoscom/']
+  decision: new
+  our_notes: null
+
+- id: notonthehighstreet
+  name: Not On The High Street
+  type: marketplace
+  city: Online
+  where: UK gifting audience
+  organiser: Notonthehighstreet Enterprises
+  url: https://www.notonthehighstreet.com/join/why
+  apply_url: null
+  dates: Always on
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: One-off joining fee (amount not stated on the FAQ). Commission not stated on the current pages. Search snippets
+    of an older page say £199+VAT joining and 25%+VAT commission; unverified.
+  commission_pct: null
+  requires: [Business registered and trading from the UK or Northern Ireland, 'Hand-selected application, reviewed
+      within a few days']
+  watch_out: Built for small makers and brands. Nothing found on whether vintage resale of other houses' signed
+    pieces is accepted. If the 25% commission is right, it is high.
+  fit: 2
+  why: UK and curated, but a gifting and maker frame with unclear eligibility for designer resale. If the unverified
+    25%+VAT applies, a £180 sale pays out about £126 (about £30 contribution).
+  checked: 2026-10-13
+  sources: ['https://www.notonthehighstreet.com/join/why', 'https://www.notonthehighstreet.com/join/faqs', 'https://www.notonthehighstreet.com/pages/why-sell-with-us']
+  decision: new
+  our_notes: null
+
+- id: chairish
+  name: Chairish
+  type: marketplace
+  city: Online
+  where: US home/design buyers
+  organiser: Chairish Inc.
+  url: https://support.chairish.com/hc/en-us/articles/44165603442321-Chairish-Selling-Plans-Commission-Rate-Overview
+  apply_url: https://www.chairish.com/pages/consign-with-us
+  dates: Always on
+  next_date: null
+  apply: {status: invite-only, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: 'Commission by plan: Consignor 40%; Professional (10+ live listings) 30%; Premium 25% on vintage; Plus 22%;
+    Elite/Platinum 20% sliding scale. Premium and Plus are paid plans; subscription prices not verified.'
+  commission_pct: 30
+  requires: [Jewellery only if framed or mounted as decor; 'other jewelry and accessories may be listed via invitation
+      only', Non-US sellers must arrange their own shipping (Chairish shipping is continental US only)]
+  watch_out: Jewellery is invitation-only. Commission is 30–40%. The audience is US home decor.
+  fit: 1
+  why: 'Excluded: jewellery is invitation-only and the commission is punitive. Even if invited, 30% on £180 leaves
+    a £126 payout (about £30 contribution).'
+  checked: 2026-10-13
+  sources: ['https://support.chairish.com/hc/en-us/articles/44165603442321-Chairish-Selling-Plans-Commission-Rate-Overview',
+    'https://support.chairish.com/hc/en-us/articles/44202947822993-Curatorial-Guidelines', 'https://support.chairish.com/hc/en-us/articles/44166167623953-Listing-Selling-From-Outside-the-Continental-US']
+  decision: new
+  our_notes: null
+
+- id: collector-square
+  name: Collector Square
+  type: marketplace
+  city: Online
+  where: France/EU luxury second-hand buyers
+  organiser: Collector Square
+  url: https://www.collectorsquare.com/conditions-utilisation
+  apply_url: null
+  dates: Always on
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Consignment (dépôt-vente) commission is 35.004% TTC of the VAT-inclusive sale price; appraisal and listing
+    are included.
+  commission_pct: 35
+  requires: [Expert appraisal before listing, Professional consignors need a recent Kbis extract (French company
+      registration); Collector Square may decline professionals]
+  watch_out: The jewellery offer is fine jewellery in gold, platinum and diamonds; no costume or bijoux fantaisie
+    listings were found. Professional onboarding assumes a French entity (Kbis).
+  fit: 1
+  why: 'Excluded: fine-jewellery focus, no evidence of costume pieces, a French-company bias for professional consignors,
+    and 35% commission (£180 leaves a £117 payout).'
+  checked: 2026-10-13
+  sources: ['https://www.collectorsquare.com/conditions-utilisation', 'https://www.collectorsquare.com/en/jewels/chanel/']
+  decision: new
+  our_notes: null
+
+- id: hewi
+  name: HEWI (Hardly Ever Worn It)
+  type: marketplace
+  city: Online
+  where: UK luxury resale buyers
+  organiser: HardlyEver Limited (in liquidation); Hardly Ever Worn It UK Ltd (incorporated 27 Oct 2025)
+  url: https://www.hardlyeverwornit.com/how-it-works/selling
+  apply_url: null
+  dates: Seller submissions paused
+  next_date: null
+  apply: {status: closed, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Commission rates are behind a link and were not read (null).
+  commission_pct: null
+  requires: []
+  watch_out: The site says it is 'not accepting new listings at the moment'. Companies House shows HardlyEver Limited
+    (07002732) in liquidation (Begbies Traynor). Trustpilot reports unpaid sellers. Serious counterparty risk.
+  fit: 1
+  why: 'Excluded: closed to new listings, and the original operator is in liquidation. Re-check only if submissions
+    reopen under the new entity.'
+  checked: 2026-10-13
+  sources: ['https://www.hardlyeverwornit.com/how-it-works/selling', 'https://find-and-update.company-information.service.gov.uk/company/07002732',
+    'https://find-and-update.company-information.service.gov.uk/company/16812843']
+  decision: new
+  our_notes: null
+
+- id: reluxe
+  name: Reluxe (Reluxe Fashion)
+  type: marketplace
+  city: Online
+  where: UK preloved designer buyers
+  organiser: Reluxe Fashion
+  url: https://reluxefashion.com/
+  apply_url: null
+  dates: Store unavailable
+  next_date: null
+  apply: {status: closed, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Unknown (null).
+  commission_pct: null
+  requires: []
+  watch_out: reluxefashion.com returns Shopify 'This store is currently unavailable' (HTTP 402) as of 2026-10-13.
+    It was a concierge consignment model for private wardrobes, not dealers.
+  fit: 1
+  why: 'Excluded: storefront offline, and it was a wardrobe-consignment concierge rather than a dealer marketplace.'
+  checked: 2026-10-13
+  sources: ['https://reluxefashion.com/', 'https://www.countryandtownhouse.com/style/fashion/clare-richardson-reluxe-interview/']
+  decision: new
+  our_notes: null
+
+- id: selency
+  name: Selency
+  type: marketplace
+  city: Online
+  where: France/EU second-hand furniture and decor buyers
+  organiser: Selency
+  url: https://help.selency.com/en/articles/6045634
+  apply_url: null
+  dates: Always on
+  next_date: null
+  apply: {status: open, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Commission depends on seller type and category; percentages not published in the help centre (null). Registration
+    is free.
+  commission_pct: null
+  requires: [Professionals in second-hand or artisanal furniture and decoration, Business ID (VAT optional); Stripe
+      account, Each listing moderated]
+  watch_out: Furniture and decor only; jewellery appears only as jewellery boxes or prints. UK seller eligibility
+    not stated.
+  fit: 1
+  why: 'Excluded: no jewellery category for a costume-jewellery dealer; furniture and decor marketplace.'
+  checked: 2026-10-13
+  sources: ['https://help.selency.com/en/articles/6045634', 'https://help.selency.com/en/articles/6061506']
+  decision: new
+  our_notes: null

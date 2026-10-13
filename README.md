@@ -36,6 +36,10 @@ These documents are the working plan. They are meant to be returned to and revis
 | [Decisions](docs/DECISIONS.md) | **Dated log of what's settled, proposed, or reversed** |
 | [99 — Open questions](docs/99-open-questions.md) | Everything unresolved, in one place |
 
+## Market scout
+
+A weekly agent that finds fairs, markets, pop-up spaces and vetted online marketplaces we could apply to, and keeps their dates and deadlines current. **[Latest report](scout/REPORT.md)** · [how it works](scout/README.md).
+
 ## Status
 
 Planning only. No code, no store, no commitments. **Start at [Decisions](docs/DECISIONS.md)** for the current state. Nothing here has been validated with a real customer yet — see [07 — Roadmap](docs/07-roadmap.md), Phase 0.
