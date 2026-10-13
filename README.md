@@ -46,6 +46,10 @@ One page per designer at `/collections/vintage-{house}-jewellery`, per [04](../1
 
 `/collections` then lists only the houses.
 
+## Verifying a change
+
+Run `bash scripts/verify/run.sh` before pushing anything in `theme/`. It runs Theme Check, renders our Liquid against sample data, drives the bag script in a browser, and, once the store settings exist, deploys to a verification theme and tests it on the store. See [scripts/verify](../scripts/verify/README.md).
+
 ## Name is not hard-coded — on purpose
 
 Per [`0-plan/18-name-clearance.md`](../0-plan/18-name-clearance.md), the name may have to change. It is a single theme setting:
