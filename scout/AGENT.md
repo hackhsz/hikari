@@ -66,6 +66,7 @@ Add new entries with `decision: new` and the schema in `markets.yaml`. Rules:
 - **Primary sources only** for dates, deadlines and fees: the organiser's own site or application page. Listing sites and social posts are leads, not facts. If you can't verify something, set it to `null` and say so in `why`.
 - **Never edit `decision` or `our_notes`** on an existing entry. They're ours. The only exception: if a `decision: new` entry's opportunity has ended for good (the organiser has folded, or the space closed), set `fit: 1` and explain in `watch_out`.
 - One entry per thing we'd apply to. A touring organiser that runs separate events in three cities gets three entries.
+- `next_date` is for dated events: fairs, and markets that run monthly or less often. For markets that run weekly or more, and for arcades and marketplaces, leave it `null` and put the schedule in `dates`.
 - Note what the application will ask for in `requires`. Public liability insurance, stock photos, a website or Instagram, and a business address are common.
 
 ### 5 · Draft shortlisted applications
