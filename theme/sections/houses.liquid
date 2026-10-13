@@ -1,15 +1,35 @@
 {%- comment -%}
   Brand as a first-class navigation axis (1-shop/04-site-ia.md), rendered as display type rather than
   a filter menu. A brand name is metadata, never identity: plain text in our own typeface, no logos.
+
+  With blocks, each house links to its URL, or when that is left empty, to its house page
+  (snippets/house-url). With no blocks, as on the house template, it lists every collection on
+  the house template by itself, and marks the one being viewed.
 {%- endcomment -%}
 <section class="pad" id="houses" data-bg="#DFE1DC" data-fg="#14171A" style="--sec-bg:#DFE1DC;--sec-fg:#14171A;">
   <div class="shell">
     <p class="eyebrow">{{ section.settings.heading }}</p>
     <div class="houses">
-      {%- for block in section.blocks -%}
-        <a href="{{ block.settings.url | default: '#' }}">{{ block.settings.name }}</a>
-        {%- unless forloop.last %}<span class="sep">·</span>{% endunless -%}
-      {%- endfor -%}
+      {%- if section.blocks.size > 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.settings.url != blank -%}
+            {%- assign url = block.settings.url -%}
+          {%- else -%}
+            {%- capture url -%}{%- render 'house-url', name: block.settings.name -%}{%- endcapture -%}
+          {%- endif -%}
+          <a href="{{ url }}" {{ block.shopify_attributes }}>{{ block.settings.name }}</a>
+          {%- unless forloop.last %}<span class="sep">·</span>{% endunless -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- assign first = true -%}
+        {%- for c in collections -%}
+          {%- if c.template_suffix != 'house' -%}{%- continue -%}{%- endif -%}
+          {%- assign name = c.metafields.hikari.house.value | default: c.products.first.vendor | default: c.title -%}
+          {%- unless first %}<span class="sep">·</span>{% endunless -%}
+          {%- assign first = false -%}
+          <a href="{{ c.url }}"{% if collection and c.id == collection.id %} aria-current="page"{% endif %}>{{ name }}</a>
+        {%- endfor -%}
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -18,6 +38,6 @@
   "settings": [{ "type": "text", "id": "heading", "label": "Eyebrow", "default": "Shop by house" }],
   "blocks": [{ "type": "house", "name": "House", "settings": [
     { "type": "text", "id": "name", "label": "House", "default": "Christian Dior" },
-    { "type": "url", "id": "url", "label": "Collection" }]}],
+    { "type": "url", "id": "url", "label": "Link", "info": "Leave empty to link to the house page, /collections/vintage-[house]-jewellery." }]}],
   "presets": [{ "name": "Shop by house" }] }
 {% endschema %}

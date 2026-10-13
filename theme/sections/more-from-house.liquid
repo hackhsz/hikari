@@ -1,0 +1,38 @@
+{%- comment -%}
+  "More from this house": the only genuinely useful cross-sell on one-of-one stock
+  (1-shop/04-site-ia.md, product page anatomy, item 10). Up to four other pieces from the same
+  house that are still in the shop, and a link to the house page.
+
+  Reads the house collection by handle (snippets/house-url). Until that collection exists the
+  section shows nothing but the link, which then goes to Shopify's vendor listing.
+{%- endcomment -%}
+{%- liquid
+  assign p = product
+  assign hz = p.vendor | handleize
+  assign handle = 'vintage-' | append: hz | append: '-jewellery'
+  assign hc = collections[handle]
+-%}
+{%- if p.vendor != blank -%}
+  {%- capture house_url -%}{%- render 'house-url', name: p.vendor -%}{%- endcapture -%}
+  {%- capture cards -%}
+    {%- assign shown = 0 -%}
+    {%- if hc.id -%}
+      {%- for q in hc.products -%}
+        {%- if q.id == p.id or q.available == false -%}{%- continue -%}{%- endif -%}
+        {%- if shown >= 4 -%}{%- break -%}{%- endif -%}
+        {%- assign shown = shown | plus: 1 -%}
+        {%- render 'product-card', card_product: q, tone: 'grey' -%}
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endcapture -%}
+  <section class="pad" data-bg="#DFE1DC" data-fg="#14171A" style="--sec-bg:#DFE1DC;--sec-fg:#14171A;">
+    <div class="shell">
+      <div class="more-head">
+        <h2 class="eyebrow">More from {{ p.vendor }}</h2>
+        <a class="hero-link" href="{{ house_url }}">Every {{ p.vendor }} piece, and the Record</a>
+      </div>
+      {%- if shown > 0 -%}<div class="grid4">{{ cards }}</div>{%- endif -%}
+    </div>
+  </section>
+{%- endif -%}
+{% schema %}{ "name": "More from this house", "settings": [] }{% endschema %}

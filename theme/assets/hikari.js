@@ -190,7 +190,7 @@
      for the bag, and the express checkout buttons inside it re-render with it. Without
      JavaScript every link and form still works: the bag link goes to /cart, add to bag
      posts to /cart/add, remove follows the line's remove URL. */
-  var R=window.HikariRoutes||{cart_add_url:"/cart/add",cart_change_url:"/cart/change",cart_url:"/cart"};
+  var R=window.HikariRoutes||{cart_add_url:"/cart/add",cart_change_url:"/cart/change",cart_update_url:"/cart/update",cart_url:"/cart"};
   var SECTION="bag-drawer";
   function bagIds(){
     return [].map.call(document.querySelectorAll("#bag [data-variant-id]"),function(n){
@@ -204,7 +204,11 @@
     if(html){
       var doc=new DOMParser().parseFromString(html,"text/html");
       var fresh=doc.querySelector("[data-bag-body]"), cur=document.querySelector("#bag [data-bag-body]");
-      if(fresh&&cur) cur.replaceWith(fresh);
+      /* A refresh can land while someone is writing a gift note. Keep what they are typing;
+         the count still updates. */
+      var a=document.activeElement, typing=cur&&a&&cur.contains(a)&&/^(TEXTAREA|INPUT)$/.test(a.tagName);
+      if(fresh&&cur&&!typing) cur.replaceWith(fresh);
+      else if(fresh&&cur) cur.setAttribute("data-count",fresh.getAttribute("data-count"));
     }
     var body=document.querySelector("#bag [data-bag-body]");
     var n=body?body.getAttribute("data-count"):null;
@@ -270,6 +274,22 @@
       .catch(function(){ location.href=link.href; });
   }
 
+  /* Gift: saved as cart attributes as it changes, because the drawer re-renders on every
+     add and remove and would otherwise lose the note. The fields also belong to the
+     checkout form (form="…"), which saves them again on the way to checkout. Express
+     buttons skip that form, which is why the note is saved on blur as well as after a pause. */
+  var giftT=null;
+  function saveGift(attrs){
+    clearTimeout(giftT);
+    return post(R.cart_update_url+".js",{attributes:attrs}).catch(function(){});
+  }
+  function toggleGift(box){
+    var wrap=box.closest("[data-bag-gift]"), ta=wrap&&wrap.querySelector("[data-gift-note]");
+    if(ta){ ta.disabled=!box.checked; ta.parentNode.hidden=!box.checked; }
+    if(box.checked){ saveGift({"Gift":"Yes","Gift note":ta?ta.value:""}); if(ta) ta.focus({preventScroll:true}); }
+    else saveGift({"Gift":"","Gift note":""});
+  }
+
   var bound2=false;
   function bindOnce(){
     if(bound2) return; bound2=true;
@@ -278,7 +298,13 @@
       var rm=t.closest&&t.closest("[data-bag-remove]");
       if(rm&&rm.closest("#bag")){ e.preventDefault(); removeLine(rm); return; }
       var o=t.closest&&t.closest("[data-sheet-open]");
-      if(o){ e.preventDefault(); note(""); openSheetById(o.getAttribute("data-sheet-open"),o); return; }
+      if(o){
+        e.preventDefault(); note("");
+        var which=o.getAttribute("data-sheet-open"); openSheetById(which,o);
+        /* The bag was rendered with the page. Ask again, so a piece that sold since shows as sold. */
+        if(which==="bag") refreshBag().catch(function(){});
+        return;
+      }
       if(t.closest&&t.closest("[data-sheet-close]")){ e.preventDefault(); closeSheet(); }
     });
     document.addEventListener("keydown",function(e){
@@ -292,8 +318,31 @@
     });
     document.addEventListener("submit",function(e){
       var f=e.target;
-      if(!f.matches||!f.matches('form[action$="/cart/add"]')) return;
+      if(!f.matches) return;
+      if(f.matches(".bag-checkout")){
+        var cb=f.querySelector('[name="checkout"]'); if(cb) cb.setAttribute("aria-busy","true");
+        return;
+      }
+      if(!f.matches('form[action$="/cart/add"]')) return;
       e.preventDefault(); addToBag(f);
+    });
+    document.addEventListener("change",function(e){
+      var t=e.target; if(!t.matches) return;
+      if(t.matches("[data-gift-toggle]")) toggleGift(t);
+      else if(t.matches("[data-gift-note]")) saveGift({"Gift note":t.value});
+    });
+    document.addEventListener("input",function(e){
+      var t=e.target; if(!t.matches||!t.matches("[data-gift-note]")) return;
+      clearTimeout(giftT);
+      giftT=setTimeout(function(){ saveGift({"Gift note":t.value}); },600);
+    });
+    /* Back from checkout: the browser can restore this page from its cache, bag and all.
+       Ask Shopify again, and the bag page, which has no drawer to swap, simply reloads. */
+    window.addEventListener("pageshow",function(e){
+      if(!e.persisted) return;
+      if(document.body.classList.contains("template-cart")){ location.reload(); return; }
+      [].forEach.call(document.querySelectorAll(".bag-checkout [aria-busy]"),function(b){ b.removeAttribute("aria-busy"); });
+      refreshBag().catch(function(){});
     });
   }
 

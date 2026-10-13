@@ -10,7 +10,7 @@
       <ul class="bag-lines" role="list">
         {%- for item in cart.items -%}{%- render 'bag-line', item: item -%}{%- endfor -%}
       </ul>
-      {%- render 'bag-foot', cart: cart -%}
+      {%- render 'bag-foot', cart: cart, ctx: 'page' -%}
     {%- else -%}
       <div class="bag-empty">
         <p class="bag-empty-h">Nothing in the bag yet.</p>

@@ -1,0 +1,109 @@
+{%- comment -%}
+  A house page: the per-designer landing page that 1-shop/04-site-ia.md calls the highest-leverage
+  SEO decision in the business. One smart collection per house, on the collection.house template.
+  The words live on the collection, not in the theme, so Thread 3 can write them in Shopify:
+    description          → Notes on the house (the 200–400 words of editorial)
+    hikari.lede          → one or two sentences under the name
+    hikari.marks         → Reading the mark, one line per mark: Period | Mark | Note
+    hikari.house         → the name as set large, if it should differ from the Vendor
+  Setup is in theme/README.md.
+
+  A brand name is metadata, never identity (04): plain text in our own typeface, no logos, and
+  the trade mark disclaimer on the page itself as well as in the footer.
+
+  Sold pieces from this house are on the Record below (sections/record.liquid reads the same
+  collection). Both use Shopify's first 50 products in the collection's sort order; sort house
+  collections newest first so the shop and the recent Record are what fall inside it.
+{%- endcomment -%}
+{%- liquid
+  assign c = collection
+  assign house = c.metafields.hikari.house.value
+  if house == blank
+    assign house = c.products.first.vendor | default: c.title
+  endif
+  assign lede = c.metafields.hikari.lede.value
+  assign marks = c.metafields.hikari.marks.value
+  assign n_live = 0
+  for p in c.products
+    if p.available
+      assign n_live = n_live | plus: 1
+    endif
+  endfor
+  assign brand = settings.brand_name | default: shop.name
+  assign has_notes = false
+  if c.description != blank or marks != blank
+    assign has_notes = true
+  endif
+-%}
+{%- capture legal -%}
+  <p class="house-legal">{{ settings.legal_disclaimer | replace: '[brand]', brand }}</p>
+{%- endcapture -%}
+
+<section class="pad" data-bg="#EFF0EC" data-fg="#14171A" style="--sec-bg:#EFF0EC;--sec-fg:#14171A;">
+  <div class="shell">
+    <header class="house-head">
+      <p class="eyebrow"><a href="{{ routes.collections_url }}">Shop by house</a></p>
+      <h1 class="house-h">{{ house }} <span class="house-h-sub">Vintage jewellery</span></h1>
+      {%- if lede != blank -%}<p class="house-lede">{{ lede }}</p>{%- endif -%}
+    </header>
+
+    {%- if n_live > 0 -%}
+      <p class="eyebrow">{{ n_live }} {% if n_live == 1 %}piece{% else %}pieces{% endif %} in the shop</p>
+      <div class="grid4">
+        {%- for p in c.products -%}
+          {%- if p.available -%}{%- render 'product-card', card_product: p, tone: 'grey' -%}{%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="house-empty">
+        <p class="bag-empty-h">Nothing from {{ house }} in the shop this week.</p>
+        <p>New pieces arrive with each Edition: {{ settings.edition_day }}. The list sees them an hour before anyone else.</p>
+        <a class="bag-link" href="#list">Join the list</a>
+      </div>
+    {%- endif -%}
+
+    {%- unless has_notes -%}{{ legal }}{%- endunless -%}
+  </div>
+</section>
+
+{%- if has_notes -%}
+<section class="pad" data-bg="#DFE1DC" data-fg="#14171A" style="--sec-bg:#DFE1DC;--sec-fg:#14171A;">
+  <div class="shell">
+    <div class="house-notes">
+      {%- if c.description != blank -%}
+        <div class="house-essay">
+          <h2 class="eyebrow">Notes on the house</h2>
+          <div class="rte">{{ c.description }}</div>
+        </div>
+      {%- endif -%}
+
+      {%- if marks != blank -%}
+        <div class="house-marks">
+          <h2 class="eyebrow">Reading the mark</h2>
+          <table class="marks">
+            <thead><tr><th scope="col">Period</th><th scope="col">Mark</th></tr></thead>
+            <tbody>
+              {%- assign rows = marks | escape | newline_to_br | split: '<br />' -%}
+              {%- for row in rows -%}
+                {%- assign line = row | strip -%}
+                {%- if line == blank -%}{%- continue -%}{%- endif -%}
+                {%- assign cells = line | split: '|' -%}
+                <tr>
+                  <th scope="row">{{ cells[0] | strip }}</th>
+                  <td>{{ cells[1] | strip }}
+                    {%- assign note = cells[2] | strip -%}
+                    {%- if note != blank %}<span class="marks-note">{{ note }}</span>{% endif -%}
+                  </td>
+                </tr>
+              {%- endfor -%}
+            </tbody>
+          </table>
+          <p class="house-fine">Every listing shows the mark itself in its second photograph, unretouched.</p>
+        </div>
+      {%- endif -%}
+    </div>
+    {{ legal }}
+  </div>
+</section>
+{%- endif -%}
+{% schema %}{ "name": "House", "settings": [] }{% endschema %}

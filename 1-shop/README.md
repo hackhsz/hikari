@@ -6,8 +6,9 @@ Everything a customer touches on the owned site: the theme, the store's settings
 **Read first:**
 - [04 Site & IA](04-site-ia.md)
 - [11 Platform](11-platform.md)
+- [21 Checkout](21-checkout.md)
 - [theme/README](../theme/README.md)
-- D7, D8, D16 and D17 in [DECISIONS](../0-plan/DECISIONS.md)
+- D7, D8, D16, D17, D22 and D23 in [DECISIONS](../0-plan/DECISIONS.md)
 
 ---
 
@@ -17,7 +18,8 @@ Everything a customer touches on the owned site: the theme, the store's settings
 
 - **Homepage:** a brand image first ([D16](../0-plan/DECISIONS.md)), then the Alcove, three featured pieces, houses set as display type, the story, recent pieces and the Record ([D8](../0-plan/DECISIONS.md)).
 - **Product page:** the four frames, with frames 2 and 4 labelled *Unretouched* ([D10](../0-plan/DECISIONS.md)). The information sits beside the image, never on it.
-- **Bag drawer** ([D17](../0-plan/DECISIONS.md)): one of one, so no quantity controls, and a piece is never shown as held.
+- **Bag drawer** ([D17](../0-plan/DECISIONS.md)): one of one, so no quantity controls, and a piece is never shown as held. Since 13 Oct ([D23](../0-plan/DECISIONS.md), [21](21-checkout.md)) it also shows a piece that sold while in the bag, a delivery line, a gift note and a cut-off notice.
+- **House pages** ([D22](../0-plan/DECISIONS.md)): one per designer at `/collections/vintage-{house}-jewellery`, with the pieces in stock, notes on the house, the marks by period, the house's Record and the disclaimer. The homepage band and the product page link to them, and *More from this house* sits under every piece. The words wait on [Thread 3](../3-copy/README.md).
 - **Phone menu.**
 - **Grain and scroll-driven colour,** both adjustable in theme settings.
 - **No hard-coded brand name.** The name is a theme setting, because it may change ([18](../0-plan/18-name-clearance.md)).
@@ -28,7 +30,7 @@ Everything a customer touches on the owned site: the theme, the store's settings
 | Branch | What it holds | State |
 |---|---|---|
 | `shopify` | `theme/` from 22 Sept | **No bag drawer, brand image or phone menu yet** |
-| `shopify-preview` | `theme/` as of 12 Oct | Identical to `theme/` on the trunk |
+| `shopify-preview` | `theme/` as of 12 Oct | **Behind the trunk:** no house pages or D23 bag changes yet |
 
 [`scripts/sync-theme.sh`](../scripts/sync-theme.sh) splits `theme/` out into the `shopify` branch. It merges first if Shopify has saved Customize changes back to that branch. As of today it hasn't, so nothing has been lost.
 
@@ -59,10 +61,12 @@ Everything a customer touches on the owned site: the theme, the store's settings
 
 ## Next
 
-1. **Decide whether the bag drawer goes live.** If yes, run `scripts/sync-theme.sh` from `main`. Preview already has it.
-2. **Load the first real pieces** once [Thread 2](../2-photos/README.md) has shot them, using the metafields in [theme/README](../theme/README.md): piece, grade, condition, size, mark, era, provenance.
-3. **Build the three trust pages** as soon as [Thread 3](../3-copy/README.md) has the text.
-4. **Card payments at market stalls.** Shopify POS with a card reader, if [Thread 4](../4-markets/README.md) books a stall.
+1. **Put the trunk on preview and try it on the store:** the house pages and the D23 bag. Then decide whether it all goes live; if yes, run `scripts/sync-theme.sh` from `main`.
+2. **Work through [21 Checkout](21-checkout.md):** the admin settings in order, then the test script on the development store with Bogus Gateway.
+3. **Create the house collections** ([theme/README](../theme/README.md), *House pages*), and ask Thread 3 for the first house's words: Christian Dior.
+4. **Load the first real pieces** once [Thread 2](../2-photos/README.md) has shot them, using the metafields in [theme/README](../theme/README.md): piece, grade, condition, size, mark, era, provenance.
+5. **Build the three trust pages** as soon as [Thread 3](../3-copy/README.md) has the text.
+6. **Card payments at market stalls.** Shopify POS with a card reader, if [Thread 4](../4-markets/README.md) books a stall.
 
 ## Start a session for this thread
 

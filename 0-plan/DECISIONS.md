@@ -398,3 +398,35 @@ The plan, decisions and open questions sit in `0-plan/`; the brand system sits i
 *Rationale:* by October the repo had split into two lines that numbered decisions, questions and docs independently. D7–D9, #27–#50 and doc 11 each meant two different things. The 13 Oct merge rejoined them without dropping anything. The rules that stop it happening again are in [CLAUDE.md](../CLAUDE.md).
 
 *Doc numbers are permanent IDs.* Only folders changed. `11-imagery-rights` became `20-imagery-rights` to clear the collision with 11 Platform.
+
+---
+
+### D22 · House pages: one collection per house, the words on the collection
+**2026-10-13 · Proposed: built, not yet on preview or live**
+
+Each house gets an automated collection (Vendor = the house) on the `collection.house` template, at `/collections/vintage-{house}-jewellery`, as [04](../1-shop/04-site-ia.md) set out. In order, the page carries:
+1. The house, set large in our own serif, with a lede
+2. The pieces in the shop
+3. Notes on the house
+4. A *Reading the mark* table
+5. The house's sold pieces from the Record
+6. The other houses
+7. The trade mark disclaimer
+
+The homepage house band, a House row on the product page and *More from this house* (04, product page item 10) all find the page by its handle. Until it exists they fall back to Shopify's vendor listing, so no house link is dead.
+
+*Rationale:* the words live on the collection (its description and `hikari.*` metafields), not in the theme. Thread 3 writes them in Shopify, and a house added later needs no deploy. A house with nothing in stock still earns its traffic: it says nothing is in this week, points at the list and shows what sold. That is the Record doing the job 04 gave it.
+
+*Needs:* the collection metafield definitions and one collection per house ([theme/README](../theme/README.md)). Editorial for each house from [Thread 3](../3-copy/README.md). The IP solicitor's hour should cover these pages ([#82](99-open-questions.md)).
+
+---
+
+### D23 · The bag: a delivery line, pieces that sold, a gift note
+**2026-10-13 · Proposed: built, not yet on preview or live · Amends D17**
+
+1. **A delivery line.** *UK delivery · Free* at or over a theme setting (default £100, matching the trust strip). Below it, *Added at checkout*, and Total becomes Subtotal. D17 said the total holds only while delivery is free; this keeps it true if that changes.
+2. **A piece that sells while it's in the bag says so.** It reads *Sold since you added it*, leaves the total, and Checkout waits until it's removed. The bag also asks Shopify again each time it opens and when someone comes back from checkout.
+3. **A gift note, for segment C** ([03](03-customer.md)). It reaches the order as cart attributes. The bag promises the note goes on a card and the price stays out of the parcel. **That is a packing commitment:** confirm it, or change the promise in theme settings, before this goes live.
+4. **A one-line bag notice** for delivery cut-offs: Christmas, Mothering Sunday.
+
+*Rationale:* [21](../1-shop/21-checkout.md). The bag is the last surface we control before Shopify's checkout, and on Basic the checkout steps can't carry our own content ([#88](99-open-questions.md)).

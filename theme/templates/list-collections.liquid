@@ -1,4 +1,23 @@
+{%- comment -%}
+  /collections: the houses. Only collections on the house template are listed, so New In,
+  Under £150 and the like stay off it. Before any house page exists it lists every collection.
+{%- endcomment -%}
+{%- assign n_house = 0 -%}
+{%- for c in collections -%}{%- if c.template_suffix == 'house' -%}{%- assign n_house = n_house | plus: 1 -%}{%- endif -%}{%- endfor -%}
 <section class="pad" data-bg="#EFF0EC" data-fg="#14171A"><div class="shell">
-  <p class="eyebrow">Shop by house</p>
-  <div class="houses">{%- for c in collections -%}<a href="{{ c.url }}">{{ c.title }}</a>{%- unless forloop.last %}<span class="sep">·</span>{% endunless -%}{%- endfor -%}</div>
+  <h1 class="eyebrow">Shop by house</h1>
+  <div class="houses">
+    {%- assign first = true -%}
+    {%- for c in collections -%}
+      {%- if n_house > 0 and c.template_suffix != 'house' -%}{%- continue -%}{%- endif -%}
+      {%- if n_house > 0 -%}
+        {%- assign name = c.metafields.hikari.house.value | default: c.products.first.vendor | default: c.title -%}
+      {%- else -%}
+        {%- assign name = c.title -%}
+      {%- endif -%}
+      {%- unless first %}<span class="sep">·</span>{% endunless -%}
+      {%- assign first = false -%}
+      <a href="{{ c.url }}">{{ name }}</a>
+    {%- endfor -%}
+  </div>
 </div></section>

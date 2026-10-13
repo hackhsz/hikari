@@ -359,4 +359,12 @@ Hikari and the Cecilia project are the same business. Cecilia's 2026-09-06 resea
 | 86 | **EORI number before the first commercial import.** Free and quick, but customs won't clear a business import without one. | [06](06-unit-economics.md), [16](16-vat.md) |
 | 87 | **Check the price bands against the first five purchases.** The Cecilia session quotes ¥8–25k in Japan against £150–350 UK sold for 1990s CD clip earrings. [06](06-unit-economics.md) assumes ¥12,000. Both are unverified. | [06](06-unit-economics.md), [archive/cecilia](../archive/cecilia/README.md) |
 
-**Next free numbers:** question **#88**, decision **D22**, doc **21**.
+## Update · 2026-10-13 — checkout and house pages ([21](../1-shop/21-checkout.md), D22, D23)
+
+| # | Question | Where |
+|---|---|---|
+| 88 | **The trust block can't sit inside checkout on Basic.** [04](../1-shop/04-site-ia.md) asks for it "repeated at checkout". On Basic the contact, delivery and payment steps take no custom content; that needs Plus. The bag carries it directly above Checkout instead. Accept that, or revisit at the D7 plan review. Verify against the current admin first. | [21](../1-shop/21-checkout.md), [04](../1-shop/04-site-ia.md) |
+| 89 | **A longer return window for Christmas gifts?** Segment C is guessing and needs an easy exchange ([03](03-customer.md)). E.g. gifts bought from 1 Nov returnable to 31 Jan. Decide before the bag notice goes up; it goes in the refund policy too. | [21](../1-shop/21-checkout.md), [03](03-customer.md) |
+| 90 | **Abandoned-checkout reminders on one-of-one stock.** Shopify can send one after the piece has sold to someone else, and the default words imply it's waiting (against D17). Rewrite them, or don't send them at all. | [21](../1-shop/21-checkout.md) |
+
+**Next free numbers:** question **#91**, decision **D24**, doc **22**.

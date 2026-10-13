@@ -18,7 +18,7 @@ Each thread is a workstream with its own folder, and its own Claude session when
 
 | # | Thread | Where it stands | Folder |
 |---|---|---|---|
-| 1 | **Shop:** Shopify channel and site | Theme built; bag drawer on preview, not yet live; trust pages wait on copy | [`1-shop/`](1-shop/README.md) |
+| 1 | **Shop:** Shopify channel and site | Theme built; bag drawer on preview; house pages and the checkout path ([21](1-shop/21-checkout.md)) built, not yet on preview; trust pages and house words wait on copy | [`1-shop/`](1-shop/README.md) |
 | 2 | **Photos:** source photo → AI-edited image | Rules decided; workflow drafted; AI tool not chosen | [`2-photos/`](2-photos/README.md) |
 | 3 | **Copy:** listings, pages, captions, emails | Rules and templates; nothing written yet | [`3-copy/`](3-copy/README.md) |
 | 4 | **Markets:** fair applications and stalls | Shortlist to 6 Dec; Farnham (31 Oct) needs applying to now | [`4-markets/`](4-markets/README.md) |
@@ -40,8 +40,8 @@ Each thread is a workstream with its own folder, and its own Claude session when
 | [07 Roadmap](0-plan/07-roadmap.md) | Phases, and what to do next |
 | [09 Payments & tax](0-plan/09-payments-and-tax.md) · [16 VAT](0-plan/16-vat.md) · [17 Entity & tax](0-plan/17-entity-and-tax.md) | Payment, VAT, and sole trader vs limited company |
 | [18 Name clearance](0-plan/18-name-clearance.md) | ⚠️ "HIKARI" is registered in Class 14 by another UK company |
-| [**Decisions**](0-plan/DECISIONS.md) | D1–D21, dated, append-only |
-| [**Open questions**](0-plan/99-open-questions.md) | #1–#87, and the next free numbers |
+| [**Decisions**](0-plan/DECISIONS.md) | D1–D23, dated, append-only |
+| [**Open questions**](0-plan/99-open-questions.md) | #1–#90, and the next free numbers |
 
 **[`brand/`](brand/): the brand system.** [08 Brand](brand/08-brand.md) covers aesthetic, palette, type, the photography spec and the lexicon. [10 Logo](brand/10-logo.md) covers the mark and the lockup. Also here: `tokens.css`, the specimens, and the PNG exports in `logo/`.
 
@@ -55,7 +55,7 @@ Doc numbers didn't change. Only the folders did.
 |---|---|
 | 00, 02, 03, 06, 07, 09, 16, 17, 18, DECISIONS, 99 | `0-plan/` |
 | 08 Brand, 10 Logo | `brand/` |
-| 04 Site & IA, 11 Platform, 12 Build cost | `1-shop/` |
+| 04 Site & IA, 11 Platform, 12 Build cost (and new: 21 Checkout) | `1-shop/` |
 | 13 Photography pipeline, 11 → **20** Imagery rights, `brand/prompts.md` | `2-photos/` |
 | 19 Markets | `4-markets/` |
 | 05 Social, 14 Marketing | `5-social/` |
