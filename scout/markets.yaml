@@ -2026,3 +2026,306 @@ markets:
   sources: ['https://help.selency.com/en/articles/6045634', 'https://help.selency.com/en/articles/6061506']
   decision: new
   our_notes: null
+
+- id: lazy-flea-west-london
+  name: The Lazy Flea (Chiswick, Wandsworth and West London venues)
+  type: market
+  city: London
+  where: 'Rotating West London venues: Chiswick Town Hall W4; Chiswick House & Gardens forecourt; Ferrier Street,
+    Wandsworth SW18; Normansfield Theatre, Teddington'
+  organiser: The Lazy Flea (team@lazyflea.co.uk)
+  url: https://www.lazyflea.co.uk/
+  apply_url: https://www.lazyflea.co.uk/traders
+  dates: Roughly monthly. Sun 25 Oct 2026, Chiswick Town Hall, 10:30-16:00; Sat-Sun 14-15 Nov 2026, Ferrier Street,
+    Wandsworth; Sat-Sun 12-13 Dec 2026, Christmas Market at Chiswick House. "More dates TBC"
+  next_date: 2026-10-25
+  apply: {status: closed, deadline: null, opens: null}
+  window: No published cycle. The Trade With Us page says applications are closed and that reopening will be announced
+    on their social media (Instagram @thelazyflea). Approved traders then book individual pitches through a trader
+    login.
+  fee_gbp: null
+  cost: Not published. Pitch booking sits behind the approved-trader login.
+  commission_pct: null
+  requires: [Trader application when it reopens (watch Instagram @thelazyflea), Approved-trader account to book
+      each pitch]
+  watch_out: Applications closed as of 19 Oct 2026. Pitch fees are not public. The mix is furniture- and homeware-led,
+    with clothing and jewellery alongside. It is branded as a "flea", but runs in grand West London venues.
+  fit: 3
+  why: A curated vintage market in affluent West London venues (Chiswick House, Chiswick Town Hall). The organiser
+    names "one-of-a-kind jewellery pieces" alongside furniture, homeware and clothing, and its traders are vintage
+    dealers rather than makers. Press listings (not verified) put the Chiswick House edition at 60+ traders. A plausible
+    test where jewellery is an add-on to a homeware crowd. Fee unknown; closed to new traders for now.
+  checked: 2026-10-19
+  sources: ['https://www.lazyflea.co.uk/', 'https://www.lazyflea.co.uk/traders', 'https://www.lazyflea.co.uk/calendar-1',
+    'https://www.lazyflea.co.uk/about', 'https://chiswickhouseandgardens.org.uk/event/the-lazy-flea/']
+  decision: new
+  our_notes: null
+
+- id: flea-london-hackney-bridge
+  name: Flea London — Vintage & Makers Market at Hackney Bridge
+  type: market
+  city: London
+  where: Hackney Bridge, Hackney Wick E15 2SJ (Queen Elizabeth Olympic Park edge). Previously at Vinegar Yard, London
+    Bridge.
+  organiser: Flea London
+  url: https://flealondon.com/
+  apply_url: null
+  dates: Weekend market (Sat and Sun, 11:00-17:00) at Hackney Bridge. Listings show 20-21 Jun, 4-5 Jul, 18-19 Jul
+    and 25-26 Jul 2026. The autumn and winter schedule is unverified.
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: Unverified. Event listings say trader application forms are on the organiser's profile (most likely Instagram).
+  fee_gbp: null
+  cost: Not published
+  commission_pct: null
+  requires: [Trader application form via the organiser's profile (unverified), 'Contact info@flealondon.com (from
+      a Southwark Council listing, may be out of date)']
+  watch_out: flealondon.com reset the connection through the proxy, so nothing here is from the organiser. A Bermondsey
+    Street notice says the market left Vinegar Yard after the weekend of 4-5 April (year not stated) for Hackney
+    Bridge. The vintage stalls share the market with makers, records and food.
+  fit: 3
+  why: Listings (QEOP, ma.to) describe a tightly curated mix of vintage fashion, statement jewellery, art, records
+    and design pieces, and they invite trader applications. That suits a vintage reseller, though the East London
+    weekend crowd likely pays less than £100-300. Dates, fee and the application route are all unverified because
+    the organiser's site is unreachable, so they are null.
+  checked: 2026-10-19
+  sources: ['https://ma.to/event/flea-london-market-18-jul-2026', 'https://www.queenelizabetholympicpark.co.uk/node/3986',
+    'https://bermondseystreet.london/last-flea-vintage-market-weekend-4-5-april/', 'https://www.southwark.gov.uk/southwark-presents/vintage-and-makers-flea-market']
+  decision: new
+  our_notes: null
+
+- id: netil-market-popup
+  name: Netil Market — pop-up and retail units (Eat Work Art)
+  type: popup
+  city: London
+  where: Netil Market, 13-23 Westgate Street, London Fields, Hackney E8 3RL (between Mare Street and Broadway Market)
+  organiser: Eat Work Art
+  url: https://eatworkart.com/netil-market
+  apply_url: https://eatworkart.com/netil-market/studios/pop-up-space-netil-market
+  dates: 'Glass-fronted pop-up unit: available now until 22 Nov 2026, minimum two-week booking. Market hours are
+    Mon, Tue and Sun 9am-6pm, Wed-Sat 9am-10pm. A permanent retail space is also listed at £900 p/m, pitched at
+    service businesses.'
+  next_date: null
+  apply: {status: open, deadline: null, opens: null}
+  window: Ad hoc. Units are listed on eatworkart.com and sometimes Appear Here, with "Apply to view" enquiries.
+    This pop-up unit can only be booked until 22 Nov 2026.
+  fee_gbp: 950
+  cost: Pop-up unit £950 per month + 5% service charge; the two-week price is not stated. Permanent retail space
+    £900 p/m. Wi-Fi included.
+  commission_pct: null
+  requires: ['"Apply to view" enquiry via Eat Work Art', 'Curation review: a past Appear Here listing says Netil
+      only considers traders offering something unique compared with what is already in the market']
+  watch_out: Very short window (the unit ends 22 Nov). Footfall is food-led (street food, bars, Netil Radio), and
+    vintage clothing is already among the traders. The unit must be staffed through long market hours. A physical
+    pop-up before the website converts conflicts with D3.
+  fit: 3
+  why: 'A cheap, credible East London shopfront: at £950 a month, break-even is about 12 pieces a month (under one
+    every two days). The audience is mixed, a food-and-leisure crowd rather than design-led vintage buyers, so it
+    is a plausible short test. Not a credential.'
+  checked: 2026-10-19
+  sources: ['https://eatworkart.com/netil-market', 'https://eatworkart.com/netil-market/studios/pop-up-space-netil-market',
+    'https://www.appearhere.co.uk/spaces/netil-market-unit-l']
+  decision: new
+  our_notes: null
+
+- id: brick-lane-vintage-market
+  name: Brick Lane Vintage Market (Old Truman Brewery)
+  type: arcade
+  city: London
+  where: F Block, 85 Brick Lane (Old Truman Brewery), London E1 6QL
+  organiser: The Truman Brewery (landlord); market brand Brick Lane Vintage Market
+  url: https://www.trumanbrewery.com/web/markets.pl
+  apply_url: null
+  dates: Open 7 days. Mon-Fri 11am-6:30pm, Sat 11am-6pm, Sun 10am-6pm. Permanent underground market of 100+ shops.
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: No trader page found. The only routes are Truman's general retail lettings (/renting-space#retail) and
+    info@trumanbrewery.com, and neither confirms units in the vintage market.
+  fee_gbp: null
+  cost: Not published
+  commission_pct: null
+  requires: [Retail letting enquiry to The Truman Brewery (route unconfirmed)]
+  watch_out: The market's own domains (bricklanevintagemarket.com and .co.uk) are parked, and vintage-market.co.uk
+    returned 503. These are permanent shop units, not day stalls, so they mean rent plus daily staffing.
+  fit: 2
+  why: Busy and famous ("largest vintage market in the UK"), but the frame is mass vintage clothing ("1920s glam
+    to Y2K streetwear") for a young tourist crowd, at well below £100-300. It needs a permanent unit with unknown
+    rent, and no trader route was found.
+  checked: 2026-10-19
+  sources: ['https://www.trumanbrewery.com/web/markets.pl']
+  decision: new
+  our_notes: null
+
+- id: stockport-vintage-village
+  name: The Vintage Village — Stockport Market Hall
+  type: fair
+  city: Manchester
+  where: Stockport Market Hall (Victorian covered market), Market Place, Stockport SK1
+  organiser: The Vintage Village (info@vintagevillagestockportmarket.co.uk)
+  url: https://www.vintagevillagestockportmarket.co.uk/
+  apply_url: null
+  dates: Sundays, about 10:00-16:00. FleaMapket says it runs "one Sunday every other month"; older sources say the
+    2nd Sunday monthly. FleaMapket lists 22 Mar 2026. Schedule unverified.
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: Unknown
+  fee_gbp: null
+  cost: Not published
+  commission_pct: null
+  requires: [Contact info@vintagevillagestockportmarket.co.uk or Facebook /VintageVillageUK (unverified)]
+  watch_out: The organiser site timed out on both runs (13 and 19 Oct 2026), so every detail here is from listings.
+    The stock mix is broad collectables (vinyl, cameras, clocks, ephemera, bicycles), and the event is described
+    as "deliberately accessible rather than pitching it at the top end".
+  fit: 2
+  why: A 70+ stall vintage and collectables fair in a handsome Victorian hall. It is a bargain-hunter, collectables
+    frame where jewellery isn't a recognised category. Dates, fee and the application route are unverified because
+    the organiser's site is unreachable, so they are null.
+  checked: 2026-10-19
+  sources: ['https://www.fleamapket.com/listing/the-vintage-village/', 'https://www.fleamapket.com/event/the-vintage-village/2026-03-22/']
+  decision: new
+  our_notes: null
+
+- id: canopy-market-kings-cross
+  name: Canopy Market, King's Cross (Real Food Markets)
+  type: market
+  city: London
+  where: West Handyside Canopy, King's Cross N1C 4BH
+  organiser: Real Food Festival / Real Food Markets
+  url: https://www.realfoodfestival.co.uk/our_work/canopy-market/
+  apply_url: https://docs.google.com/forms/d/e/1FAIpQLSdIK2-D-J48MCPT3iWLifGZv9hNCMj5BH2ZQmsZqCmkk4quIA/viewform
+  dates: Every Fri 12:00-20:00, Sat and Sun 11:00-18:00. Christmas Canopy Market historically ran daily from late
+    Nov to 22 Dec (2025 per Time Out; 2026 unverified).
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: A rolling register. All applicants go on a database, with no guaranteed reply.
+  fee_gbp: null
+  cost: '"More detailed info, including rates, provided upon selection."'
+  commission_pct: null
+  requires: [Google Form (product range, website, socials, recent markets, what's unique), Photo of current stall
+      set-up emailed to the organisers, Provenance/quality documentation (written for food traders)]
+  watch_out: The only application form is built for food traders (welfare standards, power, gas). The organiser
+    lists the non-food offer as "designer-makers | handmade craft | original art". No vintage or resale category.
+  fit: 1
+  why: 'Ruled out in practice: food-led, and the non-food stalls are designer-makers and handmade craft. There is
+    no explicit resale ban, so re-check only if a non-food or vintage call appears. The Lower Stable Street and
+    Shotengai markets nearby are tracked separately.'
+  checked: 2026-10-19
+  sources: ['https://www.realfoodfestival.co.uk/our_work/canopy-market/', 'https://docs.google.com/forms/d/e/1FAIpQLSdIK2-D-J48MCPT3iWLifGZv9hNCMj5BH2ZQmsZqCmkk4quIA/viewform',
+    'https://www.timeout.com/london/things-to-do/christmas-canopy-market-at-kings-cross']
+  decision: new
+  our_notes: null
+
+- id: charlton-house-christmas-market
+  name: Charlton House Christmas Market
+  type: market
+  city: London
+  where: Charlton House, Charlton Road, London SE7 (Royal Borough of Greenwich)
+  organiser: Royal Greenwich Heritage Trust
+  url: https://www.greenwichheritage.org/news/calling-all-christmas-stallholders-be-part-of-our-festive-market/
+  apply_url: null
+  dates: Sat 5 and Sun 6 Dec 2026
+  next_date: 2026-12-05
+  apply: {status: closed, deadline: 2026-07-01, opens: null}
+  window: Call posted mid-June; expressions of interest by email by 1 July
+  fee_gbp: null
+  cost: Not published
+  commission_pct: null
+  requires: [Expression of interest by email to events@rght.org.uk]
+  watch_out: 'The call is for "talented makers, independent businesses and artisan producers": "If you make bake
+    and create". The 2026 deadline has passed.'
+  fit: 1
+  why: A heritage-house Christmas market that invites makers (handcrafted jewellery, ceramics, art). Resold vintage
+    isn't invited, and 2026 is closed. Re-read the wording when next June's call appears.
+  checked: 2026-10-19
+  sources: ['https://www.greenwichheritage.org/news/calling-all-christmas-stallholders-be-part-of-our-festive-market/']
+  decision: new
+  our_notes: null
+
+- id: merchant-square-market-glasgow
+  name: Merchant Square Craft & Design Market, Glasgow
+  type: market
+  city: Glasgow
+  where: Merchant Square (covered courtyard), 71 Albion Street, Merchant City, Glasgow G1 1NY
+  organiser: Merchant Square (venue)
+  url: https://www.merchantsquareglasgow.com/events
+  apply_url: null
+  dates: The 2025 event pages describe a Saturday market, 11:00-18:00. As of 19 Oct 2026 the organiser's events
+    page lists no 2026 market dates (only Skotoberfest, record fairs and fanzones). A Christmas weekend market has
+    run late Nov-22 Dec in a past year.
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: Unknown; no stallholder page
+  fee_gbp: null
+  cost: Not published
+  commission_pct: null
+  requires: ['Contact eventsmerchantsquare@gmail.com (from an earlier listing, unverified)']
+  watch_out: VisitGlasgow says "All products are handmade in Glasgow". The organiser's own 2025 page lists "crafts,
+    fashion, jewellery, homeware, baking" without stating the rule.
+  fit: 1
+  why: A craft and design market for Glasgow makers (handmade rule per VisitGlasgow), so resold vintage doesn't
+    qualify. No 2026 market dates or application route were found either.
+  checked: 2026-10-19
+  sources: ['https://www.merchantsquareglasgow.com/events', 'https://www.merchantsquareglasgow.com/events/merchant-square-merket-7dfp9-24gww-bk9yn',
+    'https://visitglasgow.com/see-do/shopping/weekend-markets']
+  decision: new
+  our_notes: null
+
+- id: wasps-artists-makers-market-glasgow
+  name: Wasps Artists & Makers Market (The Briggait, Glasgow)
+  type: market
+  city: Glasgow
+  where: The Briggait, 141 Bridgegate, Glasgow G1 5HZ
+  organiser: Wasps (Wasps Studios)
+  url: https://portal.waspsstudios.org.uk/news/
+  apply_url: null
+  dates: 'The winter market has historically run in early December (2024: Sat-Sun 7-8 Dec, 11:00-16:00, per search
+    extracts of the 2024 call). There is no 2026 Glasgow winter-market call on Wasps'' news page (latest post 23
+    Jul 2026).'
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: 'Historically an open call from mid-September to early October for the December market (2024 deadline:
+    Fri 4 Oct). Nothing was posted for 2026 by 19 Oct.'
+  fee_gbp: null
+  cost: Not published
+  commission_pct: null
+  requires: [Open call application as an artist or maker]
+  watch_out: An artists-and-makers market run by a studio provider for people selling their own work. The 2024 open
+    call page now returns 404.
+  fit: 1
+  why: Ruled out because it is for makers selling their own work, and resale vintage is out of scope. Logged so
+    it isn't rediscovered. The 2026 edition is unconfirmed.
+  checked: 2026-10-19
+  sources: ['https://portal.waspsstudios.org.uk/news/', 'https://www.waspsstudios.org.uk/2024/09/13/open-call-for-wasps-winter-artists-and-makers-markets-now-live/']
+  decision: new
+  our_notes: null
+
+- id: loulous-vintage-fair-london-canada-water
+  name: Lou Lou's Vintage Fair — London, Canada Water
+  type: fair
+  city: London
+  where: Corner Corner, Maritime Street, Canada Water, London SE16 7LL
+  organiser: Lou Lou's Vintage Fair
+  url: https://www.loulousvintagefair.com/
+  apply_url: https://eventaly.com/event/lou-lous-london-canada-water/
+  dates: Sun 15 Nov 2026, 11am–4pm
+  next_date: 2026-11-15
+  apply: {status: open, deadline: null, opens: null}
+  window: Each event needs its own application on Eventaly; replies usually within 10 working days, and the stall
+    is confirmed only when the pitch-fee invoice is paid
+  fee_gbp: null
+  cost: Pitch fee not published; Eventaly shows stall types and prices only after you log in
+  commission_pct: null
+  requires: [Eventaly trader account, Separate application per event, Pitch fee paid by the invoice deadline, Public
+      and product liability insurance recommended (not required)]
+  watch_out: Stock must match what the application describes; unapproved items can get a trader removed. Fees are
+    non-refundable and non-transferable; trader cancellations need a replacement trader plus a £20 fee. Same day
+    as Midcentury Modern Dulwich.
+  fit: 4
+  why: The same curated Lou Lou's vintage fair as the Manchester entry, but in London with no travel. Resellers
+    are its whole model and jewellery is a listed category. Held back from 5 by the broad 'affordable vintage' crowd
+    and the unknown fee. Missed by run 1, which found no London edition.
+  checked: 2026-10-19
+  sources: ['https://www.loulousvintagefair.com/', 'https://eventaly.com/event/lou-lous-london-canada-water/', 'https://eventaly.com/organiser/lou-lous-vintage-market/',
+    'https://www.loulousvintagefair.com/trader-terms-and-conditions']
+  decision: new
+  our_notes: null

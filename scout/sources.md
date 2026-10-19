@@ -25,6 +25,10 @@ Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manches
 - Greenwich Market rules/prices: https://greenwichmarket.london/become-a-trader/
 - RBKC Portobello casual trading: https://www.rbkc.gov.uk/markets (jewellery excluded; re-check the "check back" notice)
 - Appear Here London: https://www.appearhere.co.uk/destinations/london (listings are JS-rendered; homepage shows example day rates)
+- Lou Lou's London (Canada Water): https://eventaly.com/event/lou-lous-london-canada-water/ and dates on https://www.loulousvintagefair.com/ (added run 2; run 1 missed it)
+- Lazy Flea: /traders and /calendar-1 pages on the Lazy Flea site (applications closed at run 2; watch for reopening)
+- Netil Market units with live prices: https://eatworkart.com/netil-market
+- Truman Brewery markets: https://www.trumanbrewery.com/web/markets.pl
 
 ### Aggregators that were useful as leads (verify before trusting)
 - fleamapket.com event pages (dates for Frock Me!, Sunbury)
@@ -50,14 +54,14 @@ Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manches
 - Classic Car Boot Sale trade deck (Adobe-hosted PDF): unreadable
 
 ### Leads not yet researched
-- Lazy Flea (Lazy Home), Chiswick House & Town Hall: monthly vintage market, 60+ traders
-- Hackney Flea Market (Stoke Newington Church St; Hammersmith edition)
-- Flea London at Hackney Bridge
-- Netil Market (units via Appear Here; curated "unique" rule)
-- Canopy Market, King's Cross (Real Food Markets; designer-makers, likely excludes resale)
-- Brick Lane Vintage Market / Truman "Artisan" (permanent units)
-- Antiques Anonymous (Church Street, Marylebone; status unknown)
 - Sunbury Wimbledon outdoor fair (2027 dates TBC; £45-£65 outside pitches)
+- Lou Lou's Midcentury Home Market, Canada Water (The Nest, Sun 1 Nov 2026): homeware-led, not on Lou Lou's Eventaly list
+- Flea London at Hackney Bridge: tracked, but flealondon.com would not load at run 2, so dates, fee and route are still null
+
+### Dead ends (don't re-check)
+- Hackney Flea Market: site 403, nothing confirmed since Oct 2025, no trader route (run 2)
+- Antiques Anonymous: last held 2019; the Church Street Antiques Fair replaced it (run 2)
+- Many app-registration markets announce trader calls only on Instagram, which can't be fetched; check those by hand
 
 ---
 
@@ -102,13 +106,9 @@ First run 2026-10-13. These are the pages and searches that actually gave verifi
 ### Unresolved leads (worth one more check)
 - **Vintage@The Monastery, Manchester** (Decorative Fairs): no current date. themonastery.co.uk returns 403 to fetches, so phone or email the organiser instead.
 - **Altrincham Market**: altrinchammarket.co.uk was unreachable. Applications go to iwanttotrade@marketoperations.co.uk.
-- **Stockport Vintage Village** (2nd Sunday monthly, Stockport Market Hall): the official site timed out, so it is unverified. Contact is info@vintagevillagestockportmarket.co.uk.
+- **Stockport Vintage Village** (2nd Sunday monthly, Stockport Market Hall): tracked since run 2, but the official site timed out again, so details are unverified. Contact is info@vintagevillagestockportmarket.co.uk.
 - **Levenshulme**: the original Levenshulme Market paused in 2023, and levymarket.com was down. The Levy Artisan Market (Independent Street plus the council, 2nd Sunday) is artisan-led and its rules are unverified.
-- **Glasgow Vintage & Flea Market** (St Luke's, Bain Street; "The Glasgow Markets"): the site is blocked by the proxy and there is no evidence it still runs in 2026.
-- **Merchant Square Craft & Design Fair, Glasgow**: weekends, eventsmerchantsquare@gmail.com. Rules and status are unverified.
-- **Kinning Park Antique Centre, Glasgow** (90+ dealers, Durham Street): no website reachable and no dealer-letting info found.
 - **Craft & Flea Brighton** (St Bart's, Sat 17 Oct 2026): too close to apply this cycle. Watch Eventaly for the next Brighton date.
-- **Wasps Artists & Makers Markets** (Briggait, Glasgow): artist and maker open calls historically run mid-Sep to early Oct. Likely makers-only, so it has not been added as an entry.
 - **Manchester City Council specialist markets / Christmas Markets**: council pages return 403 to fetches, so use search-engine extracts or a manual browser check.
 
 ### Dead ends (don't re-check)
@@ -117,6 +117,9 @@ First run 2026-10-13. These are the pages and searches that actually gave verifi
 - prelovedkilo.com does not resolve.
 - bazaarbrighton.co.uk does not resolve.
 - "Vintage Fashion Fair" (Frock Me!, Farnham, Wanstead) is London and the South East only, with no editions in these four cities.
+- Glasgow Vintage & Flea Market: no sign of it since 2018 and the site is unreachable (run 2).
+- Kinning Park Antique Centre, Glasgow: no website and no dealer-letting information (run 2).
+- Merchant Square and Wasps (Glasgow): researched at run 2 and ruled out as makers-only; tracked at fit 1.
 
 ---
 
