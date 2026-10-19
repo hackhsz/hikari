@@ -29,9 +29,8 @@ markets:
   organiser: Frock Me!
   url: https://www.frockmevintagefashion.com/fair-dates
   apply_url: https://www.frockmevintagefashion.com/exhibitors
-  dates: Sun 18 Oct 2026 (Kensington, 100+ exhibitors); Sun 15 Nov 2026 (Victoria, ~80); Sun 6 Dec 2026 (Chelsea,
-    60+). 10 fairs in 2026; 2027 dates not yet published
-  next_date: 2026-10-18
+  dates: Sun 15 Nov 2026 (Victoria, Lindley Hall, ~80); Sun 6 Dec 2026 (Chelsea Old Town Hall); Sun 7 Feb 2027 (Chelsea Old Town Hall). Further 2027 dates not yet published
+  next_date: 2026-11-15
   apply: {status: closed, deadline: null, opens: null}
   window: No cycle. Stands are fully booked with a 'substantial waiting list'; new exhibitors are considered only
     when a current one leaves ('very rare')
@@ -47,7 +46,7 @@ markets:
   why: London's benchmark vintage fashion fair. Dealers are vetted ('the very best in their chosen field'), the
     Victoria edition names vintage jewellery dealers as a core category, and visitors pay £8 to get in. The audience
     is ideal, but it is effectively closed (waitlist), so treat it as a long-term goal.
-  checked: 2026-10-13
+  checked: 2026-10-19
   sources: ['https://www.frockmevintagefashion.com/fair-dates', 'https://www.frockmevintagefashion.com/exhibitors',
     'https://www.frockmevintagefashion.com/frockmevictoria', 'https://www.frockmevintagefashion.com/plan-your-visit']
   decision: new
@@ -77,7 +76,7 @@ markets:
   why: 'Affluent, design-literate crowd (advance tickets £11, trade early entry £20) shopping for ''sustainable,
     collectable design''. It fits the editorial brand and the mid-century American makers closely. Weaknesses: jewellery
     is not the core category and the stand fee is unknown.'
-  checked: 2026-10-13
+  checked: 2026-10-19
   sources: ['https://www.modernshows.com/shows/dulwich-1/', 'https://www.modernshows.com/newsletters/october-2026-newsletter/',
     'https://www.modernshows.com/contact/']
   decision: new
@@ -186,9 +185,8 @@ markets:
   organiser: Kiosk N1C (hosts Lower Stable Street); Shotengai market co-curated by Beams & Co
   url: https://www.kingscross.co.uk/event/lower-stable-street-market
   apply_url: https://kioskn1c.com/pages/market
-  dates: 'Lower Stable Street Market Thu-Sun + bank holiday Mondays 11am-6pm; Shotengai pan-Asian market monthly:
-    15-18 Oct and 19-22 Nov 2026 (craft stalls Fri-Sun)'
-  next_date: 2026-10-15
+  dates: 'Lower Stable Street Market Thu-Sun + bank holiday Mondays 11am-6pm; Shotengai pan-Asian market monthly: next 19-22 Nov 2026 (craft stalls Fri-Sun); later dates not yet published'
+  next_date: 2026-11-19
   apply: {status: rolling, deadline: null, opens: null}
   window: Rolling enquiries; Shotengai runs monthly, so aim for a Nov 2026 or early-2027 edition
   fee_gbp: null
@@ -203,7 +201,7 @@ markets:
   why: Design-led King's Cross crowd. The Japan-curated Shotengai market (Beams & Co, past vendors like (kits) London
     selling Japanese accessories and fashion) matches the brand's Japan-minimal story closely and would build the
     brand. Resale acceptance and fees are unverified.
-  checked: 2026-10-13
+  checked: 2026-10-19
   sources: ['https://www.kingscross.co.uk/event/lower-stable-street-market', 'https://www.kingscross.co.uk/event/shotengai-market',
     'https://www.kingscross.co.uk/the-shotengai-market', 'https://kioskn1c.com/pages/market']
   decision: new
@@ -364,8 +362,8 @@ markets:
   organiser: Sunbury Antiques (Surrey Antiques Ltd)
   url: https://www.sunburyantiques.com/sandown/
   apply_url: null
-  dates: 'Sundays 10am-3pm: 18 Oct 2026; 17 Jan, 18 Apr, 1 Aug, 17 Oct 2027'
-  next_date: 2026-10-18
+  dates: 'Sundays 10am-3pm: 17 Jan, 18 Apr, 1 Aug, 17 Oct 2027'
+  next_date: 2027-01-17
   apply: {status: open, deadline: null, opens: null}
   window: Book any listed date by email; all inside stalls must be pre-booked (no casual pitches)
   fee_gbp: 80
@@ -379,7 +377,7 @@ markets:
   why: A Sunday fair aimed at private buyers ('decorative antiques, vintage ... vintage clothing, jewellery'), and
     the £80 table breaks even on about one sale, so it's a low-risk test. The audience is broader and more bargain-minded
     than the target customer.
-  checked: 2026-10-13
+  checked: 2026-10-19
   sources: ['https://www.sunburyantiques.com/sandown/', 'https://www.sunburyantiques.com/', 'https://www.thejockeyclub.co.uk/kempton/events-tickets/sunbury-antiques-market-7/sunbury-antiques-market/']
   decision: new
   our_notes: null
@@ -725,7 +723,7 @@ markets:
   why: Curated vintage fashion fair whose listed categories include jewellery, held in a striking venue, and resellers
     are its whole model. One notch below 5 because it's a broad 'affordable vintage' crowd rather than designer
     buyers, the fee is unknown and you'd travel from London.
-  checked: 2026-10-13
+  checked: 2026-10-19
   sources: ['https://www.loulousvintagefair.com/', 'https://eventaly.com/event/lou-lous-manchester/', 'https://eventaly.com/organiser/lou-lous-vintage-market/',
     'https://www.loulousvintagefair.com/trader-terms-and-conditions']
   decision: new
@@ -846,7 +844,7 @@ markets:
   why: A curated, Instagram-literate shopping crowd in a beautiful venue, and about 1 sale covers the fee. But it's
     a mixed craft-and-flea audience with lower price expectations, and vintage resale sits at the edge of what they
     recruit. A plausible test.
-  checked: 2026-10-13
+  checked: 2026-10-19
   sources: ['https://www.thecraftandflea.com/pages/trade-with-us', 'https://www.thecraftandflea.com/pages/trader-faqs',
     'https://eventaly.com/event/manchesters-craft-and-flea/', 'https://eventaly.com/organiser/craft-flea/']
   decision: new
@@ -1116,7 +1114,7 @@ markets:
   fit: 3
   why: The most curated option found in Glasgow, with a Christmas date and a modest fee. But it's a mixed craft
     crowd and the travel cost makes it a stretch test.
-  checked: 2026-10-13
+  checked: 2026-10-19
   sources: ['https://eventaly.com/event/glasgows-craft-flea/', 'https://www.thecraftandflea.com/pages/trade-with-us',
     'https://www.thecraftandflea.com/pages/trader-faqs']
   decision: new
@@ -1226,7 +1224,7 @@ markets:
   fit: 3
   why: A design-led vintage crowd in a dramatic venue, an hour from London, and about 1 sale covers the £80 stall.
     But furniture leads, fashion and jewellery are a 'sprinkling', and the brand frames itself as affordable.
-  checked: 2026-10-13
+  checked: 2026-10-19
   sources: ['https://judysvintagefair.com/events/the-brighton-vintage-furniture-flea-market-october/', 'https://judysvintagefair.com/trader-bookings/?eventid=23561',
     'https://judysvintagefair.com/traders/', 'https://judysvintagefair.com/terms-conditions-of-booking/']
   decision: new
