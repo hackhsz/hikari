@@ -2,25 +2,58 @@
   Product page anatomy per 1-shop/04-site-ia.md. Information sits BELOW / BESIDE the image, never over it,
   so no scrim is ever needed. Frames 2 and 4 — the maker's-mark macro and the condition frame — are
   evidence: unretouched, ungrained, and labelled as such (D6, D10).
+
+  Every frame opens full screen (#zoom) and the label travels with it. Without JavaScript each
+  frame is a plain link to the large image.
+
+  The 360° view (D26) reads hikari.spin, a list of images: one turntable turn, 24–36 photographs,
+  in order. Real photographs only. Nothing in it is generated, so it sits beside the evidence
+  frames rather than with the composed ones. It goes after frame 1.
+
+  The panel follows the piece's status (snippets/status, D25): Add to bag; or, coming soon, the
+  release time and a form to hear when it goes live; or, sold, a form to hear when something
+  similar arrives. Both forms add a tagged customer, so Shopify Email can find them.
 {%- endcomment -%}
 {%- assign p = product -%}
-<section class="pad" data-bg="#EFF0EC" data-fg="#14171A" style="--sec-bg:#EFF0EC;--sec-fg:#14171A;">
+{%- capture status -%}{%- render 'status', p: p -%}{%- endcapture -%}
+{%- assign piece = p.metafields.hikari.piece | default: p.title -%}
+{%- assign spin = p.metafields.hikari.spin.value -%}
+{%- capture spin_html -%}
+  {%- if spin.size > 1 -%}
+    <figure class="spin" data-spin tabindex="0" role="img"
+            aria-label="{{ p.title | escape }}: 360° view in {{ spin.size }} photographs. Drag, or use the arrow keys, to turn it.">
+      <img src="{{ spin.first.preview_image | image_url: width: 1400 }}" alt="" loading="lazy" draggable="false" data-spin-img
+           width="{{ spin.first.preview_image.width | default: 1400 }}" height="{{ spin.first.preview_image.height | default: 1400 }}">
+
+      <script type="application/json" data-spin-frames>[
+        {%- for f in spin -%}{{ f.preview_image | image_url: width: 1400 | json }}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}
+      ]</script>
+      <span class="spin-hint" aria-hidden="true">360° · drag to turn</span>
+      <figcaption class="unret">360° · {{ spin.size }} photographs on a turntable, not generated</figcaption>
+    </figure>
+  {%- endif -%}
+{%- endcapture -%}
+
+<section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
   <div class="shell pdp">
     <div class="frames">
       {%- if p.images.size > 0 -%}
         {%- for img in p.images -%}
           {%- assign evidence = false -%}
           {%- if forloop.index == 2 or forloop.index == 4 %}{% assign evidence = true %}{% endif -%}
-          {%- if evidence -%}
-            {%- render 'plate', image: img, alt: p.title -%}
-            <p class="unret">Unretouched · no grain, no retouching</p>
-          {%- else -%}
-            {%- render 'plate', image: img, alt: p.title -%}
-          {%- endif -%}
+          {%- if forloop.index == 1 -%}{%- assign b = status -%}{%- else -%}{%- assign b = '' -%}{%- endif -%}
+          <a class="frame" href="{{ img | image_url: width: 2400 }}" data-zoom
+             data-zoom-label="{% if evidence %}Unretouched{% endif %}"
+             aria-label="Photograph {{ forloop.index }} of {{ p.images.size }}, full screen">
+            {%- render 'plate', image: img, alt: p.title, badge: b -%}
+          </a>
+          {%- if evidence -%}<p class="unret">Unretouched · no grain, no retouching</p>{%- endif -%}
+          {%- if forloop.index == 1 -%}{{ spin_html }}{%- endif -%}
         {%- endfor -%}
       {%- else -%}
         {%- assign seed2 = p.id | plus: 7 -%}
-        {%- render 'plate', ratio: 0.8, seed: p.id, tone: 'light', comp: 'pair', stamp: 'Plate 01 · daylight' -%}
+        {%- render 'plate', ratio: 0.8, seed: p.id, tone: 'light', comp: 'pair', stamp: 'Plate 01 · daylight', badge: status -%}
+        {{ spin_html }}
         {%- render 'plate', ratio: 0.8, seed: seed2, tone: 'light', comp: 'single', stamp: "Plate 02 · maker's mark" -%}
         <p class="unret">Unretouched</p>
       {%- endif -%}
@@ -28,16 +61,32 @@
 
     <div class="panel">
       <h1>{{ p.vendor | default: p.title }}</h1>
-      <p class="sub">{{ p.metafields.hikari.piece | default: p.title }}</p>
+      <p class="sub">{{ piece }}</p>
       <span class="price p">{{ p.price | money }}</span>
 
-      {%- form 'product', p -%}
-        <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
-        <button class="btn" type="submit" {% unless p.available %}disabled{% endunless %}>
-          {%- if p.available %}Add to bag{% else %}Sold{% endif -%}
-        </button>
-      {%- endform -%}
-      <p class="pdp-note" data-product-note role="status" aria-live="polite"></p>
+      {%- case status -%}
+        {%- when 'soon' -%}
+          <p class="pdp-status pdp-status--soon"><span class="badge badge--soon">Coming soon</span>
+            Goes live {% render 'release', p: p %}</p>
+          {%- capture tags -%}notify-release, piece-{{ p.handle }}{%- endcapture -%}
+          {%- render 'notify', form_id: 'notify-release', tags: tags,
+              heading: 'Tell me when it goes live',
+              fine: 'One email when this piece goes on sale, and the Edition after that. Unsubscribe any time.',
+              ok: 'Done. You will hear the moment it goes live.' -%}
+        {%- when 'sold' -%}
+          <p class="pdp-status"><span class="badge badge--sold">Sold</span> Kept on the Record</p>
+          {%- capture tags -%}notify-similar, house-{{ p.vendor | handleize }}{%- endcapture -%}
+          {%- capture heading -%}Tell me when something like this arrives{%- endcapture -%}
+          {%- render 'notify', form_id: 'notify-similar', tags: tags, heading: heading,
+              fine: 'An email when a similar piece from this house comes in, and the Edition. Unsubscribe any time.',
+              ok: 'Done. We will write when a similar piece comes in.' -%}
+        {%- else -%}
+          {%- form 'product', p -%}
+            <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
+            <button class="btn" type="submit">Add to bag</button>
+          {%- endform -%}
+          <p class="pdp-note" data-product-note role="status" aria-live="polite"></p>
+      {%- endcase -%}
 
       <table class="spec">
         {%- if p.metafields.hikari.grade -%}<tr><th>Condition</th><td>Grade {{ p.metafields.hikari.grade }}{% if p.metafields.hikari.condition %} — {{ p.metafields.hikari.condition }}{% endif %}</td></tr>{%- endif -%}
@@ -54,6 +103,28 @@
 
       {%- if p.description != blank -%}<div class="rte">{{ p.description }}</div>{%- endif -%}
 
+      {%- comment -%} Questions go to a named inbox, not a chat widget (D9). {%- endcomment -%}
+      {%- assign ask = settings.ask_email | default: shop.email -%}
+      <div class="pdp-links">
+        {%- if ask != blank -%}
+          {%- capture subject -%}{{ p.vendor }}, {{ piece }}{%- endcapture -%}
+          <a class="spec-link" href="mailto:{{ ask }}?subject={{ subject | url_encode }}">Ask about this piece</a>
+        {%- endif -%}
+        {%- if settings.share_enabled -%}
+          {%- capture page_url -%}{{ shop.url }}{{ p.url }}{%- endcapture -%}
+          {%- capture pin_text -%}{{ p.vendor }}, {{ piece }}{%- endcapture -%}
+          <span class="share" aria-label="Share">
+            <button type="button" class="share-native" data-share hidden>Share</button>
+            {%- if p.featured_image -%}
+              {%- capture media -%}https:{{ p.featured_image | image_url: width: 1200 }}{%- endcapture -%}
+              <a href="https://www.pinterest.com/pin/create/button/?url={{ page_url | url_encode }}&media={{ media | url_encode }}&description={{ pin_text | url_encode }}"
+                 target="_blank" rel="noopener">Pinterest</a>
+            {%- endif -%}
+            <button type="button" data-copy-link="{{ page_url }}">Copy link</button>
+          </span>
+        {%- endif -%}
+      </div>
+
       <ul class="trust-list">
         <li>{{ settings.trust_1 }}</li><li>{{ settings.trust_2 }}</li>
         <li>{{ settings.trust_3 }}</li><li>{{ settings.trust_4 }}</li>
@@ -61,4 +132,18 @@
     </div>
   </div>
 </section>
+
+{%- comment -%} Full screen photographs. Filled by assets/hikari.js from the frames above. {%- endcomment -%}
+<div class="sheet sheet--zoom" id="zoom" aria-hidden="true" inert>
+  <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="Photographs of {{ p.title | escape }}" tabindex="-1">
+    <div class="zoom-bar">
+      <span class="zoom-count" data-zoom-count aria-live="polite"></span>
+      <button type="button" class="sheet-x" data-sheet-close>Close</button>
+    </div>
+    <div class="zoom-stage" data-zoom-stage><img alt="" width="1600" height="2000" data-zoom-img></div>
+    <button type="button" class="zoom-nav zoom-prev" data-zoom-step="-1" aria-label="Previous photograph">Prev</button>
+    <button type="button" class="zoom-nav zoom-next" data-zoom-step="1" aria-label="Next photograph">Next</button>
+    <p class="zoom-tip">Click or tap to look closer</p>
+  </div>
+</div>
 {% schema %}{ "name": "Product", "settings": [] }{% endschema %}

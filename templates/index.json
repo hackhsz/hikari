@@ -92,12 +92,16 @@
     },
     "signup": {
       "type": "signup"
+    },
+    "next": {
+      "type": "next-edition"
     }
   },
   "order": [
     "hero",
     "alcove",
     "featured",
+    "next",
     "houses",
     "story",
     "recent",

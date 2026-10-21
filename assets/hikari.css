@@ -1,8 +1,10 @@
-/* Hikari — theme stylesheet. Palette B (brand/tokens.css), lockup per brand/10-logo.md.
-   Single-theme by intent: a brand surface does not invert. */
+/* Hikari — theme stylesheet. Palette C, 千歳緑 on 米白 (brand/tokens.css, D24), lockup per brand/10-logo.md.
+   Single-theme by intent: a brand surface does not invert.
+   Three colours: off-white ground, sumi text, one green for emphasis. Green means something
+   you can still act on (the button, Coming soon, the list band); Sold is always ink. */
 :root{
-  --paper:#EFF0EC; --paper-deep:#DFE1DC; --rule:#C9CCC6;
-  --sumi:#14171A; --nezu:#5E625B; --ai:#2E4B6B; --kaki:#9E4730;
+  --paper:#FAF8F3; --paper-mid:#F4F0E8; --paper-deep:#EFEAE0; --rule:#DDD6C8;
+  --sumi:#1C1B18; --nezu:#5F5B52; --midori:#2F5B45;
   --bg:var(--paper); --fg:var(--sumi);
   --serif:"Newsreader",Georgia,"Times New Roman",serif;
   --sans:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
@@ -135,7 +137,7 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .spec{width:100%;border-collapse:collapse;font-size:13.5px;margin:22px 0}
 .spec th,.spec td{text-align:left;padding:9px 0;border-bottom:1px solid;border-color:color-mix(in srgb,currentColor 14%,transparent);vertical-align:top}
 .spec th{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.55;width:42%}
-.btn{display:block;width:100%;text-align:center;background:var(--ai);color:var(--paper);border:0;border-radius:2px;padding:16px 26px;
+.btn{display:block;width:100%;text-align:center;background:var(--midori);color:var(--paper);border:0;border-radius:2px;padding:16px 26px;
   font-family:inherit;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:opacity .25s}
 .btn:hover{opacity:.85}
 .btn[disabled]{background:color-mix(in srgb,currentColor 22%,transparent);color:inherit;cursor:not-allowed}
@@ -151,7 +153,9 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
   border-color:color-mix(in srgb,currentColor 34%,transparent);padding:11px 2px;font:inherit;font-size:15px}
 .form input::placeholder{color:currentColor;opacity:.42}
 .form button{background:currentColor;border:0;border-radius:2px;padding:13px 28px;font-family:inherit;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;cursor:pointer}
-.form button span{color:var(--bg)}
+.form button span{color:var(--sec-bg,var(--bg))}
+/* with scroll colour the ground and ink blend together, so the button follows the blend */
+html.scroll-colour .form button span{color:var(--bg)}
 .strip{display:flex;flex-wrap:wrap}
 .strip div{flex:1 1 150px;padding:15px 14px 15px 0;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;opacity:.66}
 .fcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:26px;margin-top:clamp(36px,6vw,60px)}
@@ -272,15 +276,15 @@ html.sheet-open{overflow:hidden}
 .bag-notice{margin:0 0 12px;padding:9px 12px;font-size:12.5px;line-height:1.45;background:var(--paper-deep)}
 .bag-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-size:12.5px;
   margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--rule)}
-.bag-warn{margin:10px 0 0;font-size:12.5px;line-height:1.45;color:var(--kaki)}
+.bag-warn{margin:10px 0 0;font-size:12.5px;line-height:1.45;font-weight:600}
 .bag-line.is-sold .bag-thumb{opacity:.45;filter:saturate(.3)}
 .bag-line.is-sold .bag-house,.bag-line.is-sold .bag-piece{opacity:.5}
-.bag-line.is-sold .bag-oneof{opacity:1;color:var(--kaki)}
+.bag-line.is-sold .bag-oneof{opacity:1}
 .bag-line.is-sold .bag-price{font-family:var(--sans);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding-top:6px}
 .bag-gift{padding:16px 24px}
 .bag-page .bag-gift{padding-inline:0}
 .bag-check{display:flex;align-items:center;gap:10px;font-size:13.5px;cursor:pointer}
-.bag-check input{width:16px;height:16px;margin:0;accent-color:var(--ai)}
+.bag-check input{width:16px;height:16px;margin:0;accent-color:var(--midori)}
 .bag-gift-note{margin-top:12px}
 .bag-gift-note[hidden]{display:none}
 .bag-gift-note textarea{display:block;width:100%;min-height:68px;margin:6px 0 8px;padding:8px 2px;background:transparent;color:inherit;
@@ -322,3 +326,169 @@ html.sheet-open{overflow:hidden}
 .more-head .eyebrow{margin:0}
 .bag-again{margin:16px 0 4px}
 .bag-pay > .bag-warn:first-child{margin-top:0}
+
+/* ══ 21 Oct 2026: palette C, badges, quick view, zoom, 360°, the list pop-up, social ══ */
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Shopify wraps the header section in a div only as tall as the header, which pins position:
+   sticky inside it. display: contents lets the masthead stick to the page (D24 build). */
+#shopify-section-header{display:contents}
+.announce{margin:0;padding:9px var(--gut);background:var(--paper-deep);color:var(--sumi);text-align:center;
+  font-size:10px;line-height:1.5;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+
+/* ── badges (snippets/status, D25) ──────────────────────────
+   Square-cornered labels on the first frame. Green marks what you can still act on; Sold is ink. */
+.badge{position:absolute;left:10px;top:10px;z-index:1;display:inline-block;font-size:9px;line-height:1;letter-spacing:.16em;
+  text-transform:uppercase;font-weight:600;padding:6px 8px 5px;border-radius:2px;white-space:nowrap}
+.badge--soon{background:var(--paper);color:var(--midori);box-shadow:inset 0 0 0 1px var(--midori)}
+.badge--new{background:var(--midori);color:var(--paper)}
+.badge--sold{background:var(--sumi);color:var(--paper)}
+.pdp-status .badge,.qv .pdp-status .badge{position:static;margin-right:10px;vertical-align:1px}
+.crow .when{font-family:var(--sans);font-size:11px;letter-spacing:.06em;font-weight:600;color:var(--midori)}
+.card-a{display:block}
+
+/* quick view button: across the foot of the picture, on hover or keyboard focus; hidden on touch */
+.card-media{position:relative}
+.card-media > a{display:block}
+.qv-btn{position:absolute;left:10px;right:10px;bottom:10px;z-index:2;display:none;padding:11px 12px;border:0;border-radius:2px;cursor:pointer;
+  background:color-mix(in srgb,var(--paper) 92%,transparent);color:var(--sumi);
+  font:inherit;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+  opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s}
+html.js .card .qv-btn{display:block}
+@media (hover:none){html.js .card .qv-btn{display:none}}
+.card:hover .qv-btn,.card:focus-within .qv-btn,.qv-btn:focus-visible{opacity:1;transform:none}
+.qv-btn:focus-visible{outline:2px solid var(--midori);outline-offset:2px}
+
+/* ── centred dialogs: quick view, the pop-up, WeChat ───────── */
+.sheet--center .sheet-panel{top:50%;left:50%;right:auto;bottom:auto;width:min(860px,calc(100% - 32px));max-height:min(88vh,860px);
+  overflow-y:auto;overscroll-behavior:contain;transform:translate(-50%,-47%);border-radius:2px;
+  box-shadow:0 30px 80px -30px color-mix(in srgb,var(--sumi) 45%,transparent)}
+.sheet--center.is-open .sheet-panel{transform:translate(-50%,-50%)}
+.sheet--small .sheet-panel{width:min(420px,calc(100% - 32px))}
+.sheet--popup .sheet-panel{width:min(520px,calc(100% - 32px))}
+@media (max-width:600px){
+  .sheet--center .sheet-panel{top:auto;bottom:0;left:0;width:100%;max-height:92vh;transform:translateY(18px);border-radius:0;
+    padding-bottom:env(safe-area-inset-bottom,0px)}
+  .sheet--center.is-open .sheet-panel{transform:none}
+}
+
+/* quick view */
+.qv-body{padding:24px}
+.qv-body[aria-busy="true"]{min-height:320px}
+.qv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+.qv-house{font-family:var(--serif);font-weight:200;font-size:clamp(30px,4vw,42px);line-height:1;margin:0 0 6px}
+.qv-piece{font-family:var(--serif);font-style:italic;font-weight:300;font-size:17px;margin:0 0 18px;opacity:.76}
+.qv-price{display:block;font-size:26px;margin-bottom:18px}
+.qv .spec{margin:20px 0 18px}
+.qv .btn{margin-top:4px}
+.qv-loading{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.55;margin:0}
+@media (max-width:600px){.qv{grid-template-columns:1fr;gap:18px}.qv-body{padding:16px}}
+
+/* ── product page additions ────────────────────────────────── */
+.frame{display:block;cursor:zoom-in}
+.frame:focus-visible{outline:2px solid var(--midori);outline-offset:2px}
+.pdp-status{font-size:13.5px;margin:0 0 16px;display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+.pdp-status--soon{color:var(--midori);font-weight:500}
+.pdp-links{display:flex;flex-wrap:wrap;align-items:center;gap:10px 22px;margin:20px 0 0;font-size:13px}
+.share{display:inline-flex;flex-wrap:wrap;gap:16px;align-items:center}
+.share a,.share button{background:none;border:0;padding:4px 0;color:inherit;font:inherit;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;font-weight:600;opacity:.62;cursor:pointer;transition:opacity .25s}
+.share a:hover,.share button:hover{opacity:1}
+.share [hidden]{display:none}
+
+/* "Tell me when" forms and the pop-up form */
+.notify{margin:0 0 6px}
+.notify-h{font-family:var(--serif);font-style:italic;font-weight:300;font-size:19px;line-height:1.25;margin:0 0 12px}
+.notify-row{display:flex;flex-wrap:wrap;gap:8px}
+.notify-row input{flex:1 1 200px;min-width:0;background:transparent;color:inherit;border:1px solid var(--rule);border-radius:2px;
+  padding:14px 12px;font:inherit;font-size:15px}
+.notify-row input:focus{outline:none;border-color:var(--midori)}
+.notify-row .btn{flex:0 0 auto;width:auto;padding:15px 22px}
+.notify-fine{font-size:12px;line-height:1.5;opacity:.62;margin:10px 0 0;max-width:46ch}
+.notify-ok{font-size:13px;margin:10px 0 0;color:var(--midori);font-weight:500}
+
+/* ── full-screen photographs ───────────────────────────────── */
+.sheet--zoom .sheet-panel{left:0;right:0;width:100%;transform:none;background:var(--paper)}
+.sheet--zoom .sheet-scrim{display:none}
+.zoom-bar{position:absolute;top:0;left:0;right:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:calc(12px + env(safe-area-inset-top,0px)) var(--gut) 12px;background:color-mix(in srgb,var(--paper) 86%,transparent)}
+.zoom-count{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.7}
+.zoom-count b{color:var(--sumi);font-weight:600;margin-left:8px;padding:4px 7px 3px;box-shadow:inset 0 0 0 1px currentColor;border-radius:2px}
+.zoom-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:zoom-in;
+  padding:56px 0 40px;touch-action:pan-y pinch-zoom}
+.zoom-stage img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;user-select:none;-webkit-user-drag:none}
+.zoom-stage.is-zoomed{display:block;overflow:auto;cursor:zoom-out;padding:0;touch-action:auto}
+.zoom-stage.is-zoomed img{max-width:none;max-height:none}
+.zoom-nav{position:absolute;top:50%;z-index:2;transform:translateY(-50%);background:color-mix(in srgb,var(--paper) 86%,transparent);
+  border:0;border-radius:2px;padding:14px 12px;color:var(--sumi);font:inherit;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;font-weight:600;cursor:pointer}
+.zoom-prev{left:max(8px,env(safe-area-inset-left,0px))}.zoom-next{right:max(8px,env(safe-area-inset-right,0px))}
+.zoom-nav[hidden]{display:none}
+.zoom-tip{position:absolute;left:0;right:0;bottom:calc(12px + env(safe-area-inset-bottom,0px));margin:0;text-align:center;
+  font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.45;pointer-events:none}
+.zoom-stage.is-zoomed ~ .zoom-tip{display:none}
+
+/* ── 360° (D26) ───────────────────────────────────────────── */
+.spin{position:relative;margin:0;background:var(--paper-deep);cursor:grab;touch-action:pan-y;user-select:none}
+.spin:active{cursor:grabbing}
+.spin img{width:100%;height:auto;display:block;pointer-events:none}
+.spin:focus-visible{outline:2px solid var(--midori);outline-offset:2px}
+.spin-hint{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);padding:8px 12px 7px;border-radius:2px;
+  background:color-mix(in srgb,var(--paper) 90%,transparent);color:var(--sumi);font-size:9.5px;letter-spacing:.18em;
+  text-transform:uppercase;font-weight:600;transition:opacity .4s;pointer-events:none}
+.spin.is-touched .spin-hint{opacity:0}
+.spin .unret{padding:6px 0 0;background:var(--sec-bg,var(--paper))}
+
+/* ── the next Edition ─────────────────────────────────────── */
+.ne-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px 32px;margin-bottom:clamp(24px,4vw,40px)}
+.ne-head .eyebrow{margin-bottom:10px;color:var(--midori);opacity:1}
+.ne-h{font-family:var(--serif);font-weight:200;font-size:clamp(30px,5vw,52px);line-height:1;margin:0}
+.ne-when{margin:0;font-size:13.5px;font-variant-numeric:tabular-nums}
+.ne-clock{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(22px,3vw,30px);line-height:1.1;margin-top:4px;color:var(--midori)}
+.ne-clock:empty{display:none}
+.ne-empty{opacity:.65;max-width:52ch}
+.ne-foot{margin:clamp(28px,4vw,40px) 0 0}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(14px,2.4vw,30px);row-gap:clamp(26px,4vw,40px)}
+@media (max-width:860px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.grid3{grid-template-columns:minmax(0,1fr)}}
+.grid3 .chouse{font-size:clamp(18px,2.4vw,25px)}
+
+/* ── the list pop-up (D27) ────────────────────────────────── */
+.popup-inner{position:relative;padding:34px 30px 30px}
+.popup-x{position:absolute;top:8px;right:20px}
+.popup-h{font-family:var(--serif);font-weight:200;font-size:clamp(30px,5vw,40px);line-height:1.05;margin:0 0 12px;max-width:16ch;text-wrap:balance}
+.popup-b{font-size:14.5px;line-height:1.6;opacity:.76;margin:0 0 18px;max-width:42ch}
+.popup-offer{font-size:13.5px;font-weight:600;color:var(--midori);margin:0 0 14px}
+.popup-code{display:flex;align-items:center;gap:14px;margin:4px 0 0;font-size:20px;font-family:var(--serif)}
+.popup-code span{padding:8px 14px;box-shadow:inset 0 0 0 1px var(--midori);color:var(--midori);letter-spacing:.06em}
+.popup-code button,.wechat-id button{background:none;border:0;border-bottom:1px solid currentColor;padding:4px 0;color:inherit;font:inherit;
+  font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;cursor:pointer}
+.sheet--popup .popup-inner > .popup-form > .eyebrow,.sheet--popup [data-popup-ok] .eyebrow{color:var(--midori);opacity:1}
+
+/* ── social ───────────────────────────────────────────────── */
+.social{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 22px}
+.social a,.social li.social-unset{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.72;transition:opacity .25s}
+.social a:hover{opacity:1}
+.social [lang="zh"]{letter-spacing:.06em}
+.social-unset{opacity:.35!important;text-decoration:line-through}
+.foot-social{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px 32px;margin-top:clamp(32px,5vw,48px)}
+.menu-foot .social{margin-bottom:22px}
+.wechat-body{padding:20px 24px 28px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.wechat-qr{width:min(240px,70vw);height:auto;border:1px solid var(--rule)}
+.wechat-id{display:flex;align-items:center;gap:14px;margin:10px 0 0;font-size:15px}
+.wechat-id span{font-variant-numeric:tabular-nums}
+
+/* ── creators page (D28) ──────────────────────────────────── */
+.cr-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,6vw,80px);align-items:start}
+@media (max-width:760px){.cr-cols{grid-template-columns:minmax(0,1fr)}}
+.cr-h{font-family:var(--serif);font-weight:300;font-size:clamp(24px,3.4vw,32px);line-height:1.1;margin:0 0 16px}
+.cr-steps{margin:0 0 14px;padding-left:1.2em;font-size:14.5px;line-height:1.6}
+.cr-steps li{padding:4px 0}
+.cr-form{display:flex;flex-direction:column;gap:6px;margin-top:22px}
+.cr-form label{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.6;margin-top:8px}
+.cr-form input:not([type=checkbox]),.cr-form select,.cr-form textarea{background:transparent;color:inherit;border:1px solid var(--rule);
+  border-radius:2px;padding:12px;font:inherit;font-size:15px;min-width:0}
+.cr-form input:focus,.cr-form select:focus,.cr-form textarea:focus{outline:none;border-color:var(--midori)}
+.cr-form .cr-check{text-transform:none;letter-spacing:0;font-weight:400;font-size:13.5px;opacity:.85;margin:12px 0 4px}
+.cr-form .btn{margin-top:14px}
+.cr-ok{margin:28px 0 0;color:var(--midori);font-weight:500}

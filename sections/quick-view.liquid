@@ -1,0 +1,50 @@
+{%- comment -%}
+  Quick view: a piece in a dialog, without leaving the grid. Never placed on a template.
+  assets/hikari.js asks for it by name, in the product's own context:
+    /products/{handle}?section_id=quick-view
+  and puts it into the #qv dialog (snippets/dialogs). Add to bag inside it is the ordinary
+  product form, so the bag script handles it like any other.
+
+  Coming soon and sold pieces point to their page, where the "Tell me" forms are.
+{%- endcomment -%}
+{%- assign p = product -%}
+{%- if p -%}
+{%- capture status -%}{%- render 'status', p: p -%}{%- endcapture -%}
+{%- assign piece = p.metafields.hikari.piece | default: p.title -%}
+<div class="qv" data-qv>
+  <a class="qv-media" href="{{ p.url }}" tabindex="-1" aria-hidden="true">
+    {%- render 'plate', image: p.featured_image, ratio: 1.25, seed: p.id, tone: 'light',
+        comp: 'single', alt: p.title, badge: status, width: 1000 -%}
+  </a>
+  <div class="qv-info">
+    <h2 class="qv-house" id="qv-title">{{ p.vendor | default: p.title }}</h2>
+    <p class="qv-piece">{{ piece }}</p>
+    <span class="price qv-price">{% if status == 'sold' %}Sold{% else %}{{ p.price | money }}{% endif %}</span>
+
+    {%- case status -%}
+      {%- when 'soon' -%}
+        <p class="pdp-status">Goes live {% render 'release', p: p %}</p>
+        <a class="btn" href="{{ p.url }}">Tell me when it goes live</a>
+      {%- when 'sold' -%}
+        <p class="pdp-status">Kept on the Record</p>
+        <a class="btn" href="{{ p.url }}">Hear about similar pieces</a>
+      {%- else -%}
+        {%- form 'product', p -%}
+          <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
+          <button class="btn" type="submit">Add to bag</button>
+        {%- endform -%}
+    {%- endcase -%}
+
+    <table class="spec">
+      {%- if p.metafields.hikari.grade -%}<tr><th>Condition</th><td>Grade {{ p.metafields.hikari.grade }}</td></tr>{%- endif -%}
+      {%- if p.metafields.hikari.size -%}<tr><th>Measurements</th><td>{{ p.metafields.hikari.size }}</td></tr>{%- endif -%}
+      {%- if p.metafields.hikari.era -%}<tr><th>Era</th><td>{{ p.metafields.hikari.era }}</td></tr>{%- endif -%}
+      <tr><th>Availability</th><td>One of one</td></tr>
+    </table>
+    <a class="hero-link" href="{{ p.url }}">
+      Every photograph{% if p.metafields.hikari.spin.value.size > 1 %}, the 360° view{% endif %} and the details
+    </a>
+  </div>
+</div>
+{%- endif -%}
+{% schema %}{ "name": "Quick view", "settings": [] }{% endschema %}

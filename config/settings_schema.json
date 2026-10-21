@@ -1,53 +1,255 @@
 [
-  { "name": "theme_info",
+  {
+    "name": "theme_info",
     "theme_name": "Hikari",
     "theme_version": "0.1.0",
     "theme_author": "Hikari Vintage",
     "theme_documentation_url": "https://github.com/hackhsz/hikari",
-    "theme_support_url": "https://github.com/hackhsz/hikari" },
-  { "name": "Brand",
+    "theme_support_url": "https://github.com/hackhsz/hikari"
+  },
+  {
+    "name": "Brand",
     "settings": [
-      { "type": "text", "id": "brand_name", "label": "Brand name", "default": "Hikari Vintage",
-        "info": "Change this and the whole site follows. The name is deliberately not hard-coded anywhere — see 0-plan/18-name-clearance.md." },
-      { "type": "text", "id": "brand_kanji", "label": "Kanji", "default": "光",
-        "info": "Single character. Set at 1.30 cap height beside the Latin, one weight step lighter — see brand/10-logo.md." },
-      { "type": "text", "id": "edition_no", "label": "Current Edition number", "default": "01" },
-      { "type": "text", "id": "edition_day", "label": "Edition day and time", "default": "Thursday 19:00" }
-    ]},
-  { "name": "Texture & motion",
+      {
+        "type": "text",
+        "id": "brand_name",
+        "label": "Brand name",
+        "default": "Hikari Vintage",
+        "info": "Change this and the whole site follows. The name is deliberately not hard-coded anywhere — see 0-plan/18-name-clearance.md."
+      },
+      {
+        "type": "text",
+        "id": "brand_kanji",
+        "label": "Kanji",
+        "default": "光",
+        "info": "Single character. Set at 1.30 cap height beside the Latin, one weight step lighter — see brand/10-logo.md."
+      },
+      {
+        "type": "text",
+        "id": "edition_no",
+        "label": "Current Edition number",
+        "default": "01"
+      },
+      {
+        "type": "text",
+        "id": "edition_day",
+        "label": "Edition day and time",
+        "default": "Thursday 19:00"
+      }
+    ]
+  },
+  {
+    "name": "Texture & motion",
     "settings": [
-      { "type": "range", "id": "grain_opacity", "label": "Grain strength", "min": 0, "max": 80, "step": 5, "unit": "%", "default": 40 },
-      { "type": "checkbox", "id": "grain_animate", "label": "Animate grain", "default": true },
-      { "type": "checkbox", "id": "scroll_colour", "label": "Scroll-driven background colour", "default": true }
-    ]},
-  { "name": "Trust strip",
+      {
+        "type": "range",
+        "id": "grain_opacity",
+        "label": "Grain strength",
+        "min": 0,
+        "max": 80,
+        "step": 5,
+        "unit": "%",
+        "default": 40
+      },
+      {
+        "type": "checkbox",
+        "id": "grain_animate",
+        "label": "Animate grain",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "scroll_colour",
+        "label": "Scroll-driven background colour",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Announcement",
     "settings": [
-      { "type": "text", "id": "trust_1", "label": "1", "default": "Every piece authenticated" },
-      { "type": "text", "id": "trust_2", "label": "2", "default": "Duty paid — no customs charges" },
-      { "type": "text", "id": "trust_3", "label": "3", "default": "UK next day over £100" },
-      { "type": "text", "id": "trust_4", "label": "4", "default": "14-day returns" }
-    ]},
-  { "name": "Bag & checkout",
+      {
+        "type": "text",
+        "id": "announcement",
+        "label": "One line above the masthead",
+        "default": "The price you see is the price you pay · Free UK delivery over £100",
+        "info": "Leave empty to hide. D13 asks for the all-in price claim in the headline."
+      }
+    ]
+  },
+  {
+    "name": "Badges",
     "settings": [
-      { "type": "number", "id": "delivery_free_over", "label": "Free UK delivery from (£)", "default": 100,
-        "info": "Must match Settings → Shipping and delivery. At or over this the bag says delivery is free and shows a Total; under it the bag says delivery is added at checkout and shows a Subtotal (D12). 0 means always free." },
-      { "type": "text", "id": "bag_notice", "label": "Bag notice",
-        "info": "One line above the total, for delivery cut-offs. E.g. Order by Thursday 18 December for Christmas delivery. Leave empty to hide." },
-      { "type": "checkbox", "id": "gift_enabled", "label": "Offer a gift note", "default": true,
-        "info": "The note reaches the order as a cart attribute, under Additional details. Someone has to write it on a card: see 1-shop/21-checkout.md." },
-      { "type": "text", "id": "gift_label", "label": "Gift checkbox", "default": "This is a gift" },
-      { "type": "text", "id": "gift_info", "label": "Gift promise", "default": "We write your note on a card and leave the price out of the parcel.",
-        "info": "Only promise what is actually done when the parcel is packed." }
-    ]},
-  { "name": "Legal",
+      {
+        "type": "paragraph",
+        "content": "Coming soon: tag a product coming-soon, keep its stock at 0, and give it a Date and time metafield hikari.release. It shows the release time instead of a price, and never counts as sold. Remove the tag and add stock when it goes live (D25)."
+      },
+      {
+        "type": "number",
+        "id": "new_days",
+        "label": "Show New for this many days after publishing",
+        "default": 14,
+        "info": "0 turns New off."
+      }
+    ]
+  },
+  {
+    "name": "Social",
     "settings": [
-      { "type": "textarea", "id": "legal_disclaimer", "label": "Trademark disclaimer",
+      {
+        "type": "paragraph",
+        "content": "Empty links are hidden on the site. Fill them once the handles are secured (#57, #59)."
+      },
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "social_xiaohongshu",
+        "label": "小红书 Xiaohongshu"
+      },
+      {
+        "type": "text",
+        "id": "wechat_id",
+        "label": "WeChat ID"
+      },
+      {
+        "type": "image_picker",
+        "id": "wechat_qr",
+        "label": "WeChat QR code",
+        "info": "In WeChat: Me → your name → My QR Code, then save the image."
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok",
+        "label": "TikTok"
+      },
+      {
+        "type": "url",
+        "id": "social_pinterest",
+        "label": "Pinterest"
+      }
+    ]
+  },
+  {
+    "name": "Product page",
+    "settings": [
+      {
+        "type": "text",
+        "id": "ask_email",
+        "label": "Ask about this piece: email",
+        "info": "Leave empty to use the store's sender email. Questions go to a named inbox, not a chat widget (D9)."
+      },
+      {
+        "type": "checkbox",
+        "id": "share_enabled",
+        "label": "Share links (Pinterest, copy link)",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Trust strip",
+    "settings": [
+      {
+        "type": "text",
+        "id": "trust_1",
+        "label": "1",
+        "default": "Every piece authenticated"
+      },
+      {
+        "type": "text",
+        "id": "trust_2",
+        "label": "2",
+        "default": "Duty paid — no customs charges"
+      },
+      {
+        "type": "text",
+        "id": "trust_3",
+        "label": "3",
+        "default": "UK next day over £100"
+      },
+      {
+        "type": "text",
+        "id": "trust_4",
+        "label": "4",
+        "default": "14-day returns"
+      }
+    ]
+  },
+  {
+    "name": "Bag & checkout",
+    "settings": [
+      {
+        "type": "number",
+        "id": "delivery_free_over",
+        "label": "Free UK delivery from (£)",
+        "default": 100,
+        "info": "Must match Settings → Shipping and delivery. At or over this the bag says delivery is free and shows a Total; under it the bag says delivery is added at checkout and shows a Subtotal (D12). 0 means always free."
+      },
+      {
+        "type": "text",
+        "id": "bag_notice",
+        "label": "Bag notice",
+        "info": "One line above the total, for delivery cut-offs. E.g. Order by Thursday 18 December for Christmas delivery. Leave empty to hide."
+      },
+      {
+        "type": "checkbox",
+        "id": "gift_enabled",
+        "label": "Offer a gift note",
+        "default": true,
+        "info": "The note reaches the order as a cart attribute, under Additional details. Someone has to write it on a card: see 1-shop/21-checkout.md."
+      },
+      {
+        "type": "text",
+        "id": "gift_label",
+        "label": "Gift checkbox",
+        "default": "This is a gift"
+      },
+      {
+        "type": "text",
+        "id": "gift_info",
+        "label": "Gift promise",
+        "default": "We write your note on a card and leave the price out of the parcel.",
+        "info": "Only promise what is actually done when the parcel is packed."
+      }
+    ]
+  },
+  {
+    "name": "Legal",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "legal_disclaimer",
+        "label": "Trademark disclaimer",
         "info": "[brand] is replaced with the brand name set above.",
-        "default": "[brand] is an independent reseller of pre-owned items. We are not affiliated with, authorised by, endorsed by or connected to any of the brands featured. All trademarks are the property of their respective owners." },
-      { "type": "text", "id": "company_name", "label": "Registered company name", "info": "Required by the Companies Act and the E-Commerce Regulations 2002." },
-      { "type": "text", "id": "company_number", "label": "Company number" },
-      { "type": "textarea", "id": "company_address", "label": "Registered office address" },
-      { "type": "text", "id": "vat_line", "label": "VAT line", "default": "Prices include UK duty. We are not currently VAT registered, so no VAT is charged.",
-        "info": "Charging or displaying VAT while unregistered is an offence. Keep Settings → Taxes at zero." }
-    ]}
+        "default": "[brand] is an independent reseller of pre-owned items. We are not affiliated with, authorised by, endorsed by or connected to any of the brands featured. All trademarks are the property of their respective owners."
+      },
+      {
+        "type": "text",
+        "id": "company_name",
+        "label": "Registered company name",
+        "info": "Required by the Companies Act and the E-Commerce Regulations 2002."
+      },
+      {
+        "type": "text",
+        "id": "company_number",
+        "label": "Company number"
+      },
+      {
+        "type": "textarea",
+        "id": "company_address",
+        "label": "Registered office address"
+      },
+      {
+        "type": "text",
+        "id": "vat_line",
+        "label": "VAT line",
+        "default": "Prices include UK duty. We are not currently VAT registered, so no VAT is charged.",
+        "info": "Charging or displaying VAT while unregistered is an offence. Keep Settings → Taxes at zero."
+      }
+    ]
+  }
 ]

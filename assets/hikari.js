@@ -7,10 +7,10 @@
 
   /* ── plates: only where no real image ───────────────── */
   var TONES={
-    light:{a:"#F6F5F1",b:"#DAD8D0",sh:"rgba(28,30,28,.34)",g1:"#E8CE92",g2:"#B48F42",g3:"#7E6026",gr:16},
-    grey:{a:"#E6E7E2",b:"#C3C6C0",sh:"rgba(24,28,26,.34)",g1:"#E4C88A",g2:"#AD8A40",g3:"#755A24",gr:17},
-    indigo:{a:"#3A5B80",b:"#1C3049",sh:"rgba(6,12,20,.44)",g1:"#EAD29A",g2:"#BD9850",g3:"#7A5E29",gr:18},
-    dark:{a:"#242A2F",b:"#0E1214",sh:"rgba(0,0,0,.5)",g1:"#C9AC6D",g2:"#8E7238",g3:"#57441E",gr:19}};
+    light:{a:"#FCFBF8",b:"#E3DCCF",sh:"rgba(30,28,24,.32)",g1:"#E8CE92",g2:"#B48F42",g3:"#7E6026",gr:16},
+    grey:{a:"#F2EDE4",b:"#D4CBBA",sh:"rgba(30,28,24,.34)",g1:"#E4C88A",g2:"#AD8A40",g3:"#755A24",gr:17},
+    green:{a:"#3D6A53",b:"#22432F",sh:"rgba(6,16,10,.44)",g1:"#EAD29A",g2:"#BD9850",g3:"#7A5E29",gr:18},
+    dark:{a:"#2A2824",b:"#121110",sh:"rgba(0,0,0,.5)",g1:"#C9AC6D",g2:"#8E7238",g3:"#57441E",gr:19}};
   /* "none" is light on the ground with no object: the brand hero's placeholder,
      so it never reads as a product. */
   var COMPS={single:[[.50,.52,.19]],pair:[[.40,.50,.145],[.62,.56,.155]],
@@ -145,7 +145,7 @@
     if(root.dataset.scrollColour!=="true"){ root.classList.remove("scroll-colour"); return; }
     var secs=[].slice.call(document.querySelectorAll("[data-bg]"));
     if(!secs.length){ root.classList.remove("scroll-colour"); return; }
-    stops=secs.map(function(s){return{el:s,bg:h2r(s.dataset.bg),fg:h2r(s.dataset.fg||"#14171A")};});
+    stops=secs.map(function(s){return{el:s,bg:h2r(s.dataset.bg),fg:h2r(s.dataset.fg||"#1C1B18")};});
     root.classList.add("scroll-colour");
     if(!bound){
       bound=true;
@@ -172,14 +172,18 @@
   }
   function openSheetById(id,trigger){
     var sheet=document.getElementById(id); if(!sheet) return;
+    /* Moving from one sheet to another (quick view to the bag, the menu to the bag) keeps the
+       first trigger: the one inside the closing sheet is about to be hidden. */
+    if(!openSheet) lastTrigger=trigger||document.activeElement;
     if(openSheet&&openSheet!==sheet) setOpen(openSheet,false);
-    if(openSheet!==sheet) lastTrigger=trigger||document.activeElement;
     openSheet=sheet; setOpen(sheet,true);
-    var target=sheet.querySelector(".sheet-x")||sheet.querySelector(".sheet-panel");
+    /* The pop-up opens on its own, so focus goes to the dialog itself, not to a button. */
+    var target=sheet.hasAttribute("data-popup")?sheet.querySelector(".sheet-panel"):(sheet.querySelector(".sheet-x")||sheet.querySelector(".sheet-panel"));
     setTimeout(function(){ if(target) target.focus({preventScroll:true}); },30);
   }
   function closeSheet(){
     if(!openSheet) return;
+    if(openSheet.id==="popup"&&store("hk-list")!=="joined") store("hk-popup-shut",String(Date.now()));
     setOpen(openSheet,false); openSheet=null; note("");
     if(lastTrigger&&document.contains(lastTrigger)&&lastTrigger.focus) lastTrigger.focus({preventScroll:true});
   }
@@ -297,6 +301,16 @@
       var t=e.target;
       var rm=t.closest&&t.closest("[data-bag-remove]");
       if(rm&&rm.closest("#bag")){ e.preventDefault(); removeLine(rm); return; }
+      var qv=t.closest&&t.closest("[data-quick-view]");
+      if(qv){ e.preventDefault(); quickView(qv); return; }
+      var fr=t.closest&&t.closest("a.frame[data-zoom]");
+      if(fr){ e.preventDefault(); openZoom(fr); return; }
+      var zs=t.closest&&t.closest("[data-zoom-step]");
+      if(zs){ e.preventDefault(); showZoom(zoomAt+Number(zs.getAttribute("data-zoom-step"))); return; }
+      var cp=t.closest&&t.closest("[data-copy-text],[data-copy-link]");
+      if(cp){ e.preventDefault(); copy(cp.getAttribute("data-copy-text")||cp.getAttribute("data-copy-link")||location.href,cp); return; }
+      var sh=t.closest&&t.closest("[data-share]");
+      if(sh&&navigator.share){ e.preventDefault(); navigator.share({title:document.title,url:location.href}).catch(function(){}); return; }
       var o=t.closest&&t.closest("[data-sheet-open]");
       if(o){
         e.preventDefault(); note("");
@@ -310,6 +324,8 @@
     document.addEventListener("keydown",function(e){
       if(!openSheet) return;
       if(e.key==="Escape"){ e.preventDefault(); closeSheet(); return; }
+      if(openSheet.id==="zoom"&&(e.key==="ArrowRight"||e.key==="ArrowLeft")){
+        e.preventDefault(); showZoom(zoomAt+(e.key==="ArrowRight"?1:-1)); return; }
       if(e.key!=="Tab") return;
       var f=focusables(openSheet.querySelector(".sheet-panel")); if(!f.length) return;
       var a=f[0], z=f[f.length-1];
@@ -323,6 +339,7 @@
         var cb=f.querySelector('[name="checkout"]'); if(cb) cb.setAttribute("aria-busy","true");
         return;
       }
+      if(f.id==="popup-form") sstore("hk-popup-sent","1");
       if(!f.matches('form[action$="/cart/add"]')) return;
       e.preventDefault(); addToBag(f);
     });
@@ -346,9 +363,184 @@
     });
   }
 
-  window.Hikari={plates:initPlates,openSheet:openSheetById,closeSheet:closeSheet,refreshBag:refreshBag};
+  /* Storage can throw (private windows, blocked site data). Everything below works without it. */
+  function store(k,v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v); }catch(e){ return null; } }
+  function sstore(k,v){ try{ if(v===undefined) return sessionStorage.getItem(k);
+    if(v===null) sessionStorage.removeItem(k); else sessionStorage.setItem(k,v); }catch(e){ return null; } }
 
-  function boot(){ initPlates(); initScroll(); bindOnce(); syncButtons(); }
+  function copy(text,btn){
+    var label=btn.textContent;
+    function done(){ btn.textContent="Copied"; setTimeout(function(){ btn.textContent=label; },1600); }
+    function fallback(){
+      var ta=document.createElement("textarea"); ta.value=text; ta.setAttribute("readonly","");
+      ta.style.position="fixed"; ta.style.opacity="0"; document.body.appendChild(ta); ta.select();
+      try{ document.execCommand("copy"); done(); }catch(e){} ta.remove();
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done,fallback);
+    else fallback();
+  }
+
+  /* ── quick view ───────────────────────────────────────────
+     Shopify renders sections/quick-view in the product's own context; we take the [data-qv]
+     part and put it in the dialog. Any failure falls back to the product page itself. */
+  function quickView(btn){
+    var url=btn.getAttribute("data-quick-view"), body=document.querySelector("#qv [data-qv-body]");
+    if(!body){ location.href=url; return; }
+    body.setAttribute("aria-busy","true");
+    body.innerHTML='<p class="qv-loading">Opening</p>';
+    openSheetById("qv",btn);
+    fetch(url+(url.indexOf("?")>-1?"&":"?")+"section_id=quick-view",{credentials:"same-origin"})
+      .then(function(r){ if(!r.ok) throw new Error(r.status); return r.text(); })
+      .then(function(html){
+        var qv=new DOMParser().parseFromString(html,"text/html").querySelector("[data-qv]");
+        if(!qv) throw new Error("no quick view");
+        body.innerHTML=""; body.appendChild(document.importNode(qv,true)); body.removeAttribute("aria-busy");
+        initPlates(); syncButtons();
+      })
+      .catch(function(){ location.href=url; });
+  }
+
+  /* ── full-screen photographs ──────────────────────────────
+     Every frame on the product page, in order, with its label: an evidence frame is still
+     marked Unretouched at full size. Click or tap to look closer; with a mouse the picture
+     then follows the pointer, on touch it scrolls. Swipe or arrow keys for the next frame. */
+  var zoomList=[], zoomAt=0;
+  function zoomStage(){ return document.querySelector("#zoom [data-zoom-stage]"); }
+  function showZoom(i){
+    var st=zoomStage(), img=st&&st.querySelector("img"); if(!img||!zoomList.length) return;
+    zoomAt=(i%zoomList.length+zoomList.length)%zoomList.length;
+    var a=zoomList[zoomAt], label=a.getAttribute("data-zoom-label"), thumb=a.querySelector("img");
+    st.classList.remove("is-zoomed"); img.style.width="";
+    img.src=a.getAttribute("href"); img.alt=thumb?thumb.alt:"";
+    var c=document.querySelector("#zoom [data-zoom-count]");
+    if(c) c.innerHTML=(zoomAt+1)+" / "+zoomList.length+(label?" <b>"+label+"</b>":"");
+    [].forEach.call(document.querySelectorAll("#zoom [data-zoom-step]"),function(b){ b.hidden=zoomList.length<2; });
+  }
+  function openZoom(a){
+    zoomList=[].slice.call(document.querySelectorAll("a.frame[data-zoom]"));
+    showZoom(Math.max(0,zoomList.indexOf(a))); openSheetById("zoom",a);
+  }
+  function zoomToggle(st,x,y){
+    var img=st.querySelector("img"); if(!img) return;
+    if(st.classList.contains("is-zoomed")){ st.classList.remove("is-zoomed"); img.style.width=""; return; }
+    var r=img.getBoundingClientRect(); if(!r.width) return;
+    var fx=Math.max(0,Math.min(1,(x-r.left)/r.width)), fy=Math.max(0,Math.min(1,(y-r.top)/r.height));
+    var w=Math.max(r.width*2.2,st.clientWidth*1.25), h=w*r.height/r.width;
+    st.classList.add("is-zoomed"); img.style.width=Math.round(w)+"px";
+    st.scrollLeft=Math.max(0,fx*w-st.clientWidth/2); st.scrollTop=Math.max(0,fy*h-st.clientHeight/2);
+  }
+  function initZoom(){
+    var st=zoomStage(); if(!st||st.dataset.on) return; st.dataset.on="1";
+    var x0=null, y0=0, swiped=false;
+    st.addEventListener("pointerdown",function(e){ x0=e.clientX; y0=e.clientY; swiped=false; });
+    st.addEventListener("pointerup",function(e){
+      if(x0===null) return;
+      var dx=e.clientX-x0, dy=e.clientY-y0; x0=null;
+      if(!st.classList.contains("is-zoomed")&&Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5){ swiped=true; showZoom(zoomAt+(dx<0?1:-1)); }
+    });
+    st.addEventListener("click",function(e){ if(swiped){ swiped=false; return; } zoomToggle(st,e.clientX,e.clientY); });
+    st.addEventListener("pointermove",function(e){
+      if(e.pointerType!=="mouse"||!st.classList.contains("is-zoomed")) return;
+      var r=st.getBoundingClientRect();
+      st.scrollLeft=((e.clientX-r.left)/r.width)*(st.scrollWidth-st.clientWidth);
+      st.scrollTop=((e.clientY-r.top)/r.height)*(st.scrollHeight-st.clientHeight);
+    });
+  }
+
+  /* ── 360° (D26) ───────────────────────────────────────────
+     One turntable turn of real photographs. Dragging across the full width turns it once;
+     arrow keys step a frame. The frames load when the viewer comes near the screen. */
+  function initSpin(){
+    [].forEach.call(document.querySelectorAll("[data-spin]:not([data-spin-on])"),function(el){
+      el.setAttribute("data-spin-on","1");
+      var src=[], img=el.querySelector("[data-spin-img]");
+      try{ src=JSON.parse(el.querySelector("[data-spin-frames]").textContent); }catch(e){}
+      if(src.length<2||!img) return;
+      var n=src.length, at=0, cache=[], loaded=false, down=false, x0=0, a0=0;
+      function load(){ if(loaded) return; loaded=true;
+        src.forEach(function(u,i){ var im=new Image(); im.decoding="async"; im.src=u; cache[i]=im; }); }
+      function show(i){ at=(i%n+n)%n; img.src=src[at]; el.setAttribute("data-frame",String(at)); }
+      function touched(){ load(); el.classList.add("is-touched"); }
+      el.addEventListener("pointerdown",function(e){ touched(); down=true; x0=e.clientX; a0=at;
+        if(el.setPointerCapture) try{ el.setPointerCapture(e.pointerId); }catch(err){} });
+      el.addEventListener("pointermove",function(e){ if(!down) return;
+        show(a0+Math.round((e.clientX-x0)/Math.max(4,el.clientWidth/n))); });
+      function up(){ down=false; }
+      el.addEventListener("pointerup",up); el.addEventListener("pointercancel",up);
+      el.addEventListener("keydown",function(e){
+        if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft") return;
+        e.preventDefault(); touched(); show(at+(e.key==="ArrowRight"?1:-1)); });
+      if("IntersectionObserver" in window){
+        var o=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ load(); o.disconnect(); } },{rootMargin:"400px 0px"});
+        o.observe(el);
+      } else load();
+    });
+  }
+
+  /* ── the countdown to the next Edition (sections/next-edition) ──
+     Counts to a real release date and nothing else. */
+  var cdT=null;
+  function initCountdown(){
+    var els=[].slice.call(document.querySelectorAll("[data-countdown]")); clearInterval(cdT); if(!els.length) return;
+    function plural(n,w){ return n+" "+w+(n===1?"":"s"); }
+    function fmt(ms){
+      if(ms<=0) return "Going live now";
+      var m=Math.floor(ms/60000), d=Math.floor(m/1440), h=Math.floor(m%1440/60), mm=m%60, out=[];
+      if(d) out.push(plural(d,"day"));
+      if(d||h) out.push(plural(h,"hour"));
+      if(!d) out.push(plural(mm,"minute"));
+      return "in "+out.join(", ");
+    }
+    function tickC(){ var now=Date.now();
+      els.forEach(function(el){ el.textContent=fmt(Number(el.getAttribute("data-countdown"))*1000-now); }); }
+    tickC(); cdT=setInterval(tickC,30000);
+  }
+
+  /* ── the list pop-up (sections/signup-popup, D27) ─────────── */
+  var popupDone=false;
+  function initPopup(){
+    var el=document.getElementById("popup"); if(!el||popupDone) return; popupDone=true;
+    var posted=/[?&]customer_posted=true/.test(location.search);
+    if(sstore("hk-popup-sent")){
+      sstore("hk-popup-sent",null);
+      if(posted||el.querySelector("[data-popup-ok]")){ store("hk-list","joined"); openSheetById("popup"); return; }
+    }
+    if(posted) store("hk-list","joined");
+    if(store("hk-list")==="joined") return;
+    if(/template-(cart|customers|password)/.test(document.body.className)) return;
+    var rest=Number(el.getAttribute("data-rest"))||14, shut=Number(store("hk-popup-shut"))||0;
+    if(shut&&Date.now()-shut<rest*864e5) return;
+    var views=(Number(sstore("hk-views"))||0)+1; sstore("hk-views",String(views));
+    var trig=el.getAttribute("data-trigger"), pages=Number(el.getAttribute("data-pages"))||2,
+        delay=Number(el.getAttribute("data-delay"))||20, tries=0;
+    function show(){
+      if(openSheet){ if(++tries<4) setTimeout(show,8000); return; }
+      openSheetById("popup");
+    }
+    if(trig==="delay"){ setTimeout(show,delay*1000); return; }
+    if(trig==="exit"&&window.matchMedia&&window.matchMedia("(hover:hover) and (pointer:fine)").matches){
+      document.addEventListener("mouseout",function onOut(e){
+        if(e.relatedTarget||e.clientY>0) return;
+        document.removeEventListener("mouseout",onOut); show();
+      });
+      return;
+    }
+    if(views>=pages) setTimeout(show,1200);
+  }
+
+  function initMisc(){
+    if(navigator.share) [].forEach.call(document.querySelectorAll("[data-share]"),function(b){ b.hidden=false; });
+    if(/[?&]contact_posted=true/.test(location.search)) [].forEach.call(document.querySelectorAll("[data-cr-ok]"),function(p){
+      p.hidden=false; p.scrollIntoView({block:"center"}); });
+  }
+
+  window.Hikari={plates:initPlates,openSheet:openSheetById,closeSheet:closeSheet,refreshBag:refreshBag,quickView:quickView,popup:initPopup};
+
+  function boot(){
+    root.classList.add("js");
+    initPlates(); initScroll(); bindOnce(); syncButtons();
+    initZoom(); initSpin(); initCountdown(); initPopup(); initMisc();
+  }
   if(document.readyState!=="loading") boot(); else document.addEventListener("DOMContentLoaded",boot);
   document.addEventListener("shopify:section:load",boot);
 })();

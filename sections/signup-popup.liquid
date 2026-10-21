@@ -1,0 +1,81 @@
+{%- comment -%}
+  The list, as a pop-up (D27). Sits in theme.liquid, so it is on every page; the script decides
+  whether to show it:
+    · never on the bag, account pages or the password page
+    · never to someone who has joined, or who closed it in the last rest_days days
+    · trigger: on the Nth page they view, when the pointer leaves for the tab bar, or after N seconds
+  After joining, the form posts and the page reloads. The script remembers that this form was
+  sent and opens the pop-up again to say it worked, with the code if there is one.
+
+  The default offer is first sight of each Edition, not money off: on one-of-one stock, first
+  sight is what the list is worth. A code is optional. If one is set, make it in Discounts first:
+  once per customer, first order only.
+{%- endcomment -%}
+{%- if section.settings.enabled -%}
+<div class="sheet sheet--center sheet--popup" id="popup" aria-hidden="true" inert data-popup
+     data-trigger="{{ section.settings.trigger }}" data-pages="{{ section.settings.pages }}"
+     data-delay="{{ section.settings.delay }}" data-rest="{{ section.settings.rest_days }}">
+  <div class="sheet-scrim" data-sheet-close></div>
+  <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="popup-title" tabindex="-1">
+    <div class="popup-inner">
+      <button type="button" class="sheet-x popup-x" data-sheet-close>Close</button>
+      {%- form 'customer', id: 'popup-form', class: 'popup-form' -%}
+        <input type="hidden" name="contact[tags]" value="edition, popup">
+        {%- if form.posted_successfully? -%}
+          <div data-popup-ok>
+            <p class="eyebrow">You are on the list</p>
+            <h2 class="popup-h" id="popup-title">{{ section.settings.ok_heading }}</h2>
+            {%- if section.settings.code != blank -%}
+              <p class="popup-b">{{ section.settings.offer }}</p>
+              <p class="popup-code"><span>{{ section.settings.code }}</span>
+                <button type="button" data-copy-text="{{ section.settings.code | escape }}">Copy</button></p>
+            {%- else -%}
+              <p class="popup-b">{{ section.settings.ok_body }}</p>
+            {%- endif -%}
+          </div>
+        {%- else -%}
+          <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+          <h2 class="popup-h" id="popup-title">{{ section.settings.heading }}</h2>
+          <p class="popup-b">{{ section.settings.body }}</p>
+          {%- if section.settings.code != blank and section.settings.offer != blank -%}
+            <p class="popup-offer">{{ section.settings.offer }}</p>
+          {%- endif -%}
+          <div class="notify-row">
+            <label class="vh" for="popup-email">Email address</label>
+            <input id="popup-email" type="email" name="contact[email]" placeholder="Email address" autocomplete="email" required>
+            <button type="submit" class="btn">{{ section.settings.button }}</button>
+          </div>
+          {%- if form.errors -%}<p class="notify-ok" role="alert">That email address did not work. Check it and try again.</p>{%- endif -%}
+          <p class="notify-fine">{{ section.settings.fine }}
+            {%- if shop.privacy_policy %} <a class="spec-link" href="{{ shop.privacy_policy.url }}">Privacy</a>{% endif -%}
+          </p>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+{%- endif -%}
+{% schema %}
+{ "name": "Sign-up pop-up", "settings": [
+  { "type": "checkbox", "id": "enabled", "label": "Show the pop-up", "default": true },
+  { "type": "select", "id": "trigger", "label": "When it appears", "default": "pages",
+    "options": [
+      { "value": "pages", "label": "On a later page view" },
+      { "value": "exit", "label": "When they go to leave (desktop), else on a later page view" },
+      { "value": "delay", "label": "After some seconds" }] },
+  { "type": "range", "id": "pages", "label": "On page view number", "min": 1, "max": 5, "step": 1, "default": 2 },
+  { "type": "range", "id": "delay", "label": "After seconds", "min": 5, "max": 60, "step": 5, "unit": "s", "default": 20 },
+  { "type": "range", "id": "rest_days", "label": "After closing, rest for", "min": 1, "max": 60, "step": 1, "unit": "d", "default": 14 },
+  { "type": "header", "content": "Words" },
+  { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The list" },
+  { "type": "text", "id": "heading", "label": "Heading", "default": "See each Edition first" },
+  { "type": "textarea", "id": "body", "label": "Body", "default": "Every piece is one of one, and the best go first. The list sees each Edition before it goes on the site." },
+  { "type": "text", "id": "button", "label": "Button", "default": "Join the list" },
+  { "type": "textarea", "id": "fine", "label": "Small print", "default": "One email a week, the Edition, and the odd note when a piece you asked about arrives. Unsubscribe any time." },
+  { "type": "text", "id": "ok_heading", "label": "After joining: heading", "default": "Thank you." },
+  { "type": "textarea", "id": "ok_body", "label": "After joining: body", "default": "The next Edition comes to your inbox before it reaches the site." },
+  { "type": "header", "content": "Optional: a first-order code", "info": "Leave the code empty for no discount (D27). If you add one, create it in Discounts first, once per customer." },
+  { "type": "text", "id": "code", "label": "Discount code" },
+  { "type": "text", "id": "offer", "label": "What the code gives", "default": "£10 off your first piece over £150." }
+] }
+{% endschema %}
