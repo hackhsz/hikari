@@ -23,7 +23,7 @@ const atLoad = await drawer([line(1, true)]);
 // What Shopify sends back when the bag is refreshed: piece 1 has since sold, piece 2 is new.
 const later = await drawer([line(1, false), line(2, true)]);
 
-const bagPage = `<!doctype html><html><head><style>${css}</style></head><body class="template-product">
+const bagPage = `<!doctype html><html><head><meta charset="utf-8"><style>${css}</style></head><body class="template-product">
 <a class="bag-btn" href="/cart" data-sheet-open="bag" aria-controls="bag">Bag (<span data-bag-count>1</span>)</a>
 ${atLoad}
 <script>
@@ -101,7 +101,7 @@ ${atLoad}
     await render('sections/signup.liquid', { ...scope, section: { settings: { heading: 'The Edition goes out Thursday.', body: 'The list gets it first.' } } }),
   ];
   const file = path.join(OUT, 'local-house.html');
-  fs.writeFileSync(file, `<!doctype html><html><head><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;1,6..72,300&family=Instrument+Sans:wght@400;500;600&display=swap"><style>${css}</style></head><body><main>${parts.join('')}</main><script>${js}</script></body></html>`);
+  fs.writeFileSync(file, `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;1,6..72,300&family=Instrument+Sans:wght@400;500;600&display=swap"><style>${css}</style></head><body><main>${parts.join('')}</main><script>${js}</script></body></html>`);
   for (const [w, h, name] of [[1280, 900, 'desktop'], [390, 844, 'phone']]) {
     const page = await browser.newPage({ viewport: { width: w, height: h } });
     const errors = [];

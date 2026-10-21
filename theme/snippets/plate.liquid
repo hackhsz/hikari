@@ -15,5 +15,10 @@
             aria-label="{{ alt | default: 'Photography to follow' | escape }}"></canvas>
   {%- endif -%}
   {%- if stamp %}<span class="stamp">{{ stamp }}</span>{% endif -%}
-  {%- if sold %}<span class="sold">Sold</span>{% endif -%}
+  {%- comment -%} badge: a word from snippets/status (D25). Sold is ink, the other two green. {%- endcomment -%}
+  {%- case badge -%}
+    {%- when 'soon' %}<span class="badge badge--soon">Coming soon</span>
+    {%- when 'new' %}<span class="badge badge--new">New</span>
+    {%- when 'sold' %}<span class="badge badge--sold">Sold</span>
+  {%- endcase -%}
 </div>

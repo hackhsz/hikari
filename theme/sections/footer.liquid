@@ -1,4 +1,4 @@
-<footer data-bg="#14171A" data-fg="#EFF0EC" style="--sec-bg:#14171A;--sec-fg:#EFF0EC;">
+<footer data-bg="#1C1B18" data-fg="#FAF8F3" style="--sec-bg:#1C1B18;--sec-fg:#FAF8F3;">
   <div class="shell pad rule-top">
     <div class="strip">
       <div>{{ settings.trust_1 }}</div><div>{{ settings.trust_2 }}</div>
@@ -10,6 +10,10 @@
           {%- for link in linklists[block.settings.menu].links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
         </div>
       {%- endfor -%}
+    </div>
+    <div class="foot-social">
+      {%- render 'social', label: 'Follow us' -%}
+      {%- if pages.creators.id -%}<a class="hero-link" href="{{ pages.creators.url }}">Creators, and sharing your piece</a>{%- endif -%}
     </div>
     <div style="margin-top:clamp(40px,7vw,64px)">{%- render 'lockup', scale: 'hero', size: '34px' -%}</div>
     {%- assign brand = settings.brand_name | default: shop.name -%}

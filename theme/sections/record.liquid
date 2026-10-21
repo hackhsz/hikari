@@ -1,6 +1,8 @@
 {%- comment -%}
   The Record: sold pieces stay live. Proof of demand, and an accumulating SEO asset.
 
+  A coming-soon piece is not available either, but it has not sold: it never appears here (D25).
+
   Three sources, in order: a collection chosen in the editor; on a collection page (the house
   template), the sold pieces of that collection; otherwise everything sold. On a house page
   with nothing sold yet the section renders nothing, rather than six empty frames.
@@ -23,6 +25,7 @@
   {%- assign shown = 0 -%}
   {%- for p in recs -%}
     {%- if sold_only and p.available -%}{%- continue -%}{%- endif -%}
+    {%- if p.tags contains 'coming-soon' -%}{%- continue -%}{%- endif -%}
     {%- if shown >= 6 -%}{%- break -%}{%- endif -%}
     {%- assign shown = shown | plus: 1 -%}
     <a class="rec" href="{{ p.url }}">
@@ -32,7 +35,7 @@
   {%- endfor -%}
 {%- endcapture -%}
 {%- unless on_house and shown == 0 -%}
-<section data-bg="#14171A" data-fg="#EFF0EC" style="--sec-bg:#14171A;--sec-fg:#EFF0EC;">
+<section data-bg="#1C1B18" data-fg="#FAF8F3" style="--sec-bg:#1C1B18;--sec-fg:#FAF8F3;">
   <div class="shell pad" id="record">
     <p class="eyebrow">{{ section.settings.heading }}</p>
     <div class="grid6">

@@ -5,6 +5,7 @@
 #   1   Theme Check, Shopify's own linter                     always
 #   2a  Liquid: our templates rendered against sample data    always
 #   2b  Browser: the bag script, and house page screenshots   always
+#   2c  Features: quick view, zoom, 360°, countdown, pop-up    always
 #   3   Deploy theme/ to the verification theme               with HIKARI_STORE, SHOPIFY_CLI_THEME_TOKEN, HIKARI_THEME_ID
 #   4   Store: Playwright against that theme                  with HIKARI_STORE
 #
@@ -26,6 +27,7 @@ step() {
 step "1  Theme Check" npx --yes @shopify/cli@4.9.3 theme check --path "$repo/theme" --fail-level error --no-color
 step "2a Liquid" node local/liquid.mjs
 step "2b Browser" node local/browser.mjs
+step "2c Features" node local/features.mjs
 
 if [ -n "${HIKARI_STORE:-}" ] && [ -n "${SHOPIFY_CLI_THEME_TOKEN:-}" ] && [ -n "${HIKARI_THEME_ID:-}" ]; then
   step "3  Deploy to the verification theme" bash store/deploy.sh

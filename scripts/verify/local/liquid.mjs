@@ -1,6 +1,6 @@
 // Step 2a: render our Liquid against sample data and check what it decides.
 // No store, no browser. Run: node local/liquid.mjs
-import { render, tidy, settings, routes, shop, piece, line, house, collectionsOf } from './shopify-liquid.mjs';
+import { render, tidy, settings, routes, shop, piece, line, house, collectionsOf, pic, spinFrames } from './shopify-liquid.mjs';
 
 let failed = 0, passed = 0;
 async function check(label, file, scope, cases) {
@@ -146,6 +146,113 @@ await check('more from this house: no house page yet', 'sections/more-from-house
 ]);
 await check('more from this house: no vendor', 'sections/more-from-house.liquid', { product: piece(1, '', true), collections: [] }, [
   ['renders nothing', o => o === ''],
+]);
+
+// ── 21 Oct: status badges (D25) ─────────────────────────────
+const NOW = Math.floor(Date.now() / 1000);
+const iso = s => new Date(s * 1000).toISOString();
+const soon = (id, extra = {}) => piece(id, 'Christian Dior', false, { tags: ['coming-soon'], ...extra });
+await check('status: coming soon wins over unavailable', 'snippets/status.liquid', { p: soon(1) }, [['soon', o => o === 'soon']]);
+await check('status: sold', 'snippets/status.liquid', { p: piece(1, 'X', false) }, [['sold', o => o === 'sold']]);
+await check('status: new within new_days', 'snippets/status.liquid', { p: piece(1, 'X', true, { published_at: iso(NOW - 3 * 86400) }) }, [['new', o => o === 'new']]);
+await check('status: old stock is plain', 'snippets/status.liquid', { p: piece(1, 'X', true, { published_at: iso(NOW - 40 * 86400) }) }, [['nothing', o => o === '']]);
+await check('status: new_days 0 turns New off', 'snippets/status.liquid', { p: piece(1, 'X', true, { published_at: iso(NOW - 60) }), settings: { new_days: 0 } }, [['nothing', o => o === '']]);
+
+const CARD = 'snippets/product-card.liquid';
+await check('card: coming soon', CARD, { card_product: soon(4, { metafields: { hikari: { piece: 'Clip earrings', release: { value: '2026-10-24T19:00:00+01:00' } } } }), tone: 'grey' }, [
+  ['Coming soon badge', o => o.includes('badge badge--soon">Coming soon')],
+  ['release time instead of a price', o => /class="when">\w{3} 2[34] Oct, \d\d:00/.test(o) && !o.includes('£185.00')],
+  ['quick view for the piece', o => o.includes('data-quick-view="/products/p4"')],
+]);
+await check('card: coming soon without a date', CARD, { card_product: soon(4), tone: 'grey' }, [
+  ['falls back to the Edition day', o => o.includes('class="when">Thursday 19:00')],
+]);
+await check('card: sold', CARD, { card_product: piece(5, 'Givenchy', false), tone: 'grey' }, [
+  ['ink Sold badge and Sold for the price', o => o.includes('badge badge--sold">Sold') && /class="price">\s*Sold/.test(o)],
+]);
+await check('card: new', CARD, { card_product: piece(6, 'Givenchy', true, { published_at: iso(NOW - 86400) }), tone: 'grey' }, [
+  ['New badge and the price', o => o.includes('badge badge--new">New') && o.includes('£185.00')],
+]);
+await check('card: in stock, not new', CARD, { card_product: piece(7, 'Givenchy', true), tone: 'grey' }, [
+  ['no badge', o => !o.includes('class="badge')],
+  ['one real link, the picture link hidden', o => count(o, /href="\/products\/p7"/g) === 2 && o.includes('tabindex="-1" aria-hidden="true"')],
+]);
+await check('record: coming soon is not sold', 'sections/record.liquid', { section: rec(), template: { name: 'index' }, collections: { all: { products: [soon(1), piece(5, 'Givenchy', false)] } } }, [
+  ['only the sold piece', o => count(o, /class="rec" href/g) === 1 && o.includes('/products/p5') && !o.includes('/products/p1"')],
+]);
+
+await check('alcove: a coming-soon piece is not Sold', 'sections/alcove.liquid', { section: { settings: { product: soon(8) } } }, [
+  ['says Coming soon and when', o => o.includes('badge--soon') && o.includes('Thursday 19:00') && !/al-price">\s*Sold/.test(o)],
+]);
+
+// ── 21 Oct: product page ────────────────────────────────────
+const PDP = 'sections/main-product.liquid';
+const four = ['Composed', "Maker's mark", 'On the body', 'Condition'].map(l => pic(l));
+await check('product: in stock', PDP, { product: piece(1, 'Christian Dior', true, { images: four }) }, [
+  ['Add to bag, no notify form', o => o.includes('>Add to bag<') && !o.includes('notify-')],
+  ['every frame opens full screen', o => count(o, /class="frame"/g) === 4],
+  ['frames 2 and 4 carry Unretouched into full screen', o => count(o, /data-zoom-label="Unretouched"/g) === 2],
+  ['ask goes to the store inbox', o => o.includes('mailto:hello@hikari.test?subject=')],
+  ['share links', o => o.includes('data-copy-link="https://hikari.test/products/p1"')],
+  ['no 360 without frames', o => !o.includes('data-spin')],
+]);
+await check('product: coming soon', PDP, { product: soon(2, { images: four, metafields: { hikari: { piece: 'Clip earrings', release: { value: '2026-10-24T19:00:00+01:00' } } } }) }, [
+  ['no Add to bag', o => !o.includes('>Add to bag<')],
+  ['when it goes live', o => /Goes live \w{3} 2[34] Oct, \d\d:00/.test(o)],
+  ['notify form tagged with the piece', o => o.includes('value="notify-release, piece-p2"')],
+  ['badge on frame 1 only', o => count(o, /badge badge--soon/g) === 2],
+]);
+await check('product: sold', PDP, { product: piece(3, 'Christian Dior', false, { images: four }) }, [
+  ['no Add to bag', o => !o.includes('>Add to bag<')],
+  ['notify form tagged with the house', o => o.includes('value="notify-similar, house-christian-dior"')],
+  ['says the Record keeps it', o => o.includes('Kept on the Record')],
+]);
+await check('product: 360', PDP, { product: piece(1, 'Christian Dior', true, { images: four, metafields: { hikari: { piece: 'x', spin: { value: spinFrames(12) } } } }) }, [
+  ['viewer after frame 1', o => o.indexOf('data-spin') > o.indexOf('class="frame"') && o.indexOf('data-spin') < o.lastIndexOf('class="frame"')],
+  ['all twelve frames listed', o => { const m = o.match(/data-spin-frames>(\[.*?\])<\/script>/s); return m && JSON.parse(m[1]).length === 12; }],
+  ['says the frames are photographs', o => o.includes('12 photographs on a turntable, not generated')],
+]);
+await check('product: one spin frame is not a 360', PDP, { product: piece(1, 'X', true, { metafields: { hikari: { spin: { value: spinFrames(1) } } } }) }, [
+  ['no viewer', o => !o.includes('data-spin')],
+]);
+
+// ── 21 Oct: quick view, next Edition, social, pop-up ────────
+await check('quick view: in stock', 'sections/quick-view.liquid', { product: piece(1, 'Christian Dior', true) }, [
+  ['the product form', o => o.includes('data-qv') && o.includes('>Add to bag<') && o.includes('value="1001"')],
+]);
+await check('quick view: sold', 'sections/quick-view.liquid', { product: piece(2, 'Christian Dior', false) }, [
+  ['points to the page, no form', o => !o.includes('>Add to bag<') && o.includes('href="/products/p2"') && o.includes('Hear about similar pieces')],
+]);
+const NE = 'sections/next-edition.liquid';
+const neSec = { settings: { eyebrow: 'Coming soon', heading: 'In the next Edition', cta: 'The list sees them first', collection: '' } };
+await check('next Edition: nothing coming', NE, { section: neSec, collections: { all: { products: [piece(1, 'X', true)] } } }, [
+  ['renders nothing', o => o === ''],
+]);
+const later = NOW + 3 * 86400, sooner = NOW + 2 * 86400;
+await check('next Edition: two coming', NE, { section: neSec, collections: { all: { products: [
+  piece(1, 'X', true), soon(2, { metafields: { hikari: { release: { value: iso(later) } } } }), soon(3, { metafields: { hikari: { release: { value: iso(sooner) } } } })] } } }, [
+  ['two cards', o => count(o, /class="card"/g) === 2],
+  ['counts down to the sooner one', o => o.includes(`data-countdown="${sooner}"`)],
+]);
+await check('next Edition: no dates', NE, { section: neSec, collections: { all: { products: [soon(2)] } } }, [
+  ['names the Edition day, no clock', o => o.includes('Goes live with the Edition: Thursday 19:00') && !o.includes('data-countdown')],
+]);
+await check('social: nothing set', 'snippets/social.liquid', {}, [['renders nothing', o => o === '']]);
+await check('social: some set', 'snippets/social.liquid', { settings: { social_instagram: 'https://instagram.com/x', wechat_id: 'hikari-v' } }, [
+  ['Instagram and WeChat only', o => o.includes('https://instagram.com/x') && o.includes('data-sheet-open="wechat"') && !o.includes('TikTok')],
+]);
+const POP = 'sections/signup-popup.liquid';
+const pop = extra => ({ settings: { enabled: true, trigger: 'pages', pages: 2, delay: 20, rest_days: 14, eyebrow: 'The list', heading: 'See each Edition first', body: 'Body', button: 'Join the list', fine: 'Small print', ok_heading: 'Thank you.', ok_body: 'Ok', code: '', offer: '£10 off your first piece over £150.', ...extra } });
+await check('pop-up: off', POP, { section: pop({ enabled: false }), form: {} }, [['renders nothing', o => o === '']]);
+await check('pop-up: no code by default (D27)', POP, { section: pop(), form: {} }, [
+  ['tags the list', o => o.includes('value="edition, popup"')],
+  ['no money off mentioned', o => !o.includes('popup-offer') && !o.includes('£10')],
+]);
+await check('pop-up: with a code', POP, { section: pop({ code: 'FIRST10' }), form: {} }, [
+  ['says what the code gives', o => o.includes('popup-offer">£10 off your first piece over £150.')],
+]);
+await check('pop-up: after joining, with a code', POP, { section: pop({ code: 'FIRST10' }), form: { 'posted_successfully?': true } }, [
+  ['shows the code to copy', o => o.includes('data-popup-ok') && o.includes('data-copy-text="FIRST10"')],
 ]);
 
 console.log(`\n${passed} passed, ${failed} failed`);

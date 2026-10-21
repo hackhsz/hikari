@@ -1,3 +1,11 @@
+{%- comment -%}
+  One line above the masthead, from theme settings → Announcement. It scrolls away; the
+  masthead stays. The section wrapper is display: contents (hikari.css) so that position: sticky
+  measures against the page, not against Shopify's wrapper div, which is only as tall as the header.
+{%- endcomment -%}
+{%- if settings.announcement != blank -%}
+  <p class="announce">{{ settings.announcement }}</p>
+{%- endif -%}
 <header class="mast">
   <div class="inner">
     <a href="{{ routes.root_url }}" aria-label="{{ settings.brand_name }}, home">
@@ -26,7 +34,10 @@
       {%- for link in linklists.main-menu.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
       <a href="{{ routes.cart_url }}" data-sheet-open="bag" aria-controls="bag">Bag (<span data-bag-count>{{ cart.item_count }}</span>)</a>
     </nav>
-    <div class="menu-foot">{%- render 'lockup', scale: 'hero', size: '22px' -%}</div>
+    <div class="menu-foot">
+      {%- render 'social', label: 'Follow us' -%}
+      {%- render 'lockup', scale: 'hero', size: '22px' -%}
+    </div>
   </div>
 </div>
 

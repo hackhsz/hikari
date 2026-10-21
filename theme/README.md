@@ -1,6 +1,6 @@
 # Hikari — Shopify theme
 
-Custom Liquid theme built from the prototypes. Palette B ([`brand/tokens.css`](../brand/tokens.css)), lockup per [`brand/10-logo.md`](../brand/10-logo.md), layout per [`1-shop/04-site-ia.md`](../1-shop/04-site-ia.md).
+Custom Liquid theme built from the prototypes. Palette C, 千歳緑 on 米白 ([`brand/tokens.css`](../brand/tokens.css), D24), lockup per [`brand/10-logo.md`](../brand/10-logo.md), layout per [`1-shop/04-site-ia.md`](../1-shop/04-site-ia.md).
 
 ## Getting it live today — free, no card
 
@@ -46,6 +46,29 @@ One page per designer at `/collections/vintage-{house}-jewellery`, per [04](../1
 
 `/collections` then lists only the houses.
 
+## Badges, Coming soon and the next Edition (D25)
+
+- **Coming soon:** tag the product `coming-soon`, keep its stock at **0**, and set `hikari.release`. The card shows the release time instead of a price, the page offers *Tell me when it goes live*, and the piece appears in the homepage **Next Edition** section with a countdown. It never counts as sold. **When it goes live:** remove the tag and set stock to 1.
+- **New:** automatic, for a number of days after publishing. Theme settings → Badges.
+- **Sold:** automatic. The page offers *Tell me when something like this arrives*.
+- The "Tell me" forms add customers tagged `notify-release` + `piece-{handle}` or `notify-similar` + `house-{house}`. In Shopify Email, make a segment on the tag to write to them.
+
+## Quick view, full screen and 360° (D26)
+
+- **Quick view** is on every card, on hover or keyboard focus (not on touch screens, where the card opens the page). It renders `sections/quick-view.liquid` through the Section Rendering API; Add to bag inside it opens the bag.
+- **Full screen:** every frame on the product page opens full screen. Click or tap to look closer, swipe or use the arrow keys for the next one. Frames 2 and 4 keep their *Unretouched* label.
+- **360°:** appears after frame 1 when `hikari.spin` has two or more images. Drag across it, or focus it and use the arrow keys. **Shoot it on a turntable. Never generate the frames.**
+
+## The list pop-up (D27)
+
+`sections/signup-popup.liquid`, in the theme editor under the layout's sections. It sits on every page and decides for itself when to appear: on the second page view by default, never on the bag or account pages, never again after joining, and resting 14 days after it is closed. **No code by default.** To offer one, create it in Discounts (once per customer), then add the code and what it gives in the pop-up's settings.
+
+## Social, WeChat and the creators page (D28)
+
+- **Theme settings → Social:** Instagram, 小红书, TikTok and Pinterest links, and a WeChat ID and QR code. Empty ones are hidden. They show in the footer and the phone menu. WeChat opens a dialog with the QR code and a copy button.
+- **Creators page:** Online Store → Pages → Add page, handle `creators`, template **creators**. The footer links to it once it exists. Both forms on it are contact forms: submissions arrive by email. See [22](../1-shop/22-creator-programme.md).
+- **Announcement:** one line above the masthead, from theme settings. Empty hides it.
+
 ## Verifying a change
 
 Run `bash scripts/verify/run.sh` before pushing anything in `theme/`. It runs Theme Check, renders our Liquid against sample data, drives the bag script in a browser, and, once the store settings exist, deploys to a verification theme and tests it on the store. See [scripts/verify](../scripts/verify/README.md).
@@ -71,6 +94,8 @@ Create these under Settings → Custom data → Products, namespace **`hikari`**
 | `mark` | Single line text | Signed Chr. Dior, reverse |
 | `era` | Single line text | 1980s |
 | `provenance` | Single line text | Found in Tokyo, March 2026 |
+| `release` | Date and time | When a coming-soon piece goes live (D25) |
+| `spin` | File → **List of files** (images) | One turntable turn, 24–36 photographs in order, for the 360° view (D26). Real photographs only |
 
 Use **Vendor** for the house (Christian Dior, Givenchy). The cards and product page read it.
 
@@ -92,4 +117,4 @@ Grain strength and animation, and the scroll-driven colour, are all theme settin
 
 ## Not yet built
 
-Customer account templates, gift cards, pagination on collection, predictive search, the authentication and condition-grade content pages, and the house pages' words (Thread 3). None blocks a preview.
+Customer account templates, gift cards, pagination on collection, predictive search, the authentication and condition-grade content pages, and the house pages' words (Thread 3). None blocks a preview. Also not built: the agent in [22](../1-shop/22-creator-programme.md), which needs accounts first.

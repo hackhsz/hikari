@@ -1,0 +1,39 @@
+{%- comment -%}
+  Dialogs every page may open, on the sheet system in assets/hikari.js (focus kept inside,
+  Escape closes, focus returns to what opened it).
+    #qv      Quick view. Empty until a card's Quick view button fills it from sections/quick-view.
+    #wechat  The WeChat QR code and ID (snippets/social). WeChat has no web profile to link to,
+             so a scan is the way in.
+{%- endcomment -%}
+<div class="sheet sheet--center" id="qv" aria-hidden="true" inert>
+  <div class="sheet-scrim" data-sheet-close></div>
+  <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="qv-title" tabindex="-1">
+    <div class="sheet-head">
+      <span class="eyebrow" style="margin:0">Quick view</span>
+      <button type="button" class="sheet-x" data-sheet-close>Close</button>
+    </div>
+    <div class="qv-body" data-qv-body></div>
+  </div>
+</div>
+
+{%- if settings.wechat_id != blank or settings.wechat_qr -%}
+<div class="sheet sheet--center sheet--small" id="wechat" aria-hidden="true" inert>
+  <div class="sheet-scrim" data-sheet-close></div>
+  <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="wechat-title" tabindex="-1">
+    <div class="sheet-head">
+      <h2 class="sheet-title" id="wechat-title">WeChat 微信</h2>
+      <button type="button" class="sheet-x" data-sheet-close>Close</button>
+    </div>
+    <div class="wechat-body">
+      {%- if settings.wechat_qr -%}
+        {{ settings.wechat_qr | image_url: width: 480 | image_tag: loading: 'lazy', alt: 'WeChat QR code', class: 'wechat-qr' }}
+        <p class="notify-fine">Open WeChat, tap + then Scan. 打开微信，扫一扫。</p>
+      {%- endif -%}
+      {%- if settings.wechat_id != blank -%}
+        <p class="wechat-id"><span>{{ settings.wechat_id }}</span>
+          <button type="button" data-copy-text="{{ settings.wechat_id | escape }}">Copy ID</button></p>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+{%- endif -%}

@@ -1,19 +1,40 @@
 {%- assign p = card_product -%}
 {%- comment -%}
-  render only passes a value, not a comparison: `sold: p.available == false` arrived as
-  p.available and badged every piece in stock. Work the boolean out first.
+  The status is worked out once, as a word (snippets/status), and passed on as a string:
+  render only passes a value, not a comparison, so `sold: p.available == false` once badged
+  every piece in stock.
+
+  A button cannot sit inside a link, so the card is a div: the picture (a second link to the
+  same page, hidden from screen readers and the tab order, as in the bag) with the Quick view
+  button over it, then the words as the real link. Quick view opens sections/quick-view in a
+  dialog; without JavaScript the button stays hidden and the links do the work.
 {%- endcomment -%}
-{%- assign is_sold = true -%}{%- if p.available -%}{%- assign is_sold = false -%}{%- endif -%}
-<a class="card" href="{{ p.url }}">
-  {%- render 'plate', image: p.featured_image, ratio: 1.25, seed: p.id, tone: tone,
-      comp: 'single', alt: p.title, sold: is_sold -%}
-  <div class="cinfo">
-    <h3 class="chouse">{{ p.vendor | default: p.title }}</h3>
-    <p class="cpiece">{{ p.metafields.hikari.piece | default: p.title }}</p>
-    <div class="crow">
-      <span class="price">{% if p.available %}{{ p.price | money }}{% else %}Sold{% endif %}</span>
-      <span class="tag">{%- if p.metafields.hikari.grade %}Grade {{ p.metafields.hikari.grade }}{% endif -%}
-        {%- if p.metafields.hikari.size %} · {{ p.metafields.hikari.size }}{% endif -%}</span>
-    </div>
+{%- capture status -%}{%- render 'status', p: p -%}{%- endcapture -%}
+{%- assign piece = p.metafields.hikari.piece | default: p.title -%}
+<div class="card">
+  <div class="card-media">
+    <a href="{{ p.url }}" tabindex="-1" aria-hidden="true">
+      {%- render 'plate', image: p.featured_image, ratio: 1.25, seed: p.id, tone: tone,
+          comp: 'single', alt: p.title, badge: status -%}
+    </a>
+    <button type="button" class="qv-btn" data-quick-view="{{ p.url }}" aria-haspopup="dialog"
+            aria-label="Quick view: {{ p.vendor | escape }}, {{ piece | escape }}">Quick view</button>
   </div>
-</a>
+  <a class="card-a" href="{{ p.url }}">
+    <div class="cinfo">
+      <h3 class="chouse">{{ p.vendor | default: p.title }}</h3>
+      <p class="cpiece">{{ piece }}</p>
+      <div class="crow">
+        <span class="price">
+          {%- case status -%}
+            {%- when 'soon' -%}<span class="when">{%- render 'release', p: p -%}</span>
+            {%- when 'sold' -%}Sold
+            {%- else -%}{{ p.price | money }}
+          {%- endcase -%}
+        </span>
+        <span class="tag">{%- if p.metafields.hikari.grade %}Grade {{ p.metafields.hikari.grade }}{% endif -%}
+          {%- if p.metafields.hikari.size %} · {{ p.metafields.hikari.size }}{% endif -%}</span>
+      </div>
+    </div>
+  </a>
+</div>

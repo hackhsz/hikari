@@ -1,0 +1,6 @@
+{%- comment -%}
+  When a coming-soon piece goes live: its hikari.release date (Date and time metafield),
+  else the Edition day from theme settings. Plain text, for the card and the product page.
+{%- endcomment -%}
+{%- assign rel = p.metafields.hikari.release.value -%}
+{%- if rel -%}{{ rel | date: '%a %-d %b, %H:%M' }}{%- else -%}{{ settings.edition_day }}{%- endif -%}

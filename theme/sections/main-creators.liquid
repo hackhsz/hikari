@@ -1,0 +1,81 @@
+{%- comment -%}
+  Creators and customers who share (D28). Two programmes on one page, each with a form.
+  Both forms are Shopify contact forms: a submission arrives as an email to the store's sender
+  address, with every field. Checking a post and issuing the code is done by hand for now;
+  1-shop/22-creator-programme.md designs the agent that does it later.
+
+  Anything posted for a reward is an advert under the CAP Code, so both programmes say #ad.
+  Set up: Online Store → Pages → Add page, handle "creators", template "creators".
+  The footer links to it once it exists.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+  <div class="shell">
+    <header class="house-head">
+      <p class="eyebrow">{{ s.eyebrow }}</p>
+      <h1 class="house-h">{{ s.heading }}</h1>
+      <p class="house-lede">{{ s.lede }}</p>
+    </header>
+
+    <div class="cr-cols">
+      <div class="cr-col">
+        <h2 class="cr-h">{{ s.creator_heading }}</h2>
+        <ol class="cr-steps">
+          <li>Tell us about your work below.</li>
+          <li>If it fits, we choose a piece with you, and send it with your own link and code.</li>
+          <li>{{ s.creator_reward }}</li>
+        </ol>
+        <p class="notify-fine">{{ s.creator_rules }}</p>
+        {%- form 'contact', id: 'creator-form', class: 'cr-form' -%}
+          <input type="hidden" name="contact[Programme]" value="Creator">
+          <label for="cr-name">Name</label><input id="cr-name" name="contact[name]" autocomplete="name" required>
+          <label for="cr-email">Email</label><input id="cr-email" type="email" name="contact[email]" autocomplete="email" required>
+          <label for="cr-platform">Where you post</label>
+          <select id="cr-platform" name="contact[Platform]">
+            <option>Instagram</option><option>小红书 Xiaohongshu</option><option>TikTok</option><option>Pinterest</option><option>YouTube</option><option>Other</option>
+          </select>
+          <label for="cr-handle">Handle or link</label><input id="cr-handle" name="contact[Handle]" required>
+          <label for="cr-size">Followers, roughly</label><input id="cr-size" name="contact[Followers]" inputmode="numeric">
+          <label for="cr-note">What would you make with a piece?</label><textarea id="cr-note" name="contact[body]" rows="4"></textarea>
+          <button type="submit" class="btn">Apply</button>
+        {%- endform -%}
+      </div>
+
+      <div class="cr-col">
+        <h2 class="cr-h">{{ s.share_heading }}</h2>
+        <ol class="cr-steps">
+          <li>Post a photograph of you wearing your piece{% if s.handle != blank %}, and tag {{ s.handle }}{% endif %}. Add #ad: there is a reward, so it counts as an advert.</li>
+          <li>Send us the link and your order number below.</li>
+          <li>{{ s.share_reward }}</li>
+        </ol>
+        <p class="notify-fine">{{ s.share_rules }}</p>
+        {%- form 'contact', id: 'share-form', class: 'cr-form' -%}
+          <input type="hidden" name="contact[Programme]" value="Share">
+          <label for="sh-email">Email you ordered with</label><input id="sh-email" type="email" name="contact[email]" autocomplete="email" required>
+          <label for="sh-order">Order number</label><input id="sh-order" name="contact[Order]" placeholder="#1001" required>
+          <label for="sh-link">Link to your post</label><input id="sh-link" type="url" name="contact[Post]" placeholder="https://" required>
+          <label class="bag-check cr-check"><input type="checkbox" name="contact[May repost]" value="Yes"> You may repost it, with credit to you</label>
+          <button type="submit" class="btn">Send</button>
+        {%- endform -%}
+      </div>
+    </div>
+
+    <p class="cr-ok" data-cr-ok hidden role="status">Thank you. We read every one, and reply within three working days.</p>
+  </div>
+</section>
+{% schema %}
+{ "name": "Creators", "settings": [
+  { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Creators, and anyone wearing a piece" },
+  { "type": "text", "id": "heading", "label": "Heading", "default": "Wear it, and show us" },
+  { "type": "textarea", "id": "lede", "label": "Lede", "default": "Every piece here is one of one, so every photograph of one being worn is the only one there will be. Two ways to share them." },
+  { "type": "text", "id": "handle", "label": "Our handle", "info": "E.g. @hikari.vintage, once the name clears (#57). Leave empty and the page says tag us without one." },
+  { "type": "header", "content": "Creators" },
+  { "type": "text", "id": "creator_heading", "label": "Heading", "default": "For creators" },
+  { "type": "text", "id": "creator_reward", "label": "Reward", "default": "You earn 10% of every sale through your link for 30 days, and the piece is yours to keep." },
+  { "type": "textarea", "id": "creator_rules", "label": "Rules", "default": "Label every post #ad, as the CAP Code requires. We ask to reuse your photographs, with credit, before we send anything." },
+  { "type": "header", "content": "Customers" },
+  { "type": "text", "id": "share_heading", "label": "Heading", "default": "Bought a piece?" },
+  { "type": "text", "id": "share_reward", "label": "Reward", "default": "Once we have seen it, £10 towards your next piece, by email." },
+  { "type": "textarea", "id": "share_rules", "label": "Rules", "default": "One reward per order. The post must be public, show the piece you bought from us, and stay up for 30 days." }
+] }
+{% endschema %}

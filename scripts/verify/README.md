@@ -7,12 +7,13 @@
 | **1 · Theme Check** | Shopify's own linter. Fails on errors, not warnings | Nothing |
 | **2a · Liquid** (`local/liquid.mjs`) | What our templates decide, rendered against sample carts and collections. Sold lines, totals, the delivery line, the gift note, house pages, the Record, house links | Nothing |
 | **2b · Browser** (`local/browser.mjs`) | `assets/hikari.js` in Chromium against our own markup, with Shopify's cart mocked. The gift note saving, the bag refreshing, a piece selling between page load and opening the bag. House page screenshots at desktop and phone width, with no sideways scroll | Nothing |
+| **2c · Features** (`local/features.mjs`) | The 21 Oct features in Chromium on a made-up origin, so storage works as on the store: badges, the countdown, quick view through to the bag, full-screen photographs keeping the *Unretouched* label, the 360° viewer by drag and by key, the pop-up's timing and rest, the WeChat dialog. Screenshots of the home page, a product page, quick view and the pop-up, at desktop and phone width | Nothing |
 | **3 · Deploy** (`store/deploy.sh`) | Pushes `theme/` to a theme that exists only for this, so step 4 tests this exact commit | Store, Theme Access password, theme id |
 | **4 · Store** (`store/store.spec.mjs`) | The theme on the real store, at desktop and phone width. The right theme is served; the house page; add to bag; gift attributes reach the cart; the hand-off to checkout; **no tax line at checkout** (D12, #55); the bag page without JavaScript | Store address, and a storefront password on a development store |
 
 Steps 1 and 2 run anywhere, with no store. Steps 3 and 4 run when their settings exist, and are skipped, with the reason, when they don't.
 
-**Proved, 13 Oct 2026:** steps 1 and 2 pass (Theme Check clean; 27 + 16 checks). Breaking the sold-piece logic in `bag-foot.liquid` on purpose fails three checks and stops the loop. **Steps 3 and 4 are written but have never run against a store.** Expect a first round of fixes the first time they do.
+**Proved, 21 Oct 2026:** steps 1 and 2 pass (Theme Check clean; 54 + 16 + 28 checks). 13 Oct: 27 + 16. Breaking the sold-piece logic in `bag-foot.liquid` on purpose fails three checks and stops the loop. **Steps 3 and 4 are written but have never run against a store.** Expect a first round of fixes the first time they do.
 
 ## What it needs
 

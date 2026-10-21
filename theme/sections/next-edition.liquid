@@ -1,0 +1,65 @@
+{%- comment -%}
+  The next Edition: pieces tagged coming-soon, shown before they go on sale (D25), with a
+  countdown to the earliest hikari.release among them.
+
+  The countdown is only ever a real date. Without a release date the section names the Edition
+  day from theme settings and shows no clock. A clock that resets, or invents a deadline, is a
+  banned practice under the DMCC Act 2024, and it would also be a lie.
+
+  With nothing tagged coming-soon the section renders nothing, except in the theme editor.
+{%- endcomment -%}
+{%- liquid
+  assign shown = 0
+  assign soonest = 0
+  if section.settings.collection != blank
+    assign pool = collections[section.settings.collection].products
+  else
+    assign pool = collections.all.products
+  endif
+-%}
+{%- capture cards -%}
+  {%- for p in pool -%}
+    {%- unless p.tags contains 'coming-soon' -%}{%- continue -%}{%- endunless -%}
+    {%- if shown >= 3 -%}{%- break -%}{%- endif -%}
+    {%- assign shown = shown | plus: 1 -%}
+    {%- assign r = p.metafields.hikari.release.value -%}
+    {%- if r -%}
+      {%- assign e = r | date: '%s' | plus: 0 -%}
+      {%- if soonest == 0 or e < soonest -%}{%- assign soonest = e -%}{%- assign soonest_text = r | date: '%a %-d %b, %H:%M' -%}{%- endif -%}
+    {%- endif -%}
+    {%- render 'product-card', card_product: p, tone: 'light' -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- if shown > 0 or request.design_mode -%}
+<section class="pad" id="next-edition" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+  <div class="shell">
+    <div class="ne-head">
+      <div>
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+        <h2 class="ne-h">{{ section.settings.heading }}</h2>
+      </div>
+      <p class="ne-when">
+        {%- if soonest > 0 -%}
+          Goes live {{ soonest_text }}<span class="ne-clock" data-countdown="{{ soonest }}"></span>
+        {%- else -%}
+          Goes live with the Edition: {{ settings.edition_day }}
+        {%- endif -%}
+      </p>
+    </div>
+    {%- if shown > 0 -%}
+      <div class="grid3">{{ cards }}</div>
+    {%- else -%}
+      <p class="ne-empty">Tag a product <code>coming-soon</code> and it appears here. Give it a Date and time metafield, hikari.release, for the countdown.</p>
+    {%- endif -%}
+    <p class="ne-foot"><a class="hero-link" href="#list">{{ section.settings.cta }}</a></p>
+  </div>
+</section>
+{%- endif -%}
+{% schema %}
+{ "name": "Next Edition", "settings": [
+  { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Coming soon" },
+  { "type": "text", "id": "heading", "label": "Heading", "default": "In the next Edition" },
+  { "type": "text", "id": "cta", "label": "Link to the list", "default": "The list sees them first" },
+  { "type": "collection", "id": "collection", "label": "Collection", "info": "Leave empty to use every product tagged coming-soon." }
+], "presets": [{ "name": "Next Edition" }] }
+{% endschema %}

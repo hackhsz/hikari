@@ -1,0 +1,21 @@
+{%- comment -%}
+  "Tell me when…": an email form that adds a tagged customer who has agreed to marketing.
+  Coming soon tags notify-release + piece-{handle}; sold tags notify-similar + house-{house}.
+  In Shopify Email, a segment on those tags finds the people to write to.
+  Params: form_id, tags, heading, fine, ok.
+
+  The fine print says what they are signing up for, because they are signing up to the list
+  as well (UK GDPR, PECR). It is not pre-ticked consent; it is the purpose of the form.
+{%- endcomment -%}
+{%- form 'customer', id: form_id, class: 'notify' -%}
+  <input type="hidden" name="contact[tags]" value="{{ tags | escape }}">
+  <p class="notify-h">{{ heading }}</p>
+  <div class="notify-row">
+    <label class="vh" for="{{ form_id }}-email">Email address</label>
+    <input id="{{ form_id }}-email" type="email" name="contact[email]" placeholder="Email address" autocomplete="email" required>
+    <button type="submit" class="btn">Notify me</button>
+  </div>
+  <p class="notify-fine">{{ fine }}</p>
+  {%- if form.posted_successfully? -%}<p class="notify-ok" role="status">{{ ok }}</p>{%- endif -%}
+  {%- if form.errors -%}<p class="notify-ok" role="alert">That email address did not work. Check it and try again.</p>{%- endif -%}
+{%- endform -%}
