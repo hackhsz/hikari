@@ -367,4 +367,15 @@ Hikari and the Cecilia project are the same business. Cecilia's 2026-09-06 resea
 | 89 | **A longer return window for Christmas gifts?** Segment C is guessing and needs an easy exchange ([03](03-customer.md)). E.g. gifts bought from 1 Nov returnable to 31 Jan. Decide before the bag notice goes up; it goes in the refund policy too. | [21](../1-shop/21-checkout.md), [03](03-customer.md) |
 | 90 | **Abandoned-checkout reminders on one-of-one stock.** Shopify can send one after the piece has sold to someone else, and the default words imply it's waiting (against D17). Rewrite them, or don't send them at all. | [21](../1-shop/21-checkout.md) |
 
-**Next free numbers:** question **#91**, decision **D24**, doc **22**.
+## Update · 2026-10-21 — shop features (D24–D28, [22](../1-shop/22-creator-programme.md))
+
+| # | Question | Where |
+|---|---|---|
+| 91 | **Sign-up reward: first sight, or money off?** Built with first sight of each Edition and no code (D27). A code is one setting away. If money: £10 off a first piece over £150, not a percentage. | D27, [02](02-positioning.md) |
+| 92 | **Creator and customer rewards.** Proposed: 10% commission for 30 days and the piece to keep; £10 towards a next piece per shared post. Track creators with **Shopify Collabs** (check it is available to a UK store) or with our own codes? | D28, [22](../1-shop/22-creator-programme.md), [14](../5-social/14-marketing.md) |
+| 93 | **WeChat: for whom, and which account?** Assumed: UK Chinese-speaking buyers, the 小红书 audience (#76). A personal account's QR code or an Official Account? The site shows whichever QR code is uploaded. Contact only, never a payment route (D4, D12). | D28, [05](../5-social/05-social.md) |
+| 94 | **Returns: 14 days or 30?** The trust strip says 14, the legal minimum. 30 is a stronger trust line for a first purchase from an unknown shop. Decide with #32 and #89. | [21](../1-shop/21-checkout.md), [03](03-customer.md) |
+| 95 | **360° kit and coverage.** A turntable and a phone on a stand, 24–36 frames a piece, about ten extra minutes. Every piece, or only the Alcove and featured pieces? | D26, [Thread 2](../2-photos/README.md) |
+| 96 | **"An agent that markets automatically": which job?** Not answered on 21 Oct. Candidates: write and post each new piece to Instagram, 小红书 and Pinterest; send the Friday Edition email; make ad creative. | [22](../1-shop/22-creator-programme.md), [Thread 5](../5-social/README.md) |
+
+**Next free numbers:** question **#97**, decision **D29**, doc **23**.

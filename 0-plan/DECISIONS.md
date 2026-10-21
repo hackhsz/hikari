@@ -430,3 +430,65 @@ The homepage house band, a House row on the product page and *More from this hou
 4. **A one-line bag notice** for delivery cut-offs: Christmas, Mothering Sunday.
 
 *Rationale:* [21](../1-shop/21-checkout.md). The bag is the last surface we control before Shopify's checkout, and on Basic the checkout steps can't carry our own content ([#88](99-open-questions.md)).
+
+---
+
+### D24 · Palette C — 千歳緑 on 米白
+**2026-10-21 · Decided · Supersedes palette B in [08](../brand/08-brand.md)**
+
+Three colours. An off-white ground, **米白 `#FAF8F3`**, with 生成り `#EFEAE0` for cards and quiet bands. **墨 sumi `#1C1B18`** for text. One deep green, **千歳緑 chitose-midori `#2F5B45`**, for emphasis.
+
+**Green is an accent, not a ground.** It marks the button, the Coming soon badge, one band per page (the list) and links on hover. **Sold is always ink.** So green only ever marks something a customer can still act on. Indigo and persimmon are retired.
+
+*Rationale:* chosen on the specimen ([`brand/palette-green.html`](../brand/palette-green.html)) over 深緑 `#1E4637` and 鉄色 `#1F4A4C`. At badge and link size it is the only one of the three that still reads as green. All pairs clear WCAG AA on both grounds (green 7.3:1 on 米白). The D2 principle holds: restraint, one accent, Japanese in composition and never in motif. *Tokens:* [`brand/tokens.css`](../brand/tokens.css). *Built:* theme, 21 Oct.
+
+---
+
+### D25 · Status badges: Coming soon, New, Sold
+**2026-10-21 · Proposed: built, on preview**
+
+Every card and product page carries at most one status:
+- **Coming soon.** The product is tagged `coming-soon`, with stock at 0. It shows its release time (the `hikari.release` metafield, else the Edition day) instead of a price. **It never counts as sold**, so it stays off the Record. The page offers *Tell me when it goes live* in place of Add to bag.
+- **New.** Available, and published within a theme setting's number of days (default 14).
+- **Sold.** In ink. The page offers *Tell me when something like this arrives*.
+
+A homepage section, **Next Edition**, shows the coming-soon pieces. It counts down to the earliest real release date, and to nothing else. Without a date it names the Edition day and shows no clock.
+
+*Rationale:* the Edition rhythm ([05](../5-social/05-social.md)) gets a surface before the drop, which is when the list is worth joining. Both "Tell me" forms add a tagged customer (`notify-release` + `piece-…`, `notify-similar` + `house-…`), so Shopify Email can reach exactly those people. This is the "notify me of similar" [04](../1-shop/04-site-ia.md) asked for. **Never a fake clock and never fake scarcity.** A countdown that resets is a banned practice under the DMCC Act 2024, as is invented urgency.
+
+---
+
+### D26 · 360° is turntable photography, never generated
+**2026-10-21 · Proposed · Extends D10**
+
+The product page shows a drag-to-turn 360° view when the product has a `hikari.spin` list of at least two images: one turn on a turntable, 24–36 photographs. It sits after frame 1 and is captioned *photographs on a turntable, not generated*.
+
+**AI may not make the views.** Generating unseen angles of a second-hand piece from a few photographs means the model invents the back and sides, which is where wear usually is. That is the exact line D10 draws, and a 360° that looks better than the piece produces the return D10 describes. Background clean-up and colour correction are allowed, as for frames 1 and 3. Nothing on the piece is retouched.
+
+Full-screen photographs come with it: every frame opens full screen, can be looked at closer, and frames 2 and 4 keep their *Unretouched* label at full size.
+
+*Open:* the kit, and whether every piece gets a spin or only the Alcove and featured pieces ([99](99-open-questions.md) #95).
+
+---
+
+### D27 · The list pop-up offers first sight, not money off
+**2026-10-21 · Proposed: built, on preview · Awaiting your call**
+
+A sign-up pop-up, editable in the theme editor. It appears on the second page view by default (or on leaving, or after a delay), and never on the bag or account pages. It never returns to someone who has joined, and after closing it rests for 14 days.
+
+**Its default offer is seeing each Edition before the site does.** A first-order code is optional: one setting, empty by default.
+
+*Rationale:* a discount contradicts [02](02-positioning.md), which says the discount frame is wrong for one-of-one stock, and [07](07-roadmap.md) "do not discount". At our numbers it is expensive: 10% of £180 is £18, about a fifth of the £84 a piece makes ([D14](DECISIONS.md)). On one-of-one stock, first sight is the most valuable thing the list can give, and it costs nothing. If money is wanted anyway, **£10 off a first piece over £150** frames better than a percentage. Set it in Discounts as once per customer, then put the code in the pop-up. Question [#91](99-open-questions.md).
+
+---
+
+### D28 · Creators, and customers who share their piece
+**2026-10-21 · Proposed: page built; rewards and the agent open**
+
+One page, `/pages/creators`, with two programmes and a form for each:
+1. **Creators** apply. If they fit, we choose a piece with them and send it with their own link and code. Commission on sales through it.
+2. **Customers** post themselves wearing their piece, tag us, and send the link with their order number. Once it is checked, they get a reward towards their next piece.
+
+**Anything posted for a reward is an advert under the CAP Code, so both say #ad.** The forms are Shopify contact forms, so each submission arrives by email. Checking is by hand until the agent in [22](../1-shop/22-creator-programme.md) exists. The agent proposes and a person approves before any code goes out.
+
+*Rationale:* [14](../5-social/14-marketing.md) already names creator seeding as cheaper than most acquisition. Customer photographs of a one-of-one piece being worn are proof the piece is real. They are the content [03](03-customer.md)'s trust problem asks for. *Open:* the reward amounts, Shopify Collabs or our own codes ([#92](99-open-questions.md)), and the accounts the agent needs.
