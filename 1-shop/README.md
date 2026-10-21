@@ -66,7 +66,7 @@ Everything a customer touches on the owned site: the theme, the store's settings
 1. **Re-import `scripts/test-products.csv`** (Products → Import, overwrite). It now has two pieces tagged `coming-soon`, which fill the Next Edition section.
 2. **Create the metafield definitions** `hikari.release` (Date and time) and `hikari.spin` (List of files) under Settings → Custom data → Products, then give a coming-soon piece a release date.
 3. **Theme settings → Social:** add whichever links exist, and the WeChat ID or QR code.
-4. **Pages → Add page:** handle `creators`, template *creators*.
+4. **Pages → Add page:** title *Creators*, handle `creators`. No template to choose.
 5. The pop-up shows on the **second** page you open. To see it again after closing it, use a private window.
 
 ## Open

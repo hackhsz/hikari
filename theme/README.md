@@ -66,7 +66,7 @@ One page per designer at `/collections/vintage-{house}-jewellery`, per [04](../1
 ## Social, WeChat and the creators page (D28)
 
 - **Theme settings → Social:** Instagram, 小红书, TikTok and Pinterest links, and a WeChat ID and QR code. Empty ones are hidden. They show in the footer and the phone menu. WeChat opens a dialog with the QR code and a copy button.
-- **Creators page:** Online Store → Pages → Add page, handle `creators`, template **creators**. The footer links to it once it exists. Both forms on it are contact forms: submissions arrive by email. See [22](../1-shop/22-creator-programme.md).
+- **Creators page:** Online Store → Pages → Add page with the handle `creators`. Any template works: the default page template shows the creators section for that handle. The footer links to it once it exists. Both forms on it are contact forms: submissions arrive by email. See [22](../1-shop/22-creator-programme.md).
 - **Announcement:** one line above the masthead, from theme settings. Empty hides it.
 
 ## Verifying a change
