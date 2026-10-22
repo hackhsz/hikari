@@ -567,7 +567,7 @@
       if(count) count.textContent=n+(n===1?" piece":" pieces");
       if(empty) empty.hidden=n>0;
       var u=new URL(location.href);
-      [["brand",b],["cat",c],["show",s],["sort_by",by]].forEach(function(p){ if(p[1]) u.searchParams.set(p[0],p[1]); else u.searchParams.delete(p[0]); });
+      [["brand",b],["cat",c],["show",s],["sort_by",by==="manual"?"":by]].forEach(function(p){ if(p[1]) u.searchParams.set(p[0],p[1]); else u.searchParams.delete(p[0]); });
       history.replaceState(history.state,"",u);
     }
     bar.addEventListener("change",apply);
