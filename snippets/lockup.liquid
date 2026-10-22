@@ -14,13 +14,20 @@
 
   scale: "hero" → kanji 200 / Newsreader 300 / rule 1px
   scale: "body" → kanji 300 / Newsreader 400 / rule 1.3px   (small sizes, print, signage)
+
+  Theme settings → Brand → Mark: "drawing" puts assets/brand-mark.png where the kanji was,
+  painted through a CSS mask in the text colour, so it follows the scroll colour like the type.
 {%- endcomment -%}
 {%- assign s = scale | default: 'body' -%}
 {%- if s == 'hero' -%}{%- assign kw = 200 -%}{%- assign lw = 300 -%}{%- assign rw = '1px' -%}
 {%- else -%}{%- assign kw = 300 -%}{%- assign lw = 400 -%}{%- assign rw = '1.3px' -%}{%- endif -%}
 {%- assign name = settings.brand_name | default: shop.name -%}
 <span class="lockup" style="font-size:{{ size | default: '20px' }}" role="img" aria-label="{{ name | escape }}">
-  <span class="lk-k" style="font-weight:{{ kw }}" aria-hidden="true">{{ settings.brand_kanji | default: '光' }}</span>
+  {%- if settings.brand_mark == 'kanji' -%}
+    <span class="lk-k" style="font-weight:{{ kw }}" aria-hidden="true">{{ settings.brand_kanji | default: '光' }}</span>
+  {%- else -%}
+    <span class="lk-m" style="--mark:url({{ 'brand-mark.png' | asset_url }})" aria-hidden="true"></span>
+  {%- endif -%}
   <span class="lk-r" style="border-left-width:{{ rw }}" aria-hidden="true"></span>
   <span class="lk-n" style="font-weight:{{ lw }}" aria-hidden="true">{{ name }}</span>
 </span>

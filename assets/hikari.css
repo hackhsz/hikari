@@ -42,6 +42,9 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .lockup .lk-k{font-family:var(--mincho);font-size:1.035em;line-height:1;
   /* optical centre of the kanji to cap centre of the Latin */
   position:relative;top:-.02em}
+/* the drawn mark (Brand → Mark: drawing): 2 em tall, so the drawing reads at 19px; masked, so it takes the text colour */
+.lockup .lk-m{display:inline-block;width:1.35em;height:2em;background:currentColor;
+  -webkit-mask:var(--mark) center/contain no-repeat;mask:var(--mark) center/contain no-repeat}
 .lockup .lk-r{display:inline-block;height:.70em;margin:0 .42em;
   border-left:1px solid currentColor;border-left-width:1.3px;align-self:center}
 .lockup .lk-n{font-family:var(--serif);letter-spacing:.28em;
@@ -49,9 +52,11 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
   margin-right:-.28em}
 @media (max-width:420px){ .lockup .lk-n{letter-spacing:.18em;margin-right:-.18em} }
 
-/* masthead */
-.mast{position:sticky;top:0;z-index:70;mix-blend-mode:difference;color:#fff}
-.mast .inner{max-width:var(--max);margin:0 auto;padding:16px var(--gut);display:flex;align-items:center;justify-content:space-between;gap:18px}
+/* masthead: a solid band that stays at the top, painted with the page's own ground and ink, so it
+   follows the scroll colour and the logo never sits on top of the page underneath */
+.mast{position:sticky;top:0;z-index:70;background:var(--bg);color:var(--fg);
+  box-shadow:0 1px 0 color-mix(in srgb,currentColor 12%,transparent)}
+.mast .inner{max-width:var(--max);margin:0 auto;padding:10px var(--gut);display:flex;align-items:center;justify-content:space-between;gap:18px}
 .mast nav{display:flex;gap:22px}
 .mast-r{display:flex;gap:20px;align-items:center}
 .mast nav a,.mast .bag-btn,.mast .menu-btn{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.82;transition:opacity .25s;

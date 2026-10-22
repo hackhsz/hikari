@@ -14,8 +14,19 @@
         "type": "text",
         "id": "brand_name",
         "label": "Brand name",
-        "default": "Hikari Vintage",
+        "default": "Karineko Vintage",
         "info": "Change this and the whole site follows. The name is deliberately not hard-coded anywhere — see 0-plan/18-name-clearance.md."
+      },
+      {
+        "type": "select",
+        "id": "brand_mark",
+        "label": "Mark beside the name",
+        "default": "drawing",
+        "options": [
+          { "value": "drawing", "label": "Drawing (assets/brand-mark.png)" },
+          { "value": "kanji", "label": "Kanji" }
+        ],
+        "info": "The drawing takes the text colour, so it works on light and dark sections alike."
       },
       {
         "type": "text",
