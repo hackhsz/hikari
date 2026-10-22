@@ -539,4 +539,4 @@ html.scroll-colour .prefs-save span{color:var(--bg)}
   border:1px solid color-mix(in srgb,currentColor 32%,transparent)}
 .cat-empty{margin-top:12px}
 s.was{opacity:.5;font-size:.8em;margin-right:.35em;text-decoration-thickness:1px}
-.bag-presale{color:var(--midori);opacity:1;text-transform:none;letter-spacing:0;font-weight:500}
+.bag-presale{color:var(--midori);opacity:1;font-size:11.5px;line-height:1.4;text-transform:none;letter-spacing:0;font-weight:500}
