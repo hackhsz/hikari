@@ -152,7 +152,7 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .form input[type=email]{flex:1 1 240px;min-width:0;background:transparent;color:inherit;border:0;border-bottom:1px solid;
   border-color:color-mix(in srgb,currentColor 34%,transparent);padding:11px 2px;font:inherit;font-size:15px}
 .form input::placeholder{color:currentColor;opacity:.42}
-.form button{background:currentColor;border:0;border-radius:2px;padding:13px 28px;font-family:inherit;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;cursor:pointer}
+.form button{color:inherit;background:currentColor;border:0;border-radius:2px;padding:13px 28px;font-family:inherit;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;cursor:pointer}
 .form button span{color:var(--sec-bg,var(--bg))}
 /* with scroll colour the ground and ink blend together, so the button follows the blend */
 html.scroll-colour .form button span{color:var(--bg)}
@@ -509,9 +509,10 @@ html.js .card .qv-btn{display:block}
 .prefs-chip input:checked+span::before{content:"✓ "}
 .prefs-chip input:focus-visible+span{outline:2px solid currentColor;outline-offset:2px}
 .prefs-row{display:flex;align-items:center;gap:20px;margin:22px 0 0}
-.prefs-save{background:currentColor;border:0;border-radius:2px;padding:13px 28px;font-family:inherit;font-size:10px;letter-spacing:.18em;
+.prefs-save{color:inherit;background:currentColor;border:0;border-radius:2px;padding:13px 28px;font-family:inherit;font-size:10px;letter-spacing:.18em;
   text-transform:uppercase;font-weight:600;cursor:pointer}
 .prefs-save span{color:var(--sec-bg,var(--bg))}
+html.scroll-colour .prefs-save span{color:var(--bg)}
 .prefs-save[aria-busy="true"]{opacity:.6;cursor:progress}
 .prefs-skip{background:none;border:0;border-bottom:1px solid currentColor;padding:4px 0;color:inherit;font:inherit;font-size:13px;opacity:.72;cursor:pointer}
 .prefs-wrap .prefs-fine{font-size:12px;line-height:1.5;opacity:.62;margin:12px 0 0;max-width:46ch}
