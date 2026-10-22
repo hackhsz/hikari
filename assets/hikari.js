@@ -340,6 +340,8 @@
         return;
       }
       if(f.id==="popup-form") sstore("hk-popup-sent","1");
+      if(f.id==="popup-form"||f.id==="edition-form") keepForPrefs(f);
+      if(f.matches(".prefs")){ e.preventDefault(); savePrefs(f); return; }
       if(!f.matches('form[action$="/cart/add"]')) return;
       e.preventDefault(); addToBag(f);
     });
@@ -528,6 +530,46 @@
     if(views>=pages) setTimeout(show,1200);
   }
 
+  /* ── what do you collect? (snippets/preferences, CRM) ───── */
+  /* The sign-up reloads the page without the address, so it waits in session storage for the
+     one step after it, then is forgotten whether or not they answer. */
+  function keepForPrefs(f){
+    var em=f.querySelector('[name="contact[email]"]');
+    if(em&&em.value){ sstore("hk-prefs-email",em.value); sstore("hk-prefs-after",f.id); }
+  }
+  function initPrefs(){
+    var posted=/[?&]customer_posted=true/.test(location.search),
+        email=sstore("hk-prefs-email"), after=sstore("hk-prefs-after");
+    /* kept through a spam check or a mistyped address; gone once the sign-up has landed */
+    if(posted){ sstore("hk-prefs-email",null); sstore("hk-prefs-after",null); }
+    [].forEach.call(document.querySelectorAll("[data-prefs]"),function(w){
+      if(!w.hasAttribute("data-prefs-ask")){
+        if(!posted||!email||w.getAttribute("data-after")!==after||store("hk-prefs")==="done") return;
+        w.querySelector("[data-prefs-email]").value=email;
+      }
+      w.hidden=false;
+      var skip=w.querySelector("[data-prefs-skip]");
+      if(skip) skip.addEventListener("click",function(){ w.hidden=true; });
+    });
+  }
+  function savePrefs(f){
+    var tags=["prefs"];
+    [].forEach.call(f.querySelectorAll("[data-tag]:checked"),function(i){ tags.push(i.value); });
+    /* a comma would split the tag, so spaces and commas go */
+    var wc=f.querySelector("[data-prefs-wechat]"), wid=wc?wc.value.replace(/[\s,]+/g,"").slice(0,40):"";
+    if(wid) tags.push("wechat","wechat:"+wid);
+    f.querySelector('[name="contact[tags]"]').value=tags.join(", ");
+    var b=f.querySelector('[type="submit"]'); if(b) b.setAttribute("aria-busy","true");
+    /* Saved in the background, so the page does not reload into every customer form saying "sent".
+       Anything but Shopify's own success (a spam check, a bad address) falls back to a normal post. */
+    fetch(f.action,{method:"POST",body:new FormData(f),credentials:"same-origin"}).then(function(r){
+      if(!r.ok||!/[?&]customer_posted=true/.test(r.url)) throw new Error("not saved");
+      store("hk-prefs","done");
+      var ok=f.parentNode.querySelector("[data-prefs-ok]");
+      f.hidden=true; ok.hidden=false; ok.focus();
+    }).catch(function(){ f.submit(); });
+  }
+
   function initMisc(){
     if(navigator.share) [].forEach.call(document.querySelectorAll("[data-share]"),function(b){ b.hidden=false; });
     if(/[?&]contact_posted=true/.test(location.search)) [].forEach.call(document.querySelectorAll("[data-cr-ok]"),function(p){
@@ -539,7 +581,7 @@
   function boot(){
     root.classList.add("js");
     initPlates(); initScroll(); bindOnce(); syncButtons();
-    initZoom(); initSpin(); initCountdown(); initPopup(); initMisc();
+    initZoom(); initSpin(); initCountdown(); initPrefs(); initPopup(); initMisc();
   }
   if(document.readyState!=="loading") boot(); else document.addEventListener("DOMContentLoaded",boot);
   document.addEventListener("shopify:section:load",boot);

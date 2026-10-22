@@ -99,6 +99,49 @@ Create these under Settings → Custom data → Products, namespace **`hikari`**
 
 Use **Vendor** for the house (Christian Dior, Givenchy). The cards and product page read it.
 
+## Customers
+
+Shopify Customers is the CRM. A storefront form can only save an email and tags on a customer, so **what customers tell us is a tag**, and what we add by hand is a customer metafield.
+
+| Tag | Means | Set by |
+|---|---|---|
+| `edition` · `popup` | Joined the list (footer, pop-up) | Sign-up forms |
+| `notify-release` · `piece-{handle}` | Wants to know when this Coming soon piece goes live | Product page |
+| `notify-similar` · `house-{house}` | Missed a sold piece, wants the next from this house | Product page |
+| `house-{house}` | Likes this house, e.g. `house-christian-dior` (same tag as above) | Preference step |
+| `type-earrings` · `type-brooches` · `type-necklaces` · `type-bracelets` | Pieces they want | Preference step |
+| `ears-clip` | Wears clip-on earrings only | Preference step |
+| `budget-under-150` · `budget-150-250` · `budget-250-plus` | What they usually spend | Preference step |
+| `prefs` | Has answered the preference step | Preference step |
+| `wechat` · `wechat:{id}` | Gave a WeChat ID (微信号), held in the second tag. Add both by hand when someone gives it in person | Preference step, or by hand |
+| `creator` | In the creators programme | By hand |
+
+The **preference step** ("What do you collect?", `snippets/preferences.liquid`) shows once, optional, after someone joins the list. A page with the handle **`preferences`** shows the same form with an email field, for the people who skipped it: link it from the Edition.
+
+Customer metafields, under Settings → Custom data → **Customers**, namespace **`hikari`**, filled in by hand:
+
+| Key | Type |
+|---|---|
+| `social_platform` | Single line text, choices: Instagram · 小红书 Xiaohongshu · TikTok · Pinterest · YouTube · Other |
+| `social_handle` | Single line text |
+| `followers` | Integer |
+| `creator_status` | Single line text, choices: Applied · Accepted · Active · Paused · Declined |
+
+The creators form does not ask for marketing consent, so add creators by hand, tagged `creator`, without subscribing them. Notes go in the customer's own Note.
+
+Segments (Customers → Segments) to start with:
+
+| Segment | Query |
+|---|---|
+| Edition list | `email_subscription_status = 'SUBSCRIBED' AND customer_tags CONTAINS 'edition'` |
+| No preferences yet | `email_subscription_status = 'SUBSCRIBED' AND customer_tags NOT CONTAINS 'prefs'` |
+| Waiting for a release | `customer_tags CONTAINS 'notify-release'` |
+| Buyers | `number_of_orders > 0` |
+| Creators | `customer_tags CONTAINS 'creator'` |
+| Likes {house}, one per house in stock | `email_subscription_status = 'SUBSCRIBED' AND customer_tags CONTAINS 'house-christian-dior'` |
+
+Add piece-type and budget segments when an Edition needs them. Shopify Email sends to a segment.
+
 ## Before the first sale
 
 - **Settings → Taxes: charge no VAT.** Charging or displaying VAT while unregistered is an offence ([`0-plan/16-vat.md`](../0-plan/16-vat.md)). The store will add a tax line on defaults — turn it off and check it again after any settings change.

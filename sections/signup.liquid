@@ -2,13 +2,14 @@
   <div class="shell pad signup rule-top">
     <h2>{{ section.settings.heading }}</h2>
     <p>{{ section.settings.body }}</p>
-    {%- form 'customer', class: 'form' -%}
+    {%- form 'customer', id: 'edition-form', class: 'form' -%}
       <input type="hidden" name="contact[tags]" value="edition">
       <label for="edition-email" style="position:absolute;left:-9999px">Email address</label>
       <input id="edition-email" type="email" name="contact[email]" placeholder="you@example.com" autocomplete="email" required>
       <button type="submit"><span>Join the list</span></button>
-      {%- if form.posted_successfully? %}<p style="flex:1 1 100%;margin:10px 0 0">Thank you — you are on the list.</p>{% endif -%}
+      {%- if form.posted_successfully? %}{% assign edition_joined = true %}<p style="flex:1 1 100%;margin:10px 0 0">Thank you — you are on the list.</p>{% endif -%}
     {%- endform -%}
+    {%- if edition_joined -%}{% render 'preferences', form_id: 'prefs-edition', after: 'edition-form' %}{%- endif -%}
   </div>
 </section>
 {% schema %}

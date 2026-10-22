@@ -5,7 +5,8 @@
     · never to someone who has joined, or who closed it in the last rest_days days
     · trigger: on the Nth page they view, when the pointer leaves for the tab bar, or after N seconds
   After joining, the form posts and the page reloads. The script remembers that this form was
-  sent and opens the pop-up again to say it worked, with the code if there is one.
+  sent and opens the pop-up again to say it worked, with the code if there is one, and under
+  it the optional "What do you collect?" step (snippets/preferences).
 
   The default offer is first sight of each Edition, not money off: on one-of-one stock, first
   sight is what the list is worth. A code is optional. If one is set, make it in Discounts first:
@@ -22,6 +23,7 @@
       {%- form 'customer', id: 'popup-form', class: 'popup-form' -%}
         <input type="hidden" name="contact[tags]" value="edition, popup">
         {%- if form.posted_successfully? -%}
+          {%- assign popup_joined = true -%}
           <div data-popup-ok>
             <p class="eyebrow">You are on the list</p>
             <h2 class="popup-h" id="popup-title">{{ section.settings.ok_heading }}</h2>
@@ -51,6 +53,7 @@
           </p>
         {%- endif -%}
       {%- endform -%}
+      {%- if popup_joined -%}{% render 'preferences', form_id: 'prefs-popup', after: 'popup-form' %}{%- endif -%}
     </div>
   </div>
 </div>

@@ -1,0 +1,66 @@
+{%- comment -%}
+  "What do you collect?" (CRM): the optional step after joining the list, and /pages/preferences.
+  The answers become customer tags, the only thing a storefront form can save on a customer,
+  so a segment can find people by them (README → Customers):
+    house-{vendor handle} · type-{earrings|brooches|necklaces|bracelets} · ears-clip
+    budget-{under-150|150-250|250-plus}, and prefs on everyone who answers.
+    A WeChat ID, if given, becomes wechat (so a segment can find everyone who gave one)
+    and wechat:{id}, which holds the ID itself.
+  house- is the tag the "similar" notify form already sets, so there is one tag per house.
+
+  After a sign-up the page reloads without the address, and Shopify marks every customer form
+  on it as sent. So hikari.js keeps the address in session storage for this one step, shows
+  the step only under the form that was used (after), and saves it without a reload.
+  Without JavaScript the step stays hidden: the boxes alone would not reach Shopify as tags.
+  Params: form_id; after (the sign-up form's id), or ask_email: true on the page.
+{%- endcomment -%}
+<div class="prefs-wrap" data-prefs{% if ask_email %} data-prefs-ask{% else %} data-after="{{ after }}"{% endif %} hidden>
+  {%- form 'customer', id: form_id, class: 'prefs' -%}
+    <input type="hidden" name="contact[tags]" value="prefs">
+    {%- if ask_email -%}
+      <div class="notify-row">
+        <label class="vh" for="{{ form_id }}-email">Email address</label>
+        <input id="{{ form_id }}-email" type="email" name="contact[email]" placeholder="Email address" autocomplete="email" required>
+      </div>
+    {%- else -%}
+      <p class="prefs-h">One more thing, if you like: what do you collect?</p>
+      <input type="hidden" name="contact[email]" data-prefs-email>
+    {%- endif -%}
+
+    <fieldset class="prefs-set">
+      <legend>Houses</legend>
+      {%- for v in shop.vendors -%}
+        <label class="prefs-chip"><input type="checkbox" value="house-{{ v | handleize }}" data-tag><span>{{ v }}</span></label>
+      {%- endfor -%}
+    </fieldset>
+    <fieldset class="prefs-set">
+      <legend>Pieces</legend>
+      {%- assign types = 'Earrings,Brooches,Necklaces,Bracelets' | split: ',' -%}
+      {%- for t in types -%}
+        <label class="prefs-chip"><input type="checkbox" value="type-{{ t | handleize }}" data-tag><span>{{ t }}</span></label>
+      {%- endfor -%}
+      <label class="prefs-chip"><input type="checkbox" value="ears-clip" data-tag><span>Clip-on earrings only</span></label>
+    </fieldset>
+    <fieldset class="prefs-set">
+      <legend>Usually spend</legend>
+      <label class="prefs-chip"><input type="radio" name="{{ form_id }}-budget" value="budget-under-150" data-tag><span>Under {{ 15000 | money_without_trailing_zeros }}</span></label>
+      <label class="prefs-chip"><input type="radio" name="{{ form_id }}-budget" value="budget-150-250" data-tag><span>{{ 15000 | money_without_trailing_zeros }}–{{ 25000 | money_without_trailing_zeros }}</span></label>
+      <label class="prefs-chip"><input type="radio" name="{{ form_id }}-budget" value="budget-250-plus" data-tag><span>Over {{ 25000 | money_without_trailing_zeros }}</span></label>
+    </fieldset>
+    <div class="prefs-set prefs-field">
+      <label for="{{ form_id }}-wechat">WeChat ID <span lang="zh">微信号</span>, if you would like to hear from us there</label>
+      <input id="{{ form_id }}-wechat" type="text" maxlength="40" autocomplete="off" autocapitalize="off" spellcheck="false" data-prefs-wechat>
+    </div>
+
+    <div class="prefs-row">
+      <button type="submit" class="prefs-save"><span>Save</span></button>
+      {%- unless ask_email -%}<button type="button" class="prefs-skip" data-prefs-skip>Skip</button>{%- endunless -%}
+    </div>
+    <p class="prefs-fine">
+      {%- if ask_email -%}Saves your choices to your place on the list, and adds you to the list if you are not on it yet. Unsubscribe any time.
+      {%- else -%}Optional. We use it only to choose which pieces to show you first, and WeChat only to tell you about them.{%- endif -%}
+      {%- if shop.privacy_policy %} <a class="spec-link" href="{{ shop.privacy_policy.url }}">Privacy</a>{% endif -%}
+    </p>
+  {%- endform -%}
+  <p class="prefs-ok" data-prefs-ok tabindex="-1" hidden>Thank you. We will show you those first.</p>
+</div>
