@@ -64,7 +64,7 @@
   { "type": "select", "id": "trigger", "label": "When it appears", "default": "pages",
     "options": [
       { "value": "pages", "label": "On a later page view" },
-      { "value": "exit", "label": "When they go to leave (desktop), else on a later page view" },
+      { "value": "exit", "label": "On leaving (desktop), else later page" },
       { "value": "delay", "label": "After some seconds" }] },
   { "type": "range", "id": "pages", "label": "On page view number", "min": 1, "max": 5, "step": 1, "default": 2 },
   { "type": "range", "id": "delay", "label": "After seconds", "min": 5, "max": 60, "step": 5, "unit": "s", "default": 20 },
@@ -77,7 +77,8 @@
   { "type": "textarea", "id": "fine", "label": "Small print", "default": "One email a week, the Edition, and the odd note when a piece you asked about arrives. Unsubscribe any time." },
   { "type": "text", "id": "ok_heading", "label": "After joining: heading", "default": "Thank you." },
   { "type": "textarea", "id": "ok_body", "label": "After joining: body", "default": "The next Edition comes to your inbox before it reaches the site." },
-  { "type": "header", "content": "Optional: a first-order code", "info": "Leave the code empty for no discount (D27). If you add one, create it in Discounts first, once per customer." },
+  { "type": "header", "content": "Optional: a first-order code" },
+  { "type": "paragraph", "content": "Leave the code empty for no discount (D27). If you add one, create it in Discounts first, once per customer." },
   { "type": "text", "id": "code", "label": "Discount code" },
   { "type": "text", "id": "offer", "label": "What the code gives", "default": "£10 off your first piece over £150." }
 ] }
