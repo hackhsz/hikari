@@ -129,6 +129,11 @@
       },
       {
         "type": "url",
+        "id": "social_x",
+        "label": "X (Twitter)"
+      },
+      {
+        "type": "url",
         "id": "social_xiaohongshu",
         "label": "小红书 Xiaohongshu"
       },
