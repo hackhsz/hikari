@@ -29,7 +29,7 @@
           {%- case status -%}
             {%- when 'soon' -%}<span class="when">{%- render 'release', p: p -%}</span>
             {%- when 'sold' -%}Sold
-            {%- else -%}{{ p.price | money }}
+            {%- else -%}{%- render 'price', p: p -%}
           {%- endcase -%}
         </span>
         <span class="tag">{%- if p.metafields.hikari.grade %}Grade {{ p.metafields.hikari.grade }}{% endif -%}

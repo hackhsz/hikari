@@ -1,0 +1,57 @@
+{%- comment -%}
+  A shelf of pieces on one footing (snippets/status):
+    sale     a compare-at price above the price
+    presale  tagged pre-sale and in stock: buy now, ships later (theme settings → Badges)
+  Drawn from the whole catalogue (the first 50 Shopify lists), up to eight pieces. With nothing
+  to show the section renders nothing, except in the theme editor, where it says how to fill it.
+  "See them all" opens the catalogue with the same view picked (main-collection, ?show=).
+{%- endcomment -%}
+{%- assign kind = section.settings.kind -%}
+{%- assign shown = 0 -%}
+{%- capture cards -%}
+  {%- for p in collections.all.products -%}
+    {%- unless p.available -%}{%- continue -%}{%- endunless -%}
+    {%- if kind == 'presale' -%}
+      {%- unless p.tags contains 'pre-sale' -%}{%- continue -%}{%- endunless -%}
+    {%- else -%}
+      {%- unless p.compare_at_price > p.price -%}{%- continue -%}{%- endunless -%}
+    {%- endif -%}
+    {%- if shown >= 8 -%}{%- break -%}{%- endif -%}
+    {%- assign shown = shown | plus: 1 -%}
+    {%- render 'product-card', card_product: p, tone: 'light' -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- if shown > 0 or request.design_mode -%}
+<section class="pad" id="shelf-{{ section.id }}" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+  <div class="shell">
+    <div class="ne-head">
+      <div>
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+        <h2 class="ne-h">{{ section.settings.heading }}</h2>
+      </div>
+      {%- if kind == 'presale' -%}<p class="ne-when">{{ settings.presale_note }}</p>{%- endif -%}
+    </div>
+    {%- if shown > 0 -%}
+      <div class="grid4">{{ cards }}</div>
+      <p class="ne-foot"><a class="hero-link" href="{{ routes.all_products_collection_url }}?show={{ kind }}">See them all</a></p>
+    {%- else -%}
+      <p class="ne-empty">
+        {%- if kind == 'presale' -%}Nothing on pre-sale. Tag a piece pre-sale and keep its stock at 1, and it shows here.
+        {%- else -%}Nothing on sale. Give a piece a compare-at price above its price, and it shows here.{%- endif -%}
+        This note only shows in the theme editor.
+      </p>
+    {%- endif -%}
+  </div>
+</section>
+{%- endif -%}
+{% schema %}
+{ "name": "Shelf: on sale or pre-sale", "settings": [
+  { "type": "select", "id": "kind", "label": "Show", "default": "sale",
+    "options": [ { "value": "sale", "label": "On sale" }, { "value": "presale", "label": "Pre-sale" } ] },
+  { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "On sale" },
+  { "type": "text", "id": "heading", "label": "Heading", "default": "A little less, still one of one" }
+], "presets": [
+  { "name": "On sale", "settings": { "kind": "sale", "eyebrow": "On sale", "heading": "A little less, still one of one" } },
+  { "name": "Pre-sale", "settings": { "kind": "presale", "eyebrow": "Pre-sale", "heading": "Yours now, on its way soon" } }
+] }
+{% endschema %}

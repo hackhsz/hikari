@@ -101,6 +101,17 @@
         "label": "Show New for this many days after publishing",
         "default": 14,
         "info": "0 turns New off."
+      },
+      {
+        "type": "paragraph",
+        "content": "Pre-sale: tag a product pre-sale and keep its stock at 1. It can be bought now, the button says Pre-order, and the note below goes on the order. Remove the tag once it ships. On sale: give a product a compare-at price above its price; the old price shows struck through."
+      },
+      {
+        "type": "text",
+        "id": "presale_note",
+        "label": "Pre-sale shipping note",
+        "default": "Ships within about a month of your order.",
+        "info": "Promise less than you expect to deliver."
       }
     ]
   },

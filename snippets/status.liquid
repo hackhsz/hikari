@@ -1,9 +1,11 @@
 {%- comment -%}
-  A piece's status, as one word (D25): soon, sold, new, or nothing.
-    soon  tagged coming-soon: shown before its Edition, not yet for sale. Never counted as sold,
-          so it stays off the Record. Keep its stock at 0 until it goes live, then remove the tag.
-    sold  not available, and not coming soon.
-    new   available, and published within settings.new_days days. 0 turns New off.
+  A piece's status, as one word (D25): soon, sold, presale, sale, new, or nothing.
+    soon     tagged coming-soon: shown before its Edition, not yet for sale. Never counted as sold,
+             so it stays off the Record. Keep its stock at 0 until it goes live, then remove the tag.
+    sold     not available, and not coming soon.
+    presale  tagged pre-sale and in stock: for sale now, ships later (settings.presale_note).
+    sale     a compare-at price above the price.
+    new      available, and published within settings.new_days days. 0 turns New off.
   Use: {%- capture s -%}{%- render 'status', p: product -%}{%- endcapture -%}
 {%- endcomment -%}
 {%- liquid
@@ -12,6 +14,10 @@
     assign s = 'soon'
   elsif p.available == false
     assign s = 'sold'
+  elsif p.tags contains 'pre-sale'
+    assign s = 'presale'
+  elsif p.compare_at_price > p.price
+    assign s = 'sale'
   elsif settings.new_days > 0 and p.published_at
     assign now_s = 'now' | date: '%s' | plus: 0
     assign pub_s = p.published_at | date: '%s' | plus: 0

@@ -42,8 +42,8 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .lockup .lk-k{font-family:var(--mincho);font-size:1.035em;line-height:1;
   /* optical centre of the kanji to cap centre of the Latin */
   position:relative;top:-.02em}
-/* the drawn mark (Brand → Mark: drawing): 2 em tall, so the drawing reads at 19px; masked, so it takes the text colour */
-.lockup .lk-m{display:inline-block;width:1.35em;height:2em;background:currentColor;
+/* the drawn mark (Brand → Mark: drawing): 2.3 em tall, so the drawing reads at 19px; masked, so it takes the text colour */
+.lockup .lk-m{display:inline-block;width:1.55em;height:2.3em;background:currentColor;
   -webkit-mask:var(--mark) center/contain no-repeat;mask:var(--mark) center/contain no-repeat}
 .lockup .lk-r{display:inline-block;height:.70em;margin:0 .42em;
   border-left:1px solid currentColor;border-left-width:1.3px;align-self:center}
@@ -527,3 +527,15 @@ html.scroll-colour .prefs-save span{color:var(--bg)}
 .prefs-field input{background:transparent;color:inherit;font:inherit;font-size:14px;padding:11px 12px;border-radius:2px;
   border:1px solid color-mix(in srgb,currentColor 32%,transparent)}
 .prefs-field input:focus{outline:none;border-color:currentColor}
+
+/* ── catalogue bar (sections/main-collection) and sale prices (snippets/price) ── */
+.cat-bar{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px 32px;margin:0 0 clamp(26px,4vw,40px)}
+.cat-filters{display:flex;flex-direction:column;min-width:0;flex:1 1 520px}
+.cat-filters[hidden],.cat-item[hidden]{display:none}
+.cat-filters .prefs-set{margin-top:12px}
+.cat-sort{display:flex;align-items:center;gap:10px}
+.cat-sort label{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.6}
+.cat-sort select{font:inherit;font-size:13.5px;color:inherit;background:transparent;border-radius:2px;padding:9px 12px;
+  border:1px solid color-mix(in srgb,currentColor 32%,transparent)}
+.cat-empty{margin-top:12px}
+s.was{opacity:.5;font-size:.8em;margin-right:.35em;text-decoration-thickness:1px}

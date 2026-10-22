@@ -1,0 +1,7 @@
+{%- comment -%}
+  A piece's price, with the old one struck through when it is on sale (a compare-at price above
+  the price). Used by the card, the product page and Quick view, so a sale reads the same everywhere.
+  Params: p.
+{%- endcomment -%}
+{%- if p.compare_at_price > p.price -%}<s class="was"><span class="vh">Was </span>{{ p.compare_at_price | money }}</s> {% endif -%}
+{{- p.price | money -}}

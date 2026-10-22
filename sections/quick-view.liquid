@@ -19,9 +19,16 @@
   <div class="qv-info">
     <h2 class="qv-house" id="qv-title">{{ p.vendor | default: p.title }}</h2>
     <p class="qv-piece">{{ piece }}</p>
-    <span class="price qv-price">{% if status == 'sold' %}Sold{% else %}{{ p.price | money }}{% endif %}</span>
+    <span class="price qv-price">{% if status == 'sold' %}Sold{% else %}{%- render 'price', p: p -%}{% endif %}</span>
 
     {%- case status -%}
+      {%- when 'presale' -%}
+        <p class="pdp-status">Pre-sale. {{ settings.presale_note }}</p>
+        {%- form 'product', p -%}
+          <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
+          <input type="hidden" name="properties[Pre-sale]" value="{{ settings.presale_note | escape }}">
+          <button class="btn" type="submit" data-label="Pre-order">Pre-order</button>
+        {%- endform -%}
       {%- when 'soon' -%}
         <p class="pdp-status">Goes live {% render 'release', p: p %}</p>
         <a class="btn" href="{{ p.url }}">Tell me when it goes live</a>

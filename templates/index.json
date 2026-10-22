@@ -95,6 +95,22 @@
     },
     "next": {
       "type": "next-edition"
+    },
+    "presale": {
+      "type": "shelf",
+      "settings": {
+        "kind": "presale",
+        "eyebrow": "Pre-sale",
+        "heading": "Yours now, on its way soon"
+      }
+    },
+    "sale": {
+      "type": "shelf",
+      "settings": {
+        "kind": "sale",
+        "eyebrow": "On sale",
+        "heading": "A little less, still one of one"
+      }
     }
   },
   "order": [
@@ -102,6 +118,8 @@
     "alcove",
     "featured",
     "next",
+    "presale",
+    "sale",
     "houses",
     "story",
     "recent",

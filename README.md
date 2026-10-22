@@ -49,9 +49,18 @@ One page per designer at `/collections/vintage-{house}-jewellery`, per [04](../1
 ## Badges, Coming soon and the next Edition (D25)
 
 - **Coming soon:** tag the product `coming-soon`, keep its stock at **0**, and set `hikari.release`. The card shows the release time instead of a price, the page offers *Tell me when it goes live*, and the piece appears in the homepage **Next Edition** section with a countdown. It never counts as sold. **When it goes live:** remove the tag and set stock to 1.
+- **Pre-sale:** tag the product `pre-sale` and keep its stock at **1**. It can be bought now: the button says *Pre-order*, and the shipping note (Theme settings → Badges, "Ships within about a month of your order.") shows on the page and goes on the order. It appears in the homepage **Pre-sale** shelf. **When it ships:** remove the tag.
+- **On sale:** give the product a compare-at price above its price. The old price shows struck through everywhere, with a *Sale* badge, and the piece appears in the homepage **On sale** shelf.
 - **New:** automatic, for a number of days after publishing. Theme settings → Badges.
 - **Sold:** automatic. The page offers *Tell me when something like this arrives*.
+- One badge per piece, in this order: Coming soon, Sold, Pre-sale, Sale, New.
 - The "Tell me" forms add customers tagged `notify-release` + `piece-{handle}` or `notify-similar` + `house-{house}`. In Shopify Email, make a segment on the tag to write to them.
+
+## The catalogue: filter and sort
+
+Every collection page has a bar over the grid: **Brand** (the Vendor), **Category**, **Show** (everything, available, on sale, pre-sale) and **Sort** (featured, price low to high, price high to low, newest, brand A to Z). It works in the page, and the address keeps the view, so `/collections/all?brand=christian-dior&sort_by=price-ascending` can be linked to.
+
+A piece's **category is a product tag**: `earrings`, `brooches`, `necklaces`, `bracelets` or `rings`. Give every new piece one. It covers the first 50 pieces in a collection; past that, move to Shopify's own filters (the Search & Discovery app).
 
 ## Quick view, full screen and 360° (D26)
 

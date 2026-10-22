@@ -10,7 +10,8 @@
   in order. Real photographs only. Nothing in it is generated, so it sits beside the evidence
   frames rather than with the composed ones. It goes after frame 1.
 
-  The panel follows the piece's status (snippets/status, D25): Add to bag; or, coming soon, the
+  The panel follows the piece's status (snippets/status, D25): Add to bag; or, pre-sale, Pre-order
+  with the shipping note (theme settings → Badges), which also goes on the order; or, coming soon, the
   release time and a form to hear when it goes live; or, sold, a form to hear when something
   similar arrives. Both forms add a tagged customer, so Shopify Email can find them.
 {%- endcomment -%}
@@ -62,9 +63,17 @@
     <div class="panel">
       <h1>{{ p.vendor | default: p.title }}</h1>
       <p class="sub">{{ piece }}</p>
-      <span class="price p">{{ p.price | money }}</span>
+      <span class="price p">{%- render 'price', p: p -%}</span>
 
       {%- case status -%}
+        {%- when 'presale' -%}
+          <p class="pdp-status pdp-status--soon"><span class="badge badge--soon">Pre-sale</span> {{ settings.presale_note }}</p>
+          {%- form 'product', p -%}
+            <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
+            <input type="hidden" name="properties[Pre-sale]" value="{{ settings.presale_note | escape }}">
+            <button class="btn" type="submit" data-label="Pre-order">Pre-order</button>
+          {%- endform -%}
+          <p class="pdp-note" data-product-note role="status" aria-live="polite"></p>
         {%- when 'soon' -%}
           <p class="pdp-status pdp-status--soon"><span class="badge badge--soon">Coming soon</span>
             Goes live {% render 'release', p: p %}</p>

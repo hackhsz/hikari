@@ -236,7 +236,7 @@
       var i=f.querySelector('[name="id"]'), b=f.querySelector('[type="submit"]');
       if(!i||!b||b.disabled) return;
       var inBag=ids.indexOf(String(i.value))>-1;
-      b.textContent=inBag?"In your bag":"Add to bag";
+      b.textContent=inBag?"In your bag":(b.getAttribute("data-label")||"Add to bag");
       b.toggleAttribute("data-in-bag",inBag);
     });
   }
@@ -250,7 +250,11 @@
     var id=String(input.value), btn=form.querySelector('[type="submit"]');
     if(bagIds().indexOf(id)>-1){ openSheetById("bag",btn); note("Already in your bag."); return; }
     if(btn) btn.setAttribute("aria-busy","true");
-    post(R.cart_add_url+".js",{items:[{id:Number(id),quantity:1}],sections:SECTION,sections_url:location.pathname})
+    /* line properties ride along (a pre-sale says so on the order) */
+    var item={id:Number(id),quantity:1}, props={};
+    [].forEach.call(form.querySelectorAll('[name^="properties["]'),function(i){ props[i.name.slice(11,-1)]=i.value; });
+    if(Object.keys(props).length) item.properties=props;
+    post(R.cart_add_url+".js",{items:[item],sections:SECTION,sections_url:location.pathname})
       .then(function(res){
         if(btn) btn.removeAttribute("aria-busy");
         if(res.ok){
@@ -530,6 +534,49 @@
     if(views>=pages) setTimeout(show,1200);
   }
 
+  /* ── catalogue: filter and sort in the page (sections/main-collection) ── */
+  var SORTS={
+    "price-ascending":function(a,b){ return num(a,"price")-num(b,"price"); },
+    "price-descending":function(a,b){ return num(b,"price")-num(a,"price"); },
+    "created-descending":function(a,b){ return num(b,"date")-num(a,"date"); },
+    "vendor":function(a,b){ return a.getAttribute("data-vendor").localeCompare(b.getAttribute("data-vendor"))||num(a,"price")-num(b,"price"); }
+  };
+  function num(el,k){ return Number(el.getAttribute("data-"+k))||0; }
+  function initCatalog(){
+    var grid=document.querySelector("[data-cat-grid]"), bar=document.querySelector("[data-cat-filters]");
+    if(!grid||!bar||grid.hasAttribute("data-cat-on")) return;
+    grid.setAttribute("data-cat-on","");
+    var sort=document.querySelector("[data-cat-sort]"), count=document.querySelector("[data-cat-count]"),
+        empty=document.querySelector("[data-cat-empty]"), items=[].slice.call(grid.querySelectorAll(".cat-item")),
+        q=new URLSearchParams(location.search);
+    function choose(name,v){ var i=bar.querySelector('input[name="cat-'+name+'"][value="'+v+'"]'); if(i) i.checked=true; }
+    function val(name){ var i=bar.querySelector('input[name="cat-'+name+'"]:checked'); return i?i.value:""; }
+    ["brand","cat","show"].forEach(function(k){ if(q.get(k)) choose(k,q.get(k)); });
+    if(sort&&q.get("sort_by")&&sort.querySelector('option[value="'+q.get("sort_by")+'"]')) sort.value=q.get("sort_by");
+    bar.hidden=false;
+    function apply(){
+      var b=val("brand"), c=val("cat"), s=val("show"), by=sort?sort.value:"", n=0;
+      items.forEach(function(el){
+        var st=el.getAttribute("data-status"),
+            ok=(!b||el.getAttribute("data-brand")===b)&&(!c||el.getAttribute("data-cat")===c)&&
+               (!s||(s==="available"?(st!=="sold"&&st!=="soon"):st===s));
+        el.hidden=!ok; if(ok) n++;
+      });
+      items.slice().sort(SORTS[by]||function(x,y){ return num(x,"pos")-num(y,"pos"); })
+        .forEach(function(el){ grid.appendChild(el); });
+      if(count) count.textContent=n+(n===1?" piece":" pieces");
+      if(empty) empty.hidden=n>0;
+      var u=new URL(location.href);
+      [["brand",b],["cat",c],["show",s],["sort_by",by]].forEach(function(p){ if(p[1]) u.searchParams.set(p[0],p[1]); else u.searchParams.delete(p[0]); });
+      history.replaceState(history.state,"",u);
+    }
+    bar.addEventListener("change",apply);
+    if(sort){ sort.addEventListener("change",apply); sort.form.addEventListener("submit",function(e){ e.preventDefault(); apply(); }); }
+    var reset=document.querySelector("[data-cat-reset]");
+    if(reset) reset.addEventListener("click",function(){ ["brand","cat","show"].forEach(function(k){ choose(k,""); }); apply(); });
+    apply();
+  }
+
   /* ── what do you collect? (snippets/preferences, CRM) ───── */
   /* The sign-up reloads the page without the address, so it waits in session storage for the
      one step after it, then is forgotten whether or not they answer. */
@@ -581,7 +628,7 @@
   function boot(){
     root.classList.add("js");
     initPlates(); initScroll(); bindOnce(); syncButtons();
-    initZoom(); initSpin(); initCountdown(); initPrefs(); initPopup(); initMisc();
+    initZoom(); initSpin(); initCountdown(); initCatalog(); initPrefs(); initPopup(); initMisc();
   }
   if(document.readyState!=="loading") boot(); else document.addEventListener("DOMContentLoaded",boot);
   document.addEventListener("shopify:section:load",boot);
