@@ -96,7 +96,7 @@
     "next": {
       "type": "next-edition"
     },
-    "presale": {
+    "shelf-presale": {
       "type": "shelf",
       "settings": {
         "kind": "presale",
@@ -104,7 +104,7 @@
         "heading": "Yours now, on its way soon"
       }
     },
-    "sale": {
+    "shelf-sale": {
       "type": "shelf",
       "settings": {
         "kind": "sale",
@@ -118,8 +118,8 @@
     "alcove",
     "featured",
     "next",
-    "presale",
-    "sale",
+    "shelf-presale",
+    "shelf-sale",
     "houses",
     "story",
     "recent",
