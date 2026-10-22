@@ -95,7 +95,7 @@
           {%- capture house_url -%}{%- render 'house-url', name: p.vendor -%}{%- endcapture -%}
           <tr><th>House</th><td><a class="spec-link" href="{{ house_url }}">{{ p.vendor }}</a></td></tr>
         {%- endif -%}
-        {%- if p.metafields.hikari.size -%}<tr><th>Measurements</th><td>{{ p.metafields.hikari.size }}</td></tr>{%- endif -%}
+        {%- if p.metafields.hikari.measurements -%}<tr><th>Measurements</th><td>{{ p.metafields.hikari.measurements }}</td></tr>{%- endif -%}
         {%- if p.metafields.hikari.mark -%}<tr><th>Maker's mark</th><td>{{ p.metafields.hikari.mark }}</td></tr>{%- endif -%}
         {%- if p.metafields.hikari.era -%}<tr><th>Era</th><td>{{ p.metafields.hikari.era }}</td></tr>{%- endif -%}
         {%- if p.metafields.hikari.provenance -%}<tr><th>Provenance</th><td>{{ p.metafields.hikari.provenance }}</td></tr>{%- endif -%}

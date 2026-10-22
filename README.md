@@ -90,7 +90,7 @@ Create these under Settings → Custom data → Products, namespace **`hikari`**
 | `piece` | Single line text | Crystal-set clip earrings, c.1987 |
 | `grade` | Single line text | II |
 | `condition` | Single line text | Some loss to the plating at the clip |
-| `size` | Single line text | 42 × 31 mm |
+| `measurements` | Single line text | 42 × 31 mm. Not `size`: in Liquid `metafields.hikari.size` is the number of `hikari` metafields |
 | `mark` | Single line text | Signed Chr. Dior, reverse |
 | `era` | Single line text | 1980s |
 | `provenance` | Single line text | Found in Tokyo, March 2026 |
