@@ -55,6 +55,10 @@
       "wechat_qr": "رمز QR لحساب WeChat",
       "wechat_scan": "افتح WeChat، واضغط + ثم Scan. 打开微信，扫一扫。",
       "copy_id": "نسخ المعرّف"
+    },
+    "localization": {
+      "language": "اللغة",
+      "submit": "تغيير"
     }
   },
   "products": {

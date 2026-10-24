@@ -51,6 +51,10 @@
       "wechat_qr": "WeChat QR code",
       "wechat_scan": "Open WeChat, tap + then Scan. 打开微信，扫一扫。",
       "copy_id": "Copy ID"
+    },
+    "localization": {
+      "language": "Language",
+      "submit": "Change"
     }
   },
   "products": {

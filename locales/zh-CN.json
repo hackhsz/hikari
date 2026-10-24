@@ -51,6 +51,10 @@
       "wechat_qr": "微信二维码",
       "wechat_scan": "打开微信，点击右上角“+”，选择“扫一扫”。",
       "copy_id": "复制微信号"
+    },
+    "localization": {
+      "language": "语言",
+      "submit": "切换"
     }
   },
   "products": {

@@ -1,0 +1,39 @@
+{%- comment -%}
+  The language switcher: Shopify's localization form, each language in its own name. In the
+  masthead (not on phones), the phone menu and the footer. Renders nothing until the store has
+  more than one language published (Settings → Languages).
+
+  Without JavaScript the select and a Change button send the form. With it the button is gone
+  and choosing a language is enough (assets/hikari.js, [data-lang-select]). Shopify's form adds
+  return_to, so the visitor lands back on the same page in the new language.
+  Params: id, unique on the page.
+{%- endcomment -%}
+{%- if localization.available_languages.size > 1 -%}
+  {%- assign lid = id | default: 'lang' -%}
+  {%- form 'localization', id: lid, class: 'lang' -%}
+    <span class="lang-sel">
+      <select name="language_code" aria-label="{{ 'layout.localization.language' | t }}" data-lang-select>
+        {%- for language in localization.available_languages -%}
+          {%- liquid
+            case language.iso_code
+              when 'en'
+                assign own = 'English'
+              when 'ar'
+                assign own = 'العربية'
+              when 'zh-CN'
+                assign own = '中文'
+              when 'ja'
+                assign own = '日本語'
+              when 'es'
+                assign own = 'Español'
+              else
+                assign own = language.endonym_name | capitalize
+            endcase
+          -%}
+          <option value="{{ language.iso_code }}" lang="{{ language.iso_code }}"{% if language.iso_code == localization.language.iso_code %} selected{% endif %}>{{ own }}</option>
+        {%- endfor -%}
+      </select>
+    </span>
+    <noscript><button type="submit" class="lang-go">{{ 'layout.localization.submit' | t }}</button></noscript>
+  {%- endform -%}
+{%- endif -%}

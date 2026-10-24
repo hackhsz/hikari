@@ -51,6 +51,10 @@
       "wechat_qr": "WeChatのQRコード",
       "wechat_scan": "WeChatを開き、＋から「スキャン」を選んでください。打开微信，扫一扫。",
       "copy_id": "IDをコピー"
+    },
+    "localization": {
+      "language": "言語",
+      "submit": "変更"
     }
   },
   "products": {

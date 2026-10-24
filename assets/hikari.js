@@ -630,6 +630,24 @@
     }).catch(function(){ f.submit(); });
   }
 
+  /* ── language (snippets/language-switcher) ─────────────────
+     Choosing a language sends the form. Arrow keys on a closed select fire change in some
+     browsers, so a choice made from the keyboard waits for Enter, or for focus to move on. */
+  function initLang(){
+    [].forEach.call(document.querySelectorAll("[data-lang-select]:not([data-lang-on])"),function(sel){
+      sel.setAttribute("data-lang-on","");
+      var start=sel.value, keyed=false;
+      function go(){ if(sel.value!==start&&sel.form) sel.form.submit(); }
+      sel.addEventListener("pointerdown",function(){ keyed=false; });
+      sel.addEventListener("keydown",function(e){
+        if(e.key==="Enter"){ e.preventDefault(); go(); }
+        else if(e.key!=="Tab") keyed=true;
+      });
+      sel.addEventListener("change",function(){ if(!keyed) go(); });
+      sel.addEventListener("blur",function(){ if(keyed){ keyed=false; go(); } });
+    });
+  }
+
   function initMisc(){
     if(navigator.share) [].forEach.call(document.querySelectorAll("[data-share]"),function(b){ b.hidden=false; });
     if(/[?&]contact_posted=true/.test(location.search)) [].forEach.call(document.querySelectorAll("[data-cr-ok]"),function(p){
@@ -641,7 +659,7 @@
   function boot(){
     root.classList.add("js");
     initPlates(); initScroll(); bindOnce(); syncButtons();
-    initZoom(); initSpin(); initCountdown(); initCatalog(); initPrefs(); initPopup(); initMisc();
+    initZoom(); initSpin(); initCountdown(); initCatalog(); initPrefs(); initPopup(); initLang(); initMisc();
   }
   if(document.readyState!=="loading") boot(); else document.addEventListener("DOMContentLoaded",boot);
   document.addEventListener("shopify:section:load",boot);

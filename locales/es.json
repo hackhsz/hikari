@@ -51,6 +51,10 @@
       "wechat_qr": "Código QR de WeChat",
       "wechat_scan": "Abre WeChat, toca + y luego Escanear. 打开微信，扫一扫。",
       "copy_id": "Copiar ID"
+    },
+    "localization": {
+      "language": "Idioma",
+      "submit": "Cambiar"
     }
   },
   "products": {

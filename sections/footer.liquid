@@ -14,6 +14,7 @@
     <div class="foot-social">
       {%- render 'social' -%}
       {%- if pages.creators.id -%}<a class="hero-link" href="{{ pages.creators.url }}">{{ 'layout.footer.creators' | t }}</a>{%- endif -%}
+      {%- render 'language-switcher', id: 'lang-foot' -%}
     </div>
     <div style="margin-top:clamp(40px,7vw,64px)">{%- render 'lockup', scale: 'hero', size: '34px' -%}</div>
     {%- assign brand = settings.brand_name | default: shop.name -%}
