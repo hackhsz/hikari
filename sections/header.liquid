@@ -9,7 +9,7 @@
 <header class="mast">
   <div class="inner">
     <a href="{{ routes.root_url }}" aria-label="{{ 'layout.header.home' | t: brand: settings.brand_name | escape_once }}">
-      {%- render 'lockup', scale: 'body', size: '19px' -%}
+      {%- render 'lockup', scale: 'body', size: 'clamp(16px, 4.9vw, 19px)' -%}
     </a>
     <nav aria-label="{{ 'layout.header.nav' | t }}">
       {%- for link in linklists.main-menu.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
