@@ -18,7 +18,7 @@
           comp: 'single', alt: p.title, badge: status -%}
     </a>
     <button type="button" class="qv-btn" data-quick-view="{{ p.url }}" aria-haspopup="dialog"
-            aria-label="Quick view: {{ p.vendor | escape }}, {{ piece | escape }}">Quick view</button>
+            aria-label="{{ 'products.quick_view.label' | t: house: p.vendor, piece: piece | escape_once }}">{{ 'products.quick_view.title' | t }}</button>
   </div>
   <a class="card-a" href="{{ p.url }}">
     <div class="cinfo">
@@ -28,11 +28,11 @@
         <span class="price">
           {%- case status -%}
             {%- when 'soon' -%}<span class="when">{%- render 'release', p: p -%}</span>
-            {%- when 'sold' -%}Sold
+            {%- when 'sold' -%}{{ 'products.product.sold_out' | t }}
             {%- else -%}{%- render 'price', p: p -%}
           {%- endcase -%}
         </span>
-        <span class="tag">{%- if p.metafields.hikari.grade %}Grade {{ p.metafields.hikari.grade }}{% endif -%}
+        <span class="tag">{%- if p.metafields.hikari.grade %}{{ 'products.spec.grade' | t: grade: p.metafields.hikari.grade }}{% endif -%}
           {%- if p.metafields.hikari.measurements %} · {{ p.metafields.hikari.measurements }}{% endif -%}</span>
       </div>
     </div>

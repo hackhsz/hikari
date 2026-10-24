@@ -5,7 +5,7 @@
 {%- assign n_house = 0 -%}
 {%- for c in collections -%}{%- if c.template_suffix == 'house' -%}{%- assign n_house = n_house | plus: 1 -%}{%- endif -%}{%- endfor -%}
 <section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18"><div class="shell">
-  <h1 class="eyebrow">Shop by house</h1>
+  <h1 class="eyebrow">{{ 'collections.shop_by_house' | t }}</h1>
   <div class="houses">
     {%- assign first = true -%}
     {%- for c in collections -%}

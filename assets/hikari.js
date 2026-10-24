@@ -5,6 +5,18 @@
   "use strict";
   var root=document.documentElement;
 
+  /* ── words ──────────────────────────────────────────────
+     From the locale file, through window.hikariStrings (layout/theme.liquid). The English
+     here is the fallback, so the script reads the same if they are missing. A plural is
+     picked by the page language's own rules; [n] is the number. */
+  var S=window.hikariStrings||{}, PR=null;
+  try{ PR=new Intl.PluralRules(root.lang||"en"); }catch(e){}
+  function str(k,en){ return typeof S[k]==="string"&&S[k]?S[k]:en; }
+  function plural(k,n,one,other){
+    var f=(S.plurals&&S.plurals[k])||{}, c=PR?PR.select(n):(n===1?"one":"other");
+    return (f[c]||f.other||(n===1?one:other)).replace("[n]",n);
+  }
+
   /* ── plates: only where no real image ───────────────── */
   var TONES={
     light:{a:"#FCFBF8",b:"#E3DCCF",sh:"rgba(30,28,24,.32)",g1:"#E8CE92",g2:"#B48F42",g3:"#7E6026",gr:16},
@@ -236,19 +248,19 @@
       var i=f.querySelector('[name="id"]'), b=f.querySelector('[type="submit"]');
       if(!i||!b||b.disabled) return;
       var inBag=ids.indexOf(String(i.value))>-1;
-      b.textContent=inBag?"In your bag":(b.getAttribute("data-label")||"Add to bag");
+      b.textContent=inBag?str("inBag","In your bag"):(b.getAttribute("data-label")||str("addToBag","Add to bag"));
       b.toggleAttribute("data-in-bag",inBag);
     });
   }
   function markSold(form){
     var b=form.querySelector('[type="submit"]'), pn=form.parentNode.querySelector("[data-product-note]");
-    if(b){ b.disabled=true; b.textContent="Sold"; b.removeAttribute("data-in-bag"); }
-    if(pn) pn.textContent="This piece has just sold.";
+    if(b){ b.disabled=true; b.textContent=str("sold","Sold"); b.removeAttribute("data-in-bag"); }
+    if(pn) pn.textContent=str("justSold","This piece has just sold.");
   }
   function addToBag(form){
     var input=form.querySelector('[name="id"]'); if(!input) return;
     var id=String(input.value), btn=form.querySelector('[type="submit"]');
-    if(bagIds().indexOf(id)>-1){ openSheetById("bag",btn); note("Already in your bag."); return; }
+    if(bagIds().indexOf(id)>-1){ openSheetById("bag",btn); note(str("already","Already in your bag.")); return; }
     if(btn) btn.setAttribute("aria-busy","true");
     /* line properties ride along (a pre-sale says so on the order) */
     var item={id:Number(id),quantity:1}, props={};
@@ -259,13 +271,13 @@
         if(btn) btn.removeAttribute("aria-busy");
         if(res.ok){
           swapBag(res.data.sections&&res.data.sections[SECTION]);
-          openSheetById("bag",btn); note("Added to your bag.");
+          openSheetById("bag",btn); note(str("added","Added to your bag."));
           return;
         }
         /* 422 means Shopify would not add it: either it is already in this bag
            (added in another tab) or it is sold. One of one, so there is no third case. */
         if(res.status===422) return refreshBag().then(function(){
-          if(bagIds().indexOf(id)>-1){ openSheetById("bag",btn); note("Already in your bag."); }
+          if(bagIds().indexOf(id)>-1){ openSheetById("bag",btn); note(str("already","Already in your bag.")); }
           else markSold(form);
         });
         form.submit();
@@ -276,7 +288,7 @@
     post(R.cart_change_url+".js",{id:link.getAttribute("data-bag-remove"),quantity:0,sections:SECTION,sections_url:location.pathname})
       .then(function(res){
         if(!res.ok){ location.href=link.href; return; }
-        swapBag(res.data.sections&&res.data.sections[SECTION]); note("Removed.");
+        swapBag(res.data.sections&&res.data.sections[SECTION]); note(str("removed","Removed."));
         var x=document.querySelector("#bag .sheet-x"); if(x) x.focus({preventScroll:true});
       })
       .catch(function(){ location.href=link.href; });
@@ -376,7 +388,7 @@
 
   function copy(text,btn){
     var label=btn.textContent;
-    function done(){ btn.textContent="Copied"; setTimeout(function(){ btn.textContent=label; },1600); }
+    function done(){ btn.textContent=str("copied","Copied"); setTimeout(function(){ btn.textContent=label; },1600); }
     function fallback(){
       var ta=document.createElement("textarea"); ta.value=text; ta.setAttribute("readonly","");
       ta.style.position="fixed"; ta.style.opacity="0"; document.body.appendChild(ta); ta.select();
@@ -393,7 +405,7 @@
     var url=btn.getAttribute("data-quick-view"), body=document.querySelector("#qv [data-qv-body]");
     if(!body){ location.href=url; return; }
     body.setAttribute("aria-busy","true");
-    body.innerHTML='<p class="qv-loading">Opening</p>';
+    body.innerHTML='<p class="qv-loading"></p>'; body.firstChild.textContent=str("opening","Opening");
     openSheetById("qv",btn);
     fetch(url+(url.indexOf("?")>-1?"&":"?")+"section_id=quick-view",{credentials:"same-origin"})
       .then(function(r){ if(!r.ok) throw new Error(r.status); return r.text(); })
@@ -488,14 +500,13 @@
   var cdT=null;
   function initCountdown(){
     var els=[].slice.call(document.querySelectorAll("[data-countdown]")); clearInterval(cdT); if(!els.length) return;
-    function plural(n,w){ return n+" "+w+(n===1?"":"s"); }
     function fmt(ms){
-      if(ms<=0) return "Going live now";
+      if(ms<=0) return str("goingLive","Going live now");
       var m=Math.floor(ms/60000), d=Math.floor(m/1440), h=Math.floor(m%1440/60), mm=m%60, out=[];
-      if(d) out.push(plural(d,"day"));
-      if(d||h) out.push(plural(h,"hour"));
-      if(!d) out.push(plural(mm,"minute"));
-      return "in "+out.join(", ");
+      if(d) out.push(plural("days",d,"[n] day","[n] days"));
+      if(d||h) out.push(plural("hours",h,"[n] hour","[n] hours"));
+      if(!d) out.push(plural("minutes",mm,"[n] minute","[n] minutes"));
+      return str("inTime","in [time]").replace("[time]",out.join(str("timeSep",", ")));
     }
     function tickC(){ var now=Date.now();
       els.forEach(function(el){ el.textContent=fmt(Number(el.getAttribute("data-countdown"))*1000-now); }); }
@@ -564,7 +575,7 @@
       });
       items.slice().sort(SORTS[by]||function(x,y){ return num(x,"pos")-num(y,"pos"); })
         .forEach(function(el){ grid.appendChild(el); });
-      if(count) count.textContent=n+(n===1?" piece":" pieces");
+      if(count) count.textContent=plural("pieces",n,"[n] piece","[n] pieces");
       if(empty) empty.hidden=n>0;
       var u=new URL(location.href);
       [["brand",b],["cat",c],["show",s],["sort_by",by==="manual"?"":by]].forEach(function(p){ if(p[1]) u.searchParams.set(p[0],p[1]); else u.searchParams.delete(p[0]); });

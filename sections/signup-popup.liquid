@@ -19,18 +19,18 @@
   <div class="sheet-scrim" data-sheet-close></div>
   <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="popup-title" tabindex="-1">
     <div class="popup-inner">
-      <button type="button" class="sheet-x popup-x" data-sheet-close>Close</button>
+      <button type="button" class="sheet-x popup-x" data-sheet-close>{{ 'general.close' | t }}</button>
       {%- form 'customer', id: 'popup-form', class: 'popup-form' -%}
         <input type="hidden" name="contact[tags]" value="edition, popup">
         {%- if form.posted_successfully? -%}
           {%- assign popup_joined = true -%}
           <div data-popup-ok>
-            <p class="eyebrow">You are on the list</p>
+            <p class="eyebrow">{{ 'signup.on_the_list' | t }}</p>
             <h2 class="popup-h" id="popup-title">{{ section.settings.ok_heading }}</h2>
             {%- if section.settings.code != blank -%}
               <p class="popup-b">{{ section.settings.offer }}</p>
               <p class="popup-code"><span>{{ section.settings.code }}</span>
-                <button type="button" data-copy-text="{{ section.settings.code | escape }}">Copy</button></p>
+                <button type="button" data-copy-text="{{ section.settings.code | escape }}">{{ 'general.copy' | t }}</button></p>
             {%- else -%}
               <p class="popup-b">{{ section.settings.ok_body }}</p>
             {%- endif -%}
@@ -43,13 +43,13 @@
             <p class="popup-offer">{{ section.settings.offer }}</p>
           {%- endif -%}
           <div class="notify-row">
-            <label class="vh" for="popup-email">Email address</label>
-            <input id="popup-email" type="email" name="contact[email]" placeholder="Email address" autocomplete="email" required>
+            <label class="vh" for="popup-email">{{ 'general.email.label' | t }}</label>
+            <input id="popup-email" type="email" name="contact[email]" placeholder="{{ 'general.email.label' | t }}" autocomplete="email" required>
             <button type="submit" class="btn">{{ section.settings.button }}</button>
           </div>
-          {%- if form.errors -%}<p class="notify-ok" role="alert">That email address did not work. Check it and try again.</p>{%- endif -%}
+          {%- if form.errors -%}<p class="notify-ok" role="alert">{{ 'general.email.error' | t }}</p>{%- endif -%}
           <p class="notify-fine">{{ section.settings.fine }}
-            {%- if shop.privacy_policy %} <a class="spec-link" href="{{ shop.privacy_policy.url }}">Privacy</a>{% endif -%}
+            {%- if shop.privacy_policy %} <a class="spec-link" href="{{ shop.privacy_policy.url }}">{{ 'general.privacy' | t }}</a>{% endif -%}
           </p>
         {%- endif -%}
       {%- endform -%}

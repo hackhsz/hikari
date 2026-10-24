@@ -1,5 +1,270 @@
 {
-  "general": { "meta": { "tags": "Tagged {{ tags }}", "page": "Page {{ page }}" }, "search": { "heading": "Search", "placeholder": "Search" } },
-  "products": { "product": { "sold_out": "Sold", "add_to_bag": "Add to bag", "one_of_one": "One of one" } },
-  "layout": { "cart": { "title": "Bag" } }
+  "general": {
+    "meta": {
+      "tags": "Tagged {{ tags }}",
+      "page": "Page {{ page }}"
+    },
+    "search": {
+      "heading": "Search",
+      "placeholder": "Search",
+      "submit": "Search",
+      "results": {
+        "one": "{{ count }} result",
+        "other": "{{ count }} results"
+      }
+    },
+    "skip": "Skip to content",
+    "close": "Close",
+    "copy": "Copy",
+    "copied": "Copied",
+    "opening": "Opening",
+    "privacy": "Privacy",
+    "email": {
+      "label": "Email address",
+      "error": "That email address did not work. Check it and try again."
+    },
+    "photography_to_follow": "Photography to follow",
+    "not_found": {
+      "heading": "Gone, or never here.",
+      "body_html": "One of one means pieces do leave. {{ link }}.",
+      "link": "Back to the Alcove"
+    },
+    "account": {
+      "not_styled": "Account pages are not styled yet. Guest checkout is enabled and is the default."
+    }
+  },
+  "layout": {
+    "cart": {
+      "title": "Bag"
+    },
+    "header": {
+      "home": "{{ brand }}, home",
+      "nav": "Main",
+      "menu": "Menu"
+    },
+    "footer": {
+      "creators": "Creators, and sharing your piece",
+      "registered": ", registered in England and Wales no. {{ number }}"
+    },
+    "social": {
+      "follow_us": "Follow us",
+      "wechat_qr": "WeChat QR code",
+      "wechat_scan": "Open WeChat, tap + then Scan. 打开微信，扫一扫。",
+      "copy_id": "Copy ID"
+    }
+  },
+  "products": {
+    "product": {
+      "sold_out": "Sold",
+      "add_to_bag": "Add to bag",
+      "one_of_one": "One of one",
+      "in_bag": "In your bag",
+      "just_sold": "This piece has just sold.",
+      "pre_order": "Pre-order",
+      "pre_sale_note": "Pre-sale. {{ note }}",
+      "goes_live": "Goes live {{ release }}",
+      "kept_on_record": "Kept on the Record",
+      "ask": "Ask about this piece",
+      "share": "Share",
+      "copy_link": "Copy link",
+      "was": "Was"
+    },
+    "badge": {
+      "coming_soon": "Coming soon",
+      "pre_sale": "Pre-sale",
+      "sale": "Sale",
+      "new": "New"
+    },
+    "spec": {
+      "condition": "Condition",
+      "grade": "Grade {{ grade }}",
+      "availability": "Availability",
+      "house": "House",
+      "measurements": "Measurements",
+      "mark": "Maker's mark",
+      "era": "Era",
+      "provenance": "Provenance"
+    },
+    "notify": {
+      "release_heading": "Tell me when it goes live",
+      "release_fine": "One email when this piece goes on sale, and the Edition after that. Unsubscribe any time.",
+      "release_ok": "Done. You will hear the moment it goes live.",
+      "similar_heading": "Tell me when something like this arrives",
+      "similar_fine": "An email when a similar piece from this house comes in, and the Edition. Unsubscribe any time.",
+      "similar_ok": "Done. We will write when a similar piece comes in.",
+      "submit": "Notify me"
+    },
+    "frames": {
+      "label": "Photograph {{ index }} of {{ total }}, full screen",
+      "unretouched": "Unretouched",
+      "unretouched_note": "Unretouched · no grain, no retouching",
+      "styled": "Styled image · AI-generated",
+      "styled_note": "Styled image · AI-generated. The piece itself is in the real photographs.",
+      "plate_daylight": "Plate 01 · daylight",
+      "plate_mark": "Plate 02 · maker's mark"
+    },
+    "spin": {
+      "label": "{{ title }}: 360° view in {{ frames }} photographs. Drag, or use the arrow keys, to turn it.",
+      "hint": "360° · drag to turn",
+      "note": "360° · {{ frames }} photographs on a turntable, not generated"
+    },
+    "zoom": {
+      "label": "Photographs of {{ title }}",
+      "prev": "Prev",
+      "prev_label": "Previous photograph",
+      "next": "Next",
+      "next_label": "Next photograph",
+      "tip": "Click or tap to look closer"
+    },
+    "quick_view": {
+      "title": "Quick view",
+      "label": "Quick view: {{ house }}, {{ piece }}",
+      "similar": "Hear about similar pieces",
+      "details": "Every photograph and the details",
+      "details_spin": "Every photograph, the 360° view and the details"
+    }
+  },
+  "cart": {
+    "empty_heading": "Nothing in the bag yet.",
+    "empty_body": "Every piece here is one of one. When it sells, it goes to the Record.",
+    "see_every_piece": "See every piece",
+    "sold_since": "Sold since you added it",
+    "remove": "Remove",
+    "remove_label": "Remove {{ house }}, {{ piece }}",
+    "gift_note": "Note for the card",
+    "all_sold_single": "This piece sold while it was in your bag. Sold pieces stay on the Record.",
+    "all_sold_several": "These pieces sold while they were in your bag. Sold pieces stay on the Record.",
+    "delivery": "UK delivery",
+    "free": "Free",
+    "added_at_checkout": "Added at checkout",
+    "total": "Total",
+    "subtotal": "Subtotal",
+    "some_sold_single": "A piece in your bag sold while it was there. Remove it to check out.",
+    "some_sold_several": "Some pieces in your bag sold while they were there. Remove them to check out.",
+    "checkout": "Checkout",
+    "not_held": "One of one. A piece in your bag is not held for you until you check out.",
+    "payment_methods": "Payment methods we accept",
+    "added": "Added to your bag.",
+    "already": "Already in your bag.",
+    "removed": "Removed."
+  },
+  "collections": {
+    "pieces": {
+      "one": "{{ count }} piece",
+      "other": "{{ count }} pieces"
+    },
+    "shop_by_house": "Shop by house",
+    "filters": {
+      "brand": "Brand",
+      "category": "Category",
+      "show": "Show",
+      "all": "All",
+      "everything": "Everything",
+      "available": "Available",
+      "on_sale": "On sale"
+    },
+    "categories": {
+      "earrings": "Earrings",
+      "brooches": "Brooches",
+      "necklaces": "Necklaces",
+      "bracelets": "Bracelets",
+      "rings": "Rings"
+    },
+    "sort": {
+      "label": "Sort",
+      "manual": "Featured",
+      "price_ascending": "Price, low to high",
+      "price_descending": "Price, high to low",
+      "created_descending": "Newest first",
+      "vendor": "Brand, A to Z"
+    },
+    "empty": "Nothing matches that.",
+    "reset": "Show everything"
+  },
+  "house": {
+    "vintage_jewellery": "Vintage jewellery",
+    "in_shop": {
+      "one": "{{ count }} piece in the shop",
+      "other": "{{ count }} pieces in the shop"
+    },
+    "empty_heading": "Nothing from {{ house }} in the shop this week.",
+    "empty_body": "New pieces arrive with each Edition: {{ day }}. The list sees them an hour before anyone else.",
+    "notes": "Notes on the house",
+    "marks": "Reading the mark",
+    "period": "Period",
+    "mark": "Mark",
+    "marks_fine": "Every listing shows the mark itself in its second photograph, unretouched.",
+    "more_from": "More from {{ house }}",
+    "every_piece": "Every {{ house }} piece, and the Record"
+  },
+  "home": {
+    "alcove_line": "The Alcove · Edition No. {{ number }} · {{ day }}",
+    "alcove_plate": "Plate 01 · daylight, north window",
+    "brand_image_to_follow": "Brand image to follow",
+    "goes_live_edition": "Goes live with the Edition: {{ day }}",
+    "see_them_all": "See them all",
+    "record_sold": "{{ house }} · sold"
+  },
+  "signup": {
+    "placeholder": "you@example.com",
+    "join": "Join the list",
+    "thanks": "Thank you — you are on the list.",
+    "on_the_list": "You are on the list"
+  },
+  "preferences": {
+    "heading": "One more thing, if you like: what do you collect?",
+    "houses": "Houses",
+    "pieces": "Pieces",
+    "clip_only": "Clip-on earrings only",
+    "spend": "Usually spend",
+    "under_html": "Under {{ amount }}",
+    "over_html": "Over {{ amount }}",
+    "wechat_html": "WeChat ID <span lang=\"zh\">微信号</span>, if you would like to hear from us there",
+    "save": "Save",
+    "skip": "Skip",
+    "fine_page": "Saves your choices to your place on the list, and adds you to the list if you are not on it yet. Unsubscribe any time.",
+    "fine": "Optional. We use it only to choose which pieces to show you first, and WeChat only to tell you about them.",
+    "thanks": "Thank you. We will show you those first."
+  },
+  "creators": {
+    "creator_step_1": "Tell us about your work below.",
+    "creator_step_2": "If it fits, we choose a piece with you, and send it with your own link and code.",
+    "name": "Name",
+    "email": "Email",
+    "platform": "Where you post",
+    "other": "Other",
+    "handle": "Handle or link",
+    "followers": "Followers, roughly",
+    "note": "What would you make with a piece?",
+    "apply": "Apply",
+    "share_step_1": "Post a photograph of you wearing your piece. Add #ad: there is a reward, so it counts as an advert.",
+    "share_step_1_tag": "Post a photograph of you wearing your piece, and tag {{ handle }}. Add #ad: there is a reward, so it counts as an advert.",
+    "share_step_2": "Send us the link and your order number below.",
+    "order_email": "Email you ordered with",
+    "order": "Order number",
+    "post_link": "Link to your post",
+    "repost": "You may repost it, with credit to you",
+    "send": "Send",
+    "thanks": "Thank you. We read every one, and reply within three working days."
+  },
+  "countdown": {
+    "now": "Going live now",
+    "in": "in {{ time }}",
+    "separator": ", ",
+    "days": {
+      "one": "{{ count }} day",
+      "other": "{{ count }} days"
+    },
+    "hours": {
+      "one": "{{ count }} hour",
+      "other": "{{ count }} hours"
+    },
+    "minutes": {
+      "one": "{{ count }} minute",
+      "other": "{{ count }} minutes"
+    }
+  },
+  "date_formats": {
+    "release": "%a %-d %b, %H:%M"
+  }
 }

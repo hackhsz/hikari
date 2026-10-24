@@ -4,10 +4,10 @@
     <p>{{ section.settings.body }}</p>
     {%- form 'customer', id: 'edition-form', class: 'form' -%}
       <input type="hidden" name="contact[tags]" value="edition">
-      <label for="edition-email" style="position:absolute;left:-9999px">Email address</label>
-      <input id="edition-email" type="email" name="contact[email]" placeholder="you@example.com" autocomplete="email" required>
-      <button type="submit"><span>Join the list</span></button>
-      {%- if form.posted_successfully? %}{% assign edition_joined = true %}<p style="flex:1 1 100%;margin:10px 0 0">Thank you — you are on the list.</p>{% endif -%}
+      <label for="edition-email" style="position:absolute;left:-9999px">{{ 'general.email.label' | t }}</label>
+      <input id="edition-email" type="email" name="contact[email]" placeholder="{{ 'signup.placeholder' | t }}" autocomplete="email" required>
+      <button type="submit"><span>{{ 'signup.join' | t }}</span></button>
+      {%- if form.posted_successfully? %}{% assign edition_joined = true %}<p style="flex:1 1 100%;margin:10px 0 0">{{ 'signup.thanks' | t }}</p>{% endif -%}
     {%- endform -%}
     {%- if edition_joined -%}{% render 'preferences', form_id: 'prefs-edition', after: 'edition-form' %}{%- endif -%}
   </div>

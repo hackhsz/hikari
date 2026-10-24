@@ -33,7 +33,7 @@
     </div>
     {%- if shown > 0 -%}
       <div class="grid4">{{ cards }}</div>
-      <p class="ne-foot"><a class="hero-link" href="{{ routes.all_products_collection_url }}?show={{ kind }}">See them all</a></p>
+      <p class="ne-foot"><a class="hero-link" href="{{ routes.all_products_collection_url }}?show={{ kind }}">{{ 'home.see_them_all' | t }}</a></p>
     {%- else -%}
       <p class="ne-empty">
         {%- if kind == 'presale' -%}Nothing on pre-sale. Tag a piece pre-sale and keep its stock at 1, and it shows here.

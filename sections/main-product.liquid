@@ -24,15 +24,15 @@
 {%- capture spin_html -%}
   {%- if spin.size > 1 -%}
     <figure class="spin" data-spin tabindex="0" role="img"
-            aria-label="{{ p.title | escape }}: 360° view in {{ spin.size }} photographs. Drag, or use the arrow keys, to turn it.">
+            aria-label="{{ 'products.spin.label' | t: title: p.title, frames: spin.size | escape_once }}">
       <img src="{{ spin.first.preview_image | image_url: width: 1400 }}" alt="" loading="lazy" draggable="false" data-spin-img
            width="{{ spin.first.preview_image.width | default: 1400 }}" height="{{ spin.first.preview_image.height | default: 1400 }}">
 
       <script type="application/json" data-spin-frames>[
         {%- for f in spin -%}{{ f.preview_image | image_url: width: 1400 | json }}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}
       ]</script>
-      <span class="spin-hint" aria-hidden="true">360° · drag to turn</span>
-      <figcaption class="unret">360° · {{ spin.size }} photographs on a turntable, not generated</figcaption>
+      <span class="spin-hint" aria-hidden="true">{{ 'products.spin.hint' | t }}</span>
+      <figcaption class="unret">{{ 'products.spin.note' | t: frames: spin.size }}</figcaption>
     </figure>
   {%- endif -%}
 {%- endcapture -%}
@@ -49,20 +49,22 @@
           {%- if forloop.index == 1 -%}{%- assign b = status -%}{%- else -%}{%- assign b = '' -%}{%- endif -%}
           {%- if styled -%}{%- assign frame_alt = img.alt -%}{%- else -%}{%- assign frame_alt = p.title -%}{%- endif -%}
           <a class="frame" href="{{ img | image_url: width: 2400 }}" data-zoom
-             data-zoom-label="{% if evidence %}Unretouched{% elsif styled %}Styled image · AI-generated{% endif %}"
-             aria-label="Photograph {{ forloop.index }} of {{ p.images.size }}, full screen">
+             data-zoom-label="{% if evidence %}{{ 'products.frames.unretouched' | t }}{% elsif styled %}{{ 'products.frames.styled' | t }}{% endif %}"
+             aria-label="{{ 'products.frames.label' | t: index: forloop.index, total: p.images.size }}">
             {%- render 'plate', image: img, alt: frame_alt, badge: b -%}
           </a>
-          {%- if evidence -%}<p class="unret">Unretouched · no grain, no retouching</p>{%- endif -%}
-          {%- if styled -%}<p class="unret">Styled image · AI-generated. The piece itself is in the real photographs.</p>{%- endif -%}
+          {%- if evidence -%}<p class="unret">{{ 'products.frames.unretouched_note' | t }}</p>{%- endif -%}
+          {%- if styled -%}<p class="unret">{{ 'products.frames.styled_note' | t }}</p>{%- endif -%}
           {%- if forloop.index == 1 -%}{{ spin_html }}{%- endif -%}
         {%- endfor -%}
       {%- else -%}
         {%- assign seed2 = p.id | plus: 7 -%}
-        {%- render 'plate', ratio: 0.8, seed: p.id, tone: 'light', comp: 'pair', stamp: 'Plate 01 · daylight', badge: status -%}
+        {%- assign stamp1 = 'products.frames.plate_daylight' | t -%}
+        {%- assign stamp2 = 'products.frames.plate_mark' | t -%}
+        {%- render 'plate', ratio: 0.8, seed: p.id, tone: 'light', comp: 'pair', stamp: stamp1, badge: status -%}
         {{ spin_html }}
-        {%- render 'plate', ratio: 0.8, seed: seed2, tone: 'light', comp: 'single', stamp: "Plate 02 · maker's mark" -%}
-        <p class="unret">Unretouched</p>
+        {%- render 'plate', ratio: 0.8, seed: seed2, tone: 'light', comp: 'single', stamp: stamp2 -%}
+        <p class="unret">{{ 'products.frames.unretouched' | t }}</p>
       {%- endif -%}
     </div>
 
@@ -73,47 +75,53 @@
 
       {%- case status -%}
         {%- when 'presale' -%}
-          <p class="pdp-status pdp-status--soon"><span class="badge badge--soon">Pre-sale</span> {{ settings.presale_note }}</p>
+          <p class="pdp-status pdp-status--soon"><span class="badge badge--soon">{{ 'products.badge.pre_sale' | t }}</span> {{ settings.presale_note }}</p>
           {%- form 'product', p -%}
             <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
             <input type="hidden" name="properties[Pre-sale]" value="{{ settings.presale_note | escape }}">
-            <button class="btn" type="submit" data-label="Pre-order">Pre-order</button>
+            {%- assign pre_order = 'products.product.pre_order' | t -%}
+            <button class="btn" type="submit" data-label="{{ pre_order }}">{{ pre_order }}</button>
           {%- endform -%}
           <p class="pdp-note" data-product-note role="status" aria-live="polite"></p>
         {%- when 'soon' -%}
-          <p class="pdp-status pdp-status--soon"><span class="badge badge--soon">Coming soon</span>
-            Goes live {% render 'release', p: p %}</p>
+          {%- capture release_at -%}{%- render 'release', p: p -%}{%- endcapture -%}
+          <p class="pdp-status pdp-status--soon"><span class="badge badge--soon">{{ 'products.badge.coming_soon' | t }}</span>
+            {{ 'products.product.goes_live' | t: release: release_at }}</p>
           {%- capture tags -%}notify-release, piece-{{ p.handle }}{%- endcapture -%}
-          {%- render 'notify', form_id: 'notify-release', tags: tags,
-              heading: 'Tell me when it goes live',
-              fine: 'One email when this piece goes on sale, and the Edition after that. Unsubscribe any time.',
-              ok: 'Done. You will hear the moment it goes live.' -%}
+          {%- liquid
+            assign heading = 'products.notify.release_heading' | t
+            assign fine = 'products.notify.release_fine' | t
+            assign ok = 'products.notify.release_ok' | t
+          -%}
+          {%- render 'notify', form_id: 'notify-release', tags: tags, heading: heading, fine: fine, ok: ok -%}
         {%- when 'sold' -%}
-          <p class="pdp-status"><span class="badge badge--sold">Sold</span> Kept on the Record</p>
+          <p class="pdp-status"><span class="badge badge--sold">{{ 'products.product.sold_out' | t }}</span> {{ 'products.product.kept_on_record' | t }}</p>
           {%- capture tags -%}notify-similar, house-{{ p.vendor | handleize }}{%- endcapture -%}
-          {%- capture heading -%}Tell me when something like this arrives{%- endcapture -%}
-          {%- render 'notify', form_id: 'notify-similar', tags: tags, heading: heading,
-              fine: 'An email when a similar piece from this house comes in, and the Edition. Unsubscribe any time.',
-              ok: 'Done. We will write when a similar piece comes in.' -%}
+          {%- liquid
+            assign heading = 'products.notify.similar_heading' | t
+            assign fine = 'products.notify.similar_fine' | t
+            assign ok = 'products.notify.similar_ok' | t
+          -%}
+          {%- render 'notify', form_id: 'notify-similar', tags: tags, heading: heading, fine: fine, ok: ok -%}
         {%- else -%}
           {%- form 'product', p -%}
             <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
-            <button class="btn" type="submit">Add to bag</button>
+            <button class="btn" type="submit">{{ 'products.product.add_to_bag' | t }}</button>
           {%- endform -%}
           <p class="pdp-note" data-product-note role="status" aria-live="polite"></p>
       {%- endcase -%}
 
       <table class="spec">
-        {%- if p.metafields.hikari.grade -%}<tr><th>Condition</th><td>Grade {{ p.metafields.hikari.grade }}{% if p.metafields.hikari.condition %} — {{ p.metafields.hikari.condition }}{% endif %}</td></tr>{%- endif -%}
-        <tr><th>Availability</th><td>One of one</td></tr>
+        {%- if p.metafields.hikari.grade -%}<tr><th>{{ 'products.spec.condition' | t }}</th><td>{{ 'products.spec.grade' | t: grade: p.metafields.hikari.grade }}{% if p.metafields.hikari.condition %} — {{ p.metafields.hikari.condition }}{% endif %}</td></tr>{%- endif -%}
+        <tr><th>{{ 'products.spec.availability' | t }}</th><td>{{ 'products.product.one_of_one' | t }}</td></tr>
         {%- if p.vendor != blank -%}
           {%- capture house_url -%}{%- render 'house-url', name: p.vendor -%}{%- endcapture -%}
-          <tr><th>House</th><td><a class="spec-link" href="{{ house_url }}">{{ p.vendor }}</a></td></tr>
+          <tr><th>{{ 'products.spec.house' | t }}</th><td><a class="spec-link" href="{{ house_url }}">{{ p.vendor }}</a></td></tr>
         {%- endif -%}
-        {%- if p.metafields.hikari.measurements -%}<tr><th>Measurements</th><td>{{ p.metafields.hikari.measurements }}</td></tr>{%- endif -%}
-        {%- if p.metafields.hikari.mark -%}<tr><th>Maker's mark</th><td>{{ p.metafields.hikari.mark }}</td></tr>{%- endif -%}
-        {%- if p.metafields.hikari.era -%}<tr><th>Era</th><td>{{ p.metafields.hikari.era }}</td></tr>{%- endif -%}
-        {%- if p.metafields.hikari.provenance -%}<tr><th>Provenance</th><td>{{ p.metafields.hikari.provenance }}</td></tr>{%- endif -%}
+        {%- if p.metafields.hikari.measurements -%}<tr><th>{{ 'products.spec.measurements' | t }}</th><td>{{ p.metafields.hikari.measurements }}</td></tr>{%- endif -%}
+        {%- if p.metafields.hikari.mark -%}<tr><th>{{ 'products.spec.mark' | t }}</th><td>{{ p.metafields.hikari.mark }}</td></tr>{%- endif -%}
+        {%- if p.metafields.hikari.era -%}<tr><th>{{ 'products.spec.era' | t }}</th><td>{{ p.metafields.hikari.era }}</td></tr>{%- endif -%}
+        {%- if p.metafields.hikari.provenance -%}<tr><th>{{ 'products.spec.provenance' | t }}</th><td>{{ p.metafields.hikari.provenance }}</td></tr>{%- endif -%}
       </table>
 
       {%- if p.description != blank -%}<div class="rte">{{ p.description }}</div>{%- endif -%}
@@ -123,19 +131,19 @@
       <div class="pdp-links">
         {%- if ask != blank -%}
           {%- capture subject -%}{{ p.vendor }}, {{ piece }}{%- endcapture -%}
-          <a class="spec-link" href="mailto:{{ ask }}?subject={{ subject | url_encode }}">Ask about this piece</a>
+          <a class="spec-link" href="mailto:{{ ask }}?subject={{ subject | url_encode }}">{{ 'products.product.ask' | t }}</a>
         {%- endif -%}
         {%- if settings.share_enabled -%}
           {%- capture page_url -%}{{ shop.url }}{{ p.url }}{%- endcapture -%}
           {%- capture pin_text -%}{{ p.vendor }}, {{ piece }}{%- endcapture -%}
-          <span class="share" aria-label="Share">
-            <button type="button" class="share-native" data-share hidden>Share</button>
+          <span class="share" aria-label="{{ 'products.product.share' | t }}">
+            <button type="button" class="share-native" data-share hidden>{{ 'products.product.share' | t }}</button>
             {%- if p.featured_image -%}
               {%- capture media -%}https:{{ p.featured_image | image_url: width: 1200 }}{%- endcapture -%}
               <a href="https://www.pinterest.com/pin/create/button/?url={{ page_url | url_encode }}&media={{ media | url_encode }}&description={{ pin_text | url_encode }}"
                  target="_blank" rel="noopener">Pinterest</a>
             {%- endif -%}
-            <button type="button" data-copy-link="{{ page_url }}">Copy link</button>
+            <button type="button" data-copy-link="{{ page_url }}">{{ 'products.product.copy_link' | t }}</button>
           </span>
         {%- endif -%}
       </div>
@@ -150,15 +158,15 @@
 
 {%- comment -%} Full screen photographs. Filled by assets/hikari.js from the frames above. {%- endcomment -%}
 <div class="sheet sheet--zoom" id="zoom" aria-hidden="true" inert>
-  <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="Photographs of {{ p.title | escape }}" tabindex="-1">
+  <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="{{ 'products.zoom.label' | t: title: p.title | escape_once }}" tabindex="-1">
     <div class="zoom-bar">
       <span class="zoom-count" data-zoom-count aria-live="polite"></span>
-      <button type="button" class="sheet-x" data-sheet-close>Close</button>
+      <button type="button" class="sheet-x" data-sheet-close>{{ 'general.close' | t }}</button>
     </div>
     <div class="zoom-stage" data-zoom-stage><img alt="" width="1600" height="2000" data-zoom-img></div>
-    <button type="button" class="zoom-nav zoom-prev" data-zoom-step="-1" aria-label="Previous photograph">Prev</button>
-    <button type="button" class="zoom-nav zoom-next" data-zoom-step="1" aria-label="Next photograph">Next</button>
-    <p class="zoom-tip">Click or tap to look closer</p>
+    <button type="button" class="zoom-nav zoom-prev" data-zoom-step="-1" aria-label="{{ 'products.zoom.prev_label' | t }}">{{ 'products.zoom.prev' | t }}</button>
+    <button type="button" class="zoom-nav zoom-next" data-zoom-step="1" aria-label="{{ 'products.zoom.next_label' | t }}">{{ 'products.zoom.next' | t }}</button>
+    <p class="zoom-tip">{{ 'products.zoom.tip' | t }}</p>
   </div>
 </div>
 {% schema %}{ "name": "Product", "settings": [] }{% endschema %}

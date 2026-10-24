@@ -9,7 +9,8 @@
   server. This works on the first 50 pieces Shopify lists; past that, move to Shopify's own
   filters (Search & Discovery) and paginate.
 
-  A piece's category is a product tag: earrings, brooches, necklaces, bracelets or rings.
+  A piece's category is a product tag: earrings, brooches, necklaces, bracelets or rings. Its name
+  on the chip comes from collections.categories in the locale file; the tag stays the value.
 {%- endcomment -%}
 {%- assign cat_tags = 'earrings,brooches,necklaces,bracelets,rings' | split: ',' -%}
 {%- assign cats_here = '' -%}
@@ -18,7 +19,7 @@
 {%- assign sort_now = collection.sort_by | default: collection.default_sort_by -%}
 <section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
   <div class="shell">
-    <p class="eyebrow" data-cat-count>{{ collection.products_count }} {% if collection.products_count == 1 %}piece{% else %}pieces{% endif %}</p>
+    <p class="eyebrow" data-cat-count>{{ 'collections.pieces' | t: count: collection.products_count }}</p>
     <h1 style="font-family:var(--serif);font-weight:200;font-size:clamp(34px,7vw,64px);line-height:1;margin:0 0 18px">{{ collection.title }}</h1>
     {%- if collection.description != blank -%}
       <div class="rte" style="max-width:56ch;opacity:.72;margin-bottom:clamp(36px,6vw,56px)">{{ collection.description }}</div>
@@ -27,39 +28,40 @@
     <div class="cat-bar">
       <div class="cat-filters" data-cat-filters hidden>
         <fieldset class="prefs-set">
-          <legend>Brand</legend>
-          <label class="prefs-chip"><input type="radio" name="cat-brand" value="" checked><span>All</span></label>
+          <legend>{{ 'collections.filters.brand' | t }}</legend>
+          <label class="prefs-chip"><input type="radio" name="cat-brand" value="" checked><span>{{ 'collections.filters.all' | t }}</span></label>
           {%- for v in collection.all_vendors -%}
             <label class="prefs-chip"><input type="radio" name="cat-brand" value="{{ v | handleize }}"><span>{{ v }}</span></label>
           {%- endfor -%}
         </fieldset>
         {%- if cats_here.size > 0 -%}
           <fieldset class="prefs-set">
-            <legend>Category</legend>
-            <label class="prefs-chip"><input type="radio" name="cat-cat" value="" checked><span>All</span></label>
-            {%- for t in cats_here -%}
-              <label class="prefs-chip"><input type="radio" name="cat-cat" value="{{ t }}"><span>{{ t | capitalize }}</span></label>
+            <legend>{{ 'collections.filters.category' | t }}</legend>
+            <label class="prefs-chip"><input type="radio" name="cat-cat" value="" checked><span>{{ 'collections.filters.all' | t }}</span></label>
+            {%- for ct in cats_here -%}
+              {%- assign ck = 'collections.categories.' | append: ct -%}
+              <label class="prefs-chip"><input type="radio" name="cat-cat" value="{{ ct }}"><span>{{ ck | t }}</span></label>
             {%- endfor -%}
           </fieldset>
         {%- endif -%}
         <fieldset class="prefs-set">
-          <legend>Show</legend>
-          <label class="prefs-chip"><input type="radio" name="cat-show" value="" checked><span>Everything</span></label>
-          <label class="prefs-chip"><input type="radio" name="cat-show" value="available"><span>Available</span></label>
-          <label class="prefs-chip"><input type="radio" name="cat-show" value="sale"><span>On sale</span></label>
-          <label class="prefs-chip"><input type="radio" name="cat-show" value="presale"><span>Pre-sale</span></label>
+          <legend>{{ 'collections.filters.show' | t }}</legend>
+          <label class="prefs-chip"><input type="radio" name="cat-show" value="" checked><span>{{ 'collections.filters.everything' | t }}</span></label>
+          <label class="prefs-chip"><input type="radio" name="cat-show" value="available"><span>{{ 'collections.filters.available' | t }}</span></label>
+          <label class="prefs-chip"><input type="radio" name="cat-show" value="sale"><span>{{ 'collections.filters.on_sale' | t }}</span></label>
+          <label class="prefs-chip"><input type="radio" name="cat-show" value="presale"><span>{{ 'products.badge.pre_sale' | t }}</span></label>
         </fieldset>
       </div>
       <form class="cat-sort" method="get">
-        <label for="cat-sort-by">Sort</label>
+        <label for="cat-sort-by">{{ 'collections.sort.label' | t }}</label>
         <select id="cat-sort-by" name="sort_by" data-cat-sort>
-          {%- assign sorts = 'manual:Featured|price-ascending:Price, low to high|price-descending:Price, high to low|created-descending:Newest first|vendor:Brand, A to Z' | split: '|' -%}
+          {%- assign sorts = 'manual,price-ascending,price-descending,created-descending,vendor' | split: ',' -%}
           {%- for s in sorts -%}
-            {%- assign kv = s | split: ':' -%}
-            <option value="{{ kv[0] }}"{% if kv[0] == sort_now %} selected{% endif %}>{{ kv[1] }}</option>
+            {%- assign sk = 'collections.sort.' | append: s | replace: '-', '_' -%}
+            <option value="{{ s }}"{% if s == sort_now %} selected{% endif %}>{{ sk | t }}</option>
           {%- endfor -%}
         </select>
-        <noscript><button type="submit" class="prefs-skip">Sort</button></noscript>
+        <noscript><button type="submit" class="prefs-skip">{{ 'collections.sort.label' | t }}</button></noscript>
       </form>
     </div>
 
@@ -74,7 +76,7 @@
         </div>
       {%- endfor -%}
     </div>
-    <p class="ne-empty cat-empty" data-cat-empty hidden>Nothing matches that. <button type="button" class="prefs-skip" data-cat-reset>Show everything</button></p>
+    <p class="ne-empty cat-empty" data-cat-empty hidden>{{ 'collections.empty' | t }} <button type="button" class="prefs-skip" data-cat-reset>{{ 'collections.reset' | t }}</button></p>
   </div>
 </section>
 {% schema %}{ "name": "Collection", "settings": [] }{% endschema %}

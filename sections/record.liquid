@@ -30,7 +30,8 @@
     {%- assign shown = shown | plus: 1 -%}
     <a class="rec" href="{{ p.url }}">
       {%- if p.featured_image -%}{{ p.featured_image | image_url: width: 400 | image_tag: loading: 'lazy', alt: p.title, style: 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover' }}{%- endif -%}
-      <b>{{ p.vendor | default: p.title | truncate: 14 }} · sold</b>
+      {%- assign rec_name = p.vendor | default: p.title | truncate: 14 -%}
+      <b>{{ 'home.record_sold' | t: house: rec_name }}</b>
     </a>
   {%- endfor -%}
 {%- endcapture -%}

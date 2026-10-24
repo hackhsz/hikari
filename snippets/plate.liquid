@@ -12,15 +12,15 @@
   {%- else -%}
     <canvas data-seed="{{ seed | default: 1 }}" data-tone="{{ tone | default: 'light' }}"
             data-comp="{{ comp | default: 'pair' }}" data-ratio="{{ r }}" role="img"
-            aria-label="{{ alt | default: 'Photography to follow' | escape }}"></canvas>
+            aria-label="{% if alt != blank %}{{ alt | escape }}{% else %}{{ 'general.photography_to_follow' | t }}{% endif %}"></canvas>
   {%- endif -%}
   {%- if stamp %}<span class="stamp">{{ stamp }}</span>{% endif -%}
   {%- comment -%} badge: a word from snippets/status (D25). Sold is ink, the rest green. {%- endcomment -%}
   {%- case badge -%}
-    {%- when 'soon' %}<span class="badge badge--soon">Coming soon</span>
-    {%- when 'presale' %}<span class="badge badge--soon">Pre-sale</span>
-    {%- when 'sale' %}<span class="badge badge--new">Sale</span>
-    {%- when 'new' %}<span class="badge badge--new">New</span>
-    {%- when 'sold' %}<span class="badge badge--sold">Sold</span>
+    {%- when 'soon' %}<span class="badge badge--soon">{{ 'products.badge.coming_soon' | t }}</span>
+    {%- when 'presale' %}<span class="badge badge--soon">{{ 'products.badge.pre_sale' | t }}</span>
+    {%- when 'sale' %}<span class="badge badge--new">{{ 'products.badge.sale' | t }}</span>
+    {%- when 'new' %}<span class="badge badge--new">{{ 'products.badge.new' | t }}</span>
+    {%- when 'sold' %}<span class="badge badge--sold">{{ 'products.product.sold_out' | t }}</span>
   {%- endcase -%}
 </div>

@@ -25,7 +25,7 @@
     {%- assign r = p.metafields.hikari.release.value -%}
     {%- if r -%}
       {%- assign e = r | date: '%s' | plus: 0 -%}
-      {%- if soonest == 0 or e < soonest -%}{%- assign soonest = e -%}{%- assign soonest_text = r | date: '%a %-d %b, %H:%M' -%}{%- endif -%}
+      {%- if soonest == 0 or e < soonest -%}{%- assign soonest = e -%}{%- assign soonest_text = r | date: format: 'release' -%}{%- endif -%}
     {%- endif -%}
     {%- render 'product-card', card_product: p, tone: 'light' -%}
   {%- endfor -%}
@@ -40,9 +40,9 @@
       </div>
       <p class="ne-when">
         {%- if soonest > 0 -%}
-          Goes live {{ soonest_text }}<span class="ne-clock" data-countdown="{{ soonest }}"></span>
+          {{ 'products.product.goes_live' | t: release: soonest_text }}<span class="ne-clock" data-countdown="{{ soonest }}"></span>
         {%- else -%}
-          Goes live with the Edition: {{ settings.edition_day }}
+          {{ 'home.goes_live_edition' | t: day: settings.edition_day }}
         {%- endif -%}
       </p>
     </div>

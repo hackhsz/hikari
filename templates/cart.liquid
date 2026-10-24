@@ -5,7 +5,7 @@
 {%- endcomment -%}
 <section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
   <div class="shell bag-page">
-    <h1 class="bag-page-h">Bag</h1>
+    <h1 class="bag-page-h">{{ 'layout.cart.title' | t }}</h1>
     {%- if cart.item_count > 0 -%}
       <ul class="bag-lines" role="list">
         {%- for item in cart.items -%}{%- render 'bag-line', item: item -%}{%- endfor -%}
@@ -13,9 +13,9 @@
       {%- render 'bag-foot', cart: cart, ctx: 'page' -%}
     {%- else -%}
       <div class="bag-empty">
-        <p class="bag-empty-h">Nothing in the bag yet.</p>
-        <p>Every piece here is one of one. When it sells, it goes to the Record.</p>
-        <a class="bag-link" href="{{ routes.all_products_collection_url }}">See every piece</a>
+        <p class="bag-empty-h">{{ 'cart.empty_heading' | t }}</p>
+        <p>{{ 'cart.empty_body' | t }}</p>
+        <a class="bag-link" href="{{ routes.all_products_collection_url }}">{{ 'cart.see_every_piece' | t }}</a>
       </div>
     {%- endif -%}
   </div>

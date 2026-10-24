@@ -3,5 +3,5 @@
   the price). Used by the card, the product page and Quick view, so a sale reads the same everywhere.
   Params: p.
 {%- endcomment -%}
-{%- if p.compare_at_price > p.price -%}<s class="was"><span class="vh">Was </span>{{ p.compare_at_price | money }}</s> {% endif -%}
+{%- if p.compare_at_price > p.price -%}<s class="was"><span class="vh">{{ 'products.product.was' | t }} </span>{{ p.compare_at_price | money }}</s> {% endif -%}
 {{- p.price | money -}}

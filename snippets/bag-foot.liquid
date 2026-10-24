@@ -54,7 +54,7 @@
         <span>{{ settings.gift_label }}</span>
       </label>
       <div class="bag-gift-note" id="gift-{{ ctx }}"{% unless is_gift %} hidden{% endunless %}>
-        <label class="bag-label" for="gift-note-{{ ctx }}">Note for the card</label>
+        <label class="bag-label" for="gift-note-{{ ctx }}">{{ 'cart.gift_note' | t }}</label>
         <textarea id="gift-note-{{ ctx }}" name="attributes[Gift note]" form="{{ f }}" rows="3" maxlength="240"
                   data-gift-note{% unless is_gift %} disabled{% endunless %}>{{ cart.attributes['Gift note'] }}</textarea>
         {%- if settings.gift_info != blank -%}<p class="bag-fine">{{ settings.gift_info }}</p>{%- endif -%}
@@ -64,41 +64,41 @@
   <div class="bag-pay">
     {%- if live_n == 0 -%}
       <p class="bag-warn">
-        {%- if sold_n == 1 -%}This piece sold while it was in your bag.{%- else -%}These pieces sold while they were in your bag.{%- endif -%}
-        {{- ' ' -}}Sold pieces stay on the Record.</p>
-      <p class="bag-again"><a class="bag-link" href="{{ routes.all_products_collection_url }}">See every piece</a></p>
+        {%- if sold_n == 1 -%}{{ 'cart.all_sold_single' | t }}{%- else -%}{{ 'cart.all_sold_several' | t }}{%- endif -%}
+      </p>
+      <p class="bag-again"><a class="bag-link" href="{{ routes.all_products_collection_url }}">{{ 'cart.see_every_piece' | t }}</a></p>
     {%- else -%}
     {%- if settings.bag_notice != blank -%}<p class="bag-notice">{{ settings.bag_notice }}</p>{%- endif -%}
     <div class="bag-row">
-      <span class="bag-label">UK delivery</span>
-      <span>{% if delivery_free %}Free{% else %}Added at checkout{% endif %}</span>
+      <span class="bag-label">{{ 'cart.delivery' | t }}</span>
+      <span>{% if delivery_free %}{{ 'cart.free' | t }}{% else %}{{ 'cart.added_at_checkout' | t }}{% endif %}</span>
     </div>
     <div class="bag-total">
-      <span class="bag-label">{% if delivery_free %}Total{% else %}Subtotal{% endif %}</span>
+      <span class="bag-label">{% if delivery_free %}{{ 'cart.total' | t }}{% else %}{{ 'cart.subtotal' | t }}{% endif %}</span>
       <span class="price bag-sum">{{ live_total | money }}</span>
     </div>
     <p class="bag-fine">{{ settings.vat_line }}</p>
     {%- if sold_n > 0 -%}
       <p class="bag-warn">
-        {%- if sold_n == 1 -%}A piece in your bag sold while it was there. Remove it to check out.
-        {%- else -%}Some pieces in your bag sold while they were there. Remove them to check out.{%- endif -%}
+        {%- if sold_n == 1 -%}{{ 'cart.some_sold_single' | t }}
+        {%- else -%}{{ 'cart.some_sold_several' | t }}{%- endif -%}
       </p>
     {%- endif -%}
     <form action="{{ routes.cart_url }}" method="post" class="bag-checkout" id="bag-checkout-{{ ctx }}">
-      <button type="submit" name="checkout" class="btn"{% if sold_n > 0 %} disabled{% endif %}>Checkout</button>
+      <button type="submit" name="checkout" class="btn"{% if sold_n > 0 %} disabled{% endif %}>{{ 'cart.checkout' | t }}</button>
     </form>
     {%- endif -%}
   </div>
 
   <div class="bag-more">
-    <p class="bag-fine">One of one. A piece in your bag is not held for you until you check out.</p>
+    <p class="bag-fine">{{ 'cart.not_held' | t }}</p>
 
     {%- if additional_checkout_buttons and sold_n == 0 -%}
       <div class="bag-express additional-checkout-buttons--vertical">{{ content_for_additional_checkout_buttons }}</div>
     {%- endif -%}
 
     {%- if shop.enabled_payment_types.size > 0 -%}
-      <ul class="pay" role="list" aria-label="Payment methods we accept">
+      <ul class="pay" role="list" aria-label="{{ 'cart.payment_methods' | t }}">
         {%- for type in shop.enabled_payment_types -%}
           <li>{{ type | payment_type_svg_tag: class: 'pay-icon' }}</li>
         {%- endfor -%}

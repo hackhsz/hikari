@@ -1,4 +1,5 @@
 <section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18"><div class="shell" style="max-width:56ch">
-  <h1 style="font-family:var(--serif);font-weight:200;font-style:italic;font-size:clamp(30px,6vw,54px);margin:0 0 20px">Gone, or never here.</h1>
-  <p style="opacity:.72">One of one means pieces do leave. <a href="{{ routes.root_url }}" style="border-bottom:1px solid">Back to the Alcove</a>.</p>
+  <h1 style="font-family:var(--serif);font-weight:200;font-style:italic;font-size:clamp(30px,6vw,54px);margin:0 0 20px">{{ 'general.not_found.heading' | t }}</h1>
+  {%- capture back -%}<a href="{{ routes.root_url }}" style="border-bottom:1px solid">{{ 'general.not_found.link' | t }}</a>{%- endcapture %}
+  <p style="opacity:.72">{{ 'general.not_found.body_html' | t: link: back }}</p>
 </div></section>

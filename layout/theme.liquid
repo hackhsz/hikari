@@ -25,11 +25,44 @@
       cart_update_url: {{ routes.cart_update_url | json }}
     };
   </script>
+  {%- comment -%}
+    The words assets/hikari.js writes, from the locale file. The script keeps the English as a
+    fallback. A plural keeps every form the language needs, with [n] for the script to fill.
+  {%- endcomment -%}
+  {%- liquid
+    assign forms = 'one,other' | split: ','
+    if request.locale.iso_code == 'ar'
+      assign forms = 'zero,one,two,few,many,other' | split: ','
+    endif
+    assign plurals = 'collections.pieces,countdown.days,countdown.hours,countdown.minutes' | split: ','
+  -%}
+  <script>
+    window.hikariStrings = {
+      addToBag: {{ 'products.product.add_to_bag' | t | json }},
+      inBag: {{ 'products.product.in_bag' | t | json }},
+      sold: {{ 'products.product.sold_out' | t | json }},
+      justSold: {{ 'products.product.just_sold' | t | json }},
+      added: {{ 'cart.added' | t | json }},
+      already: {{ 'cart.already' | t | json }},
+      removed: {{ 'cart.removed' | t | json }},
+      copied: {{ 'general.copied' | t | json }},
+      opening: {{ 'general.opening' | t | json }},
+      goingLive: {{ 'countdown.now' | t | json }},
+      inTime: {{ 'countdown.in' | t: time: '[time]' | json }},
+      timeSep: {{ 'countdown.separator' | t | json }},
+      plurals: {
+        {%- for k in plurals -%}
+          {%- assign name = k | split: '.' | last %}
+        {{ name | json }}: { {% for f in forms %}{% assign fk = k | append: '.' | append: f %}{{ f | json }}: {{ fk | t: count: '[n]' | json }}{% unless forloop.last %}, {% endunless %}{% endfor %} }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      }
+    };
+  </script>
   <script src="{{ 'hikari.js' | asset_url }}" defer></script>
 </head>
 <body class="template-{{ template.name }}">
   <div id="grain" aria-hidden="true"></div>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#main">{{ 'general.skip' | t }}</a>
 
   {% section 'header' %}
 

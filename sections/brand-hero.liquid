@@ -41,7 +41,7 @@
       </picture>
     {%- else -%}
       <canvas data-seed="3" data-tone="light" data-comp="none" data-ratio="{{ ratio }}" data-fill="1"
-              role="img" aria-label="Brand image to follow"></canvas>
+              role="img" aria-label="{{ 'home.brand_image_to_follow' | t }}"></canvas>
       {%- if request.design_mode -%}
         <span class="stamp">Brand image · choose it in this section's settings</span>
       {%- endif -%}

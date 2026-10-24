@@ -10,8 +10,8 @@
   <div class="sheet-scrim" data-sheet-close></div>
   <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="bag-title" tabindex="-1">
     <div class="sheet-head">
-      <h2 class="sheet-title" id="bag-title">Bag</h2>
-      <button type="button" class="sheet-x" data-sheet-close>Close</button>
+      <h2 class="sheet-title" id="bag-title">{{ 'layout.cart.title' | t }}</h2>
+      <button type="button" class="sheet-x" data-sheet-close>{{ 'general.close' | t }}</button>
     </div>
     <p class="bag-note" data-bag-note role="status" aria-live="polite" hidden></p>
 
@@ -23,9 +23,9 @@
         {%- render 'bag-foot', cart: cart, ctx: 'drawer' -%}
       {%- else -%}
         <div class="bag-empty">
-          <p class="bag-empty-h">Nothing in the bag yet.</p>
-          <p>Every piece here is one of one. When it sells, it goes to the Record.</p>
-          <a class="bag-link" href="{{ routes.all_products_collection_url }}">See every piece</a>
+          <p class="bag-empty-h">{{ 'cart.empty_heading' | t }}</p>
+          <p>{{ 'cart.empty_body' | t }}</p>
+          <a class="bag-link" href="{{ routes.all_products_collection_url }}">{{ 'cart.see_every_piece' | t }}</a>
         </div>
       {%- endif -%}
     </div>

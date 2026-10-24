@@ -7,6 +7,7 @@
 {%- endcomment -%}
 {%- assign piece = item.product.metafields.hikari.piece | default: item.product.title -%}
 {%- assign gone = true -%}{%- if item.variant.available -%}{%- assign gone = false -%}{%- endif -%}
+{%- assign rm_house = item.vendor | default: piece -%}
 <li class="bag-line{% if gone %} is-sold{% endif %}" data-variant-id="{{ item.variant_id }}">
   <a class="bag-thumb" href="{{ item.url }}" tabindex="-1" aria-hidden="true">
     {%- render 'plate', image: item.image, ratio: 1.25, seed: item.product_id, tone: 'grey',
@@ -15,10 +16,10 @@
   <div class="bag-info">
     <a class="bag-house" href="{{ item.url }}">{{ item.vendor | default: item.product.title }}</a>
     <p class="bag-piece">{{ piece }}</p>
-    <p class="bag-oneof">{% if gone %}Sold since you added it{% else %}One of one{% endif %}</p>
-    {%- if item.properties['Pre-sale'] != blank -%}<p class="bag-oneof bag-presale">Pre-sale. {{ item.properties['Pre-sale'] }}</p>{%- endif -%}
+    <p class="bag-oneof">{% if gone %}{{ 'cart.sold_since' | t }}{% else %}{{ 'products.product.one_of_one' | t }}{% endif %}</p>
+    {%- if item.properties['Pre-sale'] != blank -%}<p class="bag-oneof bag-presale">{{ 'products.product.pre_sale_note' | t: note: item.properties['Pre-sale'] }}</p>{%- endif -%}
     <a class="bag-remove" href="{{ item.url_to_remove }}" data-bag-remove="{{ item.key }}"
-       aria-label="Remove {{ item.vendor | default: piece | escape }}, {{ piece | escape }}">Remove</a>
+       aria-label="{{ 'cart.remove_label' | t: house: rm_house, piece: piece | escape_once }}">{{ 'cart.remove' | t }}</a>
   </div>
-  <span class="price bag-price">{% if gone %}Sold{% else %}{{ item.final_line_price | money }}{% endif %}</span>
+  <span class="price bag-price">{% if gone %}{{ 'products.product.sold_out' | t }}{% else %}{{ item.final_line_price | money }}{% endif %}</span>
 </li>

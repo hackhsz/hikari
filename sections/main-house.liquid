@@ -42,13 +42,13 @@
 <section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
   <div class="shell">
     <header class="house-head">
-      <p class="eyebrow"><a href="{{ routes.collections_url }}">Shop by house</a></p>
-      <h1 class="house-h">{{ house }} <span class="house-h-sub">Vintage jewellery</span></h1>
+      <p class="eyebrow"><a href="{{ routes.collections_url }}">{{ 'collections.shop_by_house' | t }}</a></p>
+      <h1 class="house-h">{{ house }} <span class="house-h-sub">{{ 'house.vintage_jewellery' | t }}</span></h1>
       {%- if lede != blank -%}<p class="house-lede">{{ lede }}</p>{%- endif -%}
     </header>
 
     {%- if n_live > 0 -%}
-      <p class="eyebrow">{{ n_live }} {% if n_live == 1 %}piece{% else %}pieces{% endif %} in the shop</p>
+      <p class="eyebrow">{{ 'house.in_shop' | t: count: n_live }}</p>
       <div class="grid4">
         {%- for p in c.products -%}
           {%- if p.available -%}{%- render 'product-card', card_product: p, tone: 'grey' -%}{%- endif -%}
@@ -56,9 +56,9 @@
       </div>
     {%- else -%}
       <div class="house-empty">
-        <p class="bag-empty-h">Nothing from {{ house }} in the shop this week.</p>
-        <p>New pieces arrive with each Edition: {{ settings.edition_day }}. The list sees them an hour before anyone else.</p>
-        <a class="bag-link" href="#list">Join the list</a>
+        <p class="bag-empty-h">{{ 'house.empty_heading' | t: house: house }}</p>
+        <p>{{ 'house.empty_body' | t: day: settings.edition_day }}</p>
+        <a class="bag-link" href="#list">{{ 'signup.join' | t }}</a>
       </div>
     {%- endif -%}
 
@@ -72,16 +72,16 @@
     <div class="house-notes">
       {%- if c.description != blank -%}
         <div class="house-essay">
-          <h2 class="eyebrow">Notes on the house</h2>
+          <h2 class="eyebrow">{{ 'house.notes' | t }}</h2>
           <div class="rte">{{ c.description }}</div>
         </div>
       {%- endif -%}
 
       {%- if marks != blank -%}
         <div class="house-marks">
-          <h2 class="eyebrow">Reading the mark</h2>
+          <h2 class="eyebrow">{{ 'house.marks' | t }}</h2>
           <table class="marks">
-            <thead><tr><th scope="col">Period</th><th scope="col">Mark</th></tr></thead>
+            <thead><tr><th scope="col">{{ 'house.period' | t }}</th><th scope="col">{{ 'house.mark' | t }}</th></tr></thead>
             <tbody>
               {%- assign rows = marks | escape | newline_to_br | split: '<br />' -%}
               {%- for row in rows -%}
@@ -98,7 +98,7 @@
               {%- endfor -%}
             </tbody>
           </table>
-          <p class="house-fine">Every listing shows the mark itself in its second photograph, unretouched.</p>
+          <p class="house-fine">{{ 'house.marks_fine' | t }}</p>
         </div>
       {%- endif -%}
     </div>

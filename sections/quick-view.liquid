@@ -19,37 +19,39 @@
   <div class="qv-info">
     <h2 class="qv-house" id="qv-title">{{ p.vendor | default: p.title }}</h2>
     <p class="qv-piece">{{ piece }}</p>
-    <span class="price qv-price">{% if status == 'sold' %}Sold{% else %}{%- render 'price', p: p -%}{% endif %}</span>
+    <span class="price qv-price">{% if status == 'sold' %}{{ 'products.product.sold_out' | t }}{% else %}{%- render 'price', p: p -%}{% endif %}</span>
 
     {%- case status -%}
       {%- when 'presale' -%}
-        <p class="pdp-status">Pre-sale. {{ settings.presale_note }}</p>
+        <p class="pdp-status">{{ 'products.product.pre_sale_note' | t: note: settings.presale_note }}</p>
         {%- form 'product', p -%}
           <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
           <input type="hidden" name="properties[Pre-sale]" value="{{ settings.presale_note | escape }}">
-          <button class="btn" type="submit" data-label="Pre-order">Pre-order</button>
+          {%- assign pre_order = 'products.product.pre_order' | t -%}
+          <button class="btn" type="submit" data-label="{{ pre_order }}">{{ pre_order }}</button>
         {%- endform -%}
       {%- when 'soon' -%}
-        <p class="pdp-status">Goes live {% render 'release', p: p %}</p>
-        <a class="btn" href="{{ p.url }}">Tell me when it goes live</a>
+        {%- capture release_at -%}{%- render 'release', p: p -%}{%- endcapture -%}
+        <p class="pdp-status">{{ 'products.product.goes_live' | t: release: release_at }}</p>
+        <a class="btn" href="{{ p.url }}">{{ 'products.notify.release_heading' | t }}</a>
       {%- when 'sold' -%}
-        <p class="pdp-status">Kept on the Record</p>
-        <a class="btn" href="{{ p.url }}">Hear about similar pieces</a>
+        <p class="pdp-status">{{ 'products.product.kept_on_record' | t }}</p>
+        <a class="btn" href="{{ p.url }}">{{ 'products.quick_view.similar' | t }}</a>
       {%- else -%}
         {%- form 'product', p -%}
           <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
-          <button class="btn" type="submit">Add to bag</button>
+          <button class="btn" type="submit">{{ 'products.product.add_to_bag' | t }}</button>
         {%- endform -%}
     {%- endcase -%}
 
     <table class="spec">
-      {%- if p.metafields.hikari.grade -%}<tr><th>Condition</th><td>Grade {{ p.metafields.hikari.grade }}</td></tr>{%- endif -%}
-      {%- if p.metafields.hikari.measurements -%}<tr><th>Measurements</th><td>{{ p.metafields.hikari.measurements }}</td></tr>{%- endif -%}
-      {%- if p.metafields.hikari.era -%}<tr><th>Era</th><td>{{ p.metafields.hikari.era }}</td></tr>{%- endif -%}
-      <tr><th>Availability</th><td>One of one</td></tr>
+      {%- if p.metafields.hikari.grade -%}<tr><th>{{ 'products.spec.condition' | t }}</th><td>{{ 'products.spec.grade' | t: grade: p.metafields.hikari.grade }}</td></tr>{%- endif -%}
+      {%- if p.metafields.hikari.measurements -%}<tr><th>{{ 'products.spec.measurements' | t }}</th><td>{{ p.metafields.hikari.measurements }}</td></tr>{%- endif -%}
+      {%- if p.metafields.hikari.era -%}<tr><th>{{ 'products.spec.era' | t }}</th><td>{{ p.metafields.hikari.era }}</td></tr>{%- endif -%}
+      <tr><th>{{ 'products.spec.availability' | t }}</th><td>{{ 'products.product.one_of_one' | t }}</td></tr>
     </table>
     <a class="hero-link" href="{{ p.url }}">
-      Every photograph{% if p.metafields.hikari.spin.value.size > 1 %}, the 360° view{% endif %} and the details
+      {% if p.metafields.hikari.spin.value.size > 1 %}{{ 'products.quick_view.details_spin' | t }}{% else %}{{ 'products.quick_view.details' | t }}{% endif %}
     </a>
   </div>
 </div>

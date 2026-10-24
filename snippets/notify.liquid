@@ -11,11 +11,11 @@
   <input type="hidden" name="contact[tags]" value="{{ tags | escape }}">
   <p class="notify-h">{{ heading }}</p>
   <div class="notify-row">
-    <label class="vh" for="{{ form_id }}-email">Email address</label>
-    <input id="{{ form_id }}-email" type="email" name="contact[email]" placeholder="Email address" autocomplete="email" required>
-    <button type="submit" class="btn">Notify me</button>
+    <label class="vh" for="{{ form_id }}-email">{{ 'general.email.label' | t }}</label>
+    <input id="{{ form_id }}-email" type="email" name="contact[email]" placeholder="{{ 'general.email.label' | t }}" autocomplete="email" required>
+    <button type="submit" class="btn">{{ 'products.notify.submit' | t }}</button>
   </div>
   <p class="notify-fine">{{ fine }}</p>
   {%- if form.posted_successfully? -%}<p class="notify-ok" role="status">{{ ok }}</p>{%- endif -%}
-  {%- if form.errors -%}<p class="notify-ok" role="alert">That email address did not work. Check it and try again.</p>{%- endif -%}
+  {%- if form.errors -%}<p class="notify-ok" role="alert">{{ 'general.email.error' | t }}</p>{%- endif -%}
 {%- endform -%}

@@ -19,48 +19,52 @@
     <input type="hidden" name="contact[tags]" value="prefs">
     {%- if ask_email -%}
       <div class="notify-row">
-        <label class="vh" for="{{ form_id }}-email">Email address</label>
-        <input id="{{ form_id }}-email" type="email" name="contact[email]" placeholder="Email address" autocomplete="email" required>
+        <label class="vh" for="{{ form_id }}-email">{{ 'general.email.label' | t }}</label>
+        <input id="{{ form_id }}-email" type="email" name="contact[email]" placeholder="{{ 'general.email.label' | t }}" autocomplete="email" required>
       </div>
     {%- else -%}
-      <p class="prefs-h">One more thing, if you like: what do you collect?</p>
+      <p class="prefs-h">{{ 'preferences.heading' | t }}</p>
       <input type="hidden" name="contact[email]" data-prefs-email>
     {%- endif -%}
 
     <fieldset class="prefs-set">
-      <legend>Houses</legend>
+      <legend>{{ 'preferences.houses' | t }}</legend>
       {%- for v in shop.vendors -%}
         <label class="prefs-chip"><input type="checkbox" value="house-{{ v | handleize }}" data-tag><span>{{ v }}</span></label>
       {%- endfor -%}
     </fieldset>
     <fieldset class="prefs-set">
-      <legend>Pieces</legend>
-      {%- assign types = 'Earrings,Brooches,Necklaces,Bracelets' | split: ',' -%}
-      {%- for t in types -%}
-        <label class="prefs-chip"><input type="checkbox" value="type-{{ t | handleize }}" data-tag><span>{{ t }}</span></label>
+      <legend>{{ 'preferences.pieces' | t }}</legend>
+      {%- comment -%} The tag stays in English (type-earrings); only the chip's name is translated. {%- endcomment -%}
+      {%- assign types = 'earrings,brooches,necklaces,bracelets' | split: ',' -%}
+      {%- for ty in types -%}
+        {%- assign tk = 'collections.categories.' | append: ty -%}
+        <label class="prefs-chip"><input type="checkbox" value="type-{{ ty }}" data-tag><span>{{ tk | t }}</span></label>
       {%- endfor -%}
-      <label class="prefs-chip"><input type="checkbox" value="ears-clip" data-tag><span>Clip-on earrings only</span></label>
+      <label class="prefs-chip"><input type="checkbox" value="ears-clip" data-tag><span>{{ 'preferences.clip_only' | t }}</span></label>
     </fieldset>
     <fieldset class="prefs-set">
-      <legend>Usually spend</legend>
-      <label class="prefs-chip"><input type="radio" name="{{ form_id }}-budget" value="budget-under-150" data-tag><span>Under {{ 15000 | money_without_trailing_zeros }}</span></label>
-      <label class="prefs-chip"><input type="radio" name="{{ form_id }}-budget" value="budget-150-250" data-tag><span>{{ 15000 | money_without_trailing_zeros }}–{{ 25000 | money_without_trailing_zeros }}</span></label>
-      <label class="prefs-chip"><input type="radio" name="{{ form_id }}-budget" value="budget-250-plus" data-tag><span>Over {{ 25000 | money_without_trailing_zeros }}</span></label>
+      <legend>{{ 'preferences.spend' | t }}</legend>
+      {%- assign low = 15000 | money_without_trailing_zeros -%}
+      {%- assign high = 25000 | money_without_trailing_zeros -%}
+      <label class="prefs-chip"><input type="radio" name="{{ form_id }}-budget" value="budget-under-150" data-tag><span>{{ 'preferences.under_html' | t: amount: low }}</span></label>
+      <label class="prefs-chip"><input type="radio" name="{{ form_id }}-budget" value="budget-150-250" data-tag><span>{{ low }}–{{ high }}</span></label>
+      <label class="prefs-chip"><input type="radio" name="{{ form_id }}-budget" value="budget-250-plus" data-tag><span>{{ 'preferences.over_html' | t: amount: high }}</span></label>
     </fieldset>
     <div class="prefs-set prefs-field">
-      <label for="{{ form_id }}-wechat">WeChat ID <span lang="zh">微信号</span>, if you would like to hear from us there</label>
+      <label for="{{ form_id }}-wechat">{{ 'preferences.wechat_html' | t }}</label>
       <input id="{{ form_id }}-wechat" type="text" maxlength="40" autocomplete="off" autocapitalize="off" spellcheck="false" data-prefs-wechat>
     </div>
 
     <div class="prefs-row">
-      <button type="submit" class="prefs-save"><span>Save</span></button>
-      {%- unless ask_email -%}<button type="button" class="prefs-skip" data-prefs-skip>Skip</button>{%- endunless -%}
+      <button type="submit" class="prefs-save"><span>{{ 'preferences.save' | t }}</span></button>
+      {%- unless ask_email -%}<button type="button" class="prefs-skip" data-prefs-skip>{{ 'preferences.skip' | t }}</button>{%- endunless -%}
     </div>
     <p class="prefs-fine">
-      {%- if ask_email -%}Saves your choices to your place on the list, and adds you to the list if you are not on it yet. Unsubscribe any time.
-      {%- else -%}Optional. We use it only to choose which pieces to show you first, and WeChat only to tell you about them.{%- endif -%}
-      {%- if shop.privacy_policy %} <a class="spec-link" href="{{ shop.privacy_policy.url }}">Privacy</a>{% endif -%}
+      {%- if ask_email -%}{{ 'preferences.fine_page' | t }}
+      {%- else -%}{{ 'preferences.fine' | t }}{%- endif -%}
+      {%- if shop.privacy_policy %} <a class="spec-link" href="{{ shop.privacy_policy.url }}">{{ 'general.privacy' | t }}</a>{% endif -%}
     </p>
   {%- endform -%}
-  <p class="prefs-ok" data-prefs-ok tabindex="-1" hidden>Thank you. We will show you those first.</p>
+  <p class="prefs-ok" data-prefs-ok tabindex="-1" hidden>{{ 'preferences.thanks' | t }}</p>
 </div>

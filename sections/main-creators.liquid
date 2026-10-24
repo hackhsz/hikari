@@ -22,46 +22,47 @@
       <div class="cr-col">
         <h2 class="cr-h">{{ s.creator_heading }}</h2>
         <ol class="cr-steps">
-          <li>Tell us about your work below.</li>
-          <li>If it fits, we choose a piece with you, and send it with your own link and code.</li>
+          <li>{{ 'creators.creator_step_1' | t }}</li>
+          <li>{{ 'creators.creator_step_2' | t }}</li>
           <li>{{ s.creator_reward }}</li>
         </ol>
         <p class="notify-fine">{{ s.creator_rules }}</p>
         {%- form 'contact', id: 'creator-form', class: 'cr-form' -%}
           <input type="hidden" name="contact[Programme]" value="Creator">
-          <label for="cr-name">Name</label><input id="cr-name" name="contact[name]" autocomplete="name" required>
-          <label for="cr-email">Email</label><input id="cr-email" type="email" name="contact[email]" autocomplete="email" required>
-          <label for="cr-platform">Where you post</label>
+          <label for="cr-name">{{ 'creators.name' | t }}</label><input id="cr-name" name="contact[name]" autocomplete="name" required>
+          <label for="cr-email">{{ 'creators.email' | t }}</label><input id="cr-email" type="email" name="contact[email]" autocomplete="email" required>
+          <label for="cr-platform">{{ 'creators.platform' | t }}</label>
+          {%- comment -%} The values reach the shop's inbox, so they stay in English. {%- endcomment -%}
           <select id="cr-platform" name="contact[Platform]">
-            <option>Instagram</option><option>小红书 Xiaohongshu</option><option>TikTok</option><option>Pinterest</option><option>YouTube</option><option>Other</option>
+            <option>Instagram</option><option>小红书 Xiaohongshu</option><option>TikTok</option><option>Pinterest</option><option>YouTube</option><option value="Other">{{ 'creators.other' | t }}</option>
           </select>
-          <label for="cr-handle">Handle or link</label><input id="cr-handle" name="contact[Handle]" required>
-          <label for="cr-size">Followers, roughly</label><input id="cr-size" name="contact[Followers]" inputmode="numeric">
-          <label for="cr-note">What would you make with a piece?</label><textarea id="cr-note" name="contact[body]" rows="4"></textarea>
-          <button type="submit" class="btn">Apply</button>
+          <label for="cr-handle">{{ 'creators.handle' | t }}</label><input id="cr-handle" name="contact[Handle]" required>
+          <label for="cr-size">{{ 'creators.followers' | t }}</label><input id="cr-size" name="contact[Followers]" inputmode="numeric">
+          <label for="cr-note">{{ 'creators.note' | t }}</label><textarea id="cr-note" name="contact[body]" rows="4"></textarea>
+          <button type="submit" class="btn">{{ 'creators.apply' | t }}</button>
         {%- endform -%}
       </div>
 
       <div class="cr-col">
         <h2 class="cr-h">{{ s.share_heading }}</h2>
         <ol class="cr-steps">
-          <li>Post a photograph of you wearing your piece{% if s.handle != blank %}, and tag {{ s.handle }}{% endif %}. Add #ad: there is a reward, so it counts as an advert.</li>
-          <li>Send us the link and your order number below.</li>
+          <li>{% if s.handle != blank %}{{ 'creators.share_step_1_tag' | t: handle: s.handle }}{% else %}{{ 'creators.share_step_1' | t }}{% endif %}</li>
+          <li>{{ 'creators.share_step_2' | t }}</li>
           <li>{{ s.share_reward }}</li>
         </ol>
         <p class="notify-fine">{{ s.share_rules }}</p>
         {%- form 'contact', id: 'share-form', class: 'cr-form' -%}
           <input type="hidden" name="contact[Programme]" value="Share">
-          <label for="sh-email">Email you ordered with</label><input id="sh-email" type="email" name="contact[email]" autocomplete="email" required>
-          <label for="sh-order">Order number</label><input id="sh-order" name="contact[Order]" placeholder="#1001" required>
-          <label for="sh-link">Link to your post</label><input id="sh-link" type="url" name="contact[Post]" placeholder="https://" required>
-          <label class="bag-check cr-check"><input type="checkbox" name="contact[May repost]" value="Yes"> You may repost it, with credit to you</label>
-          <button type="submit" class="btn">Send</button>
+          <label for="sh-email">{{ 'creators.order_email' | t }}</label><input id="sh-email" type="email" name="contact[email]" autocomplete="email" required>
+          <label for="sh-order">{{ 'creators.order' | t }}</label><input id="sh-order" name="contact[Order]" placeholder="#1001" required>
+          <label for="sh-link">{{ 'creators.post_link' | t }}</label><input id="sh-link" type="url" name="contact[Post]" placeholder="https://" required>
+          <label class="bag-check cr-check"><input type="checkbox" name="contact[May repost]" value="Yes"> {{ 'creators.repost' | t }}</label>
+          <button type="submit" class="btn">{{ 'creators.send' | t }}</button>
         {%- endform -%}
       </div>
     </div>
 
-    <p class="cr-ok" data-cr-ok hidden role="status">Thank you. We read every one, and reply within three working days.</p>
+    <p class="cr-ok" data-cr-ok hidden role="status">{{ 'creators.thanks' | t }}</p>
   </div>
 </section>
 {% schema %}

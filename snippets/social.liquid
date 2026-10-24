@@ -12,4 +12,7 @@
   {%- if settings.social_tiktok != blank -%}<li><a href="{{ settings.social_tiktok }}" target="_blank" rel="noopener me">TikTok</a></li>{%- elsif request.design_mode -%}<li class="social-unset">TikTok</li>{%- endif -%}
   {%- if settings.social_pinterest != blank -%}<li><a href="{{ settings.social_pinterest }}" target="_blank" rel="noopener me">Pinterest</a></li>{%- elsif request.design_mode -%}<li class="social-unset">Pinterest</li>{%- endif -%}
 {%- endcapture -%}
-{%- if items != blank -%}<ul class="social" aria-label="{{ label | default: 'Follow us' }}">{{ items }}</ul>{%- endif -%}
+{%- if items != blank -%}
+  {%- if label != blank -%}{%- assign aria = label -%}{%- else -%}{%- assign aria = 'layout.social.follow_us' | t -%}{%- endif -%}
+  <ul class="social" aria-label="{{ aria }}">{{ items }}</ul>
+{%- endif -%}

@@ -28,8 +28,8 @@
   <section class="pad" data-bg="#EFEAE0" data-fg="#1C1B18" style="--sec-bg:#EFEAE0;--sec-fg:#1C1B18;">
     <div class="shell">
       <div class="more-head">
-        <h2 class="eyebrow">More from {{ p.vendor }}</h2>
-        <a class="hero-link" href="{{ house_url }}">Every {{ p.vendor }} piece, and the Record</a>
+        <h2 class="eyebrow">{{ 'house.more_from' | t: house: p.vendor }}</h2>
+        <a class="hero-link" href="{{ house_url }}">{{ 'house.every_piece' | t: house: p.vendor }}</a>
       </div>
       {%- if shown > 0 -%}<div class="grid4">{{ cards }}</div>{%- endif -%}
     </div>
