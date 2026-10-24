@@ -82,7 +82,11 @@
       ]
     },
     "story": {
-      "type": "story"
+      "type": "story",
+      "settings": {
+        "image": "shopify://shop_images/karineko-story-shell-dish.jpg",
+        "stamp": "Plate 05 · At the stall, October"
+      }
     },
     "recent": {
       "type": "recent"
