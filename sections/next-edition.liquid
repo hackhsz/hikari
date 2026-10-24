@@ -25,7 +25,7 @@
     {%- assign r = p.metafields.hikari.release.value -%}
     {%- if r -%}
       {%- assign e = r | date: '%s' | plus: 0 -%}
-      {%- if soonest == 0 or e < soonest -%}{%- assign soonest = e -%}{%- assign soonest_text = r | date: format: 'release' -%}{%- endif -%}
+      {%- if soonest == 0 or e < soonest -%}{%- assign soonest = e -%}{%- assign rel_format = 'date_formats.release' | t -%}{%- assign soonest_text = r | date: rel_format -%}{%- endif -%}
     {%- endif -%}
     {%- render 'product-card', card_product: p, tone: 'light' -%}
   {%- endfor -%}

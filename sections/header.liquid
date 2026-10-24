@@ -17,7 +17,7 @@
     <div class="mast-r">
       {%- comment -%} Phones hide the nav, so they get a menu sheet. Without JavaScript it falls back to the catalogue. {%- endcomment -%}
       <a class="menu-btn" href="{{ routes.all_products_collection_url }}" data-sheet-open="menu" aria-controls="menu" aria-expanded="false">{{ 'layout.header.menu' | t }}</a>
-      {%- render 'language-switcher', id: 'lang-mast' -%}
+      {%- render 'language-switcher', id: 'lang-mast' %}
       <a class="bag-btn" href="{{ routes.cart_url }}" data-sheet-open="bag" aria-controls="bag" aria-expanded="false">{{ 'layout.cart.title' | t }} (<span data-bag-count>{{ cart.item_count }}</span>)</a>
     </div>
   </div>

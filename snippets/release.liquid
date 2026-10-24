@@ -1,7 +1,9 @@
 {%- comment -%}
   When a coming-soon piece goes live: its hikari.release date (Date and time metafield),
   else the Edition day from theme settings. Plain text, for the card and the product page.
-  The format is date_formats.release in each locale file.
+  The format is date_formats.release in each locale file. It is read as text and passed to date
+  as a pattern, because date: format: '…' prints the time in UTC, not the shop's time zone.
 {%- endcomment -%}
 {%- assign rel = p.metafields.hikari.release.value -%}
-{%- if rel -%}{{ rel | date: format: 'release' }}{%- else -%}{{ settings.edition_day }}{%- endif -%}
+{%- assign rel_format = 'date_formats.release' | t -%}
+{%- if rel -%}{{ rel | date: rel_format }}{%- else -%}{{ settings.edition_day }}{%- endif -%}

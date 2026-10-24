@@ -46,7 +46,7 @@
     <fieldset class="prefs-set">
       <legend>{{ 'preferences.spend' | t }}</legend>
       {%- assign low = 15000 | money_without_trailing_zeros -%}
-      {%- assign high = 25000 | money_without_trailing_zeros -%}
+      {%- assign high = 25000 | money_without_trailing_zeros %}
       <label class="prefs-chip"><input type="radio" name="{{ form_id }}-budget" value="budget-under-150" data-tag><span>{{ 'preferences.under_html' | t: amount: low }}</span></label>
       <label class="prefs-chip"><input type="radio" name="{{ form_id }}-budget" value="budget-150-250" data-tag><span>{{ low }}–{{ high }}</span></label>
       <label class="prefs-chip"><input type="radio" name="{{ form_id }}-budget" value="budget-250-plus" data-tag><span>{{ 'preferences.over_html' | t: amount: high }}</span></label>
