@@ -1,7 +1,13 @@
 {
   "sections": {
     "hero": {
-      "type": "brand-hero"
+      "type": "brand-hero",
+      "settings": {
+        "image": "shopify://shop_images/karineko-banner-shell-dish.jpg",
+        "image_mobile": "shopify://shop_images/karineko-banner-shell-dish-phone.jpg",
+        "image_alt": "Styled image of vintage Chanel pearl drop clip earrings in a scalloped shell dish on blue damask, in late sun",
+        "height": "standard"
+      }
     },
     "alcove": {
       "type": "alcove"
