@@ -64,7 +64,7 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .mast-r a{white-space:nowrap}
 /* Japanese and Chinese need no tracking, and narrow phones (375px) need a tighter gap, or Bag runs off the edge. */
 :root:is(:lang(ja),:lang(zh-CN)) .mast-r a{letter-spacing:.04em}
-@media (max-width:420px){.mast-r{gap:12px}.mast-r a{letter-spacing:.1em}}
+@media (max-width:420px){.mast-r{gap:12px}.mast .mast-r a{letter-spacing:.1em}}
 .mast nav a,.mast .bag-btn,.mast .menu-btn{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.82;transition:opacity .25s;
   padding-block:8px;margin-block:-8px}
 .mast nav a:hover,.mast .bag-btn:hover,.mast .menu-btn:hover{opacity:1}
