@@ -23,8 +23,8 @@ html.scroll-colour [data-bg]{background:transparent;color:inherit}
 img{max-width:100%;height:auto;display:block}
 .shell{max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
 .pad{padding-block:clamp(56px,11vw,132px)}
-.skip{position:absolute;left:-9999px}
-.skip:focus{left:8px;top:8px;background:var(--sumi);color:var(--paper);padding:10px 16px;z-index:200}
+.skip{position:absolute;inset-inline-start:-9999px}
+.skip:focus{inset-inline-start:8px;top:8px;background:var(--sumi);color:var(--paper);padding:10px 16px;z-index:200}
 :focus-visible{outline:2px solid currentColor;outline-offset:3px}
 
 /* grain */
@@ -38,7 +38,8 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 
 /* lockup — proportional, so it cannot break when the name changes length.
    C = cap height ≈ 0.70em. kanji 1.30 C · rule 1.00 C · 0.55 C clear · Latin tracked 0.28 em. */
-.lockup{display:inline-flex;align-items:center;line-height:1;white-space:nowrap}
+/* The lockup is a mark, not a sentence: it keeps its order in right-to-left pages too. */
+.lockup{display:inline-flex;align-items:center;line-height:1;white-space:nowrap;direction:ltr}
 .lockup .lk-k{font-family:var(--mincho);font-size:1.035em;line-height:1;
   /* optical centre of the kanji to cap centre of the Latin */
   position:relative;top:-.02em}
@@ -74,8 +75,8 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .plate{position:relative;overflow:hidden;background:color-mix(in srgb,currentColor 7%,transparent)}
 .plate img,.plate canvas{display:block;width:100%;height:auto;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s}
 .card:hover .plate img,.card:hover .plate canvas{transform:scale(1.022);filter:brightness(1.04)}
-.plate .stamp{position:absolute;left:11px;bottom:9px;color:#fff;mix-blend-mode:difference;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.7}
-.plate .sold{position:absolute;right:11px;top:10px;color:#fff;mix-blend-mode:difference;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+.plate .stamp{position:absolute;inset-inline-start:11px;bottom:9px;color:#fff;mix-blend-mode:difference;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.7}
+.plate .sold{position:absolute;inset-inline-end:11px;top:10px;color:#fff;mix-blend-mode:difference;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
 
 /* alcove */
 .al-info{display:grid;grid-template-columns:1fr auto;gap:16px 40px;align-items:end;padding-top:clamp(20px,3.4vw,34px)}
@@ -110,7 +111,7 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 
 /* houses */
 .houses{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 0}
-.houses a,.houses .sep{font-family:var(--serif);font-weight:200;line-height:1.16;font-size:clamp(23px,4.4vw,44px);letter-spacing:-.012em;padding-right:.42em;transition:opacity .3s}
+.houses a,.houses .sep{font-family:var(--serif);font-weight:200;line-height:1.16;font-size:clamp(23px,4.4vw,44px);letter-spacing:-.012em;padding-inline-end:.42em;transition:opacity .3s}
 .houses a:hover{opacity:.5}
 .houses .sep{opacity:.28}
 
@@ -140,7 +141,7 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .pdp .sub{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(16px,2.2vw,20px);margin:0 0 22px;opacity:.76}
 .pdp .p{font-size:clamp(22px,3.4vw,30px);margin-bottom:20px;display:block}
 .spec{width:100%;border-collapse:collapse;font-size:13.5px;margin:22px 0}
-.spec th,.spec td{text-align:left;padding:9px 0;border-bottom:1px solid;border-color:color-mix(in srgb,currentColor 14%,transparent);vertical-align:top}
+.spec th,.spec td{text-align:start;padding:9px 0;border-bottom:1px solid;border-color:color-mix(in srgb,currentColor 14%,transparent);vertical-align:top}
 .spec th{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.55;width:42%}
 .btn{display:block;width:100%;text-align:center;background:var(--midori);color:var(--paper);border:0;border-radius:2px;padding:16px 26px;
   font-family:inherit;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:opacity .25s}
@@ -162,7 +163,7 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 /* with scroll colour the ground and ink blend together, so the button follows the blend */
 html.scroll-colour .form button span{color:var(--bg)}
 .strip{display:flex;flex-wrap:wrap}
-.strip div{flex:1 1 150px;padding:15px 14px 15px 0;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;opacity:.66}
+.strip div{flex:1 1 150px;padding-block:15px;padding-inline:0 14px;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;opacity:.66}
 .fcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:26px;margin-top:clamp(36px,6vw,60px)}
 .fcols h4{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.5;margin:0 0 11px}
 .fcols a{display:block;font-size:13.5px;opacity:.76;padding:3px 0}
@@ -186,7 +187,7 @@ html.scroll-colour .form button span{color:var(--bg)}
   .hero-media.has-mobile{aspect-ratio:auto}
   .hero-media.has-mobile img{height:auto}
 }
-.hero-media .stamp{position:absolute;left:max(var(--gut),calc((100% - var(--max)) / 2 + var(--gut)));bottom:12px;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#fff;mix-blend-mode:difference;opacity:.75}
+.hero-media .stamp{position:absolute;inset-inline-start:max(var(--gut),calc((100% - var(--max)) / 2 + var(--gut)));bottom:12px;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#fff;mix-blend-mode:difference;opacity:.75}
 .hero-txt{display:grid;grid-template-columns:repeat(12,1fr);column-gap:clamp(16px,3vw,44px);row-gap:22px;align-items:end;
   padding-top:clamp(24px,4vw,44px);padding-bottom:clamp(64px,10vw,124px)}
 .hero-lead{grid-column:1/9;min-width:0}
@@ -206,11 +207,14 @@ html.sheet-open{overflow:hidden}
 .sheet.is-open{visibility:visible;pointer-events:auto;transition-delay:0s}
 .sheet-scrim{position:absolute;inset:0;background:color-mix(in srgb,var(--sumi) 36%,transparent);opacity:0;transition:opacity .26s ease-out}
 .sheet.is-open .sheet-scrim{opacity:1}
-.sheet-panel{position:absolute;top:0;right:0;bottom:0;width:min(440px,100%);display:flex;flex-direction:column;
+/* The bag comes in from the end side and the menu (sheet--left) from the start side, so in a
+   right-to-left page they swap; --flip turns the 18px slide round to match. */
+.sheet-panel{position:absolute;top:0;inset-inline-end:0;bottom:0;width:min(440px,100%);display:flex;flex-direction:column;
   background:var(--paper);color:var(--sumi);outline:none;
   padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
-  opacity:0;transform:translateX(18px);transition:opacity .26s ease-out,transform .26s ease-out}
-.sheet--left .sheet-panel{right:auto;left:0;transform:translateX(-18px)}
+  opacity:0;transform:translateX(calc(18px * var(--flip,1)));transition:opacity .26s ease-out,transform .26s ease-out}
+.sheet--left .sheet-panel{inset-inline-end:auto;inset-inline-start:0;transform:translateX(calc(-18px * var(--flip,1)))}
+[dir="rtl"]{--flip:-1}
 .sheet.is-open .sheet-panel{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.sheet,.sheet-scrim,.sheet-panel{transition:none!important}}
 .sheet-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:20px 24px 16px;
@@ -315,9 +319,9 @@ html.sheet-open{overflow:hidden}
 .house-essay .rte p{margin:0 0 14px}
 .house-essay .rte h2,.house-essay .rte h3{font-family:var(--serif);font-weight:300;font-size:22px;line-height:1.2;margin:28px 0 10px}
 .marks{width:100%;border-collapse:collapse;font-size:13.5px}
-.marks th,.marks td{text-align:left;vertical-align:top;padding:10px 0;border-bottom:1px solid;border-color:color-mix(in srgb,currentColor 14%,transparent)}
+.marks th,.marks td{text-align:start;vertical-align:top;padding:10px 0;border-bottom:1px solid;border-color:color-mix(in srgb,currentColor 14%,transparent)}
 .marks thead th{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.55;padding-top:0}
-.marks tbody th{font-family:var(--serif);font-weight:300;font-size:15px;width:36%;padding-right:14px}
+.marks tbody th{font-family:var(--serif);font-weight:300;font-size:15px;width:36%;padding-inline-end:14px}
 .marks-note{display:block;font-size:12.5px;opacity:.62;margin-top:3px}
 .house-fine{font-size:12px;opacity:.6;margin:12px 0 0}
 .house-legal{margin:clamp(48px,8vw,80px) 0 0;padding-top:16px;border-top:1px solid;border-color:color-mix(in srgb,currentColor 16%,transparent);
@@ -343,12 +347,12 @@ html.sheet-open{overflow:hidden}
 
 /* ── badges (snippets/status, D25) ──────────────────────────
    Square-cornered labels on the first frame. Green marks what you can still act on; Sold is ink. */
-.badge{position:absolute;left:10px;top:10px;z-index:1;display:inline-block;font-size:9px;line-height:1;letter-spacing:.16em;
+.badge{position:absolute;inset-inline-start:10px;top:10px;z-index:1;display:inline-block;font-size:9px;line-height:1;letter-spacing:.16em;
   text-transform:uppercase;font-weight:600;padding:6px 8px 5px;border-radius:2px;white-space:nowrap}
 .badge--soon{background:var(--paper);color:var(--midori);box-shadow:inset 0 0 0 1px var(--midori)}
 .badge--new{background:var(--midori);color:var(--paper)}
 .badge--sold{background:var(--sumi);color:var(--paper)}
-.pdp-status .badge,.qv .pdp-status .badge{position:static;margin-right:10px;vertical-align:1px}
+.pdp-status .badge,.qv .pdp-status .badge{position:static;margin-inline-end:10px;vertical-align:1px}
 .crow .when{font-family:var(--sans);font-size:11px;letter-spacing:.06em;font-weight:600;color:var(--midori)}
 .card-a{display:block}
 
@@ -418,7 +422,7 @@ html.js .card .qv-btn{display:block}
 .zoom-bar{position:absolute;top:0;left:0;right:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:16px;
   padding:calc(12px + env(safe-area-inset-top,0px)) var(--gut) 12px;background:color-mix(in srgb,var(--paper) 86%,transparent)}
 .zoom-count{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.7}
-.zoom-count b{color:var(--sumi);font-weight:600;margin-left:8px;padding:4px 7px 3px;box-shadow:inset 0 0 0 1px currentColor;border-radius:2px}
+.zoom-count b{color:var(--sumi);font-weight:600;margin-inline-start:8px;padding:4px 7px 3px;box-shadow:inset 0 0 0 1px currentColor;border-radius:2px}
 .zoom-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:zoom-in;
   padding:56px 0 40px;touch-action:pan-y pinch-zoom}
 .zoom-stage img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;user-select:none;-webkit-user-drag:none}
@@ -428,6 +432,9 @@ html.js .card .qv-btn{display:block}
   border:0;border-radius:2px;padding:14px 12px;color:var(--sumi);font:inherit;font-size:10px;letter-spacing:.18em;
   text-transform:uppercase;font-weight:600;cursor:pointer}
 .zoom-prev{left:max(8px,env(safe-area-inset-left,0px))}.zoom-next{right:max(8px,env(safe-area-inset-right,0px))}
+/* right to left, the next photograph is on the left (hikari.js turns the arrow keys and swipe to match) */
+[dir="rtl"] .zoom-prev{left:auto;right:max(8px,env(safe-area-inset-right,0px))}
+[dir="rtl"] .zoom-next{right:auto;left:max(8px,env(safe-area-inset-left,0px))}
 .zoom-nav[hidden]{display:none}
 .zoom-tip{position:absolute;left:0;right:0;bottom:calc(12px + env(safe-area-inset-bottom,0px));margin:0;text-align:center;
   font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.45;pointer-events:none}
@@ -460,7 +467,7 @@ html.js .card .qv-btn{display:block}
 
 /* ── the list pop-up (D27) ────────────────────────────────── */
 .popup-inner{position:relative;padding:34px 30px 30px}
-.popup-x{position:absolute;top:8px;right:20px}
+.popup-x{position:absolute;top:8px;inset-inline-end:20px}
 .popup-h{font-family:var(--serif);font-weight:200;font-size:clamp(30px,5vw,40px);line-height:1.05;margin:0 0 12px;max-width:16ch;text-wrap:balance}
 .popup-b{font-size:14.5px;line-height:1.6;opacity:.76;margin:0 0 18px;max-width:42ch}
 .popup-offer{font-size:13.5px;font-weight:600;color:var(--midori);margin:0 0 14px}
@@ -487,7 +494,7 @@ html.js .card .qv-btn{display:block}
 .cr-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,6vw,80px);align-items:start}
 @media (max-width:760px){.cr-cols{grid-template-columns:minmax(0,1fr)}}
 .cr-h{font-family:var(--serif);font-weight:300;font-size:clamp(24px,3.4vw,32px);line-height:1.1;margin:0 0 16px}
-.cr-steps{margin:0 0 14px;padding-left:1.2em;font-size:14.5px;line-height:1.6}
+.cr-steps{margin:0 0 14px;padding-inline-start:1.2em;font-size:14.5px;line-height:1.6}
 .cr-steps li{padding:4px 0}
 .cr-form{display:flex;flex-direction:column;gap:6px;margin-top:22px}
 .cr-form label{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.6;margin-top:8px}
@@ -538,5 +545,29 @@ html.scroll-colour .prefs-save span{color:var(--bg)}
 .cat-sort select{font:inherit;font-size:13.5px;color:inherit;background:transparent;border-radius:2px;padding:9px 12px;
   border:1px solid color-mix(in srgb,currentColor 32%,transparent)}
 .cat-empty{margin-top:12px}
-s.was{opacity:.5;font-size:.8em;margin-right:.35em;text-decoration-thickness:1px}
+s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thickness:1px}
 .bag-presale{color:var(--midori);opacity:1;font-size:11.5px;line-height:1.4;text-transform:none;letter-spacing:0;font-weight:500}
+
+/* ══ 24 Oct 2026: languages ══════════════════════════════════
+   Arabic, Chinese and Japanese. Their faces load only for that language (layout/theme.liquid),
+   after the Latin ones in each stack, so brand names and prices stay in Newsreader and
+   Instrument Sans and only the script itself falls through. English is untouched. */
+:root:lang(ar){
+  --serif:"Newsreader","Noto Naskh Arabic",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans","IBM Plex Sans Arabic",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+:root:lang(zh-CN){
+  --serif:"Newsreader","Noto Serif SC",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans","Noto Sans SC",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+:root:lang(ja){
+  --serif:"Newsreader","Noto Serif JP",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+/* These scripts have no italic: keep the Latin italic, never a slanted fake of the rest. */
+:root:lang(ar),:root:lang(zh-CN),:root:lang(ja){font-synthesis:weight}
+/* Tracking pulls Arabic letters apart, so it goes (the lockup keeps its own). Naskh also sits
+   taller than the Latin, so the tight display leading opens up enough not to clip. */
+:root:lang(ar) body :not(.lk-n){letter-spacing:0!important}
+:root:lang(ar) :is(.al-house,.chouse,.pdp h1,.hero-h,.sheet-title,.menu-links a,.house-h,.ne-h,.popup-h,.qv-house,
+  .bag-house,.bag-page-h,.story h2,.signup h2,.ne-clock){line-height:1.35}

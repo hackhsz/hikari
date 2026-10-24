@@ -11,6 +11,8 @@
      picked by the page language's own rules; [n] is the number. */
   var S=window.hikariStrings||{}, PR=null;
   try{ PR=new Intl.PluralRules(root.lang||"en"); }catch(e){}
+  /* Right to left (Arabic), the next photograph is to the left: arrow keys and swipe follow. */
+  function rtl(){ return root.dir==="rtl"; }
   function str(k,en){ return typeof S[k]==="string"&&S[k]?S[k]:en; }
   function plural(k,n,one,other){
     var f=(S.plurals&&S.plurals[k])||{}, c=PR?PR.select(n):(n===1?"one":"other");
@@ -341,7 +343,7 @@
       if(!openSheet) return;
       if(e.key==="Escape"){ e.preventDefault(); closeSheet(); return; }
       if(openSheet.id==="zoom"&&(e.key==="ArrowRight"||e.key==="ArrowLeft")){
-        e.preventDefault(); showZoom(zoomAt+(e.key==="ArrowRight"?1:-1)); return; }
+        e.preventDefault(); showZoom(zoomAt+((e.key==="ArrowRight")!==rtl()?1:-1)); return; }
       if(e.key!=="Tab") return;
       var f=focusables(openSheet.querySelector(".sheet-panel")); if(!f.length) return;
       var a=f[0], z=f[f.length-1];
@@ -454,7 +456,7 @@
     st.addEventListener("pointerup",function(e){
       if(x0===null) return;
       var dx=e.clientX-x0, dy=e.clientY-y0; x0=null;
-      if(!st.classList.contains("is-zoomed")&&Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5){ swiped=true; showZoom(zoomAt+(dx<0?1:-1)); }
+      if(!st.classList.contains("is-zoomed")&&Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5){ swiped=true; showZoom(zoomAt+((dx<0)!==rtl()?1:-1)); }
     });
     st.addEventListener("click",function(e){ if(swiped){ swiped=false; return; } zoomToggle(st,e.clientX,e.clientY); });
     st.addEventListener("pointermove",function(e){

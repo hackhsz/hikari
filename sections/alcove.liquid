@@ -20,7 +20,7 @@
           <p class="al-piece">{{ p.metafields.hikari.piece | default: p.title }}</p>
         </div>
         {%- capture status -%}{%- render 'status', p: p -%}{%- endcapture -%}
-        <div style="text-align:right"><span class="price al-price">
+        <div style="text-align:end"><span class="price al-price">
           {%- if status == 'soon' -%}<span class="badge badge--soon" style="position:static">{{ 'products.badge.coming_soon' | t }}</span>
           {%- elsif p.available -%}{{ p.price | money }}{%- else -%}{{ 'products.product.sold_out' | t }}{%- endif -%}</span>
           {%- if status == 'soon' %}<p class="pdp-status--soon" style="margin:10px 0 0;font-size:13.5px">{% render 'release', p: p %}</p>{% endif -%}

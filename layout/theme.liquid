@@ -1,5 +1,13 @@
 <!doctype html>
-<html lang="{{ request.locale.iso_code }}">
+{%- comment -%} Arabic reads right to left; every other language here left to right. {%- endcomment -%}
+{%- liquid
+  assign lang = request.locale.iso_code
+  assign dir = 'ltr'
+  if lang == 'ar'
+    assign dir = 'rtl'
+  endif
+-%}
+<html lang="{{ lang }}" dir="{{ dir }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -13,7 +21,23 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300&family=Instrument+Sans:wght@400;500;600&family=Noto+Serif+JP:wght@200;300;400&display=swap">
+  {%- comment -%}
+    Arabic, Chinese and Japanese text needs its own faces. Only the language being shown adds
+    one to the request, so English loads what it always has. The --serif and --sans stacks they
+    extend are at the end of hikari.css.
+  {%- endcomment -%}
+  {%- liquid
+    assign fonts = 'family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300&family=Instrument+Sans:wght@400;500;600&family=Noto+Serif+JP:wght@200;300;400'
+    case lang
+      when 'ar'
+        assign fonts = fonts | append: '&family=Noto+Naskh+Arabic:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600'
+      when 'zh-CN'
+        assign fonts = fonts | append: '&family=Noto+Serif+SC:wght@200;300;400&family=Noto+Sans+SC:wght@400;500;600'
+      when 'ja'
+        assign fonts = fonts | append: '&family=Noto+Sans+JP:wght@400;500;600'
+    endcase
+  -%}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?{{ fonts }}&display=swap">
 
   {{ content_for_header }}
   {{ 'hikari.css' | asset_url | stylesheet_tag }}
@@ -31,7 +55,7 @@
   {%- endcomment -%}
   {%- liquid
     assign forms = 'one,other' | split: ','
-    if request.locale.iso_code == 'ar'
+    if lang == 'ar'
       assign forms = 'zero,one,two,few,many,other' | split: ','
     endif
     assign plurals = 'collections.pieces,countdown.days,countdown.hours,countdown.minutes' | split: ','
