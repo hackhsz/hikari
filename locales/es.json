@@ -1,0 +1,270 @@
+{
+  "general": {
+    "meta": {
+      "tags": "Etiqueta: {{ tags }}",
+      "page": "Página {{ page }}"
+    },
+    "search": {
+      "heading": "Buscar",
+      "placeholder": "Buscar",
+      "submit": "Buscar",
+      "results": {
+        "one": "{{ count }} resultado",
+        "other": "{{ count }} resultados"
+      }
+    },
+    "skip": "Ir al contenido",
+    "close": "Cerrar",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "opening": "Abriendo",
+    "privacy": "Privacidad",
+    "email": {
+      "label": "Correo electrónico",
+      "error": "Esa dirección de correo no ha funcionado. Revísala y vuelve a intentarlo."
+    },
+    "photography_to_follow": "Fotografías en camino",
+    "not_found": {
+      "heading": "Ya no está, o nunca estuvo.",
+      "body_html": "Cada pieza es única, y las piezas se van. {{ link }}.",
+      "link": "Volver a la Hornacina"
+    },
+    "account": {
+      "not_styled": "Las páginas de cuenta aún no tienen diseño. Se puede comprar como invitado, y es la opción predeterminada."
+    }
+  },
+  "layout": {
+    "cart": {
+      "title": "Bolsa"
+    },
+    "header": {
+      "home": "{{ brand }}, inicio",
+      "nav": "Principal",
+      "menu": "Menú"
+    },
+    "footer": {
+      "creators": "Creadores, y compartir tu pieza",
+      "registered": ", registrada en Inglaterra y Gales con el n.º {{ number }}"
+    },
+    "social": {
+      "follow_us": "Síguenos",
+      "wechat_qr": "Código QR de WeChat",
+      "wechat_scan": "Abre WeChat, toca + y luego Escanear. 打开微信，扫一扫。",
+      "copy_id": "Copiar ID"
+    }
+  },
+  "products": {
+    "product": {
+      "sold_out": "Vendida",
+      "add_to_bag": "Añadir a la bolsa",
+      "one_of_one": "Pieza única",
+      "in_bag": "En tu bolsa",
+      "just_sold": "Esta pieza acaba de venderse.",
+      "pre_order": "Reservar",
+      "pre_sale_note": "Preventa. {{ note }}",
+      "goes_live": "Disponible el {{ release }}",
+      "kept_on_record": "Se conserva en el Archivo",
+      "ask": "Preguntar por esta pieza",
+      "share": "Compartir",
+      "copy_link": "Copiar enlace",
+      "was": "Antes"
+    },
+    "badge": {
+      "coming_soon": "Próximamente",
+      "pre_sale": "Preventa",
+      "sale": "Rebaja",
+      "new": "Nueva"
+    },
+    "spec": {
+      "condition": "Estado",
+      "grade": "Grado {{ grade }}",
+      "availability": "Disponibilidad",
+      "house": "Casa",
+      "measurements": "Medidas",
+      "mark": "Firma",
+      "era": "Época",
+      "provenance": "Procedencia"
+    },
+    "notify": {
+      "release_heading": "Avísame cuando esté disponible",
+      "release_fine": "Un correo cuando esta pieza salga a la venta y, después, la Edición. Puedes darte de baja cuando quieras.",
+      "release_ok": "Hecho. Te avisaremos en cuanto esté disponible.",
+      "similar_heading": "Avísame cuando llegue algo parecido",
+      "similar_fine": "Un correo cuando llegue una pieza parecida de esta casa, y la Edición. Puedes darte de baja cuando quieras.",
+      "similar_ok": "Hecho. Te escribiremos cuando llegue una pieza parecida.",
+      "submit": "Avísame"
+    },
+    "frames": {
+      "label": "Fotografía {{ index }} de {{ total }}, a pantalla completa",
+      "unretouched": "Sin retocar",
+      "unretouched_note": "Sin retocar · sin grano, sin retoques",
+      "styled": "Imagen ambientada · generada con IA",
+      "styled_note": "Imagen ambientada · generada con IA. La pieza en sí aparece en las fotografías reales.",
+      "plate_daylight": "Lámina 01 · luz de día",
+      "plate_mark": "Lámina 02 · la firma"
+    },
+    "spin": {
+      "label": "{{ title }}: vista de 360° en {{ frames }} fotografías. Arrastra, o usa las flechas del teclado, para girarla.",
+      "hint": "360° · arrastra para girar",
+      "note": "360° · {{ frames }} fotografías sobre un plato giratorio, no generadas"
+    },
+    "zoom": {
+      "label": "Fotografías de {{ title }}",
+      "prev": "Anterior",
+      "prev_label": "Fotografía anterior",
+      "next": "Siguiente",
+      "next_label": "Fotografía siguiente",
+      "tip": "Haz clic o toca para verla de cerca"
+    },
+    "quick_view": {
+      "title": "Vista rápida",
+      "label": "Vista rápida: {{ house }}, {{ piece }}",
+      "similar": "Saber de piezas parecidas",
+      "details": "Todas las fotografías y los detalles",
+      "details_spin": "Todas las fotografías, la vista de 360° y los detalles"
+    }
+  },
+  "cart": {
+    "empty_heading": "Todavía no hay nada en la bolsa.",
+    "empty_body": "Cada pieza es única. Cuando se vende, pasa al Archivo.",
+    "see_every_piece": "Ver todas las piezas",
+    "sold_since": "Vendida después de añadirla",
+    "remove": "Quitar",
+    "remove_label": "Quitar {{ house }}, {{ piece }}",
+    "gift_note": "Nota para la tarjeta",
+    "all_sold_single": "Esta pieza se vendió mientras estaba en tu bolsa. Las piezas vendidas se conservan en el Archivo.",
+    "all_sold_several": "Estas piezas se vendieron mientras estaban en tu bolsa. Las piezas vendidas se conservan en el Archivo.",
+    "delivery": "Envío en el Reino Unido",
+    "free": "Gratis",
+    "added_at_checkout": "Se calcula al finalizar la compra",
+    "total": "Total",
+    "subtotal": "Subtotal",
+    "some_sold_single": "Una pieza de tu bolsa se vendió mientras estaba en ella. Quítala para finalizar la compra.",
+    "some_sold_several": "Algunas piezas de tu bolsa se vendieron mientras estaban en ella. Quítalas para finalizar la compra.",
+    "checkout": "Finalizar compra",
+    "not_held": "Pieza única. Una pieza en tu bolsa no queda reservada hasta que finalizas la compra.",
+    "payment_methods": "Formas de pago aceptadas",
+    "added": "Añadida a tu bolsa.",
+    "already": "Ya está en tu bolsa.",
+    "removed": "Quitada."
+  },
+  "collections": {
+    "pieces": {
+      "one": "{{ count }} pieza",
+      "other": "{{ count }} piezas"
+    },
+    "shop_by_house": "Comprar por casa",
+    "filters": {
+      "brand": "Marca",
+      "category": "Categoría",
+      "show": "Mostrar",
+      "all": "Todas",
+      "everything": "Todo",
+      "available": "Disponibles",
+      "on_sale": "En rebaja"
+    },
+    "categories": {
+      "earrings": "Pendientes",
+      "brooches": "Broches",
+      "necklaces": "Collares",
+      "bracelets": "Pulseras",
+      "rings": "Anillos"
+    },
+    "sort": {
+      "label": "Ordenar",
+      "manual": "Destacadas",
+      "price_ascending": "Precio, de menor a mayor",
+      "price_descending": "Precio, de mayor a menor",
+      "created_descending": "Novedades primero",
+      "vendor": "Marca, de la A a la Z"
+    },
+    "empty": "Nada coincide con eso.",
+    "reset": "Mostrar todo"
+  },
+  "house": {
+    "vintage_jewellery": "Joyería vintage",
+    "in_shop": {
+      "one": "{{ count }} pieza en la tienda",
+      "other": "{{ count }} piezas en la tienda"
+    },
+    "empty_heading": "Esta semana no hay nada de {{ house }} en la tienda.",
+    "empty_body": "Llegan piezas nuevas con cada Edición: {{ day }}. La lista las ve una hora antes que nadie.",
+    "notes": "Notas sobre la casa",
+    "marks": "Cómo leer la firma",
+    "period": "Período",
+    "mark": "Firma",
+    "marks_fine": "Cada ficha muestra la firma en su segunda fotografía, sin retocar.",
+    "more_from": "Más de {{ house }}",
+    "every_piece": "Todas las piezas de {{ house }}, y el Archivo"
+  },
+  "home": {
+    "alcove_line": "La Hornacina · Edición n.º {{ number }} · {{ day }}",
+    "alcove_plate": "Lámina 01 · luz de día, ventana al norte",
+    "brand_image_to_follow": "Imagen de la marca en camino",
+    "goes_live_edition": "Disponible con la Edición: {{ day }}",
+    "see_them_all": "Verlas todas",
+    "record_sold": "{{ house }} · vendida"
+  },
+  "signup": {
+    "placeholder": "tu@correo.com",
+    "join": "Unirme a la lista",
+    "thanks": "Gracias. Ya estás en la lista.",
+    "on_the_list": "Ya estás en la lista"
+  },
+  "preferences": {
+    "heading": "Una cosa más, si quieres: ¿qué coleccionas?",
+    "houses": "Casas",
+    "pieces": "Piezas",
+    "clip_only": "Solo pendientes de clip",
+    "spend": "Gasto habitual",
+    "under_html": "Menos de {{ amount }}",
+    "over_html": "Más de {{ amount }}",
+    "wechat_html": "ID de WeChat <span lang=\"zh\">微信号</span>, si quieres que te escribamos por allí",
+    "save": "Guardar",
+    "skip": "Omitir",
+    "fine_page": "Guarda tus preferencias en tu lugar de la lista, y te añade a ella si aún no estás. Puedes darte de baja cuando quieras.",
+    "fine": "Opcional. Solo lo usamos para elegir qué piezas mostrarte primero, y WeChat solo para avisarte de ellas.",
+    "thanks": "Gracias. Te mostraremos esas primero."
+  },
+  "creators": {
+    "creator_step_1": "Cuéntanos aquí abajo a qué te dedicas.",
+    "creator_step_2": "Si encaja, elegimos una pieza contigo y te la enviamos con tu propio enlace y código.",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "platform": "Dónde publicas",
+    "other": "Otra",
+    "handle": "Usuario o enlace",
+    "followers": "Seguidores, más o menos",
+    "note": "¿Qué harías con una pieza?",
+    "apply": "Enviar solicitud",
+    "share_step_1": "Publica una fotografía en la que lleves tu pieza. Añade #ad: hay una recompensa, así que cuenta como publicidad.",
+    "share_step_1_tag": "Publica una fotografía en la que lleves tu pieza y etiqueta a {{ handle }}. Añade #ad: hay una recompensa, así que cuenta como publicidad.",
+    "share_step_2": "Envíanos aquí abajo el enlace y tu número de pedido.",
+    "order_email": "Correo con el que hiciste el pedido",
+    "order": "Número de pedido",
+    "post_link": "Enlace a tu publicación",
+    "repost": "Podéis volver a publicarla, mencionándome",
+    "send": "Enviar",
+    "thanks": "Gracias. Leemos todas, y respondemos en un plazo de tres días laborables."
+  },
+  "countdown": {
+    "now": "Sale a la venta ahora",
+    "in": "dentro de {{ time }}",
+    "separator": ", ",
+    "days": {
+      "one": "{{ count }} día",
+      "other": "{{ count }} días"
+    },
+    "hours": {
+      "one": "{{ count }} hora",
+      "other": "{{ count }} horas"
+    },
+    "minutes": {
+      "one": "{{ count }} minuto",
+      "other": "{{ count }} minutos"
+    }
+  },
+  "date_formats": {
+    "release": "%-d/%-m, %H:%M"
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "general": {
+    "meta": {
+      "tags": "タグ：{{ tags }}",
+      "page": "{{ page }}ページ目"
+    },
+    "search": {
+      "heading": "検索",
+      "placeholder": "検索",
+      "submit": "検索",
+      "results": {
+        "one": "検索結果 {{ count }}件",
+        "other": "検索結果 {{ count }}件"
+      }
+    },
+    "skip": "本文へ移動",
+    "close": "閉じる",
+    "copy": "コピー",
+    "copied": "コピーしました",
+    "opening": "読み込み中",
+    "privacy": "プライバシー",
+    "email": {
+      "label": "メールアドレス",
+      "error": "このメールアドレスは使えませんでした。ご確認のうえ、もう一度お試しください。"
+    },
+    "photography_to_follow": "写真は追って掲載します",
+    "not_found": {
+      "heading": "もう、ここにはありません。",
+      "body_html": "一点ものは、いつか旅立つものです。{{ link }}。",
+      "link": "床の間へ戻る"
+    },
+    "account": {
+      "not_styled": "アカウントページはまだ準備中です。ゲストとしてご購入いただけます（標準の方法です）。"
+    }
+  },
+  "layout": {
+    "cart": {
+      "title": "バッグ"
+    },
+    "header": {
+      "home": "{{ brand }} ホーム",
+      "nav": "メイン",
+      "menu": "メニュー"
+    },
+    "footer": {
+      "creators": "クリエイターの方へ、お品のシェアについて",
+      "registered": "（イングランド・ウェールズ登記番号 {{ number }}）"
+    },
+    "social": {
+      "follow_us": "フォローする",
+      "wechat_qr": "WeChatのQRコード",
+      "wechat_scan": "WeChatを開き、＋から「スキャン」を選んでください。打开微信，扫一扫。",
+      "copy_id": "IDをコピー"
+    }
+  },
+  "products": {
+    "product": {
+      "sold_out": "売約済み",
+      "add_to_bag": "バッグに入れる",
+      "one_of_one": "一点もの",
+      "in_bag": "バッグに追加済み",
+      "just_sold": "このお品はたった今、売約となりました。",
+      "pre_order": "予約する",
+      "pre_sale_note": "予約販売。{{ note }}",
+      "goes_live": "{{ release }} 公開",
+      "kept_on_record": "アーカイブに残しています",
+      "ask": "このお品について問い合わせる",
+      "share": "シェア",
+      "copy_link": "リンクをコピー",
+      "was": "元の価格"
+    },
+    "badge": {
+      "coming_soon": "近日公開",
+      "pre_sale": "予約販売",
+      "sale": "セール",
+      "new": "新着"
+    },
+    "spec": {
+      "condition": "状態",
+      "grade": "グレード {{ grade }}",
+      "availability": "在庫",
+      "house": "メゾン",
+      "measurements": "サイズ",
+      "mark": "刻印",
+      "era": "年代",
+      "provenance": "来歴"
+    },
+    "notify": {
+      "release_heading": "公開時にお知らせを受け取る",
+      "release_fine": "このお品の販売開始時にメールを一通お送りし、その後はエディションをお届けします。配信はいつでも停止できます。",
+      "release_ok": "登録しました。公開と同時にお知らせします。",
+      "similar_heading": "似たお品の入荷時にお知らせを受け取る",
+      "similar_fine": "このメゾンの似たお品が入荷したときのメールと、エディションをお届けします。配信はいつでも停止できます。",
+      "similar_ok": "登録しました。似たお品が入りましたらご連絡します。",
+      "submit": "登録する"
+    },
+    "frames": {
+      "label": "写真 {{ index }}／{{ total }}、全画面で表示",
+      "unretouched": "無加工",
+      "unretouched_note": "無加工 · 粒子効果も修整もなし",
+      "styled": "イメージ画像 · AI生成",
+      "styled_note": "イメージ画像 · AI生成。お品そのものは実物の写真でご覧ください。",
+      "plate_daylight": "図版 01 · 自然光",
+      "plate_mark": "図版 02 · 刻印"
+    },
+    "spin": {
+      "label": "{{ title }}：{{ frames }}枚の写真による360°ビュー。ドラッグするか矢印キーで回転できます。",
+      "hint": "360° · ドラッグで回転",
+      "note": "360° · ターンテーブルで撮影した{{ frames }}枚の写真。生成画像ではありません"
+    },
+    "zoom": {
+      "label": "{{ title }}の写真",
+      "prev": "前へ",
+      "prev_label": "前の写真",
+      "next": "次へ",
+      "next_label": "次の写真",
+      "tip": "クリックまたはタップで拡大"
+    },
+    "quick_view": {
+      "title": "クイックビュー",
+      "label": "クイックビュー：{{ house }}、{{ piece }}",
+      "similar": "似たお品のお知らせを受け取る",
+      "details": "すべての写真と詳細",
+      "details_spin": "すべての写真、360°ビューと詳細"
+    }
+  },
+  "cart": {
+    "empty_heading": "バッグにはまだ何も入っていません。",
+    "empty_body": "ここにあるのはすべて一点ものです。売約となったお品はアーカイブに移ります。",
+    "see_every_piece": "すべてのお品を見る",
+    "sold_since": "追加後に売約となりました",
+    "remove": "削除",
+    "remove_label": "{{ house }}、{{ piece }}を削除",
+    "gift_note": "カードに添えるメッセージ",
+    "all_sold_single": "このお品は、バッグに入っている間に売約となりました。売約済みのお品はアーカイブに残ります。",
+    "all_sold_several": "これらのお品は、バッグに入っている間に売約となりました。売約済みのお品はアーカイブに残ります。",
+    "delivery": "英国内配送",
+    "free": "無料",
+    "added_at_checkout": "ご購入手続きの際に加算",
+    "total": "合計",
+    "subtotal": "小計",
+    "some_sold_single": "バッグ内のお品がひとつ売約となりました。削除してからご購入手続きへお進みください。",
+    "some_sold_several": "バッグ内のいくつかのお品が売約となりました。削除してからご購入手続きへお進みください。",
+    "checkout": "ご購入手続きへ",
+    "not_held": "一点ものです。ご購入手続きが済むまで、バッグ内のお品はお取り置きされません。",
+    "payment_methods": "ご利用いただける決済方法",
+    "added": "バッグに入れました。",
+    "already": "すでにバッグに入っています。",
+    "removed": "削除しました。"
+  },
+  "collections": {
+    "pieces": {
+      "one": "{{ count }}点",
+      "other": "{{ count }}点"
+    },
+    "shop_by_house": "メゾンから探す",
+    "filters": {
+      "brand": "ブランド",
+      "category": "カテゴリー",
+      "show": "表示",
+      "all": "すべて",
+      "everything": "すべて",
+      "available": "販売中",
+      "on_sale": "セール"
+    },
+    "categories": {
+      "earrings": "イヤリング・ピアス",
+      "brooches": "ブローチ",
+      "necklaces": "ネックレス",
+      "bracelets": "ブレスレット",
+      "rings": "リング"
+    },
+    "sort": {
+      "label": "並び替え",
+      "manual": "おすすめ",
+      "price_ascending": "価格の安い順",
+      "price_descending": "価格の高い順",
+      "created_descending": "新着順",
+      "vendor": "ブランド名順（A–Z）"
+    },
+    "empty": "該当するお品はありません。",
+    "reset": "すべて表示"
+  },
+  "house": {
+    "vintage_jewellery": "ヴィンテージジュエリー",
+    "in_shop": {
+      "one": "販売中 {{ count }}点",
+      "other": "販売中 {{ count }}点"
+    },
+    "empty_heading": "今週は{{ house }}のお品がありません。",
+    "empty_body": "新しいお品はエディションごとに入荷します（{{ day }}）。リストにご登録の方は、一時間早くご覧いただけます。",
+    "notes": "メゾンについて",
+    "marks": "刻印の読み方",
+    "period": "年代",
+    "mark": "刻印",
+    "marks_fine": "どのお品も、2枚目の写真で刻印そのものを無加工でお見せしています。",
+    "more_from": "{{ house }}のほかのお品",
+    "every_piece": "{{ house }}のすべてのお品とアーカイブ"
+  },
+  "home": {
+    "alcove_line": "床の間 · エディション No. {{ number }} · {{ day }}",
+    "alcove_plate": "図版 01 · 自然光、北の窓",
+    "brand_image_to_follow": "ブランド画像は追って掲載します",
+    "goes_live_edition": "エディションとともに公開（{{ day }}）",
+    "see_them_all": "すべて見る",
+    "record_sold": "{{ house }} · 売約済み"
+  },
+  "signup": {
+    "placeholder": "you@example.com",
+    "join": "リストに登録する",
+    "thanks": "ありがとうございます。リストに登録しました。",
+    "on_the_list": "リストに登録しました"
+  },
+  "preferences": {
+    "heading": "よろしければ、もうひとつ。どんなものを集めていらっしゃいますか？",
+    "houses": "メゾン",
+    "pieces": "アイテム",
+    "clip_only": "イヤリング（クリップ式）のみ",
+    "spend": "ご予算の目安",
+    "under_html": "{{ amount }}未満",
+    "over_html": "{{ amount }}以上",
+    "wechat_html": "WeChat ID <span lang=\"zh\">微信号</span>（WeChatでのご連絡をご希望の場合）",
+    "save": "保存する",
+    "skip": "スキップ",
+    "fine_page": "お選びいただいた内容をリストのご登録情報に保存します。まだご登録でない場合は、あわせてリストに登録します。配信はいつでも停止できます。",
+    "fine": "任意です。最初にお見せするお品を選ぶためだけに使い、WeChatはそのお知らせにのみ使います。",
+    "thanks": "ありがとうございます。そうしたお品から先にお見せします。"
+  },
+  "creators": {
+    "creator_step_1": "下のフォームで、ご活動について教えてください。",
+    "creator_step_2": "合いそうでしたら、一緒にお品を選び、専用のリンクとコードを添えてお送りします。",
+    "name": "お名前",
+    "email": "メールアドレス",
+    "platform": "主な投稿先",
+    "other": "その他",
+    "handle": "アカウント名またはリンク",
+    "followers": "フォロワー数（おおよそ）",
+    "note": "お品を使って、どんな作品をつくりたいですか？",
+    "apply": "応募する",
+    "share_step_1": "お品を身につけた写真を投稿してください。特典があるため広告にあたりますので、#ad を付けてください。",
+    "share_step_1_tag": "お品を身につけた写真を投稿し、{{ handle }} をタグ付けしてください。特典があるため広告にあたりますので、#ad を付けてください。",
+    "share_step_2": "下のフォームから、投稿のリンクとご注文番号をお送りください。",
+    "order_email": "ご注文時のメールアドレス",
+    "order": "ご注文番号",
+    "post_link": "投稿へのリンク",
+    "repost": "クレジットを記載のうえでの再投稿に同意します",
+    "send": "送信する",
+    "thanks": "ありがとうございます。すべて拝見し、3営業日以内にお返事します。"
+  },
+  "countdown": {
+    "now": "まもなく公開",
+    "in": "あと{{ time }}",
+    "separator": "、",
+    "days": {
+      "one": "{{ count }}日",
+      "other": "{{ count }}日"
+    },
+    "hours": {
+      "one": "{{ count }}時間",
+      "other": "{{ count }}時間"
+    },
+    "minutes": {
+      "one": "{{ count }}分",
+      "other": "{{ count }}分"
+    }
+  },
+  "date_formats": {
+    "release": "%-m月%-d日 %H:%M"
+  }
+}

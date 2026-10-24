@@ -1,0 +1,270 @@
+{
+  "general": {
+    "meta": {
+      "tags": "标签：{{ tags }}",
+      "page": "第 {{ page }} 页"
+    },
+    "search": {
+      "heading": "搜索",
+      "placeholder": "搜索",
+      "submit": "搜索",
+      "results": {
+        "one": "{{ count }} 个结果",
+        "other": "{{ count }} 个结果"
+      }
+    },
+    "skip": "跳至正文",
+    "close": "关闭",
+    "copy": "复制",
+    "copied": "已复制",
+    "opening": "正在打开",
+    "privacy": "隐私政策",
+    "email": {
+      "label": "电子邮箱",
+      "error": "这个邮箱地址无法使用，请检查后再试一次。"
+    },
+    "photography_to_follow": "照片稍后呈现",
+    "not_found": {
+      "heading": "已经离开，或从未在此。",
+      "body_html": "孤品，终有离开的一天。{{ link }}。",
+      "link": "返回壁龛"
+    },
+    "account": {
+      "not_styled": "账户页面尚在整理中。可直接以访客身份结账，这也是默认方式。"
+    }
+  },
+  "layout": {
+    "cart": {
+      "title": "购物袋"
+    },
+    "header": {
+      "home": "{{ brand }}，首页",
+      "nav": "主导航",
+      "menu": "菜单"
+    },
+    "footer": {
+      "creators": "创作者合作，以及分享您的单品",
+      "registered": "，英格兰及威尔士注册公司编号 {{ number }}"
+    },
+    "social": {
+      "follow_us": "关注我们",
+      "wechat_qr": "微信二维码",
+      "wechat_scan": "打开微信，点击右上角“+”，选择“扫一扫”。",
+      "copy_id": "复制微信号"
+    }
+  },
+  "products": {
+    "product": {
+      "sold_out": "已售",
+      "add_to_bag": "加入购物袋",
+      "one_of_one": "孤品",
+      "in_bag": "已在购物袋中",
+      "just_sold": "这件单品刚刚售出。",
+      "pre_order": "预订",
+      "pre_sale_note": "预售。{{ note }}",
+      "goes_live": "{{ release }} 上线",
+      "kept_on_record": "收录于售出记录",
+      "ask": "咨询这件单品",
+      "share": "分享",
+      "copy_link": "复制链接",
+      "was": "原价"
+    },
+    "badge": {
+      "coming_soon": "即将上线",
+      "pre_sale": "预售",
+      "sale": "特价",
+      "new": "新品"
+    },
+    "spec": {
+      "condition": "品相",
+      "grade": "等级 {{ grade }}",
+      "availability": "库存",
+      "house": "品牌",
+      "measurements": "尺寸",
+      "mark": "刻印",
+      "era": "年代",
+      "provenance": "来源"
+    },
+    "notify": {
+      "release_heading": "上线时通知我",
+      "release_fine": "这件单品上架时，我们会发一封邮件给您，之后每期上新也会寄给您。可随时退订。",
+      "release_ok": "已登记。上线的第一时间通知您。",
+      "similar_heading": "有类似单品时通知我",
+      "similar_fine": "这个品牌有类似单品到店时，我们会发邮件告诉您，每期上新也会寄给您。可随时退订。",
+      "similar_ok": "已登记。有类似单品到店时，我们会写信给您。",
+      "submit": "通知我"
+    },
+    "frames": {
+      "label": "第 {{ index }} 张照片，共 {{ total }} 张，全屏查看",
+      "unretouched": "未修图",
+      "unretouched_note": "未修图 · 无颗粒效果，无任何修饰",
+      "styled": "场景图 · AI 生成",
+      "styled_note": "场景图 · AI 生成。单品本身请见实拍照片。",
+      "plate_daylight": "图版 01 · 日光",
+      "plate_mark": "图版 02 · 刻印"
+    },
+    "spin": {
+      "label": "{{ title }}：由 {{ frames }} 张照片组成的 360° 视图。拖动或使用方向键即可旋转。",
+      "hint": "360° · 拖动旋转",
+      "note": "360° · {{ frames }} 张转台实拍照片，并非生成"
+    },
+    "zoom": {
+      "label": "{{ title }} 的照片",
+      "prev": "上一张",
+      "prev_label": "上一张照片",
+      "next": "下一张",
+      "next_label": "下一张照片",
+      "tip": "点击或轻触即可放大细看"
+    },
+    "quick_view": {
+      "title": "快速查看",
+      "label": "快速查看：{{ house }}，{{ piece }}",
+      "similar": "获取类似单品的通知",
+      "details": "全部照片与细节",
+      "details_spin": "全部照片、360° 视图与细节"
+    }
+  },
+  "cart": {
+    "empty_heading": "购物袋里还没有单品。",
+    "empty_body": "这里的每一件都是孤品。售出后，会收入售出记录。",
+    "see_every_piece": "查看全部单品",
+    "sold_since": "加入后已售出",
+    "remove": "移除",
+    "remove_label": "移除 {{ house }}，{{ piece }}",
+    "gift_note": "贺卡留言",
+    "all_sold_single": "这件单品在您的购物袋中时已经售出。已售单品会保留在售出记录中。",
+    "all_sold_several": "这些单品在您的购物袋中时已经售出。已售单品会保留在售出记录中。",
+    "delivery": "英国境内配送",
+    "free": "免费",
+    "added_at_checkout": "结账时计算",
+    "total": "合计",
+    "subtotal": "小计",
+    "some_sold_single": "购物袋中有一件单品已经售出。请先移除，再结账。",
+    "some_sold_several": "购物袋中有几件单品已经售出。请先移除，再结账。",
+    "checkout": "结账",
+    "not_held": "孤品。完成结账之前，购物袋中的单品不会为您保留。",
+    "payment_methods": "我们接受的付款方式",
+    "added": "已加入购物袋。",
+    "already": "已在购物袋中。",
+    "removed": "已移除。"
+  },
+  "collections": {
+    "pieces": {
+      "one": "{{ count }} 件",
+      "other": "{{ count }} 件"
+    },
+    "shop_by_house": "按品牌选购",
+    "filters": {
+      "brand": "品牌",
+      "category": "类别",
+      "show": "显示",
+      "all": "全部",
+      "everything": "全部",
+      "available": "可购买",
+      "on_sale": "特价"
+    },
+    "categories": {
+      "earrings": "耳饰",
+      "brooches": "胸针",
+      "necklaces": "项链",
+      "bracelets": "手链",
+      "rings": "戒指"
+    },
+    "sort": {
+      "label": "排序",
+      "manual": "推荐",
+      "price_ascending": "价格从低到高",
+      "price_descending": "价格从高到低",
+      "created_descending": "最新上架",
+      "vendor": "品牌 A–Z"
+    },
+    "empty": "没有符合条件的单品。",
+    "reset": "显示全部"
+  },
+  "house": {
+    "vintage_jewellery": "中古首饰",
+    "in_shop": {
+      "one": "店内现有 {{ count }} 件",
+      "other": "店内现有 {{ count }} 件"
+    },
+    "empty_heading": "本周店内暂无 {{ house }} 的单品。",
+    "empty_body": "每期上新都会带来新的单品：{{ day }}。名单上的读者会提前一小时看到。",
+    "notes": "关于这个品牌",
+    "marks": "如何辨识刻印",
+    "period": "年代",
+    "mark": "刻印",
+    "marks_fine": "每件单品的第二张照片都会展示刻印本身，未经修图。",
+    "more_from": "更多 {{ house }}",
+    "every_piece": "全部 {{ house }} 单品，以及售出记录"
+  },
+  "home": {
+    "alcove_line": "壁龛 · 第 {{ number }} 期 · {{ day }}",
+    "alcove_plate": "图版 01 · 日光，北窗",
+    "brand_image_to_follow": "品牌图片稍后呈现",
+    "goes_live_edition": "随本期上新一同上线：{{ day }}",
+    "see_them_all": "查看全部",
+    "record_sold": "{{ house }} · 已售"
+  },
+  "signup": {
+    "placeholder": "you@example.com",
+    "join": "加入名单",
+    "thanks": "谢谢，您已加入名单。",
+    "on_the_list": "您已加入名单"
+  },
+  "preferences": {
+    "heading": "如果您愿意，还有一个问题：您收藏哪些单品？",
+    "houses": "品牌",
+    "pieces": "品类",
+    "clip_only": "只看耳夹",
+    "spend": "通常预算",
+    "under_html": "{{ amount }} 以下",
+    "over_html": "{{ amount }} 以上",
+    "wechat_html": "微信号（WeChat ID），如果您希望我们通过微信联系您",
+    "save": "保存",
+    "skip": "跳过",
+    "fine_page": "将您的选择保存到您在名单中的信息里；如果您还不在名单上，也会一并加入。可随时退订。",
+    "fine": "选填。仅用于决定先向您展示哪些单品；微信号仅用于告诉您这些单品的消息。",
+    "thanks": "谢谢。我们会优先为您展示这些单品。"
+  },
+  "creators": {
+    "creator_step_1": "请在下方介绍您的创作。",
+    "creator_step_2": "如果合适，我们会和您一起挑选一件单品，并附上您专属的链接和优惠码寄出。",
+    "name": "姓名",
+    "email": "电子邮箱",
+    "platform": "主要发布平台",
+    "other": "其他",
+    "handle": "账号或链接",
+    "followers": "粉丝数（大约）",
+    "note": "您会用一件单品创作什么？",
+    "apply": "提交申请",
+    "share_step_1": "发布一张您佩戴这件单品的照片，并加上 #ad：因为有奖励，它属于广告。",
+    "share_step_1_tag": "发布一张您佩戴这件单品的照片，并标记 {{ handle }}。请加上 #ad：因为有奖励，它属于广告。",
+    "share_step_2": "在下方发送帖子链接和您的订单号。",
+    "order_email": "下单时使用的邮箱",
+    "order": "订单号",
+    "post_link": "帖子链接",
+    "repost": "你们可以转发，并注明出自我的账号",
+    "send": "发送",
+    "thanks": "谢谢。每一份我们都会读，并在三个工作日内回复。"
+  },
+  "countdown": {
+    "now": "即将上线",
+    "in": "还有 {{ time }}",
+    "separator": "、",
+    "days": {
+      "one": "{{ count }} 天",
+      "other": "{{ count }} 天"
+    },
+    "hours": {
+      "one": "{{ count }} 小时",
+      "other": "{{ count }} 小时"
+    },
+    "minutes": {
+      "one": "{{ count }} 分钟",
+      "other": "{{ count }} 分钟"
+    }
+  },
+  "date_formats": {
+    "release": "%-m月%-d日 %H:%M"
+  }
+}
