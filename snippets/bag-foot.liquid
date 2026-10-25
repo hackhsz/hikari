@@ -6,7 +6,8 @@
   architecture, so the trust block repeats here and the accepted payment marks are visible.
   D12: all-in pricing, so the total is the price paid. No fee or tax line, ever. Delivery gets
   its own line so that stays true: free at or over the threshold, and only below it does the
-  total become a subtotal (1-shop/21-checkout.md).
+  total become a subtotal (1-shop/21-checkout.md). Free delivery is for the UK only: a buyer
+  in any other country always sees delivery added at checkout.
 
   A piece that has sold since it was added is left out of the total, and checkout waits until
   it is removed. Shopify would otherwise drop it on its own stock-problem screen, which is
@@ -33,8 +34,12 @@
     endif
   endfor
   assign free_over = settings.delivery_free_over | default: 0 | times: 100
+  assign in_uk = false
+  if localization.country.iso_code == 'GB'
+    assign in_uk = true
+  endif
   assign delivery_free = false
-  if live_total >= free_over
+  if in_uk and live_total >= free_over
     assign delivery_free = true
   endif
   assign is_gift = false
@@ -70,7 +75,7 @@
     {%- else -%}
     {%- if settings.bag_notice != blank -%}<p class="bag-notice">{{ settings.bag_notice }}</p>{%- endif -%}
     <div class="bag-row">
-      <span class="bag-label">{{ 'cart.delivery' | t }}</span>
+      <span class="bag-label">{% if in_uk %}{{ 'cart.delivery' | t }}{% else %}{{ 'cart.delivery_abroad' | t }}{% endif %}</span>
       <span>{% if delivery_free %}{{ 'cart.free' | t }}{% else %}{{ 'cart.added_at_checkout' | t }}{% endif %}</span>
     </div>
     <div class="bag-total">

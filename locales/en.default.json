@@ -139,6 +139,7 @@
     "all_sold_single": "This piece sold while it was in your bag. Sold pieces stay on the Record.",
     "all_sold_several": "These pieces sold while they were in your bag. Sold pieces stay on the Record.",
     "delivery": "UK delivery",
+    "delivery_abroad": "Delivery",
     "free": "Free",
     "added_at_checkout": "Added at checkout",
     "total": "Total",

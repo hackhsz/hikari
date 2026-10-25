@@ -139,6 +139,7 @@
     "all_sold_single": "这件单品在您的购物袋中时已经售出。已售单品会保留在售出记录中。",
     "all_sold_several": "这些单品在您的购物袋中时已经售出。已售单品会保留在售出记录中。",
     "delivery": "英国境内配送",
+    "delivery_abroad": "配送",
     "free": "免费",
     "added_at_checkout": "结账时计算",
     "total": "合计",

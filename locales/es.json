@@ -139,6 +139,7 @@
     "all_sold_single": "Esta pieza se vendió mientras estaba en tu bolsa. Las piezas vendidas se conservan en el Archivo.",
     "all_sold_several": "Estas piezas se vendieron mientras estaban en tu bolsa. Las piezas vendidas se conservan en el Archivo.",
     "delivery": "Envío en el Reino Unido",
+    "delivery_abroad": "Envío",
     "free": "Gratis",
     "added_at_checkout": "Se calcula al finalizar la compra",
     "total": "Total",

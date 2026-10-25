@@ -83,7 +83,7 @@
         "type": "text",
         "id": "announcement",
         "label": "One line above the masthead",
-        "default": "The price you see is the price you pay · Free UK delivery over £100",
+        "default": "The price you see is the price you pay in the UK · Free UK delivery over £250",
         "info": "Leave empty to hide. D13 asks for the all-in price claim in the headline."
       }
     ]
@@ -190,13 +190,13 @@
         "type": "text",
         "id": "trust_2",
         "label": "2",
-        "default": "Duty paid — no customs charges"
+        "default": "Duty paid — no customs charges in the UK"
       },
       {
         "type": "text",
         "id": "trust_3",
         "label": "3",
-        "default": "UK next day over £100"
+        "default": "Insured UK next day, free over £250"
       },
       {
         "type": "text",
@@ -213,8 +213,8 @@
         "type": "number",
         "id": "delivery_free_over",
         "label": "Free UK delivery from (£)",
-        "default": 100,
-        "info": "Must match Settings → Shipping and delivery. At or over this the bag says delivery is free and shows a Total; under it the bag says delivery is added at checkout and shows a Subtotal (D12). 0 means always free."
+        "default": 250,
+        "info": "Must match Settings → Shipping and delivery (UK market). At or over this, a UK buyer's bag says delivery is free and shows a Total; under it the bag says delivery is added at checkout and shows a Subtotal (D12). 0 means always free."
       },
       {
         "type": "text",
@@ -274,7 +274,7 @@
         "type": "text",
         "id": "vat_line",
         "label": "VAT line",
-        "default": "Prices include UK duty. We are not currently VAT registered, so no VAT is charged.",
+        "default": "Prices include UK duty. We are not currently VAT registered, so no VAT is charged. Outside the UK, your country may charge import duty or tax on delivery.",
         "info": "Charging or displaying VAT while unregistered is an offence. Keep Settings → Taxes at zero."
       }
     ]
