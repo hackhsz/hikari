@@ -202,7 +202,7 @@
         "type": "text",
         "id": "trust_4",
         "label": "4",
-        "default": "14-day returns"
+        "default": "Full refund if not authentic"
       }
     ]
   },
