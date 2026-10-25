@@ -71,7 +71,8 @@
       "ask": "咨询这件单品",
       "share": "分享",
       "copy_link": "复制链接",
-      "was": "原价"
+      "was": "原价",
+      "price_tbc": "价格即将公布"
     },
     "badge": {
       "coming_soon": "即将上线",
@@ -193,7 +194,7 @@
       "other": "店内现有 {{ count }} 件"
     },
     "empty_heading": "本周店内暂无 {{ house }} 的单品。",
-    "empty_body": "每期上新都会带来新的单品：{{ day }}。名单上的读者会提前一小时看到。",
+    "empty_body": "每期上新都会带来新的单品：{{ day }}。名单上的读者会最先知道。",
     "notes": "关于这个品牌",
     "marks": "如何辨识刻印",
     "period": "年代",

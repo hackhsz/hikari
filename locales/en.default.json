@@ -71,7 +71,8 @@
       "ask": "Ask about this piece",
       "share": "Share",
       "copy_link": "Copy link",
-      "was": "Was"
+      "was": "Was",
+      "price_tbc": "Price to come"
     },
     "badge": {
       "coming_soon": "Coming soon",
@@ -193,7 +194,7 @@
       "other": "{{ count }} pieces in the shop"
     },
     "empty_heading": "Nothing from {{ house }} in the shop this week.",
-    "empty_body": "New pieces arrive with each Edition: {{ day }}. The list sees them an hour before anyone else.",
+    "empty_body": "New pieces arrive with each Edition: {{ day }}. The list hears first.",
     "notes": "Notes on the house",
     "marks": "Reading the mark",
     "period": "Period",

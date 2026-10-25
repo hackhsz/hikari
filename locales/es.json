@@ -71,7 +71,8 @@
       "ask": "Preguntar por esta pieza",
       "share": "Compartir",
       "copy_link": "Copiar enlace",
-      "was": "Antes"
+      "was": "Antes",
+      "price_tbc": "Precio próximamente"
     },
     "badge": {
       "coming_soon": "Próximamente",
@@ -193,7 +194,7 @@
       "other": "{{ count }} piezas en la tienda"
     },
     "empty_heading": "Esta semana no hay nada de {{ house }} en la tienda.",
-    "empty_body": "Llegan piezas nuevas con cada Edición: {{ day }}. La lista las ve una hora antes que nadie.",
+    "empty_body": "Llegan piezas nuevas con cada Edición: {{ day }}. La lista se entera primero.",
     "notes": "Notas sobre la casa",
     "marks": "Cómo leer la firma",
     "period": "Período",

@@ -1,7 +1,11 @@
 {%- comment -%}
   A piece's price, with the old one struck through when it is on sale (a compare-at price above
   the price). Used by the card, the product page and Quick view, so a sale reads the same everywhere.
+  A piece at £0 has no price yet (a coming-soon piece before it is priced): it reads "Price to come".
   Params: p.
 {%- endcomment -%}
+{%- if p.price == 0 -%}<span class="price-tbc">{{ 'products.product.price_tbc' | t }}</span>
+{%- else -%}
 {%- if p.compare_at_price > p.price -%}<s class="was"><span class="vh">{{ 'products.product.was' | t }} </span>{{ p.compare_at_price | money }}</s> {% endif -%}
 {{- p.price | money -}}
+{%- endif -%}
