@@ -4,18 +4,16 @@
   A coming-soon piece is not available either, but it has not sold: it never appears here (D25).
 
   Three sources, in order: a collection chosen in the editor; on a collection page (the house
-  template), the sold pieces of that collection; otherwise everything sold. On a house page
-  with nothing sold yet the section renders nothing, rather than six empty frames.
+  template), the sold pieces of that collection; otherwise everything sold. With nothing sold yet
+  the section renders nothing, rather than six empty frames (the frames show in the theme editor).
 {%- endcomment -%}
 {%- liquid
-  assign on_house = false
   if section.settings.collection != blank
     assign recs = collections[section.settings.collection].products
     assign sold_only = false
   elsif template.name == 'collection' and collection
     assign recs = collection.products
     assign sold_only = true
-    assign on_house = true
   else
     assign recs = collections.all.products
     assign sold_only = true
@@ -35,7 +33,7 @@
     </a>
   {%- endfor -%}
 {%- endcapture -%}
-{%- unless on_house and shown == 0 -%}
+{%- if shown > 0 or request.design_mode -%}
 <section data-bg="#1C1B18" data-fg="#FAF8F3" style="--sec-bg:#1C1B18;--sec-fg:#FAF8F3;">
   <div class="shell pad" id="record">
     <p class="eyebrow">{{ section.settings.heading }}</p>
@@ -45,7 +43,7 @@
     </div>
   </div>
 </section>
-{%- endunless -%}
+{%- endif -%}
 {% schema %}
 { "name": "The Record", "settings": [
   { "type": "text", "id": "heading", "label": "Eyebrow", "default": "The Record — everything that has passed through" },

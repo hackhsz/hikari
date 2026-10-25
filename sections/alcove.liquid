@@ -1,12 +1,19 @@
 {%- comment -%} The Alcove — one piece, full width. 床の間: one object, rotated on the Edition rhythm. {%- endcomment -%}
 {%- assign p = section.settings.product -%}
 {%- unless p -%}
-  {%- comment -%} Nothing chosen yet — fall back to the first piece in stock, so the
-      store is presentable the moment products exist. {%- endcomment -%}
+  {%- comment -%} Nothing chosen yet — fall back to the first piece in stock, then to the first
+      coming-soon piece, so the store is presentable the moment products exist. The featured
+      section counts pieces in the same order and skips this one. {%- endcomment -%}
   {%- for cp in collections.all.products -%}
     {%- if cp.available -%}{%- assign p = cp -%}{%- break -%}{%- endif -%}
   {%- endfor -%}
+  {%- unless p -%}
+    {%- for cp in collections.all.products -%}
+      {%- if cp.tags contains 'coming-soon' -%}{%- assign p = cp -%}{%- break -%}{%- endif -%}
+    {%- endfor -%}
+  {%- endunless -%}
 {%- endunless -%}
+{%- if p or request.design_mode -%}
 <section id="alcove" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;padding-top:clamp(6px,1.5vw,16px)">
   <div class="shell">
     {%- if p -%}
@@ -34,13 +41,14 @@
         {%- if p.metafields.hikari.provenance %}<span class="prov">{{ p.metafields.hikari.provenance }}</span>{% endif -%}
       </div>
     {%- else -%}
-      {%- comment -%} Only before any piece is in stock: a note to the merchant, so it stays in English. {%- endcomment -%}
+      {%- comment -%} Only in the theme editor, before any piece exists: a note to the merchant, so it stays in English. {%- endcomment -%}
       {%- render 'plate', ratio: 0.70, seed: 1, tone: 'light', comp: 'pair', stamp: 'Select a piece in the theme editor' -%}
       <div class="al-info"><div><p class="eyebrow">The Alcove</p><h2 class="al-house">Choose a piece</h2>
       <p class="al-piece">Theme editor → The Alcove → Product</p></div></div>
     {%- endif -%}
   </div>
 </section>
+{%- endif -%}
 {% schema %}
 { "name": "The Alcove", "settings": [
   { "type": "product", "id": "product", "label": "Piece", "info": "One object, rotated each Edition." }
