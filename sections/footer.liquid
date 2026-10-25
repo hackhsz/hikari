@@ -20,7 +20,7 @@
     {%- assign brand = settings.brand_name | default: shop.name -%}
     <p class="legal">
       {{ settings.legal_disclaimer | replace: '[brand]', brand }}
-      {% if settings.company_name %} {{ settings.company_name }}{% if settings.company_number %}{{ 'layout.footer.registered' | t: number: settings.company_number }}{% endif %}{% if settings.company_address %}, {{ settings.company_address }}{% endif %}.{% endif %}
+      {% if settings.company_name != blank %} {{ settings.company_name }}{% if settings.company_number != blank %}{{ 'layout.footer.registered' | t: number: settings.company_number }}{% endif %}{% if settings.company_address != blank %}, {{ settings.company_address }}{% endif %}.{% endif %}
       {{ settings.vat_line }}
     </p>
   </div>
