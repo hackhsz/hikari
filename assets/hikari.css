@@ -81,6 +81,9 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .plate img,.plate canvas{display:block;width:100%;height:auto;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s}
 .card:hover .plate img,.card:hover .plate canvas{transform:scale(1.022);filter:brightness(1.04)}
 .plate--fill img,.plate--fill canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.plate--contain img{object-fit:contain}
+.plate--contain .plate-bg{object-fit:cover;filter:blur(24px) saturate(1.05);transform:scale(1.15)}
+@media (max-width:600px){#alcove .plate--fill{aspect-ratio:4/5!important}}
 .plate .stamp{position:absolute;inset-inline-start:11px;bottom:9px;color:#fff;mix-blend-mode:difference;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.7}
 .plate .sold{position:absolute;inset-inline-end:11px;top:10px;color:#fff;mix-blend-mode:difference;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
 

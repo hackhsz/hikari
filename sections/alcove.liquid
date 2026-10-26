@@ -18,8 +18,10 @@
   <div class="shell">
     {%- if p -%}
       {%- assign stamp = 'home.alcove_plate' | t -%}
-      {%- render 'plate', image: p.featured_image, ratio: 0.70, seed: p.id, tone: 'light',
-          comp: 'pair', alt: p.title, stamp: stamp -%}
+      {%- comment -%} A fixed frame (10:7, 4:5 on phones) with the photograph whole inside it, so a
+          portrait photograph doesn't run to two screens tall. {%- endcomment -%}
+      {%- render 'plate', image: p.featured_image, ratio: 0.70, fill: true, contain: true, width: 2000,
+          seed: p.id, tone: 'light', comp: 'pair', alt: p.title, stamp: stamp -%}
       <div class="al-info">
         <div>
           <p class="eyebrow" style="margin-bottom:14px">{{ 'home.alcove_line' | t: number: settings.edition_no, day: settings.edition_day }}</p>
