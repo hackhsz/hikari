@@ -71,7 +71,8 @@
     <div class="panel">
       <h1>{{ p.vendor | default: p.title }}</h1>
       <p class="sub">{{ piece }}</p>
-      <span class="price p">{%- render 'price', p: p -%}</span>
+      {%- comment -%} A piece sold before it was priced has no price to show; the Sold line below says it all. {%- endcomment -%}
+      {%- unless status == 'sold' and p.price == 0 -%}<span class="price p">{%- render 'price', p: p -%}</span>{%- endunless %}
 
       {%- case status -%}
         {%- when 'presale' -%}
