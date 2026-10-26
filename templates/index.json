@@ -3,9 +3,9 @@
     "hero": {
       "type": "brand-hero",
       "settings": {
-        "image": "shopify://shop_images/karineko-banner-shell-dish.jpg",
-        "image_mobile": "shopify://shop_images/karineko-banner-shell-dish-phone.jpg",
-        "image_alt": "Styled image of vintage Chanel pearl drop clip earrings in a scalloped shell dish on blue damask, in late sun",
+        "image": "shopify://shop_images/karineko-banner-walnut-tray.jpg",
+        "image_mobile": "shopify://shop_images/karineko-banner-walnut-tray-phone.jpg",
+        "image_alt": "Vintage Dior jewellery on a walnut tray in late sun: a crystal CD pendant, Dior logo earrings, a rope knot brooch, an oval CD pendant and an oblique tag pendant",
         "height": "standard"
       }
     },

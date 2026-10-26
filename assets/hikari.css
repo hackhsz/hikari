@@ -80,6 +80,7 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .plate{position:relative;overflow:hidden;background:color-mix(in srgb,currentColor 7%,transparent)}
 .plate img,.plate canvas{display:block;width:100%;height:auto;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s}
 .card:hover .plate img,.card:hover .plate canvas{transform:scale(1.022);filter:brightness(1.04)}
+.plate--fill img,.plate--fill canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .plate .stamp{position:absolute;inset-inline-start:11px;bottom:9px;color:#fff;mix-blend-mode:difference;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.7}
 .plate .sold{position:absolute;inset-inline-end:11px;top:10px;color:#fff;mix-blend-mode:difference;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
 
@@ -102,14 +103,14 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .featured .card:nth-child(1){grid-column:1/7}
 .featured .card:nth-child(2){grid-column:8/13;margin-top:clamp(32px,8vw,132px)}
 .featured .card:nth-child(3){grid-column:3/10;margin-top:clamp(0px,2vw,28px)}
-@media (max-width:720px){.featured{grid-template-columns:1fr}.featured .card{grid-column:1/-1!important;margin-top:0!important}}
+@media (max-width:720px){.featured{grid-template-columns:repeat(2,minmax(0,1fr))}.featured .card{grid-column:auto!important;margin-top:0!important}}
 
 /* card */
 .card{display:block;position:relative}
 .cinfo{padding-top:clamp(13px,1.8vw,19px)}
 .chouse{font-family:var(--serif);font-weight:300;line-height:1.02;letter-spacing:-.008em;font-size:clamp(21px,3vw,31px);margin:0 0 4px}
 .cpiece{font-family:var(--serif);font-style:italic;font-weight:300;font-size:14.5px;line-height:1.35;margin:0;opacity:.7}
-.crow{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-top:11px;padding-top:9px;
+.crow{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 14px;margin-top:11px;padding-top:9px;
   border-top:1px solid;border-color:color-mix(in srgb,currentColor 16%,transparent)}
 .crow .price{font-size:17px}
 .crow .tag{font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;opacity:.5}
@@ -467,7 +468,6 @@ html.js .card .qv-btn{display:block}
 .ne-foot{margin:clamp(28px,4vw,40px) 0 0}
 .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(14px,2.4vw,30px);row-gap:clamp(26px,4vw,40px)}
 @media (max-width:860px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.grid3{grid-template-columns:minmax(0,1fr)}}
 .grid3 .chouse{font-size:clamp(18px,2.4vw,25px)}
 
 /* ── the list pop-up (D27) ────────────────────────────────── */
@@ -597,3 +597,12 @@ s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thicknes
 :root:lang(ar) body :not(.lk-n){letter-spacing:0!important}
 :root:lang(ar) :is(.al-house,.chouse,.pdp h1,.hero-h,.sheet-title,.menu-links a,.house-h,.ne-h,.popup-h,.qv-house,
   .bag-house,.bag-page-h,.story h2,.signup h2,.ne-clock){line-height:1.35}
+/* Phones: two cards to a row everywhere, with tighter type so more pieces fit on a screen */
+@media (max-width:600px){
+  .grid3,.grid4,.featured{column-gap:12px;row-gap:26px}
+  .card .chouse{font-size:17px}
+  .card .cpiece{font-size:12.5px}
+  .card .crow{margin-top:8px;padding-top:7px}
+  .card .crow .price{font-size:14px}
+  .card .crow .when{font-size:10px;letter-spacing:.04em}
+}

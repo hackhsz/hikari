@@ -26,10 +26,10 @@
     {%- endunless -%}
     {%- if bp -%}
       {%- assign shown = shown | plus: 1 -%}
-      {%- render 'product-card', card_product: bp, tone: 'grey' -%}
+      {%- render 'product-card', card_product: bp, tone: 'grey', card_sizes: '50vw' -%}
     {%- elsif request.design_mode -%}
       <a class="card" href="{{ routes.all_products_collection_url }}">
-        {%- render 'plate', ratio: 1.25, seed: forloop.index, tone: 'grey', comp: 'single' -%}
+        {%- render 'plate', ratio: 1, fill: true, seed: forloop.index, tone: 'grey', comp: 'single' -%}
         <div class="cinfo"><h3 class="chouse">—</h3></div></a>
     {%- endif -%}
   {%- endfor -%}

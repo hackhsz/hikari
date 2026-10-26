@@ -3,14 +3,23 @@
   so the store is presentable before photography exists. See 2-photos/13-photography-pipeline.md.
   Grain applies to frames 1 and 3 only — the maker's-mark macro and the condition frame
   are evidence and stay unretouched (D6, D10).
+  fill: the frame keeps the ratio (height / width) whatever the photograph's shape, and the photograph
+  is cropped to it around its focal point (set on the image in Shopify: Edit image > Focal point),
+  so cards in a row are all the same size. sizes: the image's display width, for the srcset.
 {%- endcomment -%}
 {%- assign r = ratio | default: 0.8 -%}
 {%- assign w = width | default: 1400 -%}
-<div class="plate">
-  {%- if image -%}
+<div class="plate{% if fill %} plate--fill{% endif %}"{% if fill %} style="aspect-ratio:1 / {{ r }}"{% endif %}>
+  {%- if image and fill -%}
+    {%- liquid
+      assign focal = image.presentation.focal_point | default: '50% 50%'
+      assign obj_style = 'object-position: ' | append: focal
+    -%}
+    {{ image | image_url: width: w | image_tag: loading: 'lazy', alt: alt | default: '', sizes: sizes | default: '100vw', style: obj_style }}
+  {%- elsif image -%}
     {{ image | image_url: width: w | image_tag: loading: 'lazy', alt: alt | default: '' }}
   {%- else -%}
-    <canvas data-seed="{{ seed | default: 1 }}" data-tone="{{ tone | default: 'light' }}"
+    <canvas data-seed="{{ seed | default: 1 }}" data-tone="{{ tone | default: 'light' }}"{% if fill %} data-fill="1"{% endif %}
             data-comp="{{ comp | default: 'pair' }}" data-ratio="{{ r }}" role="img"
             aria-label="{% if alt != blank %}{{ alt | escape }}{% else %}{{ 'general.photography_to_follow' | t }}{% endif %}"></canvas>
   {%- endif -%}

@@ -8,13 +8,18 @@
   same page, hidden from screen readers and the tab order, as in the bag) with the Quick view
   button over it, then the words as the real link. Quick view opens sections/quick-view in a
   dialog; without JavaScript the button stays hidden and the links do the work.
+
+  Every card photograph is a square crop (plate fill), so a row lines up whatever shape the
+  photographs are. A coming-soon piece shows its price (or "Price to come") and "Coming soon"
+  with its release, so nobody has to open it to find out. card_sizes: the card's display width.
 {%- endcomment -%}
 {%- capture status -%}{%- render 'status', p: p -%}{%- endcapture -%}
 {%- assign piece = p.metafields.hikari.piece | default: p.title -%}
+{%- assign img_sizes = card_sizes | default: '(max-width: 860px) 50vw, 33vw' -%}
 <div class="card">
   <div class="card-media">
     <a href="{{ p.url }}" tabindex="-1" aria-hidden="true">
-      {%- render 'plate', image: p.featured_image, ratio: 1.25, seed: p.id, tone: tone,
+      {%- render 'plate', image: p.featured_image, ratio: 1, fill: true, sizes: img_sizes, seed: p.id, tone: tone,
           comp: 'single', alt: p.title, badge: status -%}
     </a>
     <button type="button" class="qv-btn" data-quick-view="{{ p.url }}" aria-haspopup="dialog"
@@ -26,14 +31,14 @@
       <p class="cpiece">{{ piece }}</p>
       <div class="crow">
         <span class="price">
-          {%- case status -%}
-            {%- when 'soon' -%}<span class="when">{%- render 'release', p: p -%}</span>
-            {%- when 'sold' -%}{{ 'products.product.sold_out' | t }}
-            {%- else -%}{%- render 'price', p: p -%}
-          {%- endcase -%}
+          {%- if status == 'sold' -%}{{ 'products.product.sold_out' | t }}{%- else -%}{%- render 'price', p: p -%}{%- endif -%}
         </span>
-        <span class="tag">{%- if p.metafields.hikari.grade %}{{ 'products.spec.grade' | t: grade: p.metafields.hikari.grade }}{% endif -%}
-          {%- if p.metafields.hikari.measurements %} · {{ p.metafields.hikari.measurements }}{% endif -%}</span>
+        {%- if status == 'soon' -%}
+          <span class="when">{{ 'products.badge.coming_soon' | t }} · {% render 'release', p: p %}</span>
+        {%- else -%}
+          <span class="tag">{%- if p.metafields.hikari.grade %}{{ 'products.spec.grade' | t: grade: p.metafields.hikari.grade }}{% endif -%}
+            {%- if p.metafields.hikari.measurements %} · {{ p.metafields.hikari.measurements }}{% endif -%}</span>
+        {%- endif -%}
       </div>
     </div>
   </a>
