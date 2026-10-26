@@ -46,7 +46,7 @@ markets:
   why: London's benchmark vintage fashion fair. Dealers are vetted ('the very best in their chosen field'), the
     Victoria edition names vintage jewellery dealers as a core category, and visitors pay £8 to get in. The audience
     is ideal, but it is effectively closed (waitlist), so treat it as a long-term goal.
-  checked: 2026-10-19
+  checked: 2026-10-26
   sources: ['https://www.frockmevintagefashion.com/fair-dates', 'https://www.frockmevintagefashion.com/exhibitors',
     'https://www.frockmevintagefashion.com/frockmevictoria', 'https://www.frockmevintagefashion.com/plan-your-visit']
   decision: new
@@ -76,7 +76,7 @@ markets:
   why: 'Affluent, design-literate crowd (advance tickets £11, trade early entry £20) shopping for ''sustainable,
     collectable design''. It fits the editorial brand and the mid-century American makers closely. Weaknesses: jewellery
     is not the core category and the stand fee is unknown.'
-  checked: 2026-10-19
+  checked: 2026-10-26
   sources: ['https://www.modernshows.com/shows/dulwich-1/', 'https://www.modernshows.com/newsletters/october-2026-newsletter/',
     'https://www.modernshows.com/contact/']
   decision: new
@@ -201,7 +201,7 @@ markets:
   why: Design-led King's Cross crowd. The Japan-curated Shotengai market (Beams & Co, past vendors like (kits) London
     selling Japanese accessories and fashion) matches the brand's Japan-minimal story closely and would build the
     brand. Resale acceptance and fees are unverified.
-  checked: 2026-10-19
+  checked: 2026-10-26
   sources: ['https://www.kingscross.co.uk/event/lower-stable-street-market', 'https://www.kingscross.co.uk/event/shotengai-market',
     'https://www.kingscross.co.uk/the-shotengai-market', 'https://kioskn1c.com/pages/market']
   decision: new
@@ -418,9 +418,8 @@ markets:
   organiser: Judy's Vintage Fair
   url: https://judysvintagefair.com/traders/
   apply_url: https://judysvintagefair.com/become-a-trader/
-  dates: 'London dates roughly weekly: 24 Oct 2026 (Fulham, sold out), 25 Oct (Leadenhall), 31 Oct and 28 Nov (Big
-    Kensington Flea), 1, 8, 14, 15, 21, 22, 28 Nov 2026'
-  next_date: 2026-10-24
+  dates: 'London dates roughly weekly: 31 Oct and 28 Nov (Big Kensington Flea); 1 Nov Camden; 8 Nov Chelsea (sold out); 14 Nov Hyde Park; 15 Nov Crouch End; 21 Nov Blackheath (sold out); 22 Nov Battersea; 28 Nov Marylebone'
+  next_date: 2026-10-31
   apply: {status: rolling, deadline: null, opens: null}
   window: Register once as an approved trader, then book individual dates in the trader portal; popular dates sell
     out
@@ -435,7 +434,7 @@ markets:
   fit: 2
   why: Accepts vintage and handmade jewellery traders and is easy to get into, but the flea-market framing and mixed
     homewares crowd pull prices well below £100-300. Only useful as a cheap volume or awareness test.
-  checked: 2026-10-13
+  checked: 2026-10-26
   sources: ['https://judysvintagefair.com/traders/', 'https://judysvintagefair.com/become-a-trader/', 'https://judysvintagefair.com/terms-conditions-of-booking/']
   decision: new
   our_notes: null
@@ -723,7 +722,7 @@ markets:
   why: Curated vintage fashion fair whose listed categories include jewellery, held in a striking venue, and resellers
     are its whole model. One notch below 5 because it's a broad 'affordable vintage' crowd rather than designer
     buyers, the fee is unknown and you'd travel from London.
-  checked: 2026-10-19
+  checked: 2026-10-26
   sources: ['https://www.loulousvintagefair.com/', 'https://eventaly.com/event/lou-lous-manchester/', 'https://eventaly.com/organiser/lou-lous-vintage-market/',
     'https://www.loulousvintagefair.com/trader-terms-and-conditions']
   decision: new
@@ -844,7 +843,7 @@ markets:
   why: A curated, Instagram-literate shopping crowd in a beautiful venue, and about 1 sale covers the fee. But it's
     a mixed craft-and-flea audience with lower price expectations, and vintage resale sits at the edge of what they
     recruit. A plausible test.
-  checked: 2026-10-19
+  checked: 2026-10-26
   sources: ['https://www.thecraftandflea.com/pages/trade-with-us', 'https://www.thecraftandflea.com/pages/trader-faqs',
     'https://eventaly.com/event/manchesters-craft-and-flea/', 'https://eventaly.com/organiser/craft-flea/']
   decision: new
@@ -1114,7 +1113,7 @@ markets:
   fit: 3
   why: The most curated option found in Glasgow, with a Christmas date and a modest fee. But it's a mixed craft
     crowd and the travel cost makes it a stretch test.
-  checked: 2026-10-19
+  checked: 2026-10-26
   sources: ['https://eventaly.com/event/glasgows-craft-flea/', 'https://www.thecraftandflea.com/pages/trade-with-us',
     'https://www.thecraftandflea.com/pages/trader-faqs']
   decision: new
@@ -1207,8 +1206,8 @@ markets:
   organiser: Judy's Vintage Fair (The Vintage Furniture Flea)
   url: https://judysvintagefair.com/events/the-brighton-vintage-furniture-flea-market-october/
   apply_url: https://judysvintagefair.com/become-a-trader/
-  dates: Sat 24 Oct 2026, 10:30am–3:30pm
-  next_date: 2026-10-24
+  dates: Last held Sat 24 Oct 2026; no next Brighton date listed on the traders page yet
+  next_date: null
   apply: {status: open, deadline: null, opens: null}
   window: Roughly quarterly at St Bart's (17 Jan, 18 Apr and 24 Oct 2026; Jun and Sep 2025). You need approval as
     a trader before you can book a stall in the portal.
@@ -1224,7 +1223,7 @@ markets:
   fit: 3
   why: A design-led vintage crowd in a dramatic venue, an hour from London, and about 1 sale covers the £80 stall.
     But furniture leads, fashion and jewellery are a 'sprinkling', and the brand frames itself as affordable.
-  checked: 2026-10-19
+  checked: 2026-10-26
   sources: ['https://judysvintagefair.com/events/the-brighton-vintage-furniture-flea-market-october/', 'https://judysvintagefair.com/trader-bookings/?eventid=23561',
     'https://judysvintagefair.com/traders/', 'https://judysvintagefair.com/terms-conditions-of-booking/']
   decision: new
@@ -2036,9 +2035,8 @@ markets:
   organiser: The Lazy Flea (team@lazyflea.co.uk)
   url: https://www.lazyflea.co.uk/
   apply_url: https://www.lazyflea.co.uk/traders
-  dates: Roughly monthly. Sun 25 Oct 2026, Chiswick Town Hall, 10:30-16:00; Sat-Sun 14-15 Nov 2026, Ferrier Street,
-    Wandsworth; Sat-Sun 12-13 Dec 2026, Christmas Market at Chiswick House. "More dates TBC"
-  next_date: 2026-10-25
+  dates: Sat-Sun 14-15 Nov 2026, Ferrier Street, Wandsworth; Sat-Sun 12-13 Dec 2026, Christmas Market, Chiswick House; 10:30-16:00. More dates TBC
+  next_date: 2026-11-14
   apply: {status: closed, deadline: null, opens: null}
   window: No published cycle. The Trade With Us page says applications are closed and that reopening will be announced
     on their social media (Instagram @thelazyflea). Approved traders then book individual pitches through a trader
@@ -2055,7 +2053,7 @@ markets:
     names "one-of-a-kind jewellery pieces" alongside furniture, homeware and clothing, and its traders are vintage
     dealers rather than makers. Press listings (not verified) put the Chiswick House edition at 60+ traders. A plausible
     test where jewellery is an add-on to a homeware crowd. Fee unknown; closed to new traders for now.
-  checked: 2026-10-19
+  checked: 2026-10-26
   sources: ['https://www.lazyflea.co.uk/', 'https://www.lazyflea.co.uk/traders', 'https://www.lazyflea.co.uk/calendar-1',
     'https://www.lazyflea.co.uk/about', 'https://chiswickhouseandgardens.org.uk/event/the-lazy-flea/']
   decision: new
@@ -2324,7 +2322,7 @@ markets:
   why: The same curated Lou Lou's vintage fair as the Manchester entry, but in London with no travel. Resellers
     are its whole model and jewellery is a listed category. Held back from 5 by the broad 'affordable vintage' crowd
     and the unknown fee. Missed by run 1, which found no London edition.
-  checked: 2026-10-19
+  checked: 2026-10-26
   sources: ['https://www.loulousvintagefair.com/', 'https://eventaly.com/event/lou-lous-london-canada-water/', 'https://eventaly.com/organiser/lou-lous-vintage-market/',
     'https://www.loulousvintagefair.com/trader-terms-and-conditions']
   decision: new
