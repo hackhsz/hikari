@@ -418,7 +418,7 @@ markets:
   organiser: Judy's Vintage Fair
   url: https://judysvintagefair.com/traders/
   apply_url: https://judysvintagefair.com/become-a-trader/
-  dates: 'London dates roughly weekly: 31 Oct and 28 Nov (Big Kensington Flea); 1 Nov Camden; 8 Nov Chelsea (sold out); 14 Nov Hyde Park; 15 Nov Crouch End; 21 Nov Blackheath (sold out); 22 Nov Battersea; 28 Nov Marylebone'
+  dates: 'London dates on the traders page: 31 Oct (Big Kensington Flea, Phillimore Walk), 1 Nov (Camden, Cecil Sharp House), 8 Nov (Chelsea, sold out), 14 Nov (Hyde Park, final spaces), 15 Nov (Crouch End, Hornsey Town Hall), 21 Nov (Blackheath, sold out), 22 Nov (Battersea, final spaces), 28 Nov (Marylebone, final spaces; and Big Kensington Flea) 2026. All marked approved traders only.'
   next_date: 2026-10-31
   apply: {status: rolling, deadline: null, opens: null}
   window: Register once as an approved trader, then book individual dates in the trader portal; popular dates sell
@@ -773,15 +773,11 @@ markets:
   cost: Not published; enquiries go to Decorative Fairs (decorativefairs@me.com, 07809 236 607 per older venue listings)
   commission_pct: null
   requires: []
-  watch_out: No 2026 or 2027 date could be verified. The Monastery's own site returned 403 to automated fetches,
-    and the last confirmed editions were Nov 2021 and Mar 2022. Decorative Fairs' separate 'The Vintage Fair – Manchester'
-    listing has been removed from Antiques Atlas.
-  fit: 4
-  why: 'If it still runs, it''s close to ideal: a ''top quality'' vintage fair of 30+ stalls with an even mix of
-    antique and vintage fashion, textiles and accessories, in a Pugin Gothic venue. Scored 4 rather than 5 because
-    whether it is still active is unconfirmed. Worth one phone call.'
-  checked: 2026-10-13
-  sources: ['https://www.antiques-atlas.com/antique_fair/vintagethe_monastery/af2938', 'https://www.antiquestradegazette.com/print-edition/2021/november/2517/fairs-markets-centres/have-fun-at-a-monastery-thanks-to-vintage/']
+  watch_out: 'No 2026 or 2027 date. The Monastery''s own site now loads: its vintage-fair event page is for Sun 21 Nov 2021, search-indexed venue pages show further editions in Mar and Oct 2022, and the venue''s 2026 listings are book fairs and a family fun day, not vintage fairs. Decorative Fairs'' separate ''The Vintage Fair – Manchester'' listing has been removed from Antiques Atlas. Probably discontinued; only a call to Decorative Fairs would settle it.'
+  fit: 3
+  why: 'If it still ran it would be close to ideal: a ''top quality'' vintage fair of 30+ stalls with antique and vintage fashion, textiles and accessories in a Pugin Gothic venue. Lowered from 4 to 3 because no edition has been found since 2022. Worth one phone call; if that confirms it has ended, rule it out.'
+  checked: 2026-10-26
+  sources: ['https://www.antiques-atlas.com/antique_fair/vintagethe_monastery/af2938', 'https://www.antiquestradegazette.com/print-edition/2021/november/2517/fairs-markets-centres/have-fun-at-a-monastery-thanks-to-vintage/', 'https://themonastery.co.uk/events/vintage-fair/', 'https://www.themonastery.co.uk/?p=19169']
   decision: new
   our_notes: null
 
@@ -793,9 +789,9 @@ markets:
   organiser: Judy's Vintage Fair (The Vintage Furniture Flea)
   url: https://judysvintagefair.com/events/the-manchester-vintage-furniture-flea-market-sept/
   apply_url: https://judysvintagefair.com/become-a-trader/
-  dates: Last held Sun 27 Sep 2026; no next Manchester date listed yet
+  dates: Last held Sun 27 Sep 2026. No next Manchester date on the traders page or in the sitemap as of 26 Oct 2026.
   next_date: null
-  apply: {status: rolling, deadline: null, opens: null}
+  apply: {status: closed, deadline: null, opens: null}
   window: Roughly quarterly in 2026 (June and September editions). Once you're approved through the 'Become a Trader'
     form, you book stalls per event in the trader portal as dates appear.
   fee_gbp: null
@@ -812,9 +808,8 @@ markets:
   why: A design-led interiors crowd (stylists, designers) in a good city-centre hall with about 30 traders, and
     vintage jewellery is a recognised application category. But jewellery is a side-line and the affordable framing
     undercuts £100–300 pieces.
-  checked: 2026-10-13
-  sources: ['https://judysvintagefair.com/events/the-manchester-vintage-furniture-flea-market-sept/', 'https://judysvintagefair.com/events/',
-    'https://judysvintagefair.com/become-a-trader/', 'https://judysvintagefair.com/terms-conditions-of-booking/']
+  checked: 2026-10-26
+  sources: ['https://judysvintagefair.com/events/the-manchester-vintage-furniture-flea-market-sept/', 'https://judysvintagefair.com/become-a-trader/', 'https://judysvintagefair.com/terms-conditions-of-booking/', 'https://judysvintagefair.com/traders/', 'https://judysvintagefair.com/sitemap/']
   decision: new
   our_notes: null
 
@@ -865,9 +860,7 @@ markets:
   cost: Not published
   commission_pct: null
   requires: [Email iwanttotrade@marketoperations.co.uk]
-  watch_out: altrinchammarket.co.uk was unreachable during the check. The directory entry is from Altrincham BID,
-    not the operator. Secondary sources mention a themed Sunday rotation (design, vintage, craft) and a preference
-    for North-West traders; neither is verified.
+  watch_out: altrinchammarket.co.uk was unreachable again on 26 Oct 2026 (connection reset via proxy, 503 to direct fetch). The directory entry is from Altrincham BID, not the operator. A 2014 article gives a themed Sunday rotation with vintage fashion and furniture on the third Sunday, and secondary sources mention a preference for North-West traders; neither is verified. Check by hand or email iwanttotrade@marketoperations.co.uk.
   fit: 3
   why: An affluent, food-and-design-literate South Manchester crowd. The covered market explicitly hosts 'vintage
     fashion and furniture', so a reseller fits. But terms, fees and any local-trader preference are unverified,
@@ -965,9 +958,9 @@ markets:
   organiser: Judy's Vintage Fair (The Vintage Furniture Flea)
   url: https://judysvintagefair.com/events/the-bristol-vintage-furniture-flea-market-october/
   apply_url: https://judysvintagefair.com/become-a-trader/
-  dates: Last held Sun 11 Oct 2026; no next Bristol date listed yet
+  dates: Last held Sun 11 Oct 2026. No next Bristol date on the traders page or in the sitemap as of 26 Oct 2026.
   next_date: null
-  apply: {status: rolling, deadline: null, opens: null}
+  apply: {status: closed, deadline: null, opens: null}
   window: Runs every 1–3 months. The organiser's event URLs show 2026 editions on 31 Jan, 10 May, July (Sun 5 Jul
     per its Eventbrite listing) and 11 Oct. New dates appear on judysvintagefair.com/traders/.
   fee_gbp: null
@@ -978,9 +971,8 @@ markets:
   fit: 3
   why: A design-literate interiors crowd in Bristol's creative quarter, and jewellery is accepted, but as an add-on
     to furniture. A plausible test if the stall fee is around £80.
-  checked: 2026-10-13
-  sources: ['https://judysvintagefair.com/events/the-bristol-vintage-furniture-flea-market-october/', 'https://judysvintagefair.com/sitemap/',
-    'https://judysvintagefair.com/become-a-trader/']
+  checked: 2026-10-26
+  sources: ['https://judysvintagefair.com/events/the-bristol-vintage-furniture-flea-market-october/', 'https://judysvintagefair.com/become-a-trader/', 'https://judysvintagefair.com/traders/', 'https://judysvintagefair.com/sitemap/']
   decision: new
   our_notes: null
 
@@ -1206,9 +1198,9 @@ markets:
   organiser: Judy's Vintage Fair (The Vintage Furniture Flea)
   url: https://judysvintagefair.com/events/the-brighton-vintage-furniture-flea-market-october/
   apply_url: https://judysvintagefair.com/become-a-trader/
-  dates: Last held Sat 24 Oct 2026; no next Brighton date listed on the traders page yet
+  dates: Last held Sat 24 Oct 2026. No next Brighton date on the traders page or in the sitemap as of 26 Oct 2026.
   next_date: null
-  apply: {status: open, deadline: null, opens: null}
+  apply: {status: closed, deadline: null, opens: null}
   window: Roughly quarterly at St Bart's (17 Jan, 18 Apr and 24 Oct 2026; Jun and Sep 2025). You need approval as
     a trader before you can book a stall in the portal.
   fee_gbp: 80
@@ -1217,15 +1209,12 @@ markets:
   commission_pct: null
   requires: [Approval via online application with stock photos, 'Public liability insurance, minimum £1m', Own tables
       recommended]
-  watch_out: The 2m x 2m central-aisle stalls are furniture and homewares only, so take the wall stall. Wall stalls
-    may sit in front of church furniture. Non-refundable. The 24 Oct date is 11 days away and new traders need approval
-    first, so the realistic target is the next (likely Jan 2027) edition.
+  watch_out: The 2m x 2m central-aisle stalls are furniture and homewares only, so take the wall stall. Wall stalls may sit in front of church furniture. Non-refundable. Past pattern (17 Jan, 18 Apr, 24 Oct 2026) suggests a January 2027 edition; get trader approval in advance so you can book as soon as it is listed.
   fit: 3
   why: A design-led vintage crowd in a dramatic venue, an hour from London, and about 1 sale covers the £80 stall.
     But furniture leads, fashion and jewellery are a 'sprinkling', and the brand frames itself as affordable.
   checked: 2026-10-26
-  sources: ['https://judysvintagefair.com/events/the-brighton-vintage-furniture-flea-market-october/', 'https://judysvintagefair.com/trader-bookings/?eventid=23561',
-    'https://judysvintagefair.com/traders/', 'https://judysvintagefair.com/terms-conditions-of-booking/']
+  sources: ['https://judysvintagefair.com/events/the-brighton-vintage-furniture-flea-market-october/', 'https://judysvintagefair.com/trader-bookings/?eventid=23561', 'https://judysvintagefair.com/traders/', 'https://judysvintagefair.com/sitemap/']
   decision: new
   our_notes: null
 
@@ -2063,32 +2052,23 @@ markets:
   name: Flea London — Vintage & Makers Market at Hackney Bridge
   type: market
   city: London
-  where: Hackney Bridge, Hackney Wick E15 2SJ (Queen Elizabeth Olympic Park edge). Previously at Vinegar Yard, London
-    Bridge.
+  where: Hackney Bridge, East Bay Lane, London E15 2SJ (Hackney Wick, by Queen Elizabeth Olympic Park). Previously at Vinegar Yard, London Bridge.
   organiser: Flea London
   url: https://flealondon.com/
-  apply_url: null
-  dates: Weekend market (Sat and Sun, 11:00-17:00) at Hackney Bridge. Listings show 20-21 Jun, 4-5 Jul, 18-19 Jul
-    and 25-26 Jul 2026. The autumn and winter schedule is unverified.
+  apply_url: https://form.jotform.com/FleaLondon/flea-hackney-bridge-date-request
+  dates: Every weekend, Sat and Sun 11:00-17:00. The booking form offers every weekend from 24-25 Oct to 28-29 Nov 2026, then Christmas weekends 5-6, 12-13 and 19-20 Dec 2026.
   next_date: null
-  apply: {status: unknown, deadline: null, opens: null}
-  window: Unverified. Event listings say trader application forms are on the organiser's profile (most likely Instagram).
-  fee_gbp: null
-  cost: Not published
+  apply: {status: rolling, deadline: null, opens: null}
+  window: Request dates on the Jotform trader booking form; bookings are confirmed only once approved and paid (approval email includes a payment link). No deadline stated.
+  fee_gbp: 45
+  cost: £45 per day or £85 per weekend; Christmas weekends £55 per day or £100 per weekend. Pitch size not stated.
   commission_pct: null
-  requires: [Trader application form via the organiser's profile (unverified), 'Contact info@flealondon.com (from
-      a Southwark Council listing, may be out of date)']
-  watch_out: flealondon.com reset the connection through the proxy, so nothing here is from the organiser. A Bermondsey
-    Street notice says the market left Vinegar Yard after the weekend of 4-5 April (year not stated) for Hackney
-    Bridge. The vintage stalls share the market with makers, records and food.
+  requires: ['Jotform date request: name, trading name, email, mobile, business/correspondence address, Instagram and website (optional), product type "Vintage goods", description of stock', 'Public liability insurance of £5M, certificate uploaded with the form', Payment via emailed link after approval]
+  watch_out: Requires £5M public liability cover, higher than the £1M most fairs ask for. East London weekend crowd mixing vintage homewares, clothing and jewellery with makers, records and food. Cancellation terms not stated on the form.
   fit: 3
-  why: Listings (QEOP, ma.to) describe a tightly curated mix of vintage fashion, statement jewellery, art, records
-    and design pieces, and they invite trader applications. That suits a vintage reseller, though the East London
-    weekend crowd likely pays less than £100-300. Dates, fee and the application route are all unverified because
-    the organiser's site is unreachable, so they are null.
-  checked: 2026-10-19
-  sources: ['https://ma.to/event/flea-london-market-18-jul-2026', 'https://www.queenelizabetholympicpark.co.uk/node/3986',
-    'https://bermondseystreet.london/last-flea-vintage-market-weekend-4-5-april/', 'https://www.southwark.gov.uk/southwark-presents/vintage-and-makers-flea-market']
+  why: 'Organiser site now loads: vintage goods are a named trader category, jewellery is part of the described mix, and about 1 sale covers the £45 day pitch, with Christmas weekends still bookable. Kept at 3 because the casual Hackney Wick weekend crowd likely pays less than £100-300.'
+  checked: 2026-10-26
+  sources: ['https://flealondon.com/', 'https://form.jotform.com/FleaLondon/flea-hackney-bridge-date-request', 'https://ma.to/event/flea-london-market-18-jul-2026', 'https://bermondseystreet.london/last-flea-vintage-market-weekend-4-5-april/']
   decision: new
   our_notes: null
 
@@ -2171,9 +2151,7 @@ markets:
   cost: Not published
   commission_pct: null
   requires: [Contact info@vintagevillagestockportmarket.co.uk or Facebook /VintageVillageUK (unverified)]
-  watch_out: The organiser site timed out on both runs (13 and 19 Oct 2026), so every detail here is from listings.
-    The stock mix is broad collectables (vinyl, cameras, clocks, ephemera, bicycles), and the event is described
-    as "deliberately accessible rather than pitching it at the top end".
+  watch_out: The organiser site failed a third time on 26 Oct 2026 (connection reset via proxy, 503 to direct fetch; Wayback also unavailable), so every detail here is from listings. The stock mix is broad collectables (vinyl, cameras, clocks, ephemera, bicycles), and the event is described as "deliberately accessible rather than pitching it at the top end". A separate Stockport Vintage Spectacular (So Retro Events) used the same hall on 12 Jul 2026, and the two ran a joint fair on 15 Jun 2025. Check by hand via Facebook /VintageVillageUK.
   fit: 2
   why: A 70+ stall vintage and collectables fair in a handsome Victorian hall. It is a bargain-hunter, collectables
     frame where jewellery isn't a recognised category. Dates, fee and the application route are unverified because
@@ -2325,5 +2303,98 @@ markets:
   checked: 2026-10-26
   sources: ['https://www.loulousvintagefair.com/', 'https://eventaly.com/event/lou-lous-london-canada-water/', 'https://eventaly.com/organiser/lou-lous-vintage-market/',
     'https://www.loulousvintagefair.com/trader-terms-and-conditions']
+  decision: new
+  our_notes: null
+
+- id: sunbury-wimbledon-homes-antiques-fair
+  name: Wimbledon Homes & Antiques Fair (Sunbury Antiques)
+  type: market
+  city: London
+  where: Prince Georges Playing Fields, Bushey Road, Raynes Park, London SW20 8TE (next to David Lloyd)
+  organiser: Sunbury Antiques (Surrey Antiques Ltd)
+  url: https://www.sunburyantiques.com/wimbledon/
+  apply_url: null
+  dates: 'Outdoor Sundays, Apr-Sep only, 9:30am-2pm (traders from 7:30am, off site by 3:30pm). 2027: 4 Apr, 2 May,
+    20 Jun, 18 Jul, 15 Aug, 5 Sep. No 2026 dates remain.'
+  next_date: 2027-04-04
+  apply: {status: open, deadline: null, opens: null}
+  window: Pre-book an outside pitch by email (pay by BACS in advance, details sent on request) or pay cash on arrival;
+    unbooked casual pitches are first come, first served on the morning.
+  fee_gbp: 45
+  cost: 'Outside pitches only, cash on the day or BACS in advance: car £45, standard van £55, large van £65 (not
+    VAT applicable). No indoor pitches listed.'
+  commission_pct: null
+  requires: [A car or van to trade from (outdoor pitches only), Email booking request (address obfuscated on site;
+      the Sandown entry uses enquiries@sunburyantiques.com from a Jockey Club listing), Cash on the day or BACS
+      in advance]
+  watch_out: 'Open-air playing-field fair trading from cars and vans: weather-dependent, early start, and a broad
+    antiques, collectables, garden-ephemera and furniture mix with £3 entry. Not a setting that shows £100-300 pieces
+    well.'
+  fit: 2
+  why: The 2027 dates finally appeared (the open lead from run 1). It is a cheap London test, since about 1 sale
+    covers the £45 car pitch, but the outdoor car-boot-style antiques frame is bargain-led and jewellery is not
+    a recognised category, so it scores as weak.
+  checked: &id001 2026-10-26
+  sources: ['https://www.sunburyantiques.com/wimbledon/']
+  decision: new
+  our_notes: null
+
+- id: craft-and-flea-london-canada-water
+  name: Craft & Flea — London, Canada Water
+  type: fair
+  city: London
+  where: Corner Corner, Canada Water, London SE16 (same venue as Lou Lou's London)
+  organiser: Craft & Flea
+  url: https://eventaly.com/event/london-canada-waters-craft-flea/
+  apply_url: https://eventaly.com/event/london-canada-waters-craft-flea/
+  dates: Sat 14 and Sun 15 Nov 2026; Sat 12 and Sun 13 Dec 2026 (Christmas). Opening times not listed.
+  next_date: 2026-11-14
+  apply: {status: open, deadline: null, opens: null}
+  window: Per-date applications on Eventaly ("Send Application" is live with dates selectable). No deadline stated.
+    At other venues they curate with category quotas, reply in a couple of working weeks and keep a reserve list.
+  fee_gbp: null
+  cost: Pitches 6ft x 3ft table top, 6ft x 6ft or 12ft x 6ft; table hire optional. London prices are shown only
+    after an Eventaly login. The organiser's FAQ quotes from £60 for a 6ft x 3ft at other venues, prices varying
+    by venue.
+  commission_pct: null
+  requires: [Eventaly trader profile, Separate application per date]
+  watch_out: 'Makers-led market; the Eventaly page says nothing on whether vintage jewellery resellers are accepted,
+    and jewellery is usually a crowded quota category. Sun 15 Nov is also Lou Lou''s London at the same venue (Corner
+    Corner): check whether these overlap or compete before applying to either.'
+  fit: 3
+  why: A new London edition of the Craft & Flea format already tracked at fit 3 in Manchester and Glasgow, with
+    no travel and two Christmas dates still open. Curated, Instagram-literate crowd, but a craft-and-flea audience
+    with lower price expectations, and resale sits at the edge of who they recruit. The fee is null because London
+    prices sit behind the Eventaly login.
+  checked: *id001
+  sources: ['https://eventaly.com/event/london-canada-waters-craft-flea/', 'https://eventaly.com/organiser/craft-flea/']
+  decision: new
+  our_notes: null
+
+- id: craft-and-flea-brighton
+  name: Craft & Flea — Brighton
+  type: fair
+  city: Brighton
+  where: St Bartholomew's Church (St Bart's), Ann Street, Brighton BN1 4GP
+  organiser: Craft & Flea
+  url: https://eventaly.com/event/brightons-craft-flea-2/
+  apply_url: https://eventaly.com/event/brightons-craft-flea-2/
+  dates: Last held Sat 17 Oct 2026 (per run-1 notes). Eventaly shows no bookable dates as of 26 Oct 2026.
+  next_date: null
+  apply: {status: closed, deadline: null, opens: null}
+  window: Per-date applications on Eventaly once new dates are listed. The page currently says "This event does
+    not currently have any bookable dates available."
+  fee_gbp: null
+  cost: Pitches 6ft x 3ft table top, 6ft x 6ft or 12ft x 6ft; table hire optional. No Brighton prices shown. The
+    organiser's FAQ quotes from £60 for a 6ft x 3ft at other venues, prices varying by venue.
+  commission_pct: null
+  requires: [Eventaly trader profile, Separate application per date]
+  watch_out: 'Makers-led; nothing on the page about vintage resellers. Church venue: the page asks that potentially
+    inappropriate stock be kept out of view. Same venue as Judy''s Brighton.'
+  fit: 3
+  why: 'Tracked so the next Brighton date gets caught: the same curated craft-and-flea format scored 3 in Manchester
+    and Glasgow, in a striking venue an hour from London. Dates and fee are null because none are currently published.'
+  checked: *id001
+  sources: ['https://eventaly.com/event/brightons-craft-flea-2/', 'https://eventaly.com/organiser/craft-flea/']
   decision: new
   our_notes: null

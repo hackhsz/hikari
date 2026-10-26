@@ -22,7 +22,7 @@
 > **Gates.** Physical fairs and pop-ups come after the website converts ([D3](../docs/DECISIONS.md)). Marketplaces are outposts, not the home ([D1](../docs/DECISIONS.md)). Both are tracked now because applications open months ahead. How it works: [README](README.md).
 
 <!-- generated:start -->
-_Tables generated from [`markets.yaml`](markets.yaml) on 19 Oct 2026. 79 tracked._
+_Tables generated from [`markets.yaml`](markets.yaml) on 26 Oct 2026. 82 tracked._
 
 ## Coming up in the next 60 days
 
@@ -30,7 +30,7 @@ Published deadlines, plus events at fit 3+ still taking applications.
 
 | By | Name | City | Apply | Event | Fit | Decision |
 |---|---|---|---|---|---|---|
-| **24 Oct** | [Judy's — Brighton Vintage Furniture & Flea Market](https://judysvintagefair.com/events/the-brighton-vintage-furniture-flea-market-october/) | Brighton | open | 24 Oct 2026 | 3 | new |
+| **14 Nov** | [Craft & Flea — London, Canada Water](https://eventaly.com/event/london-canada-waters-craft-flea/) | London | open | 14 Nov 2026 | 3 | new |
 | **15 Nov** | [Midcentury Modern (Dulwich)](https://www.modernshows.com/shows/dulwich-1/) | London | open | 15 Nov 2026 | 4 | new |
 | **15 Nov** | [Lou Lou's Vintage Fair — London, Canada Water](https://www.loulousvintagefair.com/) | London | open | 15 Nov 2026 | 4 | new |
 | **15 Nov** | [Craft & Flea — Manchester](https://www.thecraftandflea.com/pages/trade-with-us) | Manchester | open | 15 Nov 2026 | 3 | new |
@@ -57,9 +57,8 @@ Break-even is pitch fee ÷ £84 contribution per piece (D14).
 | 4 | [Alfies Antique Market](https://alfiesantiques.com/dealers-at-alfies/) | arcade | London | Permanent; open Tue-Sat 10am-6pm | rolling | Stand/cabinet rent not published; ask the Management Office (020 7723 6066) | — |
 | 4 | [Camden Passage - Pierrepont Arcade & Charlton Place Markets](https://www.camdenpassageislington.co.uk/markets/pierrepont-arcade-market.html) | market | London | Antiques Wed & Sat (also general antiques/collectables Fri… | rolling | Not published. Covered, lit stall with a ~6ft x 3ft trestle table provided; bri… | — |
 | 4 | [Old Spitalfields Market (incl. Thursday Antiques & Vintage Market)](https://oldspitalfieldsmarket.com/become-a-trader) | market | London | Stalls 7 days a week; Antiques Market every Thursday 8am-5p… | rolling | Day rates not published by the market (the 2026 trader pack covers stall spec o… | — |
-| 4 | [Vintage@The Monastery (Decorative Fairs) — Manchester](https://www.antiques-atlas.com/antique_fair/vintagethe_monastery/af2938) | fair | Manchester | No current date found | unknown | Not published; enquiries go to Decorative Fairs (decorativefairs@me.com, 07809… | — |
-| 3 | [Judy's — Brighton Vintage Furniture & Flea Market](https://judysvintagefair.com/events/the-brighton-vintage-furniture-flea-market-october/) | fair | Brighton | 24 Oct 2026 | open | £80 for a 2m x 2m wall stall (3m x 2m £120; 4m x 2m central aisle £160; outside… | 1 pc |
-| 3 | [The Lazy Flea (Chiswick, Wandsworth and West London venues)](https://www.lazyflea.co.uk/) | market | London | 25 Oct 2026 | closed | Not published. Pitch booking sits behind the approved-trader login. | — |
+| 3 | [Craft & Flea — London, Canada Water](https://eventaly.com/event/london-canada-waters-craft-flea/) | fair | London | 14 Nov 2026 | open | Pitches 6ft x 3ft table top, 6ft x 6ft or 12ft x 6ft; table hire optional. Lond… | — |
+| 3 | [The Lazy Flea (Chiswick, Wandsworth and West London venues)](https://www.lazyflea.co.uk/) | market | London | 14 Nov 2026 | closed | Not published. Pitch booking sits behind the approved-trader login. | — |
 | 3 | [Craft & Flea — Manchester](https://www.thecraftandflea.com/pages/trade-with-us) | fair | Manchester | 15 Nov 2026 | open | From £60 for a 6ft x 3ft table-top pitch (6ft x 6ft from £80, 12ft x 6ft from £… | 1 pc |
 | 3 | [Craft & Flea — Glasgow (Christmas)](https://www.thecraftandflea.com/pages/trade-with-us) | fair | Glasgow | 21 Nov 2026 | open | From £60 for a 6ft x 3ft table-top pitch (prices vary by venue); table hire £10+ | 1 pc |
 | 3 | [Sandown Antiques, Home & Interiors Fair](https://www.sunburyantiques.com/sandown/) | market | London | 17 Jan 2027 | open | Inside tabletop pitch (6ft x 2.5ft table supplied) £80 incl. VAT per fair, extr… | 1 pc |
@@ -69,16 +68,20 @@ Break-even is pitch fee ÷ £84 contribution per piece (D14).
 | 3 | [Appear Here (short-let pop-up marketplace)](https://www.appearhere.co.uk/destinations/london) | popup | London | Always-on marketplace; book by the day, week, month or year | rolling | Varies by listing. Homepage examples on 13 Oct 2026: from £99/day (Kingsland Ro… | — |
 | 3 | [Church Street Antiques Fair](https://alfiesantiques.com/church-street-antiques-fair/) | fair | London | Annual Sunday street fair; last confirmed edition Sun 29 Ju… | unknown | Not published | — |
 | 3 | [Covent Garden Monday Antiques (Jubilee Market & Apple Market)](https://www.coventgarden.london/shop/markets) | market | London | Every Monday: Jubilee Market Antiques & Collectables 5am-5p… | unknown | Not published | — |
-| 3 | [Flea London — Vintage & Makers Market at Hackney Bridge](https://flealondon.com/) | market | London | Weekend market (Sat and Sun, 11:00-17:00) at Hackney Bridge… | unknown | Not published | — |
+| 3 | [Craft & Flea — Brighton](https://eventaly.com/event/brightons-craft-flea-2/) | fair | Brighton | Last held Sat 17 Oct 2026 (per run-1 notes). Eventaly shows… | closed | Pitches 6ft x 3ft table top, 6ft x 6ft or 12ft x 6ft; table hire optional. No B… | — |
+| 3 | [Flea London — Vintage & Makers Market at Hackney Bridge](https://flealondon.com/) | market | London | Every weekend, Sat and Sun 11:00-17:00. The booking form of… | rolling | £45 per day or £85 per weekend; Christmas weekends £55 per day or £100 per week… | 1 pc |
 | 3 | [Grays Antiques](https://www.graysantiques.com/contact) | arcade | London | Permanent; open Mon-Fri 10am-6pm, closed weekends and bank… | rolling | Rent not published; send the retail-space enquiry form | — |
-| 3 | [Judy's — Bristol Vintage Furniture & Flea Market](https://judysvintagefair.com/events/the-bristol-vintage-furniture-flea-market-october/) | fair | Bristol | Last held Sun 11 Oct 2026; no next Bristol date listed yet | rolling | Bristol stall prices not visible until an event is listed (Brighton 2m x 2m is… | — |
-| 3 | [Judy's — Manchester Vintage Furniture & Flea Market](https://judysvintagefair.com/events/the-manchester-vintage-furniture-flea-market-sept/) | fair | Manchester | Last held Sun 27 Sep 2026; no next Manchester date listed y… | rolling | Manchester stall prices not visible (the booking page appears only once an even… | — |
+| 3 | [Judy's — Brighton Vintage Furniture & Flea Market](https://judysvintagefair.com/events/the-brighton-vintage-furniture-flea-market-october/) | fair | Brighton | Last held Sat 24 Oct 2026. No next Brighton date on the tra… | closed | £80 for a 2m x 2m wall stall (3m x 2m £120; 4m x 2m central aisle £160; outside… | 1 pc |
+| 3 | [Judy's — Bristol Vintage Furniture & Flea Market](https://judysvintagefair.com/events/the-bristol-vintage-furniture-flea-market-october/) | fair | Bristol | Last held Sun 11 Oct 2026. No next Bristol date on the trad… | closed | Bristol stall prices not visible until an event is listed (Brighton 2m x 2m is… | — |
+| 3 | [Judy's — Manchester Vintage Furniture & Flea Market](https://judysvintagefair.com/events/the-manchester-vintage-furniture-flea-market-sept/) | fair | Manchester | Last held Sun 27 Sep 2026. No next Manchester date on the t… | closed | Manchester stall prices not visible (the booking page appears only once an even… | — |
 | 3 | [Netil Market — pop-up and retail units (Eat Work Art)](https://eatworkart.com/netil-market) | popup | London | Glass-fronted pop-up unit: available now until 22 Nov 2026,… | open | Pop-up unit £950 per month + 5% service charge; the two-week price is not state… | 12 pc |
+| 3 | [Vintage@The Monastery (Decorative Fairs) — Manchester](https://www.antiques-atlas.com/antique_fair/vintagethe_monastery/af2938) | fair | Manchester | No current date found | unknown | Not published; enquiries go to Decorative Fairs (decorativefairs@me.com, 07809… | — |
 | 2 | [Love Fairs — Brighton Racecourse Antiques & Vintage Fair](https://lovefairs.com/brighton_exhibitors/) | fair | Brighton | 18 Oct 2026 | open | £75 single indoor pitch (6ft x 4ft, one table included); double £110; furniture… | 1 pc |
-| 2 | [Judy's Vintage Furniture & Flea / Big Kensington Vintage Flea Markets](https://judysvintagefair.com/traders/) | fair | London | 24 Oct 2026 | rolling | Stall prices shown only to logged-in approved traders; not published. Cancellat… | — |
 | 2 | [Sunbury Antiques Market at Kempton Park](https://www.sunburyantiques.com/kempton/) | market | London | 27 Oct 2026 | open | Inside stall incl. 6ft x 2.5ft table £85 incl. VAT (extra table £10); outside p… | 2 pc |
+| 2 | [Judy's Vintage Furniture & Flea / Big Kensington Vintage Flea Markets](https://judysvintagefair.com/traders/) | fair | London | 31 Oct 2026 | rolling | Stall prices shown only to logged-in approved traders; not published. Cancellat… | — |
 | 2 | [Southbank Centre Winter Market](https://southbank.london/whats-on/winter-market) | fair | London | 02 Nov 2026 | unknown | Chalet rates not published | — |
 | 2 | [Brighton Etsy Team Christmas Market](https://www.brightonetsyteam.com/christmas-market) | fair | Brighton | 05 Dec 2026 | closed | Not published | — |
+| 2 | [Wimbledon Homes & Antiques Fair (Sunbury Antiques)](https://www.sunburyantiques.com/wimbledon/) | market | London | 04 Apr 2027 | open | Outside pitches only, cash on the day or BACS in advance: car £45, standard van… | 1 pc |
 | 2 | [Afflecks — trader units](https://afflecks.com/pages/space-to-let) | arcade | Manchester | Always-on (Mon–Fri 10:30–6, Sat 10–6, Sun 11–5) | rolling | Weekly licence fee, inclusive of VAT, utilities and business rates; amount not… | — |
 | 2 | [BOXPARK Shoreditch one-week pop-up unit](https://www.appearhere.co.uk/spaces/boxpark-1-week-retail-pop-up) | popup | London | One-week bookings: keys Monday 5pm, trade Tue-Sun, return k… | unknown | £1,000 + VAT per week (300 sq ft unit) incl. service charge, electricity and co… | 12 pc |
 | 2 | [Bermondsey Square Antiques Market](https://www.southwark.gov.uk/business-and-licences/markets-and-street-trading/private-and-community-run-markets/bermondsey) | market | London | Every Friday 6am-2pm | rolling | Not published; ask the organiser (paul@bermondseyantiquemarket.co.uk, 0333 358… | — |

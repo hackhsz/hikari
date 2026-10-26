@@ -29,6 +29,8 @@ Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manches
 - Lazy Flea: /traders and /calendar-1 pages on the Lazy Flea site (applications closed at run 2; watch for reopening)
 - Netil Market units with live prices: https://eatworkart.com/netil-market
 - Truman Brewery markets: https://www.trumanbrewery.com/web/markets.pl
+- Flea London at Hackney Bridge: booking form with dates and prices https://form.jotform.com/FleaLondon/flea-hackney-bridge-date-request (WebFetch reaches flealondon.com even where curl through the proxy resets)
+- Craft & Flea London (Corner Corner, Canada Water): find it on the Craft & Flea Eventaly organiser page
 
 ### Aggregators that were useful as leads (verify before trusting)
 - fleamapket.com event pages (dates for Frock Me!, Sunbury)
@@ -39,6 +41,7 @@ Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manches
 - ma.to / eventslist.co.uk (Hackney Flea Market, Flea London at Hackney Bridge, Lazy Flea): not followed up
 
 ### Search queries that worked
+- Eventaly organiser pages: WebFetch summaries give event names only; curl the HTML and grep the `/event/` links to get every slug and date page
 - "<organiser> become a trader" / "trade with us" / "exhibitors apply"
 - "<market> stallholder booking 2026 pitch price"
 - "Old Truman Brewery markets" leads to trumanbrewery.com/web/markets.pl (Backyard Market, Upmarket, Artisan, Brick Lane Vintage Market; no application route found yet)
@@ -54,9 +57,7 @@ Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manches
 - Classic Car Boot Sale trade deck (Adobe-hosted PDF): unreadable
 
 ### Leads not yet researched
-- Sunbury Wimbledon outdoor fair (2027 dates TBC; £45-£65 outside pitches)
 - Lou Lou's Midcentury Home Market, Canada Water (The Nest, Sun 1 Nov 2026): homeware-led, not on Lou Lou's Eventaly list
-- Flea London at Hackney Bridge: tracked, but flealondon.com would not load at run 2, so dates, fee and route are still null
 
 ### Dead ends (don't re-check)
 - Hackney Flea Market: site 403, nothing confirmed since Oct 2025, no trader route (run 2)
@@ -104,11 +105,14 @@ First run 2026-10-13. These are the pages and searches that actually gave verifi
 - `Brighton Etsy Christmas Market <year> sellers apply`
 
 ### Unresolved leads (worth one more check)
-- **Vintage@The Monastery, Manchester** (Decorative Fairs): no current date. themonastery.co.uk returns 403 to fetches, so phone or email the organiser instead.
-- **Altrincham Market**: altrinchammarket.co.uk was unreachable. Applications go to iwanttotrade@marketoperations.co.uk.
-- **Stockport Vintage Village** (2nd Sunday monthly, Stockport Market Hall): tracked since run 2, but the official site timed out again, so details are unverified. Contact is info@vintagevillagestockportmarket.co.uk.
+- **Vintage@The Monastery, Manchester** (Decorative Fairs): the venue site loads via WebFetch (run 3) and shows no vintage fair since 2022. Probably discontinued; one phone call settles it.
+- **Altrincham Market**: altrinchammarket.co.uk unreachable at runs 1–3; check by hand. Applications go to iwanttotrade@marketoperations.co.uk.
+- **Stockport Vintage Village** (2nd Sunday monthly, Stockport Market Hall): tracked since run 2, but the official site failed at runs 1–3; check by hand. Contact is info@vintagevillagestockportmarket.co.uk.
 - **Levenshulme**: the original Levenshulme Market paused in 2023, and levymarket.com was down. The Levy Artisan Market (Independent Street plus the council, 2nd Sunday) is artisan-led and its rules are unverified.
-- **Craft & Flea Brighton** (St Bart's, Sat 17 Oct 2026): too close to apply this cycle. Watch Eventaly for the next Brighton date.
+- **Craft & Flea Brighton**: tracked since run 3; no bookable date on Eventaly yet.
+- **Ashton Court Antique & Vintage Fair, Bristol**: last seen 2024; contact anniehawksley@blueyonder.co.uk. Unverified.
+- **Stockport Vintage Spectacular** (So Retro Events; last held 12 Jul 2026). Unverified.
+- **Jingle Bell-a-houston, Glasgow** (Christmas market listing preloved fashion). Unverified.
 - **Manchester City Council specialist markets / Christmas Markets**: council pages return 403 to fetches, so use search-engine extracts or a manual browser check.
 
 ### Dead ends (don't re-check)
