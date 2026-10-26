@@ -1397,24 +1397,15 @@ markets:
     is £15 flat on items up to £120, then 15% from £120 to £16,000. Reduced is £15 flat up to £120, then 12%. The
     Reduced rate applies if your monthly repayment (cancellation) rate is 10% or less.'
   commission_pct: 15
-  requires: [Proof of registered business (sole traders eligible), 'VAT number, per help centre (''valid VAT number'';
-      wording is inconsistent for small sole traders)', Pieces must be signed; unsigned jewellery can be refused,
-    Seller ships within 7 days on a prepaid label]
-  watch_out: Unsigned jewellery can be refused or delisted. Mother of pearl is on the import/export restricted list
-    and natural pearls are banned (faux pearls are fine). Listings can be rejected if Vestiaire judges the price
-    too high or too low against comparable sales. Cancellations for authenticity, conformity or late shipping count
-    toward the repayment rate that sets your commission tier. Buyers pay a £15 authentication fee on Authenticated
-    Shipping. Help centre says a VAT number is needed, but the professional-sellers page says sole traders are eligible,
-    so confirm what applies to a non-VAT-registered sole trader.
+  requires: ['Proof of a legally registered business. The en-gb pro page says: ''All we need is proof of your registered business. You''re a sole trader? No problem - you''re eligible too!''', 'VAT number, per the ''Becoming a Professional Seller'' help article (updated 15 Oct 2026): ''The seller must provide proof of a legally registered business and a valid VAT number'' and ''VAT Registration : The seller must have a valid VAT number, confirming that they are registered for VAT purposes''. The same article opens ''you just need to provide proof of your registered business... Sole traders are also eligible!'', and its DAC7 answer says Vestiaire reports the VAT number ''when the seller have one''', Pieces must be signed; unsigned jewellery can be refused, Seller ships within 7 days on a prepaid label]
+  watch_out: Unsigned jewellery can be refused or delisted. Mother of pearl is on the import/export restricted list and natural pearls are banned (faux pearls are fine). Listings can be rejected if Vestiaire judges the price too high or too low against comparable sales. Cancellations for authenticity, conformity or late shipping count toward the repayment rate that sets your commission tier. Buyers pay a £15 authentication fee on Authenticated Shipping. VAT is unresolved, and it matters because we plan to stay VAT-unregistered (docs/17, D14). The help article both says sole traders are eligible and lists a valid VAT number as a required document. 'Apply now' opens a Zendesk ticket form whose fields cannot be read without signing in, so only the application review will settle it. If the VAT number is enforced, the programme is closed to us unless we register. The un-localised /professional-sellers/ URL geo-redirects to the US site, so use /en-gb/.
   fit: 4
   why: 'Strong existing market for signed Chanel/Dior/YSL costume pieces, and UK sellers are supported. On £180,
     15% (£27) leaves a £153 payout, about £57 contribution (12% tier: £158.40, about £62). At a 12.5% premium (£202.50)
     the payout is about £172, about £76 contribution. Docked from 5 because any registered business can join, so
     acceptance is not a credential.'
-  checked: 2026-10-13
-  sources: ['https://www.vestiairecollective.com/professional-sellers/', 'https://faq.vestiairecollective.com/hc/en-gb/articles/11538017492241-Professional-seller-Commission',
-    'https://assets.vestiairecollective.com/email/CRM/2026/Commission+management+B2C.pdf', 'https://faq.vestiairecollective.com/hc/en-gb/articles/4408896527633-Becoming-a-Professional-Seller',
-    'https://faq.vestiairecollective.com/hc/en-gb/articles/16480403093393', 'https://faq.vestiairecollective.com/hc/en-gb/articles/16224868764049-Buyer-What-Shipping-Options-Are-Available-on-Vestiaire-Collective']
+  checked: 2026-10-26
+  sources: ['https://www.vestiairecollective.com/en-gb/professional-sellers/', 'https://faq.vestiairecollective.com/hc/en-gb/articles/11538017492241-Professional-seller-Commission', 'https://assets.vestiairecollective.com/email/CRM/2026/Commission+management+B2C.pdf', 'https://faq.vestiairecollective.com/hc/en-gb/articles/4408896527633-Becoming-a-Professional-Seller', 'https://faq.vestiairecollective.com/hc/en-gb/articles/16480403093393', 'https://faq.vestiairecollective.com/hc/en-gb/articles/16224868764049-Buyer-What-Shipping-Options-Are-Available-on-Vestiaire-Collective']
   decision: new
   our_notes: null
 
@@ -1432,10 +1423,7 @@ markets:
   apply: {status: rolling, deadline: null, opens: null}
   window: null
   fee_gbp: 0
-  cost: 'Free to submit. Seller success fee per Seller Terms valid from 31 Oct 2025: 12.5% plus a fixed €2 for lots
-    selling at €150–299 (€3 at €300–499), excluding VAT. The Help Centre says a revised fee table applies to lots
-    submitted from 17 Aug 2026, but I could not read it (403). Buyers separately pay a Buyer Protection fee, usually
-    9% + £3.'
+  cost: 'Free to submit. The published Seller Terms are still the version ''Valid from 31 October, 2025'' (PDF last modified 23 Dec 2025; no 2026 version found, re-checked 26 Oct 2026). Under them the seller success fee is usually 12.5% plus a fixed €2 for lots selling at €150–299 (€3 at €300–499), excluding VAT, and it ''may differ for certain object categories. If that''s the case, we will let you know.'' The Help Centre says a revised table ''applies to all objects submitted on or after 17 August 2026'', with VAT charged on top depending on where the seller is established. Its figures are still unreadable: the help page and the terms page return 403, and Wayback is unreachable. Buyers separately pay a Buyer Protection fee, usually 9% + £3.'
   commission_pct: 12.5
   requires: [Seller account declared Professional (sells as part of a trade or business), VAT ID for professional
       sellers (registration page says 'if any'; UK sellers send their UK VAT number to switch to Pro), Each lot
@@ -1469,10 +1457,7 @@ markets:
   apply: {status: rolling, deadline: null, opens: null}
   window: null
   fee_gbp: null
-  cost: Not published. The support article (updated 11 Oct 2026) says sellers choose between a lower monthly subscription
-    with a higher commission and a higher subscription with a lower commission. The FY2025 10-K gives commission
-    of 5–50% of GMV depending on category and price, plus processing fees of about 3% of the buyer's payment. A
-    jewellery plan sheet would only come during the application.
+  cost: Not published. Both support articles (updated 25 Oct 2026) say the commission depends on the item type, its price, the membership plan chosen and the business type (for example, a vintage and antiques dealer versus an individual artist). Sellers choose between a low monthly subscription with a higher per-sale commission and a higher subscription with a lower commission. Neither article gives figures, and both name only 'fine jewelry'. The FY2025 10-K gives commission of 5–50% of GMV depending on category and price, plus processing fees of about 3% of the buyer's payment. A jewellery plan sheet would only come during the application.
   commission_pct: null
   requires: [Application with at least two references confirming you are a seller in good standing, 'Expert vetting
       of inventory quality (may include sample requests, social media audit, editorial coverage)', 'No consumer-to-consumer
@@ -1485,10 +1470,8 @@ markets:
     about $649 on the Chanel costume page. Net per £180 cannot be computed because fees are unpublished. With commission
     somewhere in 5–50% plus about 3% processing plus a subscription, it only works if the jewellery plan quote is
     low. Get the plan sheet before committing.
-  checked: 2026-10-13
-  sources: ['https://support.1stdibs.com/hc/en-us/articles/17416136155291-What-Is-the-Monthly-Fee-for-1stDibs',
-    'https://www.1stdibs.com/answers/how-do-you-become-a-dealer-on-1stdibs', 'https://www.1stdibs.com/about/vetted-sellers/',
-    'https://www.sec.gov/Archives/edgar/data/1600641/000160064126000007/dibs-20251231.htm', 'https://www.1stdibs.com/buy/vintage-chanel-costume-jewelry/']
+  checked: 2026-10-26
+  sources: ['https://support.1stdibs.com/hc/en-us/articles/17416136155291-What-Is-the-Monthly-Fee-for-1stDibs', 'https://support.1stdibs.com/hc/en-us/articles/17416185631387-What-Percentage-Does-1stDibs-Take-from-a-Sale', 'https://www.1stdibs.com/answers/how-do-you-become-a-dealer-on-1stdibs', 'https://www.1stdibs.com/about/vetted-sellers/', 'https://www.sec.gov/Archives/edgar/data/1600641/000160064126000007/dibs-20251231.htm', 'https://www.1stdibs.com/buy/vintage-chanel-costume-jewelry/']
   decision: new
   our_notes: null
 
@@ -1539,9 +1522,7 @@ markets:
   apply: {status: open, deadline: null, opens: null}
   window: null
   fee_gbp: 0.15
-  cost: Listing US$0.20 (about £0.15) per 4-month listing. Transaction fee 6.5% of item plus postage. UK payment
-    processing 4% + £0.20. UK Regulatory Operating Fee 0.48% from 22 Jun 2026. Offsite Ads 15% on attributed orders
-    (12% above $10k a year; optional below $10k). A one-time set-up fee may apply. All fees exclude VAT.
+  cost: Listing US$0.20 (about £0.15) per 4-month listing. Transaction fee 6.5% of the order total (item plus postage and gift wrap). UK payment processing 4% + £0.20. UK Regulatory Operating Fee 0.48% from 22 Jun 2026, on item plus postage and gift wrap. Offsite Ads charges 15% of the order total on attributed orders, or 12% once you've made US$10,000 in the past 365 days. It is capped at US$100 per order and optional below $10k. A one-time, non-refundable set-up fee may apply (cost varies by location). All fees exclude VAT.
   commission_pct: 11
   requires: [Open sign-up; no vetting, Vintage items must be at least 20 years old, Etsy may ask for provenance
       of vintage items]
@@ -1553,9 +1534,8 @@ markets:
     On £180, fees are about £20.12 (6.5% + 4% + £0.20 + 0.48% + listing), leaving about £159.88 payout and about
     £64 contribution, before VAT on fees. At £202.50 the payout is about £180, roughly own-site parity, unless Offsite
     Ads fires.
-  checked: 2026-10-13
-  sources: ['https://web.archive.org/web/20260628111944/https://www.etsy.com/uk/legal/fees/', 'https://help.etsy.com/hc/en-gb/articles/115015628847-What-are-Payment-Processing-Fees-for-Selling-on-Etsy',
-    'https://help.etsy.com/hc/en-us/articles/1500011073202-What-is-a-Regulatory-Operating-Fee', 'https://www.etsy.com/legal/policy/vintage-items-on-etsy/242665563649']
+  checked: 2026-10-26
+  sources: ['https://help.etsy.com/hc/en-gb/articles/115014483627-What-are-the-Fees-and-Taxes-for-Selling-on-Etsy', 'https://web.archive.org/web/20260628111944/https://www.etsy.com/uk/legal/fees/', 'https://help.etsy.com/hc/en-gb/articles/115015628847-What-are-Payment-Processing-Fees-for-Selling-on-Etsy', 'https://help.etsy.com/hc/en-us/articles/1500011073202-What-is-a-Regulatory-Operating-Fee', 'https://www.etsy.com/legal/policy/vintage-items-on-etsy/242665563649']
   decision: new
   our_notes: null
 
@@ -1584,7 +1564,7 @@ markets:
   why: Plausible place to clear 90-day stock, with a big UK audience for signed costume jewellery, but no brand
     value. On £180, fees are about £27.85 (14.9% + 0.35% + £0.40), leaving about £152.15 payout and about £56 contribution.
     At £202.50 the payout is about £171.
-  checked: 2026-10-13
+  checked: 2026-10-26
   sources: ['https://www.ebay.co.uk/help/selling/fees-credits-invoices/fees-business-sellers-activated-managed-payments?id=4809',
     'https://community.ebay.co.uk/t5/Announcements/Final-value-fee-increases-for-business-sellers-in-the-Jewellery/ba-p/7545376/',
     'https://www.ebay.co.uk/sellercentre/news/2026-january/rate-card-change']
@@ -1617,7 +1597,7 @@ markets:
   why: 'Zero seller commission makes it the best payout per sale for clearing stale stock: £180 sale leaves £180
     payout (about £84 contribution). Achievable prices for £100–300 designer costume pieces are likely lower, and
     the context dilutes the brand. Use only for 90-day clearance.'
-  checked: 2026-10-13
+  checked: 2026-10-26
   sources: ['https://www.vinted.co.uk/pro-guide', 'https://www.vinted.co.uk/help/1460', 'https://www.vinted.co.uk/pricelist']
   decision: new
   our_notes: null
@@ -1704,7 +1684,7 @@ markets:
   fit: 3
   why: Design-aware audience and a vetted vendor list, and jewellery is explicitly allowed, but it is peripheral
     to Pamono's buyers. Net per £180 cannot be computed (commission unpublished).
-  checked: 2026-10-13
+  checked: 2026-10-26
   sources: ['https://www.pamono.com/becomeavendor-2', 'https://www.pamono.com/becomeavendor', 'https://www.pamono.eu/help']
   decision: new
   our_notes: null
@@ -1734,7 +1714,7 @@ markets:
   why: Genuinely vetted UK trade site that already carries 1980s Dior costume jewellery at £75–345, and no commission
     is mentioned (confirm on application). If there is none, £180 pays out £180 minus payment fees, about £84 contribution,
     less a £40/month fixed fee. The audience is narrow and not brand-enhancing for an editorial label.
-  checked: 2026-10-13
+  checked: 2026-10-26
   sources: ['https://www.antiques-atlas.com/selling/packages/', 'https://www.antiques-atlas.com/antiques/jewellery/french']
   decision: new
   our_notes: null

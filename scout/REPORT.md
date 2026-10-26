@@ -2,21 +2,21 @@
 
 ## This week
 
-**Run 2 · 19 Oct 2026.** 79 tracked, up 10. One new place is at fit 4, three are at fit 3, two at fit 2 and four are ruled out. Nothing is shortlisted yet, so there are no drafts.
+**Run 3 · 26 Oct 2026.** 82 tracked, up 3. Nothing is shortlisted yet, so there are no drafts.
 
 - **Act now:**
-  - **Lou Lou's Vintage Fair, London (Canada Water)** (Sun 15 Nov, fit 4): new this week; run 1 missed it. It's the Manchester fair's format with no travel. Apply on Eventaly by about 30 Oct, since replies take up to 10 working days.
-  - **Same Sunday, two other options:** Midcentury Modern Dulwich still has "a couple of spaces", and Frock Me! Victoria is on that day too (waitlist only). We can do only one of the three.
-  - **Still open:** King's Cross Shōtengai (19–22 Nov, confirmed; enquire via Kiosk N1C) and Lou Lou's Manchester (22 Nov).
-- **New:**
-  - **Lazy Flea, Chiswick** (fit 3): curated vintage with jewellery as a named category. Applications are closed for now; it's being watched.
-  - **Netil Market pop-up unit, Hackney** (fit 3): £950/month, about 12 pieces to break even, bookable only until 22 Nov.
-  - **Flea London, Hackney Bridge** (fit 3): details unverified because the site wouldn't load.
+  - **Lou Lou's Vintage Fair, London (Canada Water)**, Sun 15 Nov (fit 4). To be safe, apply on Eventaly by about **Fri 30 Oct**, since replies take up to 10 working days.
+  - **Same weekend:** the same venue also hosts Craft & Flea London on 14–15 Nov (fit 3, new, makers-led). Midcentury Modern Dulwich is on 15 Nov too.
+  - **Still open:** King's Cross Shōtengai (19–22 Nov) and Lou Lou's Manchester (22 Nov).
+- **Newly verified: Flea London, Hackney Bridge** (fit 3). Every weekend, £45 a day or £85 a weekend, booked through an online date-request form. That's about one piece to break even, making it the cheapest repeatable London test found so far. The catch: it needs **£5m public liability insurance**.
 - **Changed:**
-  - **Frock Me!** is now at 15 Nov, 6 Dec and 7 Feb 2027, still waitlist only.
-  - **Sandown** has finished for 2026; next is 17 Jan 2027 at £80 a table.
-- **Ruled out:** Canopy Market, Charlton House Christmas Market, and Merchant Square and Wasps in Glasgow, all makers only.
-- **Online:** no new marketplaces found. Marketplace fees weren't due for re-checking this week and will be next week.
+  - **Judy's Brighton, Bristol and Manchester** have no next dates announced, so they're marked closed until new dates appear.
+  - **Vintage@The Monastery** looks discontinued, with no fair since 2022 (fit 4 → 3).
+  - **Lazy Flea** is next on 14–15 Nov (Wandsworth) and 12–13 Dec (Chiswick House). Applications are still closed.
+- **Online:** fees unchanged at Vestiaire (15%, or 12% on the better tier), Etsy, eBay and Vinted.
+  - **Vestiaire:** whether you need a VAT number is still unsettled. Its own help article says both "sole traders are eligible" and "must have a valid VAT number". Only Vestiaire can answer, so that's a question for you to send.
+  - **Not verified:** Catawiki's new fee table (from 17 Aug), 1stDibs's figures, and the Ruby Lane and Vintage Bar pages were all unreadable this week.
+- **New, low fit:** Craft & Flea Brighton (no dates yet) and Sunbury's Wimbledon outdoor fair (2027 dates out; car-boot frame, fit 2).
 - **Gate:** unchanged. Every physical option still runs ahead of [D3](../docs/DECISIONS.md).
 
 > **Gates.** Physical fairs and pop-ups come after the website converts ([D3](../docs/DECISIONS.md)). Marketplaces are outposts, not the home ([D1](../docs/DECISIONS.md)). Both are tracked now because applications open months ahead. How it works: [README](README.md).
@@ -102,11 +102,11 @@ Commission shown on a £200 listing — the own-site £180 plus the outpost prem
 
 | Fit | Name | Apply | Commission | On £200 | Cost |
 |---|---|---|---|---|---|
-| 4 | [Catawiki (expert-curated weekly auctions, incl. Vintage Fashion Jewellery)](https://www.catawiki.com/en/help/become-a-seller/how-does-selling-on-catawiki-work) | rolling | 12.5% | £25 | Free to submit. Seller success fee per Seller Terms valid from 31 Oct 2025: 12.… |
+| 4 | [Catawiki (expert-curated weekly auctions, incl. Vintage Fashion Jewellery)](https://www.catawiki.com/en/help/become-a-seller/how-does-selling-on-catawiki-work) | rolling | 12.5% | £25 | Free to submit. The published Seller Terms are still the version 'Valid from 31… |
 | 4 | [Vestiaire Collective (Professional Seller programme)](https://www.vestiairecollective.com/professional-sellers/) | rolling | 15% | £30 | No subscription or listing fee found. Pro commission in GBP, per the rate sheet… |
-| 3 | [1stDibs](https://www.1stdibs.com/about/vetted-sellers/) | rolling | — | — | Not published. The support article (updated 11 Oct 2026) says sellers choose be… |
+| 3 | [1stDibs](https://www.1stdibs.com/about/vetted-sellers/) | rolling | — | — | Not published. Both support articles (updated 25 Oct 2026) say the commission d… |
 | 3 | [Antiques Atlas](https://www.antiques-atlas.com/selling/packages/) | rolling | — | — | Subscription. The packages page mentions no commission, but does not explicitly… |
-| 3 | [Etsy (open, not vetted; fit reference)](https://www.etsy.com/uk/sell) | open | 11% | £22 | Listing US$0.20 (about £0.15) per 4-month listing. Transaction fee 6.5% of item… |
+| 3 | [Etsy (open, not vetted; fit reference)](https://www.etsy.com/uk/sell) | open | 11% | £22 | Listing US$0.20 (about £0.15) per 4-month listing. Transaction fee 6.5% of the… |
 | 3 | [Pamono](https://www.pamono.com/becomeavendor) | rolling | — | — | Commission and fees not published on the vendor pages (null). |
 | 3 | [Ruby Lane](https://www.rubylane.com/sell) | rolling | 9.9% | £20 | US$45/month shop fee (about £34) covers unlimited items; joining and listing ar… |
 | 3 | [The Vintage Bar (partner programme)](https://thevintagebar.com/how-it-works) | rolling | — | — | Partner commission is not published; per the partner page it is 'settled indivi… |
