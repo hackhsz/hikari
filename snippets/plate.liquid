@@ -20,7 +20,7 @@
       assign img_alt = alt | default: ''
     -%}
     {%- comment -%} Arguments are plain variables: a filter inside an argument list (alt: alt | default: '')
-        ends image_tag there, and every argument after it is dropped. {%- endcomment -%}
+        ends image_tag there, and every argument after it is silently dropped. {%- endcomment -%}
     {%- if contain -%}{{ image | image_url: width: 240 | image_tag: loading: 'lazy', alt: '', class: 'plate-bg', aria-hidden: 'true', widths: '240', sizes: '240px' }}{%- endif -%}
     {{ image | image_url: width: w | image_tag: loading: 'lazy', alt: img_alt, sizes: img_sizes, style: obj_style }}
   {%- elsif image -%}
