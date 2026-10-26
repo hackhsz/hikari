@@ -14,8 +14,9 @@
     {%- liquid
       assign focal = image.presentation.focal_point | default: '50% 50%'
       assign obj_style = 'object-position: ' | append: focal
+      assign img_sizes = sizes | default: '100vw'
     -%}
-    {{ image | image_url: width: w | image_tag: loading: 'lazy', alt: alt | default: '', sizes: sizes | default: '100vw', style: obj_style }}
+    {{ image | image_url: width: w | image_tag: loading: 'lazy', alt: alt | default: '', sizes: img_sizes, style: obj_style }}
   {%- elsif image -%}
     {{ image | image_url: width: w | image_tag: loading: 'lazy', alt: alt | default: '' }}
   {%- else -%}
