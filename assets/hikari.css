@@ -424,6 +424,7 @@ html.js .card .qv-btn{display:block}
 .notify-row .btn{flex:0 0 auto;width:auto;padding:15px 22px}
 .notify-fine{font-size:12px;line-height:1.5;opacity:.62;margin:10px 0 0;max-width:46ch}
 .notify-ok{font-size:13px;margin:10px 0 0;color:var(--midori);font-weight:500}
+.saved-body{padding:4px 24px 24px}.saved-msg{margin:0 0 20px;font-size:15px;line-height:1.5}.saved-body .btn{width:100%}
 
 /* ── full-screen photographs ───────────────────────────────── */
 .sheet--zoom .sheet-panel{left:0;right:0;width:100%;transform:none;background:var(--paper)}

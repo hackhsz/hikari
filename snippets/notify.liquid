@@ -6,9 +6,14 @@
 
   The fine print says what they are signing up for, because they are signing up to the list
   as well (UK GDPR, PECR). It is not pre-ticked consent; it is the purpose of the form.
+
+  With JavaScript the form saves in the background and the "Saved" sheet (snippets/dialogs)
+  opens with the ok line, so the visitor stays where they were. Without it, or when Shopify
+  asks for a spam check first, the page posts as normal and the ok line shows under the form.
 {%- endcomment -%}
 {%- form 'customer', id: form_id, class: 'notify' -%}
   <input type="hidden" name="contact[tags]" value="{{ tags | escape }}">
+  <span hidden data-notify-ok>{{ ok }}</span>
   <p class="notify-h">{{ heading }}</p>
   <div class="notify-row">
     <label class="vh" for="{{ form_id }}-email">{{ 'general.email.label' | t }}</label>

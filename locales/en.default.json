@@ -31,6 +31,10 @@
     },
     "account": {
       "not_styled": "Account pages are not styled yet. Guest checkout is enabled and is the default."
+    },
+    "saved": {
+      "heading": "Saved",
+      "back": "Back to the piece"
     }
   },
   "layout": {
@@ -93,10 +97,10 @@
     "notify": {
       "release_heading": "Tell me when it goes live",
       "release_fine": "One email when this piece goes on sale, then the monthly letter. Unsubscribe any time.",
-      "release_ok": "Done. You will hear the moment it goes live.",
+      "release_ok": "We'll email you the moment it goes live.",
       "similar_heading": "Tell me when something like this arrives",
       "similar_fine": "An email when a similar piece from this house comes in, and the Edition. Unsubscribe any time.",
-      "similar_ok": "Done. We will write when a similar piece comes in.",
+      "similar_ok": "We'll write when a similar piece comes in.",
       "submit": "Notify me"
     },
     "frames": {

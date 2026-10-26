@@ -31,6 +31,10 @@
     },
     "account": {
       "not_styled": "Las páginas de cuenta aún no tienen diseño. Se puede comprar como invitado, y es la opción predeterminada."
+    },
+    "saved": {
+      "heading": "Guardado",
+      "back": "Volver a la pieza"
     }
   },
   "layout": {
@@ -93,10 +97,10 @@
     "notify": {
       "release_heading": "Avísame cuando esté disponible",
       "release_fine": "Un correo cuando esta pieza salga a la venta y, después, la carta mensual. Puedes darte de baja cuando quieras.",
-      "release_ok": "Hecho. Te avisaremos en cuanto esté disponible.",
+      "release_ok": "Te avisaremos en cuanto esté disponible.",
       "similar_heading": "Avísame cuando llegue algo parecido",
       "similar_fine": "Un correo cuando llegue una pieza parecida de esta casa, y la Edición. Puedes darte de baja cuando quieras.",
-      "similar_ok": "Hecho. Te escribiremos cuando llegue una pieza parecida.",
+      "similar_ok": "Te escribiremos cuando llegue una pieza parecida.",
       "submit": "Avísame"
     },
     "frames": {

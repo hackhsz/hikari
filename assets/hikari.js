@@ -360,6 +360,7 @@
       if(f.id==="popup-form") sstore("hk-popup-sent","1");
       if(f.id==="popup-form"||f.id==="edition-form") keepForPrefs(f);
       if(f.matches(".prefs")){ e.preventDefault(); savePrefs(f); return; }
+      if(f.matches(".notify")){ e.preventDefault(); saveNotify(f); return; }
       if(!f.matches('form[action$="/cart/add"]')) return;
       e.preventDefault(); addToBag(f);
     });
@@ -630,6 +631,34 @@
     }).catch(function(){ f.submit(); });
   }
 
+  /* ── Notify me (snippets/notify): saved in the background, then "Saved" (#saved) ──
+     The visitor never leaves the page. A spam check or a bad address falls back to a normal
+     post; the form's id is kept so the sheet still opens when Shopify brings them back. */
+  function showSaved(f,trigger){
+    var sheet=document.getElementById("saved"), ok=f.querySelector("[data-notify-ok]");
+    if(!sheet) return;
+    sheet.querySelector("[data-saved-msg]").textContent=ok?ok.textContent:"";
+    openSheetById("saved",trigger);
+  }
+  function saveNotify(f){
+    var b=f.querySelector('[type="submit"]'); if(b) b.setAttribute("aria-busy","true");
+    fetch(f.action,{method:"POST",body:new FormData(f),credentials:"same-origin"}).then(function(r){
+      if(!r.ok||!/[?&]customer_posted=true/.test(r.url)) throw new Error("not saved");
+      if(b) b.removeAttribute("aria-busy");
+      f.reset(); showSaved(f,b);
+    }).catch(function(){ sstore("hk-notify-sent",f.id); f.submit(); });
+  }
+  function initNotify(){
+    var id=sstore("hk-notify-sent"); if(!id) return;
+    sstore("hk-notify-sent",null);
+    var f=document.getElementById(id);
+    if(f&&/[?&]customer_posted=true/.test(location.search)){
+      showSaved(f);
+      /* so a refresh doesn't say it again */
+      history.replaceState(null,"",location.pathname+location.search.replace(/[?&]customer_posted=true/,"").replace(/^&/,"?")+location.hash);
+    }
+  }
+
   /* ── language (snippets/language-switcher) ─────────────────
      Choosing a language sends the form. Arrow keys on a closed select fire change in some
      browsers, so a choice made from the keyboard waits for Enter, or for focus to move on. */
@@ -659,7 +688,7 @@
   function boot(){
     root.classList.add("js");
     initPlates(); initScroll(); bindOnce(); syncButtons();
-    initZoom(); initSpin(); initCountdown(); initCatalog(); initPrefs(); initPopup(); initLang(); initMisc();
+    initZoom(); initSpin(); initCountdown(); initCatalog(); initPrefs(); initPopup(); initNotify(); initLang(); initMisc();
   }
   if(document.readyState!=="loading") boot(); else document.addEventListener("DOMContentLoaded",boot);
   document.addEventListener("shopify:section:load",boot);

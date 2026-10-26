@@ -4,7 +4,23 @@
     #qv      Quick view. Empty until a card's Quick view button fills it from sections/quick-view.
     #wechat  The WeChat QR code and ID (snippets/social). WeChat has no web profile to link to,
              so a scan is the way in.
+    #saved   "Saved", after a Notify me form (snippets/notify) has gone through. The line under
+             the heading is that form's own ok text; closing it leaves the visitor where they were.
 {%- endcomment -%}
+<div class="sheet sheet--center sheet--small" id="saved" aria-hidden="true" inert>
+  <div class="sheet-scrim" data-sheet-close></div>
+  <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="saved-title" tabindex="-1">
+    <div class="sheet-head">
+      <h2 class="sheet-title" id="saved-title">{{ 'general.saved.heading' | t }}</h2>
+      <button type="button" class="sheet-x" data-sheet-close>{{ 'general.close' | t }}</button>
+    </div>
+    <div class="saved-body">
+      <p class="saved-msg" data-saved-msg role="status"></p>
+      <button type="button" class="btn" data-sheet-close>{{ 'general.saved.back' | t }}</button>
+    </div>
+  </div>
+</div>
+
 <div class="sheet sheet--center" id="qv" aria-hidden="true" inert>
   <div class="sheet-scrim" data-sheet-close></div>
   <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="qv-title" tabindex="-1">
