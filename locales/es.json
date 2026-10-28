@@ -59,6 +59,10 @@
     "localization": {
       "language": "Idioma",
       "submit": "Cambiar"
+    },
+    "shop_nav": {
+      "label": "Tienda",
+      "all": "Todas las piezas"
     }
   },
   "products": {
@@ -131,7 +135,8 @@
       "similar": "Saber de piezas parecidas",
       "details": "Todas las fotografías y los detalles",
       "details_spin": "Todas las fotografías, la vista de 360° y los detalles"
-    }
+    },
+    "seo_tail": "{{ house }} vintage auténtico, encontrado en Japón y enviado desde Londres."
   },
   "cart": {
     "empty_heading": "Todavía no hay nada en la bolsa.",
@@ -171,14 +176,16 @@
       "all": "Todas",
       "everything": "Todo",
       "available": "Disponibles",
-      "on_sale": "En rebaja"
+      "on_sale": "En rebaja",
+      "label": "Filtrar"
     },
     "categories": {
       "earrings": "Pendientes",
       "brooches": "Broches",
       "necklaces": "Collares",
       "bracelets": "Pulseras",
-      "rings": "Anillos"
+      "rings": "Anillos",
+      "sunglasses": "Gafas de sol"
     },
     "sort": {
       "label": "Ordenar",
@@ -189,7 +196,9 @@
       "vendor": "Marca, de la A a la Z"
     },
     "empty": "Nada coincide con eso.",
-    "reset": "Mostrar todo"
+    "reset": "Mostrar todo",
+    "all_title": "Joyería vintage de diseñador",
+    "all_intro": "Joyas vintage de Christian Dior y Chanel, encontradas en Japón y fotografiadas en nuestra propia mesa en Londres. Cada pieza es única."
   },
   "house": {
     "vintage_jewellery": "Joyería vintage",
@@ -213,7 +222,9 @@
     "brand_image_to_follow": "Imagen de la marca en camino",
     "goes_live_edition": "Disponible con la Edición: {{ day }}",
     "see_them_all": "Verlas todas",
-    "record_sold": "{{ house }} · vendida"
+    "record_sold": "{{ house }} · vendida",
+    "all_pieces": "Las {{ count }} piezas",
+    "see_all": "Ver todas las piezas"
   },
   "signup": {
     "placeholder": "tu@correo.com",

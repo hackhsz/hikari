@@ -1,82 +1,116 @@
 {%- comment -%}
   The catalogue. Each piece carries its brand (Vendor), category (the first of the category tags
-  below that it has), status (snippets/status), price and date as data, and the bar over the grid
-  filters and sorts them in the page: brand, category, what to show, and the order. The address
-  keeps the view (?brand= &cat= &show= &sort_by=), so a filtered view can be linked to; the home
-  page shelves link here with ?show=sale or ?show=presale.
+  below that it has), status (snippets/status), price and date as data, and the sidebar filters
+  them in the page: category, house and what to show; Sort sits over the grid. The address keeps
+  the view (?brand= &cat= &show= &sort_by=), so a filtered view can be linked to; the header's
+  shop line (snippets/shop-nav) and the home page link here that way.
 
-  Without JavaScript only Sort shows, and it falls back on Shopify's own ?sort_by=, done by the
-  server. This works on the first 50 pieces Shopify lists; past that, move to Shopify's own
-  filters (Search & Discovery) and paginate.
+  On a laptop the filters are a sidebar beside the grid; on a phone they fold behind a Filter
+  button above it. Each choice shows how many pieces it has. Without JavaScript only Sort shows,
+  and it falls back on Shopify's own ?sort_by=, done by the server. This works on the first 50
+  pieces Shopify lists; past that, move to Shopify's own filters (Search & Discovery) and paginate.
 
-  A piece's category is a product tag: earrings, brooches, necklaces, bracelets or rings. Its name
-  on the chip comes from collections.categories in the locale file; the tag stays the value.
+  A piece's category is a product tag: necklaces, earrings, bracelets, rings, brooches or
+  sunglasses. Its name comes from collections.categories in the locale file; the tag is the value.
+  The all-products collection gets a real title and a line about the shop (collections.all_title,
+  all_intro) instead of Shopify's "Products", for people and for search engines.
 {%- endcomment -%}
-{%- assign cat_tags = 'earrings,brooches,necklaces,bracelets,rings' | split: ',' -%}
-{%- assign cats_here = '' -%}
-{%- for t in cat_tags -%}{%- if collection.all_tags contains t -%}{%- assign cats_here = cats_here | append: t | append: ',' -%}{%- endif -%}{%- endfor -%}
-{%- assign cats_here = cats_here | split: ',' -%}
-{%- assign sort_now = collection.sort_by | default: collection.default_sort_by -%}
+{%- liquid
+  assign cat_tags = 'necklaces,earrings,bracelets,rings,brooches,sunglasses' | split: ','
+  assign cats_here = ''
+  for t in cat_tags
+    if collection.all_tags contains t
+      assign cats_here = cats_here | append: t | append: ','
+    endif
+  endfor
+  assign cats_here = cats_here | split: ','
+  assign sort_now = collection.sort_by | default: collection.default_sort_by
+  assign has = ''
+  for p in collection.products
+    capture st
+      render 'status', p: p
+    endcapture
+    assign has = has | append: ' ' | append: st | append: ' '
+  endfor
+  if collection.handle == 'all'
+    assign title = 'collections.all_title' | t
+  else
+    assign title = collection.title
+  endif
+-%}
 <section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
   <div class="shell">
     <p class="eyebrow" data-cat-count>{{ 'collections.pieces' | t: count: collection.products_count }}</p>
-    <h1 style="font-family:var(--serif);font-weight:200;font-size:clamp(34px,7vw,64px);line-height:1;margin:0 0 18px">{{ collection.title }}</h1>
+    <h1 class="cat-h">{{ title }}</h1>
     {%- if collection.description != blank -%}
-      <div class="rte" style="max-width:56ch;opacity:.72;margin-bottom:clamp(36px,6vw,56px)">{{ collection.description }}</div>
+      <div class="rte cat-intro">{{ collection.description }}</div>
+    {%- elsif collection.handle == 'all' -%}
+      <p class="cat-intro">{{ 'collections.all_intro' | t }}</p>
     {%- endif -%}
 
-    <div class="cat-bar">
-      <div class="cat-filters" data-cat-filters hidden>
-        <fieldset class="prefs-set">
-          <legend>{{ 'collections.filters.brand' | t }}</legend>
-          <label class="prefs-chip"><input type="radio" name="cat-brand" value="" checked><span>{{ 'collections.filters.all' | t }}</span></label>
-          {%- for v in collection.all_vendors -%}
-            <label class="prefs-chip"><input type="radio" name="cat-brand" value="{{ v | handleize }}"><span>{{ v }}</span></label>
-          {%- endfor -%}
-        </fieldset>
+    <div class="cat-layout" data-cat-layout>
+      <aside class="cat-side" id="cat-side" data-cat-filters hidden aria-label="{{ 'collections.filters.label' | t }}">
         {%- if cats_here.size > 0 -%}
-          <fieldset class="prefs-set">
+          <fieldset class="side-set">
             <legend>{{ 'collections.filters.category' | t }}</legend>
-            <label class="prefs-chip"><input type="radio" name="cat-cat" value="" checked><span>{{ 'collections.filters.all' | t }}</span></label>
+            <label class="side-opt"><input type="radio" name="cat-cat" value="" checked><span>{{ 'collections.filters.all' | t }}</span><span class="n" data-n></span></label>
             {%- for ct in cats_here -%}
               {%- assign ck = 'collections.categories.' | append: ct -%}
-              <label class="prefs-chip"><input type="radio" name="cat-cat" value="{{ ct }}"><span>{{ ck | t }}</span></label>
+              <label class="side-opt"><input type="radio" name="cat-cat" value="{{ ct }}"><span>{{ ck | t }}</span><span class="n" data-n></span></label>
             {%- endfor -%}
           </fieldset>
         {%- endif -%}
-        <fieldset class="prefs-set">
+        {%- if collection.all_vendors.size > 1 -%}
+          <fieldset class="side-set">
+            <legend>{{ 'collections.filters.brand' | t }}</legend>
+            <label class="side-opt"><input type="radio" name="cat-brand" value="" checked><span>{{ 'collections.filters.all' | t }}</span><span class="n" data-n></span></label>
+            {%- for v in collection.all_vendors -%}
+              <label class="side-opt"><input type="radio" name="cat-brand" value="{{ v | handleize }}"><span>{{ v }}</span><span class="n" data-n></span></label>
+            {%- endfor -%}
+          </fieldset>
+        {%- endif -%}
+        <fieldset class="side-set">
           <legend>{{ 'collections.filters.show' | t }}</legend>
-          <label class="prefs-chip"><input type="radio" name="cat-show" value="" checked><span>{{ 'collections.filters.everything' | t }}</span></label>
-          <label class="prefs-chip"><input type="radio" name="cat-show" value="available"><span>{{ 'collections.filters.available' | t }}</span></label>
-          <label class="prefs-chip"><input type="radio" name="cat-show" value="sale"><span>{{ 'collections.filters.on_sale' | t }}</span></label>
-          <label class="prefs-chip"><input type="radio" name="cat-show" value="presale"><span>{{ 'products.badge.pre_sale' | t }}</span></label>
+          <label class="side-opt"><input type="radio" name="cat-show" value="" checked><span>{{ 'collections.filters.everything' | t }}</span><span class="n" data-n></span></label>
+          {%- if has contains ' soon ' -%}<label class="side-opt"><input type="radio" name="cat-show" value="soon"><span>{{ 'products.badge.coming_soon' | t }}</span><span class="n" data-n></span></label>{%- endif -%}
+          <label class="side-opt"><input type="radio" name="cat-show" value="available"><span>{{ 'collections.filters.available' | t }}</span><span class="n" data-n></span></label>
+          {%- if has contains ' sale ' -%}<label class="side-opt"><input type="radio" name="cat-show" value="sale"><span>{{ 'collections.filters.on_sale' | t }}</span><span class="n" data-n></span></label>{%- endif -%}
+          {%- if has contains ' presale ' -%}<label class="side-opt"><input type="radio" name="cat-show" value="presale"><span>{{ 'products.badge.pre_sale' | t }}</span><span class="n" data-n></span></label>{%- endif -%}
+          {%- if has contains ' sold ' -%}<label class="side-opt"><input type="radio" name="cat-show" value="sold"><span>{{ 'products.product.sold_out' | t }}</span><span class="n" data-n></span></label>{%- endif -%}
         </fieldset>
-      </div>
-      <form class="cat-sort" method="get">
-        <label for="cat-sort-by">{{ 'collections.sort.label' | t }}</label>
-        <select id="cat-sort-by" name="sort_by" data-cat-sort>
-          {%- assign sorts = 'manual,price-ascending,price-descending,created-descending,vendor' | split: ',' -%}
-          {%- for s in sorts -%}
-            {%- assign sk = 'collections.sort.' | append: s | replace: '-', '_' -%}
-            <option value="{{ s }}"{% if s == sort_now %} selected{% endif %}>{{ sk | t }}</option>
-          {%- endfor -%}
-        </select>
-        <noscript><button type="submit" class="prefs-skip">{{ 'collections.sort.label' | t }}</button></noscript>
-      </form>
-    </div>
+        <button type="button" class="prefs-skip side-reset" data-cat-reset>{{ 'collections.reset' | t }}</button>
+      </aside>
 
-    <div class="grid4" data-cat-grid>
-      {%- for p in collection.products -%}
-        {%- capture st -%}{%- render 'status', p: p -%}{%- endcapture -%}
-        {%- assign c = '' -%}
-        {%- for t in cat_tags -%}{%- if p.tags contains t -%}{%- assign c = t -%}{%- break -%}{%- endif -%}{%- endfor -%}
-        <div class="cat-item" data-pos="{{ forloop.index }}" data-brand="{{ p.vendor | handleize }}" data-vendor="{{ p.vendor | escape }}"
-             data-cat="{{ c }}" data-status="{{ st }}" data-price="{{ p.price }}" data-date="{{ p.published_at | date: '%s' }}">
-          {%- render 'product-card', card_product: p, tone: 'grey' -%}
+      <div class="cat-main">
+        <div class="cat-bar">
+          <button type="button" class="cat-filter-btn" data-cat-toggle aria-controls="cat-side" aria-expanded="false" hidden>{{ 'collections.filters.label' | t }}</button>
+          <form class="cat-sort" method="get">
+            <label for="cat-sort-by">{{ 'collections.sort.label' | t }}</label>
+            <select id="cat-sort-by" name="sort_by" data-cat-sort>
+              {%- assign sorts = 'manual,price-ascending,price-descending,created-descending,vendor' | split: ',' -%}
+              {%- for s in sorts -%}
+                {%- assign sk = 'collections.sort.' | append: s | replace: '-', '_' -%}
+                <option value="{{ s }}"{% if s == sort_now %} selected{% endif %}>{{ sk | t }}</option>
+              {%- endfor -%}
+            </select>
+            <noscript><button type="submit" class="prefs-skip">{{ 'collections.sort.label' | t }}</button></noscript>
+          </form>
         </div>
-      {%- endfor -%}
+
+        <div class="grid4 cat-grid" data-cat-grid>
+          {%- for p in collection.products -%}
+            {%- capture st -%}{%- render 'status', p: p -%}{%- endcapture -%}
+            {%- assign c = '' -%}
+            {%- for t in cat_tags -%}{%- if p.tags contains t -%}{%- assign c = t -%}{%- break -%}{%- endif -%}{%- endfor -%}
+            <div class="cat-item" data-pos="{{ forloop.index }}" data-brand="{{ p.vendor | handleize }}" data-vendor="{{ p.vendor | escape }}"
+                 data-cat="{{ c }}" data-status="{{ st }}" data-price="{{ p.price }}" data-date="{{ p.published_at | date: '%s' }}">
+              {%- render 'product-card', card_product: p, tone: 'grey', card_sizes: '(max-width: 600px) 50vw, (max-width: 900px) 33vw, 280px' -%}
+            </div>
+          {%- endfor -%}
+        </div>
+        <p class="ne-empty cat-empty" data-cat-empty hidden>{{ 'collections.empty' | t }} <button type="button" class="prefs-skip" data-cat-reset>{{ 'collections.reset' | t }}</button></p>
+      </div>
     </div>
-    <p class="ne-empty cat-empty" data-cat-empty hidden>{{ 'collections.empty' | t }} <button type="button" class="prefs-skip" data-cat-reset>{{ 'collections.reset' | t }}</button></p>
   </div>
 </section>
 {% schema %}{ "name": "Collection", "settings": [] }{% endschema %}

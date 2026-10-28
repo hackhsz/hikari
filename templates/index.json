@@ -6,11 +6,20 @@
         "image": "shopify://shop_images/karineko-banner-walnut-tray.jpg",
         "image_mobile": "shopify://shop_images/karineko-banner-walnut-tray-phone.jpg",
         "image_alt": "Vintage Dior jewellery on a walnut tray in late sun: a crystal CD pendant, Dior logo earrings, a rope knot brooch, an oval CD pendant and an oblique tag pendant",
-        "height": "standard"
+        "height": "standard",
+        "layout": "split",
+        "eyebrow": "Vintage designer jewellery · Found in Japan",
+        "heading": "Vintage Dior and Chanel jewellery, found in Japan.",
+        "body": "<p>One of one, authenticated, and photographed on our own table in London. UK duty paid, and we ship worldwide.</p>",
+        "link_label": "Shop all pieces",
+        "link": "shopify://collections/all",
+        "link2_label": "See what's coming soon",
+        "link2": "/collections/all?show=soon"
       }
     },
     "alcove": {
-      "type": "alcove"
+      "type": "alcove",
+      "disabled": true
     },
     "featured": {
       "type": "featured",
@@ -29,7 +38,8 @@
         "a",
         "b",
         "c"
-      ]
+      ],
+      "disabled": true
     },
     "houses": {
       "type": "houses",
@@ -95,16 +105,21 @@
       }
     },
     "recent": {
-      "type": "recent"
+      "type": "recent",
+      "disabled": true
     },
     "record": {
-      "type": "record"
+      "type": "record",
+      "settings": {
+        "heading": "Recently sold"
+      }
     },
     "signup": {
       "type": "signup"
     },
     "next": {
-      "type": "next-edition"
+      "type": "next-edition",
+      "disabled": true
     },
     "shelf-presale": {
       "type": "shelf",
@@ -121,19 +136,41 @@
         "eyebrow": "On sale",
         "heading": "A little less, still one of one"
       }
+    },
+    "trust": {
+      "type": "trust-strip",
+      "settings": {}
+    },
+    "categories": {
+      "type": "shop-categories",
+      "settings": {
+        "eyebrow": "Shop by category",
+        "heading": "What are you looking for?"
+      }
+    },
+    "new_in": {
+      "type": "new-in",
+      "settings": {
+        "eyebrow": "New in",
+        "heading": "Just arrived from Japan",
+        "count": 8
+      }
     }
   },
   "order": [
     "hero",
-    "alcove",
-    "featured",
-    "next",
+    "trust",
+    "categories",
+    "new_in",
     "shelf-presale",
     "shelf-sale",
     "houses",
     "story",
-    "recent",
     "record",
-    "signup"
+    "signup",
+    "alcove",
+    "featured",
+    "next",
+    "recent"
   ]
 }

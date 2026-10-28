@@ -610,3 +610,98 @@ s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thicknes
   .card .crow .price{font-size:14px}
   .card .crow .when{font-size:10px;letter-spacing:.04em}
 }
+
+/* ── the shop line under the masthead, and the phone menu's shop list (snippets/shop-nav) ── */
+.shop-nav{border-top:1px solid var(--rule)}
+.shop-nav-in{max-width:var(--max);margin:0 auto;padding:0 var(--gut);display:flex;gap:clamp(16px,2.2vw,28px);overflow-x:auto;scrollbar-width:none}
+.shop-nav-in::-webkit-scrollbar{display:none}
+.sn{font-size:13px;padding:11px 0 10px;white-space:nowrap;opacity:.8;border-bottom:1.5px solid transparent;transition:opacity .2s}
+.sn:hover{opacity:1}
+.sn[aria-current]{opacity:1;border-bottom-color:currentColor}
+.sn--house{font-family:var(--serif);font-size:15px}
+.sn--soon{color:var(--midori);font-weight:600;opacity:1}
+@media (max-width:760px){.shop-nav{display:none}}
+#menu .sheet-panel{overflow-y:auto}
+.menu-shop{display:flex;flex-direction:column;padding:6px 24px 0;flex:0 0 auto}
+.ms{font-size:17px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.ms--house{font-family:var(--serif);font-size:20px}
+.ms--soon{color:var(--midori);font-weight:600}
+.menu-shop + .menu-links{flex:0 0 auto}
+.menu-shop + .menu-links a{font-size:22px;padding:10px 0}
+
+/* ── catalogue: sidebar beside the grid; on a phone, behind a Filter button (sections/main-collection) ── */
+.cat-h{font-family:var(--serif);font-weight:200;font-size:clamp(34px,6vw,58px);line-height:1;margin:0 0 14px}
+.cat-intro{max-width:62ch;opacity:.72;margin:0 0 clamp(28px,4vw,44px);font-size:14.5px;line-height:1.65}
+.cat-layout{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(28px,4vw,56px);align-items:start}
+.cat-side{position:sticky;top:116px}
+.cat-side[hidden]{display:none}
+.side-set{border:0;padding:0;margin:0 0 26px;min-width:0}
+.side-set legend{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.6;padding:0;margin:0 0 8px}
+.side-opt{position:relative;display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:8px 0;cursor:pointer;font-size:14px;
+  border-bottom:1px solid color-mix(in srgb,currentColor 9%,transparent)}
+.side-opt input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.side-opt .n{font-size:11.5px;opacity:.5}
+.side-opt:hover input + span{text-decoration:underline}
+.side-opt input:checked + span{font-weight:600}
+.side-opt input:checked + span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--midori);margin-inline-end:8px;vertical-align:2px}
+.side-opt input:focus-visible + span{outline:2px solid currentColor;outline-offset:2px}
+.side-reset{margin-top:2px}
+.cat-main .cat-bar{align-items:center;margin:0 0 20px}
+.cat-main .cat-sort{margin-inline-start:auto}
+.cat-main .grid4{grid-template-columns:repeat(3,minmax(0,1fr))}
+.cat-filter-btn{display:none;font:inherit;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:inherit;background:transparent;
+  border:1px solid color-mix(in srgb,currentColor 32%,transparent);border-radius:2px;padding:10px 16px;cursor:pointer}
+.cat-filter-btn[aria-expanded="true"]{background:color-mix(in srgb,currentColor 10%,transparent)}
+@media (max-width:899px){
+  .cat-layout{display:flex;flex-direction:column;gap:0}
+  .cat-main{display:contents}
+  .cat-main .cat-bar{order:1;width:100%}
+  .cat-side{order:2;position:static;display:none;width:100%;padding:4px 0 18px}
+  .cat-layout.filters-open .cat-side:not([hidden]){display:block}
+  .cat-grid{order:3;width:100%}
+  .cat-empty{order:4}
+  .cat-filter-btn:not([hidden]){display:inline-block}
+  .cat-main .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* ── home: section heads, the trust line, shop by category, new in ── */
+.pad-s{padding-block:clamp(44px,7vw,88px)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;margin:0 0 clamp(22px,3vw,34px)}
+.sec-head .eyebrow{margin-bottom:8px}
+.sec-h{font-family:var(--serif);font-weight:200;font-size:clamp(28px,4.2vw,46px);line-height:1.04;letter-spacing:-.01em;margin:0}
+.sec-all{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:3px;white-space:nowrap}
+.sec-more{text-align:center;margin:clamp(30px,4vw,44px) 0 0}
+.btn--inline{display:inline-block;width:auto;padding:15px 30px}
+.trust-strip{background:var(--sec-bg);border-block:1px solid var(--rule)}
+.trust-list{list-style:none;margin:0 auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 28px;padding-block:18px}
+.trust-list li{font-size:12.5px;line-height:1.45;display:flex;gap:9px;align-items:baseline}
+.trust-list li::before{content:"✓";color:var(--midori);font-weight:700}
+@media (max-width:860px){.trust-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cat-tiles{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(10px,1.6vw,20px)}
+@media (max-width:900px){.cat-tiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:520px){.cat-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cat-tile{display:block}
+.cat-tile .plate{margin-bottom:10px}
+.ct-name{display:block;font-family:var(--serif);font-size:clamp(17px,1.8vw,21px);line-height:1.1}
+.ct-n{display:block;font-size:11.5px;opacity:.6;margin-top:3px}
+.cat-tile:hover .ct-name{text-decoration:underline}
+.cat-tile:hover .plate img{transform:scale(1.03)}
+
+/* ── brand image beside the words (sections/brand-hero, layout split) ── */
+.hero--split{padding-block:clamp(20px,3vw,40px) clamp(32px,4vw,52px)}
+.hero-split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,64px);align-items:center}
+.hero-split .hero-media{order:2;aspect-ratio:4/3}
+.hero-split .hero-media img{width:100%;height:100%;object-fit:cover}
+.hero-split .hero-txt{order:1;display:block;padding:0}
+.hero-split .hero-h{font-size:clamp(34px,4.4vw,58px);max-width:14ch;margin-bottom:18px}
+.hero-split .hero-b p{max-width:40ch}
+.hero-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-top:22px}
+@media (max-width:899px){
+  .hero-split{grid-template-columns:minmax(0,1fr);gap:22px}
+  .hero-split .hero-media{order:0;margin-inline:calc(-1 * var(--gut))}
+  .hero-split .hero-txt{order:1}
+}
+
+/* product heading: house and piece in one h1 (sections/main-product); the piece keeps its own look */
+.pdp h1.pdp-h{margin-bottom:22px}
+.pdp h1.pdp-h .sub{display:block;margin:10px 0 0;letter-spacing:0;line-height:1.3}

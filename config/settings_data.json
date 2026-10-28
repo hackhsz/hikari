@@ -19,6 +19,10 @@
     "announcement": "Free UK delivery over £250 · We ship internationally",
     "delivery_free_over": 250,
     "new_days": 14,
-    "share_enabled": true
+    "share_enabled": true,
+    "seo_home_title": "Vintage Dior & Chanel Jewellery from Japan | Karineko Vintage",
+    "seo_home_description": "Authentic vintage Christian Dior and Chanel jewellery, found in Japan and sent from London. Necklaces, earrings, bracelets and rings, each one of one.",
+    "seo_image": "shopify://shop_images/karineko-banner-walnut-tray.jpg",
+    "seo_logo": "shopify://shop_images/karineko-email-logo.png"
   }
 }

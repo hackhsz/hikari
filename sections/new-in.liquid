@@ -1,0 +1,40 @@
+{%- comment -%}
+  New in: the newest pieces that are not sold (on sale now or coming soon), four to a row on a
+  laptop and two on a phone, with a link to the whole catalogue. Sold pieces live in the Record.
+{%- endcomment -%}
+{%- assign items = collections.all.products | sort: 'published_at' | reverse -%}
+{%- assign limit = section.settings.count | default: 8 -%}
+{%- capture cards -%}
+  {%- assign shown = 0 -%}
+  {%- for p in items -%}
+    {%- if shown >= limit -%}{%- break -%}{%- endif -%}
+    {%- capture st -%}{%- render 'status', p: p -%}{%- endcapture -%}
+    {%- if st == 'sold' -%}{%- continue -%}{%- endif -%}
+    {%- assign shown = shown | plus: 1 -%}
+    {%- render 'product-card', card_product: p, tone: 'grey', card_sizes: '(max-width: 860px) 50vw, 25vw' -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- if shown > 0 -%}
+<section class="pad-s" id="new-in" data-bg="#F4F0E8" data-fg="#1C1B18" style="--sec-bg:#F4F0E8;--sec-fg:#1C1B18;">
+  <div class="shell">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+        <h2 class="sec-h">{{ section.settings.heading }}</h2>
+      </div>
+      <a class="sec-all" href="{{ routes.all_products_collection_url }}">{{ 'home.all_pieces' | t: count: collections.all.products_count }}</a>
+    </div>
+    <div class="grid4">{{ cards }}</div>
+    <p class="sec-more"><a class="btn btn--inline" href="{{ routes.all_products_collection_url }}">{{ 'home.see_all' | t }}</a></p>
+  </div>
+</section>
+{%- endif -%}
+{% schema %}
+{ "name": "New in",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "New in" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Just arrived from Japan" },
+    { "type": "range", "id": "count", "label": "Pieces", "min": 4, "max": 12, "step": 4, "default": 8 }
+  ],
+  "presets": [{ "name": "New in" }] }
+{% endschema %}

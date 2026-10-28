@@ -1,0 +1,42 @@
+{%- comment -%}
+  The shop's own way in, built from the catalogue rather than a Shopify menu, so it always
+  matches what is there: all pieces, each category that has pieces, each house, and coming soon.
+
+  Each link goes to a collection with the matching handle when one exists and has pieces
+  (necklaces, earrings, christian-dior, chanel, coming-soon…), else to the catalogue filtered in
+  the page (?cat= ?brand= ?show=). Making those collections later moves the links to them, with
+  no theme change. Used by the header (desktop bar and the phone menu) and the catalogue sidebar.
+
+  Params: cls (class on each link), current (true to mark the link for the page being shown).
+{%- endcomment -%}
+{%- liquid
+  assign cat_tags = 'necklaces,earrings,bracelets,rings,brooches,sunglasses' | split: ','
+  assign all_url = routes.all_products_collection_url
+  assign here = request.path | append: '?' | append: request.query_string
+  assign soon_n = 0
+  for p in collections.all.products
+    if p.tags contains 'coming-soon'
+      assign soon_n = soon_n | plus: 1
+    endif
+  endfor
+-%}
+<a class="{{ cls }}" href="{{ all_url }}"{% if current and request.path == all_url and request.query_string == blank %} aria-current="page"{% endif %}>{{ 'layout.shop_nav.all' | t }}</a>
+{%- for t in cat_tags -%}
+  {%- if collections.all.all_tags contains t -%}
+    {%- assign c = collections[t] -%}
+    {%- if c.products_count > 0 -%}{%- assign u = c.url -%}{%- else -%}{%- assign u = all_url | append: '?cat=' | append: t -%}{%- endif -%}
+    {%- assign k = 'collections.categories.' | append: t -%}
+    <a class="{{ cls }}" href="{{ u }}"{% if current and here contains u %} aria-current="page"{% endif %}>{{ k | t }}</a>
+  {%- endif -%}
+{%- endfor -%}
+{%- for v in collections.all.all_vendors -%}
+  {%- assign h = v | handleize -%}
+  {%- assign c = collections[h] -%}
+  {%- if c.products_count > 0 -%}{%- assign u = c.url -%}{%- else -%}{%- assign u = all_url | append: '?brand=' | append: h -%}{%- endif -%}
+  <a class="{{ cls }} {{ cls }}--house" href="{{ u }}"{% if current and here contains u %} aria-current="page"{% endif %}>{{ v }}</a>
+{%- endfor -%}
+{%- if soon_n > 0 -%}
+  {%- assign c = collections['coming-soon'] -%}
+  {%- if c.products_count > 0 -%}{%- assign u = c.url -%}{%- else -%}{%- assign u = all_url | append: '?show=soon' -%}{%- endif -%}
+  <a class="{{ cls }} {{ cls }}--soon" href="{{ u }}"{% if current and here contains u %} aria-current="page"{% endif %}>{{ 'products.badge.coming_soon' | t }}</a>
+{%- endif -%}

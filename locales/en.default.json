@@ -59,6 +59,10 @@
     "localization": {
       "language": "Language",
       "submit": "Change"
+    },
+    "shop_nav": {
+      "label": "Shop",
+      "all": "All pieces"
     }
   },
   "products": {
@@ -131,7 +135,8 @@
       "similar": "Hear about similar pieces",
       "details": "Every photograph and the details",
       "details_spin": "Every photograph, the 360° view and the details"
-    }
+    },
+    "seo_tail": "Authentic vintage {{ house }}, found in Japan and sent from London."
   },
   "cart": {
     "empty_heading": "Nothing in the bag yet.",
@@ -171,14 +176,16 @@
       "all": "All",
       "everything": "Everything",
       "available": "Available",
-      "on_sale": "On sale"
+      "on_sale": "On sale",
+      "label": "Filter"
     },
     "categories": {
       "earrings": "Earrings",
       "brooches": "Brooches",
       "necklaces": "Necklaces",
       "bracelets": "Bracelets",
-      "rings": "Rings"
+      "rings": "Rings",
+      "sunglasses": "Sunglasses"
     },
     "sort": {
       "label": "Sort",
@@ -189,7 +196,9 @@
       "vendor": "Brand, A to Z"
     },
     "empty": "Nothing matches that.",
-    "reset": "Show everything"
+    "reset": "Show everything",
+    "all_title": "Vintage designer jewellery",
+    "all_intro": "Vintage Christian Dior and Chanel jewellery, found in Japan and photographed on our own table in London. Every piece is one of one."
   },
   "house": {
     "vintage_jewellery": "Vintage jewellery",
@@ -213,7 +222,9 @@
     "brand_image_to_follow": "Brand image to follow",
     "goes_live_edition": "Goes live with the Edition: {{ day }}",
     "see_them_all": "See them all",
-    "record_sold": "{{ house }} · sold"
+    "record_sold": "{{ house }} · sold",
+    "all_pieces": "All {{ count }} pieces",
+    "see_all": "See every piece"
   },
   "signup": {
     "placeholder": "you@example.com",

@@ -63,6 +63,10 @@
     "localization": {
       "language": "اللغة",
       "submit": "تغيير"
+    },
+    "shop_nav": {
+      "label": "المتجر",
+      "all": "كل القطع"
     }
   },
   "products": {
@@ -135,7 +139,8 @@
       "similar": "أخبرني بقطع مشابهة",
       "details": "كل الصور والتفاصيل",
       "details_spin": "كل الصور، وعرض 360°، والتفاصيل"
-    }
+    },
+    "seo_tail": "{{ house }} عتيق أصلي، وجدناه في اليابان ونرسله من لندن."
   },
   "cart": {
     "empty_heading": "الحقيبة فارغة حتى الآن.",
@@ -179,14 +184,16 @@
       "all": "الكل",
       "everything": "كل شيء",
       "available": "المتوفرة",
-      "on_sale": "بتخفيض"
+      "on_sale": "بتخفيض",
+      "label": "تصفية"
     },
     "categories": {
       "earrings": "أقراط",
       "brooches": "بروشات",
       "necklaces": "قلائد",
       "bracelets": "أساور",
-      "rings": "خواتم"
+      "rings": "خواتم",
+      "sunglasses": "نظارات شمسية"
     },
     "sort": {
       "label": "الترتيب",
@@ -197,7 +204,9 @@
       "vendor": "العلامة، من A إلى Z"
     },
     "empty": "لا شيء يطابق ذلك.",
-    "reset": "عرض الكل"
+    "reset": "عرض الكل",
+    "all_title": "مجوهرات مصممين عتيقة",
+    "all_intro": "مجوهرات كريستيان ديور وشانيل العتيقة، وجدناها في اليابان وصوّرناها على طاولتنا في لندن. كل قطعة فريدة."
   },
   "house": {
     "vintage_jewellery": "مجوهرات فينتاج",
@@ -225,7 +234,9 @@
     "brand_image_to_follow": "صورة العلامة قريبًا",
     "goes_live_edition": "تُطرح مع الإصدار: {{ day }}",
     "see_them_all": "شاهدها كلها",
-    "record_sold": "{{ house }} · بيعت"
+    "record_sold": "{{ house }} · بيعت",
+    "all_pieces": "كل القطع ({{ count }})",
+    "see_all": "شاهد كل القطع"
   },
   "signup": {
     "placeholder": "you@example.com",

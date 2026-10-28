@@ -23,8 +23,14 @@
         "label": "Mark beside the name",
         "default": "drawing",
         "options": [
-          { "value": "drawing", "label": "Drawing (assets/brand-mark.png)" },
-          { "value": "kanji", "label": "Kanji" }
+          {
+            "value": "drawing",
+            "label": "Drawing (assets/brand-mark.png)"
+          },
+          {
+            "value": "kanji",
+            "label": "Kanji"
+          }
         ],
         "info": "The drawing takes the text colour, so it works on light and dark sections alike."
       },
@@ -276,6 +282,45 @@
         "label": "VAT line",
         "default": "Prices include UK duty. We are not currently VAT registered, so no VAT is charged. Outside the UK, your country may charge import duty or tax on delivery.",
         "info": "Charging or displaying VAT while unregistered is an offence. Keep Settings → Taxes at zero."
+      }
+    ]
+  },
+  {
+    "name": "Search",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "What Google shows for the home page, and what a shared link shows. Product and collection pages use their own titles and descriptions."
+      },
+      {
+        "type": "text",
+        "id": "seo_home_title",
+        "label": "Home page title",
+        "info": "Around 60 characters. Say what you sell, then the shop's name."
+      },
+      {
+        "type": "textarea",
+        "id": "seo_home_description",
+        "label": "Home page description",
+        "info": "Around 155 characters."
+      },
+      {
+        "type": "image_picker",
+        "id": "seo_image",
+        "label": "Image for shared links",
+        "info": "Used when a page has no photograph of its own. 1200px wide or more."
+      },
+      {
+        "type": "image_picker",
+        "id": "seo_logo",
+        "label": "Logo for search engines",
+        "info": "A wide logo on a plain background."
+      },
+      {
+        "type": "text",
+        "id": "google_verification",
+        "label": "Google Search Console code",
+        "info": "Only the content=\"…\" part of the HTML tag Search Console gives you."
       }
     ]
   }

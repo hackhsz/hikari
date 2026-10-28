@@ -69,8 +69,9 @@
     </div>
 
     <div class="panel">
-      <h1>{{ p.vendor | default: p.title }}</h1>
-      <p class="sub">{{ piece }}</p>
+      {%- comment -%} One heading with both lines, so search engines read the house and the piece together. {%- endcomment -%}
+      <h1 class="pdp-h">{{ p.vendor | default: p.title }}{% if p.vendor != blank %}<span class="vh"> – </span><span class="sub">{{ piece }}</span>{% endif %}</h1>
+      {%- if p.vendor == blank %}<p class="sub">{{ piece }}</p>{% endif %}
       {%- comment -%} A piece sold before it was priced has no price to show; the Sold line below says it all. {%- endcomment -%}
       {%- unless status == 'sold' and p.price == 0 -%}<span class="price p">{%- render 'price', p: p -%}</span>{%- endunless %}
 

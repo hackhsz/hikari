@@ -59,6 +59,10 @@
     "localization": {
       "language": "言語",
       "submit": "変更"
+    },
+    "shop_nav": {
+      "label": "ショップ",
+      "all": "すべてのアイテム"
     }
   },
   "products": {
@@ -131,7 +135,8 @@
       "similar": "似たお品のお知らせを受け取る",
       "details": "すべての写真と詳細",
       "details_spin": "すべての写真、360°ビューと詳細"
-    }
+    },
+    "seo_tail": "日本で見つけた本物のヴィンテージ{{ house }}。ロンドンから発送します。"
   },
   "cart": {
     "empty_heading": "バッグにはまだ何も入っていません。",
@@ -171,14 +176,16 @@
       "all": "すべて",
       "everything": "すべて",
       "available": "販売中",
-      "on_sale": "セール"
+      "on_sale": "セール",
+      "label": "絞り込み"
     },
     "categories": {
       "earrings": "イヤリング・ピアス",
       "brooches": "ブローチ",
       "necklaces": "ネックレス",
       "bracelets": "ブレスレット",
-      "rings": "リング"
+      "rings": "リング",
+      "sunglasses": "サングラス"
     },
     "sort": {
       "label": "並び替え",
@@ -189,7 +196,9 @@
       "vendor": "ブランド名順（A–Z）"
     },
     "empty": "該当するお品はありません。",
-    "reset": "すべて表示"
+    "reset": "すべて表示",
+    "all_title": "ヴィンテージ・デザイナージュエリー",
+    "all_intro": "日本で見つけたクリスチャン・ディオールとシャネルのヴィンテージジュエリー。ロンドンの私たちのテーブルで撮影しています。すべて一点ものです。"
   },
   "house": {
     "vintage_jewellery": "ヴィンテージジュエリー",
@@ -213,7 +222,9 @@
     "brand_image_to_follow": "ブランド画像は追って掲載します",
     "goes_live_edition": "エディションとともに公開（{{ day }}）",
     "see_them_all": "すべて見る",
-    "record_sold": "{{ house }} · 売約済み"
+    "record_sold": "{{ house }} · 売約済み",
+    "all_pieces": "全{{ count }}点",
+    "see_all": "すべてのアイテムを見る"
   },
   "signup": {
     "placeholder": "you@example.com",

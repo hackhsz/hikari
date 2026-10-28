@@ -1,0 +1,177 @@
+{%- comment -%}
+  What search engines and link previews read, in <head>: the title, the description, Open Graph
+  and Twitter tags for shared links, and structured data (JSON-LD) Google uses for rich results.
+
+  Titles say what a page sells, not only the shop's name:
+    home        theme settings → Search → Home page title (else Shopify's title)
+    a piece     "Vintage {house} {piece}", unless a search title was set on the product in Shopify
+    catalogue   collections.all_title instead of Shopify's "Products"
+  Descriptions come from Shopify (Online Store preferences, the product's description, the
+  collection's description), with the theme's own line for the home page and the catalogue.
+
+  Structured data: the shop (Organization, WebSite) on every page; on a piece, Product with its
+  house, photographs and condition (used: it is vintage), an Offer once it has a price, and the
+  path to it (BreadcrumbList). A coming-soon or sold piece is OutOfStock: it cannot be bought now.
+
+  Params: brand.
+{%- endcomment -%}
+{%- liquid
+  assign title = page_title | replace: shop.name, brand
+  assign desc = page_description
+  assign og_type = 'website'
+  assign og_image = settings.seo_image
+  case template.name
+    when 'index'
+      if settings.seo_home_title != blank
+        assign title = settings.seo_home_title
+      endif
+      if settings.seo_home_description != blank
+        assign desc = settings.seo_home_description
+      endif
+    when 'product'
+      if page_title == product.title and product.vendor != blank
+        assign title = 'Vintage ' | append: product.vendor | append: ' ' | append: product.title
+      endif
+      assign tail = 'products.seo_tail' | t: house: product.vendor
+      assign desc = page_description | default: product.title | strip | append: ' ' | append: tail | truncate: 300
+      assign og_type = 'product'
+      assign og_image = product.featured_image
+    when 'collection'
+      if collection.handle == 'all'
+        assign title = 'collections.all_title' | t
+        if collection.description == blank
+          assign desc = 'collections.all_intro' | t
+        endif
+      endif
+      if collection.image
+        assign og_image = collection.image
+      elsif collection.products.first.featured_image
+        assign og_image = collection.products.first.featured_image
+      endif
+  endcase
+  if current_tags
+    assign tag_list = current_tags | join: ', '
+    assign title = title | append: ' – ' | append: tag_list
+  endif
+  unless title contains brand
+    assign title = title | append: ' · ' | append: brand
+  endunless
+-%}
+<title>{{ title }}</title>
+{%- if desc != blank %}
+<meta name="description" content="{{ desc | strip_html | strip_newlines | escape }}">
+{%- endif %}
+{%- if settings.google_verification != blank %}
+<meta name="google-site-verification" content="{{ settings.google_verification | escape }}">
+{%- endif %}
+<meta property="og:site_name" content="{{ brand | escape }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:title" content="{{ title | escape }}">
+<meta property="og:type" content="{{ og_type }}">
+{%- if desc != blank %}
+<meta property="og:description" content="{{ desc | strip_html | strip_newlines | escape }}">
+{%- endif %}
+{%- if og_image %}
+<meta property="og:image" content="https:{{ og_image | image_url: width: 1200 }}">
+<meta property="og:image:alt" content="{{ og_image.alt | default: title | escape }}">
+{%- endif %}
+{%- if template.name == 'product' and product.price > 0 %}
+<meta property="product:price:amount" content="{{ product.price | money_without_currency | remove: ',' }}">
+<meta property="product:price:currency" content="{{ cart.currency.iso_code }}">
+{%- endif %}
+<meta name="twitter:card" content="summary_large_image">
+
+{%- liquid
+  assign same_as = ''
+  if settings.social_instagram != blank
+    assign same_as = same_as | append: settings.social_instagram | append: '|'
+  endif
+  if settings.social_xiaohongshu != blank
+    assign same_as = same_as | append: settings.social_xiaohongshu | append: '|'
+  endif
+  if settings.social_pinterest != blank
+    assign same_as = same_as | append: settings.social_pinterest | append: '|'
+  endif
+  assign same_as = same_as | split: '|'
+-%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": {{ shop.url | append: '/#org' | json }},
+      "name": {{ brand | json }},
+      "url": {{ shop.url | json }}
+      {%- if settings.seo_logo %},"logo": {{ settings.seo_logo | image_url: width: 600 | prepend: 'https:' | json }}{% endif -%}
+      {%- if same_as.size > 0 %},"sameAs": {{ same_as | json }}{% endif %}
+    },
+    {
+      "@type": "WebSite",
+      "@id": {{ shop.url | append: '/#site' | json }},
+      "name": {{ brand | json }},
+      "url": {{ shop.url | json }},
+      "publisher": { "@id": {{ shop.url | append: '/#org' | json }} }
+    }
+    {%- if template.name == 'product' -%}
+      {%- liquid
+        assign st = ''
+        capture st
+          render 'status', p: product
+        endcapture
+        assign availability = 'https://schema.org/OutOfStock'
+        if product.available and st != 'soon'
+          assign availability = 'https://schema.org/InStock'
+        endif
+        if st == 'presale'
+          assign availability = 'https://schema.org/PreOrder'
+        endif
+        assign full_name = product.vendor | append: ' ' | append: product.title
+        assign cat_tags = 'necklaces,earrings,bracelets,rings,brooches,sunglasses' | split: ','
+        assign cat = ''
+        for t in cat_tags
+          if product.tags contains t
+            assign cat = t
+            break
+          endif
+        endfor
+      -%}
+    ,{
+      "@type": "Product",
+      "@id": {{ canonical_url | append: '#product' | json }},
+      "name": {{ full_name | json }},
+      "url": {{ canonical_url | json }},
+      "brand": { "@type": "Brand", "name": {{ product.vendor | json }} },
+      "description": {{ product.description | strip_html | strip_newlines | strip | default: full_name | json }},
+      "sku": {{ product.selected_or_first_available_variant.sku | json }},
+      "itemCondition": "https://schema.org/UsedCondition",
+      {%- if cat != blank %}"category": {{ 'collections.categories.' | append: cat | t | json }},{% endif %}
+      "image": [
+        {%- for img in product.images limit: 5 -%}
+          {{ img | image_url: width: 1600 | prepend: 'https:' | json }}{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      ]
+      {%- if product.price > 0 -%}
+      ,"offers": {
+        "@type": "Offer",
+        "url": {{ canonical_url | json }},
+        "price": {{ product.price | money_without_currency | remove: ',' | json }},
+        "priceCurrency": {{ cart.currency.iso_code | json }},
+        "availability": {{ availability | json }},
+        "itemCondition": "https://schema.org/UsedCondition",
+        "seller": { "@id": {{ shop.url | append: '/#org' | json }} }
+      }
+      {%- endif %}
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": {{ brand | json }}, "item": {{ shop.url | json }} },
+        { "@type": "ListItem", "position": 2, "name": {{ 'collections.all_title' | t | json }}, "item": {{ shop.url | append: routes.all_products_collection_url | json }} },
+        { "@type": "ListItem", "position": 3, "name": {{ full_name | json }}, "item": {{ canonical_url | json }} }
+      ]
+    }
+    {%- endif %}
+  ]
+}
+</script>

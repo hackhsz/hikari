@@ -59,6 +59,10 @@
     "localization": {
       "language": "语言",
       "submit": "切换"
+    },
+    "shop_nav": {
+      "label": "商店",
+      "all": "全部单品"
     }
   },
   "products": {
@@ -131,7 +135,8 @@
       "similar": "获取类似单品的通知",
       "details": "全部照片与细节",
       "details_spin": "全部照片、360° 视图与细节"
-    }
+    },
+    "seo_tail": "在日本寻得的正品古董 {{ house }}，从伦敦发货。"
   },
   "cart": {
     "empty_heading": "购物袋里还没有单品。",
@@ -171,14 +176,16 @@
       "all": "全部",
       "everything": "全部",
       "available": "可购买",
-      "on_sale": "特价"
+      "on_sale": "特价",
+      "label": "筛选"
     },
     "categories": {
       "earrings": "耳饰",
       "brooches": "胸针",
       "necklaces": "项链",
       "bracelets": "手链",
-      "rings": "戒指"
+      "rings": "戒指",
+      "sunglasses": "墨镜"
     },
     "sort": {
       "label": "排序",
@@ -189,7 +196,9 @@
       "vendor": "品牌 A–Z"
     },
     "empty": "没有符合条件的单品。",
-    "reset": "显示全部"
+    "reset": "显示全部",
+    "all_title": "古董设计师珠宝",
+    "all_intro": "在日本寻得的 Christian Dior 与 Chanel 古董珠宝，在伦敦我们自己的桌上拍摄。每一件都是孤品。"
   },
   "house": {
     "vintage_jewellery": "中古首饰",
@@ -213,7 +222,9 @@
     "brand_image_to_follow": "品牌图片稍后呈现",
     "goes_live_edition": "随本期上新一同上线：{{ day }}",
     "see_them_all": "查看全部",
-    "record_sold": "{{ house }} · 已售"
+    "record_sold": "{{ house }} · 已售",
+    "all_pieces": "全部 {{ count }} 件",
+    "see_all": "查看全部单品"
   },
   "signup": {
     "placeholder": "you@example.com",

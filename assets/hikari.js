@@ -586,8 +586,28 @@
     }
     bar.addEventListener("change",apply);
     if(sort){ sort.addEventListener("change",apply); sort.form.addEventListener("submit",function(e){ e.preventDefault(); apply(); }); }
-    var reset=document.querySelector("[data-cat-reset]");
-    if(reset) reset.addEventListener("click",function(){ ["brand","cat","show"].forEach(function(k){ choose(k,""); }); apply(); });
+    [].forEach.call(document.querySelectorAll("[data-cat-reset]"),function(r){
+      r.addEventListener("click",function(){ ["brand","cat","show"].forEach(function(k){ choose(k,""); }); apply(); });
+    });
+    /* how many pieces each choice has, on its own */
+    [].forEach.call(bar.querySelectorAll("input[type=radio]"),function(i){
+      var n=i.parentNode.querySelector("[data-n]"); if(!n) return;
+      var k=i.name.replace("cat-",""), v=i.value;
+      n.textContent=items.filter(function(el){
+        if(!v) return true;
+        if(k==="show"){ var st=el.getAttribute("data-status"); return v==="available"?(st!=="sold"&&st!=="soon"):st===v; }
+        return el.getAttribute("data-"+(k==="cat"?"cat":"brand"))===v;
+      }).length;
+    });
+    /* phones: the sidebar folds behind a Filter button */
+    var tog=document.querySelector("[data-cat-toggle]"), lay=document.querySelector("[data-cat-layout]");
+    if(tog&&lay){
+      tog.hidden=false;
+      tog.addEventListener("click",function(){
+        var on=!lay.classList.contains("filters-open");
+        lay.classList.toggle("filters-open",on); tog.setAttribute("aria-expanded",on?"true":"false");
+      });
+    }
     apply();
   }
 

@@ -14,10 +14,8 @@
   <script>document.documentElement.classList.add("js")</script>
   <link rel="canonical" href="{{ canonical_url }}">
   {%- assign brand = settings.brand_name | default: shop.name -%}
-  {%- comment -%} The home page title is the store name in Shopify; the theme's brand name wins. {%- endcomment -%}
-  {%- assign page_title = page_title | replace: shop.name, brand -%}
-  <title>{{ page_title }}{% if current_tags %} &ndash; {{ current_tags | join: ', ' }}{% endif %}{% unless page_title contains brand %} &middot; {{ brand }}{% endunless %}</title>
-  {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
+  {%- comment -%} Title, description, link previews and structured data: snippets/seo. {%- endcomment -%}
+  {%- render 'seo', brand: brand %}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

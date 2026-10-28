@@ -1,0 +1,13 @@
+{%- comment -%}
+  The four promises (theme settings → Trust lines) in one band under the brand image, so a first
+  visit knows straight away why to buy here: authenticated, refund if not, duty paid, delivery.
+{%- endcomment -%}
+<section class="trust-strip" data-bg="#F4F0E8" data-fg="#1C1B18" style="--sec-bg:#F4F0E8;--sec-fg:#1C1B18;">
+  <ul class="shell trust-list">
+    {%- if settings.trust_1 != blank %}<li>{{ settings.trust_1 }}</li>{% endif -%}
+    {%- if settings.trust_2 != blank %}<li>{{ settings.trust_2 }}</li>{% endif -%}
+    {%- if settings.trust_3 != blank %}<li>{{ settings.trust_3 }}</li>{% endif -%}
+    {%- if settings.trust_4 != blank %}<li>{{ settings.trust_4 }}</li>{% endif -%}
+  </ul>
+</section>
+{% schema %}{ "name": "Trust line", "settings": [], "presets": [{ "name": "Trust line" }] }{% endschema %}

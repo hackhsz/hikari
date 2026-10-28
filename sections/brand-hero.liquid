@@ -7,11 +7,20 @@
   around its focal point, which is set on the image itself in Shopify (Edit image > Focal point).
   Until a picture is chosen, a quiet daylight study holds the space. It has no object in it,
   so it can't be mistaken for a product.
+
+  Layout "Beside the words" (split): on a laptop the headline, text and buttons sit to the left of
+  the picture, so the first screen says what the shop is and where to go. It shows the phone image
+  (4:3) when there is one, which keeps the whole of a wide arrangement in a squarer frame.
+  The first link is a button; the second, a quieter text link.
 {%- endcomment -%}
 {%- liquid
   assign img = section.settings.image
   assign img_m = section.settings.image_mobile
   assign fit = section.settings.height
+  assign split = false
+  if section.settings.layout == 'split'
+    assign split = true
+  endif
   case fit
     when 'wide'
       assign ratio = 0.4286
@@ -21,9 +30,15 @@
       assign ratio = 0.5625
   endcase
 -%}
-<section class="hero" id="brand" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+<section class="hero{% if split %} hero--split{% endif %}" id="brand" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+  {%- if split -%}<div class="shell hero-split">{%- endif -%}
   <div class="hero-media hero-media--{{ fit }}{% if img_m %} has-mobile{% endif %}{% unless img %} is-empty{% endunless %}">
-    {%- if img -%}
+    {%- if img and split -%}
+      {%- assign split_img = img_m | default: img -%}
+      {%- assign alt_text = section.settings.image_alt | default: split_img.alt -%}
+      {{ split_img | image_url: width: 1800 | image_tag: widths: '600, 900, 1200, 1500, 1800', sizes: '(max-width: 899px) 100vw, 58vw',
+          loading: 'eager', fetchpriority: 'high', alt: alt_text }}
+    {%- elsif img -%}
       <picture>
         {%- if img_m -%}
           <source media="(max-width: 749px)"
@@ -48,18 +63,24 @@
     {%- endif -%}
   </div>
 
-  <div class="shell hero-txt">
+  <div class="{% unless split %}shell {% endunless %}hero-txt">
     <div class="hero-lead">
       {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
       <h1 class="hero-h">{{ section.settings.heading }}</h1>
     </div>
     <div class="hero-side">
       {%- if section.settings.body != blank -%}<div class="hero-b">{{ section.settings.body }}</div>{%- endif -%}
-      {%- if section.settings.link_label != blank and section.settings.link != blank -%}
-        <a class="hero-link" href="{{ section.settings.link }}">{{ section.settings.link_label }}</a>
-      {%- endif -%}
+      <div class="hero-ctas">
+        {%- if section.settings.link_label != blank and section.settings.link != blank -%}
+          <a class="{% if split %}btn btn--inline{% else %}hero-link{% endif %}" href="{{ section.settings.link }}">{{ section.settings.link_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.link2_label != blank and section.settings.link2 != blank -%}
+          <a class="hero-link" href="{{ section.settings.link2 }}">{{ section.settings.link2_label }}</a>
+        {%- endif -%}
+      </div>
     </div>
   </div>
+  {%- if split -%}</div>{%- endif -%}
 </section>
 {% schema %}
 { "name": "Brand image",
@@ -83,7 +104,14 @@
     { "type": "richtext", "id": "body", "label": "Text",
       "default": "<p>Every piece is authenticated and photographed on our own table. UK import duty is paid before it reaches you. There is one of each, and none is ever restocked.</p>" },
     { "type": "text", "id": "link_label", "label": "Link label", "default": "See every piece" },
-    { "type": "url", "id": "link", "label": "Link", "default": "/collections/all" }
+    { "type": "url", "id": "link", "label": "Link", "default": "/collections/all" },
+    { "type": "text", "id": "link2_label", "label": "Second link label" },
+    { "type": "url", "id": "link2", "label": "Second link" },
+    { "type": "select", "id": "layout", "label": "Layout on a laptop", "default": "stacked",
+      "options": [
+        { "value": "stacked", "label": "Words under the picture" },
+        { "value": "split", "label": "Beside the words" }
+      ] }
   ],
   "presets": [{ "name": "Brand image" }] }
 {% endschema %}

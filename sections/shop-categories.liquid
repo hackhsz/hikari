@@ -1,0 +1,63 @@
+{%- comment -%}
+  Shop by category: one square tile per category that has pieces, photographed with a piece from
+  it (one still for sale or coming soon, before a sold one), with how many pieces it has. A tile
+  goes where the header's shop line goes (snippets/shop-nav): the category's collection when one
+  exists, else the catalogue filtered to it.
+{%- endcomment -%}
+{%- assign cat_tags = 'necklaces,earrings,bracelets,rings,brooches,sunglasses' | split: ',' -%}
+{%- assign all_url = routes.all_products_collection_url -%}
+<section class="pad-s" id="shop-categories" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+  <div class="shell">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+        <h2 class="sec-h">{{ section.settings.heading }}</h2>
+      </div>
+      <a class="sec-all" href="{{ all_url }}">{{ 'home.all_pieces' | t: count: collections.all.products_count }}</a>
+    </div>
+    <div class="cat-tiles">
+      {%- for t in cat_tags -%}
+        {%- unless collections.all.all_tags contains t -%}{%- continue -%}{%- endunless -%}
+        {%- liquid
+          assign n = 0
+          assign pick = nil
+          assign spare = nil
+          for p in collections.all.products
+            if p.tags contains t
+              assign n = n | plus: 1
+              if pick == nil and p.available or pick == nil and p.tags contains 'coming-soon'
+                assign pick = p
+              endif
+              if spare == nil
+                assign spare = p
+              endif
+            endif
+          endfor
+          if pick == nil
+            assign pick = spare
+          endif
+          assign c = collections[t]
+          if c.products_count > 0
+            assign u = c.url
+          else
+            assign u = all_url | append: '?cat=' | append: t
+          endif
+          assign k = 'collections.categories.' | append: t
+        -%}
+        <a class="cat-tile" href="{{ u }}">
+          {%- render 'plate', image: pick.featured_image, ratio: 1, fill: true, sizes: '(max-width: 600px) 50vw, (max-width: 900px) 33vw, 200px', seed: forloop.index, tone: 'light', comp: 'single', alt: '' -%}
+          <span class="ct-name">{{ k | t }}</span>
+          <span class="ct-n">{{ 'collections.pieces' | t: count: n }}</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "Shop by category",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Shop by category" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What are you looking for?" }
+  ],
+  "presets": [{ "name": "Shop by category" }] }
+{% endschema %}

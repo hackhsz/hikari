@@ -21,6 +21,10 @@
       <a class="bag-btn" href="{{ routes.cart_url }}" data-sheet-open="bag" aria-controls="bag" aria-expanded="false">{{ 'layout.cart.title' | t }} (<span data-bag-count>{{ cart.item_count }}</span>)</a>
     </div>
   </div>
+  {%- comment -%} The shop's categories, houses and coming soon (snippets/shop-nav): on a laptop a second line under the masthead. {%- endcomment -%}
+  <nav class="shop-nav" aria-label="{{ 'layout.shop_nav.label' | t }}">
+    <div class="shop-nav-in">{%- render 'shop-nav', cls: 'sn', current: true -%}</div>
+  </nav>
 </header>
 
 {%- comment -%} Outside .mast on purpose: the masthead is a sticky band with its own stacking, and the sheet must cover it. {%- endcomment -%}
@@ -31,6 +35,9 @@
       <h2 class="sheet-title" id="menu-title">{{ 'layout.header.menu' | t }}</h2>
       <button type="button" class="sheet-x" data-sheet-close>{{ 'general.close' | t }}</button>
     </div>
+    <nav class="menu-shop" aria-label="{{ 'layout.shop_nav.label' | t }}">
+      {%- render 'shop-nav', cls: 'ms' -%}
+    </nav>
     <nav class="menu-links" aria-label="{{ 'layout.header.nav' | t }}">
       {%- for link in linklists.main-menu.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
       <a href="{{ routes.cart_url }}" data-sheet-open="bag" aria-controls="bag">{{ 'layout.cart.title' | t }} (<span data-bag-count>{{ cart.item_count }}</span>)</a>
