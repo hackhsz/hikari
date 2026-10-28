@@ -6,6 +6,8 @@ This is what the weekly run follows. One run every Monday morning, UK time. The 
 
 ## What we're looking for
 
+**Who we are:** **Karineko Vintage**: https://karinekovtg.com, Instagram @karineko_vtg. The facts for applications are in [`drafts/PROFILE.md`](drafts/PROFILE.md). Re-read the live site when they might have changed.
+
 **What we sell:** vintage designer costume jewellery — Dior, Chanel, Givenchy, YSL, Nina Ricci, Grosse, the better mid-century American makers. Sourced in Japan, held in London, one-of-one, **£100–300** a piece ([00](../docs/00-brief.md)).
 
 **Who buys it:** design-aware women, 28–40, buying £120–220 pieces two to four times a year ([03](../docs/03-customer.md)). The brand is curated and Japanese-editorial, not bargain vintage ([D2](../docs/DECISIONS.md)).
@@ -76,7 +78,11 @@ For each `decision: shortlist` entry without a `drafts/<id>.md`, write one. Incl
 - what we need to supply that doesn't exist yet: photos, insurance, a stall layout, a card reader
 - the deadline
 
-The trading name isn't settled ([18](../docs/18-name-clearance.md)), so write `{NAME}` wherever the name goes.
+Draw every answer from [`drafts/PROFILE.md`](drafts/PROFILE.md) and the live site. Write `{CONTACT_EMAIL}`, `{CONTACT_NAME}`, `{MOBILE}` and `{ADDRESS}` as placeholders. The repo is public, so personal contact details stay out of it.
+
+**Check the fair's era rules against the actual pieces.** The site doesn't date its stock, and much of the Dior logo jewellery looks 1990s–2000s.
+
+**Email applications:** also create a **Gmail draft** to the organiser with the same text, signed `[Your name]`. **Never send it.** We review and send it ourselves.
 
 ### 6 · Validate and render
 ```
@@ -100,7 +106,7 @@ Commit `scout/` with a message like `Market scout 2026-10-19: 3 new, 2 closing s
 
 ## Never
 
-- Submit an application, create an account, email or message an organiser, or pay anything. Find and prepare only.
+- Submit an application, create an account, send an email or message an organiser, or pay anything. Find and prepare only. A Gmail *draft* is preparing; sending is not.
 - Invent a date, fee or deadline. `null` and a note beat a plausible guess.
 - Delete an entry. Rule it out (`fit: 1`) instead.
 - Change `decision` or `our_notes` on an existing entry.

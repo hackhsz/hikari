@@ -2,6 +2,17 @@
 
 ## This week
 
+**Update · 28 Oct 2026.** The site is live as **Karineko Vintage** (karinekovtg.com). Six places are now shortlisted, with application drafts in [`drafts/`](drafts/), all built from the [profile](drafts/PROFILE.md):
+
+- Lou Lou's London
+- King's Cross Shōtengai
+- Flea London
+- Alfies
+- Camden Passage
+- Old Spitalfields
+
+Gmail drafts, not sent, are ready for the two email routes: Shōtengai and Alfies. **Midcentury Modern drops to fit 3**, since the live stock is Dior and Chanel logo jewellery rather than mid-century design.
+
 **Run 3 · 26 Oct 2026.** 82 tracked, up 3. Nothing is shortlisted yet, so there are no drafts.
 
 - **Act now:**
@@ -22,7 +33,7 @@
 > **Gates.** Physical fairs and pop-ups come after the website converts ([D3](../docs/DECISIONS.md)). Marketplaces are outposts, not the home ([D1](../docs/DECISIONS.md)). Both are tracked now because applications open months ahead. How it works: [README](README.md).
 
 <!-- generated:start -->
-_Tables generated from [`markets.yaml`](markets.yaml) on 26 Oct 2026. 82 tracked._
+_Tables generated from [`markets.yaml`](markets.yaml) on 28 Oct 2026. 82 tracked._
 
 ## Coming up in the next 60 days
 
@@ -31,16 +42,23 @@ Published deadlines, plus events at fit 3+ still taking applications.
 | By | Name | City | Apply | Event | Fit | Decision |
 |---|---|---|---|---|---|---|
 | **14 Nov** | [Craft & Flea — London, Canada Water](https://eventaly.com/event/london-canada-waters-craft-flea/) | London | open | 14 Nov 2026 | 3 | new |
-| **15 Nov** | [Midcentury Modern (Dulwich)](https://www.modernshows.com/shows/dulwich-1/) | London | open | 15 Nov 2026 | 4 | new |
-| **15 Nov** | [Lou Lou's Vintage Fair — London, Canada Water](https://www.loulousvintagefair.com/) | London | open | 15 Nov 2026 | 4 | new |
+| **15 Nov** | [Lou Lou's Vintage Fair — London, Canada Water](https://www.loulousvintagefair.com/) | London | open | 15 Nov 2026 | 4 | shortlist |
+| **15 Nov** | [Midcentury Modern (Dulwich)](https://www.modernshows.com/shows/dulwich-1/) | London | open | 15 Nov 2026 | 3 | new |
 | **15 Nov** | [Craft & Flea — Manchester](https://www.thecraftandflea.com/pages/trade-with-us) | Manchester | open | 15 Nov 2026 | 3 | new |
-| **19 Nov** | [Lower Stable Street Market & Shotengai pan-Asian Market (King's Cross)](https://www.kingscross.co.uk/event/lower-stable-street-market) | London | rolling | 19 Nov 2026 | 4 | new |
+| **19 Nov** | [Lower Stable Street Market & Shotengai pan-Asian Market (King's Cross)](https://www.kingscross.co.uk/event/lower-stable-street-market) | London | rolling | 19 Nov 2026 | 4 | shortlist |
 | **21 Nov** | [Craft & Flea — Glasgow (Christmas)](https://www.thecraftandflea.com/pages/trade-with-us) | Glasgow | open | 21 Nov 2026 | 3 | new |
 | **22 Nov** | [Lou Lou's Vintage Fair — Manchester](https://www.loulousvintagefair.com/) | Manchester | open | 22 Nov 2026 | 4 | new |
 
 ## Our pipeline
 
-_None._
+| Decision | Name | City | Apply | Next | Our notes |
+|---|---|---|---|---|---|
+| shortlist | [Alfies Antique Market](https://alfiesantiques.com/dealers-at-alfies/) | London | rolling | Permanent; open Tue-Sat 10am-6pm | — |
+| shortlist | [Camden Passage - Pierrepont Arcade & Charlton Place Markets](https://www.camdenpassageislington.co.uk/markets/pierrepont-arcade-market.html) | London | rolling | Antiques Wed & Sat (also general antiques/collectables Fri… | — |
+| shortlist | [Flea London — Vintage & Makers Market at Hackney Bridge](https://flealondon.com/) | London | rolling | Every weekend, Sat and Sun 11:00-17:00. The booking form of… | — |
+| shortlist | [Lou Lou's Vintage Fair — London, Canada Water](https://www.loulousvintagefair.com/) | London | open | 15 Nov 2026 | — |
+| shortlist | [Lower Stable Street Market & Shotengai pan-Asian Market (King's Cross)](https://www.kingscross.co.uk/event/lower-stable-street-market) | London | rolling | 19 Nov 2026 | — |
+| shortlist | [Old Spitalfields Market (incl. Thursday Antiques & Vintage Market)](https://oldspitalfieldsmarket.com/become-a-trader) | London | rolling | Stalls 7 days a week; Antiques Market every Thursday 8am-5p… | — |
 
 ## Fairs, markets and spaces
 
@@ -50,7 +68,6 @@ Break-even is pitch fee ÷ £84 contribution per piece (D14).
 |---|---|---|---|---|---|---|---|
 | 5 | [Frock Me! Vintage Fashion Fair](https://www.frockmevintagefashion.com/fair-dates) | fair | London | 15 Nov 2026 | closed | Stand fee not published; ask info@frockmevintagefashion.com / 020 7503 9171. Vi… | — |
 | 4 | [Lou Lou's Vintage Fair — London, Canada Water](https://www.loulousvintagefair.com/) | fair | London | 15 Nov 2026 | open | Pitch fee not published; Eventaly shows stall types and prices only after you l… | — |
-| 4 | [Midcentury Modern (Dulwich)](https://www.modernshows.com/shows/dulwich-1/) | fair | London | 15 Nov 2026 | open | Stand fee not published; ask petra@modernshows.com (midcentury section) | — |
 | 4 | [Lower Stable Street Market & Shotengai pan-Asian Market (King's Cross)](https://www.kingscross.co.uk/event/lower-stable-street-market) | market | London | 19 Nov 2026 | rolling | Not published | — |
 | 4 | [Lou Lou's Vintage Fair — Manchester](https://www.loulousvintagefair.com/) | fair | Manchester | 22 Nov 2026 | open | Pitch fee not published; Eventaly shows stall types and prices only after you l… | — |
 | 4 | [The Textile Society — Manchester Antique & Vintage Textile Fair](https://www.textilesociety.org.uk/event/manchester-antique-vintage-textile-fair) | fair | Manchester | 13 Jun 2027 | open | Stands from £110 for the day | 2 pc |
@@ -60,6 +77,7 @@ Break-even is pitch fee ÷ £84 contribution per piece (D14).
 | 3 | [Craft & Flea — London, Canada Water](https://eventaly.com/event/london-canada-waters-craft-flea/) | fair | London | 14 Nov 2026 | open | Pitches 6ft x 3ft table top, 6ft x 6ft or 12ft x 6ft; table hire optional. Lond… | — |
 | 3 | [The Lazy Flea (Chiswick, Wandsworth and West London venues)](https://www.lazyflea.co.uk/) | market | London | 14 Nov 2026 | closed | Not published. Pitch booking sits behind the approved-trader login. | — |
 | 3 | [Craft & Flea — Manchester](https://www.thecraftandflea.com/pages/trade-with-us) | fair | Manchester | 15 Nov 2026 | open | From £60 for a 6ft x 3ft table-top pitch (6ft x 6ft from £80, 12ft x 6ft from £… | 1 pc |
+| 3 | [Midcentury Modern (Dulwich)](https://www.modernshows.com/shows/dulwich-1/) | fair | London | 15 Nov 2026 | open | Stand fee not published; ask petra@modernshows.com (midcentury section) | — |
 | 3 | [Craft & Flea — Glasgow (Christmas)](https://www.thecraftandflea.com/pages/trade-with-us) | fair | Glasgow | 21 Nov 2026 | open | From £60 for a 6ft x 3ft table-top pitch (prices vary by venue); table hire £10+ | 1 pc |
 | 3 | [Sandown Antiques, Home & Interiors Fair](https://www.sunburyantiques.com/sandown/) | market | London | 17 Jan 2027 | open | Inside tabletop pitch (6ft x 2.5ft table supplied) £80 incl. VAT per fair, extr… | 1 pc |
 | 3 | [The Decorative Antiques & Textiles Fair](https://decorativefair.com/winter-fair/) | fair | London | 19 Jan 2027 | rolling | Stand fees not published | — |

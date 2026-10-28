@@ -11,7 +11,7 @@ A weekly agent that finds fairs, markets, pop-up spaces and vetted online market
 | [AGENT.md](AGENT.md) | The standing brief the weekly run follows: scope, fit scoring, steps, rules |
 | [sources.md](sources.md) | Organisers, listing sites and queries worth re-checking every week |
 | [check.py](check.py) | Validates the tracker and renders the tables in the report |
-| `drafts/` | Application drafts for anything we shortlist |
+| `drafts/` | Application drafts for anything we shortlist, plus [`PROFILE.md`](drafts/PROFILE.md): the facts every application draws on |
 
 ## How it runs
 
@@ -26,7 +26,7 @@ The `decision` field on each entry is ours. The agent only ever sets `new`.
 | `decision` | Means | What the agent does next |
 |---|---|---|
 | `new` | Found, not yet reviewed | Keeps it verified |
-| `shortlist` | We want to apply | Drafts the application in `drafts/<id>.md` and watches the deadline |
+| `shortlist` | We want to apply | Drafts the application in `drafts/<id>.md` (plus a Gmail draft, never sent, where the route is email) and watches the deadline |
 | `applied` | Submitted | Watches for the event date and outcome |
 | `accepted` · `rejected` | The outcome | Keeps the dates current |
 | `passed` | We've decided against it | Drops it from the ranked tables and won't raise it again |
@@ -40,7 +40,7 @@ Worth sorting out once, before the first application:
 - **Public liability insurance.** Most markets require it, often at £5m cover. Market-trader policies are inexpensive.
 - **Photos of the stock and of a stall set-up.** The four-frame photography in [08](../docs/08-brand.md) covers the stock. A stall photo needs a trial layout.
 - **A website or Instagram** that shows the range and the price point.
-- **A trading name and address.** Not settled yet ([18](../docs/18-name-clearance.md)). Drafts use `{NAME}`.
+- **A trading name and address.** The name is **Karineko Vintage** ([profile](drafts/PROFILE.md)). A correspondence address is still needed: the site doesn't publish one.
 - **A card reader.** Shopify POS or a SumUp-type reader. It counts towards the [D14](../docs/DECISIONS.md) VAT turnover like any other sale.
 
 ## Checks

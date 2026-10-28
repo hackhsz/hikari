@@ -72,10 +72,8 @@ markets:
   watch_out: Furniture-led (billed as '85 top furniture dealers'), though the newsletter promises 'more vintage
     smalls dealers than ever'. Jewellery is not a stated category, so pitch mid-century American costume pieces
     as collectable design objects.
-  fit: 4
-  why: 'Affluent, design-literate crowd (advance tickets £11, trade early entry £20) shopping for ''sustainable,
-    collectable design''. It fits the editorial brand and the mid-century American makers closely. Weaknesses: jewellery
-    is not the core category and the stand fee is unknown.'
+  fit: 3
+  why: 'Affluent, design-literate crowd (advance tickets £11, trade early entry £20) shopping for ''sustainable, collectable design''. Lowered from 4 on 28 Oct 2026: the live stock is Dior and Chanel logo jewellery, not mid-century pieces, so it sits outside what this fair''s buyers come for. Stand fee unknown.'
   checked: 2026-10-26
   sources: ['https://www.modernshows.com/shows/dulwich-1/', 'https://www.modernshows.com/newsletters/october-2026-newsletter/',
     'https://www.modernshows.com/contact/']
@@ -108,7 +106,7 @@ markets:
     and resellers are the norm. Main weakness: unknown ongoing rent and staffing load for a one-person business.'
   checked: 2026-10-13
   sources: ['https://alfiesantiques.com/dealers-at-alfies/', 'https://alfiesantiques.com/faqs/', 'https://alfiesantiques.com/the-eclectic-elegance-of-linda-bee-at-alfies-antiques-market/']
-  decision: new
+  decision: shortlist
   our_notes: null
 
 - id: camden-passage-pierrepont-charlton
@@ -141,7 +139,7 @@ markets:
   checked: 2026-10-13
   sources: ['https://www.camdenpassageislington.co.uk/market-stall-enquiry.html', 'https://www.camdenpassageislington.co.uk/markets/pierrepont-arcade-market.html',
     'https://www.camdenpassageislington.co.uk/markets/camden-passage-market.html', 'https://www.islington.gov.uk/business/markets/market-information-for-customers']
-  decision: new
+  decision: shortlist
   our_notes: null
 
 - id: old-spitalfields-market
@@ -174,7 +172,7 @@ markets:
   checked: 2026-10-13
   sources: ['https://oldspitalfieldsmarket.com/become-a-trader', 'https://oldspitalfieldsmarket.com/events/antiques-market',
     'https://oldspitalfieldsmarket.com/cms/2026/09/New-trader-information-pack-26.pdf', 'https://oldspitalfieldsmarket.com/trader-information']
-  decision: new
+  decision: shortlist
   our_notes: null
 
 - id: kings-cross-lower-stable-street-shotengai
@@ -204,7 +202,7 @@ markets:
   checked: 2026-10-26
   sources: ['https://www.kingscross.co.uk/event/lower-stable-street-market', 'https://www.kingscross.co.uk/event/shotengai-market',
     'https://www.kingscross.co.uk/the-shotengai-market', 'https://kioskn1c.com/pages/market']
-  decision: new
+  decision: shortlist
   our_notes: null
 
 - id: grays-antiques-mayfair
@@ -2049,7 +2047,7 @@ markets:
   why: 'Organiser site now loads: vintage goods are a named trader category, jewellery is part of the described mix, and about 1 sale covers the £45 day pitch, with Christmas weekends still bookable. Kept at 3 because the casual Hackney Wick weekend crowd likely pays less than £100-300.'
   checked: 2026-10-26
   sources: ['https://flealondon.com/', 'https://form.jotform.com/FleaLondon/flea-hackney-bridge-date-request', 'https://ma.to/event/flea-london-market-18-jul-2026', 'https://bermondseystreet.london/last-flea-vintage-market-weekend-4-5-april/']
-  decision: new
+  decision: shortlist
   our_notes: null
 
 - id: netil-market-popup
@@ -2283,7 +2281,7 @@ markets:
   checked: 2026-10-26
   sources: ['https://www.loulousvintagefair.com/', 'https://eventaly.com/event/lou-lous-london-canada-water/', 'https://eventaly.com/organiser/lou-lous-vintage-market/',
     'https://www.loulousvintagefair.com/trader-terms-and-conditions']
-  decision: new
+  decision: shortlist
   our_notes: null
 
 - id: sunbury-wimbledon-homes-antiques-fair
