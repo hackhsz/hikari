@@ -3,7 +3,8 @@
   matches what is there: all pieces, each category that has pieces, each house, and coming soon.
 
   Each link goes to a collection with the matching handle when one exists and has pieces
-  (necklaces, earrings, christian-dior, chanel, coming-soon…), else to the catalogue filtered in
+  (vintage-necklaces… for a category, vintage-christian-dior-jewellery… for a house as in
+  snippets/house-url, coming-soon), else to the catalogue filtered in
   the page (?cat= ?brand= ?show=). Making those collections later moves the links to them, with
   no theme change. The test is on the handle: for a missing handle Shopify still answers
   collections['x'] with an object that has no url but a non-zero count. Used by the header (desktop bar and the phone menu) and the catalogue sidebar.
@@ -25,16 +26,18 @@
 <a class="{{ cls }}" href="{{ all_url }}"{% if current and request.path == all_url %} aria-current="page"{% endif %}>{{ 'layout.shop_nav.all' | t }}</a>
 {%- for t in cat_tags -%}
   {%- if collections.all.all_tags contains t -%}
-    {%- assign c = collections[t] -%}
-    {%- if c.handle == t and c.products_count > 0 -%}{%- assign u = c.url -%}{%- else -%}{%- assign u = all_url | append: '?cat=' | append: t -%}{%- endif -%}
+    {%- assign ch = 'vintage-' | append: t -%}
+    {%- assign c = collections[ch] -%}
+    {%- if c.handle == ch and c.products_count > 0 -%}{%- assign u = c.url -%}{%- else -%}{%- assign u = all_url | append: '?cat=' | append: t -%}{%- endif -%}
     {%- assign k = 'collections.categories.' | append: t -%}
     <a class="{{ cls }}" href="{{ u }}"{% if current and request.path == u %} aria-current="page"{% endif %}>{{ k | t }}</a>
   {%- endif -%}
 {%- endfor -%}
 {%- for v in collections.all.all_vendors -%}
   {%- assign h = v | handleize -%}
-  {%- assign c = collections[h] -%}
-  {%- if c.handle == h and c.products_count > 0 -%}{%- assign u = c.url -%}{%- else -%}{%- assign u = all_url | append: '?brand=' | append: h -%}{%- endif -%}
+  {%- assign ch = 'vintage-' | append: h | append: '-jewellery' -%}
+  {%- assign c = collections[ch] -%}
+  {%- if c.handle == ch and c.products_count > 0 -%}{%- assign u = c.url -%}{%- else -%}{%- assign u = all_url | append: '?brand=' | append: h -%}{%- endif -%}
   <a class="{{ cls }} {{ cls }}--house" href="{{ u }}"{% if current and request.path == u %} aria-current="page"{% endif %}>{{ v }}</a>
 {%- endfor -%}
 {%- if soon_n > 0 -%}

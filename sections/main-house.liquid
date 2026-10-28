@@ -11,7 +11,8 @@
   A brand name is metadata, never identity (04): plain text in our own typeface, no logos, and
   the trade mark disclaimer on the page itself as well as in the footer.
 
-  Sold pieces from this house are on the Record below (sections/record.liquid reads the same
+  The grid shows the pieces on sale and the ones coming soon (they carry their price and
+  release on the card). Sold pieces from this house are on the Record below (sections/record.liquid reads the same
   collection). Both use Shopify's first 50 products in the collection's sort order; sort house
   collections newest first so the shop and the recent Record are what fall inside it.
 {%- endcomment -%}
@@ -25,7 +26,7 @@
   assign marks = c.metafields.hikari.marks.value
   assign n_live = 0
   for p in c.products
-    if p.available
+    if p.available or p.tags contains 'coming-soon'
       assign n_live = n_live | plus: 1
     endif
   endfor
@@ -51,7 +52,7 @@
       <p class="eyebrow">{{ 'house.in_shop' | t: count: n_live }}</p>
       <div class="grid4">
         {%- for p in c.products -%}
-          {%- if p.available -%}{%- render 'product-card', card_product: p, tone: 'grey' -%}{%- endif -%}
+          {%- if p.available or p.tags contains 'coming-soon' -%}{%- render 'product-card', card_product: p, tone: 'grey' -%}{%- endif -%}
         {%- endfor -%}
       </div>
     {%- else -%}

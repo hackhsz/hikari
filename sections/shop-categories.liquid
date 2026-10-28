@@ -36,8 +36,9 @@
           if pick == nil
             assign pick = spare
           endif
-          assign c = collections[t]
-          if c.handle == t and c.products_count > 0
+          assign ch = 'vintage-' | append: t
+          assign c = collections[ch]
+          if c.handle == ch and c.products_count > 0
             assign u = c.url
           else
             assign u = all_url | append: '?cat=' | append: t
