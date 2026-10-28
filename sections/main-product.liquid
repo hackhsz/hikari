@@ -3,7 +3,9 @@
   so no scrim is ever needed. Frames 2 and 4 — the maker's-mark macro and the condition frame — are
   evidence: unretouched, ungrained, and labelled as such (D6, D10).
   A frame whose image alt text contains "AI-generated" (the image pipeline writes "Styled image, AI-generated: …")
-  is never evidence, wherever it sits: it is captioned as a styled image and keeps its own alt text.
+  is never evidence, wherever it sits: it is captioned as a styled image.
+  Each frame's alt text is the photo's own (Shopify → the product's media → Alt text), saying what
+  that photo shows; a photo without one falls back on the product title.
 
   Every frame opens full screen (#zoom) and the label travels with it. Without JavaScript each
   frame is a plain link to the large image.
@@ -47,7 +49,7 @@
           {%- assign evidence = false -%}
           {%- if forloop.index == 2 or forloop.index == 4 %}{% unless styled %}{% assign evidence = true %}{% endunless %}{% endif -%}
           {%- if forloop.index == 1 -%}{%- assign b = status -%}{%- else -%}{%- assign b = '' -%}{%- endif -%}
-          {%- if styled -%}{%- assign frame_alt = img.alt -%}{%- else -%}{%- assign frame_alt = p.title -%}{%- endif -%}
+          {%- assign frame_alt = img.alt | default: p.title -%}
           <a class="frame" href="{{ img | image_url: width: 2400 }}" data-zoom
              data-zoom-label="{% if evidence %}{{ 'products.frames.unretouched' | t }}{% elsif styled %}{{ 'products.frames.styled' | t }}{% endif %}"
              aria-label="{{ 'products.frames.label' | t: index: forloop.index, total: p.images.size }}">
