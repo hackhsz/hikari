@@ -42,60 +42,7 @@
       "disabled": true
     },
     "houses": {
-      "type": "houses",
-      "blocks": {
-        "h1": {
-          "type": "house",
-          "settings": {
-            "name": "Christian Dior"
-          }
-        },
-        "h2": {
-          "type": "house",
-          "settings": {
-            "name": "Givenchy"
-          }
-        },
-        "h3": {
-          "type": "house",
-          "settings": {
-            "name": "Yves Saint Laurent"
-          }
-        },
-        "h4": {
-          "type": "house",
-          "settings": {
-            "name": "Nina Ricci"
-          }
-        },
-        "h5": {
-          "type": "house",
-          "settings": {
-            "name": "Grosse"
-          }
-        },
-        "h6": {
-          "type": "house",
-          "settings": {
-            "name": "Chanel"
-          }
-        },
-        "h7": {
-          "type": "house",
-          "settings": {
-            "name": "Trifari"
-          }
-        }
-      },
-      "block_order": [
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "h5",
-        "h6",
-        "h7"
-      ]
+      "type": "houses"
     },
     "story": {
       "type": "story",
