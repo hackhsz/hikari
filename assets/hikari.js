@@ -556,6 +556,20 @@
     "vendor":function(a,b){ return a.getAttribute("data-vendor").localeCompare(b.getAttribute("data-vendor"))||num(a,"price")-num(b,"price"); }
   };
   function num(el,k){ return Number(el.getAttribute("data-"+k))||0; }
+  /* The header's shop line (snippets/shop-nav): mark the link for what is on screen. Liquid sees
+     only the path, so a filtered catalogue (?cat= ?brand= ?show=) is matched here. */
+  function markShopNav(){
+    var here=new URLSearchParams(location.search), best=null, bestN=-1;
+    [].forEach.call(document.querySelectorAll(".shop-nav .sn"),function(a){
+      a.removeAttribute("aria-current");
+      var u=new URL(a.href,location.href); if(u.pathname!==location.pathname) return;
+      var ok=true, n=0;
+      u.searchParams.forEach(function(v,k){ n++; if(here.get(k)!==v) ok=false; });
+      ["cat","brand","show"].forEach(function(k){ if(here.get(k)&&!u.searchParams.get(k)) ok=false; });
+      if(ok&&n>bestN){ best=a; bestN=n; }
+    });
+    if(best) best.setAttribute("aria-current","page");
+  }
   function initCatalog(){
     var grid=document.querySelector("[data-cat-grid]"), bar=document.querySelector("[data-cat-filters]");
     if(!grid||!bar||grid.hasAttribute("data-cat-on")) return;
@@ -583,6 +597,7 @@
       var u=new URL(location.href);
       [["brand",b],["cat",c],["show",s],["sort_by",by==="manual"?"":by]].forEach(function(p){ if(p[1]) u.searchParams.set(p[0],p[1]); else u.searchParams.delete(p[0]); });
       history.replaceState(history.state,"",u);
+      markShopNav();
     }
     bar.addEventListener("change",apply);
     if(sort){ sort.addEventListener("change",apply); sort.form.addEventListener("submit",function(e){ e.preventDefault(); apply(); }); }
@@ -598,6 +613,8 @@
         if(k==="show"){ var st=el.getAttribute("data-status"); return v==="available"?(st!=="sold"&&st!=="soon"):st===v; }
         return el.getAttribute("data-"+(k==="cat"?"cat":"brand"))===v;
       }).length;
+      /* nothing behind it: leave it out, unless the address asked for it */
+      if(v&&n.textContent==="0"&&!i.checked) i.parentNode.hidden=true;
     });
     /* phones: the sidebar folds behind a Filter button */
     var tog=document.querySelector("[data-cat-toggle]"), lay=document.querySelector("[data-cat-layout]");
@@ -708,7 +725,7 @@
   function boot(){
     root.classList.add("js");
     initPlates(); initScroll(); bindOnce(); syncButtons();
-    initZoom(); initSpin(); initCountdown(); initCatalog(); initPrefs(); initPopup(); initNotify(); initLang(); initMisc();
+    initZoom(); initSpin(); initCountdown(); markShopNav(); initCatalog(); initPrefs(); initPopup(); initNotify(); initLang(); initMisc();
   }
   if(document.readyState!=="loading") boot(); else document.addEventListener("DOMContentLoaded",boot);
   document.addEventListener("shopify:section:load",boot);

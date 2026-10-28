@@ -705,3 +705,5 @@ s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thicknes
 /* product heading: house and piece in one h1 (sections/main-product); the piece keeps its own look */
 .pdp h1.pdp-h{margin-bottom:22px}
 .pdp h1.pdp-h .sub{display:block;margin:10px 0 0;letter-spacing:0;line-height:1.3}
+.trust-list li{border:0;padding:0;margin:0}
+.side-opt[hidden]{display:none}
