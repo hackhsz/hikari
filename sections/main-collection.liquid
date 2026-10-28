@@ -47,6 +47,7 @@
     {%- elsif collection.handle == 'all' -%}
       <p class="cat-intro">{{ 'collections.all_intro' | t }}</p>
     {%- endif -%}
+    {%- render 'collection-links', c: collection -%}
 
     <div class="cat-layout" data-cat-layout>
       <aside class="cat-side" id="cat-side" data-cat-filters hidden aria-label="{{ 'collections.filters.label' | t }}">

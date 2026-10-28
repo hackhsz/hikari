@@ -707,3 +707,10 @@ s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thicknes
 .pdp h1.pdp-h .sub{display:block;margin:10px 0 0;letter-spacing:0;line-height:1.3}
 .trust-list li{border:0;padding:0;margin:0}
 .side-opt[hidden]{display:none}
+
+/* "See also" under a collection or house heading (snippets/collection-links): the narrower pages */
+.cat-related{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;margin:-8px 0 clamp(24px,3vw,36px)}
+.cat-related .eyebrow{margin:0}
+.cat-related ul{display:flex;flex-wrap:wrap;gap:8px 18px;list-style:none;margin:0;padding:0}
+.cat-related a{font-size:14px;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.house-head .cat-related{margin-top:18px}

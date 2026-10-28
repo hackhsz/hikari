@@ -46,6 +46,7 @@
       <p class="eyebrow"><a href="{{ routes.collections_url }}">{{ 'collections.shop_by_house' | t }}</a></p>
       <h1 class="house-h">{{ house }} <span class="house-h-sub">{{ 'house.vintage_jewellery' | t }}</span></h1>
       {%- if lede != blank -%}<p class="house-lede">{{ lede }}</p>{%- endif -%}
+      {%- render 'collection-links', c: c -%}
     </header>
 
     {%- if n_live > 0 -%}

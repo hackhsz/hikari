@@ -93,6 +93,16 @@
     assign same_as = same_as | append: settings.social_pinterest | append: '|'
   endif
   assign same_as = same_as | split: '|'
+  # Other names (theme settings → Search), e.g. "Karineko", so Google ties them to this site.
+  assign alt_names = ''
+  assign alt_raw = settings.seo_alternate_name | split: ','
+  for a in alt_raw
+    assign a = a | strip
+    if a != blank
+      assign alt_names = alt_names | append: a | append: '|'
+    endif
+  endfor
+  assign alt_names = alt_names | split: '|'
 -%}
 <script type="application/ld+json">
 {
@@ -102,6 +112,7 @@
       "@type": "Organization",
       "@id": {{ shop.url | append: '/#org' | json }},
       "name": {{ brand | json }},
+      {%- if alt_names.size > 0 %}"alternateName": {{ alt_names | json }},{% endif %}
       "url": {{ shop.url | json }}
       {%- if settings.seo_logo %},"logo": {{ settings.seo_logo | image_url: width: 600 | prepend: 'https:' | json }}{% endif -%}
       {%- if same_as.size > 0 %},"sameAs": {{ same_as | json }}{% endif %}
@@ -110,6 +121,7 @@
       "@type": "WebSite",
       "@id": {{ shop.url | append: '/#site' | json }},
       "name": {{ brand | json }},
+      {%- if alt_names.size > 0 %}"alternateName": {{ alt_names | json }},{% endif %}
       "url": {{ shop.url | json }},
       "publisher": { "@id": {{ shop.url | append: '/#org' | json }} }
     }

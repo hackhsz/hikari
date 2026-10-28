@@ -1,0 +1,44 @@
+{%- comment -%}
+  Links between category pages and house pages, so each leads to the page that answers a narrower
+  search ("vintage Dior earrings"):
+    on a category page (vintage-earrings): that category per house, vintage-{house}-{category},
+      e.g. vintage-dior-earrings and vintage-chanel-earrings;
+    on a house page (collection.house template): that house per category, the same handles;
+    on one of those pages: the category page and the house page it narrows.
+  {house} is the Vendor as a handle without "christian-" (Christian Dior → dior). Only collections
+  that exist and hold pieces are linked, so nothing shows until such a collection is made.
+  Pass c, the collection being viewed.
+{%- endcomment -%}
+{%- liquid
+  assign cat_tags = 'necklaces,earrings,bracelets,rings,brooches,sunglasses' | split: ','
+  assign h = c.handle
+  assign cands = ''
+  for v in c.all_vendors
+    assign vh = v | handleize
+    assign hs = vh | remove_first: 'christian-'
+    for t in cat_tags
+      assign cat_h = 'vintage-' | append: t
+      assign combo_h = 'vintage-' | append: hs | append: '-' | append: t
+      if h == cat_h or c.template_suffix == 'house'
+        assign cands = cands | append: combo_h | append: ','
+      elsif h == combo_h
+        assign cands = cands | append: cat_h | append: ',vintage-' | append: vh | append: '-jewellery,'
+      endif
+    endfor
+  endfor
+  assign cands = cands | split: ','
+-%}
+{%- capture links -%}
+  {%- for ch in cands -%}
+    {%- assign lc = collections[ch] -%}
+    {%- if lc.handle == ch and lc.products_count > 0 and ch != h -%}
+      <li><a href="{{ lc.url }}">{{ lc.title }}</a></li>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- if links != blank -%}
+  <nav class="cat-related" aria-label="{{ 'collections.related' | t }}">
+    <span class="eyebrow">{{ 'collections.related' | t }}</span>
+    <ul>{{ links }}</ul>
+  </nav>
+{%- endif -%}
