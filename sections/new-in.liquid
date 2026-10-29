@@ -19,7 +19,7 @@
   <div class="shell">
     <div class="sec-head">
       <div>
-        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
         <h2 class="sec-h">{{ section.settings.heading }}</h2>
       </div>
       <a class="sec-all" href="{{ routes.all_products_collection_url }}">{{ 'home.all_pieces' | t: count: collections.all.products_count }}</a>
@@ -32,8 +32,8 @@
 {% schema %}
 { "name": "New in",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "New in" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Just arrived from Japan" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "New in" },
     { "type": "range", "id": "count", "label": "Pieces", "min": 4, "max": 12, "step": 4, "default": 8 }
   ],
   "presets": [{ "name": "New in" }] }

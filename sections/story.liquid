@@ -3,19 +3,19 @@
     <div class="art">{%- render 'plate', image: section.settings.image, ratio: 0.80, seed: 5,
         tone: 'light', comp: 'single', stamp: section.settings.stamp -%}</div>
     <div class="txt">
-      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
       <h2>{{ section.settings.heading }}</h2>
       <div>{{ section.settings.body }}</div>
     </div>
   </div>
 </section>
 {% schema %}
-{ "name": "Found in Japan", "settings": [
+{ "name": "Our story", "settings": [
   { "type": "image_picker", "id": "image", "label": "Plate" },
   { "type": "text", "id": "stamp", "label": "Stamp", "default": "Plate 05 · Tokyo, March" },
-  { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Found in Japan" },
-  { "type": "text", "id": "heading", "label": "Heading", "default": "Forty years of Paris ended up in Tokyo. We go and get it." },
+  { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Karineko" },
+  { "type": "text", "id": "heading", "label": "Heading", "default": "Chosen by hand, photographed as it is." },
   { "type": "richtext", "id": "body", "label": "Body",
-    "default": "<p>Japan has the deepest and best-kept secondhand supply in the world. Its auction houses and reuse chains are closed to buyers outside the country — so almost none of it reaches the UK.</p><p>Everything here is bought in person or at Japanese auction, landed in London, authenticated, and photographed on our own table. Duty is paid before it reaches you. There is never a bill at the door.</p>" }
-], "presets": [{ "name": "Found in Japan" }] }
+    "default": "<p>Each piece is bought in person or at auction in Japan, one at a time, and checked for its maker's mark and condition before it is offered here.</p><p>We photograph every piece on our own table in London, without retouching. UK duty is included in the price.</p>" }
+], "presets": [{ "name": "Our story" }] }
 {% endschema %}

@@ -26,8 +26,8 @@
     "photography_to_follow": "照片稍后呈现",
     "not_found": {
       "heading": "已经离开，或从未在此。",
-      "body_html": "孤品，终有离开的一天。{{ link }}。",
-      "link": "返回壁龛"
+      "body_html": "这件作品或许已找到新主人。{{ link }}。",
+      "link": "返回商店"
     },
     "account": {
       "not_styled": "账户页面尚在整理中。可直接以访客身份结账，这也是默认方式。"
@@ -44,7 +44,8 @@
     "header": {
       "home": "{{ brand }}，首页",
       "nav": "主导航",
-      "menu": "菜单"
+      "menu": "菜单",
+      "shop": "选购"
     },
     "footer": {
       "creators": "创作者合作，以及分享您的单品",
@@ -136,11 +137,11 @@
       "details": "全部照片与细节",
       "details_spin": "全部照片、360° 视图与细节"
     },
-    "seo_tail": "在日本寻得的正品古董 {{ house }}，从伦敦发货。"
+    "seo_tail": "{{ house }} 古董首饰，自伦敦发货。"
   },
   "cart": {
-    "empty_heading": "购物袋里还没有单品。",
-    "empty_body": "这里的每一件都是孤品。售出后，会收入售出记录。",
+    "empty_heading": "购物袋是空的。",
+    "empty_body": "加入的作品会显示在这里。",
     "see_every_piece": "查看全部单品",
     "sold_since": "加入后已售出",
     "remove": "移除",
@@ -157,7 +158,7 @@
     "some_sold_single": "购物袋中有一件单品已经售出。请先移除，再结账。",
     "some_sold_several": "购物袋中有几件单品已经售出。请先移除，再结账。",
     "checkout": "结账",
-    "not_held": "孤品。完成结账之前，购物袋中的单品不会为您保留。",
+    "not_held": "购物袋中的作品在结账前不会为您保留。",
     "payment_methods": "我们接受的付款方式",
     "added": "已加入购物袋。",
     "already": "已在购物袋中。",
@@ -199,7 +200,7 @@
     "reset": "显示全部",
     "related": "相关系列",
     "all_title": "古董设计师珠宝",
-    "all_intro": "在日本寻得的 Christian Dior 与 Chanel 古董珠宝，在伦敦我们自己的桌上拍摄。每一件都是孤品。"
+    "all_intro": "克里斯汀·迪奥与香奈儿古董首饰，逐件挑选，如实拍摄。"
   },
   "house": {
     "vintage_jewellery": "中古首饰",
@@ -224,8 +225,8 @@
     "goes_live_edition": "随本期上新一同上线：{{ day }}",
     "see_them_all": "查看全部",
     "record_sold": "{{ house }} · 已售",
-    "all_pieces": "全部 {{ count }} 件",
-    "see_all": "查看全部单品"
+    "all_pieces": "查看全部",
+    "see_all": "浏览全部作品"
   },
   "signup": {
     "placeholder": "you@example.com",

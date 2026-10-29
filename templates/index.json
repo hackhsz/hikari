@@ -7,14 +7,13 @@
         "image_mobile": "shopify://shop_images/karineko-banner-walnut-tray-phone.jpg",
         "image_alt": "Vintage Dior jewellery on a walnut tray in late sun: a crystal CD pendant, Dior logo earrings, a rope knot brooch, an oval CD pendant and an oblique tag pendant",
         "height": "standard",
-        "layout": "split",
-        "eyebrow": "Vintage designer jewellery · Found in Japan",
-        "heading": "Vintage Dior and Chanel jewellery, found in Japan.",
-        "body": "<p>One of one, authenticated, and photographed on our own table in London. UK duty paid, and we ship worldwide.</p>",
-        "link_label": "Shop all pieces",
+        "layout": "stacked",
+        "heading": "Pieces with a past.",
+        "body": "<p>Vintage Christian Dior and Chanel jewellery, chosen one piece at a time.</p>",
+        "link_label": "Explore the collection",
         "link": "shopify://collections/all",
-        "link2_label": "See what's coming soon",
-        "link2": "/collections/all?show=soon"
+        "link2_label": "The next release",
+        "link2": "/collections/coming-soon"
       }
     },
     "alcove": {
@@ -42,13 +41,19 @@
       "disabled": true
     },
     "houses": {
-      "type": "houses"
+      "type": "houses",
+      "settings": {
+        "heading": "The houses"
+      }
     },
     "story": {
       "type": "story",
       "settings": {
         "image": "shopify://shop_images/karineko-story-shell-dish.jpg",
-        "stamp": "Plate 05 · At the stall, October"
+        "stamp": "Plate 05 · At the stall, October",
+        "eyebrow": "Karineko",
+        "heading": "Chosen by hand, photographed as it is.",
+        "body": "<p>Each piece is bought in person or at auction in Japan, one at a time, and checked for its maker's mark and condition before it is offered here.</p><p>We photograph every piece on our own table in London, without retouching. UK duty is included in the price.</p>"
       }
     },
     "recent": {
@@ -62,7 +67,11 @@
       }
     },
     "signup": {
-      "type": "signup"
+      "type": "signup",
+      "settings": {
+        "heading": "New pieces, before anyone else.",
+        "body": "A note when new pieces arrive, and a letter once a month."
+      }
     },
     "next": {
       "type": "next-edition",
@@ -73,7 +82,7 @@
       "settings": {
         "kind": "presale",
         "eyebrow": "Pre-sale",
-        "heading": "Yours now, on its way soon"
+        "heading": "Available to order"
       }
     },
     "shelf-sale": {
@@ -81,25 +90,24 @@
       "settings": {
         "kind": "sale",
         "eyebrow": "On sale",
-        "heading": "A little less, still one of one"
+        "heading": "Now reduced"
       }
     },
     "trust": {
       "type": "trust-strip",
-      "settings": {}
+      "settings": {},
+      "disabled": true
     },
     "categories": {
       "type": "shop-categories",
       "settings": {
-        "eyebrow": "Shop by category",
-        "heading": "What are you looking for?"
+        "heading": "Shop by category"
       }
     },
     "new_in": {
       "type": "new-in",
       "settings": {
-        "eyebrow": "New in",
-        "heading": "Just arrived from Japan",
+        "heading": "New in",
         "count": 8
       }
     }

@@ -26,8 +26,8 @@
     "photography_to_follow": "Photography to follow",
     "not_found": {
       "heading": "Gone, or never here.",
-      "body_html": "One of one means pieces do leave. {{ link }}.",
-      "link": "Back to the Alcove"
+      "body_html": "This piece may have found a new home. {{ link }}.",
+      "link": "Return to the shop"
     },
     "account": {
       "not_styled": "Account pages are not styled yet. Guest checkout is enabled and is the default."
@@ -44,7 +44,8 @@
     "header": {
       "home": "{{ brand }}, home",
       "nav": "Main",
-      "menu": "Menu"
+      "menu": "Menu",
+      "shop": "Shop"
     },
     "footer": {
       "creators": "Creators, and sharing your piece",
@@ -136,11 +137,11 @@
       "details": "Every photograph and the details",
       "details_spin": "Every photograph, the 360° view and the details"
     },
-    "seo_tail": "Authentic vintage {{ house }}, found in Japan and sent from London."
+    "seo_tail": "Vintage {{ house }}, sent from London."
   },
   "cart": {
-    "empty_heading": "Nothing in the bag yet.",
-    "empty_body": "Every piece here is one of one. When it sells, it goes to the Record.",
+    "empty_heading": "Your bag is empty.",
+    "empty_body": "Pieces you add will appear here.",
     "see_every_piece": "See every piece",
     "sold_since": "Sold since you added it",
     "remove": "Remove",
@@ -157,7 +158,7 @@
     "some_sold_single": "A piece in your bag sold while it was there. Remove it to check out.",
     "some_sold_several": "Some pieces in your bag sold while they were there. Remove them to check out.",
     "checkout": "Checkout",
-    "not_held": "One of one. A piece in your bag is not held for you until you check out.",
+    "not_held": "Pieces in your bag are not reserved until you check out.",
     "payment_methods": "Payment methods we accept",
     "added": "Added to your bag.",
     "already": "Already in your bag.",
@@ -199,7 +200,7 @@
     "reset": "Show everything",
     "related": "See also",
     "all_title": "Vintage designer jewellery",
-    "all_intro": "Vintage Christian Dior and Chanel jewellery, found in Japan and photographed on our own table in London. Every piece is one of one."
+    "all_intro": "Vintage Christian Dior and Chanel jewellery, chosen one piece at a time and photographed as it is."
   },
   "house": {
     "vintage_jewellery": "Vintage jewellery",
@@ -224,8 +225,8 @@
     "goes_live_edition": "Goes live with the Edition: {{ day }}",
     "see_them_all": "See them all",
     "record_sold": "{{ house }} · sold",
-    "all_pieces": "All {{ count }} pieces",
-    "see_all": "See every piece"
+    "all_pieces": "View all",
+    "see_all": "View the collection"
   },
   "signup": {
     "placeholder": "you@example.com",

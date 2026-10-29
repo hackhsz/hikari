@@ -89,7 +89,7 @@
         "type": "text",
         "id": "announcement",
         "label": "One line above the masthead",
-        "default": "The price you see is the price you pay in the UK · Free UK delivery over £250",
+        "default": "Complimentary UK delivery over £250 · Worldwide shipping",
         "info": "Leave empty to hide. D13 asks for the all-in price claim in the headline."
       }
     ]
@@ -190,19 +190,19 @@
         "type": "text",
         "id": "trust_1",
         "label": "1",
-        "default": "Every piece authenticated"
+        "default": "Authenticity guaranteed"
       },
       {
         "type": "text",
         "id": "trust_2",
         "label": "2",
-        "default": "Duty paid — no customs charges in the UK"
+        "default": "UK duty included"
       },
       {
         "type": "text",
         "id": "trust_3",
         "label": "3",
-        "default": "Insured UK next day, free over £250"
+        "default": "Insured next-day UK delivery, complimentary over £250"
       },
       {
         "type": "text",

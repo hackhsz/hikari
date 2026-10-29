@@ -9,7 +9,8 @@
   no theme change. The test is on the handle: for a missing handle Shopify still answers
   collections['x'] with an object that has no url but a non-zero count. Used by the header (desktop bar and the phone menu) and the catalogue sidebar.
 
-  Params: cls (class on each link), current (true to mark the link for the page being shown).
+  Params: cls (class on each link), current (true to mark the link for the page being shown),
+  part ('houses' for the house links only, as in the masthead).
   Liquid can only see the path, so a filtered catalogue (?cat=…) is marked by hikari.js
   (markShopNav), which also follows the filters as they change.
 {%- endcomment -%}
@@ -23,6 +24,7 @@
     endif
   endfor
 -%}
+{%- unless part == 'houses' -%}
 <a class="{{ cls }}" href="{{ all_url }}"{% if current and request.path == all_url %} aria-current="page"{% endif %}>{{ 'layout.shop_nav.all' | t }}</a>
 {%- for t in cat_tags -%}
   {%- if collections.all.all_tags contains t -%}
@@ -33,6 +35,7 @@
     <a class="{{ cls }}" href="{{ u }}"{% if current and request.path == u %} aria-current="page"{% endif %}>{{ k | t }}</a>
   {%- endif -%}
 {%- endfor -%}
+{%- endunless -%}
 {%- for v in collections.all.all_vendors -%}
   {%- assign h = v | handleize -%}
   {%- assign ch = 'vintage-' | append: h | append: '-jewellery' -%}
@@ -40,7 +43,7 @@
   {%- if c.handle == ch and c.products_count > 0 -%}{%- assign u = c.url -%}{%- else -%}{%- assign u = all_url | append: '?brand=' | append: h -%}{%- endif -%}
   <a class="{{ cls }} {{ cls }}--house" href="{{ u }}"{% if current and request.path == u %} aria-current="page"{% endif %}>{{ v }}</a>
 {%- endfor -%}
-{%- if soon_n > 0 -%}
+{%- if soon_n > 0 and part != 'houses' -%}
   {%- assign c = collections['coming-soon'] -%}
   {%- if c.handle == 'coming-soon' and c.products_count > 0 -%}{%- assign u = c.url -%}{%- else -%}{%- assign u = all_url | append: '?show=soon' -%}{%- endif -%}
   <a class="{{ cls }} {{ cls }}--soon" href="{{ u }}"{% if current and request.path == u %} aria-current="page"{% endif %}>{{ 'products.badge.coming_soon' | t }}</a>

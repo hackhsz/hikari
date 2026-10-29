@@ -8,23 +8,32 @@
 {%- endif -%}
 <header class="mast">
   <div class="inner">
-    <a href="{{ routes.root_url }}" aria-label="{{ 'layout.header.home' | t: brand: settings.brand_name | escape_once }}">
+    {%- comment -%}
+      One line on a laptop: the shop and its houses on the left, the lockup in the middle, the
+      pages and the bag on the right. Categories live in the catalogue sidebar and the phone menu,
+      not here. The right-hand pages come from the Main menu, minus Home and the catalogue,
+      which the logo and Shop already cover.
+    {%- endcomment -%}
+    <nav class="mast-l" aria-label="{{ 'layout.shop_nav.label' | t }}">
+      <a href="{{ routes.all_products_collection_url }}"{% if request.path == routes.all_products_collection_url %} aria-current="page"{% endif %}>{{ 'layout.header.shop' | t }}</a>
+      {%- render 'shop-nav', cls: 'mh', part: 'houses', current: true -%}
+    </nav>
+    <a class="mast-logo" href="{{ routes.root_url }}" aria-label="{{ 'layout.header.home' | t: brand: settings.brand_name | escape_once }}">
       {%- render 'lockup', scale: 'body', size: 'clamp(16px, 4.9vw, 19px)' -%}
     </a>
-    <nav aria-label="{{ 'layout.header.nav' | t }}">
-      {%- for link in linklists.main-menu.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
-    </nav>
     <div class="mast-r">
+      <nav class="mast-pages" aria-label="{{ 'layout.header.nav' | t }}">
+        {%- for link in linklists.main-menu.links -%}
+          {%- if link.url == routes.root_url or link.url == routes.all_products_collection_url or link.url == routes.collections_url -%}{%- continue -%}{%- endif -%}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {%- endfor -%}
+      </nav>
       {%- comment -%} Phones hide the nav, so they get a menu sheet. Without JavaScript it falls back to the catalogue. {%- endcomment -%}
       <a class="menu-btn" href="{{ routes.all_products_collection_url }}" data-sheet-open="menu" aria-controls="menu" aria-expanded="false">{{ 'layout.header.menu' | t }}</a>
       {%- render 'language-switcher', id: 'lang-mast' %}
       <a class="bag-btn" href="{{ routes.cart_url }}" data-sheet-open="bag" aria-controls="bag" aria-expanded="false">{{ 'layout.cart.title' | t }} (<span data-bag-count>{{ cart.item_count }}</span>)</a>
     </div>
   </div>
-  {%- comment -%} The shop's categories, houses and coming soon (snippets/shop-nav): on a laptop a second line under the masthead. {%- endcomment -%}
-  <nav class="shop-nav" aria-label="{{ 'layout.shop_nav.label' | t }}">
-    <div class="shop-nav-in">{%- render 'shop-nav', cls: 'sn', current: true -%}</div>
-  </nav>
 </header>
 
 {%- comment -%} Outside .mast on purpose: the masthead is a sticky band with its own stacking, and the sheet must cover it. {%- endcomment -%}

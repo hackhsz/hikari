@@ -556,11 +556,11 @@
     "vendor":function(a,b){ return a.getAttribute("data-vendor").localeCompare(b.getAttribute("data-vendor"))||num(a,"price")-num(b,"price"); }
   };
   function num(el,k){ return Number(el.getAttribute("data-"+k))||0; }
-  /* The header's shop line (snippets/shop-nav): mark the link for what is on screen. Liquid sees
-     only the path, so a filtered catalogue (?cat= ?brand= ?show=) is matched here. */
+  /* The masthead's shop links (Shop and the houses): mark the link for what is on screen. Liquid
+     sees only the path, so a filtered catalogue (?cat= ?brand= ?show=) is matched here. */
   function markShopNav(){
     var here=new URLSearchParams(location.search), best=null, bestN=-1;
-    [].forEach.call(document.querySelectorAll(".shop-nav .sn"),function(a){
+    [].forEach.call(document.querySelectorAll(".mast-l a"),function(a){
       a.removeAttribute("aria-current");
       var u=new URL(a.href,location.href); if(u.pathname!==location.pathname) return;
       var ok=true, n=0;

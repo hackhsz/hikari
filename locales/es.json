@@ -26,8 +26,8 @@
     "photography_to_follow": "Fotografías en camino",
     "not_found": {
       "heading": "Ya no está, o nunca estuvo.",
-      "body_html": "Cada pieza es única, y las piezas se van. {{ link }}.",
-      "link": "Volver a la Hornacina"
+      "body_html": "Puede que esta pieza haya encontrado un nuevo hogar. {{ link }}.",
+      "link": "Volver a la tienda"
     },
     "account": {
       "not_styled": "Las páginas de cuenta aún no tienen diseño. Se puede comprar como invitado, y es la opción predeterminada."
@@ -44,7 +44,8 @@
     "header": {
       "home": "{{ brand }}, inicio",
       "nav": "Principal",
-      "menu": "Menú"
+      "menu": "Menú",
+      "shop": "Tienda"
     },
     "footer": {
       "creators": "Creadores, y compartir tu pieza",
@@ -136,11 +137,11 @@
       "details": "Todas las fotografías y los detalles",
       "details_spin": "Todas las fotografías, la vista de 360° y los detalles"
     },
-    "seo_tail": "{{ house }} vintage auténtico, encontrado en Japón y enviado desde Londres."
+    "seo_tail": "{{ house }} vintage, enviado desde Londres."
   },
   "cart": {
-    "empty_heading": "Todavía no hay nada en la bolsa.",
-    "empty_body": "Cada pieza es única. Cuando se vende, pasa al Archivo.",
+    "empty_heading": "Tu bolsa está vacía.",
+    "empty_body": "Las piezas que añadas aparecerán aquí.",
     "see_every_piece": "Ver todas las piezas",
     "sold_since": "Vendida después de añadirla",
     "remove": "Quitar",
@@ -157,7 +158,7 @@
     "some_sold_single": "Una pieza de tu bolsa se vendió mientras estaba en ella. Quítala para finalizar la compra.",
     "some_sold_several": "Algunas piezas de tu bolsa se vendieron mientras estaban en ella. Quítalas para finalizar la compra.",
     "checkout": "Finalizar compra",
-    "not_held": "Pieza única. Una pieza en tu bolsa no queda reservada hasta que finalizas la compra.",
+    "not_held": "Las piezas de tu bolsa no quedan reservadas hasta que finalices la compra.",
     "payment_methods": "Formas de pago aceptadas",
     "added": "Añadida a tu bolsa.",
     "already": "Ya está en tu bolsa.",
@@ -199,7 +200,7 @@
     "reset": "Mostrar todo",
     "related": "Ver también",
     "all_title": "Joyería vintage de diseñador",
-    "all_intro": "Joyas vintage de Christian Dior y Chanel, encontradas en Japón y fotografiadas en nuestra propia mesa en Londres. Cada pieza es única."
+    "all_intro": "Joyas vintage de Christian Dior y Chanel, elegidas una a una y fotografiadas tal como son."
   },
   "house": {
     "vintage_jewellery": "Joyería vintage",
@@ -224,8 +225,8 @@
     "goes_live_edition": "Disponible con la Edición: {{ day }}",
     "see_them_all": "Verlas todas",
     "record_sold": "{{ house }} · vendida",
-    "all_pieces": "Las {{ count }} piezas",
-    "see_all": "Ver todas las piezas"
+    "all_pieces": "Ver todo",
+    "see_all": "Ver la colección"
   },
   "signup": {
     "placeholder": "tu@correo.com",
