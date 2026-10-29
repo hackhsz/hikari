@@ -214,7 +214,7 @@ html.scroll-colour .form button span{color:var(--bg)}
    headline does not leave the page split in two. */
 .hero:not(.hero--split) .hero-txt{display:block;text-align:center;padding-top:clamp(32px,5vw,60px);padding-bottom:clamp(40px,6vw,76px)}
 .hero:not(.hero--split) .hero-h{margin:0 auto 16px;max-width:22ch}
-.hero:not(.hero--split) .hero-b p{margin:0 auto;max-width:46ch}
+.hero:not(.hero--split) .hero-b p{margin:0 auto;max-width:52ch;text-wrap:balance}
 .hero:not(.hero--split) .hero-ctas{justify-content:center;gap:14px 36px}
 
 /* ── sheets: bag drawer and phone menu ─────────────────────
