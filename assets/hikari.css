@@ -210,6 +210,12 @@ html.scroll-colour .form button span{color:var(--bg)}
   padding:8px 0 5px;border-bottom:1px solid;border-color:color-mix(in srgb,currentColor 45%,transparent);transition:border-color .25s}
 .hero-link:hover{border-color:currentColor}
 @media (max-width:760px){.hero-lead,.hero-side{grid-column:1/-1}}
+/* Words under the full-width picture: one short centred column, so a brief headline does not
+   leave the page split in two. */
+.hero:not(.hero--split) .hero-txt{display:block;text-align:center;padding-top:clamp(32px,5vw,60px);padding-bottom:clamp(40px,6vw,76px)}
+.hero:not(.hero--split) .hero-h{margin:0 auto 16px;max-width:22ch}
+.hero:not(.hero--split) .hero-b p{margin:0 auto;max-width:46ch}
+.hero:not(.hero--split) .hero-ctas{justify-content:center;gap:14px 36px}
 
 /* ── sheets: bag drawer and phone menu ─────────────────────
    Fixed surfaces in paper and sumi, whatever colour the page has scrolled to.
