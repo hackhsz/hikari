@@ -111,7 +111,7 @@
     "frames": {
       "label": "写真 {{ index }}／{{ total }}、全画面で表示",
       "unretouched": "無加工",
-      "unretouched_note": "無加工 · 粒子効果も修整もなし",
+      "unretouched_note": "無加工",
       "styled": "イメージ画像 · AI生成",
       "styled_note": "イメージ画像 · AI生成。お品そのものは実物の写真でご覧ください。",
       "plate_daylight": "図版 01 · 自然光",
@@ -216,7 +216,7 @@
     "mark": "刻印",
     "marks_fine": "どのお品も、2枚目の写真で刻印そのものを無加工でお見せしています。",
     "more_from": "{{ house }}のほかのお品",
-    "every_piece": "{{ house }}のすべてのお品とアーカイブ"
+    "every_piece": "{{ house }}のすべてのアイテム"
   },
   "home": {
     "alcove_line": "床の間 · エディション No. {{ number }} · {{ day }}",

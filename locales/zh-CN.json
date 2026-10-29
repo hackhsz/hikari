@@ -70,7 +70,7 @@
     "product": {
       "sold_out": "已售",
       "add_to_bag": "加入购物袋",
-      "one_of_one": "孤品",
+      "one_of_one": "单件",
       "in_bag": "已在购物袋中",
       "just_sold": "这件单品刚刚售出。",
       "pre_order": "预订",
@@ -111,7 +111,7 @@
     "frames": {
       "label": "第 {{ index }} 张照片，共 {{ total }} 张，全屏查看",
       "unretouched": "未修图",
-      "unretouched_note": "未修图 · 无颗粒效果，无任何修饰",
+      "unretouched_note": "未修图",
       "styled": "场景图 · AI 生成",
       "styled_note": "场景图 · AI 生成。单品本身请见实拍照片。",
       "plate_daylight": "图版 01 · 日光",
@@ -216,7 +216,7 @@
     "mark": "刻印",
     "marks_fine": "每件单品的第二张照片都会展示刻印本身，未经修图。",
     "more_from": "更多 {{ house }}",
-    "every_piece": "全部 {{ house }} 单品，以及售出记录"
+    "every_piece": "全部 {{ house }} 作品"
   },
   "home": {
     "alcove_line": "壁龛 · 第 {{ number }} 期 · {{ day }}",

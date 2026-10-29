@@ -111,7 +111,7 @@
     "frames": {
       "label": "Fotografía {{ index }} de {{ total }}, a pantalla completa",
       "unretouched": "Sin retocar",
-      "unretouched_note": "Sin retocar · sin grano, sin retoques",
+      "unretouched_note": "Sin retocar",
       "styled": "Imagen ambientada · generada con IA",
       "styled_note": "Imagen ambientada · generada con IA. La pieza en sí aparece en las fotografías reales.",
       "plate_daylight": "Lámina 01 · luz de día",
@@ -216,7 +216,7 @@
     "mark": "Firma",
     "marks_fine": "Cada ficha muestra la firma en su segunda fotografía, sin retocar.",
     "more_from": "Más de {{ house }}",
-    "every_piece": "Todas las piezas de {{ house }}, y el Archivo"
+    "every_piece": "Todas las piezas de {{ house }}"
   },
   "home": {
     "alcove_line": "La Hornacina · Edición n.º {{ number }} · {{ day }}",

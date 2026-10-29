@@ -70,7 +70,7 @@
     "product": {
       "sold_out": "Sold",
       "add_to_bag": "Add to bag",
-      "one_of_one": "One of one",
+      "one_of_one": "Single piece",
       "in_bag": "In your bag",
       "just_sold": "This piece has just sold.",
       "pre_order": "Pre-order",
@@ -111,7 +111,7 @@
     "frames": {
       "label": "Photograph {{ index }} of {{ total }}, full screen",
       "unretouched": "Unretouched",
-      "unretouched_note": "Unretouched · no grain, no retouching",
+      "unretouched_note": "Unretouched",
       "styled": "Styled image · AI-generated",
       "styled_note": "Styled image · AI-generated. The piece itself is in the real photographs.",
       "plate_daylight": "Plate 01 · daylight",
@@ -216,7 +216,7 @@
     "mark": "Mark",
     "marks_fine": "Every listing shows the mark itself in its second photograph, unretouched.",
     "more_from": "More from {{ house }}",
-    "every_piece": "Every {{ house }} piece, and the Record"
+    "every_piece": "All {{ house }} pieces"
   },
   "home": {
     "alcove_line": "The Alcove · Edition No. {{ number }} · {{ day }}",
