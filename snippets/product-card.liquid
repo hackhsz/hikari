@@ -12,15 +12,22 @@
   Every card photograph is a square crop (plate fill), so a row lines up whatever shape the
   photographs are. A coming-soon piece shows its price (or "Price to come") and "Coming soon"
   with its release, so nobody has to open it to find out. card_sizes: the card's display width.
+
+  Tag a piece photo-to-come when its only photograph is shared with another listing (a pair shot
+  together): its card shows the shop's cat instead, so the same photograph never appears on two
+  cards. The piece's own page still shows the photograph. Remove the tag once it has its own.
 {%- endcomment -%}
 {%- capture status -%}{%- render 'status', p: p -%}{%- endcapture -%}
 {%- assign piece = p.metafields.hikari.piece | default: p.title -%}
 {%- assign img_sizes = card_sizes | default: '(max-width: 860px) 50vw, 33vw' -%}
+{%- assign card_img = p.featured_image -%}
+{%- assign to_come = false -%}
+{%- if p.tags contains 'photo-to-come' -%}{%- assign card_img = nil -%}{%- assign to_come = true -%}{%- endif -%}
 <div class="card">
   <div class="card-media">
     <a href="{{ p.url }}" tabindex="-1" aria-hidden="true">
-      {%- render 'plate', image: p.featured_image, ratio: 1, fill: true, sizes: img_sizes, seed: p.id, tone: tone,
-          comp: 'single', alt: p.title, badge: status -%}
+      {%- render 'plate', image: card_img, ratio: 1, fill: true, sizes: img_sizes, seed: p.id, tone: tone,
+          comp: 'single', alt: p.title, badge: status, mark: to_come -%}
     </a>
     <button type="button" class="qv-btn" data-quick-view="{{ p.url }}" aria-haspopup="dialog"
             aria-label="{{ 'products.quick_view.label' | t: house: p.vendor, piece: piece | escape_once }}">{{ 'products.quick_view.title' | t }}</button>

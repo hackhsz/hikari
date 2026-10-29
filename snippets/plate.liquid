@@ -8,6 +8,8 @@
   so cards in a row are all the same size. sizes: the image's display width, for the srcset.
   contain (with fill): the whole photograph is shown, uncropped, in the frame, over a blurred copy
   of itself instead of an empty mat. For one large picture, where a crop could cut the piece.
+  mark (with no image): the shop's cat drawing and "Photography to follow" instead of the drawn
+  study, for a piece whose own photograph is not taken yet (snippets/product-card).
 {%- endcomment -%}
 {%- assign r = ratio | default: 0.8 -%}
 {%- assign w = width | default: 1400 -%}
@@ -25,6 +27,11 @@
     {{ image | image_url: width: w | image_tag: loading: 'lazy', alt: img_alt, sizes: img_sizes, style: obj_style }}
   {%- elsif image -%}
     {{ image | image_url: width: w | image_tag: loading: 'lazy', alt: alt | default: '' }}
+  {%- elsif mark -%}
+    <div class="plate-mark" role="img" aria-label="{{ 'general.photography_to_follow' | t }}">
+      <span class="pm-cat" style="--mark:url({{ 'brand-mark.png' | asset_url }})" aria-hidden="true"></span>
+      <span class="pm-t" aria-hidden="true">{{ 'general.photography_to_follow' | t }}</span>
+    </div>
   {%- else -%}
     <canvas data-seed="{{ seed | default: 1 }}" data-tone="{{ tone | default: 'light' }}"{% if fill %} data-fill="1"{% endif %}
             data-comp="{{ comp | default: 'pair' }}" data-ratio="{{ r }}" role="img"

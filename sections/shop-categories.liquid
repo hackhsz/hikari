@@ -5,7 +5,8 @@
   one exists, else the catalogue filtered to it.
 
   New in shows the eight newest pieces that are not sold, so a tile looks for a piece outside
-  those first; otherwise the same photograph would appear twice on the home page.
+  those first; otherwise the same photograph would appear twice on the home page. A piece tagged
+  photo-to-come shares its photograph with another listing, so it is only the last resort.
 {%- endcomment -%}
 {%- assign cat_tags = 'necklaces,earrings,bracelets,rings,brooches,sunglasses' | split: ',' -%}
 {%- assign newest = ',' -%}
@@ -40,7 +41,7 @@
             if p.tags contains t
               assign n = n | plus: 1
               assign key = ',' | append: p.handle | append: ','
-              unless newest contains key
+              unless newest contains key or p.tags contains 'photo-to-come'
                 if pick == nil and p.available or pick == nil and p.tags contains 'coming-soon'
                   assign pick = p
                 endif
