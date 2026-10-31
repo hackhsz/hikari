@@ -11,7 +11,9 @@
       "results": {
         "one": "{{ count }} result",
         "other": "{{ count }} results"
-      }
+      },
+      "none": "Nothing matches “{{ terms }}”.",
+      "see_all": "See all results"
     },
     "skip": "Skip to content",
     "close": "Close",
@@ -45,7 +47,9 @@
       "home": "{{ brand }}, home",
       "nav": "Main",
       "menu": "Menu",
-      "shop": "Shop"
+      "shop": "Shop",
+      "account": "Account",
+      "sign_in": "Sign in"
     },
     "footer": {
       "creators": "Creators, and sharing your piece",
@@ -63,7 +67,9 @@
     },
     "shop_nav": {
       "label": "Shop",
-      "all": "All pieces"
+      "all": "Shop all",
+      "by_category": "Shop by category",
+      "by_brand": "Shop by brand"
     }
   },
   "products": {
@@ -76,7 +82,7 @@
       "pre_order": "Pre-order",
       "pre_sale_note": "Pre-sale. {{ note }}",
       "goes_live": "Goes live {{ release }}",
-      "kept_on_record": "Kept on the Record",
+      "kept_on_record": "Kept in the Archive",
       "ask": "Ask about this piece",
       "share": "Share",
       "copy_link": "Copy link",
@@ -147,8 +153,8 @@
     "remove": "Remove",
     "remove_label": "Remove {{ house }}, {{ piece }}",
     "gift_note": "Note for the card",
-    "all_sold_single": "This piece sold while it was in your bag. Sold pieces stay on the Record.",
-    "all_sold_several": "These pieces sold while they were in your bag. Sold pieces stay on the Record.",
+    "all_sold_single": "This piece sold while it was in your bag. Sold pieces stay in the Archive.",
+    "all_sold_several": "These pieces sold while they were in your bag. Sold pieces stay in the Archive.",
     "delivery": "UK delivery",
     "delivery_abroad": "Delivery",
     "free": "Free",
@@ -200,7 +206,15 @@
     "reset": "Show everything",
     "related": "See also",
     "all_title": "Vintage designer jewellery",
-    "all_intro": "Vintage Christian Dior and Chanel jewellery, chosen one piece at a time and photographed as it is."
+    "all_intro": "Vintage Christian Dior and Chanel jewellery, chosen one piece at a time and photographed as it is.",
+    "titles": {
+      "necklaces": "Authentic vintage necklaces",
+      "earrings": "Authentic vintage earrings",
+      "bracelets": "Authentic vintage bracelets",
+      "rings": "Authentic vintage rings",
+      "brooches": "Authentic vintage brooches",
+      "sunglasses": "Authentic vintage sunglasses"
+    }
   },
   "house": {
     "vintage_jewellery": "Vintage jewellery",

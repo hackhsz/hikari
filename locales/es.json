@@ -11,7 +11,9 @@
       "results": {
         "one": "{{ count }} resultado",
         "other": "{{ count }} resultados"
-      }
+      },
+      "none": "Nada coincide con «{{ terms }}».",
+      "see_all": "Ver todos los resultados"
     },
     "skip": "Ir al contenido",
     "close": "Cerrar",
@@ -45,7 +47,9 @@
       "home": "{{ brand }}, inicio",
       "nav": "Principal",
       "menu": "Menú",
-      "shop": "Tienda"
+      "shop": "Tienda",
+      "account": "Cuenta",
+      "sign_in": "Iniciar sesión"
     },
     "footer": {
       "creators": "Creadores, y compartir tu pieza",
@@ -63,7 +67,9 @@
     },
     "shop_nav": {
       "label": "Tienda",
-      "all": "Todas las piezas"
+      "all": "Ver todo",
+      "by_category": "Comprar por categoría",
+      "by_brand": "Comprar por marca"
     }
   },
   "products": {
@@ -200,7 +206,15 @@
     "reset": "Mostrar todo",
     "related": "Ver también",
     "all_title": "Joyería vintage de diseñador",
-    "all_intro": "Joyas vintage de Christian Dior y Chanel, elegidas una a una y fotografiadas tal como son."
+    "all_intro": "Joyas vintage de Christian Dior y Chanel, elegidas una a una y fotografiadas tal como son.",
+    "titles": {
+      "necklaces": "Collares vintage auténticos",
+      "earrings": "Pendientes vintage auténticos",
+      "bracelets": "Pulseras vintage auténticas",
+      "rings": "Anillos vintage auténticos",
+      "brooches": "Broches vintage auténticos",
+      "sunglasses": "Gafas de sol vintage auténticas"
+    }
   },
   "house": {
     "vintage_jewellery": "Joyería vintage",

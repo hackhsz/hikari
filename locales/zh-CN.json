@@ -11,7 +11,9 @@
       "results": {
         "one": "{{ count }} 个结果",
         "other": "{{ count }} 个结果"
-      }
+      },
+      "none": "没有与“{{ terms }}”相符的单品。",
+      "see_all": "查看全部结果"
     },
     "skip": "跳至正文",
     "close": "关闭",
@@ -45,7 +47,9 @@
       "home": "{{ brand }}，首页",
       "nav": "主导航",
       "menu": "菜单",
-      "shop": "选购"
+      "shop": "选购",
+      "account": "账户",
+      "sign_in": "登录"
     },
     "footer": {
       "creators": "创作者合作，以及分享您的单品",
@@ -63,7 +67,9 @@
     },
     "shop_nav": {
       "label": "商店",
-      "all": "全部单品"
+      "all": "选购全部",
+      "by_category": "按品类选购",
+      "by_brand": "按品牌选购"
     }
   },
   "products": {
@@ -76,7 +82,7 @@
       "pre_order": "预订",
       "pre_sale_note": "预售。{{ note }}",
       "goes_live": "{{ release }} 上线",
-      "kept_on_record": "收录于售出记录",
+      "kept_on_record": "收录于典藏",
       "ask": "咨询这件单品",
       "share": "分享",
       "copy_link": "复制链接",
@@ -147,8 +153,8 @@
     "remove": "移除",
     "remove_label": "移除 {{ house }}，{{ piece }}",
     "gift_note": "贺卡留言",
-    "all_sold_single": "这件单品在您的购物袋中时已经售出。已售单品会保留在售出记录中。",
-    "all_sold_several": "这些单品在您的购物袋中时已经售出。已售单品会保留在售出记录中。",
+    "all_sold_single": "这件单品在您的购物袋中时已经售出。已售单品会保留在典藏中。",
+    "all_sold_several": "这些单品在您的购物袋中时已经售出。已售单品会保留在典藏中。",
     "delivery": "英国境内配送",
     "delivery_abroad": "配送",
     "free": "免费",
@@ -200,7 +206,15 @@
     "reset": "显示全部",
     "related": "相关系列",
     "all_title": "古董设计师珠宝",
-    "all_intro": "克里斯汀·迪奥与香奈儿古董首饰，逐件挑选，如实拍摄。"
+    "all_intro": "克里斯汀·迪奥与香奈儿古董首饰，逐件挑选，如实拍摄。",
+    "titles": {
+      "necklaces": "正品古董项链",
+      "earrings": "正品古董耳饰",
+      "bracelets": "正品古董手链",
+      "rings": "正品古董戒指",
+      "brooches": "正品古董胸针",
+      "sunglasses": "正品古董墨镜"
+    }
   },
   "house": {
     "vintage_jewellery": "中古首饰",

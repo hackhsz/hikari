@@ -1,24 +1,14 @@
 {%- comment -%}
   Shop by category: one square tile per category that has pieces, photographed with a piece from
-  it (one still for sale or coming soon, before a sold one), with how many pieces it has. A tile
-  goes where the phone menu's shop list goes (snippets/shop-nav): the category's collection when
-  one exists, else the catalogue filtered to it.
+  it (snippets/pick), with how many pieces it has. A tile goes where the phone menu's shop list
+  goes (snippets/shop-nav): the category's collection when one exists, else the catalogue
+  filtered to it.
 
   New in shows the eight newest pieces that are not sold, so a tile looks for a piece outside
-  those first; otherwise the same photograph would appear twice on the home page. A piece tagged
-  photo-to-come shares its photograph with another listing, so it is only the last resort.
+  those first; otherwise the same photograph would appear twice on the home page.
 {%- endcomment -%}
 {%- assign cat_tags = 'necklaces,earrings,bracelets,rings,brooches,sunglasses' | split: ',' -%}
-{%- assign newest = ',' -%}
-{%- assign shown = 0 -%}
-{%- assign items = collections.all.products | sort: 'published_at' | reverse -%}
-{%- for p in items -%}
-  {%- if shown >= 8 -%}{%- break -%}{%- endif -%}
-  {%- capture st -%}{%- render 'status', p: p -%}{%- endcapture -%}
-  {%- if st == 'sold' -%}{%- continue -%}{%- endif -%}
-  {%- assign newest = newest | append: p.handle | append: ',' -%}
-  {%- assign shown = shown | plus: 1 -%}
-{%- endfor -%}
+{%- capture newest -%}{%- render 'newest-handles' -%}{%- endcapture -%}
 {%- assign all_url = routes.all_products_collection_url -%}
 <section class="pad-s" id="shop-categories" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
   <div class="shell">
@@ -34,29 +24,16 @@
         {%- unless collections.all.all_tags contains t -%}{%- continue -%}{%- endunless -%}
         {%- liquid
           assign n = 0
-          assign pick = nil
-          assign other = nil
-          assign spare = nil
           for p in collections.all.products
             if p.tags contains t
               assign n = n | plus: 1
-              assign key = ',' | append: p.handle | append: ','
-              unless newest contains key or p.tags contains 'photo-to-come'
-                if pick == nil and p.available or pick == nil and p.tags contains 'coming-soon'
-                  assign pick = p
-                endif
-                if other == nil
-                  assign other = p
-                endif
-              endunless
-              if spare == nil
-                assign spare = p
-              endif
             endif
           endfor
-          if pick == nil
-            assign pick = other | default: spare
-          endif
+          capture h
+            render 'pick', tag: t, avoid: newest
+          endcapture
+          assign h = h | strip
+          assign pick = all_products[h]
           assign ch = 'vintage-' | append: t
           assign c = collections[ch]
           if c.handle == ch and c.products_count > 0

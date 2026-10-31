@@ -9,17 +9,22 @@
 <header class="mast">
   <div class="inner">
     {%- comment -%}
-      One line on a laptop: the shop and its houses on the left, the lockup in the middle, the
-      pages and the bag on the right. Categories live in the catalogue sidebar and the phone menu,
-      not here. The right-hand pages come from the Main menu, minus Home and the catalogue,
-      which the logo and Shop already cover.
+      One line. On a laptop: the shop and its houses on the left, the lockup in the middle, the
+      pages, search, account and the bag on the right. The right-hand pages come from the Main
+      menu, minus Home and the catalogue, which the logo and Shop already cover.
+      On a phone: the menu (three lines) and search on the left, the lockup, the bag. Without
+      JavaScript the menu falls back to the catalogue and search to the search page.
     {%- endcomment -%}
-    <nav class="mast-l" aria-label="{{ 'layout.shop_nav.label' | t }}">
-      <a href="{{ routes.all_products_collection_url }}"{% if request.path == routes.all_products_collection_url %} aria-current="page"{% endif %}>{{ 'layout.header.shop' | t }}</a>
-      {%- render 'shop-nav', cls: 'mh', part: 'houses', current: true -%}
-    </nav>
+    <div class="mast-l">
+      <a class="mast-ico menu-btn" href="{{ routes.all_products_collection_url }}" data-sheet-open="menu" aria-controls="menu" aria-expanded="false" aria-label="{{ 'layout.header.menu' | t }}">{%- render 'icon', name: 'menu' -%}</a>
+      <a class="mast-ico search-btn search-btn--l" href="{{ routes.search_url }}" data-sheet-open="search" aria-controls="search" aria-expanded="false" aria-label="{{ 'general.search.heading' | t }}">{%- render 'icon', name: 'search' -%}</a>
+      <nav class="mast-shop" aria-label="{{ 'layout.shop_nav.label' | t }}">
+        <a href="{{ routes.all_products_collection_url }}"{% if request.path == routes.all_products_collection_url %} aria-current="page"{% endif %}>{{ 'layout.header.shop' | t }}</a>
+        {%- render 'shop-nav', cls: 'mh', part: 'houses', current: true -%}
+      </nav>
+    </div>
     <a class="mast-logo" href="{{ routes.root_url }}" aria-label="{{ 'layout.header.home' | t: brand: settings.brand_name | escape_once }}">
-      {%- render 'lockup', scale: 'body', size: 'clamp(16px, 4.9vw, 19px)' -%}
+      {%- render 'lockup', scale: 'body', size: 'clamp(12.5px, 3.7vw, 19px)' -%}
     </a>
     <div class="mast-r">
       <nav class="mast-pages" aria-label="{{ 'layout.header.nav' | t }}">
@@ -28,15 +33,21 @@
           <a href="{{ link.url }}">{{ link.title }}</a>
         {%- endfor -%}
       </nav>
-      {%- comment -%} Phones hide the nav, so they get a menu sheet. Without JavaScript it falls back to the catalogue. {%- endcomment -%}
-      <a class="menu-btn" href="{{ routes.all_products_collection_url }}" data-sheet-open="menu" aria-controls="menu" aria-expanded="false">{{ 'layout.header.menu' | t }}</a>
       {%- render 'language-switcher', id: 'lang-mast' %}
+      <a class="mast-ico search-btn search-btn--r" href="{{ routes.search_url }}" data-sheet-open="search" aria-controls="search" aria-expanded="false" aria-label="{{ 'general.search.heading' | t }}">{%- render 'icon', name: 'search' -%}</a>
+      {%- if shop.customer_accounts_enabled -%}
+        <a class="mast-ico acct-btn" href="{{ routes.account_url }}" aria-label="{% if customer %}{{ 'layout.header.account' | t }}{% else %}{{ 'layout.header.sign_in' | t }}{% endif %}">{%- render 'icon', name: 'account' -%}</a>
+      {%- endif -%}
       <a class="bag-btn" href="{{ routes.cart_url }}" data-sheet-open="bag" aria-controls="bag" aria-expanded="false">{{ 'layout.cart.title' | t }} (<span data-bag-count>{{ cart.item_count }}</span>)</a>
     </div>
   </div>
 </header>
 
-{%- comment -%} Outside .mast on purpose: the masthead is a sticky band with its own stacking, and the sheet must cover it. {%- endcomment -%}
+{%- comment -%}
+  Outside .mast on purpose: the masthead is a sticky band with its own stacking, and the sheets must cover it.
+  The menu comes in from the left: the shop (Shop all, the categories, the houses, coming soon),
+  then the pages from the Main menu (minus Home and the catalogue), the account and the bag.
+{%- endcomment -%}
 <div class="sheet sheet--left" id="menu" data-sheet aria-hidden="true" inert>
   <div class="sheet-scrim" data-sheet-close></div>
   <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="menu-title" tabindex="-1">
@@ -45,16 +56,47 @@
       <button type="button" class="sheet-x" data-sheet-close>{{ 'general.close' | t }}</button>
     </div>
     <nav class="menu-shop" aria-label="{{ 'layout.shop_nav.label' | t }}">
-      {%- render 'shop-nav', cls: 'ms' -%}
+      {%- render 'shop-nav', cls: 'ms', part: 'all' -%}
+      <p class="ms-label">{{ 'layout.shop_nav.by_category' | t }}</p>
+      {%- render 'shop-nav', cls: 'ms', part: 'cats' -%}
+      <p class="ms-label">{{ 'layout.shop_nav.by_brand' | t }}</p>
+      {%- render 'shop-nav', cls: 'ms', part: 'houses' -%}
+      {%- render 'shop-nav', cls: 'ms', part: 'soon' -%}
     </nav>
     <nav class="menu-links" aria-label="{{ 'layout.header.nav' | t }}">
-      {%- for link in linklists.main-menu.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+      {%- for link in linklists.main-menu.links -%}
+        {%- if link.url == routes.root_url or link.url == routes.all_products_collection_url or link.url == routes.collections_url -%}{%- continue -%}{%- endif -%}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {%- endfor -%}
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{{ routes.account_url }}">{% if customer %}{{ 'layout.header.account' | t }}{% else %}{{ 'layout.header.sign_in' | t }}{% endif %}</a>
+      {%- endif -%}
       <a href="{{ routes.cart_url }}" data-sheet-open="bag" aria-controls="bag">{{ 'layout.cart.title' | t }} (<span data-bag-count>{{ cart.item_count }}</span>)</a>
     </nav>
     <div class="menu-foot">
       {%- render 'social' -%}
       {%- render 'language-switcher', id: 'lang-menu' -%}
       {%- render 'lockup', scale: 'hero', size: '22px' -%}
+    </div>
+  </div>
+</div>
+
+{%- comment -%}
+  Search: drops from the top. As the visitor types, Shopify's predictive search sends back
+  sections/predictive-search, rendered with the product cards (assets/hikari.js, initSearch).
+  Enter, or See all results, goes to the search page.
+{%- endcomment -%}
+<div class="sheet sheet--top" id="search" data-sheet aria-hidden="true" inert>
+  <div class="sheet-scrim" data-sheet-close></div>
+  <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="{{ 'general.search.heading' | t }}" tabindex="-1">
+    <div class="shell srch">
+      <form class="srch-form" action="{{ routes.search_url }}" method="get" role="search">
+        <input type="hidden" name="type" value="product">
+        {%- render 'icon', name: 'search' -%}
+        <input class="srch-q" type="search" name="q" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.heading' | t }}" autocomplete="off" data-search-input data-autofocus>
+        <button type="button" class="sheet-x" data-sheet-close>{{ 'general.close' | t }}</button>
+      </form>
+      <div class="srch-results" data-search-results aria-live="polite"></div>
     </div>
   </div>
 </div>

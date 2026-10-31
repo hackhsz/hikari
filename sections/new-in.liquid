@@ -1,6 +1,6 @@
 {%- comment -%}
   New in: the newest pieces that are not sold (on sale now or coming soon), four to a row on a
-  laptop and two on a phone, with a link to the whole catalogue. Sold pieces live in the Record.
+  laptop and two on a phone, with a link to the whole catalogue. Sold pieces live in the Archive (sections/record).
 {%- endcomment -%}
 {%- assign items = collections.all.products | sort: 'published_at' | reverse -%}
 {%- assign limit = section.settings.count | default: 8 -%}

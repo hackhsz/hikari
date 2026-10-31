@@ -153,8 +153,10 @@
       </div>
 
       <ul class="trust-list">
-        <li>{{ settings.trust_1 }}</li><li>{{ settings.trust_2 }}</li>
-        <li>{{ settings.trust_3 }}</li><li>{{ settings.trust_4 }}</li>
+        {%- if settings.trust_1 != blank %}<li>{{ settings.trust_1 }}</li>{% endif -%}
+        {%- if settings.trust_2 != blank %}<li>{{ settings.trust_2 }}</li>{% endif -%}
+        {%- if settings.trust_3 != blank %}<li>{{ settings.trust_3 }}</li>{% endif -%}
+        {%- if settings.trust_4 != blank %}<li>{{ settings.trust_4 }}</li>{% endif -%}
       </ul>
     </div>
   </div>

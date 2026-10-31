@@ -1,0 +1,21 @@
+{%- comment -%}
+  The results under the search box in the masthead's search sheet (sections/header). Not placed
+  on any page: assets/hikari.js asks Shopify's predictive search for it by section_id as the
+  visitor types, and puts what comes back into the sheet. Pieces only, as product cards.
+{%- endcomment -%}
+{%- if predictive_search.performed -%}
+  {%- assign ps = predictive_search.resources.products -%}
+  <div data-predictive>
+    {%- if ps.size > 0 -%}
+      <div class="grid4 srch-grid">
+        {%- for p in ps -%}
+          {%- render 'product-card', card_product: p, tone: 'grey', card_sizes: '(max-width: 600px) 50vw, 260px' -%}
+        {%- endfor -%}
+      </div>
+      <a class="hero-link srch-all" href="{{ routes.search_url }}?q={{ predictive_search.terms | url_encode }}&amp;type=product">{{ 'general.search.see_all' | t }}</a>
+    {%- else -%}
+      <p class="srch-none">{{ 'general.search.none' | t: terms: predictive_search.terms }}</p>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+{% schema %}{ "name": "Predictive search", "settings": [] }{% endschema %}

@@ -1,11 +1,56 @@
 {%- comment -%}
-  Brand as a first-class navigation axis (1-shop/04-site-ia.md), rendered as display type rather than
-  a filter menu. A brand name is metadata, never identity: plain text in our own typeface, no logos.
+  Brand as a first-class navigation axis (1-shop/04-site-ia.md). A brand name is metadata, never
+  identity: plain text in our own typeface, no logos.
 
-  With blocks, each house links to its URL, or when that is left empty, to its house page
-  (snippets/house-url). With no blocks, as on the house template, it lists every collection on
-  the house template by itself, and marks the one being viewed.
+  Style "Tiles" (the home page, Shop by brand): one photograph per house, like the category tiles
+  above it, from a piece of that house (snippets/pick) that New in and the category tiles do not
+  already show. Each house is a collection on the house template.
+
+  Style "Names": the houses as display type. With blocks, each house links to its URL, or when
+  that is left empty, to its house page (snippets/house-url). With no blocks, as on the house
+  template, it lists every collection on the house template by itself, and marks the one being viewed.
 {%- endcomment -%}
+{%- if section.settings.style == 'tiles' -%}
+  {%- liquid
+    assign cat_tags = 'necklaces,earrings,bracelets,rings,brooches,sunglasses' | split: ','
+    capture avoid
+      render 'newest-handles'
+    endcapture
+    assign avoid = avoid | strip
+    for t in cat_tags
+      if collections.all.all_tags contains t
+        capture h
+          render 'pick', tag: t, avoid: avoid
+        endcapture
+        assign avoid = avoid | append: h | strip | append: ','
+      endif
+    endfor
+  -%}
+  <section class="pad-s" id="houses" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+    <div class="shell">
+      <div class="sec-head"><div><h2 class="sec-h">{{ section.settings.heading }}</h2></div></div>
+      <div class="house-tiles">
+        {%- for c in collections -%}
+          {%- if c.template_suffix != 'house' or c.products_count == 0 -%}{%- continue -%}{%- endif -%}
+          {%- liquid
+            assign name = c.metafields.hikari.house.value | default: c.products.first.vendor | default: c.title
+            capture h
+              render 'pick', list: c.products, avoid: avoid
+            endcapture
+            assign h = h | strip
+            assign pick = all_products[h]
+            assign avoid = avoid | append: h | append: ','
+          -%}
+          <a class="cat-tile house-tile" href="{{ c.url }}">
+            {%- render 'plate', image: pick.featured_image, ratio: 0.75, fill: true, sizes: '(max-width: 760px) 50vw, 560px', seed: forloop.index, tone: 'light', comp: 'single', alt: '' -%}
+            <span class="ct-name">{{ name }}</span>
+            <span class="ct-n">{{ 'collections.pieces' | t: count: c.products_count }}</span>
+          </a>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+{%- else -%}
 <section class="pad" id="houses" data-bg="#EFEAE0" data-fg="#1C1B18" style="--sec-bg:#EFEAE0;--sec-fg:#1C1B18;">
   <div class="shell">
     <p class="eyebrow">{{ section.settings.heading }}</p>
@@ -33,11 +78,19 @@
     </div>
   </div>
 </section>
+{%- endif -%}
 {% schema %}
 { "name": "Shop by house",
-  "settings": [{ "type": "text", "id": "heading", "label": "Eyebrow", "default": "The houses" }],
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Shop by brand" },
+    { "type": "select", "id": "style", "label": "Style", "default": "names",
+      "options": [
+        { "value": "tiles", "label": "Tiles, a photograph per house" },
+        { "value": "names", "label": "Names" }
+      ] }
+  ],
   "blocks": [{ "type": "house", "name": "House", "settings": [
     { "type": "text", "id": "name", "label": "House", "default": "Christian Dior" },
-    { "type": "url", "id": "url", "label": "Link", "info": "Leave empty to link to the house page, /collections/vintage-[house]-jewellery." }]}],
+    { "type": "url", "id": "url", "label": "Link", "info": "Names style only. Leave empty to link to the house page, /collections/vintage-[house]-jewellery." }]}],
   "presets": [{ "name": "Shop by house" }] }
 {% endschema %}

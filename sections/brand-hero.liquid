@@ -12,6 +12,10 @@
   the picture, so the first screen says what the shop is and where to go. It shows the phone image
   (4:3) when there is one, which keeps the whole of a wide arrangement in a squarer frame.
   The first link is a button; the second, a quieter text link.
+
+  "Logo as the heading": the shop's lockup is the h1, and the heading becomes the line under it.
+  A second link to a page that does not exist yet (the viewing page, before it is made in
+  Shopify) goes to the contact page instead, so the button never leads nowhere.
 {%- endcomment -%}
 {%- liquid
   assign img = section.settings.image
@@ -20,6 +24,13 @@
   assign split = false
   if section.settings.layout == 'split'
     assign split = true
+  endif
+  assign link2 = section.settings.link2
+  if link2 contains '/pages/'
+    assign ph = link2 | split: '/pages/' | last | split: '?' | first
+    unless pages[ph].id
+      assign link2 = pages.contact.url
+    endunless
   endif
   case fit
     when 'wide'
@@ -66,7 +77,12 @@
   <div class="{% unless split %}shell {% endunless %}hero-txt">
     <div class="hero-lead">
       {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
-      <h1 class="hero-h">{{ section.settings.heading }}</h1>
+      {%- if section.settings.logo -%}
+        <h1 class="hero-logo">{%- render 'lockup', scale: 'hero', size: 'clamp(17px, 4.4vw, 38px)' -%}</h1>
+        {%- if section.settings.heading != blank -%}<p class="hero-h hero-h--sub">{{ section.settings.heading }}</p>{%- endif -%}
+      {%- else -%}
+        <h1 class="hero-h">{{ section.settings.heading }}</h1>
+      {%- endif -%}
     </div>
     <div class="hero-side">
       {%- if section.settings.body != blank -%}<div class="hero-b">{{ section.settings.body }}</div>{%- endif -%}
@@ -74,8 +90,8 @@
         {%- if section.settings.link_label != blank and section.settings.link != blank -%}
           <a class="{% if split %}btn btn--inline{% else %}hero-link{% endif %}" href="{{ section.settings.link }}">{{ section.settings.link_label }}</a>
         {%- endif -%}
-        {%- if section.settings.link2_label != blank and section.settings.link2 != blank -%}
-          <a class="hero-link" href="{{ section.settings.link2 }}">{{ section.settings.link2_label }}</a>
+        {%- if section.settings.link2_label != blank and link2 != blank -%}
+          <a class="hero-link" href="{{ link2 }}">{{ section.settings.link2_label }}</a>
         {%- endif -%}
       </div>
     </div>
@@ -99,13 +115,15 @@
         { "value": "adapt", "label": "As the image" }
       ] },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "checkbox", "id": "logo", "label": "Logo as the heading", "default": true,
+      "info": "The shop's logo in large, with the heading as the line under it." },
     { "type": "text", "id": "heading", "label": "Heading",
-      "default": "Pieces with a past." },
+      "default": "We make vintage luxury accessible" },
     { "type": "richtext", "id": "body", "label": "Text",
-      "default": "<p>Vintage Christian Dior and Chanel jewellery, chosen one piece at a time.</p>" },
+      "default": "<p>Handpicked vintage pieces from Japan.</p><p>100% Authenticity Guaranteed.</p><p>London showings by appointment only.</p>" },
     { "type": "text", "id": "link_label", "label": "Link label", "default": "Explore the collection" },
     { "type": "url", "id": "link", "label": "Link", "default": "/collections/all" },
-    { "type": "text", "id": "link2_label", "label": "Second link label" },
+    { "type": "text", "id": "link2_label", "label": "Second link label", "default": "Book a private viewing" },
     { "type": "url", "id": "link2", "label": "Second link" },
     { "type": "select", "id": "layout", "label": "Layout on a laptop", "default": "stacked",
       "options": [

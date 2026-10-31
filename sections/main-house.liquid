@@ -9,7 +9,7 @@
   Setup is in theme/README.md.
 
   A brand name is metadata, never identity (04): plain text in our own typeface, no logos, and
-  the trade mark disclaimer on the page itself as well as in the footer.
+  the trade mark disclaimer, when one is set (theme settings → Legal), on the page and in the footer.
 
   The grid shows the pieces on sale and the ones coming soon (they carry their price and
   release on the card). Sold pieces from this house are on the Record below (sections/record.liquid reads the same
@@ -37,7 +37,7 @@
   endif
 -%}
 {%- capture legal -%}
-  <p class="house-legal">{{ settings.legal_disclaimer | replace: '[brand]', brand }}</p>
+  {%- if settings.legal_disclaimer != blank -%}<p class="house-legal">{{ settings.legal_disclaimer | replace: '[brand]', brand }}</p>{%- endif -%}
 {%- endcapture -%}
 
 <section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">

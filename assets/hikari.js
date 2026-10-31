@@ -192,7 +192,7 @@
     if(openSheet&&openSheet!==sheet) setOpen(openSheet,false);
     openSheet=sheet; setOpen(sheet,true);
     /* The pop-up opens on its own, so focus goes to the dialog itself, not to a button. */
-    var target=sheet.hasAttribute("data-popup")?sheet.querySelector(".sheet-panel"):(sheet.querySelector(".sheet-x")||sheet.querySelector(".sheet-panel"));
+    var target=sheet.hasAttribute("data-popup")?sheet.querySelector(".sheet-panel"):(sheet.querySelector("[data-autofocus]")||sheet.querySelector(".sheet-x")||sheet.querySelector(".sheet-panel"));
     setTimeout(function(){ if(target) target.focus({preventScroll:true}); },30);
   }
   function closeSheet(){
@@ -560,7 +560,7 @@
      sees only the path, so a filtered catalogue (?cat= ?brand= ?show=) is matched here. */
   function markShopNav(){
     var here=new URLSearchParams(location.search), best=null, bestN=-1;
-    [].forEach.call(document.querySelectorAll(".mast-l a"),function(a){
+    [].forEach.call(document.querySelectorAll(".mast-shop a"),function(a){
       a.removeAttribute("aria-current");
       var u=new URL(a.href,location.href); if(u.pathname!==location.pathname) return;
       var ok=true, n=0;
@@ -569,6 +569,29 @@
       if(ok&&n>bestN){ best=a; bestN=n; }
     });
     if(best) best.setAttribute("aria-current","page");
+  }
+  /* ── search: the masthead's search sheet (sections/header) ──
+     As the visitor types, ask Shopify's predictive search for sections/predictive-search, a
+     fifth of a second after the last key, and show the cards it sends. Answers that come back
+     after a newer question are dropped. Enter still goes to the search page. */
+  function initSearch(){
+    var box=document.querySelector("[data-search-input]"), out=document.querySelector("[data-search-results]");
+    if(!box||!out||box.hasAttribute("data-on")) return;
+    box.setAttribute("data-on","");
+    var url=(R.predictive_search_url||"/search/suggest"), timer=null, asked="";
+    function ask(){
+      var q=box.value.trim();
+      if(q.length<2){ asked=""; out.innerHTML=""; return; }
+      if(q===asked) return; asked=q;
+      var u=url+"?q="+encodeURIComponent(q)+"&resources[type]=product&resources[limit]=8&resources[options][unavailable_products]=last&section_id=predictive-search";
+      fetch(u,{credentials:"same-origin"}).then(function(r){ return r.ok?r.text():""; }).then(function(html){
+        if(q!==asked||!html) return;
+        var doc=new DOMParser().parseFromString(html,"text/html"), got=doc.querySelector("[data-predictive]");
+        out.innerHTML=got?got.outerHTML:"";
+        initPlates();
+      }).catch(function(){});
+    }
+    box.addEventListener("input",function(){ clearTimeout(timer); timer=setTimeout(ask,200); });
   }
   function initCatalog(){
     var grid=document.querySelector("[data-cat-grid]"), bar=document.querySelector("[data-cat-filters]");
@@ -725,7 +748,7 @@
   function boot(){
     root.classList.add("js");
     initPlates(); initScroll(); bindOnce(); syncButtons();
-    initZoom(); initSpin(); initCountdown(); markShopNav(); initCatalog(); initPrefs(); initPopup(); initNotify(); initLang(); initMisc();
+    initZoom(); initSpin(); initCountdown(); markShopNav(); initSearch(); initCatalog(); initPrefs(); initPopup(); initNotify(); initLang(); initMisc();
   }
   if(document.readyState!=="loading") boot(); else document.addEventListener("DOMContentLoaded",boot);
   document.addEventListener("shopify:section:load",boot);

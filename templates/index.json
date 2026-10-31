@@ -8,12 +8,13 @@
         "image_alt": "Vintage Dior jewellery on a walnut tray in late sun: a crystal CD pendant, Dior logo earrings, a rope knot brooch, an oval CD pendant and an oblique tag pendant",
         "height": "standard",
         "layout": "stacked",
-        "heading": "Pieces with a past.",
-        "body": "<p>Vintage Christian Dior and Chanel jewellery, chosen one piece at a time.</p>",
+        "heading": "We make vintage luxury accessible",
+        "body": "<p>Handpicked vintage pieces from Japan.</p><p>100% Authenticity Guaranteed.</p><p>London showings by appointment only.</p>",
         "link_label": "Explore the collection",
         "link": "shopify://collections/all",
-        "link2_label": "The next release",
-        "link2": "/collections/coming-soon"
+        "link2_label": "Book a private viewing",
+        "link2": "/pages/private-viewing",
+        "logo": true
       }
     },
     "alcove": {
@@ -43,7 +44,8 @@
     "houses": {
       "type": "houses",
       "settings": {
-        "heading": "The houses"
+        "heading": "Shop by brand",
+        "style": "tiles"
       }
     },
     "story": {
@@ -51,9 +53,9 @@
       "settings": {
         "image": "shopify://shop_images/karineko-story-shell-dish.jpg",
         "stamp": "Plate 05 · At the stall, October",
-        "eyebrow": "Karineko",
-        "heading": "Chosen by hand, photographed as it is.",
-        "body": "<p>Each piece is bought in person or at auction in Japan, one at a time, and checked for its maker's mark and condition before it is offered here.</p><p>We photograph every piece on our own table in London, without retouching. UK duty is included in the price.</p>"
+        "eyebrow": "About Karineko",
+        "heading": "The beauty of finding something rare.",
+        "body": "<p>Karineko Vintage is an independent vintage boutique dedicated to discovering distinctive pieces from the world of luxury.</p><p>Sourced in person and through carefully selected auctions in Japan, each piece is handpicked for its design, character and timeless appeal.</p><p>Every item is individually inspected for authenticity and condition before being offered. Authenticity is guaranteed.</p><p>Based in London, we believe luxury should be personal, considered and accessible.</p><p><em>A past worth keeping.</em></p>"
       }
     },
     "recent": {
@@ -63,7 +65,7 @@
     "record": {
       "type": "record",
       "settings": {
-        "heading": "Recently sold"
+        "heading": "The Archive"
       }
     },
     "signup": {
@@ -116,10 +118,10 @@
     "hero",
     "trust",
     "categories",
+    "houses",
     "new_in",
     "shelf-presale",
     "shelf-sale",
-    "houses",
     "story",
     "record",
     "signup",

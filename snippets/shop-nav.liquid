@@ -10,22 +10,28 @@
   collections['x'] with an object that has no url but a non-zero count. Used by the header (desktop bar and the phone menu) and the catalogue sidebar.
 
   Params: cls (class on each link), current (true to mark the link for the page being shown),
-  part ('houses' for the house links only, as in the masthead).
+  part (one group only: 'all', 'cats', 'houses' as in the masthead, or 'soon'; the phone menu
+  renders them one by one, with a label over the categories and over the houses).
   Liquid can only see the path, so a filtered catalogue (?cat=…) is marked by hikari.js
   (markShopNav), which also follows the filters as they change.
 {%- endcomment -%}
 {%- liquid
   assign cat_tags = 'necklaces,earrings,bracelets,rings,brooches,sunglasses' | split: ','
   assign all_url = routes.all_products_collection_url
+  assign g = part | default: 'all cats houses soon'
   assign soon_n = 0
-  for p in collections.all.products
-    if p.tags contains 'coming-soon'
-      assign soon_n = soon_n | plus: 1
-    endif
-  endfor
+  if g contains 'soon'
+    for p in collections.all.products
+      if p.tags contains 'coming-soon'
+        assign soon_n = soon_n | plus: 1
+      endif
+    endfor
+  endif
 -%}
-{%- unless part == 'houses' -%}
+{%- if g contains 'all' -%}
 <a class="{{ cls }}" href="{{ all_url }}"{% if current and request.path == all_url %} aria-current="page"{% endif %}>{{ 'layout.shop_nav.all' | t }}</a>
+{%- endif -%}
+{%- if g contains 'cats' -%}
 {%- for t in cat_tags -%}
   {%- if collections.all.all_tags contains t -%}
     {%- assign ch = 'vintage-' | append: t -%}
@@ -35,7 +41,8 @@
     <a class="{{ cls }}" href="{{ u }}"{% if current and request.path == u %} aria-current="page"{% endif %}>{{ k | t }}</a>
   {%- endif -%}
 {%- endfor -%}
-{%- endunless -%}
+{%- endif -%}
+{%- if g contains 'houses' -%}
 {%- for v in collections.all.all_vendors -%}
   {%- assign h = v | handleize -%}
   {%- assign ch = 'vintage-' | append: h | append: '-jewellery' -%}
@@ -43,7 +50,8 @@
   {%- if c.handle == ch and c.products_count > 0 -%}{%- assign u = c.url -%}{%- else -%}{%- assign u = all_url | append: '?brand=' | append: h -%}{%- endif -%}
   <a class="{{ cls }} {{ cls }}--house" href="{{ u }}"{% if current and request.path == u %} aria-current="page"{% endif %}>{{ v }}</a>
 {%- endfor -%}
-{%- if soon_n > 0 and part != 'houses' -%}
+{%- endif -%}
+{%- if soon_n > 0 -%}
   {%- assign c = collections['coming-soon'] -%}
   {%- if c.handle == 'coming-soon' and c.products_count > 0 -%}{%- assign u = c.url -%}{%- else -%}{%- assign u = all_url | append: '?show=soon' -%}{%- endif -%}
   <a class="{{ cls }} {{ cls }}--soon" href="{{ u }}"{% if current and request.path == u %} aria-current="page"{% endif %}>{{ 'products.badge.coming_soon' | t }}</a>

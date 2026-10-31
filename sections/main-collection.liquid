@@ -12,8 +12,11 @@
 
   A piece's category is a product tag: necklaces, earrings, bracelets, rings, brooches or
   sunglasses. Its name comes from collections.categories in the locale file; the tag is the value.
-  The all-products collection gets a real title and a line about the shop (collections.all_title,
-  all_intro) instead of Shopify's "Products", for people and for search engines.
+  The all-products collection gets a real title (collections.all_title) instead of Shopify's
+  "Products". A category collection (vintage-necklaces…) is headed with the theme's own words
+  (collections.titles), with no house in them; the collection's title, which names the houses,
+  stays for search engines (snippets/seo). The collection's description is for search engines
+  too, so the page shows no text under the heading.
 {%- endcomment -%}
 {%- liquid
   assign cat_tags = 'necklaces,earrings,bracelets,rings,brooches,sunglasses' | split: ','
@@ -32,8 +35,11 @@
     endcapture
     assign has = has | append: ' ' | append: st | append: ' '
   endfor
+  assign cat_h = collection.handle | remove_first: 'vintage-'
   if collection.handle == 'all'
     assign title = 'collections.all_title' | t
+  elsif cat_tags contains cat_h
+    assign title = 'collections.titles.' | append: cat_h | t
   else
     assign title = collection.title
   endif
@@ -42,12 +48,6 @@
   <div class="shell">
     <p class="eyebrow" data-cat-count>{{ 'collections.pieces' | t: count: collection.products_count }}</p>
     <h1 class="cat-h">{{ title }}</h1>
-    {%- if collection.description != blank -%}
-      <div class="rte cat-intro">{{ collection.description }}</div>
-    {%- elsif collection.handle == 'all' -%}
-      <p class="cat-intro">{{ 'collections.all_intro' | t }}</p>
-    {%- endif -%}
-    {%- render 'collection-links', c: collection -%}
 
     <div class="cat-layout" data-cat-layout>
       <aside class="cat-side" id="cat-side" data-cat-filters hidden aria-label="{{ 'collections.filters.label' | t }}">

@@ -82,7 +82,7 @@
       <span class="bag-label">{% if delivery_free %}{{ 'cart.total' | t }}{% else %}{{ 'cart.subtotal' | t }}{% endif %}</span>
       <span class="price bag-sum">{{ live_total | money }}</span>
     </div>
-    <p class="bag-fine">{{ settings.vat_line }}</p>
+    {%- if settings.vat_line != blank -%}<p class="bag-fine">{{ settings.vat_line }}</p>{%- endif -%}
     {%- if sold_n > 0 -%}
       <p class="bag-warn">
         {%- if sold_n == 1 -%}{{ 'cart.some_sold_single' | t }}
@@ -111,8 +111,10 @@
     {%- endif -%}
 
     <ul class="trust-list bag-trust" role="list">
-      <li>{{ settings.trust_1 }}</li><li>{{ settings.trust_2 }}</li>
-      <li>{{ settings.trust_3 }}</li><li>{{ settings.trust_4 }}</li>
+      {%- if settings.trust_1 != blank %}<li>{{ settings.trust_1 }}</li>{% endif -%}
+      {%- if settings.trust_2 != blank %}<li>{{ settings.trust_2 }}</li>{% endif -%}
+      {%- if settings.trust_3 != blank %}<li>{{ settings.trust_3 }}</li>{% endif -%}
+      {%- if settings.trust_4 != blank %}<li>{{ settings.trust_4 }}</li>{% endif -%}
     </ul>
   </div>
 </div>

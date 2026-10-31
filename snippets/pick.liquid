@@ -1,0 +1,39 @@
+{%- comment -%}
+  The piece whose photograph stands for a group on the home page: a category tile
+  (sections/shop-categories) or a house tile (sections/houses). Outputs its handle; capture it.
+
+  First a piece still for sale or coming soon that is not in avoid, then any piece not in avoid,
+  then any piece at all. A piece tagged photo-to-come shares its photograph with another listing,
+  so it is only the last resort.
+  Params: list (products, default every piece), tag (only pieces with this tag),
+  avoid (",handle,handle," of pieces already on the page).
+{%- endcomment -%}
+{%- liquid
+  assign ps = list | default: collections.all.products
+  assign pick = nil
+  assign other = nil
+  assign spare = nil
+  for p in ps
+    if tag != blank
+      unless p.tags contains tag
+        continue
+      endunless
+    endif
+    assign key = ',' | append: p.handle | append: ','
+    unless avoid contains key or p.tags contains 'photo-to-come'
+      if pick == nil and p.available or pick == nil and p.tags contains 'coming-soon'
+        assign pick = p
+      endif
+      if other == nil
+        assign other = p
+      endif
+    endunless
+    if spare == nil
+      assign spare = p
+    endif
+  endfor
+  if pick == nil
+    assign pick = other | default: spare
+  endif
+  echo pick.handle
+-%}

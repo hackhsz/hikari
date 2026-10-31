@@ -202,13 +202,12 @@
         "type": "text",
         "id": "trust_3",
         "label": "3",
-        "default": "Insured next-day UK delivery, complimentary over £250"
+        "default": "Insured UK delivery"
       },
       {
         "type": "text",
         "id": "trust_4",
-        "label": "4",
-        "default": "Full refund if not authentic"
+        "label": "4"
       }
     ]
   },
@@ -257,8 +256,7 @@
         "type": "textarea",
         "id": "legal_disclaimer",
         "label": "Trademark disclaimer",
-        "info": "[brand] is replaced with the brand name set above.",
-        "default": "[brand] is an independent reseller of pre-owned items. We are not affiliated with, authorised by, endorsed by or connected to any of the brands featured. All trademarks are the property of their respective owners."
+        "info": "[brand] is replaced with the brand name set above."
       },
       {
         "type": "text",
@@ -280,7 +278,6 @@
         "type": "text",
         "id": "vat_line",
         "label": "VAT line",
-        "default": "Prices include UK duty. We are not currently VAT registered, so no VAT is charged. Outside the UK, your country may charge import duty or tax on delivery.",
         "info": "Charging or displaying VAT while unregistered is an offence. Keep Settings → Taxes at zero."
       }
     ]

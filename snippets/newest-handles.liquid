@@ -1,0 +1,24 @@
+{%- comment -%}
+  The pieces New in shows (sections/new-in: the eight newest that are not sold), as
+  ",handle,handle,", for the other home sections to avoid, so a photograph is not on the page twice.
+  Capture it.
+{%- endcomment -%}
+{%- liquid
+  assign out = ','
+  assign shown = 0
+  assign items = collections.all.products | sort: 'published_at' | reverse
+  for p in items
+    if shown >= 8
+      break
+    endif
+    capture st
+      render 'status', p: p
+    endcapture
+    if st == 'sold'
+      continue
+    endif
+    assign out = out | append: p.handle | append: ','
+    assign shown = shown | plus: 1
+  endfor
+  echo out
+-%}

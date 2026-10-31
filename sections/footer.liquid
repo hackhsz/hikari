@@ -1,8 +1,10 @@
 <footer data-bg="#1C1B18" data-fg="#FAF8F3" style="--sec-bg:#1C1B18;--sec-fg:#FAF8F3;">
   <div class="shell pad rule-top">
     <div class="strip">
-      <div>{{ settings.trust_1 }}</div><div>{{ settings.trust_2 }}</div>
-      <div>{{ settings.trust_3 }}</div><div>{{ settings.trust_4 }}</div>
+      {%- if settings.trust_1 != blank %}<div>{{ settings.trust_1 }}</div>{% endif -%}
+      {%- if settings.trust_2 != blank %}<div>{{ settings.trust_2 }}</div>{% endif -%}
+      {%- if settings.trust_3 != blank %}<div>{{ settings.trust_3 }}</div>{% endif -%}
+      {%- if settings.trust_4 != blank %}<div>{{ settings.trust_4 }}</div>{% endif -%}
     </div>
     <div class="fcols">
       {%- for block in section.blocks -%}
@@ -17,12 +19,15 @@
       {%- render 'language-switcher', id: 'lang-foot' -%}
     </div>
     <div style="margin-top:clamp(40px,7vw,64px)">{%- render 'lockup', scale: 'hero', size: 'clamp(20px, 7.2vw, 34px)' -%}</div>
+    {%- comment -%} Each part is a theme setting (Legal) and shows only when it is filled in; all are empty for now. {%- endcomment -%}
     {%- assign brand = settings.brand_name | default: shop.name -%}
-    <p class="legal">
+    {%- capture legal -%}
       {{ settings.legal_disclaimer | replace: '[brand]', brand }}
       {% if settings.company_name != blank %} {{ settings.company_name }}{% if settings.company_number != blank %}{{ 'layout.footer.registered' | t: number: settings.company_number }}{% endif %}{% if settings.company_address != blank %}, {{ settings.company_address }}{% endif %}.{% endif %}
       {{ settings.vat_line }}
-    </p>
+    {%- endcapture -%}
+    {%- assign legal = legal | strip -%}
+    {%- if legal != blank -%}<p class="legal">{{ legal }}</p>{%- endif -%}
   </div>
 </footer>
 {% schema %}
