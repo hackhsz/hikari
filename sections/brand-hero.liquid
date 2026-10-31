@@ -15,7 +15,8 @@
 
   "Logo as the heading": the shop's lockup is the h1, and the heading becomes the line under it.
   A second link to a page that does not exist yet (the viewing page, before it is made in
-  Shopify) goes to the contact page instead, so the button never leads nowhere.
+  Shopify) goes to the contact page instead, so the button never leads nowhere. The test is on
+  the handle: for a missing handle Shopify still answers pages['x'] with an object.
 {%- endcomment -%}
 {%- liquid
   assign img = section.settings.image
@@ -28,7 +29,8 @@
   assign link2 = section.settings.link2
   if link2 contains '/pages/'
     assign ph = link2 | split: '/pages/' | last | split: '?' | first
-    unless pages[ph].id
+    assign pg = pages[ph]
+    unless pg.handle == ph and pg.url != blank
       assign link2 = pages.contact.url
     endunless
   endif
@@ -41,6 +43,7 @@
       assign ratio = 0.5625
   endcase
 -%}
+<!-- vp: [{{ pages[ph].id }}] [{{ pages[ph].handle }}] [{{ pages[ph].url }}] → {{ link2 }} -->
 <section class="hero{% if split %} hero--split{% endif %}" id="brand" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
   {%- if split -%}<div class="shell hero-split">{%- endif -%}
   <div class="hero-media hero-media--{{ fit }}{% if img_m %} has-mobile{% endif %}{% unless img %} is-empty{% endunless %}">
