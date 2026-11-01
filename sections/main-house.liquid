@@ -2,10 +2,10 @@
   A house page: the per-designer landing page that 1-shop/04-site-ia.md calls the highest-leverage
   SEO decision in the business. One smart collection per house, on the collection.house template.
   The words live on the collection, not in the theme, so Thread 3 can write them in Shopify:
-    description          → Notes on the house (the 200–400 words of editorial)
-    hikari.lede          → one or two sentences under the name
     hikari.marks         → Reading the mark, one line per mark: Period | Mark | Note
     hikari.house         → the name as set large, if it should differ from the Vendor
+  The description and hikari.lede are not shown on the page (owner, 2026-11-01): the description
+  still feeds the search snippet in snippets/seo.
   Setup is in theme/README.md.
 
   A brand name is metadata, never identity (04): plain text in our own typeface, no logos, and
@@ -22,7 +22,6 @@
   if house == blank
     assign house = c.products.first.vendor | default: c.title
   endif
-  assign lede = c.metafields.hikari.lede.value
   assign marks = c.metafields.hikari.marks.value
   assign n_live = 0
   for p in c.products
@@ -32,7 +31,7 @@
   endfor
   assign brand = settings.brand_name | default: shop.name
   assign has_notes = false
-  if c.description != blank or marks != blank
+  if marks != blank
     assign has_notes = true
   endif
 -%}
@@ -45,7 +44,6 @@
     <header class="house-head">
       <p class="eyebrow"><a href="{{ routes.collections_url }}">{{ 'collections.shop_by_house' | t }}</a></p>
       <h1 class="house-h">{{ house }} <span class="house-h-sub">{{ 'house.vintage_jewellery' | t }}</span></h1>
-      {%- if lede != blank -%}<p class="house-lede">{{ lede }}</p>{%- endif -%}
       {%- render 'collection-links', c: c -%}
     </header>
 
@@ -72,13 +70,6 @@
 <section class="pad" data-bg="#EFEAE0" data-fg="#1C1B18" style="--sec-bg:#EFEAE0;--sec-fg:#1C1B18;">
   <div class="shell">
     <div class="house-notes">
-      {%- if c.description != blank -%}
-        <div class="house-essay">
-          <h2 class="eyebrow">{{ 'house.notes' | t }}</h2>
-          <div class="rte">{{ c.description }}</div>
-        </div>
-      {%- endif -%}
-
       {%- if marks != blank -%}
         <div class="house-marks">
           <h2 class="eyebrow">{{ 'house.marks' | t }}</h2>

@@ -81,7 +81,7 @@
       {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
       {%- if section.settings.logo -%}
         <h1 class="hero-logo">{%- render 'lockup', scale: 'hero', size: 'clamp(17px, 4.4vw, 38px)' -%}</h1>
-        {%- if section.settings.heading != blank -%}<p class="hero-h hero-h--sub">{{ section.settings.heading }}</p>{%- endif -%}
+        {%- if section.settings.heading != blank -%}<p class="hero-h">{{ section.settings.heading }}</p>{%- endif -%}
       {%- else -%}
         <h1 class="hero-h">{{ section.settings.heading }}</h1>
       {%- endif -%}
