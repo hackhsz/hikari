@@ -145,6 +145,12 @@
       },
       {
         "type": "text",
+        "id": "social_whatsapp",
+        "label": "WhatsApp number",
+        "info": "With the country code, e.g. +44 7700 900123. Shows a WhatsApp button on the Contact page."
+      },
+      {
+        "type": "text",
         "id": "wechat_id",
         "label": "WeChat ID"
       },

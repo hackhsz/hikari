@@ -741,6 +741,9 @@
     if(navigator.share) [].forEach.call(document.querySelectorAll("[data-share]"),function(b){ b.hidden=false; });
     if(/[?&]contact_posted=true/.test(location.search)) [].forEach.call(document.querySelectorAll("[data-cr-ok]"),function(p){
       p.hidden=false; p.scrollIntoView({block:"center"}); });
+    // Private viewing: no day before today (local date, not UTC).
+    [].forEach.call(document.querySelectorAll("[data-viewing-date]"),function(d){
+      var t=new Date(); t.setMinutes(t.getMinutes()-t.getTimezoneOffset()); d.min=t.toISOString().slice(0,10); });
   }
 
   window.Hikari={plates:initPlates,openSheet:openSheetById,closeSheet:closeSheet,refreshBag:refreshBag,quickView:quickView,popup:initPopup};

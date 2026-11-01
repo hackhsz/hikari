@@ -284,6 +284,17 @@
     "send": "Enviar",
     "thanks": "Gracias. Leemos todas, y respondemos en un plazo de tres días laborables."
   },
+  "viewing": {
+    "name": "Nombre",
+    "phone": "Teléfono",
+    "email": "Correo electrónico",
+    "date": "Día",
+    "time": "Hora",
+    "choose_time": "Elige una hora",
+    "pieces": "Piezas que te gustaría ver (opcional)",
+    "submit": "Solicitar una visita",
+    "thanks": "Gracias. Te escribiremos para confirmar tu visita."
+  },
   "countdown": {
     "now": "Sale a la venta ahora",
     "in": "dentro de {{ time }}",

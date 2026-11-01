@@ -1,0 +1,4 @@
+{
+  "sections": { "main": { "type": "main-viewing" } },
+  "order": ["main"]
+}

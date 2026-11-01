@@ -1,0 +1,74 @@
+{%- comment -%}
+  Book a private viewing (owner, 2026-11-01): a request, not a booking. It is a Shopify contact
+  form, so it arrives as an email to the store with every field, and the shop confirms by phone
+  or message. Viewings run every day, in the afternoon; the time slots are a setting, one per line.
+  The address is never on the page: it goes out with the confirmation.
+
+  Set up: Online Store → Pages → Add page with the handle "private-viewing". templates/page.liquid
+  shows this section for that handle on any template, and page.private-viewing.json does too.
+  The banner's second button links here once the page exists (sections/brand-hero.liquid).
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+{%- assign slots = s.slots | newline_to_br | split: '<br />' -%}
+<section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+  <div class="shell">
+    <header class="house-head">
+      {%- if s.eyebrow != blank -%}<p class="eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+      <h1 class="house-h">{{ s.heading }}</h1>
+      {%- if s.lede != blank -%}<p class="house-lede">{{ s.lede }}</p>{%- endif -%}
+    </header>
+
+    <div class="cr-cols">
+      <div class="cr-col">
+        {%- form 'contact', id: 'viewing-form', class: 'cr-form vw-form' -%}
+          {%- if form.posted_successfully? -%}
+            <p class="cr-ok" role="status">{{ 'viewing.thanks' | t }}</p>
+          {%- else -%}
+            {{ form.errors | default_errors }}
+            {%- comment -%} The values reach the shop's inbox, so they stay in English. {%- endcomment -%}
+            <input type="hidden" name="contact[Form]" value="Private viewing">
+            <label for="vw-name">{{ 'viewing.name' | t }}</label><input id="vw-name" name="contact[name]" autocomplete="name" required>
+            <label for="vw-phone">{{ 'viewing.phone' | t }}</label><input id="vw-phone" type="tel" name="contact[phone]" autocomplete="tel" required>
+            <label for="vw-email">{{ 'viewing.email' | t }}</label><input id="vw-email" type="email" name="contact[email]" autocomplete="email" required>
+            <div class="vw-when">
+              <div>
+                <label for="vw-date">{{ 'viewing.date' | t }}</label>
+                <input id="vw-date" type="date" name="contact[Date]" required data-viewing-date>
+              </div>
+              <div>
+                <label for="vw-time">{{ 'viewing.time' | t }}</label>
+                <select id="vw-time" name="contact[Time]" required>
+                  <option value="">{{ 'viewing.choose_time' | t }}</option>
+                  {%- for slot in slots -%}
+                    {%- assign slot = slot | strip -%}
+                    {%- if slot != blank -%}<option>{{ slot }}</option>{%- endif -%}
+                  {%- endfor -%}
+                </select>
+              </div>
+            </div>
+            <label for="vw-pieces">{{ 'viewing.pieces' | t }}</label>
+            <textarea id="vw-pieces" name="contact[body]" rows="4"></textarea>
+            <button type="submit" class="btn">{{ 'viewing.submit' | t }}</button>
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+
+      <div class="cr-col">
+        {%- if s.hours != blank -%}<h2 class="cr-h">{{ s.hours }}</h2>{%- endif -%}
+        {%- if s.note != blank -%}<div class="cr-steps vw-note">{{ s.note }}</div>{%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{ "name": "Private viewing", "settings": [
+  { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "London, by appointment" },
+  { "type": "text", "id": "heading", "label": "Heading", "default": "Book a private viewing" },
+  { "type": "textarea", "id": "lede", "label": "Lede", "default": "See the pieces in person. Choose a day and a time, and we will be in touch to confirm." },
+  { "type": "textarea", "id": "slots", "label": "Time slots", "info": "One per line.",
+    "default": "14:00 – 15:00\n15:00 – 16:00\n16:00 – 17:00\n17:00 – 18:00\n18:00 – 19:00\n19:00 – 20:00" },
+  { "type": "text", "id": "hours", "label": "Hours", "default": "Monday to Sunday, 2pm to 8pm" },
+  { "type": "richtext", "id": "note", "label": "Note",
+    "default": "<p>Viewings are by appointment only. We send the address with your confirmation.</p>" }
+] }
+{% endschema %}

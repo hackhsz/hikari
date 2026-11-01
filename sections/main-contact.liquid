@@ -1,0 +1,19 @@
+{%- comment -%}
+  Contact (owner, 2026-11-01): the page title and one button per channel, nothing else. The links
+  are the theme settings under Social; WhatsApp shows once its number is filled in. The page's own
+  body in Shopify is not shown. The shop's email stays in Shopify's contact information.
+{%- endcomment -%}
+{%- assign wa = settings.social_whatsapp | remove: '+' | remove: ' ' | remove: '-' | remove: '(' | remove: ')' -%}
+<section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+  <div class="shell">
+    <header class="house-head">
+      <h1 class="house-h">{{ page.title }}</h1>
+    </header>
+    <ul class="ct-btns" role="list">
+      {%- if settings.social_instagram != blank -%}<li><a class="btn" href="{{ settings.social_instagram }}" target="_blank" rel="noopener me">Instagram</a></li>{%- endif -%}
+      {%- if settings.social_xiaohongshu != blank -%}<li><a class="btn" href="{{ settings.social_xiaohongshu }}" target="_blank" rel="noopener me" lang="zh">小红书</a></li>{%- endif -%}
+      {%- if wa != blank -%}<li><a class="btn" href="https://wa.me/{{ wa }}" target="_blank" rel="noopener">WhatsApp</a></li>{%- endif -%}
+    </ul>
+  </div>
+</section>
+{% schema %}{ "name": "Contact", "settings": [] }{% endschema %}

@@ -284,6 +284,17 @@
     "send": "Send",
     "thanks": "Thank you. We read every one, and reply within three working days."
   },
+  "viewing": {
+    "name": "Name",
+    "phone": "Phone",
+    "email": "Email",
+    "date": "Day",
+    "time": "Time",
+    "choose_time": "Choose a time",
+    "pieces": "Pieces you would like to see (optional)",
+    "submit": "Request a viewing",
+    "thanks": "Thank you. We will be in touch to confirm your viewing."
+  },
   "countdown": {
     "now": "Going live now",
     "in": "in {{ time }}",

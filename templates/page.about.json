@@ -1,0 +1,4 @@
+{
+  "sections": { "main": { "type": "main-about", "settings": { "image": "shopify://shop_images/karineko-story-shell-dish.jpg" } } },
+  "order": ["main"]
+}
