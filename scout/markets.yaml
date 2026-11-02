@@ -719,7 +719,7 @@ markets:
   why: Curated vintage fashion fair whose listed categories include jewellery, held in a striking venue, and resellers
     are its whole model. One notch below 5 because it's a broad 'affordable vintage' crowd rather than designer
     buyers, the fee is unknown and you'd travel from London.
-  checked: 2026-10-26
+  checked: 2026-11-02
   sources: ['https://www.loulousvintagefair.com/', 'https://eventaly.com/event/lou-lous-manchester/', 'https://eventaly.com/organiser/lou-lous-vintage-market/',
     'https://www.loulousvintagefair.com/trader-terms-and-conditions']
   decision: new
@@ -749,7 +749,7 @@ markets:
   why: A serious collector, designer and stylist audience that pays proper prices for vintage fashion and accessories,
     run by a respected society. Designer costume jewellery suits the 'costume and accessories' strand. The main
     weakness is that textiles lead and jewellery is secondary. About 2 sales cover the stand.
-  checked: 2026-10-13
+  checked: 2026-11-02
   sources: ['https://www.textilesociety.org.uk/event/manchester-antique-vintage-textile-fair', 'https://www.textilesociety.org.uk/?p=15657']
   decision: new
   our_notes: null
@@ -835,7 +835,7 @@ markets:
   why: A curated, Instagram-literate shopping crowd in a beautiful venue, and about 1 sale covers the fee. But it's
     a mixed craft-and-flea audience with lower price expectations, and vintage resale sits at the edge of what they
     recruit. A plausible test.
-  checked: 2026-10-26
+  checked: 2026-11-02
   sources: ['https://www.thecraftandflea.com/pages/trade-with-us', 'https://www.thecraftandflea.com/pages/trader-faqs',
     'https://eventaly.com/event/manchesters-craft-and-flea/', 'https://eventaly.com/organiser/craft-flea/']
   decision: new
@@ -857,7 +857,7 @@ markets:
   cost: Not published
   commission_pct: null
   requires: [Email iwanttotrade@marketoperations.co.uk]
-  watch_out: altrinchammarket.co.uk was unreachable again on 26 Oct 2026 (connection reset via proxy, 503 to direct fetch). The directory entry is from Altrincham BID, not the operator. A 2014 article gives a themed Sunday rotation with vintage fashion and furniture on the third Sunday, and secondary sources mention a preference for North-West traders; neither is verified. Check by hand or email iwanttotrade@marketoperations.co.uk.
+  watch_out: altrinchammarket.co.uk was unreachable for a fourth run on 2 Nov 2026 (503 to direct fetch; earlier runs also hit connection resets via the proxy). Stop retrying it automatically. The directory entry is from Altrincham BID, not the operator. A 2014 article gives a themed Sunday rotation with vintage fashion and furniture on the third Sunday, and secondary sources mention a preference for North-West traders; neither is verified. Check by hand or email iwanttotrade@marketoperations.co.uk.
   fit: 3
   why: An affluent, food-and-design-literate South Manchester crowd. The covered market explicitly hosts 'vintage
     fashion and furniture', so a reseller fits. But terms, fees and any local-trader preference are unverified,
@@ -1102,7 +1102,7 @@ markets:
   fit: 3
   why: The most curated option found in Glasgow, with a Christmas date and a modest fee. But it's a mixed craft
     crowd and the travel cost makes it a stretch test.
-  checked: 2026-10-26
+  checked: 2026-11-02
   sources: ['https://eventaly.com/event/glasgows-craft-flea/', 'https://www.thecraftandflea.com/pages/trade-with-us',
     'https://www.thecraftandflea.com/pages/trader-faqs']
   decision: new
@@ -1420,7 +1420,7 @@ markets:
   apply: {status: rolling, deadline: null, opens: null}
   window: null
   fee_gbp: 0
-  cost: 'Free to submit. The published Seller Terms are still the version ''Valid from 31 October, 2025'' (PDF last modified 23 Dec 2025; no 2026 version found, re-checked 26 Oct 2026). Under them the seller success fee is usually 12.5% plus a fixed €2 for lots selling at €150–299 (€3 at €300–499), excluding VAT, and it ''may differ for certain object categories. If that''s the case, we will let you know.'' The Help Centre says a revised table ''applies to all objects submitted on or after 17 August 2026'', with VAT charged on top depending on where the seller is established. Its figures are still unreadable: the help page and the terms page return 403, and Wayback is unreachable. Buyers separately pay a Buyer Protection fee, usually 9% + £3.'
+  cost: 'Free to submit. The published Seller Terms are still the version ''Valid from 31 October, 2025'' (PDF last modified 23 Dec 2025; the 2026 path of the same PDF is 404; re-checked 2 Nov 2026). Under them the seller success fee is usually 12.5% plus a fixed €2 for lots selling at €150–299 (€3 at €300–499), excluding VAT, and it ''may differ for certain object categories. If that''s the case, we will let you know.'' The Help Centre says a revised table ''applies to all objects submitted on or after 17 August 2026'', with VAT charged on top depending on where the seller is established. Its figures are still unreadable: on 2 Nov 2026 the help page returned 403 on both www.catawiki.com and the auction.catawiki.com mirror, Wayback was unreachable (connection reset / 429), and search snippets give only ''12.5% plus a fixed amount''. Read it in a browser. Buyers separately pay a Buyer Protection fee, usually 9% + £3.'
   commission_pct: 12.5
   requires: [Seller account declared Professional (sells as part of a trade or business), VAT ID for professional
       sellers (registration page says 'if any'; UK sellers send their UK VAT number to switch to Pro), Each lot
@@ -1493,9 +1493,7 @@ markets:
       or other marketplace) so the business can be vetted, Minimum 10 items listed at all times, Vintage means 20+
       years old (2006 or earlier); vintage jewellery minimum price $10, 'Front and back photos of jewellery; real,
       verifiable name']
-  watch_out: 'Fee pages conflict: an older FAQ shows $54/month and 6.7% capped at $250, so re-verify manually. The
-    buyer base is US-heavy and the look is dated rather than editorial. The US de minimis exemption has been suspended
-    since Aug 2025, so US buyers may face duties or brokerage fees on UK parcels.'
+  watch_out: 'Fee pages conflict: an older FAQ shows $54/month and 6.7% capped at $250, and a 2026 third-party guide describes 9.9% up to $2,500, 5% from $2,500 to $7,500 and 2.5% above (unverified). The official fees page returned 503 again on 2 Nov 2026, so re-verify manually in a browser. The buyer base is US-heavy and the look is dated rather than editorial. The US de minimis exemption has been suspended since Aug 2025, so US buyers may face duties or brokerage fees on UK parcels.'
   fit: 3
   why: Deep collector base for signed vintage costume jewellery (CJCI partnership) and genuinely vetted shops. On
     £180, 9.9% (£17.82) leaves about £162 payout before PayPal fees, or about £66 contribution. The $45/month fixed
@@ -1647,9 +1645,7 @@ markets:
   commission_pct: null
   requires: ['Partner application (boutiques, brands, stores, stock suppliers)', Items pass The Vintage Bar quality
       control and authentication before shipping to buyer]
-  watch_out: Unclear whether UK-based partners can use the prepaid-label flow; the how-it-works page does not name
-    seller countries. Commission is negotiated. The partner page timed out on fetch, so its wording comes from search-indexed
-    text.
+  watch_out: Unclear whether UK-based partners can use the prepaid-label flow; the how-it-works page does not name seller countries. Commission is negotiated. The partner page timed out again on 2 Nov 2026 (both /partner/become-a-partner and /partner/become-a-partner.html), so its wording still comes from search-indexed text. That text now also describes a free self-service partner option and a paid tier (onboarding support, faster item publication, a personally designed partner listing page; price not shown), and says members are mainly in Northern Europe with shipping to 40+ markets. Confirm the paid-tier price before applying.
   fit: 3
   why: Editorial-leaning vintage designer audience that lists jewellery (brooches, earrings, necklaces), with a
     partner route for businesses. Net per £180 cannot be computed until commission is quoted. At the unverified

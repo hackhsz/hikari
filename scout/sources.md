@@ -2,6 +2,16 @@
 
 Where to look each week. Built from the first run (2026-10-13). The weekly run adds what proved productive and moves what died to the dead-ends lists. Listing sites and aggregators are **leads, not facts**: verify dates and fees on the organiser's own page.
 
+**Check these by hand in a browser.** Automated fetches have failed for several runs:
+- Altrincham Market
+- Stockport Vintage Village
+- Camden Passage enquiry page
+- Ruby Lane fees
+- The Vintage Bar partner page
+- Catawiki's 17 Aug 2026 fee table
+
+web.archive.org is also blocked for WebFetch, and curl to it resets.
+
 Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manchester-bristol-glasgow-brighton) · [Online marketplaces](#online-marketplaces)
 
 ---
@@ -47,6 +57,7 @@ Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manches
 - "Old Truman Brewery markets" leads to trumanbrewery.com/web/markets.pl (Backyard Market, Upmarket, Artisan, Brick Lane Vintage Market; no application route found yet)
 - Fetching an organiser's sitemap.xml (e.g. Alfies) surfaced recruitment posts that search did not.
 - Google Form og:description text gives full rules/prices (Urban Makers).
+- `London Christmas market December 2026 "vintage" traders wanted apply` surfaced the Christmas leads in run 4.
 
 ### Blocked or unverifiable (retry with a different method)
 - pa-antiques.co.uk (London/Hammersmith Vintage Fashion Fair, P&A): 403; no evidence of 2025-26 editions
@@ -62,6 +73,8 @@ Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manches
 ### Dead ends (don't re-check)
 - Hackney Flea Market: site 403, nothing confirmed since Oct 2025, no trader route (run 2)
 - Antiques Anonymous: last held 2019; the Church Street Antiques Fair replaced it (run 2)
+- Clerkenwell Vintage Fashion Fair (clerkenwellvintagefashionfair.co.uk): its own site says 13 Apr 2025 was "our final show" (run 4)
+- Royal Greenwich Christmas huts: council page 403; check by hand in summer for the 2027 cycle (run 4)
 - Many app-registration markets announce trader calls only on Instagram, which can't be fetched; check those by hand
 
 ---
@@ -110,9 +123,6 @@ First run 2026-10-13. These are the pages and searches that actually gave verifi
 - **Stockport Vintage Village** (2nd Sunday monthly, Stockport Market Hall): tracked since run 2, but the official site failed at runs 1–3; check by hand. Contact is info@vintagevillagestockportmarket.co.uk.
 - **Levenshulme**: the original Levenshulme Market paused in 2023, and levymarket.com was down. The Levy Artisan Market (Independent Street plus the council, 2nd Sunday) is artisan-led and its rules are unverified.
 - **Craft & Flea Brighton**: tracked since run 3; no bookable date on Eventaly yet.
-- **Ashton Court Antique & Vintage Fair, Bristol**: last seen 2024; contact anniehawksley@blueyonder.co.uk. Unverified.
-- **Stockport Vintage Spectacular** (So Retro Events; last held 12 Jul 2026). Unverified.
-- **Jingle Bell-a-houston, Glasgow** (Christmas market listing preloved fashion). Unverified.
 - **Manchester City Council specialist markets / Christmas Markets**: council pages return 403 to fetches, so use search-engine extracts or a manual browser check.
 
 ### Dead ends (don't re-check)
@@ -124,6 +134,9 @@ First run 2026-10-13. These are the pages and searches that actually gave verifi
 - Glasgow Vintage & Flea Market: no sign of it since 2018 and the site is unreachable (run 2).
 - Kinning Park Antique Centre, Glasgow: no website and no dealer-letting information (run 2).
 - Merchant Square and Wasps (Glasgow): researched at run 2 and ruled out as makers-only; tracked at fit 1.
+- Ashton Court Antique & Vintage Fair, Bristol: nothing since 2024, no organiser site (run 4).
+- Stockport Vintage Spectacular (So Retro Events): Facebook-only organiser; last held 12 Jul 2026 (run 4).
+- Jingle Bell-a-houston, Glasgow: listings only, bargain format (past stalls £27) (run 4).
 
 ---
 

@@ -2,38 +2,31 @@
 
 ## This week
 
-**Update · 28 Oct 2026.** The site is live as **Karineko Vintage** (karinekovtg.com). Six places are now shortlisted, with application drafts in [`drafts/`](drafts/), all built from the [profile](drafts/PROFILE.md):
+**Run 4 · 2 Nov 2026.** 82 tracked, with no new places this week. 6 are shortlisted, with drafts in [`drafts/`](drafts/).
 
-- Lou Lou's London
-- King's Cross Shōtengai
-- Flea London
-- Alfies
-- Camden Passage
-- Old Spitalfields
-
-Gmail drafts, not sent, are ready for the two email routes: Shōtengai and Alfies. **Midcentury Modern drops to fit 3**, since the live stock is Dior and Chanel logo jewellery rather than mid-century design.
-
-**Run 3 · 26 Oct 2026.** 82 tracked, up 3. Nothing is shortlisted yet, so there are no drafts.
-
-- **Act now:**
-  - **Lou Lou's Vintage Fair, London (Canada Water)**, Sun 15 Nov (fit 4). To be safe, apply on Eventaly by about **Fri 30 Oct**, since replies take up to 10 working days.
-  - **Same weekend:** the same venue also hosts Craft & Flea London on 14–15 Nov (fit 3, new, makers-led). Midcentury Modern Dulwich is on 15 Nov too.
-  - **Still open:** King's Cross Shōtengai (19–22 Nov) and Lou Lou's Manchester (22 Nov).
-- **Newly verified: Flea London, Hackney Bridge** (fit 3). Every weekend, £45 a day or £85 a weekend, booked through an online date-request form. That's about one piece to break even, making it the cheapest repeatable London test found so far. The catch: it needs **£5m public liability insurance**.
+- **Act now. Our pipeline:**
+  - **King's Cross Shōtengai** (19–22 Nov): the Gmail draft to Kiosk N1C is **still unsent**, with 17 days to go. No December date is published, so this is the one to send this week.
+  - **Lou Lou's London** (Sun 15 Nov): the suggested apply-by date (30 Oct) has passed. Eventaly isn't visible to the scout. If you haven't applied, replies take up to 10 working days, so it's now tight. Eventaly confirms the era rule: 1920s–1980s.
+  - **Alfies:** the Gmail draft is also unsent.
+  - **Flea London:** Christmas weekends 5–6, 12–13 and 19–20 Dec are still on the form at £55 a day or £100 a weekend. It still needs the £5m insurance certificate.
+- **The site:** all 30 pieces still show "coming soon". An organiser who clicks through from an application will see nothing for sale yet.
+- **Unchanged:**
+  - **Frock Me!:** still on hold; the next published fair is 7 Feb 2027.
+  - **Midcentury Modern Dulwich:** no change since the October newsletter.
+  - **Craft & Flea:** London (14–15 Nov, 12–13 Dec), Manchester and Glasgow are all still open.
+  - **Lazy Flea:** still closed.
+  - **Alfies and Spitalfields:** still recruiting.
 - **Changed:**
-  - **Judy's Brighton, Bristol and Manchester** have no next dates announced, so they're marked closed until new dates appear.
-  - **Vintage@The Monastery** looks discontinued, with no fair since 2022 (fit 4 → 3).
-  - **Lazy Flea** is next on 14–15 Nov (Wandsworth) and 12–13 Dec (Chiswick House). Applications are still closed.
-- **Online:** fees unchanged at Vestiaire (15%, or 12% on the better tier), Etsy, eBay and Vinted.
-  - **Vestiaire:** whether you need a VAT number is still unsettled. Its own help article says both "sole traders are eligible" and "must have a valid VAT number". Only Vestiaire can answer, so that's a question for you to send.
-  - **Not verified:** Catawiki's new fee table (from 17 Aug), 1stDibs's figures, and the Ruby Lane and Vintage Bar pages were all unreadable this week.
-- **New, low fit:** Craft & Flea Brighton (no dates yet) and Sunbury's Wimbledon outdoor fair (2027 dates out; car-boot frame, fit 2).
-- **Gate:** unchanged. Every physical option still runs ahead of [D3](../docs/DECISIONS.md).
+  - **Church Street Antiques Fair:** no 2026 fair was held, so it's marked closed.
+  - **Grays:** Christmas hours added.
+- **Unverifiable again:** Camden Passage's site blocked the fetch, and Catawiki's new fee table, Ruby Lane fees and the Vintage Bar partner page are still unreadable. All of these now sit on a check-by-hand list in [`sources.md`](sources.md).
+- **Dead ends:** Clerkenwell Vintage Fashion Fair held its final show in April 2025. Ashton Court (Bristol), Stockport Vintage Spectacular and Jingle Bell-a-houston (Glasgow) are inactive or bargain-format.
+- **Gate:** unchanged ([D3](../docs/DECISIONS.md)).
 
 > **Gates.** Physical fairs and pop-ups come after the website converts ([D3](../docs/DECISIONS.md)). Marketplaces are outposts, not the home ([D1](../docs/DECISIONS.md)). Both are tracked now because applications open months ahead. How it works: [README](README.md).
 
 <!-- generated:start -->
-_Tables generated from [`markets.yaml`](markets.yaml) on 28 Oct 2026. 82 tracked._
+_Tables generated from [`markets.yaml`](markets.yaml) on 02 Nov 2026. 82 tracked._
 
 ## Coming up in the next 60 days
 
@@ -84,7 +77,7 @@ Break-even is pitch fee ÷ £84 contribution per piece (D14).
 | 3 | [The Classic Car Boot Sale](https://www.classiccarbootsale.co.uk/) | fair | London | 24 Apr 2027 | open | Not published on the site. A 'trade with us' deck is linked (Adobe-hosted, unre… | — |
 | 3 | [Altrincham Market (covered market, incl. vintage)](https://visitaltrincham.com/business-directory/altrincham-market/) | market | Manchester | Covered market runs Tue, Fri, Sat and Sun | rolling | Not published | — |
 | 3 | [Appear Here (short-let pop-up marketplace)](https://www.appearhere.co.uk/destinations/london) | popup | London | Always-on marketplace; book by the day, week, month or year | rolling | Varies by listing. Homepage examples on 13 Oct 2026: from £99/day (Kingsland Ro… | — |
-| 3 | [Church Street Antiques Fair](https://alfiesantiques.com/church-street-antiques-fair/) | fair | London | Annual Sunday street fair; last confirmed edition Sun 29 Ju… | unknown | Not published | — |
+| 3 | [Church Street Antiques Fair](https://alfiesantiques.com/church-street-antiques-fair/) | fair | London | Annual Sunday street fair; last confirmed edition Sun 29 Ju… | closed | Not published | — |
 | 3 | [Covent Garden Monday Antiques (Jubilee Market & Apple Market)](https://www.coventgarden.london/shop/markets) | market | London | Every Monday: Jubilee Market Antiques & Collectables 5am-5p… | unknown | Not published | — |
 | 3 | [Craft & Flea — Brighton](https://eventaly.com/event/brightons-craft-flea-2/) | fair | Brighton | Last held Sat 17 Oct 2026 (per run-1 notes). Eventaly shows… | closed | Pitches 6ft x 3ft table top, 6ft x 6ft or 12ft x 6ft; table hire optional. No B… | — |
 | 3 | [Flea London — Vintage & Makers Market at Hackney Bridge](https://flealondon.com/) | market | London | Every weekend, Sat and Sun 11:00-17:00. The booking form of… | rolling | £45 per day or £85 per weekend; Christmas weekends £55 per day or £100 per week… | 1 pc |
