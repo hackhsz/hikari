@@ -1,5 +1,7 @@
 # King's Cross: Shōtengai market (Lower Stable Street)
 
+> Sent before the 2 Nov change of pitch, so it mentions sourcing. Future messages should use the pitch in [PROFILE.md](PROFILE.md).
+
 **Event:** the next Shōtengai pan-Asian market is Thu 19 – Sun 22 Nov 2026. Craft stalls run Fri–Sun. Lower Stable Street runs Thu–Sun every week.
 **Apply:** email market@kioskn1c.com (Kiosk N1C runs the market). **Sent 2 Nov 2026** from Gmail, signed "Karineko Vintage" (no personal name).
 **Apply by:** now. It's three weeks out, and later monthly dates aren't published.

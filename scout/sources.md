@@ -68,6 +68,8 @@ Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manches
 - Classic Car Boot Sale trade deck (Adobe-hosted PDF): unreadable
 
 ### Leads not yet researched
+- Camden Market (Stables / Buck Street): young crowd. Its "Become a trader" page 404'd at run 4, so find the current trader route (the footer also links "Partner with us": /journal/partner-with-camden-market)
+- Truman Brewery's Backyard Market and Sunday Upmarket: young weekend markets on Brick Lane. TLS failed through the proxy at runs 1 and 4; check by hand
 - Lou Lou's Midcentury Home Market, Canada Water (The Nest, Sun 1 Nov 2026): homeware-led, not on Lou Lou's Eventaly list
 
 ### Dead ends (don't re-check)

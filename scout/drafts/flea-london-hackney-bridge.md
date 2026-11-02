@@ -20,7 +20,7 @@
 | Website address | https://karinekovtg.com |
 | Business / correspondence address * | `{ADDRESS}` |
 | Type of product that you sell | **Vintage goods** |
-| What do you sell? | Authentic vintage Christian Dior and Chanel jewellery, found in Japan: necklaces, pendants, earrings, bracelets, rings and brooches. Every piece is signed, authenticated and one of one, priced £85–£300. A small table display. |
+| What do you sell? | High-end vintage designer jewellery from Christian Dior and Chanel, chosen for a younger generation of vintage shoppers: necklaces, pendants, earrings, bracelets, rings and brooches. Every piece is signed, authenticated and one of one, priced £85–£300. A small table display. |
 | Do you have Public Liability Insurance? (£5M required) | `{Yes, once bought}` |
 | Are you selling food? | No |
 | Upload PLI certificate | `{certificate PDF}` |

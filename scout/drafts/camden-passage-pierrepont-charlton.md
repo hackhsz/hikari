@@ -20,7 +20,7 @@ You get a covered, lit stall with a ~6 × 3 ft trestle table.
 | Business name | Karineko Vintage |
 | Email | `{CONTACT_EMAIL}` |
 | Phone | `{MOBILE}` |
-| Items to sell | Authentic vintage Christian Dior and Chanel costume jewellery, sourced in Japan: necklaces, pendants, earrings, bracelets, rings and brooches. Every piece signed, authenticated and one of one, priced £85–£300. No reproductions. Website https://karinekovtg.com, Instagram @karineko_vtg. |
+| Items to sell | High-end vintage designer jewellery from Christian Dior and Chanel, chosen for a younger generation of vintage shoppers: necklaces, pendants, earrings, bracelets, rings and brooches. Every piece is signed, authenticated and one of one, priced £85–£300. No reproductions. Website https://karinekovtg.com, Instagram @karineko_vtg. |
 | Preferred days / dates | Thursdays (vintage fashion day), starting with a trial Thursday in November, then Saturdays if it goes well. |
 
 ## What's missing

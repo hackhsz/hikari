@@ -13,7 +13,7 @@ The portal asks for a business profile. These are the answers it will need.
 **Website / Instagram:** https://karinekovtg.com · @karineko_vtg
 **Category:** Antiques & vintage → jewellery
 **Describe your brand and products:**
-Karineko Vintage sells authentic vintage Christian Dior and Chanel costume jewellery, found in Japan. We buy in person and at Japanese auction, authenticate every piece and photograph it on our own table in London. Each piece is one of one, priced from £85 to £300. On the Thursday antiques and vintage market we'd bring a small table display: walnut trays and one piece at a time.
+Karineko Vintage is a London vintage seller of high-end designer jewellery: Christian Dior and Chanel pieces chosen for a younger generation of vintage shoppers. Every piece is authenticated and one of one, priced from £85 to £300. On the Thursday antiques and vintage market we'd bring a small table display: walnut trays and one piece at a time.
 **Days you'd trade:** Thursdays
 
 ## What's missing

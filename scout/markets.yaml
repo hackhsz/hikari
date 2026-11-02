@@ -289,7 +289,7 @@ markets:
   checked: 2026-11-02
   sources: ['https://www.classiccarbootsale.co.uk/', 'https://www.classiccarbootsale.co.uk/trader-applications/',
     'http://www.classiccarbootsale.co.uk/exhibitor-application/', 'https://www.classiccarbootsale.co.uk/about/']
-  decision: new
+  decision: shortlist
   our_notes: null
 
 - id: covent-garden-monday-antiques
@@ -2098,13 +2098,11 @@ markets:
   requires: [Retail letting enquiry to The Truman Brewery (route unconfirmed)]
   watch_out: The market's own domains (bricklanevintagemarket.com and .co.uk) are parked, and vintage-market.co.uk
     returned 503. These are permanent shop units, not day stalls, so they mean rent plus daily staffing.
-  fit: 2
-  why: Busy and famous ("largest vintage market in the UK"), but the frame is mass vintage clothing ("1920s glam
-    to Y2K streetwear") for a young tourist crowd, at well below £100-300. It needs a permanent unit with unknown
-    rent, and no trader route was found.
+  fit: 3
+  why: Raised from 2 on 2 Nov 2026 under the younger-generation pitch. The market bills itself as 'where London's trendsetters shop — from 1920s glam to Y2K streetwear', which is the audience we now target. No trader route is published; the enquiry goes to Truman Brewery's general address. A unit is a lease, not a day stall, so cost and term decide it.
   checked: 2026-10-19
   sources: ['https://www.trumanbrewery.com/web/markets.pl']
-  decision: new
+  decision: shortlist
   our_notes: null
 
 - id: stockport-vintage-village

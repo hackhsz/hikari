@@ -18,16 +18,22 @@ The facts every application draws on, taken from the live site on 28 Oct 2026. U
 
 ## What we sell
 
-- **Authentic vintage Christian Dior and Chanel jewellery, found in Japan.** Every piece is one of one.
+- **High-end vintage designer jewellery from Christian Dior and Chanel, chosen for a younger generation of vintage shoppers.** Every piece is authenticated and one of one.
 - **Current range: 30 pieces.** That's 26 Christian Dior and 4 Chanel: 15 necklaces and pendants, 9 earrings, 2 bracelets, 2 rings, a brooch, and a pair of Chanel sunglasses.
 - **Prices from £85 to £388, median £149.** 21 of the 23 priced pieces sit between £100 and £300.
 - **What it is:** signed designer costume jewellery: CD logo and oblique-monogram pendants, crystal-set clip earrings, charm bracelets, enamel rings, Chanel CC buttons.
 
-## The story, in one paragraph
+## The pitch, in one paragraph
 
-> Karineko Vintage sells authentic vintage Christian Dior and Chanel jewellery, found in Japan. Japan holds the deepest and best-kept secondhand supply in the world, but its auction houses and reuse chains are closed to buyers outside the country, so almost none of it reaches the UK. We buy in person and at Japanese auction, land everything in London, authenticate every piece, and photograph it on our own table. Each piece is one of one, and if one ever turned out not to be authentic we would refund it in full.
+**Owner's direction (2 Nov 2026):**
+- Pitch us as a vintage seller of high-end jewellery for a younger generation.
+- **Don't say where the pieces come from.**
 
-**Short version (≤ 30 words):** *Authentic vintage Dior and Chanel jewellery, bought in Japan, authenticated and one of one. £85–£388.*
+> Karineko Vintage is a London vintage seller of high-end designer jewellery: Christian Dior and Chanel necklaces, earrings, bracelets and rings, chosen for a younger generation of vintage shoppers. Every piece is authenticated and one of one, priced from about £85 to £300, and if one ever turned out not to be authentic we would refund it in full.
+
+**Short version (≤ 30 words):** *High-end vintage Dior and Chanel jewellery for a younger generation. Authenticated, one of one, £85–£300.*
+
+**Wording:** "high-end designer jewellery" is accurate. Don't call it "fine jewellery", which means precious metals and stones; these are designer costume pieces.
 
 ## The stall
 

@@ -6,6 +6,8 @@
 **Fee:** shown only after you log in. Non-refundable; a trader cancellation needs a replacement trader plus £20.
 **Profile:** [PROFILE.md](PROFILE.md)
 
+> ⚠️ **Weaker fit under the new pitch.** Lou Lou's is a 1920s–1980s fair aimed at a broad vintage crowd. A younger-generation, logo-led pitch suits Flea London, Brick Lane or Spitalfields better.
+>
 > ⚠️ **Era rule.** Lou Lou's is a 1920s–1980s vintage fair. Apply with the pieces you can date to 1989 or earlier, and say so. Many of the Dior logo and oblique pieces look 1990s–2000s and may be refused at the stall.
 
 ## Answers for the Eventaly form
@@ -19,10 +21,10 @@ Karineko Vintage
 https://karinekovtg.com · Instagram @karineko_vtg
 
 **What do you sell?**
-Authentic vintage Christian Dior and Chanel costume jewellery, found in Japan: necklaces and pendants, earrings, bracelets, rings and brooches. Every piece is signed, authenticated and one of one.
+High-end vintage designer jewellery from Christian Dior and Chanel, chosen for a younger generation of vintage shoppers: necklaces and pendants, earrings, bracelets, rings and brooches. Every piece is signed, authenticated and one of one.
 
 **Describe your stall / business** (short)
-Karineko Vintage brings vintage Dior and Chanel jewellery back from Japan, where forty years of luxury buying left the deepest secondhand supply in the world, most of it never leaving the country. We buy in person and at Japanese auction, authenticate every piece and photograph it on our own table in London. The stall will be a small, quiet table: walnut trays, one piece at a time, each with a card giving the house, the piece and the price.
+Karineko Vintage is a London vintage seller of high-end designer jewellery: Dior and Chanel pieces chosen for a younger generation of vintage shoppers, every one authenticated and one of one. The stall will be a small, quiet table: walnut trays, one piece at a time, each with a card giving the house, the piece and the price.
 
 **Eras**
 `{Eras you can confirm, e.g. "1980s" — only list pieces dated 1989 or earlier}`

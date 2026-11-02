@@ -48,10 +48,12 @@ Published deadlines, plus events at fit 3+ still taking applications.
 
 | Decision | Name | City | Apply | Next | Our notes |
 |---|---|---|---|---|---|
+| shortlist | [Brick Lane Vintage Market (Old Truman Brewery)](https://www.trumanbrewery.com/web/markets.pl) | London | unknown | Open 7 days. Mon-Fri 11am-6:30pm, Sat 11am-6pm, Sun 10am-6p… | — |
 | shortlist | [Camden Passage - Pierrepont Arcade & Charlton Place Markets](https://www.camdenpassageislington.co.uk/markets/pierrepont-arcade-market.html) | London | rolling | Antiques Wed & Sat (also general antiques/collectables Fri… | — |
 | shortlist | [Flea London — Vintage & Makers Market at Hackney Bridge](https://flealondon.com/) | London | rolling | Every weekend, Sat and Sun 11:00-17:00. The booking form of… | — |
 | shortlist | [Lou Lou's Vintage Fair — London, Canada Water](https://www.loulousvintagefair.com/) | London | open | 15 Nov 2026 | — |
 | shortlist | [Old Spitalfields Market (incl. Thursday Antiques & Vintage Market)](https://oldspitalfieldsmarket.com/become-a-trader) | London | rolling | Stalls 7 days a week; Antiques Market every Thursday 8am-5p… | — |
+| shortlist | [The Classic Car Boot Sale](https://www.classiccarbootsale.co.uk/) | London | open | 24 Apr 2027 | — |
 | applied | [Alfies Antique Market](https://alfiesantiques.com/dealers-at-alfies/) | London | rolling | Permanent; open Tue-Sat 10am-6pm | Enquiry emailed to info@alfiesantiques.com on 2 Nov 2026 (asked about a cabinet, rent, staffing). Awaiting reply. |
 | applied | [Lower Stable Street Market & Shotengai pan-Asian Market (King's Cross)](https://www.kingscross.co.uk/event/lower-stable-street-market) | London | rolling | 19 Nov 2026 | Enquiry emailed to market@kioskn1c.com on 2 Nov 2026 (asked for 19-22 Nov or a later market, fee, and whether resale fits). Awaiting reply. |
 
@@ -79,6 +81,7 @@ Break-even is pitch fee ÷ £84 contribution per piece (D14).
 | 3 | [The Classic Car Boot Sale](https://www.classiccarbootsale.co.uk/) | fair | London | 24 Apr 2027 | open | Not published on the site. A 'trade with us' deck is linked (Adobe-hosted, unre… | — |
 | 3 | [Altrincham Market (covered market, incl. vintage)](https://visitaltrincham.com/business-directory/altrincham-market/) | market | Manchester | Covered market runs Tue, Fri, Sat and Sun | rolling | Not published | — |
 | 3 | [Appear Here (short-let pop-up marketplace)](https://www.appearhere.co.uk/destinations/london) | popup | London | Always-on marketplace; book by the day, week, month or year | rolling | Varies by listing. Homepage examples on 13 Oct 2026: from £99/day (Kingsland Ro… | — |
+| 3 | [Brick Lane Vintage Market (Old Truman Brewery)](https://www.trumanbrewery.com/web/markets.pl) | arcade | London | Open 7 days. Mon-Fri 11am-6:30pm, Sat 11am-6pm, Sun 10am-6p… | unknown | Not published | — |
 | 3 | [Church Street Antiques Fair](https://alfiesantiques.com/church-street-antiques-fair/) | fair | London | Annual Sunday street fair; last confirmed edition Sun 29 Ju… | closed | Not published | — |
 | 3 | [Covent Garden Monday Antiques (Jubilee Market & Apple Market)](https://www.coventgarden.london/shop/markets) | market | London | Every Monday: Jubilee Market Antiques & Collectables 5am-5p… | unknown | Not published | — |
 | 3 | [Craft & Flea — Brighton](https://eventaly.com/event/brightons-craft-flea-2/) | fair | Brighton | Last held Sat 17 Oct 2026 (per run-1 notes). Eventaly shows… | closed | Pitches 6ft x 3ft table top, 6ft x 6ft or 12ft x 6ft; table hire optional. No B… | — |
@@ -98,7 +101,6 @@ Break-even is pitch fee ÷ £84 contribution per piece (D14).
 | 2 | [Afflecks — trader units](https://afflecks.com/pages/space-to-let) | arcade | Manchester | Always-on (Mon–Fri 10:30–6, Sat 10–6, Sun 11–5) | rolling | Weekly licence fee, inclusive of VAT, utilities and business rates; amount not… | — |
 | 2 | [BOXPARK Shoreditch one-week pop-up unit](https://www.appearhere.co.uk/spaces/boxpark-1-week-retail-pop-up) | popup | London | One-week bookings: keys Monday 5pm, trade Tue-Sun, return k… | unknown | £1,000 + VAT per week (300 sq ft unit) incl. service charge, electricity and co… | 12 pc |
 | 2 | [Bermondsey Square Antiques Market](https://www.southwark.gov.uk/business-and-licences/markets-and-street-trading/private-and-community-run-markets/bermondsey) | market | London | Every Friday 6am-2pm | rolling | Not published; ask the organiser (paul@bermondseyantiquemarket.co.uk, 0333 358… | — |
-| 2 | [Brick Lane Vintage Market (Old Truman Brewery)](https://www.trumanbrewery.com/web/markets.pl) | arcade | London | Open 7 days. Mon-Fri 11am-6:30pm, Sat 11am-6pm, Sun 10am-6p… | unknown | Not published | — |
 | 2 | [Brighton Flea Market (Kemptown) — stalls & cabinets](https://www.flea-markets.co.uk/) | arcade | Brighton | Always-on, open 362 days a year | rolling | Stalls and cabinets from £22 to £78 per week | — |
 | 2 | [Brighton Open Market — Plaza stalls](https://www.brightonopenmarket.co.uk/stall-hire.html) | market | Brighton | Plaza stalls available 7 days a week, with no minimum period | rolling | Saturday £25 per stall (£20 for stalls 2, 3, 10, 11, 14, 15, 22, 23); Fri and S… | 1 pc |
 | 2 | [Bristol Indies' Market (St Nicholas Markets) + St Nick's Christmas umbrella pitches](https://www.bristol.gov.uk/st-nicholas-markets/trade-with-us/trade-bristol-indies-market) | market | Bristol | Mon–Sat 10am–5pm. Christmas Market Fri 20 Nov – Thu 24 Dec… | rolling | £34.12 per Saturday stall; £22.75 Mon–Fri (flat rate per trading day) | 1 pc |

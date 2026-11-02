@@ -1,5 +1,7 @@
 # Alfies Antique Market
 
+> Sent before the 2 Nov change of pitch, so it mentions sourcing. Future messages to Alfies should use the pitch in [PROFILE.md](PROFILE.md).
+
 **What it is:** a permanent dealer stand or cabinet at a four-floor antiques and vintage market on Church Street, Marylebone. Open Tue–Sat.
 **Apply:** by email to info@alfiesantiques.com, with "a short introduction along with images, a portfolio, or a website link". **Sent 2 Nov 2026** from Gmail, signed "Karineko Vintage" (no personal name).
 **Fee:** not published. The email asks about cabinet versus stand, the rent, and whether a cabinet needs staffing.

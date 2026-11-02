@@ -10,6 +10,12 @@ This is what the weekly run follows. One run every Monday morning, UK time. The 
 
 **What we sell:** vintage designer costume jewellery — Dior, Chanel, Givenchy, YSL, Nina Ricci, Grosse, the better mid-century American makers. Sourced in Japan, held in London, one-of-one, **£100–300** a piece ([00](../docs/00-brief.md)).
 
+**How we pitch (owner's direction, 2 Nov 2026):**
+- Say we're a London vintage seller of high-end designer jewellery (Dior, Chanel) for a younger generation of vintage shoppers.
+- **Never say where the pieces come from.**
+- "High-end designer jewellery" is fine. "Fine jewellery" is not; these are designer costume pieces.
+- Favour venues with a young vintage crowd: Brick Lane, Hackney, Spitalfields, King's Cross, Camden.
+
 **Who buys it:** design-aware women, 28–40, buying £120–220 pieces two to four times a year ([03](../docs/03-customer.md)). The brand is curated and Japanese-editorial, not bargain vintage ([D2](../docs/DECISIONS.md)).
 
 **In scope:**
