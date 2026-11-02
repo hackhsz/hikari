@@ -2,6 +2,8 @@
 
 ## This week
 
+**Update, 2 Nov:** the Shōtengai and Alfies enquiries are now **sent**, and both are marked `applied`. The rest of this summary predates that.
+
 **Run 4 · 2 Nov 2026.** 82 tracked, with no new places this week. 6 are shortlisted, with drafts in [`drafts/`](drafts/).
 
 - **Act now. Our pipeline:**
@@ -38,7 +40,7 @@ Published deadlines, plus events at fit 3+ still taking applications.
 | **15 Nov** | [Lou Lou's Vintage Fair — London, Canada Water](https://www.loulousvintagefair.com/) | London | open | 15 Nov 2026 | 4 | shortlist |
 | **15 Nov** | [Midcentury Modern (Dulwich)](https://www.modernshows.com/shows/dulwich-1/) | London | open | 15 Nov 2026 | 3 | new |
 | **15 Nov** | [Craft & Flea — Manchester](https://www.thecraftandflea.com/pages/trade-with-us) | Manchester | open | 15 Nov 2026 | 3 | new |
-| **19 Nov** | [Lower Stable Street Market & Shotengai pan-Asian Market (King's Cross)](https://www.kingscross.co.uk/event/lower-stable-street-market) | London | rolling | 19 Nov 2026 | 4 | shortlist |
+| **19 Nov** | [Lower Stable Street Market & Shotengai pan-Asian Market (King's Cross)](https://www.kingscross.co.uk/event/lower-stable-street-market) | London | rolling | 19 Nov 2026 | 4 | applied |
 | **21 Nov** | [Craft & Flea — Glasgow (Christmas)](https://www.thecraftandflea.com/pages/trade-with-us) | Glasgow | open | 21 Nov 2026 | 3 | new |
 | **22 Nov** | [Lou Lou's Vintage Fair — Manchester](https://www.loulousvintagefair.com/) | Manchester | open | 22 Nov 2026 | 4 | new |
 
@@ -46,12 +48,12 @@ Published deadlines, plus events at fit 3+ still taking applications.
 
 | Decision | Name | City | Apply | Next | Our notes |
 |---|---|---|---|---|---|
-| shortlist | [Alfies Antique Market](https://alfiesantiques.com/dealers-at-alfies/) | London | rolling | Permanent; open Tue-Sat 10am-6pm | — |
 | shortlist | [Camden Passage - Pierrepont Arcade & Charlton Place Markets](https://www.camdenpassageislington.co.uk/markets/pierrepont-arcade-market.html) | London | rolling | Antiques Wed & Sat (also general antiques/collectables Fri… | — |
 | shortlist | [Flea London — Vintage & Makers Market at Hackney Bridge](https://flealondon.com/) | London | rolling | Every weekend, Sat and Sun 11:00-17:00. The booking form of… | — |
 | shortlist | [Lou Lou's Vintage Fair — London, Canada Water](https://www.loulousvintagefair.com/) | London | open | 15 Nov 2026 | — |
-| shortlist | [Lower Stable Street Market & Shotengai pan-Asian Market (King's Cross)](https://www.kingscross.co.uk/event/lower-stable-street-market) | London | rolling | 19 Nov 2026 | — |
 | shortlist | [Old Spitalfields Market (incl. Thursday Antiques & Vintage Market)](https://oldspitalfieldsmarket.com/become-a-trader) | London | rolling | Stalls 7 days a week; Antiques Market every Thursday 8am-5p… | — |
+| applied | [Alfies Antique Market](https://alfiesantiques.com/dealers-at-alfies/) | London | rolling | Permanent; open Tue-Sat 10am-6pm | Enquiry emailed to info@alfiesantiques.com on 2 Nov 2026 (asked about a cabinet, rent, staffing). Awaiting reply. |
+| applied | [Lower Stable Street Market & Shotengai pan-Asian Market (King's Cross)](https://www.kingscross.co.uk/event/lower-stable-street-market) | London | rolling | 19 Nov 2026 | Enquiry emailed to market@kioskn1c.com on 2 Nov 2026 (asked for 19-22 Nov or a later market, fee, and whether resale fits). Awaiting reply. |
 
 ## Fairs, markets and spaces
 

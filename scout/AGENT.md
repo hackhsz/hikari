@@ -58,6 +58,8 @@ For every entry that's live (fit ≥3 and `decision` not `passed` or `rejected`)
 
 Update dates, `apply.status`, fees and requirements, then set `checked` to today. When a fair's date passes, set `next_date` to the next edition, or `null` and `apply.status: closed` if none is announced. **Keep the entry.** Next year's application window is the thing worth knowing.
 
+For every `decision: applied` entry, search Gmail read-only for a reply from the organiser's domain. Report any reply under **Changed**: what they said, and the next step it asks for. Don't reply yourself.
+
 ### 3 · Discover
 Work through `sources.md`, then search beyond it. Good queries combine a city, a format and an application word: *"vintage fair" London "stallholder" 2027*, *"apply to trade" antiques market Bristol*, *Christmas market Glasgow "trader application" vintage*. Organisers usually announce next year's dates in autumn and open Christmas applications in early summer.
 

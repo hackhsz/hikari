@@ -1,14 +1,14 @@
 # King's Cross: Shōtengai market (Lower Stable Street)
 
 **Event:** the next Shōtengai pan-Asian market is Thu 19 – Sun 22 Nov 2026. Craft stalls run Fri–Sun. Lower Stable Street runs Thu–Sun every week.
-**Apply:** email market@kioskn1c.com (Kiosk N1C runs the market). **A Gmail draft is ready in your Drafts folder.**
+**Apply:** email market@kioskn1c.com (Kiosk N1C runs the market). **Sent 2 Nov 2026** from Gmail, signed "Karineko Vintage" (no personal name).
 **Apply by:** now. It's three weeks out, and later monthly dates aren't published.
 **Fee:** not published. The email asks.
 **Profile:** [PROFILE.md](PROFILE.md)
 
 > Why this one: Shōtengai is curated around Japan (co-curated by Beams & Co). No other market we've found matches "found in Japan" this closely. The open question is whether they take vintage resale rather than makers. The email asks directly.
 
-## The email (as drafted in Gmail)
+## The email (as sent; sign-off is "Karineko Vintage" and the site link)
 
 **To:** market@kioskn1c.com
 **Subject:** Shōtengai market — Karineko Vintage (vintage Dior & Chanel jewellery from Japan)

@@ -1,13 +1,13 @@
 # Alfies Antique Market
 
 **What it is:** a permanent dealer stand or cabinet at a four-floor antiques and vintage market on Church Street, Marylebone. Open Tue–Sat.
-**Apply:** by email to info@alfiesantiques.com, with "a short introduction along with images, a portfolio, or a website link". **A Gmail draft is ready in your Drafts folder.**
+**Apply:** by email to info@alfiesantiques.com, with "a short introduction along with images, a portfolio, or a website link". **Sent 2 Nov 2026** from Gmail, signed "Karineko Vintage" (no personal name).
 **Fee:** not published. The email asks about cabinet versus stand, the rent, and whether a cabinet needs staffing.
 **Profile:** [PROFILE.md](PROFILE.md)
 
 > Alfies' current call is for "experienced antiques dealers and specialists". Being a new business is the weak point, so the email leads with the specialism and the sourcing. A stand here is a monthly commitment, not a day stall. Ask the questions before agreeing to anything.
 
-## The email (as drafted in Gmail)
+## The email (as sent; sign-off is "Karineko Vintage" and the site link)
 
 **To:** info@alfiesantiques.com
 **Subject:** Dealer enquiry — Karineko Vintage, vintage Dior & Chanel jewellery
