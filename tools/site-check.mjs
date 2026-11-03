@@ -145,10 +145,11 @@ async function visit(cdp, url, size, shot) {
     const { result } = await s("Runtime.evaluate", { expression: `(${readPage})()`, returnByValue: true });
     const page = { ...result.value, status: docs.get(nav.loaderId) || 0, files, errors };
     if (shot) {
-      /* A picture worth comparing: the photographs on screen loaded, and Shopify's cookie banner, which
-         covers half of every first visit, left out of it (the checks above still saw the page with it). */
+      /* A picture worth comparing: the photographs on screen loaded, and Shopify's own layers left out of
+         it, the cookie banner (half of every first visit) and the draft theme's preview bar, which comes
+         and goes from one run to the next. The checks above still saw the page with them. */
       await s("Runtime.evaluate", { awaitPromise: true, expression: `(async () => {
-        document.head.insertAdjacentHTML("beforeend", "<style>#shopify-pc__banner{display:none!important}</style>");
+        document.head.insertAdjacentHTML("beforeend", "<style>#shopify-pc__banner,#PBarNextFrameWrapper,#preview-bar-iframe{display:none!important}</style>");
         const on = [...document.images].filter(i => { const r = i.getBoundingClientRect(); return r.width && r.bottom > 0 && r.top < innerHeight; });
         on.forEach(i => { i.loading = "eager"; });
         await Promise.race([Promise.all(on.map(i => i.decode().catch(() => {}))), new Promise(r => setTimeout(r, 8000))]);
@@ -254,14 +255,14 @@ function judge(pages) {
   return problems;
 }
 
-/* A page as plain fetch sees it, waiting out Shopify's rate limit, which answers either 429 or
-   200 with the body "local_rate_limited". */
+/* A page as plain fetch sees it, waiting out Shopify's rate limit, which answers 429, or 200 with the
+   body "local_rate_limited", or drops the connection (status 0). */
 async function get(u) {
   for (let tries = 0; ; tries++) {
     const r = await fetch(u, { redirect: "follow" }).catch(e => ({ status: 0, err: e.message }));
-    const body = r.text ? await r.text() : "";
-    const limited = r.status === 429 || body.startsWith("local_rate_limited");
-    if (!limited || tries === 4) return { status: limited ? 429 : r.status, err: r.err, body };
+    const body = r.text ? await r.text().catch(() => "") : "";
+    const limited = r.status === 429 || r.status === 0 || body.startsWith("local_rate_limited");
+    if (!limited || tries === 4) return { status: r.status === 0 ? 0 : limited ? 429 : r.status, err: r.err, body };
     await sleep(3000 * (tries + 1));
   }
 }
@@ -272,8 +273,10 @@ async function checkLinks(found, problems) {
   await pool([...found], 4, async ([u, p]) => {
     const r = await get(u);
     n++;
-    if (r.status === 429) problems.push({ level: "WARN", lang: p.lang, page: p.name, what: "a link went unchecked: Shopify was turning requests away (rate limit)", detail: u });
-    else if (r.status === 0 || r.status >= 400) problems.push({ level: "FAIL", lang: p.lang, page: p.name, what: `a link answers ${r.status || r.err}`, detail: u });
+    /* turned away or no answer after five tries: Shopify's rate limit, not a dead page (a real outage
+       fails the pages themselves, which Chrome loads) */
+    if (r.status === 429 || r.status === 0) problems.push({ level: "WARN", lang: p.lang, page: p.name, what: "a link went unchecked: Shopify was turning requests away (rate limit)", detail: u });
+    else if (r.status >= 400) problems.push({ level: "FAIL", lang: p.lang, page: p.name, what: `a link answers ${r.status}`, detail: u });
   });
   return n;
 }
