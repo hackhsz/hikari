@@ -1,4 +1,4 @@
-<footer data-bg="#1C1B18" data-fg="#FAF8F3" style="--sec-bg:#1C1B18;--sec-fg:#FAF8F3;">
+<footer data-bg="#2F5B45" data-fg="#FAF8F3" style="--sec-bg:#2F5B45;--sec-fg:#FAF8F3;">
   <div class="shell pad rule-top">
     <div class="strip">
       {%- if settings.trust_1 != blank %}<div>{{ settings.trust_1 }}</div>{% endif -%}
@@ -18,7 +18,7 @@
       {%- if pages.creators.id -%}<a class="hero-link" href="{{ pages.creators.url }}">{{ 'layout.footer.creators' | t }}</a>{%- endif -%}
       {%- render 'language-switcher', id: 'lang-foot' -%}
     </div>
-    <div style="margin-top:clamp(40px,7vw,64px)">{%- render 'lockup', scale: 'hero', size: 'clamp(20px, 7.2vw, 34px)' -%}</div>
+    <div style="margin-top:clamp(40px,7vw,64px)">{%- render 'lockup', height: 'clamp(84px, 16vw, 120px)' -%}</div>
     {%- comment -%} Each part is a theme setting (Legal) and shows only when it is filled in; all are empty for now. {%- endcomment -%}
     {%- assign brand = settings.brand_name | default: shop.name -%}
     {%- capture legal -%}

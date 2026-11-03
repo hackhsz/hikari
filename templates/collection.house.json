@@ -6,7 +6,7 @@
     "record": {
       "type": "record",
       "settings": {
-        "heading": "On the Record — pieces from this house that have passed through"
+        "heading": "The Archive"
       }
     },
     "houses": {
@@ -21,8 +21,8 @@
   },
   "order": [
     "main",
-    "record",
     "houses",
+    "record",
     "signup"
   ]
 }

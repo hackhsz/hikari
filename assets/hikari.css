@@ -6,9 +6,8 @@
   --paper:#FAF8F3; --paper-mid:#F4F0E8; --paper-deep:#EFEAE0; --rule:#DDD6C8;
   --sumi:#1C1B18; --nezu:#5F5B52; --midori:#2F5B45;
   --bg:var(--paper); --fg:var(--sumi);
-  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
   --sans:"Instrument Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-  --mincho:"Noto Serif JP",serif;
   --gut:clamp(18px,4vw,52px); --max:1180px;
 }
 *{box-sizing:border-box}
@@ -36,22 +35,9 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 @keyframes gs{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-2%)}80%{transform:translate(3%,1%)}100%{transform:translate(0,0)}}
 @media (prefers-reduced-motion:reduce){#grain{animation:none!important}}
 
-/* lockup — proportional, so it cannot break when the name changes length.
-   C = cap height ≈ 0.70em. kanji 1.30 C · rule 1.00 C · 0.55 C clear · Latin tracked 0.28 em. */
-/* The lockup is a mark, not a sentence: it keeps its order in right-to-left pages too. */
-.lockup{display:inline-flex;align-items:center;line-height:1;white-space:nowrap;direction:ltr}
-.lockup .lk-k{font-family:var(--mincho);font-size:1.035em;line-height:1;
-  /* optical centre of the kanji to cap centre of the Latin */
-  position:relative;top:-.02em}
-/* the drawn mark (Brand → Mark: drawing): 2.3 em tall, so the drawing reads at 19px; masked, so it takes the text colour */
-.lockup .lk-m{display:inline-block;width:1.55em;height:2.3em;background:currentColor;
-  -webkit-mask:var(--mark) center/contain no-repeat;mask:var(--mark) center/contain no-repeat}
-.lockup .lk-r{display:inline-block;height:.70em;margin:0 .42em;
-  border-left:1px solid currentColor;border-left-width:1.3px;align-self:center}
-.lockup .lk-n{font-family:var(--serif);letter-spacing:.28em;
-  /* tracking adds a trailing gap after the last letter; pull it back so the mark is optically centred */
-  margin-right:-.28em}
-@media (max-width:420px){ .lockup .lk-n{letter-spacing:.18em;margin-right:-.18em} }
+/* the logo (snippets/lockup): the owner's drawing, cat over KARINEKO, as a mask so it takes the text colour */
+.lockup{display:block;height:var(--lk-h);aspect-ratio:723/496;background:currentColor;
+  -webkit-mask:var(--logo) center/contain no-repeat;mask:var(--logo) center/contain no-repeat}
 
 /* masthead: a solid band that stays at the top, painted with the page's own ground and ink, so it
    follows the scroll colour and the logo never sits on top of the page underneath */
@@ -67,11 +53,13 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 /* Japanese and Chinese need no tracking, and narrow phones (375px) need a tighter gap, or Bag runs off the edge. */
 :root:is(:lang(ja),:lang(zh-CN)) .mast-r a{letter-spacing:.04em}
 @media (max-width:420px){.mast-r{gap:12px}.mast .mast-r a{letter-spacing:.1em}}
-.mast nav a,.mast .bag-btn,.mast .menu-btn{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.82;transition:opacity .25s;
+/* Set in the logo's serif, in tracked capitals like KARINEKO. */
+.mast nav a,.mast .bag-btn,.mast .menu-btn{font-family:var(--serif);font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;opacity:.82;transition:opacity .25s;
   padding-block:8px;margin-block:-8px}
 .mast nav a:hover,.mast .bag-btn:hover,.mast .menu-btn:hover{opacity:1}
 .mast nav a[aria-current]{opacity:1;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
-.mast .menu-btn,.mast .search-btn--l{display:none}
+/* The menu (three lines) is on every screen: About us lives there, not in the top bar. */
+.mast .search-btn--l{display:none}
 /* Icons (snippets/icon): a 36px target around a 20px drawing, pulled back by the margin so the
    line keeps its spacing. */
 .mast-ico{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;margin:-8px;opacity:.82;transition:opacity .25s}
@@ -79,7 +67,7 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .ico{display:block;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.25;stroke-linecap:round}
 /* Phones: menu and search on the left, the lockup in the middle, the bag on the right. */
 @media (max-width:760px){.mast .inner{padding-block:8px;gap:10px}.mast nav{display:none}.mast-l{gap:14px}
-  .mast .menu-btn,.mast .search-btn--l{display:inline-flex}.mast .search-btn--r,.mast .acct-btn{display:none}}
+  .mast .search-btn--l{display:inline-flex}.mast .search-btn--r,.mast .acct-btn{display:none}}
 
 /* type */
 .eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;opacity:.58;margin:0 0 clamp(16px,3vw,26px)}
@@ -611,25 +599,25 @@ s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thicknes
 
 /* ══ 24 Oct 2026: languages ══════════════════════════════════
    Arabic, Chinese and Japanese. Their faces load only for that language (layout/theme.liquid),
-   after the Latin ones in each stack, so brand names and prices stay in Newsreader and
+   after the Latin ones in each stack, so brand names and prices stay in Cormorant Garamond and
    Instrument Sans and only the script itself falls through. English is untouched. */
 :root:lang(ar){
-  --serif:"Newsreader","Noto Naskh Arabic",Georgia,"Times New Roman",serif;
+  --serif:"Cormorant Garamond","Noto Naskh Arabic",Georgia,"Times New Roman",serif;
   --sans:"Instrument Sans","IBM Plex Sans Arabic",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
 }
 :root:lang(zh-CN){
-  --serif:"Newsreader","Noto Serif SC",Georgia,"Times New Roman",serif;
+  --serif:"Cormorant Garamond","Noto Serif SC",Georgia,"Times New Roman",serif;
   --sans:"Instrument Sans","Noto Sans SC",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
 }
 :root:lang(ja){
-  --serif:"Newsreader","Noto Serif JP",Georgia,"Times New Roman",serif;
+  --serif:"Cormorant Garamond","Noto Serif JP",Georgia,"Times New Roman",serif;
   --sans:"Instrument Sans","Noto Sans JP",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
 }
 /* These scripts have no italic: keep the Latin italic, never a slanted fake of the rest. */
 :root:lang(ar),:root:lang(zh-CN),:root:lang(ja){font-synthesis:weight}
 /* Tracking pulls Arabic letters apart, so it goes (the lockup keeps its own). Naskh also sits
    taller than the Latin, so the tight display leading opens up enough not to clip. */
-:root:lang(ar) body :not(.lk-n){letter-spacing:0!important}
+:root:lang(ar) body *{letter-spacing:0!important}
 :root:lang(ar) :is(.al-house,.chouse,.pdp h1,.hero-h,.sheet-title,.menu-links a,.house-h,.ne-h,.popup-h,.qv-house,
   .bag-house,.bag-page-h,.story :is(h1,h2),.signup h2,.ne-clock){line-height:1.35}
 /* Phones: two cards to a row everywhere, with tighter type so more pieces fit on a screen */

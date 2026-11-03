@@ -18,30 +18,6 @@
         "info": "Change this and the whole site follows. The name is deliberately not hard-coded anywhere — see 0-plan/18-name-clearance.md."
       },
       {
-        "type": "select",
-        "id": "brand_mark",
-        "label": "Mark beside the name",
-        "default": "drawing",
-        "options": [
-          {
-            "value": "drawing",
-            "label": "Drawing (assets/brand-mark.png)"
-          },
-          {
-            "value": "kanji",
-            "label": "Kanji"
-          }
-        ],
-        "info": "The drawing takes the text colour, so it works on light and dark sections alike."
-      },
-      {
-        "type": "text",
-        "id": "brand_kanji",
-        "label": "Kanji",
-        "default": "光",
-        "info": "Single character. Set at 1.30 cap height beside the Latin, one weight step lighter — see brand/10-logo.md."
-      },
-      {
         "type": "text",
         "id": "edition_no",
         "label": "Current Edition number",

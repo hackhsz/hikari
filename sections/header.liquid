@@ -9,27 +9,31 @@
 <header class="mast">
   <div class="inner">
     {%- comment -%}
-      One line. On a laptop: the shop and its houses on the left, the lockup in the middle, the
-      pages, search, account and the bag on the right. The right-hand pages come from the Main
-      menu, minus Home and the catalogue, which the logo and Shop already cover.
-      On a phone: the menu (three lines) and search on the left, the lockup, the bag. Without
-      JavaScript the menu falls back to the catalogue and search to the search page.
+      One line, with room around the logo (owner, 2026-11-03). On a laptop: the menu (three lines)
+      and Shop on the left, the logo in the middle, the pages, search, account and the bag on the
+      right. The right-hand pages come from the Main menu, minus Home and the catalogue, which the
+      logo and Shop already cover, and minus the pages kept to the menu (setting, About us).
+      The houses join Shop only when the setting is on; they are in the menu either way.
+      On a phone: the menu and search on the left, the logo, the bag. Without JavaScript the menu
+      falls back to the catalogue and search to the search page.
     {%- endcomment -%}
+    {%- assign menu_only = section.settings.menu_only | remove: ' ' | split: ',' -%}
     <div class="mast-l">
       <a class="mast-ico menu-btn" href="{{ routes.all_products_collection_url }}" data-sheet-open="menu" aria-controls="menu" aria-expanded="false" aria-label="{{ 'layout.header.menu' | t }}">{%- render 'icon', name: 'menu' -%}</a>
       <a class="mast-ico search-btn search-btn--l" href="{{ routes.search_url }}" data-sheet-open="search" aria-controls="search" aria-expanded="false" aria-label="{{ 'general.search.heading' | t }}">{%- render 'icon', name: 'search' -%}</a>
       <nav class="mast-shop" aria-label="{{ 'layout.shop_nav.label' | t }}">
         <a href="{{ routes.all_products_collection_url }}"{% if request.path == routes.all_products_collection_url %} aria-current="page"{% endif %}>{{ 'layout.header.shop' | t }}</a>
-        {%- render 'shop-nav', cls: 'mh', part: 'houses', current: true -%}
+        {%- if section.settings.show_houses -%}{%- render 'shop-nav', cls: 'mh', part: 'houses', current: true -%}{%- endif -%}
       </nav>
     </div>
     <a class="mast-logo" href="{{ routes.root_url }}" aria-label="{{ 'layout.header.home' | t: brand: settings.brand_name | escape_once }}">
-      {%- render 'lockup', scale: 'body', size: 'clamp(12.5px, 3.7vw, 19px)' -%}
+      {%- render 'lockup', height: 'clamp(54px, 14vw, 78px)' -%}
     </a>
     <div class="mast-r">
       <nav class="mast-pages" aria-label="{{ 'layout.header.nav' | t }}">
         {%- for link in linklists.main-menu.links -%}
           {%- if link.url == routes.root_url or link.url == routes.all_products_collection_url or link.url == routes.collections_url -%}{%- continue -%}{%- endif -%}
+          {%- if link.type == 'page_link' and menu_only contains link.object.handle -%}{%- continue -%}{%- endif -%}
           <a href="{{ link.url }}">{{ link.title }}</a>
         {%- endfor -%}
       </nav>
@@ -76,7 +80,7 @@
     <div class="menu-foot">
       {%- render 'social' -%}
       {%- render 'language-switcher', id: 'lang-menu' -%}
-      {%- render 'lockup', scale: 'hero', size: '22px' -%}
+      {%- render 'lockup', height: '84px' -%}
     </div>
   </div>
 </div>
@@ -106,4 +110,11 @@
   document.documentElement.style.setProperty('--grain', {{ settings.grain_opacity | divided_by: 100.0 }});
   {% if settings.grain_animate %}document.body.classList.add('grain-on');{% endif %}
 </script>
-{% schema %}{ "name": "Header", "settings": [] }{% endschema %}
+{% schema %}
+{ "name": "Header", "settings": [
+  { "type": "checkbox", "id": "show_houses", "label": "Show the houses next to Shop", "default": false,
+    "info": "Chanel, Christian Dior. They are in the menu either way." },
+  { "type": "text", "id": "menu_only", "label": "Pages only in the menu", "default": "about-us",
+    "info": "Page handles, separated by commas. They stay in the menu (three lines), not in the top bar." }
+] }
+{% endschema %}
