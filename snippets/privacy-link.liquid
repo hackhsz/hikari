@@ -1,0 +1,7 @@
+{%- comment -%}
+  The privacy policy link after the sign-up forms' fine print. shop.privacy_policy.url carries the
+  language's code (/zh-CN/policies/…), which isn't the shop's path for that language (/zh), so it was
+  a dead link in Chinese (found by tools/site-check, 2026-11-03). Built on the language's own root instead.
+{%- endcomment -%}
+{%- assign handle = shop.privacy_policy.url | split: '/' | last -%}
+<a class="spec-link" href="{{ routes.root_url | append: '/policies/' | append: handle | replace: '//', '/' }}">{{ 'general.privacy' | t }}</a>

@@ -50,7 +50,7 @@
           </div>
           {%- if form.errors -%}<p class="notify-ok" role="alert">{{ 'general.email.error' | t }}</p>{%- endif -%}
           <p class="notify-fine">{{ section.settings.fine }}
-            {%- if shop.privacy_policy %} <a class="spec-link" href="{{ shop.privacy_policy.url }}">{{ 'general.privacy' | t }}</a>{% endif -%}
+            {%- if shop.privacy_policy %} {% render 'privacy-link' %}{% endif -%}
           </p>
         {%- endif -%}
       {%- endform -%}

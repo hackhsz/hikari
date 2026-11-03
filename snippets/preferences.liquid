@@ -63,7 +63,7 @@
     <p class="prefs-fine">
       {%- if ask_email -%}{{ 'preferences.fine_page' | t }}
       {%- else -%}{{ 'preferences.fine' | t }}{%- endif -%}
-      {%- if shop.privacy_policy %} <a class="spec-link" href="{{ shop.privacy_policy.url }}">{{ 'general.privacy' | t }}</a>{% endif -%}
+      {%- if shop.privacy_policy %} {% render 'privacy-link' %}{% endif -%}
     </p>
   {%- endform -%}
   <p class="prefs-ok" data-prefs-ok tabindex="-1" hidden>{{ 'preferences.thanks' | t }}</p>
