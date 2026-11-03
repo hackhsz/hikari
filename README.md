@@ -82,6 +82,17 @@ A piece's **category is a product tag**: `earrings`, `brooches`, `necklaces`, `b
 
 Run `bash scripts/verify/run.sh` before pushing anything in `theme/`. It runs Theme Check, renders our Liquid against sample data, drives the bag script in a browser, and, once the store settings exist, deploys to a verification theme and tests it on the store. See [scripts/verify](../scripts/verify/README.md).
 
+**Site checks, on the real store.** `node tools/site-check.mjs staging` after every push to `staging`, and again before any push live; `node tools/site-check.mjs live` after one. It opens twelve pages in all five languages, on a desktop and a phone, in a fresh Chrome, and checks each page:
+- it loads, in the right language and direction
+- no theme errors, missing files or broken images
+- the brand name is untranslated
+- the language menu is complete
+- nothing scrolls sideways
+
+It also follows every link it finds, and lists lines a translated page still shows in English. The home page and a product are photographed and compared with the approved screenshots.
+
+**FAIL** means don't push. **WARN** is for a person to look at. The report opens from `previews/site-check/`. When the screenshots look right, `node tools/site-check.mjs approve staging` makes them the approved ones. It needs only Chrome and Node 22 or later.
+
 ## Name is not hard-coded — on purpose
 
 Per [`0-plan/18-name-clearance.md`](../0-plan/18-name-clearance.md), the name may have to change. It is a single theme setting:
