@@ -74,7 +74,11 @@ async function launch() {
     setTimeout(() => no(new Error("Chrome didn't start within 20s")), 20000);
   });
   const cdp = await connect(url);
-  cdp.quit = () => { cdp.close(); proc.kill(); rmSync(profile, { recursive: true, force: true }); };
+  cdp.quit = async () => {
+    cdp.close(); proc.kill();
+    if (proc.exitCode === null) await new Promise(r => proc.once("exit", r));  // Chrome writes to the profile until it's gone
+    rmSync(profile, { recursive: true, force: true, maxRetries: 3 });
+  };
   return cdp;
 }
 
@@ -89,9 +93,11 @@ function readPage() {
     languages: [...new Set([...document.querySelectorAll('select[name="language_code"] option')].map(o => o.value))].sort(),
     logo: [...document.querySelectorAll(".lockup")].some(e => e.getBoundingClientRect().height > 0),
     sideways: html.scrollWidth - innerWidth,
-    /* what sticks out past the right edge, innermost first, to say where a sideways scroll comes from */
+    /* what starts on screen and runs past its right edge, innermost first, to say where a sideways
+       scroll comes from; closed drawers sit wholly off screen and fixed layers don't scroll */
     wide: html.scrollWidth - innerWidth > 1 ? [...document.body.querySelectorAll("*")].filter(e => {
-      const out = x => x.getBoundingClientRect().right > innerWidth + 1;
+      const out = x => { const r = x.getBoundingClientRect(); return r.left < innerWidth && r.right > innerWidth + 1; };
+      for (let a = e; a; a = a.parentElement) if (getComputedStyle(a).position === "fixed") return false;
       return out(e) && ![...e.children].some(out);
     }).slice(0, 3).map(e => `<${e.tagName.toLowerCase()}${e.className && typeof e.className === "string" ? ` class="${e.className.trim()}"` : ""}> ${(e.textContent || "").trim().slice(0, 40)}`) : [],
     images: [...document.images].filter(i => i.complete && i.currentSrc && !i.naturalWidth).map(i => i.currentSrc),
@@ -271,6 +277,7 @@ li{margin:6px 0}.where{color:#666;font-size:13px}pre{white-space:pre-wrap;backgr
 <h1>Site check · ${esc(target)}</h1>
 <div class="meta">${esc(started.toISOString().slice(0, 16).replace("T", " "))} UTC · ${theme ? `draft theme ${theme} (preview link)` : "published theme"} ·
 ${pages.length} pages in ${langs.length} languages at two sizes · ${links} links</div>
+${theme ? `<p class="meta">Translations of the theme's own words (banner, announcement, section headings) belong to the published theme, so the draft shows them in English. They're back once this is pushed live; anything new still needs translating.</p>` : ""}
 <div class="verdict ${fails.length ? "fail" : "pass"}">${fails.length ? `${fails.length} failed: don't push live` : "Passed"}${warns.length ? ` · ${warns.length} to look at` : ""}</div>
 <h2>What to look at</h2>${groups.size ? `<ul>${[...groups].map(([k, where]) => {
     const [level, what] = k.split("\n"), rest = k.split("\n").slice(2).join("\n");
@@ -341,7 +348,7 @@ async function run(target) {
     console.log(join(dir, "report.html"));
     return fails ? 1 : 0;
   } finally {
-    cdp.quit();
+    await cdp.quit();
   }
 }
 
@@ -356,10 +363,14 @@ function approve(target) {
   return 0;
 }
 
-const [cmd, arg] = process.argv.slice(2);
-try {
-  process.exitCode = cmd === "approve" ? approve(arg) : await run(cmd || "live");
-} catch (e) {
-  console.error(e.message);
-  process.exitCode = 2;
+export { launch, visit, SIZES, pageUrl };
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const [cmd, arg] = process.argv.slice(2);
+  try {
+    process.exitCode = cmd === "approve" ? approve(arg) : await run(cmd || "live");
+  } catch (e) {
+    console.error(e.message);
+    process.exitCode = 2;
+  }
 }
