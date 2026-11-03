@@ -278,7 +278,7 @@ li{margin:6px 0}.where{color:#666;font-size:13px}pre{white-space:pre-wrap;backgr
 <div class="meta">${esc(started.toISOString().slice(0, 16).replace("T", " "))} UTC · ${theme ? `draft theme ${theme} (preview link)` : "published theme"} ·
 ${pages.length} pages in ${langs.length} languages at two sizes · ${links} links</div>
 ${theme ? `<p class="meta">Translations of the theme's own words (banner, announcement, section headings) belong to the published theme, so the draft shows them in English. They're back once this is pushed live; anything new still needs translating.</p>` : ""}
-<div class="verdict ${fails.length ? "fail" : "pass"}">${fails.length ? `${fails.length} failed: don't push live` : "Passed"}${warns.length ? ` · ${warns.length} to look at` : ""}</div>
+<div class="verdict ${fails.length ? "fail" : "pass"}">${fails.length ? `${fails.length} failed check${fails.length > 1 ? "s" : ""}: ${theme ? "don't push live" : "these are on the live site now"}` : "Passed"}${warns.length ? ` · ${warns.length} to look at` : ""}</div>
 <h2>What to look at</h2>${groups.size ? `<ul>${[...groups].map(([k, where]) => {
     const [level, what] = k.split("\n"), rest = k.split("\n").slice(2).join("\n");
     return `<li><span class="${level.toLowerCase()}">${level}</span> ${esc(what)}${where.some(Boolean) ? ` <span class="where">${esc([...new Set(where)].join(" · "))}</span>` : ""}${rest ? `<pre>${esc(rest)}</pre>` : ""}</li>`;
