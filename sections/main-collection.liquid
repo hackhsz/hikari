@@ -1,8 +1,8 @@
 {%- comment -%}
   The catalogue. Each piece carries its brand (Vendor), category (the first of the category tags
   below that it has), status (snippets/status), price and date as data, and the sidebar filters
-  them in the page: category, house and what to show; Sort sits over the grid. The address keeps
-  the view (?brand= &cat= &show= &sort_by=), so a filtered view can be linked to; the header's
+  them in the page: category, house and what to show; Hide sold and Sort sit over the grid. The address
+  keeps the view (?brand= &cat= &show= &hide=sold &sort_by=), so a filtered view can be linked to; the header's
   shop line (snippets/shop-nav) and the home page link here that way.
 
   On a laptop the filters are a sidebar beside the grid; on a phone they fold behind a Filter
@@ -85,6 +85,11 @@
       <div class="cat-main">
         <div class="cat-bar">
           <button type="button" class="cat-filter-btn" data-cat-toggle aria-controls="cat-side" aria-expanded="false" hidden>{{ 'collections.filters.label' | t }}</button>
+          {%- comment -%} Hide sold (owner, 2026-11-04): one switch over the grid, on phones too, that keeps
+            everything still to come and drops what has sold; it sits on top of the sidebar's choices. {%- endcomment -%}
+          {%- if has contains ' sold ' -%}
+            <label class="cat-hide" hidden><input type="checkbox" value="sold" data-cat-hide> {{ 'collections.filters.hide_sold' | t }}</label>
+          {%- endif -%}
           <form class="cat-sort" method="get">
             <label for="cat-sort-by">{{ 'collections.sort.label' | t }}</label>
             <select id="cat-sort-by" name="sort_by" data-cat-sort>

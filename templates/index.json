@@ -9,12 +9,12 @@
         "height": "standard",
         "layout": "stacked",
         "heading": "We make vintage luxury accessible",
-        "body": "<p>Handpicked vintage pieces from Japan.</p><p>100% Authenticity Guaranteed.</p><p>London showings by appointment only.</p>",
-        "link_label": "Explore the collection",
+        "body": "",
+        "link_label": "",
         "link": "shopify://collections/all",
-        "link2_label": "Book a private viewing",
+        "link2_label": "",
         "link2": "/pages/private-viewing",
-        "logo": true
+        "logo": false
       }
     },
     "alcove": {

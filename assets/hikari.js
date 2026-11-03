@@ -599,18 +599,20 @@
     grid.setAttribute("data-cat-on","");
     var sort=document.querySelector("[data-cat-sort]"), count=document.querySelector("[data-cat-count]"),
         empty=document.querySelector("[data-cat-empty]"), items=[].slice.call(grid.querySelectorAll(".cat-item")),
-        q=new URLSearchParams(location.search);
+        hide=document.querySelector("[data-cat-hide]"), q=new URLSearchParams(location.search);
     function choose(name,v){ var i=bar.querySelector('input[name="cat-'+name+'"][value="'+v+'"]'); if(i) i.checked=true; }
     function val(name){ var i=bar.querySelector('input[name="cat-'+name+'"]:checked'); return i?i.value:""; }
     ["brand","cat","show"].forEach(function(k){ if(q.get(k)) choose(k,q.get(k)); });
     if(sort&&q.get("sort_by")&&sort.querySelector('option[value="'+q.get("sort_by")+'"]')) sort.value=q.get("sort_by");
+    /* Hide sold: over the grid, and on top of whatever the sidebar shows */
+    if(hide){ hide.checked=q.get("hide")==="sold"; hide.parentNode.hidden=false; hide.addEventListener("change",apply); }
     bar.hidden=false;
     function apply(){
-      var b=val("brand"), c=val("cat"), s=val("show"), by=sort?sort.value:"", n=0;
+      var b=val("brand"), c=val("cat"), s=val("show"), h=hide&&hide.checked, by=sort?sort.value:"", n=0;
       items.forEach(function(el){
         var st=el.getAttribute("data-status"),
             ok=(!b||el.getAttribute("data-brand")===b)&&(!c||el.getAttribute("data-cat")===c)&&
-               (!s||(s==="available"?(st!=="sold"&&st!=="soon"):st===s));
+               (!s||(s==="available"?(st!=="sold"&&st!=="soon"):st===s))&&!(h&&st==="sold");
         el.hidden=!ok; if(ok) n++;
       });
       items.slice().sort(SORTS[by]||function(x,y){ return num(x,"pos")-num(y,"pos"); })
@@ -618,14 +620,14 @@
       if(count) count.textContent=plural("pieces",n,"[n] piece","[n] pieces");
       if(empty) empty.hidden=n>0;
       var u=new URL(location.href);
-      [["brand",b],["cat",c],["show",s],["sort_by",by==="manual"?"":by]].forEach(function(p){ if(p[1]) u.searchParams.set(p[0],p[1]); else u.searchParams.delete(p[0]); });
+      [["brand",b],["cat",c],["show",s],["hide",h?"sold":""],["sort_by",by==="manual"?"":by]].forEach(function(p){ if(p[1]) u.searchParams.set(p[0],p[1]); else u.searchParams.delete(p[0]); });
       history.replaceState(history.state,"",u);
       markShopNav();
     }
     bar.addEventListener("change",apply);
     if(sort){ sort.addEventListener("change",apply); sort.form.addEventListener("submit",function(e){ e.preventDefault(); apply(); }); }
     [].forEach.call(document.querySelectorAll("[data-cat-reset]"),function(r){
-      r.addEventListener("click",function(){ ["brand","cat","show"].forEach(function(k){ choose(k,""); }); apply(); });
+      r.addEventListener("click",function(){ ["brand","cat","show"].forEach(function(k){ choose(k,""); }); if(hide) hide.checked=false; apply(); });
     });
     /* how many pieces each choice has, on its own */
     [].forEach.call(bar.querySelectorAll("input[type=radio]"),function(i){

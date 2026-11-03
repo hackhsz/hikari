@@ -38,6 +38,10 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 /* the logo (snippets/lockup): the owner's drawing, cat over KARINEKO, as a mask so it takes the text colour */
 .lockup{display:block;height:var(--lk-h);aspect-ratio:723/496;background:currentColor;
   -webkit-mask:var(--logo) center/contain no-repeat;mask:var(--logo) center/contain no-repeat}
+/* the cat beside KARINEKO (row: true), for the masthead from a tablet up; a phone keeps the stacked one */
+.lockup--row{aspect-ratio:843/183}
+.mast-logo .lockup:not(.lockup--row){display:none}
+@media (max-width:760px){.mast-logo .lockup--row{display:none}.mast-logo .lockup:not(.lockup--row){display:block}}
 
 /* masthead: a solid band that stays at the top, painted with the page's own ground and ink, so it
    follows the scroll colour and the logo never sits on top of the page underneath */
@@ -220,6 +224,9 @@ html.scroll-colour .form button span{color:var(--bg)}
 /* Logo as the heading: the lockup large, the heading under it in its usual type. */
 .hero-logo{margin:0 0 clamp(18px,2.6vw,28px);font-size:inherit;font-weight:inherit;line-height:1}
 .hero:not(.hero--split) .hero-logo{display:flex;justify-content:center}
+/* Just the one line (no logo, text or links): the heading on a single line, smaller on a phone so it fits. */
+.hero--line .hero-txt{padding-top:clamp(26px,4vw,48px);padding-bottom:clamp(28px,4.4vw,56px)}
+.hero--line .hero-h{max-width:none;margin:0 auto;font-size:clamp(21px,5.2vw,60px)}
 
 /* ── sheets: bag drawer and phone menu ─────────────────────
    Fixed surfaces in paper and sumi, whatever colour the page has scrolled to.
@@ -671,6 +678,10 @@ s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thicknes
 .side-reset{margin-top:2px}
 .cat-main .cat-bar{align-items:center;margin:0 0 20px}
 .cat-main .cat-sort{margin-inline-start:auto}
+/* Hide sold, beside Sort: a plain checkbox in the bar's type, in the text colour */
+.cat-hide{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;cursor:pointer;user-select:none}
+.cat-hide[hidden]{display:none}
+.cat-hide input{width:16px;height:16px;margin:0;accent-color:currentColor;cursor:pointer}
 .cat-main .grid4{grid-template-columns:repeat(3,minmax(0,1fr))}
 .cat-filter-btn{display:none;font:inherit;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:inherit;background:transparent;
   border:1px solid color-mix(in srgb,currentColor 32%,transparent);border-radius:2px;padding:10px 16px;cursor:pointer}
@@ -709,8 +720,10 @@ s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thicknes
 .ct-n{display:block;font-size:11.5px;opacity:.6;margin-top:3px}
 .cat-tile:hover .ct-name{text-decoration:underline}
 .cat-tile:hover .plate img{transform:scale(1.03)}
-/* Shop by brand (sections/houses, style tiles): two wide photographs under the category tiles. */
-.house-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.6vw,20px)}
+/* Shop by brand (sections/houses, style tiles): square photographs on the category tiles' grid. */
+.house-tiles{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(10px,1.6vw,20px)}
+@media (max-width:900px){.house-tiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:520px){.house-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* ── brand image beside the words (sections/brand-hero, layout split) ── */
 .hero--split{padding-block:clamp(20px,3vw,40px) clamp(32px,4vw,52px)}

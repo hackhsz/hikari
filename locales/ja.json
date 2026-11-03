@@ -192,6 +192,7 @@
       "all": "すべて",
       "everything": "すべて",
       "available": "販売中",
+      "hide_sold": "売り切れを隠す",
       "on_sale": "セール",
       "label": "絞り込み"
     },

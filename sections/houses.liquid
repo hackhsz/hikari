@@ -2,9 +2,10 @@
   Brand as a first-class navigation axis (1-shop/04-site-ia.md). A brand name is metadata, never
   identity: plain text in our own typeface, no logos.
 
-  Style "Tiles" (the home page, Shop by brand): one photograph per house, like the category tiles
-  above it, from a piece of that house (snippets/pick) that New in and the category tiles do not
-  already show. Each house is a collection on the house template.
+  Style "Tiles" (the home page, Shop by brand): one square photograph per house, the same size as the
+  category tiles above it (owner, 2026-11-04: square like the other pictures, not wide), from a piece
+  of that house (snippets/pick) that New in and the category tiles do not already show. Each house
+  is a collection on the house template.
 
   Style "Names": the houses as display type. With blocks, each house links to its URL, or when
   that is left empty, to its house page (snippets/house-url). With no blocks, as on the house
@@ -42,7 +43,7 @@
             assign avoid = avoid | append: h | append: ','
           -%}
           <a class="cat-tile house-tile" href="{{ c.url }}">
-            {%- render 'plate', image: pick.featured_image, ratio: 0.56, fill: true, sizes: '(max-width: 760px) 50vw, 560px', seed: forloop.index, tone: 'light', comp: 'single', alt: '' -%}
+            {%- render 'plate', image: pick.featured_image, ratio: 1, fill: true, sizes: '(max-width: 600px) 50vw, (max-width: 900px) 33vw, 200px', seed: forloop.index, tone: 'light', comp: 'single', alt: '' -%}
             <span class="ct-name">{{ name }}</span>
             <span class="ct-n">{{ 'collections.pieces' | t: count: c.products_count }}</span>
           </a>

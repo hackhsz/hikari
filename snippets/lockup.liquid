@@ -5,6 +5,13 @@
   colour like the type.
 
   height: how tall it is drawn, any CSS length; the width follows.
+  row: the cat beside KARINEKO instead of over it (owner, 2026-11-04: the stacked logo was cramped in
+  the header). assets/logo-karineko-row.png is the same drawing re-set (843 × 183): the cat at 2.4
+  times the height of the letters, the letters as drawn.
 {%- endcomment -%}
 {%- assign name = settings.brand_name | default: shop.name -%}
-<span class="lockup" role="img" aria-label="{{ name | escape }}" style="--lk-h:{{ height | default: '64px' }};--logo:url({{ 'logo-karineko.png' | asset_url }})"></span>
+{%- if row -%}
+  <span class="lockup lockup--row" role="img" aria-label="{{ name | escape }}" style="--lk-h:{{ height | default: '48px' }};--logo:url({{ 'logo-karineko-row.png' | asset_url }})"></span>
+{%- else -%}
+  <span class="lockup" role="img" aria-label="{{ name | escape }}" style="--lk-h:{{ height | default: '64px' }};--logo:url({{ 'logo-karineko.png' | asset_url }})"></span>
+{%- endif -%}

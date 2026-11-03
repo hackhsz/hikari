@@ -27,6 +27,8 @@
       </nav>
     </div>
     <a class="mast-logo" href="{{ routes.root_url }}" aria-label="{{ 'layout.header.home' | t: brand: settings.brand_name | escape_once }}">
+      {%- comment -%} Side by side from a tablet up; on a phone, between the menu and the bag, only the stacked one fits. {%- endcomment -%}
+      {%- render 'lockup', row: true, height: 'clamp(40px, 4.2vw, 52px)' -%}
       {%- render 'lockup', height: 'clamp(54px, 14vw, 78px)' -%}
     </a>
     <div class="mast-r">
