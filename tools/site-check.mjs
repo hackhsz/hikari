@@ -102,6 +102,9 @@ function readPage() {
     }).slice(0, 3).map(e => `<${e.tagName.toLowerCase()}${e.className && typeof e.className === "string" ? ` class="${e.className.trim()}"` : ""}> ${(e.textContent || "").trim().slice(0, 40)}`) : [],
     images: [...document.images].filter(i => i.complete && i.currentSrc && !i.naturalWidth).map(i => i.currentSrc),
     text: document.body.innerText.split("\n").map(t => t.trim()).filter(Boolean),
+    /* how much each Shopify section says, to compare a translation with the English page */
+    sections: Object.fromEntries([...document.querySelectorAll("[id^='shopify-section-']")]
+      .map(s => [s.id.replace(/^shopify-section-[^_]*__/, ""), s.innerText.trim().length])),
     links: [...new Set([...document.querySelectorAll("a[href]")].map(a => a.href.split("#")[0])
       .filter(h => h.startsWith(location.origin)))],
   };
@@ -141,7 +144,18 @@ async function visit(cdp, url, size, shot) {
     await sleep(1500);  // fonts, lazy images, the scroll colour
     const { result } = await s("Runtime.evaluate", { expression: `(${readPage})()`, returnByValue: true });
     const page = { ...result.value, status: docs.get(nav.loaderId) || 0, files, errors };
-    if (shot) page.shot = (await s("Page.captureScreenshot", { format: "jpeg", quality: 80 })).data;
+    if (shot) {
+      /* A picture worth comparing: the photographs on screen loaded, and Shopify's cookie banner, which
+         covers half of every first visit, left out of it (the checks above still saw the page with it). */
+      await s("Runtime.evaluate", { awaitPromise: true, expression: `(async () => {
+        document.head.insertAdjacentHTML("beforeend", "<style>#shopify-pc__banner{display:none!important}</style>");
+        const on = [...document.images].filter(i => { const r = i.getBoundingClientRect(); return r.width && r.bottom > 0 && r.top < innerHeight; });
+        on.forEach(i => { i.loading = "eager"; });
+        await Promise.race([Promise.all(on.map(i => i.decode().catch(() => {}))), new Promise(r => setTimeout(r, 8000))]);
+      })()` });
+      await sleep(400);
+      page.shot = (await s("Page.captureScreenshot", { format: "jpeg", quality: 80 })).data;
+    }
     return page;
   } finally {
     off();
@@ -217,6 +231,14 @@ function judge(pages) {
     for (const e of [...d.errors, ...ph.errors]) flag(e.ours ? "FAIL" : "WARN", lang, name, `${e.ours ? "theme script" : "another script"} failed: ${e.what}`);
     for (const [size, v] of [["desktop", d], ["phone", ph]]) if (v.sideways > 1)
       flag("FAIL", lang, name, `scrolls sideways by ${v.sideways}px on ${size}`, (v.wide || []).join("\n"));
+  }
+  /* A section that says much more in a translation than in English: a field cleared in English keeps
+     its old translation, which Shopify goes on showing (the banner's text and links, 2026-11-04). */
+  for (const p of pages.filter(p => p.lang !== "en" && p.desktop.sections)) {
+    const en = pages.find(e => e.lang === "en" && e.name === p.name)?.desktop.sections || {};
+    for (const [id, n] of Object.entries(p.desktop.sections))
+      if (id in en && n > en[id] * 3 + 60)
+        flag("WARN", p.lang, p.name, `a section says much more than in English (${n} characters to ${en[id]}): an old translation of a cleared field?`, id);
   }
   /* Lines a translated page shows exactly as the English one does: probably never translated. */
   for (const lang of Object.keys(LANGS).filter(l => l !== "en")) {

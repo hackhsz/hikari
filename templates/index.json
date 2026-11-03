@@ -14,7 +14,8 @@
         "link": "shopify://collections/all",
         "link2_label": "",
         "link2": "/pages/private-viewing",
-        "logo": false
+        "logo": false,
+        "one_line": true
       }
     },
     "alcove": {

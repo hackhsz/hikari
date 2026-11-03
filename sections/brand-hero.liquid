@@ -14,8 +14,9 @@
   The first link is a button; the second, a quieter text link.
 
   "Logo as the heading": the shop's lockup is the h1, and the heading becomes the line under it.
-  With the logo off and no text or links, the words are one line under the picture (owner,
-  2026-11-04: "just make it one line"), set smaller on a phone so they stay on it.
+  "Just the heading, on one line" (owner, 2026-11-04: "just make it one line"): no logo, text or
+  links, in every language, and the heading set smaller on a phone so it stays on one line. A
+  setting, not "the text is empty": a translated page keeps the translation of a cleared field.
   A second link to a page that does not exist yet (the viewing page, before it is made in
   Shopify) goes to the contact page instead, so the button never leads nowhere. The test is on
   the handle: for a missing handle Shopify can still answer pages['x'] with an object.
@@ -36,10 +37,7 @@
       assign link2 = pages.contact.url
     endunless
   endif
-  assign line = false
-  if section.settings.logo == false and section.settings.body == blank and section.settings.link_label == blank and section.settings.link2_label == blank
-    assign line = true
-  endif
+  assign line = section.settings.one_line
   case fit
     when 'wide'
       assign ratio = 0.4286
@@ -85,7 +83,7 @@
   <div class="{% unless split %}shell {% endunless %}hero-txt">
     <div class="hero-lead">
       {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
-      {%- if section.settings.logo -%}
+      {%- if section.settings.logo and line == false -%}
         <h1 class="hero-logo">{%- render 'lockup', height: 'clamp(96px, 17vw, 168px)' -%}</h1>
         {%- if section.settings.heading != blank -%}<p class="hero-h">{{ section.settings.heading }}</p>{%- endif -%}
       {%- else -%}
@@ -125,6 +123,8 @@
         { "value": "adapt", "label": "As the image" }
       ] },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "checkbox", "id": "one_line", "label": "Just the heading, on one line", "default": false,
+      "info": "No logo, text or links under the picture, in every language." },
     { "type": "checkbox", "id": "logo", "label": "Logo as the heading", "default": true,
       "info": "The shop's logo in large, with the heading as the line under it." },
     { "type": "text", "id": "heading", "label": "Heading",
