@@ -9,10 +9,12 @@
 <header class="mast">
   <div class="inner">
     {%- comment -%}
-      One line, with room around the logo (owner, 2026-11-03). On a laptop: the menu (three lines)
-      and Shop on the left, the logo in the middle, the pages, search, account and the bag on the
-      right. The right-hand pages come from the Main menu, minus Home and the catalogue, which the
-      logo and Shop already cover, and minus the pages kept to the menu (setting, About us).
+      One line, with room around the logo (owner, 2026-11-03). On a laptop: the menu (three lines),
+      Shop and the pages on the left, the logo in the middle, language, search, account and the bag
+      on the right, so the two sides weigh about the same and the logo, side by side since 2026-11-04,
+      stays in the middle. The pages come from the Main menu, minus Home and the catalogue, which the
+      logo and Shop already cover, and minus the pages kept to the menu (setting, About us). Under
+      1200px they are in the menu only, or the line would not fit.
       The houses join Shop only when the setting is on; they are in the menu either way.
       On a phone: the menu and search on the left, the logo, the bag. Without JavaScript the menu
       falls back to the catalogue and search to the search page.
@@ -25,13 +27,6 @@
         <a href="{{ routes.all_products_collection_url }}"{% if request.path == routes.all_products_collection_url %} aria-current="page"{% endif %}>{{ 'layout.header.shop' | t }}</a>
         {%- if section.settings.show_houses -%}{%- render 'shop-nav', cls: 'mh', part: 'houses', current: true -%}{%- endif -%}
       </nav>
-    </div>
-    <a class="mast-logo" href="{{ routes.root_url }}" aria-label="{{ 'layout.header.home' | t: brand: settings.brand_name | escape_once }}">
-      {%- comment -%} Side by side from a tablet up; on a phone, between the menu and the bag, only the stacked one fits. {%- endcomment -%}
-      {%- render 'lockup', row: true, height: 'clamp(40px, 4.2vw, 52px)' -%}
-      {%- render 'lockup', height: 'clamp(54px, 14vw, 78px)' -%}
-    </a>
-    <div class="mast-r">
       <nav class="mast-pages" aria-label="{{ 'layout.header.nav' | t }}">
         {%- for link in linklists.main-menu.links -%}
           {%- if link.url == routes.root_url or link.url == routes.all_products_collection_url or link.url == routes.collections_url -%}{%- continue -%}{%- endif -%}
@@ -39,6 +34,13 @@
           <a href="{{ link.url }}">{{ link.title }}</a>
         {%- endfor -%}
       </nav>
+    </div>
+    <a class="mast-logo" href="{{ routes.root_url }}" aria-label="{{ 'layout.header.home' | t: brand: settings.brand_name | escape_once }}">
+      {%- comment -%} Side by side from a tablet up; on a phone, between the menu and the bag, only the stacked one fits. {%- endcomment -%}
+      {%- render 'lockup', row: true, height: 'clamp(40px, 4.2vw, 52px)' -%}
+      {%- render 'lockup', height: 'clamp(54px, 14vw, 78px)' -%}
+    </a>
+    <div class="mast-r">
       {%- render 'language-switcher', id: 'lang-mast' %}
       <a class="mast-ico search-btn search-btn--r" href="{{ routes.search_url }}" data-sheet-open="search" aria-controls="search" aria-expanded="false" aria-label="{{ 'general.search.heading' | t }}">{%- render 'icon', name: 'search' -%}</a>
       {%- if shop.customer_accounts_enabled -%}

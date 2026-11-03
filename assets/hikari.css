@@ -42,6 +42,8 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .lockup--row{aspect-ratio:843/183}
 .mast-logo .lockup:not(.lockup--row){display:none}
 @media (max-width:760px){.mast-logo .lockup--row{display:none}.mast-logo .lockup:not(.lockup--row){display:block}}
+/* The pages sit on the left beside Shop; under 1200px they are in the menu only, so the line fits. */
+@media (min-width:761px) and (max-width:1199px){.mast .mast-pages{display:none}}
 
 /* masthead: a solid band that stays at the top, painted with the page's own ground and ink, so it
    follows the scroll colour and the logo never sits on top of the page underneath */
@@ -225,8 +227,9 @@ html.scroll-colour .form button span{color:var(--bg)}
 .hero-logo{margin:0 0 clamp(18px,2.6vw,28px);font-size:inherit;font-weight:inherit;line-height:1}
 .hero:not(.hero--split) .hero-logo{display:flex;justify-content:center}
 /* Just the one line (no logo, text or links): the heading on a single line, smaller on a phone so it fits. */
-.hero--line .hero-txt{padding-top:clamp(26px,4vw,48px);padding-bottom:clamp(28px,4.4vw,56px)}
-.hero--line .hero-h{max-width:none;margin:0 auto;font-size:clamp(21px,5.2vw,60px)}
+.hero.hero--line:not(.hero--split) .hero-txt{padding-top:clamp(26px,4vw,48px);padding-bottom:clamp(28px,4.4vw,56px)}
+.hero.hero--line:not(.hero--split) .hero-h{max-width:none;margin:0 auto;font-size:clamp(21px,5.2vw,60px);text-wrap:nowrap}
+@media (max-width:420px){.hero.hero--line:not(.hero--split) .hero-h{text-wrap:balance}}
 
 /* ── sheets: bag drawer and phone menu ─────────────────────
    Fixed surfaces in paper and sumi, whatever colour the page has scrolled to.
