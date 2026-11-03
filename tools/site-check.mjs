@@ -232,17 +232,26 @@ function judge(pages) {
   return problems;
 }
 
+/* A page as plain fetch sees it, waiting out Shopify's rate limit, which answers either 429 or
+   200 with the body "local_rate_limited". */
+async function get(u) {
+  for (let tries = 0; ; tries++) {
+    const r = await fetch(u, { redirect: "follow" }).catch(e => ({ status: 0, err: e.message }));
+    const body = r.text ? await r.text() : "";
+    const limited = r.status === 429 || body.startsWith("local_rate_limited");
+    if (!limited || tries === 4) return { status: limited ? 429 : r.status, err: r.err, body };
+    await sleep(3000 * (tries + 1));
+  }
+}
+
 /* Every link on the pages, once each. found: link → the first page it was on. */
 async function checkLinks(found, problems) {
   let n = 0;
-  await pool([...found], 8, async ([u, p]) => {
-    for (let tries = 0; tries < 3; tries++) {
-      const r = await fetch(u, { redirect: "follow" }).catch(e => ({ status: 0, err: e.message }));
-      if (r.status === 429) { await sleep(2000 * (tries + 1)); continue; }
-      n++;
-      if (r.status === 0 || r.status >= 400) problems.push({ level: "FAIL", lang: p.lang, page: p.name, what: `a link answers ${r.status || r.err}`, detail: u });
-      return;
-    }
+  await pool([...found], 4, async ([u, p]) => {
+    const r = await get(u);
+    n++;
+    if (r.status === 429) problems.push({ level: "WARN", lang: p.lang, page: p.name, what: "a link went unchecked: Shopify was turning requests away (rate limit)", detail: u });
+    else if (r.status === 0 || r.status >= 400) problems.push({ level: "FAIL", lang: p.lang, page: p.name, what: `a link answers ${r.status || r.err}`, detail: u });
   });
   return n;
 }
@@ -301,8 +310,7 @@ async function run(target) {
   const approved = join(OUT, "approved", target);
   mkdirSync(join(dir, "shots"), { recursive: true });
 
-  const all = await (await fetch(withTheme(`${SITE}/collections/all`, theme))).text();
-  const product = all.match(/href="(\/products\/[^"?#]+)/)?.[1];
+  const product = (await get(withTheme(`${SITE}/collections/all`, theme))).body.match(/href="(\/products\/[^"?#]+)/)?.[1];
   if (!product) throw new Error("no piece found in Shop all");
   const pages = Object.keys(LANGS).flatMap(lang => PAGES.map(([name, path, expect = 200]) =>
     ({ lang, name, expect, url: pageUrl(lang, path || product, theme) })));
