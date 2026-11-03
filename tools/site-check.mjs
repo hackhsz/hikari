@@ -102,9 +102,9 @@ function readPage() {
     }).slice(0, 3).map(e => `<${e.tagName.toLowerCase()}${e.className && typeof e.className === "string" ? ` class="${e.className.trim()}"` : ""}> ${(e.textContent || "").trim().slice(0, 40)}`) : [],
     images: [...document.images].filter(i => i.complete && i.currentSrc && !i.naturalWidth).map(i => i.currentSrc),
     text: document.body.innerText.split("\n").map(t => t.trim()).filter(Boolean),
-    /* how much each Shopify section says, to compare a translation with the English page */
+    /* how many lines each Shopify section shows (lines, not characters, so Chinese compares fairly) */
     sections: Object.fromEntries([...document.querySelectorAll("[id^='shopify-section-']")]
-      .map(s => [s.id.replace(/^shopify-section-[^_]*__/, ""), s.innerText.trim().length])),
+      .map(s => [s.id.replace(/^shopify-section-[^_]*__/, ""), s.innerText.split("\n").filter(t => t.trim()).length])),
     links: [...new Set([...document.querySelectorAll("a[href]")].map(a => a.href.split("#")[0])
       .filter(h => h.startsWith(location.origin)))],
   };
@@ -237,8 +237,8 @@ function judge(pages) {
   for (const p of pages.filter(p => p.lang !== "en" && p.desktop.sections)) {
     const en = pages.find(e => e.lang === "en" && e.name === p.name)?.desktop.sections || {};
     for (const [id, n] of Object.entries(p.desktop.sections))
-      if (id in en && n > en[id] * 3 + 60)
-        flag("WARN", p.lang, p.name, `a section says much more than in English (${n} characters to ${en[id]}): an old translation of a cleared field?`, id);
+      if (id in en && n >= en[id] * 2 && n >= en[id] + 3)
+        flag("WARN", p.lang, p.name, `a section shows more than in English (${n} lines to ${en[id]}): an old translation of a cleared field?`, id);
   }
   /* Lines a translated page shows exactly as the English one does: probably never translated. */
   for (const lang of Object.keys(LANGS).filter(l => l !== "en")) {
