@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "meta": {
@@ -314,5 +323,29 @@
   },
   "date_formats": {
     "release": "%-m月%-d日 %H:%M"
+  },
+  "shopify": {
+    "checkout": {
+      "local_pickup": {
+        "stock_details": {
+          "in_stock": "在庫あり"
+        }
+      },
+      "split_delivery": {
+        "delivery_updated_toast": {
+          "shipping_only": "配送情報が更新されました。{{shipping}}",
+          "removal_only": "配送情報が更新されました。{{removal}}",
+          "shipping_and_removal": "配送情報が更新されました。{{shipping}} {{removal}}",
+          "shipping": {
+            "one": "{{count}} 件の商品が発送に回されました。",
+            "other": "{{count}} 件の商品が発送に移動されました。"
+          },
+          "removal": {
+            "one": "{{count}} 件のアイテムが削除されました。",
+            "other": "{{count}} 件のアイテムが削除されました。"
+          }
+        }
+      }
+    }
   }
 }
