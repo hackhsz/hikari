@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "meta": {
@@ -338,5 +347,29 @@
   },
   "date_formats": {
     "release": "%-d/%-m، %H:%M"
+  },
+  "shopify": {
+    "checkout": {
+      "local_pickup": {
+        "stock_details": {
+          "in_stock": "متوفر في المخزون"
+        }
+      },
+      "split_delivery": {
+        "delivery_updated_toast": {
+          "shipping_only": "تم تحديث طلبك. {{shipping}}",
+          "removal_only": "تم تحديث طلبك. {{removal}}",
+          "shipping_and_removal": "تم تحديث طلبك. {{shipping}} {{removal}}",
+          "shipping": {
+            "one": "تم نقل {{count}} عنصر إلى الشحن.",
+            "other": "تم نقل {{count}} عناصر إلى الشحن."
+          },
+          "removal": {
+            "one": "تمت إزالة {{count}} عنصر.",
+            "other": "تمت إزالة {{count}} من العناصر."
+          }
+        }
+      }
+    }
   }
 }
