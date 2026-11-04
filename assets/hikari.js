@@ -739,6 +739,28 @@
     });
   }
 
+  /* Japanese has no spaces, so a phone breaks the one-line banner wherever the line runs out, even inside
+     a word (ラグ|ジュアリー). Split it into phrases, each word with the particles after it
+     (ヴィンテージの / ラグジュアリーを / 身近に), and let it break only between them. CSS can do this
+     (word-break:auto-phrase) only in Chrome, not on iPhones. Browsers without Intl.Segmenter keep
+     their usual breaking. */
+  function initPhrases(){
+    if(!/^ja/.test(root.lang)||!window.Intl||!Intl.Segmenter) return;
+    var seg=new Intl.Segmenter("ja",{granularity:"word"});
+    [].forEach.call(document.querySelectorAll(".hero--line .hero-h:not([data-phrases])"),function(h){
+      if(h.children.length) return;
+      var parts=[];
+      Array.from(seg.segment(h.textContent.trim())).forEach(function(s){
+        // hiragana (particles, endings) and closing punctuation stay with the word before them
+        if(parts.length&&/^[ぁ-ゟー、。」』）！？]+$/.test(s.segment)) parts[parts.length-1]+=s.segment;
+        else parts.push(s.segment);
+      });
+      h.textContent="";
+      parts.forEach(function(p,i){ if(i) h.appendChild(document.createElement("wbr")); h.appendChild(document.createTextNode(p)); });
+      h.setAttribute("data-phrases","");
+    });
+  }
+
   function initMisc(){
     if(navigator.share) [].forEach.call(document.querySelectorAll("[data-share]"),function(b){ b.hidden=false; });
     if(/[?&]contact_posted=true/.test(location.search)) [].forEach.call(document.querySelectorAll("[data-cr-ok]"),function(p){
@@ -753,7 +775,7 @@
   function boot(){
     root.classList.add("js");
     initPlates(); initScroll(); bindOnce(); syncButtons();
-    initZoom(); initSpin(); initCountdown(); markShopNav(); initSearch(); initCatalog(); initPrefs(); initPopup(); initNotify(); initLang(); initMisc();
+    initZoom(); initSpin(); initCountdown(); markShopNav(); initSearch(); initCatalog(); initPrefs(); initPopup(); initNotify(); initLang(); initPhrases(); initMisc();
   }
   if(document.readyState!=="loading") boot(); else document.addEventListener("DOMContentLoaded",boot);
   document.addEventListener("shopify:section:load",boot);

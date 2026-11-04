@@ -230,6 +230,8 @@ html.scroll-colour .form button span{color:var(--bg)}
 .hero.hero--line:not(.hero--split) .hero-txt{padding-top:clamp(26px,4vw,48px);padding-bottom:clamp(28px,4.4vw,56px)}
 .hero.hero--line:not(.hero--split) .hero-h{max-width:none;margin:0 auto;font-size:clamp(21px,5.2vw,60px);text-wrap:nowrap}
 @media (max-width:420px){.hero.hero--line:not(.hero--split) .hero-h{text-wrap:balance}}
+/* Japanese, split into phrases by hikari.js: break only between them; a phrase too long for the line still breaks */
+.hero-h[data-phrases]{word-break:keep-all;overflow-wrap:break-word}
 
 /* ── sheets: bag drawer and phone menu ─────────────────────
    Fixed surfaces in paper and sumi, whatever colour the page has scrolled to.
