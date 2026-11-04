@@ -179,10 +179,10 @@ async function visit(cdp, url, size, shot) {
     const page = { ...result.value, status: docs.get(nav.loaderId) || 0, files, errors };
     if (shot) {
       /* A picture worth comparing: the photographs on screen loaded, and Shopify's own layers left out of
-         it, the cookie banner (half of every first visit) and the draft theme's preview bar, which comes
-         and goes from one run to the next. The checks above still saw the page with them. */
+         it, the cookie banner (half of every first visit), the draft theme's preview bar, which comes
+         and goes from one run to the next, and the Inbox chat button. The checks above still saw the page with them. */
       await s("Runtime.evaluate", { awaitPromise: true, expression: `(async () => {
-        document.head.insertAdjacentHTML("beforeend", "<style>#shopify-pc__banner,#PBarNextFrameWrapper,#preview-bar-iframe{display:none!important}</style>");
+        document.head.insertAdjacentHTML("beforeend", "<style>#shopify-pc__banner,#PBarNextFrameWrapper,#preview-bar-iframe,shopify-chat{display:none!important}</style>");
         const on = [...document.images].filter(i => { const r = i.getBoundingClientRect(); return r.width && r.bottom > 0 && r.top < innerHeight; });
         on.forEach(i => { i.loading = "eager"; });
         await Promise.race([Promise.all(on.map(i => i.decode().catch(() => {}))), new Promise(r => setTimeout(r, 8000))]);
