@@ -14,6 +14,10 @@
   once and before the rest, not lazily: how fast that appears is what Google times (LCP).
   The srcset steps every 120 to 270px up to the width, so a phone gets a photograph near the size it
   shows (Shopify's own steps went 352 → 832: a 190px tile on a phone downloaded 832px, 2026-11-04).
+  later: below the first screen, the photograph waits for the page's first one (assets/hikari.js,
+  initLater): on a phone on 4G the home page's tiles shared the line with the banner and held it
+  back to 5.2s, 3.0s without them. A blank stands in, in a frame that already has its size, so
+  nothing moves; without the script the <noscript> copy shows.
 {%- endcomment -%}
 {%- assign r = ratio | default: 0.8 -%}
 {%- assign w = width | default: 1400 -%}
@@ -40,7 +44,12 @@
     {%- comment -%} Arguments are plain variables: a filter inside an argument list (alt: alt | default: '')
         ends image_tag there, and every argument after it is silently dropped. {%- endcomment -%}
     {%- if contain -%}{{ image | image_url: width: 240 | image_tag: loading: 'lazy', alt: '', class: 'plate-bg', aria-hidden: 'true', widths: '240', sizes: '240px' }}{%- endif -%}
-    {{ image | image_url: width: w | image_tag: loading: load, fetchpriority: priority, widths: steps, alt: img_alt, sizes: img_sizes, style: obj_style }}
+    {%- capture tag -%}{{ image | image_url: width: w | image_tag: loading: load, fetchpriority: priority, widths: steps, alt: img_alt, sizes: img_sizes, style: obj_style }}{%- endcapture -%}
+    {%- if later -%}
+      {{ tag | replace: ' src="', ' src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-later-src="' | replace: ' srcset="', ' data-later-srcset="' }}<noscript>{{ tag }}</noscript>
+    {%- else -%}
+      {{ tag }}
+    {%- endif -%}
   {%- elsif image -%}
     {%- assign img_alt = alt | default: '' -%}{%- assign img_sizes = sizes | default: '(max-width: 860px) 100vw, 58vw' -%}
     {{ image | image_url: width: w | image_tag: loading: load, fetchpriority: priority, widths: steps, sizes: img_sizes, alt: img_alt }}

@@ -763,6 +763,26 @@
     });
   }
 
+  /* Photographs below the first screen that wait for the page's first one (snippets/plate, later):
+     once the banner (the photograph with fetchpriority high) has loaded, or the visitor scrolls, or
+     after four seconds, whichever comes first. */
+  function initLater(){
+    if(!document.querySelector("img[data-later-src]")) return;
+    var done=false;
+    function go(){
+      if(done) return; done=true;
+      [].forEach.call(document.querySelectorAll("img[data-later-src]"),function(i){
+        var ss=i.getAttribute("data-later-srcset"); if(ss) i.setAttribute("srcset",ss);
+        i.setAttribute("src",i.getAttribute("data-later-src"));
+        i.removeAttribute("data-later-src"); i.removeAttribute("data-later-srcset");
+      });
+    }
+    var first=document.querySelector('img[fetchpriority="high"]');
+    if(!first||first.complete) setTimeout(go,0); else { first.addEventListener("load",go,{once:true}); first.addEventListener("error",go,{once:true}); }
+    window.addEventListener("scroll",go,{once:true,passive:true});
+    setTimeout(go,4000);
+  }
+
   function initMisc(){
     if(navigator.share) [].forEach.call(document.querySelectorAll("[data-share]"),function(b){ b.hidden=false; });
     if(/[?&]contact_posted=true/.test(location.search)) [].forEach.call(document.querySelectorAll("[data-cr-ok]"),function(p){
@@ -777,7 +797,7 @@
   function boot(){
     root.classList.add("js");
     initPlates(); initScroll(); bindOnce(); syncButtons();
-    initZoom(); initSpin(); initCountdown(); markShopNav(); initSearch(); initCatalog(); initPrefs(); initPopup(); initNotify(); initLang(); initPhrases(); initMisc();
+    initZoom(); initSpin(); initCountdown(); markShopNav(); initSearch(); initCatalog(); initPrefs(); initPopup(); initNotify(); initLang(); initPhrases(); initLater(); initMisc();
   }
   if(document.readyState!=="loading") boot(); else document.addEventListener("DOMContentLoaded",boot);
   document.addEventListener("shopify:section:load",boot);

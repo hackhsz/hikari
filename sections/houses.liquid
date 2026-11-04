@@ -43,7 +43,7 @@
             assign avoid = avoid | append: h | append: ','
           -%}
           <a class="cat-tile house-tile" href="{{ c.url }}">
-            {%- render 'plate', image: pick.featured_image, ratio: 1, fill: true, sizes: '(max-width: 600px) 50vw, (max-width: 900px) 33vw, 200px', seed: forloop.index, tone: 'light', comp: 'single', alt: '' -%}
+            {%- render 'plate', image: pick.featured_image, ratio: 1, fill: true, later: true, sizes: '(max-width: 600px) 50vw, (max-width: 900px) 33vw, 200px', seed: forloop.index, tone: 'light', comp: 'single', alt: '' -%}
             <span class="ct-name">{{ name }}</span>
             <span class="ct-n">{{ 'collections.pieces' | t: count: c.products_count }}</span>
           </a>

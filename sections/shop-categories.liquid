@@ -44,7 +44,7 @@
           assign k = 'collections.categories.' | append: t
         -%}
         <a class="cat-tile" href="{{ u }}">
-          {%- render 'plate', image: pick.featured_image, ratio: 1, fill: true, sizes: '(max-width: 600px) 50vw, (max-width: 900px) 33vw, 200px', seed: forloop.index, tone: 'light', comp: 'single', alt: '' -%}
+          {%- render 'plate', image: pick.featured_image, ratio: 1, fill: true, later: true, sizes: '(max-width: 600px) 50vw, (max-width: 900px) 33vw, 200px', seed: forloop.index, tone: 'light', comp: 'single', alt: '' -%}
           <span class="ct-name">{{ k | t }}</span>
           <span class="ct-n">{{ 'collections.pieces' | t: count: n }}</span>
         </a>
