@@ -328,5 +328,32 @@
     "eyebrow": "About Karineko",
     "heading": "The beauty of finding something rare.",
     "body_html": "<p>Karineko is a small, independent shop in London.</p><p>We find our pieces in person and at a few trusted auctions in Japan, and keep only those with something to say. Each one is checked by hand, for authenticity and condition, before it comes to you.</p><p>Luxury, we think, should feel personal, not out of reach.</p><p><em>A past worth keeping.</em></p>"
+  },
+  "guide": {
+    "eyebrow": "Questions",
+    "heading": "Before you buy",
+    "lede": "What people ask us most: about the pieces, delivery, and seeing them in person.",
+    "title": "Questions: authenticity, delivery and viewings",
+    "description": "How Karineko checks every vintage piece, where the pieces come from, delivery and duty, private viewings in London, and pieces coming soon.",
+    "q1": "Is every piece authentic?",
+    "a1_html": "<p>Yes. Each piece is checked by hand, for authenticity and condition, before it's listed. If a piece ever turns out not to be authentic, we refund you in full, including the postage both ways.</p>",
+    "q2": "Where do the pieces come from?",
+    "a2_html": "<p>We find them in person and at a few trusted auctions in Japan, and keep only those with something to say.</p>",
+    "q3": "What condition are they in?",
+    "a3_html": "<p>They're vintage, so they have been worn and may show it. Before you order, read the piece's condition notes and look closely at its unretouched photographs.</p>",
+    "q4": "Is each piece one of a kind?",
+    "a4_html": "<p>Yes, every listing is a single piece. A piece in your bag isn't held for you until you check out, and once it sells it moves to the Archive, where you can still see it.</p>",
+    "q5": "Do you deliver outside the UK?",
+    "a5_html": "<p>Yes, we ship worldwide. Delivery within the UK is complimentary on orders over £250, and UK deliveries are insured.</p>",
+    "q6": "Will I pay duty?",
+    "a6_html": "<p>Not in the UK: UK duty is included in the price.</p>",
+    "q7": "Can I see a piece in person?",
+    "a7_html": "<p>Yes. We hold private viewings in London by appointment, Monday to Sunday, 2pm to 8pm. <a href=\"{{ viewing }}\">Book a viewing</a> and we'll send the address with your confirmation.</p>",
+    "q8": "What does “Coming soon” mean?",
+    "a8_html": "<p>The piece goes on sale at the time shown on it. Leave your email on its page and we'll send one email when it goes on sale, then the monthly letter. You can unsubscribe at any time.</p>",
+    "q9": "Can I return a piece?",
+    "a9_html": "<p>Please read our <a href=\"{{ refunds }}\">refund policy</a> before you order. If a piece isn't authentic, you get a full refund, postage both ways included.</p>",
+    "q10": "How do I ask about a piece?",
+    "a10_html": "<p>Use “Ask about this piece” on its page, or <a href=\"{{ contact }}\">contact us</a>.</p>"
   }
 }

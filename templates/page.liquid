@@ -4,8 +4,8 @@
   "creators" template cannot be picked yet. page.creators.json does the same once it can.
   A page with the handle "preferences" gets the "What do you collect?" form under its text,
   with an email field, for people on the list who have not answered it yet (CRM).
-  The same goes for "private-viewing", "about-us" and "contact" (owner, 2026-11-01): each has its
-  own section, and page.private-viewing.json, page.about.json and page.contact.json match them.
+  The same goes for "private-viewing", "about-us" and "contact" (owner, 2026-11-01), and "faq"
+  (Questions, sections/main-guide, 2026-11-04): each has its own section, and page.private-viewing.json, page.about.json and page.contact.json match them.
 {%- endcomment -%}
 {%- case page.handle -%}
 {%- when 'creators' -%}
@@ -16,6 +16,8 @@
   {% section 'main-about' %}
 {%- when 'contact' -%}
   {% section 'main-contact' %}
+{%- when 'faq', 'questions' -%}
+  {% section 'main-guide' %}
 {%- else -%}
 <section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18"><div class="shell" style="max-width:68ch">
   <h1 style="font-family:var(--serif);font-weight:200;font-size:clamp(30px,6vw,54px);line-height:1.02;margin:0 0 26px">{{ page.title }}</h1>

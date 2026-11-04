@@ -24,7 +24,7 @@ const PAGES = [  // name, path, the answer it should give
   ["home", "/"], ["shop all", "/collections/all"], ["category", "/collections/vintage-earrings"],
   ["Dior", "/collections/vintage-christian-dior-jewellery"], ["Chanel", "/collections/vintage-chanel-jewellery"],
   ["product", null],  // the first piece in Shop all, so the check outlives any one sale
-  ["about", "/pages/about-us"], ["viewing", "/pages/private-viewing"], ["contact", "/pages/contact"],
+  ["about", "/pages/about-us"], ["viewing", "/pages/private-viewing"], ["contact", "/pages/contact"], ["questions", "/pages/questions"],
   ["search", "/search?q=dior"], ["bag", "/cart"], ["missing page", "/pages/site-check-missing", 404],
 ];
 const DESCRIBED = ["home", "shop all", "category", "Dior", "Chanel", "product"];  // need a search description
@@ -297,6 +297,7 @@ function judge(pages) {
         if (prod.offer && !(prod.offer.price && prod.offer.currency && prod.offer.availability)) flag("WARN", lang, name, "the price in the search data lacks the amount, currency or availability");
       }
     }
+    if (name === "questions" && !types.includes("FAQPage")) flag("FAIL", lang, name, "no FAQ search data on the Questions page");
     if (["shop all", "category", "Dior", "Chanel"].includes(name) && !types.includes("CollectionPage")) flag("WARN", lang, name, "no search data listing the collection's pieces");
     for (const [size, v] of [["desktop", d], ["phone", ph]]) for (const part of v.layout || []) if (part.spill.length)
       flag("WARN", lang, name, `something in a part runs off the screen on ${size}`, `${part.name}\n${part.spill.join("\n")}`);

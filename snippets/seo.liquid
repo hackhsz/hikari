@@ -51,6 +51,11 @@
       elsif collection.products.first.featured_image
         assign og_image = collection.products.first.featured_image
       endif
+    when 'page'
+      if page.handle == 'faq' or page.handle == 'questions'
+        assign title = 'guide.title' | t
+        assign desc = 'guide.description' | t
+      endif
   endcase
   if current_tags
     assign tag_list = current_tags | join: ', '

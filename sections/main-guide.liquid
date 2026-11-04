@@ -1,0 +1,52 @@
+{%- comment -%}
+  Questions (the page with the handle "faq", 2026-11-04): what buyers ask, answered only with what the
+  shop already says elsewhere: the story, the trust lines, the delivery line, the viewing page, the
+  notify-me fine print, the bag and the refund policy. Change a fact there, change it here too.
+
+  The words are in the language files (guide.*), so every language has them; links in the answers
+  are built on the language's own root (/ja/pages/…). FAQPage search data repeats the questions and
+  answers for search engines and AI assistants. Laid out like a house page: the header, then the
+  answers in the essay's measure.
+{%- endcomment -%}
+{%- liquid
+  assign root = routes.root_url | append: '/' | replace: '//', '/'
+  assign viewing = root | append: 'pages/private-viewing'
+  assign contact = root | append: 'pages/contact'
+  assign refunds = root | append: 'policies/refund-policy'
+-%}
+<section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+  <div class="shell">
+    <header class="house-head">
+      <p class="eyebrow">{{ 'guide.eyebrow' | t }}</p>
+      <h1 class="house-h">{{ 'guide.heading' | t }}</h1>
+      <p class="house-lede">{{ 'guide.lede' | t }}</p>
+    </header>
+    <div class="house-essay"><div class="rte">
+      {%- for i in (1..10) -%}
+        {%- assign qk = 'guide.q' | append: i -%}
+        {%- assign ak = 'guide.a' | append: i | append: '_html' -%}
+        <h2>{{ qk | t }}</h2>
+        {{ ak | t: viewing: viewing, contact: contact, refunds: refunds }}
+      {%- endfor -%}
+    </div></div>
+  </div>
+</section>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": {{ canonical_url | append: '#faq' | json }},
+  "inLanguage": {{ request.locale.iso_code | json }},
+  "mainEntity": [
+    {%- for i in (1..10) -%}
+      {%- assign qk = 'guide.q' | append: i -%}
+      {%- assign ak = 'guide.a' | append: i | append: '_html' -%}
+      {%- capture answer -%}{{ ak | t: viewing: viewing, contact: contact, refunds: refunds }}{%- endcapture -%}
+    { "@type": "Question", "name": {{ qk | t | json }}, "acceptedAnswer": { "@type": "Answer", "text": {{ answer | strip_html | strip | json }} } }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ]
+}
+</script>
+{% schema %}
+{ "name": "Questions", "settings": [] }
+{% endschema %}

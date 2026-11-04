@@ -361,5 +361,32 @@
     "eyebrow": "Acerca de Karineko",
     "heading": "La belleza de encontrar algo raro.",
     "body_html": "<p>Karineko es una pequeña tienda independiente en Londres.</p><p>Buscamos nuestras piezas en persona y en unas pocas subastas de confianza en Japón, y solo nos quedamos con las que tienen algo que contar. Revisamos a mano la autenticidad y el estado de cada una antes de que llegue a ti.</p><p>Creemos que el lujo debe sentirse personal, no inalcanzable.</p><p><em>Un pasado que vale la pena conservar.</em></p>"
+  },
+  "guide": {
+    "eyebrow": "Preguntas",
+    "heading": "Antes de comprar",
+    "lede": "Lo que más nos preguntan: sobre las piezas, el envío y cómo verlas en persona.",
+    "title": "Preguntas: autenticidad, envío y visitas",
+    "description": "Cómo revisa Karineko cada pieza vintage, de dónde vienen las piezas, envío y aranceles, visitas privadas en Londres y piezas que llegan próximamente.",
+    "q1": "¿Todas las piezas son auténticas?",
+    "a1_html": "<p>Sí. Revisamos a mano la autenticidad y el estado de cada pieza antes de publicarla. Si alguna vez una pieza resulta no ser auténtica, te devolvemos el importe íntegro, incluido el envío de ida y vuelta.</p>",
+    "q2": "¿De dónde vienen las piezas?",
+    "a2_html": "<p>Las buscamos en persona y en unas pocas subastas de confianza en Japón, y solo nos quedamos con las que tienen algo que contar.</p>",
+    "q3": "¿En qué estado están?",
+    "a3_html": "<p>Son vintage, así que se han usado y puede notarse. Antes de hacer el pedido, lee las notas sobre el estado de la pieza y mira con atención sus fotografías sin retocar.</p>",
+    "q4": "¿Cada pieza es única?",
+    "a4_html": "<p>Sí, cada artículo es una sola pieza. Una pieza en tu bolsa no queda reservada hasta que finalizas la compra, y cuando se vende pasa al Archivo, donde aún puedes verla.</p>",
+    "q5": "¿Enviáis fuera del Reino Unido?",
+    "a5_html": "<p>Sí, enviamos a todo el mundo. El envío dentro del Reino Unido es gratuito en pedidos superiores a 250 £, y los envíos en el Reino Unido van asegurados.</p>",
+    "q6": "¿Tendré que pagar aranceles?",
+    "a6_html": "<p>En el Reino Unido no: los aranceles del Reino Unido están incluidos en el precio.</p>",
+    "q7": "¿Puedo ver una pieza en persona?",
+    "a7_html": "<p>Sí. Hacemos visitas privadas en Londres con cita previa, de lunes a domingo, de 14:00 a 20:00. <a href=\"{{ viewing }}\">Reserva una visita</a> y te enviaremos la dirección con la confirmación.</p>",
+    "q8": "¿Qué significa «Próximamente»?",
+    "a8_html": "<p>La pieza sale a la venta en el momento que se indica. Deja tu correo en su página y te enviaremos un correo cuando salga a la venta, y después la carta mensual. Puedes darte de baja cuando quieras.</p>",
+    "q9": "¿Puedo devolver una pieza?",
+    "a9_html": "<p>Lee nuestra <a href=\"{{ refunds }}\">política de reembolso</a> antes de hacer el pedido. Si una pieza no es auténtica, te devolvemos el importe íntegro, con el envío de ida y vuelta incluido.</p>",
+    "q10": "¿Cómo pregunto por una pieza?",
+    "a10_html": "<p>Usa «Preguntar por esta pieza» en su página o <a href=\"{{ contact }}\">escríbenos</a>.</p>"
   }
 }
