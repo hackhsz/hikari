@@ -37,6 +37,9 @@ const BRAND_WRONG = ["Karineko 复古", "カリネコ ヴィンテージ", "كا
 /* The name in another script: right in the search data (alternateName), a question in the text. */
 const BRAND_LOCAL = ["卡里内科", "カリネコ", "كارينيكو"];
 const CHANGED = 0.01;  // share of a screenshot that may differ from the approved one before it's flagged
+/* a part of a page: photographs at half size on a phone glitter differently from run to run (1.0% on the
+   banner's jewellery, 2026-11-04); a changed line of text or a moved block is well over this */
+const PART_CHANGED = 0.02;
 
 const CHROME = process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
@@ -383,10 +386,10 @@ function partsReport(parts, target) {
     if (s.share !== undefined) r.most = Math.max(r.most ?? 0, s.share);
     rows.set(k, r);
   }
-  const changed = parts.filter(s => s.share > CHANGED), fresh = parts.filter(s => s.share === undefined).length;
+  const changed = parts.filter(s => s.share > PART_CHANGED), fresh = parts.filter(s => s.share === undefined).length;
   return `<h2>Parts</h2><p class="meta">Every part of these pages (each Shopify section), photographed in ${Object.keys(LANGS).length} languages on a desktop and a phone and compared with its approved picture.${fresh ? ` ${fresh} have no approved picture yet: <code>node tools/site-check.mjs approve ${esc(target)}</code>.` : ""}</p>
 <table><tr><th>page</th><th>part</th><th>desktop</th><th>phone</th><th>most changed</th></tr>
-${[...rows.values()].map(r => `<tr><td>${esc(r.page)}</td><td>${esc(r.part)}</td><td>${r.h.desktop ?? ""}px</td><td>${r.h.phone ?? ""}px</td><td class="${r.most > CHANGED ? "warn" : "ok"}">${r.most === undefined ? "–" : `${(r.most * 100).toFixed(1)}%`}</td></tr>`).join("\n")}</table>
+${[...rows.values()].map(r => `<tr><td>${esc(r.page)}</td><td>${esc(r.part)}</td><td>${r.h.desktop ?? ""}px</td><td>${r.h.phone ?? ""}px</td><td class="${r.most > PART_CHANGED ? "warn" : "ok"}">${r.most === undefined ? "–" : `${(r.most * 100).toFixed(1)}%`}</td></tr>`).join("\n")}</table>
 ${changed.length ? `<h3>Parts that changed</h3>${changed.map(s => `<h3>${esc(s.lang)} · ${esc(s.name)} · ${esc(s.part)} · ${s.size} · ${(s.share * 100).toFixed(1)}% changed</h3>
 <div class="shots"><figure><img loading="lazy" src="${s.approved}"><figcaption>approved</figcaption></figure>
 <figure><img loading="lazy" src="${s.file}"><figcaption>this run</figcaption></figure>
@@ -452,7 +455,7 @@ async function run(target) {
         const c = await compare(cdp, readFileSync(old).toString("base64"), part.shot);
         s.share = c.share;
         if (c.image) { s.diff = `shots/parts/${base}-changed.jpg`; writeFileSync(join(dir, s.diff), Buffer.from(c.image, "base64")); }
-        if (c.share > CHANGED) problems.push({ level: "WARN", lang: p.lang, page: p.name, what: `a part looks different from its approved picture (${size}, ${(c.share * 100).toFixed(1)}%)`, detail: part.name });
+        if (c.share > PART_CHANGED) problems.push({ level: "WARN", lang: p.lang, page: p.name, what: `a part looks different from its approved picture (${size}, ${(c.share * 100).toFixed(1)}%)`, detail: part.name });
       }
       delete part.shot;
       parts.push(s);
@@ -494,6 +497,7 @@ async function tracking(cdp, urls) {
     const off = cdp.on(({ method, params: p, sessionId: id }) => { if (id === sessionId && method === "Network.requestWillBeSent") sent.push(p.request.url); });
     try {
       await s("Network.enable"); await s("Page.enable");
+      await s("Network.clearBrowserCookies");  // a first visit each time: the consent given on the last page is a cookie
       await s("Network.setBlockedURLs", { urls: BEACONS });
       await s("Page.navigate", { url }); await sleep(7000);
       const ours = u => /googletagmanager\.com\/gtag|google-analytics\.com|analytics\.google\.com|doubleclick\.net|clarity\.ms/.test(u);
