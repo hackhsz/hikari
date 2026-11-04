@@ -191,6 +191,7 @@
     if(!openSheet) lastTrigger=trigger||document.activeElement;
     if(openSheet&&openSheet!==sheet) setOpen(openSheet,false);
     openSheet=sheet; setOpen(sheet,true);
+    document.dispatchEvent(new CustomEvent("hikari:sheet",{detail:{id:id}}));  /* assets/track.js */
     /* The pop-up opens on its own, so focus goes to the dialog itself, not to a button. */
     var target=sheet.hasAttribute("data-popup")?sheet.querySelector(".sheet-panel"):(sheet.querySelector("[data-autofocus]")||sheet.querySelector(".sheet-x")||sheet.querySelector(".sheet-panel"));
     setTimeout(function(){ if(target) target.focus({preventScroll:true}); },30);
@@ -273,6 +274,7 @@
         if(btn) btn.removeAttribute("aria-busy");
         if(res.ok){
           swapBag(res.data.sections&&res.data.sections[SECTION]);
+          document.dispatchEvent(new CustomEvent("hikari:added",{detail:{form:form}}));  /* assets/track.js */
           openSheetById("bag",btn); note(str("added","Added to your bag."));
           return;
         }

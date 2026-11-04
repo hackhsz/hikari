@@ -1,0 +1,24 @@
+{%- comment -%}
+  A piece as the analytics events describe it, in Google Analytics' item fields, for
+  assets/track.js to read from a data-track-item attribute: the product id, "House piece", the
+  house, the category (from the tags, as in snippets/seo), the price in pounds (0 before it has
+  one) and its status (snippets/status: soon, presale, sold or nothing).
+
+  {%- capture t -%}{%- render 'track-item', p: product, status: status -%}{%- endcapture -%}
+  <div data-track-item="{{ t | strip | escape }}">
+  Params: p (a product), status (optional).
+{%- endcomment -%}
+{%- liquid
+  assign piece = p.metafields.hikari.piece | default: p.title
+  assign name = p.vendor | append: ' ' | append: piece | strip
+  assign cat = ''
+  assign cat_tags = 'necklaces,earrings,bracelets,rings,brooches,sunglasses' | split: ','
+  for t in cat_tags
+    if p.tags contains t
+      assign cat = t
+      break
+    endif
+  endfor
+  assign st = status | strip
+-%}
+{"item_id":{{ p.id | append: '' | json }},"item_name":{{ name | json }},"item_brand":{{ p.vendor | json }},"item_category":{{ cat | json }},"price":{{ p.price | divided_by: 100.0 | json }},"status":{{ st | json }}}

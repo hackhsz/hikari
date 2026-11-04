@@ -39,7 +39,8 @@
   {%- endif -%}
 {%- endcapture -%}
 
-<section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+{%- capture track -%}{%- render 'track-item', p: p, status: status -%}{%- endcapture -%}
+<section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;" data-track-item="{{ track | strip | escape }}" data-track-page>
   <div class="shell pdp">
     <div class="frames">
       {%- if p.images.size > 0 -%}

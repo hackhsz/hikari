@@ -308,5 +308,26 @@
         "info": "Only the content=\"…\" part of the HTML tag Search Console gives you."
       }
     ]
+  },
+  {
+    "name": "Analytics",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Google Analytics (G-EV92TR6CMY) and the session recordings below load only once a visitor allows analytics in the cookie banner. What visitors do is sent as events: assets/track.js."
+      },
+      {
+        "type": "text",
+        "id": "ga_id",
+        "label": "Google Analytics measurement ID",
+        "default": "G-EV92TR6CMY"
+      },
+      {
+        "type": "text",
+        "id": "clarity_id",
+        "label": "Microsoft Clarity project ID",
+        "info": "Session recordings and heatmaps (free, clarity.microsoft.com). The ID from Settings → Overview, e.g. abcd1234ef. Empty: off."
+      }
+    ]
   }
 ]

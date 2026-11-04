@@ -416,7 +416,8 @@ async function run(target) {
     });
     if (process.stdout.isTTY) process.stdout.write("\n");
 
-    const problems = [...lint(), ...judge(pages)];
+    const problems = [...lint(), ...judge(pages),
+      ...await tracking(cdp, [["home", pageUrl("en", "/", theme), ["view_item_list"]], ["product", pageUrl("en", product, theme), ["view_item"]]])];
     const found = new Map();  // the missing page links to itself, so its links don't count
     for (const p of pages.filter(p => p.expect === 200)) for (const u of p.desktop.links || [])
       if (!found.has(u) && !/\/(account|cart\/|checkout)/.test(u)) found.set(u, p);
@@ -478,6 +479,57 @@ async function run(target) {
   }
 }
 
+/* Tracking, on the home page and a piece in English, in a fresh browser: nothing may reach Google or
+   Clarity, or set an analytics cookie, before the visitor allows analytics (UK GDPR, PECR; until
+   2026-11-04 Google's tag loaded at once). Then analytics is allowed through Shopify's own consent
+   API, as the banner's Accept does, and Google's tag has to start and send the page's events. The
+   sending itself is blocked, so a check never counts as a visit. */
+const BEACONS = ["*google-analytics.com/g/collect*", "*analytics.google.com/g/collect*", "*doubleclick.net/*", "*clarity.ms/collect*"];
+async function tracking(cdp, urls) {
+  const problems = [], flag = (level, page, what, detail) => problems.push({ level, lang: "en", page, what, detail });
+  for (const [name, url, expect] of urls) {
+    const { targetId } = await cdp.send("Target.createTarget", { url: "about:blank" });
+    const { sessionId } = await cdp.send("Target.attachToTarget", { targetId, flatten: true });
+    const s = (m, p) => cdp.send(m, p, sessionId), sent = [];
+    const off = cdp.on(({ method, params: p, sessionId: id }) => { if (id === sessionId && method === "Network.requestWillBeSent") sent.push(p.request.url); });
+    try {
+      await s("Network.enable"); await s("Page.enable");
+      await s("Network.setBlockedURLs", { urls: BEACONS });
+      await s("Page.navigate", { url }); await sleep(7000);
+      const ours = u => /googletagmanager\.com\/gtag|google-analytics\.com|analytics\.google\.com|doubleclick\.net|clarity\.ms/.test(u);
+      const early = sent.filter(ours);
+      if (early.length) flag("FAIL", name, "analytics loads before the visitor has allowed it", early.slice(0, 3).map(u => u.slice(0, 120)).join("\n"));
+      const { cookies } = await s("Network.getCookies", { urls: [SITE] });
+      const crumbs = cookies.map(c => c.name).filter(n => /^_ga|^_gid|^_cl[cs]k?$|^_clck|^_clsk/.test(n));
+      if (crumbs.length) flag("FAIL", name, `analytics cookies set before consent: ${crumbs.join(", ")}`);
+      const queued = (await s("Runtime.evaluate", { returnByValue: true, expression: `(window.dataLayer||[]).filter(a => a && a[0] === "event").map(a => a[1])` })).result.value || [];
+      for (const ev of expect) if (!queued.includes(ev)) flag("WARN", name, `no "${ev}" event on this page`, `queued: ${queued.join(", ") || "nothing"}`);
+      const before = sent.length;
+      const ok = (await s("Runtime.evaluate", { awaitPromise: true, returnByValue: true, expression: `new Promise(r => {
+        const go = () => window.Shopify.customerPrivacy.setTrackingConsent({ analytics: true, marketing: false, preferences: true, sale_of_data: false }, () => r(true));
+        if (window.Shopify && Shopify.customerPrivacy) go();
+        else if (window.Shopify && Shopify.loadFeatures) Shopify.loadFeatures([{ name: "consent-tracking-api", version: "0.1" }], e => e ? r(false) : go());
+        else r(false);
+        setTimeout(() => r(false), 8000);
+      })` })).result.value;
+      if (!ok) { flag("WARN", name, "couldn't give consent through Shopify's privacy API, so analytics after consent went unchecked"); continue; }
+      if (early.length) continue;  // already running before consent: the FAIL above says it all
+      await sleep(7000);
+      const after = sent.slice(before);
+      if (!after.some(u => /googletagmanager\.com\/gtag\/js/.test(u))) flag("FAIL", name, "Google Analytics doesn't start once analytics is allowed");
+      else if (!after.some(u => /\/g\/collect/.test(u))) flag("FAIL", name, "Google Analytics started but sent nothing after consent");
+      else {
+        const evs = new Set(after.filter(u => /\/g\/collect/.test(u)).flatMap(u => [...u.matchAll(/[?&]en=([^&]+)/g)].map(m => decodeURIComponent(m[1]))));
+        for (const ev of ["page_view", ...expect]) if (!evs.has(ev)) flag("WARN", name, `"${ev}" didn't reach Google Analytics after consent`, `sent: ${[...evs].join(", ") || "nothing"}`);
+      }
+    } finally {
+      off();
+      await cdp.send("Target.closeTarget", { targetId }).catch(() => {});
+    }
+  }
+  return problems;
+}
+
 /* The theme files themselves, before Shopify sees them. Shopify refuses a file it can't parse and
    keeps serving the old one without a word on the site (2026-11-04: a filter inside render's
    arguments left the About page on its old version), and a key missing from a language file shows
@@ -537,7 +589,7 @@ function approve(target) {
   return 0;
 }
 
-export { launch, visit, SIZES, pageUrl };
+export { launch, visit, SIZES, pageUrl, tracking };
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const [cmd, arg] = process.argv.slice(2);

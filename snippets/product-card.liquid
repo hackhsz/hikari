@@ -23,7 +23,8 @@
 {%- assign card_img = p.featured_image -%}
 {%- assign to_come = false -%}
 {%- if p.tags contains 'photo-to-come' -%}{%- assign card_img = nil -%}{%- assign to_come = true -%}{%- endif -%}
-<div class="card">
+{%- capture track -%}{%- render 'track-item', p: p, status: status -%}{%- endcapture -%}
+<div class="card" data-track-item="{{ track | strip | escape }}">
   <div class="card-media">
     <a href="{{ p.url }}" tabindex="-1" aria-hidden="true">
       {%- render 'plate', image: card_img, ratio: 1, fill: true, sizes: img_sizes, seed: p.id, tone: tone,

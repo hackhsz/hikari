@@ -9,13 +9,23 @@
 -%}
 <html lang="{{ lang }}" dir="{{ dir }}">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EV92TR6CMY"></script>
+  {%- comment -%}
+    Google Analytics, only with consent (UK GDPR, PECR). gtag queues everything from here on, page
+    view and events (assets/track.js), but Google's script loads, and anything leaves the page,
+    only once Shopify's cookie banner says analytics is allowed: see the script after
+    content_for_header. It used to load at once and set its cookies before anyone had answered.
+    Signed-in customers are counted as one person across devices (their customer number only).
+  {%- endcomment -%}
+  {%- assign ga_id = settings.ga_id | strip -%}
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
     gtag('js', new Date());
-    gtag('config', 'G-EV92TR6CMY');
+    gtag('set', 'user_properties', { site_language: {{ request.locale.iso_code | json }}, signed_in: {% if customer %}'yes'{% else %}'no'{% endif %} });
+    {%- if ga_id != blank %}
+    gtag('config', {{ ga_id | json }}{% if customer %}, { user_id: {{ customer.id | append: '' | json }} }{% endif %});
+    {%- endif %}
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -46,6 +56,31 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?{{ fonts }}&display=swap">
 
   {{ content_for_header }}
+  <script>
+    /* Consent: Shopify's Customer Privacy API answers once the banner has (or wasn't needed). */
+    (function () {
+      var ga = {{ ga_id | json }}, clarity = {{ settings.clarity_id | strip | json }}, done = {};
+      function add(key, src, then) {
+        if (done[key]) return; done[key] = true;
+        var s = document.createElement('script'); s.async = true; s.src = src; if (then) s.onload = then; document.head.appendChild(s);
+      }
+      function apply() {
+        var p = window.Shopify && window.Shopify.customerPrivacy; if (!p) return;
+        var a = p.analyticsProcessingAllowed(), m = p.marketingAllowed();
+        gtag('consent', 'update', { analytics_storage: a ? 'granted' : 'denied', ad_storage: m ? 'granted' : 'denied',
+          ad_user_data: m ? 'granted' : 'denied', ad_personalization: m ? 'granted' : 'denied' });
+        if (!a) return;
+        if (ga) add('ga', 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ga));
+        if (clarity) {
+          window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
+          window.clarity('consentv2', { ad_Storage: m ? 'granted' : 'denied', analytics_Storage: 'granted' });
+          add('clarity', 'https://www.clarity.ms/tag/' + encodeURIComponent(clarity));
+        }
+      }
+      document.addEventListener('visitorConsentCollected', apply);
+      if (window.Shopify && window.Shopify.loadFeatures) window.Shopify.loadFeatures([{ name: 'consent-tracking-api', version: '0.1' }], function (err) { if (!err) apply(); });
+    })();
+  </script>
   {{ 'hikari.css' | asset_url | stylesheet_tag }}
   <script>
     window.HikariRoutes = {
@@ -90,6 +125,7 @@
     };
   </script>
   <script src="{{ 'hikari.js' | asset_url }}" defer></script>
+  <script src="{{ 'track.js' | asset_url }}" defer></script>
 </head>
 <body class="template-{{ template.name }}">
   <div id="grain" aria-hidden="true"></div>
