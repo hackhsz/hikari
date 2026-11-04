@@ -779,3 +779,5 @@ s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thicknes
 .guide-index .house-fine{display:block;margin-top:10px}
 @media (max-width:860px){.guide-index{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:600px){.guide-index{grid-template-columns:1fr}}
+.house-essay .rte figure{margin:24px 0 28px;max-width:420px}
+.house-essay .rte figcaption{font-size:12.5px;line-height:1.5;opacity:.62;margin-top:8px}

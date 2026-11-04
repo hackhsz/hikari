@@ -80,6 +80,9 @@
   unless title contains brand
     assign title = title | append: ' · ' | append: brand
   endunless
+  # Shopify hands over search descriptions already HTML-escaped ("can&#39;t", "&amp;"), and the
+  # tags below escape them again ("&amp;#39;"): turn them back into plain text first.
+  assign desc = desc | replace: '&#39;', "'" | replace: '&quot;', '"' | replace: '&amp;', '&'
 -%}
 <title>{{ title }}</title>
 {%- if desc != blank %}

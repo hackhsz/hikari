@@ -5,17 +5,12 @@
   After the text, the pieces the guide links to, as cards, and the other guides.
 
   The text is written in Shopify (Online Store → Blog posts) with plain links to /products/… and
-  /collections/…; here those links get the shop's underline (spec-link) and the language's own
-  root (/ja/products/…), so a reader stays in their language. Search data (BlogPosting,
-  BreadcrumbList) is in snippets/seo.
+  /collections/…; here those links get the shop's underline (spec-link). Shopify itself puts the
+  language's root on them (/ja/products/…), so don't add it here: that made /ja/ja/ (2026-11-04).
+  Search data (BlogPosting, BreadcrumbList) is in snippets/seo.
 {%- endcomment -%}
 {%- liquid
-  assign root = routes.root_url | append: '/' | replace: '//', '/'
   assign body = article.content | replace: '<a href=', '<a class="spec-link" href='
-  if root != '/'
-    assign pre = 'href="' | append: root
-    assign body = body | replace: 'href="/', pre
-  endif
   assign handles = ','
   assign parts = article.content | split: '/products/'
   for part in parts offset: 1
