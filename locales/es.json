@@ -381,12 +381,12 @@
     "q6": "¿Tendré que pagar aranceles?",
     "a6_html": "<p>En el Reino Unido no: los aranceles del Reino Unido están incluidos en el precio.</p>",
     "q7": "¿Puedo ver una pieza en persona?",
-    "a7_html": "<p>Sí. Hacemos visitas privadas en Londres con cita previa, de lunes a domingo, de 14:00 a 20:00. <a href=\"{{ viewing }}\">Reserva una visita</a> y te enviaremos la dirección con la confirmación.</p>",
+    "a7_html": "<p>Sí. Hacemos visitas privadas en Londres con cita previa, de lunes a domingo, de 14:00 a 20:00. <a class=\"spec-link\" href=\"{{ viewing }}\">Reserva una visita</a> y te enviaremos la dirección con la confirmación.</p>",
     "q8": "¿Qué significa «Próximamente»?",
     "a8_html": "<p>La pieza sale a la venta en el momento que se indica. Deja tu correo en su página y te enviaremos un correo cuando salga a la venta, y después la carta mensual. Puedes darte de baja cuando quieras.</p>",
     "q9": "¿Puedo devolver una pieza?",
-    "a9_html": "<p>Lee nuestra <a href=\"{{ refunds }}\">política de reembolso</a> antes de hacer el pedido. Si una pieza no es auténtica, te devolvemos el importe íntegro, con el envío de ida y vuelta incluido.</p>",
+    "a9_html": "<p>Lee nuestra <a class=\"spec-link\" href=\"{{ refunds }}\">política de reembolso</a> antes de hacer el pedido. Si una pieza no es auténtica, te devolvemos el importe íntegro, con el envío de ida y vuelta incluido.</p>",
     "q10": "¿Cómo pregunto por una pieza?",
-    "a10_html": "<p>Usa «Preguntar por esta pieza» en su página o <a href=\"{{ contact }}\">escríbenos</a>.</p>"
+    "a10_html": "<p>Usa «Preguntar por esta pieza» en su página o <a class=\"spec-link\" href=\"{{ contact }}\">escríbenos</a>.</p>"
   }
 }

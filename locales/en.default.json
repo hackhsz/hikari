@@ -348,12 +348,12 @@
     "q6": "Will I pay duty?",
     "a6_html": "<p>Not in the UK: UK duty is included in the price.</p>",
     "q7": "Can I see a piece in person?",
-    "a7_html": "<p>Yes. We hold private viewings in London by appointment, Monday to Sunday, 2pm to 8pm. <a href=\"{{ viewing }}\">Book a viewing</a> and we'll send the address with your confirmation.</p>",
+    "a7_html": "<p>Yes. We hold private viewings in London by appointment, Monday to Sunday, 2pm to 8pm. <a class=\"spec-link\" href=\"{{ viewing }}\">Book a viewing</a> and we'll send the address with your confirmation.</p>",
     "q8": "What does “Coming soon” mean?",
     "a8_html": "<p>The piece goes on sale at the time shown on it. Leave your email on its page and we'll send one email when it goes on sale, then the monthly letter. You can unsubscribe at any time.</p>",
     "q9": "Can I return a piece?",
-    "a9_html": "<p>Please read our <a href=\"{{ refunds }}\">refund policy</a> before you order. If a piece isn't authentic, you get a full refund, postage both ways included.</p>",
+    "a9_html": "<p>Please read our <a class=\"spec-link\" href=\"{{ refunds }}\">refund policy</a> before you order. If a piece isn't authentic, you get a full refund, postage both ways included.</p>",
     "q10": "How do I ask about a piece?",
-    "a10_html": "<p>Use “Ask about this piece” on its page, or <a href=\"{{ contact }}\">contact us</a>.</p>"
+    "a10_html": "<p>Use “Ask about this piece” on its page, or <a class=\"spec-link\" href=\"{{ contact }}\">contact us</a>.</p>"
   }
 }
