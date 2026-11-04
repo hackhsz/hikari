@@ -91,6 +91,8 @@ Run `bash scripts/verify/run.sh` before pushing anything in `theme/`. It runs Th
 
 It also follows every link it finds, and lists lines a translated page still shows in English. The home page and a product are photographed and compared with the approved screenshots.
 
+Every run starts by reading the theme files themselves, and `node tools/site-check.mjs lint` does only that, in a second, before a push. Shopify refuses a file it can't parse and keeps serving the old one, with nothing on the site to say so. The lint catches that: JSON that doesn't parse, unclosed Liquid tags, and a filter inside `render`'s arguments. It also catches translation keys missing from the English file (FAIL) or from another language (WARN).
+
 **FAIL** means don't push. **WARN** is for a person to look at. The report opens from `previews/site-check/`. When the screenshots look right, `node tools/site-check.mjs approve staging` makes them the approved ones. It needs only Chrome and Node 22 or later.
 
 ## Name is not hard-coded — on purpose

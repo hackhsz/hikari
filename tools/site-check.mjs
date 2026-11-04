@@ -4,6 +4,7 @@
   node tools/site-check.mjs live              the published theme
   node tools/site-check.mjs staging           the draft theme (branch staging), through its preview link
   node tools/site-check.mjs approve staging   the last staging run's screenshots become the approved ones
+  node tools/site-check.mjs lint              the theme files alone (also part of every run): before a push
 
 Run it after every push to staging, and on staging again before any push live. FAIL means don't push;
 WARN is for a person to look at. The report, its screenshots and results.json go to previews/site-check/,
@@ -350,7 +351,7 @@ async function run(target) {
     });
     if (process.stdout.isTTY) process.stdout.write("\n");
 
-    const problems = judge(pages);
+    const problems = [...lint(), ...judge(pages)];
     const found = new Map();  // the missing page links to itself, so its links don't count
     for (const p of pages.filter(p => p.expect === 200)) for (const u of p.desktop.links || [])
       if (!found.has(u) && !/\/(account|cart\/|checkout)/.test(u)) found.set(u, p);
@@ -385,6 +386,44 @@ async function run(target) {
   }
 }
 
+/* The theme files themselves, before Shopify sees them. Shopify refuses a file it can't parse and
+   keeps serving the old one without a word on the site (2026-11-04: a filter inside render's
+   arguments left the About page on its old version), and a key missing from a language file shows
+   English there. Reads this checkout, which is what was pushed. */
+function lint() {
+  const problems = [], flag = (level, file, what, detail) => problems.push({ level, lang: "", page: file, what, detail });
+  const files = d => existsSync(join(ROOT, d)) ? readdirSync(join(ROOT, d)).filter(f => !f.startsWith(".")).map(f => `${d}/${f}`) : [];
+  const json = (file, text) => { try { return JSON.parse(text.replace(/^\s*\/\*[\s\S]*?\*\//, "")); } catch (e) { flag("FAIL", file, "Shopify would refuse this file: it isn't valid JSON", e.message); } };
+  const liquid = ["sections", "snippets", "layout", "templates"].flatMap(files).filter(f => f.endsWith(".liquid"));
+  const used = new Map();  // translation key -> first file that uses it
+  for (const file of liquid) {
+    const text = readFileSync(join(ROOT, file), "utf8");
+    for (const m of text.matchAll(/\{%-?\s*(render|include)\s+((?:'[^']*'|"[^"]*"|[^%'"])*)-?%\}/g))
+      if (m[2].replace(/'[^']*'|"[^"]*"/g, "").includes("|"))
+        flag("FAIL", file, `Shopify would refuse this file: a filter inside ${m[1]}'s arguments (work the value out first)`, m[0].slice(0, 140));
+    const plain = text.replace(/\{%-?\s*comment\s*-?%\}[\s\S]*?\{%-?\s*endcomment\s*-?%\}/g, "").replace(/\{%-?\s*raw\s*-?%\}[\s\S]*?\{%-?\s*endraw\s*-?%\}/g, "");
+    for (const tag of ["if", "unless", "for", "case", "capture", "form", "paginate", "schema", "style", "javascript", "stylesheet"]) {
+      const open = (plain.match(new RegExp(`\\{%-?\\s*${tag}\\b`, "g")) || []).length, close = (plain.match(new RegExp(`\\{%-?\\s*end${tag}\\b`, "g")) || []).length;
+      if (open !== close) flag("FAIL", file, `Shopify would refuse this file: ${open} "${tag}" and ${close} "end${tag}"`);
+    }
+    const schema = plain.match(/\{%-?\s*schema\s*-?%\}([\s\S]*?)\{%-?\s*endschema\s*-?%\}/);
+    if (schema) json(file, schema[1]);
+    for (const m of plain.matchAll(/['"]([a-z0-9_]+(?:\.[a-z0-9_]+)+)['"]\s*\|\s*t\b/g)) if (!used.has(m[1])) used.set(m[1], file);
+  }
+  for (const file of [...files("templates"), ...files("config")].filter(f => f.endsWith(".json"))) json(file, readFileSync(join(ROOT, file), "utf8"));
+  const locales = Object.fromEntries(files("locales").filter(f => f.endsWith(".json") && !f.includes(".schema."))
+    .map(f => [f.replace(/^locales\/|\.json$/g, ""), json(f, readFileSync(join(ROOT, f), "utf8"))]).filter(([, j]) => j));
+  const has = (j, key) => key.split(".").reduce((o, k) => (o && typeof o === "object" ? o[k] : undefined), j) !== undefined;
+  const base = Object.keys(locales).find(l => l.endsWith(".default"));
+  for (const [key, file] of used) {
+    if (key.startsWith("shopify.")) continue;  // Shopify's own strings, it translates them
+    if (base && !has(locales[base], key)) { flag("FAIL", file, `"${key}" isn't in the English language file: the page says "translation missing"`); continue; }
+    const missing = Object.keys(locales).filter(l => l !== base && !has(locales[l], key));
+    if (missing.length) flag("WARN", file, `"${key}" has no translation in ${missing.join(", ")}: those pages show it in English`);
+  }
+  return problems;
+}
+
 function approve(target) {
   const runs = existsSync(OUT) ? readdirSync(OUT).filter(d => d.endsWith(`-${target}`)).sort() : [];
   if (!runs.length) throw new Error(`no ${target} run yet`);
@@ -401,7 +440,13 @@ export { launch, visit, SIZES, pageUrl };
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const [cmd, arg] = process.argv.slice(2);
   try {
-    process.exitCode = cmd === "approve" ? approve(arg) : await run(cmd || "live");
+    if (cmd === "lint") {  // the theme files alone, in a second: run it before a push
+      const found = lint();
+      for (const p of found) console.log(`${p.level}  ${p.page}: ${p.what}${p.detail ? `\n      ${p.detail}` : ""}`);
+      const fails = found.filter(p => p.level === "FAIL").length;
+      console.log(`lint: ${fails ? `${fails} FAIL` : "passed"}${found.length - fails ? `, ${found.length - fails} WARN` : ""}`);
+      process.exitCode = fails ? 1 : 0;
+    } else process.exitCode = cmd === "approve" ? approve(arg) : await run(cmd || "live");
   } catch (e) {
     console.error(e.message);
     process.exitCode = 2;
