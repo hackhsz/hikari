@@ -1,11 +1,7 @@
 <footer data-bg="#2F5B45" data-fg="#FAF8F3" style="--sec-bg:#2F5B45;--sec-fg:#FAF8F3;">
+  {%- comment -%} The trust lines aren't repeated here (owner, 2026-11-04: they took room and weren't
+      clear in the footer): they sit by the price on every piece, in the bag, and on the Questions page. {%- endcomment -%}
   <div class="shell pad rule-top">
-    <div class="strip">
-      {%- if settings.trust_1 != blank %}<div>{{ settings.trust_1 }}</div>{% endif -%}
-      {%- if settings.trust_2 != blank %}<div>{{ settings.trust_2 }}</div>{% endif -%}
-      {%- if settings.trust_3 != blank %}<div>{{ settings.trust_3 }}</div>{% endif -%}
-      {%- if settings.trust_4 != blank %}<div>{{ settings.trust_4 }}</div>{% endif -%}
-    </div>
     <div class="fcols">
       {%- for block in section.blocks -%}
         <div><h4>{{ block.settings.title }}</h4>
