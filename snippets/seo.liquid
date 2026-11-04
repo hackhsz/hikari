@@ -13,7 +13,8 @@
   every page; on a piece, Product with its house, photographs, condition (used: it is vintage) and
   what its page lists (era, grade, measurements, mark, provenance), an Offer once it has a price,
   and the path to it (BreadcrumbList); on a collection, the page and its pieces (CollectionPage,
-  ItemList); About and Contact as AboutPage and ContactPage. Search engines and AI assistants
+  ItemList); About and Contact as AboutPage and ContactPage; a guide as BlogPosting with its
+  breadcrumb, and the guides page as Blog. Search engines and AI assistants
   both read it. A coming-soon or sold piece is OutOfStock: it cannot be bought now.
 
   Params: brand.
@@ -50,6 +51,21 @@
         assign og_image = collection.image
       elsif collection.products.first.featured_image
         assign og_image = collection.products.first.featured_image
+      endif
+    when 'article'
+      assign og_type = 'article'
+      if article.image
+        assign og_image = article.image
+      endif
+      if desc == blank
+        assign desc = article.excerpt_or_content | strip_html | strip | truncate: 300
+      endif
+    when 'blog'
+      if page_title == blog.title
+        assign title = 'blog.seo_title' | t
+      endif
+      if desc == blank
+        assign desc = 'blog.lede' | t
       endif
     when 'page'
       if page.handle == 'faq' or page.handle == 'questions'
@@ -239,6 +255,57 @@
       "url": {{ canonical_url | json }},
       "isPartOf": { "@id": {{ shop.url | append: '/#site' | json }} },
       "about": { "@id": {{ shop.url | append: '/#org' | json }} }
+    }
+    {%- endif %}
+    {%- comment -%} A guide: the article, the guides it belongs to, and the path to it. {%- endcomment -%}
+    {%- if template.name == 'article' -%}
+    ,{
+      "@type": "BlogPosting",
+      "@id": {{ canonical_url | append: '#article' | json }},
+      "headline": {{ article.title | json }},
+      {%- if desc != blank %}"description": {{ desc | strip_html | strip_newlines | strip | json }},{% endif %}
+      "url": {{ canonical_url | json }},
+      "mainEntityOfPage": {{ canonical_url | json }},
+      "inLanguage": {{ request.locale.iso_code | json }},
+      "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%S%:z' | json }},
+      "dateModified": {{ article.updated_at | date: '%Y-%m-%dT%H:%M:%S%:z' | json }},
+      {%- if article.image %}"image": {{ article.image | image_url: width: 1600 | prepend: 'https:' | json }},{% endif %}
+      {%- if article.tags.size > 0 %}"keywords": {{ article.tags | join: ', ' | json }},{% endif %}
+      "author": { "@id": {{ shop.url | append: '/#org' | json }} },
+      "publisher": { "@id": {{ shop.url | append: '/#org' | json }} },
+      "isPartOf": { "@id": {{ shop.url | append: blog.url | append: '#blog' | json }} }
+    },
+    {
+      "@type": "Blog",
+      "@id": {{ shop.url | append: blog.url | append: '#blog' | json }},
+      "name": {{ blog.title | json }},
+      "url": {{ shop.url | append: blog.url | json }},
+      "publisher": { "@id": {{ shop.url | append: '/#org' | json }} }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": {{ brand | json }}, "item": {{ shop.url | json }} },
+        { "@type": "ListItem", "position": 2, "name": {{ blog.title | json }}, "item": {{ shop.url | append: blog.url | json }} },
+        { "@type": "ListItem", "position": 3, "name": {{ article.title | json }}, "item": {{ canonical_url | json }} }
+      ]
+    }
+    {%- endif %}
+    {%- comment -%} The guides: the blog and its newest posts. {%- endcomment -%}
+    {%- if template.name == 'blog' -%}
+    ,{
+      "@type": "Blog",
+      "@id": {{ shop.url | append: blog.url | append: '#blog' | json }},
+      "name": {{ blog.title | json }},
+      "url": {{ canonical_url | json }},
+      {%- if desc != blank %}"description": {{ desc | strip_html | strip_newlines | strip | json }},{% endif %}
+      "inLanguage": {{ request.locale.iso_code | json }},
+      "publisher": { "@id": {{ shop.url | append: '/#org' | json }} },
+      "blogPost": [
+        {%- for a in blog.articles limit: 12 -%}
+        { "@type": "BlogPosting", "headline": {{ a.title | json }}, "url": {{ shop.url | append: a.url | json }}, "datePublished": {{ a.published_at | date: '%Y-%m-%dT%H:%M:%S%:z' | json }} }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      ]
     }
     {%- endif %}
   ]

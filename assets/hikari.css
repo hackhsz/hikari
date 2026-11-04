@@ -762,3 +762,20 @@ s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thicknes
 .cat-related ul{display:flex;flex-wrap:wrap;gap:8px 18px;list-style:none;margin:0;padding:0}
 .cat-related a{font-size:14px;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
 .house-head .cat-related{margin-top:18px}
+
+/* ── guides (sections/main-blog, main-article; 2026-11-04) ─────────
+   The house page's header and essay, with the title at the size article titles always had here
+   and the list in the type the old blog list used. No new type or colours. */
+.house-h.guide-h{font-size:clamp(28px,5.4vw,48px);line-height:1.04}
+.guide-plate{margin:0 0 clamp(32px,5vw,56px);max-width:560px}
+.guide-list,.guide-index{list-style:none;margin:0;padding:0}
+.guide-list li a{display:block;padding:20px 0;border-bottom:1px solid var(--rule)}
+.guide-list li:first-child a{border-top:1px solid var(--rule)}
+.guide-list-h{display:block;font-family:var(--serif);font-size:24px;font-weight:300;line-height:1.2}
+.guide-list-p{display:block;font-size:14px;line-height:1.6;opacity:.72;margin-top:6px;max-width:60ch}
+.guide-index{display:grid;grid-template-columns:repeat(3,1fr);column-gap:clamp(16px,3vw,40px);row-gap:clamp(36px,5vw,56px)}
+.guide-index a{display:block}
+.guide-index .plate{margin-bottom:16px}
+.guide-index .house-fine{display:block;margin-top:10px}
+@media (max-width:860px){.guide-index{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.guide-index{grid-template-columns:1fr}}

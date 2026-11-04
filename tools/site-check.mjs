@@ -25,9 +25,10 @@ const PAGES = [  // name, path, the answer it should give
   ["Dior", "/collections/vintage-christian-dior-jewellery"], ["Chanel", "/collections/vintage-chanel-jewellery"],
   ["product", null],  // the first piece in Shop all, so the check outlives any one sale
   ["about", "/pages/about-us"], ["viewing", "/pages/private-viewing"], ["contact", "/pages/contact"], ["questions", "/pages/questions"],
+  ["guides", "/blogs/guides"], ["guide", "/blogs/guides/how-to-date-vintage-chanel-jewellery"],
   ["search", "/search?q=dior"], ["bag", "/cart"], ["missing page", "/pages/site-check-missing", 404],
 ];
-const DESCRIBED = ["home", "shop all", "category", "Dior", "Chanel", "product"];  // need a search description
+const DESCRIBED = ["home", "shop all", "category", "Dior", "Chanel", "product", "guides", "guide"];  // need a search description
 const SHOTS = ["home", "product"];  // photographed at both sizes and compared with the approved ones
 const SIZES = { desktop: { width: 1280, height: 800, deviceScaleFactor: 1, mobile: false },
                 phone: { width: 390, height: 844, deviceScaleFactor: 2, mobile: true } };
@@ -298,6 +299,8 @@ function judge(pages) {
       }
     }
     if (name === "questions" && !types.includes("FAQPage")) flag("FAIL", lang, name, "no FAQ search data on the Questions page");
+    if (name === "guide" && !types.includes("BlogPosting")) flag("FAIL", lang, name, "no search data for the guide (BlogPosting)");
+    if (name === "guides" && !types.includes("Blog")) flag("FAIL", lang, name, "no search data for the guides (Blog)");
     if (["shop all", "category", "Dior", "Chanel"].includes(name) && !types.includes("CollectionPage")) flag("WARN", lang, name, "no search data listing the collection's pieces");
     for (const [size, v] of [["desktop", d], ["phone", ph]]) for (const part of v.layout || []) if (part.spill.length)
       flag("WARN", lang, name, `something in a part runs off the screen on ${size}`, `${part.name}\n${part.spill.join("\n")}`);

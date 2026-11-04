@@ -364,5 +364,14 @@
     "a9_html": "<p>Please read our <a class=\"spec-link\" href=\"{{ refunds }}\">refund policy</a> before you order. If a piece isn't authentic, you get a full refund, postage both ways included.</p>",
     "q10": "How do I ask about a piece?",
     "a10_html": "<p>Use “Ask about this piece” on its page, or <a class=\"spec-link\" href=\"{{ contact }}\">contact us</a>.</p>"
+  },
+  "blog": {
+    "title": "Guides",
+    "seo_title": "Guides to vintage Chanel and Dior jewellery",
+    "lede": "Notes on marks, makers and care, from the people who check every piece.",
+    "more": "More guides",
+    "all": "All guides",
+    "pieces": "Pieces in this guide",
+    "empty": "The first guides are on their way."
   }
 }

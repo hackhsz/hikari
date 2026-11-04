@@ -388,5 +388,14 @@
     "a9_html": "<p>Lee nuestra <a class=\"spec-link\" href=\"{{ refunds }}\">política de reembolso</a> antes de hacer el pedido. Si una pieza no es auténtica, te devolvemos el importe íntegro, con el envío de ida y vuelta incluido.</p>",
     "q10": "¿Cómo pregunto por una pieza?",
     "a10_html": "<p>Usa «Preguntar por esta pieza» en su página o <a class=\"spec-link\" href=\"{{ contact }}\">escríbenos</a>.</p>"
+  },
+  "blog": {
+    "title": "Guías",
+    "seo_title": "Guías de joyería vintage de Chanel y Dior",
+    "lede": "Notas sobre marcas, fabricantes y cuidados, de quienes revisamos cada pieza.",
+    "more": "Más guías",
+    "all": "Todas las guías",
+    "pieces": "Piezas de esta guía",
+    "empty": "Las primeras guías están en camino."
   }
 }
