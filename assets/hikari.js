@@ -743,7 +743,8 @@
      a word (ラグ|ジュアリー). Split it into phrases, each word with the particles after it
      (ヴィンテージの / ラグジュアリーを / 身近に), and let it break only between them. CSS can do this
      (word-break:auto-phrase) only in Chrome, not on iPhones. Browsers without Intl.Segmenter keep
-     their usual breaking. */
+     their usual breaking. The marks are zero-width spaces, not <wbr>: Chrome breaks at a <wbr> even
+     where the line mustn't wrap (wider screens keep the banner on one line). */
   function initPhrases(){
     if(!/^ja/.test(root.lang)||!window.Intl||!Intl.Segmenter) return;
     var seg=new Intl.Segmenter("ja",{granularity:"word"});
@@ -755,8 +756,7 @@
         if(parts.length&&/^[ぁ-ゟー、。」』）！？]+$/.test(s.segment)) parts[parts.length-1]+=s.segment;
         else parts.push(s.segment);
       });
-      h.textContent="";
-      parts.forEach(function(p,i){ if(i) h.appendChild(document.createElement("wbr")); h.appendChild(document.createTextNode(p)); });
+      h.textContent=parts.join("​");
       h.setAttribute("data-phrases","");
     });
   }
