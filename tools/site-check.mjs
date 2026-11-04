@@ -225,9 +225,10 @@ async function compare(cdp, a, b) {
   const diff = async (a, b) => {
     const img = src => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = "data:image/jpeg;base64," + src; });
     const [x, y] = await Promise.all([img(a), img(b)]);
-    if (x.width !== y.width || x.height !== y.height) return { share: 1, image: null };
+    /* a pixel or two of rounding in a part's height is no change: compare what both cover */
+    if (Math.abs(x.width - y.width) > 2 || Math.abs(x.height - y.height) > 2) return { share: 1, image: null };
     const c = document.createElement("canvas"), g = c.getContext("2d");
-    c.width = x.width; c.height = x.height;
+    c.width = Math.min(x.width, y.width); c.height = Math.min(x.height, y.height);
     g.drawImage(x, 0, 0); const p = g.getImageData(0, 0, c.width, c.height).data;
     g.drawImage(y, 0, 0); const out = g.getImageData(0, 0, c.width, c.height), q = out.data;
     let n = 0;
