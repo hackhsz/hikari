@@ -9,13 +9,19 @@
   The banner's second button links here once the page exists (sections/brand-hero.liquid).
 {%- endcomment -%}
 {%- assign s = section.settings -%}
+{%- comment -%} Empty fields use the standard wording in locales (viewing.*), so every language has it: Translate & Adapt cannot translate a schema default. {%- endcomment -%}
+{%- assign std = 'viewing.eyebrow' | t -%}{%- assign eyebrow = s.eyebrow | default: std -%}
+{%- assign std = 'viewing.heading' | t -%}{%- assign heading = s.heading | default: std -%}
+{%- assign std = 'viewing.lede' | t -%}{%- assign lede = s.lede | default: std -%}
+{%- assign std = 'viewing.hours' | t -%}{%- assign hours = s.hours | default: std -%}
+{%- assign std = 'viewing.note_html' | t -%}{%- assign note = s.note | default: std -%}
 {%- assign slots = s.slots | newline_to_br | split: '<br />' -%}
 <section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
   <div class="shell">
     <header class="house-head">
-      {%- if s.eyebrow != blank -%}<p class="eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
-      <h1 class="house-h">{{ s.heading }}</h1>
-      {%- if s.lede != blank -%}<p class="house-lede">{{ s.lede }}</p>{%- endif -%}
+      {%- if eyebrow != blank -%}<p class="eyebrow">{{ eyebrow }}</p>{%- endif -%}
+      <h1 class="house-h">{{ heading }}</h1>
+      {%- if lede != blank -%}<p class="house-lede">{{ lede }}</p>{%- endif -%}
     </header>
 
     <div class="cr-cols">
@@ -54,21 +60,20 @@
       </div>
 
       <div class="cr-col">
-        {%- if s.hours != blank -%}<h2 class="cr-h">{{ s.hours }}</h2>{%- endif -%}
-        {%- if s.note != blank -%}<div class="cr-steps vw-note">{{ s.note }}</div>{%- endif -%}
+        {%- if hours != blank -%}<h2 class="cr-h">{{ hours }}</h2>{%- endif -%}
+        {%- if note != blank -%}<div class="cr-steps vw-note">{{ note }}</div>{%- endif -%}
       </div>
     </div>
   </div>
 </section>
 {% schema %}
 { "name": "Private viewing", "settings": [
-  { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "London, by appointment" },
-  { "type": "text", "id": "heading", "label": "Heading", "default": "Book a private viewing" },
-  { "type": "textarea", "id": "lede", "label": "Lede", "default": "See the pieces in person. Choose a day and a time, and we will be in touch to confirm." },
+  { "type": "text", "id": "eyebrow", "label": "Eyebrow", "info": "Leave empty for the standard wording, which is translated into every language. Text here replaces it in English (translate it in Translate & Adapt)." },
+  { "type": "text", "id": "heading", "label": "Heading", "info": "Leave empty for the standard wording, which is translated into every language. Text here replaces it in English (translate it in Translate & Adapt)." },
+  { "type": "textarea", "id": "lede", "label": "Lede", "info": "Leave empty for the standard wording, which is translated into every language. Text here replaces it in English (translate it in Translate & Adapt)." },
   { "type": "textarea", "id": "slots", "label": "Time slots", "info": "One per line.",
     "default": "14:00 – 15:00\n15:00 – 16:00\n16:00 – 17:00\n17:00 – 18:00\n18:00 – 19:00\n19:00 – 20:00" },
-  { "type": "text", "id": "hours", "label": "Hours", "default": "Monday to Sunday, 2pm to 8pm" },
-  { "type": "richtext", "id": "note", "label": "Note",
-    "default": "<p>Viewings are by appointment only. We send the address with your confirmation.</p>" }
+  { "type": "text", "id": "hours", "label": "Hours", "info": "Leave empty for the standard wording, which is translated into every language. Text here replaces it in English (translate it in Translate & Adapt)." },
+  { "type": "richtext", "id": "note", "label": "Note", "info": "Leave empty for the standard wording, which is translated into every language. Text here replaces it in English (translate it in Translate & Adapt)." }
 ] }
 {% endschema %}

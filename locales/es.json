@@ -256,7 +256,9 @@
     "placeholder": "tu@correo.com",
     "join": "Unirme a la lista",
     "thanks": "Gracias. Ya estás en la lista.",
-    "on_the_list": "Ya estás en la lista"
+    "on_the_list": "Ya estás en la lista",
+    "heading": "Piezas nuevas, antes que nadie.",
+    "body": "Una nota cuando lleguen piezas nuevas y una carta una vez al mes."
   },
   "preferences": {
     "heading": "Una cosa más, si quieres: ¿qué coleccionas?",
@@ -303,7 +305,12 @@
     "choose_time": "Elige una hora",
     "pieces": "Piezas que te gustaría ver (opcional)",
     "submit": "Solicitar una visita",
-    "thanks": "Gracias. Te escribiremos para confirmar tu visita."
+    "thanks": "Gracias. Te escribiremos para confirmar tu visita.",
+    "eyebrow": "Londres, con cita previa",
+    "heading": "Reserva una visita privada",
+    "lede": "Ve las piezas en persona. Elige un día y una hora, y te escribiremos para confirmar.",
+    "hours": "De lunes a domingo, de 14:00 a 20:00",
+    "note_html": "<p>Las visitas son solo con cita previa. Te enviamos la dirección con la confirmación.</p>"
   },
   "countdown": {
     "now": "Sale a la venta ahora",
@@ -348,5 +355,11 @@
         }
       }
     }
+  },
+  "about": {
+    "stamp": "Placa 05 · En el puesto, octubre",
+    "eyebrow": "Acerca de Karineko",
+    "heading": "La belleza de encontrar algo raro.",
+    "body_html": "<p>Karineko es una pequeña tienda independiente en Londres.</p><p>Buscamos nuestras piezas en persona y en unas pocas subastas de confianza en Japón, y solo nos quedamos con las que tienen algo que contar. Revisamos a mano la autenticidad y el estado de cada una antes de que llegue a ti.</p><p>Creemos que el lujo debe sentirse personal, no inalcanzable.</p><p><em>Un pasado que vale la pena conservar.</em></p>"
   }
 }

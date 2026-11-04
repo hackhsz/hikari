@@ -247,7 +247,9 @@
     "placeholder": "you@example.com",
     "join": "Join the list",
     "thanks": "Thank you — you are on the list.",
-    "on_the_list": "You are on the list"
+    "on_the_list": "You are on the list",
+    "heading": "New pieces, before anyone else.",
+    "body": "A note when new pieces arrive, and a letter once a month."
   },
   "preferences": {
     "heading": "One more thing, if you like: what do you collect?",
@@ -294,7 +296,12 @@
     "choose_time": "Choose a time",
     "pieces": "Pieces you would like to see (optional)",
     "submit": "Request a viewing",
-    "thanks": "Thank you. We will be in touch to confirm your viewing."
+    "thanks": "Thank you. We will be in touch to confirm your viewing.",
+    "eyebrow": "London, by appointment",
+    "heading": "Book a private viewing",
+    "lede": "See the pieces in person. Choose a day and a time, and we will be in touch to confirm.",
+    "hours": "Monday to Sunday, 2pm to 8pm",
+    "note_html": "<p>Viewings are by appointment only. We send the address with your confirmation.</p>"
   },
   "countdown": {
     "now": "Going live now",
@@ -315,5 +322,11 @@
   },
   "date_formats": {
     "release": "%a %-d %b, %H:%M"
+  },
+  "about": {
+    "stamp": "Plate 05 · At the stall, October",
+    "eyebrow": "About Karineko",
+    "heading": "The beauty of finding something rare.",
+    "body_html": "<p>Karineko is a small, independent shop in London.</p><p>We find our pieces in person and at a few trusted auctions in Japan, and keep only those with something to say. Each one is checked by hand, for authenticity and condition, before it comes to you.</p><p>Luxury, we think, should feel personal, not out of reach.</p><p><em>A past worth keeping.</em></p>"
   }
 }
