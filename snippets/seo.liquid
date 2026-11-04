@@ -9,9 +9,12 @@
   Descriptions come from Shopify (Online Store preferences, the product's description, the
   collection's description), with the theme's own line for the home page and the catalogue.
 
-  Structured data: the shop (Organization, WebSite) on every page; on a piece, Product with its
-  house, photographs and condition (used: it is vintage), an Offer once it has a price, and the
-  path to it (BreadcrumbList). A coming-soon or sold piece is OutOfStock: it cannot be bought now.
+  Structured data: the shop (Organization, WebSite: what it is, London, the houses it deals in) on
+  every page; on a piece, Product with its house, photographs, condition (used: it is vintage) and
+  what its page lists (era, grade, measurements, mark, provenance), an Offer once it has a price,
+  and the path to it (BreadcrumbList); on a collection, the page and its pieces (CollectionPage,
+  ItemList); About and Contact as AboutPage and ContactPage. Search engines and AI assistants
+  both read it. A coming-soon or sold piece is OutOfStock: it cannot be bought now.
 
   Params: brand.
 {%- endcomment -%}
@@ -116,6 +119,10 @@
       "url": {{ shop.url | json }}
       {%- if settings.seo_logo %},"logo": {{ settings.seo_logo | image_url: width: 600 | prepend: 'https:' | json }}{% endif -%}
       {%- if same_as.size > 0 %},"sameAs": {{ same_as | json }}{% endif %}
+      {%- assign org_desc = settings.seo_home_description | default: shop.description -%}
+      {%- if org_desc != blank %},"description": {{ org_desc | strip_html | strip_newlines | strip | json }}{% endif %}
+      ,"location": { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" } }
+      {%- if shop.vendors.size > 0 %},"knowsAbout": [{% for v in shop.vendors %}{{ 'Vintage ' | append: v | json }}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endif %}
     },
     {
       "@type": "WebSite",
@@ -157,6 +164,16 @@
       "description": {{ product.description | strip_html | strip_newlines | strip | default: full_name | json }},
       "sku": {{ product.selected_or_first_available_variant.sku | json }},
       "itemCondition": "https://schema.org/UsedCondition",
+      {%- assign hm = product.metafields.hikari -%}
+      {%- capture spec -%}
+        {%- if hm.era != blank -%}{"@type":"PropertyValue","name":{{ 'products.spec.era' | t | json }},"value":{{ hm.era.value | append: '' | json }}},{%- endif -%}
+        {%- if hm.grade != blank -%}{"@type":"PropertyValue","name":{{ 'products.spec.condition' | t | json }},"value":{{ 'products.spec.grade' | t: grade: hm.grade.value | json }}},{%- endif -%}
+        {%- if hm.measurements != blank -%}{"@type":"PropertyValue","name":{{ 'products.spec.measurements' | t | json }},"value":{{ hm.measurements.value | append: '' | json }}},{%- endif -%}
+        {%- if hm.mark != blank -%}{"@type":"PropertyValue","name":{{ 'products.spec.mark' | t | json }},"value":{{ hm.mark.value | append: '' | json }}},{%- endif -%}
+        {%- if hm.provenance != blank -%}{"@type":"PropertyValue","name":{{ 'products.spec.provenance' | t | json }},"value":{{ hm.provenance.value | append: '' | json }}},{%- endif -%}
+      {%- endcapture -%}
+      {%- assign spec = spec | strip | remove_last: ',' -%}
+      {%- if spec != blank %}"additionalProperty": [{{ spec }}],{% endif %}
       {%- if cat != blank %}"category": {{ 'collections.categories.' | append: cat | t | json }},{% endif %}
       "image": [
         {%- for img in product.images limit: 5 -%}
@@ -182,6 +199,41 @@
         { "@type": "ListItem", "position": 2, "name": {{ 'collections.all_title' | t | json }}, "item": {{ shop.url | append: routes.all_products_collection_url | json }} },
         { "@type": "ListItem", "position": 3, "name": {{ full_name | json }}, "item": {{ canonical_url | json }} }
       ]
+    }
+    {%- endif %}
+    {%- comment -%} A collection: the page, and the pieces on it in order (the first 24). {%- endcomment -%}
+    {%- if template.name == 'collection' -%}
+      {%- assign list_name = collection.title -%}
+      {%- if collection.handle == 'all' %}{% assign list_name = 'collections.all_title' | t %}{% endif -%}
+    ,{
+      "@type": "CollectionPage",
+      "@id": {{ canonical_url | append: '#page' | json }},
+      "name": {{ list_name | json }},
+      "url": {{ canonical_url | json }},
+      {%- if desc != blank %}"description": {{ desc | strip_html | strip_newlines | strip | json }},{% endif %}
+      "isPartOf": { "@id": {{ shop.url | append: '/#site' | json }} },
+      "mainEntity": {
+        "@type": "ItemList",
+        "numberOfItems": {{ collection.products_count }},
+        "itemListElement": [
+          {%- for p in collection.products limit: 24 -%}
+          { "@type": "ListItem", "position": {{ forloop.index }}, "url": {{ shop.url | append: p.url | json }}, "name": {{ p.vendor | append: ' ' | append: p.title | strip | json }} }{% unless forloop.last %},{% endunless %}
+          {%- endfor -%}
+        ]
+      }
+    }
+    {%- endif %}
+    {%- comment -%} About and Contact say what they are; other pages are plain web pages. {%- endcomment -%}
+    {%- if template.name == 'page' -%}
+      {%- assign kind = 'WebPage' -%}
+      {%- if page.handle == 'about-us' or page.handle == 'about' %}{% assign kind = 'AboutPage' %}{% elsif page.handle == 'contact' %}{% assign kind = 'ContactPage' %}{% endif -%}
+    ,{
+      "@type": {{ kind | json }},
+      "@id": {{ canonical_url | append: '#page' | json }},
+      "name": {{ page.title | json }},
+      "url": {{ canonical_url | json }},
+      "isPartOf": { "@id": {{ shop.url | append: '/#site' | json }} },
+      "about": { "@id": {{ shop.url | append: '/#org' | json }} }
     }
     {%- endif %}
   ]

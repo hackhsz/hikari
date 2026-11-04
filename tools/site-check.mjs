@@ -105,6 +105,15 @@ function readPage() {
       return out(e) && ![...e.children].some(out);
     }).slice(0, 3).map(e => `<${e.tagName.toLowerCase()}${e.className && typeof e.className === "string" ? ` class="${e.className.trim()}"` : ""}> ${(e.textContent || "").trim().slice(0, 40)}`) : [],
     images: [...document.images].filter(i => i.complete && i.currentSrc && !i.naturalWidth).map(i => i.currentSrc),
+    /* the search data (JSON-LD): what each block says it is, and a piece's essentials */
+    ld: [...document.querySelectorAll('script[type="application/ld+json"]')].map(s => {
+      try {
+        const j = JSON.parse(s.textContent), nodes = [].concat(j["@graph"] || j);
+        const p = nodes.find(n => n["@type"] === "Product");
+        return { ok: true, types: nodes.map(n => n["@type"]), product: p && { name: !!p.name, image: [].concat(p.image || []).length, brand: !!(p.brand && p.brand.name),
+          offer: p.offers ? { price: p.offers.price !== undefined && p.offers.price !== "", currency: !!p.offers.priceCurrency, availability: !!p.offers.availability } : null } };
+      } catch (e) { return { ok: false, error: e.message }; }
+    }),
     text: document.body.innerText.split("\n").map(t => t.trim()).filter(Boolean),
     /* how many lines each Shopify section shows (lines, not characters, so Chinese compares fairly) */
     sections: Object.fromEntries([...document.querySelectorAll("[id^='shopify-section-']")]
@@ -168,6 +177,16 @@ async function visit(cdp, url, size, shot) {
     await sleep(1500);  // fonts, lazy images, the scroll colour
     const { result } = await s("Runtime.evaluate", { expression: `(${readPage})()`, returnByValue: true });
     const page = { ...result.value, status: docs.get(nav.loaderId) || 0, files, errors };
+    /* Core Web Vitals as this browser saw them: when the largest thing appeared, and how much the
+       page jumped while loading. A lab figure on a fast connection, so only the poor end is flagged. */
+    page.vitals = (await s("Runtime.evaluate", { awaitPromise: true, returnByValue: true, expression: `new Promise(r => {
+      let lcp = 0, cls = 0;
+      try {
+        new PerformanceObserver(l => { for (const e of l.getEntries()) lcp = Math.max(lcp, e.startTime); }).observe({ type: "largest-contentful-paint", buffered: true });
+        new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) cls += e.value; }).observe({ type: "layout-shift", buffered: true });
+      } catch (e) {}
+      setTimeout(() => r({ lcp: Math.round(lcp), cls: Math.round(cls * 1000) / 1000 }), 300);
+    })` })).result.value;
     if (shot) {
       /* A picture worth comparing: the photographs on screen loaded, and Shopify's own layers left out of
          it, the cookie banner (half of every first visit) and the draft theme's preview bar, which comes
@@ -277,6 +296,21 @@ function judge(pages) {
     for (const e of [...d.errors, ...ph.errors]) flag(e.ours ? "FAIL" : "WARN", lang, name, `${e.ours ? "theme script" : "another script"} failed: ${e.what}`);
     for (const [size, v] of [["desktop", d], ["phone", ph]]) if (v.sideways > 1)
       flag("FAIL", lang, name, `scrolls sideways by ${v.sideways}px on ${size}`, (v.wide || []).join("\n"));
+    for (const b of d.ld || []) if (!b.ok) flag("FAIL", lang, name, "search data (JSON-LD) doesn't parse", b.error);
+    const ld = (d.ld || []).filter(b => b.ok), types = ld.flatMap(b => b.types), prod = ld.map(b => b.product).find(Boolean);
+    if (d.status === 200 && !types.includes("Organization")) flag("FAIL", lang, name, "no search data for the shop (Organization)");
+    if (name === "product") {
+      if (!prod) flag("FAIL", lang, name, "no search data for the piece (Product)");
+      else {
+        if (!prod.name || !prod.image || !prod.brand) flag("FAIL", lang, name, "the piece's search data lacks its name, photographs or house");
+        if (prod.offer && !(prod.offer.price && prod.offer.currency && prod.offer.availability)) flag("WARN", lang, name, "the price in the search data lacks the amount, currency or availability");
+      }
+    }
+    if (["shop all", "category", "Dior", "Chanel"].includes(name) && !types.includes("CollectionPage")) flag("WARN", lang, name, "no search data listing the collection's pieces");
+    if (lang === "en") for (const [size, v] of [["desktop", d], ["phone", ph]]) if (v.vitals) {
+      if (v.vitals.lcp > 4000) flag("WARN", lang, name, `slow to show its main content on ${size}: ${(v.vitals.lcp / 1000).toFixed(1)}s (poor is over 4s)`);
+      if (v.vitals.cls > 0.25) flag("WARN", lang, name, `the page jumps while loading on ${size}: layout shift ${v.vitals.cls} (poor is over 0.25)`);
+    }
     for (const [size, v] of [["desktop", d], ["phone", ph]]) for (const part of v.layout || []) if (part.spill.length)
       flag("WARN", lang, name, `something in a part runs off the screen on ${size}`, `${part.name}\n${part.spill.join("\n")}`);
   }
