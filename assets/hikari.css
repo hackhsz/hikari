@@ -516,6 +516,7 @@ html.js .card .qv-btn{display:block}
 .social [lang="zh"]{letter-spacing:.06em}
 .social-unset{opacity:.35!important;text-decoration:line-through}
 .foot-social{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px 32px;margin-top:clamp(32px,5vw,48px)}
+.foot-social:first-child{margin-top:0}
 .menu-foot .social{margin-bottom:22px}
 .wechat-body{padding:20px 24px 28px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
 .wechat-qr{width:min(240px,70vw);height:auto;border:1px solid var(--rule)}
