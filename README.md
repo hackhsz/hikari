@@ -91,6 +91,13 @@ Run `bash scripts/verify/run.sh` before pushing anything in `theme/`. It runs Th
 
 It also follows every link it finds, and lists lines a translated page still shows in English. The home page and a product are photographed and compared with the approved screenshots.
 
+It also checks each part of the page (each Shopify section) on a desktop and a phone:
+- **Photos.** On the home page and a product, every part is photographed in all five languages, about 110 pictures. Each is compared with its approved picture, and parts that changed by more than 1% are flagged and shown side by side in the report.
+- **Room.** On every page, every part is measured. It's flagged when the same words take much more or less room than approved (more than 15% and 40px), because that means the layout changed. New words, like a new piece, don't count.
+- **Off the screen.** It's flagged when anything inside a part runs off the screen, even where the page hides it instead of scrolling sideways.
+
+`approve` keeps the parts' pictures and heights along with the screenshots.
+
 Every run starts by reading the theme files themselves, and `node tools/site-check.mjs lint` does only that, in a second, before a push. Shopify refuses a file it can't parse and keeps serving the old one, with nothing on the site to say so. The lint catches that: JSON that doesn't parse, unclosed Liquid tags, and a filter inside `render`'s arguments. It also catches translation keys missing from the English file (FAIL) or from another language (WARN).
 
 **FAIL** means don't push. **WARN** is for a person to look at. The report opens from `previews/site-check/`. When the screenshots look right, `node tools/site-check.mjs approve staging` makes them the approved ones. It needs only Chrome and Node 22 or later.

@@ -108,6 +108,26 @@ function readPage() {
       .map(s => [s.id.replace(/^shopify-section-[^_]*__/, ""), s.innerText.split("\n").filter(t => t.trim()).length])),
     links: [...new Set([...document.querySelectorAll("a[href]")].map(a => a.href.split("#")[0])
       .filter(h => h.startsWith(location.origin)))],
+    /* each part of the page (a Shopify section) at this size: how tall, a fingerprint of its words
+       (the same words in a different height is a layout change), and what runs off the screen inside
+       it, which the page can hide (overflow) without scrolling sideways. A part that scrolls on purpose
+       (a rail) or clips on purpose clips its own content, so only overflow nothing inside clips counts. */
+    layout: [...document.querySelectorAll("[id^='shopify-section-']")].map(sec => {
+      const r = sec.getBoundingClientRect();
+      if (!r.height || !r.width) return null;
+      let hash = 5381; for (const c of sec.innerText) hash = (hash * 33 + c.charCodeAt(0)) >>> 0;
+      const out = b => b.right > innerWidth + 1 || b.left < -1;
+      const spill = [...sec.querySelectorAll("*")].filter(e => {
+        const b = e.getBoundingClientRect();
+        if (!b.width || !b.height || !out(b)) return false;
+        for (let a = e; a && a !== sec.parentElement; a = a.parentElement) {
+          const cs = getComputedStyle(a);
+          if (cs.position === "fixed" || cs.visibility === "hidden" || cs.opacity === "0" || (a !== e && cs.overflowX !== "visible")) return false;
+        }
+        return ![...e.children].some(c => { const q = c.getBoundingClientRect(); return q.width && out(q); });
+      }).slice(0, 3).map(e => `<${e.tagName.toLowerCase()}${typeof e.className === "string" && e.className.trim() ? ` class="${e.className.trim()}"` : ""}> ${(e.textContent || "").trim().slice(0, 40)}`);
+      return { name: sec.id.replace(/^shopify-section-(?:[^_]*__)?/, ""), h: Math.round(r.height), words: hash, spill };
+    }).filter(Boolean),
   };
 }
 
@@ -157,6 +177,27 @@ async function visit(cdp, url, size, shot) {
       })()` });
       await sleep(400);
       page.shot = (await s("Page.captureScreenshot", { format: "jpeg", quality: 80 })).data;
+      /* Then every part of the page, top to bottom, one picture each: what the first screen doesn't
+         show (the story, the trust lines, the footer). Every photograph loaded first; the header is
+         hidden while the parts are taken, as it would sit on top of each one; each part is scrolled to
+         the top of the screen first, so the page's scroll colour is the same each run. */
+      const js = async e => (await s("Runtime.evaluate", { expression: e, awaitPromise: true, returnByValue: true })).result.value;
+      const names = await js(`(async () => {
+        document.querySelectorAll("img").forEach(i => { i.loading = "eager"; });
+        for (let y = 0; y < document.documentElement.scrollHeight; y += innerHeight * 0.8) { scrollTo(0, y); await new Promise(r => setTimeout(r, 120)); }
+        await Promise.race([Promise.all([...document.images].map(i => i.decode().catch(() => {}))), new Promise(r => setTimeout(r, 8000))]);
+        document.head.insertAdjacentHTML("beforeend", "<style>#shopify-section-header{visibility:hidden!important}</style>");
+        return [...document.querySelectorAll("[id^='shopify-section-']")].filter(e => e.id !== "shopify-section-header" && e.offsetHeight && e.offsetWidth && getComputedStyle(e).position !== "fixed").map(e => e.id);
+      })()`);
+      page.parts = [];
+      for (const id of names || []) {
+        const box = await js(`(async () => { const e = document.getElementById(${JSON.stringify(id)}); scrollTo(0, e.getBoundingClientRect().top + scrollY);
+          await new Promise(r => setTimeout(r, 250)); const r = e.getBoundingClientRect(); return { y: r.top + scrollY, h: r.height }; })()`);
+        if (!box || box.h < 2) continue;
+        const clip = { x: 0, y: box.y, width: size.width, height: Math.min(box.h, 6000), scale: 1 / (size.deviceScaleFactor || 1) };
+        const data = (await s("Page.captureScreenshot", { format: "jpeg", quality: 70, clip, captureBeyondViewport: true })).data;
+        page.parts.push({ name: id.replace(/^shopify-section-(?:[^_]*__)?/, ""), h: Math.round(box.h), shot: data });
+      }
     }
     return page;
   } finally {
@@ -233,6 +274,8 @@ function judge(pages) {
     for (const e of [...d.errors, ...ph.errors]) flag(e.ours ? "FAIL" : "WARN", lang, name, `${e.ours ? "theme script" : "another script"} failed: ${e.what}`);
     for (const [size, v] of [["desktop", d], ["phone", ph]]) if (v.sideways > 1)
       flag("FAIL", lang, name, `scrolls sideways by ${v.sideways}px on ${size}`, (v.wide || []).join("\n"));
+    for (const [size, v] of [["desktop", d], ["phone", ph]]) for (const part of v.layout || []) if (part.spill.length)
+      flag("WARN", lang, name, `something in a part runs off the screen on ${size}`, `${part.name}\n${part.spill.join("\n")}`);
   }
   /* A section that says much more in a translation than in English: a field cleared in English keeps
      its old translation, which Shopify goes on showing (the banner's text and links, 2026-11-04). */
@@ -285,7 +328,7 @@ async function checkLinks(found, problems) {
 /* ── the report ──────────────────────────────────────── */
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 
-function report({ target, theme, started, pages, problems, shots, links }) {
+function report({ target, theme, started, pages, problems, shots, parts = [], links }) {
   const fails = problems.filter(p => p.level === "FAIL"), warns = problems.filter(p => p.level === "WARN");
   const groups = new Map();  // the same problem on many pages is one line
   for (const p of [...fails, ...warns]) {
@@ -325,7 +368,29 @@ ${shots.map(s => `<h3>${esc(s.lang)} · ${esc(s.name)} · ${s.size}${s.share ===
 <div class="shots"><figure>${s.approved ? `<img loading="lazy" src="${s.approved}">` : ""}<figcaption>approved</figcaption></figure>
 <figure><img loading="lazy" src="${s.file}"><figcaption>this run</figcaption></figure>
 <figure>${s.diff ? `<img loading="lazy" src="${s.diff}">` : ""}<figcaption>changed</figcaption></figure></div>`).join("\n")}
+${partsReport(parts, target)}
 </body></html>`;
+}
+
+/* Every part of the photographed pages: their heights in English at both sizes, how much the most
+   changed language moved, and the pictures of the parts that changed. */
+function partsReport(parts, target) {
+  if (!parts.length) return "";
+  const rows = new Map();
+  for (const s of parts) {
+    const k = `${s.name}\n${s.part}`, r = rows.get(k) || { page: s.name, part: s.part, h: {}, most: undefined };
+    if (s.lang === "en") r.h[s.size] = s.h;
+    if (s.share !== undefined) r.most = Math.max(r.most ?? 0, s.share);
+    rows.set(k, r);
+  }
+  const changed = parts.filter(s => s.share > CHANGED), fresh = parts.filter(s => s.share === undefined).length;
+  return `<h2>Parts</h2><p class="meta">Every part of these pages (each Shopify section), photographed in ${Object.keys(LANGS).length} languages on a desktop and a phone and compared with its approved picture.${fresh ? ` ${fresh} have no approved picture yet: <code>node tools/site-check.mjs approve ${esc(target)}</code>.` : ""}</p>
+<table><tr><th>page</th><th>part</th><th>desktop</th><th>phone</th><th>most changed</th></tr>
+${[...rows.values()].map(r => `<tr><td>${esc(r.page)}</td><td>${esc(r.part)}</td><td>${r.h.desktop ?? ""}px</td><td>${r.h.phone ?? ""}px</td><td class="${r.most > CHANGED ? "warn" : "ok"}">${r.most === undefined ? "–" : `${(r.most * 100).toFixed(1)}%`}</td></tr>`).join("\n")}</table>
+${changed.length ? `<h3>Parts that changed</h3>${changed.map(s => `<h3>${esc(s.lang)} · ${esc(s.name)} · ${esc(s.part)} · ${s.size} · ${(s.share * 100).toFixed(1)}% changed</h3>
+<div class="shots"><figure><img loading="lazy" src="${s.approved}"><figcaption>approved</figcaption></figure>
+<figure><img loading="lazy" src="${s.file}"><figcaption>this run</figcaption></figure>
+<figure>${s.diff ? `<img loading="lazy" src="${s.diff}">` : ""}<figcaption>changed</figcaption></figure></div>`).join("\n")}` : ""}`;
 }
 
 /* ── run ─────────────────────────────────────────────── */
@@ -374,9 +439,36 @@ async function run(target) {
       shots.push(s);
     }
 
+    /* Every part of the photographed pages, compared with its approved picture. */
+    const parts = [];
+    mkdirSync(join(dir, "shots", "parts"), { recursive: true });
+    for (const p of pages.filter(p => SHOTS.includes(p.name))) for (const size of ["desktop", "phone"]) for (const part of p[size].parts || []) {
+      const base = `${p.lang}-${p.name}-${size}-${part.name}`.replace(/[^\w-]+/g, "-"), file = `shots/parts/${base}.jpg`;
+      writeFileSync(join(dir, file), Buffer.from(part.shot, "base64"));
+      const s = { lang: p.lang, name: p.name, size, part: part.name, h: part.h, file }, old = join(approved, "parts", `${base}.jpg`);
+      if (existsSync(old)) {
+        s.approved = `../approved/${target}/parts/${base}.jpg`;
+        const c = await compare(cdp, readFileSync(old).toString("base64"), part.shot);
+        s.share = c.share;
+        if (c.image) { s.diff = `shots/parts/${base}-changed.jpg`; writeFileSync(join(dir, s.diff), Buffer.from(c.image, "base64")); }
+        if (c.share > CHANGED) problems.push({ level: "WARN", lang: p.lang, page: p.name, what: `a part looks different from its approved picture (${size}, ${(c.share * 100).toFixed(1)}%)`, detail: part.name });
+      }
+      delete part.shot;
+      parts.push(s);
+    }
+    /* The same words in a part taking much more or less room than when it was approved: a layout change
+       (2026-11-04: the trust lines, squeezed into columns, took 119px on a phone for three short lines).
+       New words (a new piece, a new text) are expected to change the height, so they don't count. */
+    const was = existsSync(join(approved, "layout.json")) ? JSON.parse(readFileSync(join(approved, "layout.json"), "utf8")) : {};
+    for (const p of pages) for (const size of ["desktop", "phone"]) for (const part of p[size]?.layout || []) {
+      const o = was[`${p.lang}|${p.name}|${size}`]?.[part.name];
+      if (o && o.words === part.words && Math.abs(part.h - o.h) > Math.max(40, o.h * 0.15))
+        problems.push({ level: "WARN", lang: p.lang, page: p.name, what: `the same words take ${part.h > o.h ? "more" : "less"} room than approved on ${size} (${o.h}px → ${part.h}px)`, detail: part.name });
+    }
+
     for (const p of pages) for (const size of ["desktop", "phone"]) if (p[size]) delete p[size].shot;
     writeFileSync(join(dir, "results.json"), JSON.stringify({ target, theme, started, problems, pages }, null, 1));
-    writeFileSync(join(dir, "report.html"), report({ target, theme, started, pages, problems, shots, links }));
+    writeFileSync(join(dir, "report.html"), report({ target, theme, started, pages, problems, shots, parts, links }));
     const fails = problems.filter(p => p.level === "FAIL").length, warns = problems.length - fails;
     console.log(`${target}: ${pages.length} pages, ${links} links. ${fails ? `${fails} FAIL` : "passed"}${warns ? `, ${warns} WARN` : ""}`);
     console.log(join(dir, "report.html"));
@@ -428,10 +520,20 @@ function approve(target) {
   const runs = existsSync(OUT) ? readdirSync(OUT).filter(d => d.endsWith(`-${target}`)).sort() : [];
   if (!runs.length) throw new Error(`no ${target} run yet`);
   const from = join(OUT, runs.at(-1), "shots"), to = join(OUT, "approved", target);
-  mkdirSync(to, { recursive: true });
-  const shots = readdirSync(from).filter(f => !f.endsWith("-changed.jpg"));
+  mkdirSync(join(to, "parts"), { recursive: true });
+  const pictures = d => existsSync(d) ? readdirSync(d).filter(f => f.endsWith(".jpg") && !f.endsWith("-changed.jpg")) : [];
+  const shots = pictures(from), parts = pictures(join(from, "parts"));
   for (const f of shots) copyFileSync(join(from, f), join(to, f));
-  console.log(`${shots.length} screenshots from ${runs.at(-1)} are now the approved ${target} ones`);
+  for (const f of parts) copyFileSync(join(from, "parts", f), join(to, "parts", f));
+  /* every part's height and words on every page, for the next run to compare with */
+  const results = join(OUT, runs.at(-1), "results.json");
+  if (existsSync(results)) {
+    const layout = {};
+    for (const p of JSON.parse(readFileSync(results, "utf8")).pages) for (const size of ["desktop", "phone"])
+      if (p[size]?.layout) layout[`${p.lang}|${p.name}|${size}`] = Object.fromEntries(p[size].layout.map(l => [l.name, { h: l.h, words: l.words }]));
+    writeFileSync(join(to, "layout.json"), JSON.stringify(layout));
+  }
+  console.log(`${shots.length} screenshots and ${parts.length} parts from ${runs.at(-1)} are now the approved ${target} ones`);
   return 0;
 }
 
