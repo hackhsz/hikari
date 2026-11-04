@@ -1,28 +1,99 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "brand_name": "Karineko Vintage",
-    "brand_mark": "drawing",
-    "presale_note": "Ships within about a month of your order.",
-    "social_instagram": "https://www.instagram.com/karineko_vtg",
-    "social_xiaohongshu": "https://xhslink.cn/m/AUlL3kl4vnu",
-    "wechat_id": "karineko_0808",
-    "brand_kanji": "光",
     "edition_no": "01",
     "edition_day": "Thursday 19:00",
     "grain_opacity": 40,
     "grain_animate": true,
     "scroll_colour": true,
+    "announcement": "Complimentary UK delivery over £250 · Worldwide shipping",
+    "new_days": 14,
+    "presale_note": "Ships within about a month of your order.",
+    "social_instagram": "https://www.instagram.com/karineko_vtg",
+    "social_xiaohongshu": "https://xhslink.cn/m/AUlL3kl4vnu",
+    "wechat_id": "karineko_0808",
+    "share_enabled": true,
     "trust_1": "Authenticity guaranteed",
     "trust_2": "UK duty included",
     "trust_3": "Insured UK delivery",
-    "announcement": "Complimentary UK delivery over £250 · Worldwide shipping",
     "delivery_free_over": 250,
-    "new_days": 14,
-    "share_enabled": true,
     "seo_home_title": "Vintage Dior & Chanel Jewellery | Karineko Vintage",
     "seo_alternate_name": "Karineko",
     "seo_home_description": "Vintage Christian Dior and Chanel jewellery, chosen one piece at a time and sent from London. Necklaces, earrings, bracelets, rings and brooches.",
     "seo_image": "shopify://shop_images/karineko-banner-walnut-tray.jpg",
-    "seo_logo": "shopify://shop_images/karineko-email-logo.png"
+    "seo_logo": "shopify://shop_images/karineko-email-logo.png",
+    "brand_mark": "drawing",
+    "brand_kanji": "光",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "show_houses": false,
+          "menu_only": "about-us"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      },
+      "bag-drawer": {
+        "type": "bag-drawer",
+        "settings": {}
+      },
+      "signup-popup": {
+        "type": "signup-popup",
+        "settings": {
+          "enabled": true,
+          "trigger": "pages",
+          "pages": 2,
+          "delay": 20,
+          "rest_days": 14,
+          "eyebrow": "The list",
+          "heading": "Hear about new pieces first",
+          "body": "New pieces reach the list before they reach the site.",
+          "button": "Join the list",
+          "fine": "A welcome email, then one letter a month. Unsubscribe any time.",
+          "ok_heading": "Thank you.",
+          "ok_body": "The next Edition comes to your inbox before it reaches the site.",
+          "code": "",
+          "offer": "£10 off your first piece over £150."
+        }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "15683396631634586217": {
+        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "disabled": false,
+        "settings": {
+          "greeting_message": "Hello. Ask us anything about a piece, delivery or a viewing.",
+          "show_featured_products": true,
+          "featured_products": [],
+          "background_color": "#FAF8F3",
+          "font_color": "#1C1B18",
+          "agent_invert_activator_colors": true,
+          "button_color": "#000000",
+          "launcher_style": "button",
+          "button_icon": "chat_bubble",
+          "button_text": "chat_with_us",
+          "button_horizontal_position": "bottom_right",
+          "button_vertical_position": "lowest",
+          "agent_inherit_fonts": true,
+          "agent_font": "system_ui_n4",
+          "agent_font_size": 14,
+          "agent_activator_font_size": 16,
+          "agent_border_radius": 16
+        }
+      }
+    }
   }
 }

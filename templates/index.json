@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -7,32 +16,36 @@
         "image_mobile": "shopify://shop_images/karineko-banner-walnut-tray-phone.jpg",
         "image_alt": "Vintage Dior jewellery on a walnut tray in late sun: a crystal CD pendant, Dior logo earrings, a rope knot brooch, an oval CD pendant and an oblique tag pendant",
         "height": "standard",
-        "layout": "stacked",
+        "one_line": true,
+        "logo": false,
         "heading": "We make vintage luxury accessible",
         "body": "",
         "link_label": "",
         "link": "shopify://collections/all",
         "link2_label": "",
         "link2": "/pages/private-viewing",
-        "logo": false,
-        "one_line": true
+        "layout": "stacked"
       }
     },
     "alcove": {
       "type": "alcove",
-      "disabled": true
+      "disabled": true,
+      "settings": {}
     },
     "featured": {
       "type": "featured",
       "blocks": {
         "a": {
-          "type": "piece"
+          "type": "piece",
+          "settings": {}
         },
         "b": {
-          "type": "piece"
+          "type": "piece",
+          "settings": {}
         },
         "c": {
-          "type": "piece"
+          "type": "piece",
+          "settings": {}
         }
       },
       "block_order": [
@@ -40,7 +53,8 @@
         "b",
         "c"
       ],
-      "disabled": true
+      "disabled": true,
+      "settings": {}
     },
     "houses": {
       "type": "houses",
@@ -61,7 +75,8 @@
     },
     "recent": {
       "type": "recent",
-      "disabled": true
+      "disabled": true,
+      "settings": {}
     },
     "record": {
       "type": "record",
@@ -78,7 +93,8 @@
     },
     "next": {
       "type": "next-edition",
-      "disabled": true
+      "disabled": true,
+      "settings": {}
     },
     "shelf-presale": {
       "type": "shelf",
@@ -98,8 +114,8 @@
     },
     "trust": {
       "type": "trust-strip",
-      "settings": {},
-      "disabled": true
+      "disabled": true,
+      "settings": {}
     },
     "categories": {
       "type": "shop-categories",
