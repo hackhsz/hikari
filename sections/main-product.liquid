@@ -54,7 +54,7 @@
           <a class="frame" href="{{ img | image_url: width: 2400 }}" data-zoom
              data-zoom-label="{% if evidence %}{{ 'products.frames.unretouched' | t }}{% elsif styled %}{{ 'products.frames.styled' | t }}{% endif %}"
              aria-label="{{ 'products.frames.label' | t: index: forloop.index, total: p.images.size }}">
-            {%- render 'plate', image: img, alt: frame_alt, badge: b -%}
+            {%- render 'plate', image: img, alt: frame_alt, badge: b, first: forloop.first -%}
           </a>
           {%- if evidence -%}<p class="unret">{{ 'products.frames.unretouched_note' | t }}</p>{%- endif -%}
           {%- if styled -%}<p class="unret">{{ 'products.frames.styled_note' | t }}</p>{%- endif -%}

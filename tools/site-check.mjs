@@ -177,16 +177,6 @@ async function visit(cdp, url, size, shot) {
     await sleep(1500);  // fonts, lazy images, the scroll colour
     const { result } = await s("Runtime.evaluate", { expression: `(${readPage})()`, returnByValue: true });
     const page = { ...result.value, status: docs.get(nav.loaderId) || 0, files, errors };
-    /* Core Web Vitals as this browser saw them: when the largest thing appeared, and how much the
-       page jumped while loading. A lab figure on a fast connection, so only the poor end is flagged. */
-    page.vitals = (await s("Runtime.evaluate", { awaitPromise: true, returnByValue: true, expression: `new Promise(r => {
-      let lcp = 0, cls = 0;
-      try {
-        new PerformanceObserver(l => { for (const e of l.getEntries()) lcp = Math.max(lcp, e.startTime); }).observe({ type: "largest-contentful-paint", buffered: true });
-        new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) cls += e.value; }).observe({ type: "layout-shift", buffered: true });
-      } catch (e) {}
-      setTimeout(() => r({ lcp: Math.round(lcp), cls: Math.round(cls * 1000) / 1000 }), 300);
-    })` })).result.value;
     if (shot) {
       /* A picture worth comparing: the photographs on screen loaded, and Shopify's own layers left out of
          it, the cookie banner (half of every first visit) and the draft theme's preview bar, which comes
@@ -307,10 +297,6 @@ function judge(pages) {
       }
     }
     if (["shop all", "category", "Dior", "Chanel"].includes(name) && !types.includes("CollectionPage")) flag("WARN", lang, name, "no search data listing the collection's pieces");
-    if (lang === "en") for (const [size, v] of [["desktop", d], ["phone", ph]]) if (v.vitals) {
-      if (v.vitals.lcp > 4000) flag("WARN", lang, name, `slow to show its main content on ${size}: ${(v.vitals.lcp / 1000).toFixed(1)}s (poor is over 4s)`);
-      if (v.vitals.cls > 0.25) flag("WARN", lang, name, `the page jumps while loading on ${size}: layout shift ${v.vitals.cls} (poor is over 0.25)`);
-    }
     for (const [size, v] of [["desktop", d], ["phone", ph]]) for (const part of v.layout || []) if (part.spill.length)
       flag("WARN", lang, name, `something in a part runs off the screen on ${size}`, `${part.name}\n${part.spill.join("\n")}`);
   }
@@ -365,7 +351,7 @@ async function checkLinks(found, problems) {
 /* ── the report ──────────────────────────────────────── */
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 
-function report({ target, theme, started, pages, problems, shots, parts = [], links }) {
+function report({ target, theme, started, pages, problems, shots, parts = [], links, speed = [] }) {
   const fails = problems.filter(p => p.level === "FAIL"), warns = problems.filter(p => p.level === "WARN");
   const groups = new Map();  // the same problem on many pages is one line
   for (const p of [...fails, ...warns]) {
@@ -400,6 +386,9 @@ ${theme ? `<p class="meta">Translations of the theme's own words (banner, announ
   }).join("")}</ul>` : "<p>Nothing.</p>"}
 <h2>Pages</h2><table><tr><th></th>${langs.map(l => `<th>${l}</th>`).join("")}</tr>
 ${PAGES.map(([name]) => `<tr><th>${esc(name)}</th>${langs.map(l => cell(l, name)).join("")}</tr>`).join("\n")}</table>
+${speed.length ? `<h2>Speed</h2><p class="meta">Core Web Vitals in English, one page at a time, the phone slowed to a mid-range phone on 4G. Largest paint: good under 2.5s, poor over 4s. Layout shift: good under 0.1, poor over 0.25.</p>
+<table><tr><th>page</th><th>size</th><th>largest paint</th><th>layout shift</th></tr>
+${speed.map(r => `<tr><td>${esc(r.name)}</td><td>${r.size}</td><td class="${r.lcp > 4000 ? "fail" : r.lcp > 2500 ? "warn" : "ok"}">${(r.lcp / 1000).toFixed(1)}s</td><td class="${r.cls > 0.25 ? "fail" : r.cls > 0.1 ? "warn" : "ok"}">${r.cls}</td></tr>`).join("\n")}</table>` : ""}
 <h2>Screenshots</h2><p class="meta">Approved · this run · what changed, in red. Flagged when more than ${CHANGED * 100}% changed. <code>node tools/site-check.mjs approve ${esc(target)}</code> makes this run's the approved ones.</p>
 ${shots.map(s => `<h3>${esc(s.lang)} · ${esc(s.name)} · ${s.size}${s.share === undefined ? " · nothing approved yet" : ` · ${(s.share * 100).toFixed(1)}% changed`}</h3>
 <div class="shots"><figure>${s.approved ? `<img loading="lazy" src="${s.approved}">` : ""}<figcaption>approved</figcaption></figure>
@@ -455,6 +444,9 @@ async function run(target) {
 
     const problems = [...lint(), ...judge(pages),
       ...await tracking(cdp, [["home", pageUrl("en", "/", theme), ["view_item_list"]], ["product", pageUrl("en", product, theme), ["view_item"]]])];
+    const fast = await speed(cdp, [["home", pageUrl("en", "/", theme)], ["shop all", pageUrl("en", "/collections/all", theme)],
+      ["Dior", pageUrl("en", "/collections/vintage-christian-dior-jewellery", theme)], ["product", pageUrl("en", product, theme)]]);
+    problems.push(...fast.problems);
     const found = new Map();  // the missing page links to itself, so its links don't count
     for (const p of pages.filter(p => p.expect === 200)) for (const u of p.desktop.links || [])
       if (!found.has(u) && !/\/(account|cart\/|checkout)/.test(u)) found.set(u, p);
@@ -505,8 +497,8 @@ async function run(target) {
     }
 
     for (const p of pages) for (const size of ["desktop", "phone"]) if (p[size]) delete p[size].shot;
-    writeFileSync(join(dir, "results.json"), JSON.stringify({ target, theme, started, problems, pages }, null, 1));
-    writeFileSync(join(dir, "report.html"), report({ target, theme, started, pages, problems, shots, parts, links }));
+    writeFileSync(join(dir, "results.json"), JSON.stringify({ target, theme, started, problems, speed: fast.rows, pages }, null, 1));
+    writeFileSync(join(dir, "report.html"), report({ target, theme, started, pages, problems, shots, parts, links, speed: fast.rows }));
     const fails = problems.filter(p => p.level === "FAIL").length, warns = problems.length - fails;
     console.log(`${target}: ${pages.length} pages, ${links} links. ${fails ? `${fails} FAIL` : "passed"}${warns ? `, ${warns} WARN` : ""}`);
     console.log(join(dir, "report.html"));
@@ -568,6 +560,44 @@ async function tracking(cdp, urls) {
   return problems;
 }
 
+/* Speed, as Google ranks it (Core Web Vitals): when the largest thing on screen appeared (LCP) and
+   how much the page jumped while loading (CLS). One page at a time and in front, as Chrome records
+   neither for a page loading in a background tab; the phone slowed to a mid-range phone on 4G
+   (CPU four times slower, 150ms latency, 1.6 Mbps), as Google's own lab tests do. */
+const PHONE_NET = { offline: false, latency: 150, downloadThroughput: 1.6e6 / 8, uploadThroughput: 750e3 / 8 };
+async function speed(cdp, urls) {
+  const rows = [], problems = [];
+  const { targetId } = await cdp.send("Target.createTarget", { url: "about:blank" });
+  const { sessionId } = await cdp.send("Target.attachToTarget", { targetId, flatten: true });
+  const s = (m, p) => cdp.send(m, p, sessionId);
+  try {
+    await s("Page.enable"); await s("Network.enable"); await s("Page.bringToFront");
+    for (const [name, url] of urls) for (const size of ["desktop", "phone"]) {
+      const phone = size === "phone";
+      await s("Emulation.setDeviceMetricsOverride", SIZES[size]);
+      await s("Emulation.setCPUThrottlingRate", { rate: phone ? 4 : 1 });
+      await s("Network.emulateNetworkConditions", phone ? PHONE_NET : { offline: false, latency: 0, downloadThroughput: -1, uploadThroughput: -1 });
+      await s("Network.clearBrowserCache");
+      await s("Page.navigate", { url: "about:blank" }); await sleep(300);
+      await s("Page.navigate", { url }); await sleep(phone ? 12000 : 6000);
+      const v = (await s("Runtime.evaluate", { awaitPromise: true, returnByValue: true, expression: `new Promise(r => {
+        let lcp = 0, cls = 0;
+        try {
+          new PerformanceObserver(l => { for (const e of l.getEntries()) lcp = Math.max(lcp, e.startTime); }).observe({ type: "largest-contentful-paint", buffered: true });
+          new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) cls += e.value; }).observe({ type: "layout-shift", buffered: true });
+        } catch (e) {}
+        setTimeout(() => r({ lcp: Math.round(lcp), cls: Math.round(cls * 1000) / 1000 }), 500);
+      })` })).result.value;
+      rows.push({ name, size, ...v });
+      if (v.lcp > 4000) problems.push({ level: "WARN", lang: "en", page: name, what: `slow to show its main content on a ${size}: ${(v.lcp / 1000).toFixed(1)}s (Google calls over 4s poor)` });
+      if (v.cls > 0.25) problems.push({ level: "WARN", lang: "en", page: name, what: `the page jumps while loading on a ${size}: layout shift ${v.cls} (Google calls over 0.25 poor)` });
+    }
+  } finally {
+    await cdp.send("Target.closeTarget", { targetId }).catch(() => {});
+  }
+  return { rows, problems };
+}
+
 /* The theme files themselves, before Shopify sees them. Shopify refuses a file it can't parse and
    keeps serving the old one without a word on the site (2026-11-04: a filter inside render's
    arguments left the About page on its old version), and a key missing from a language file shows
@@ -627,7 +657,7 @@ function approve(target) {
   return 0;
 }
 
-export { launch, visit, SIZES, pageUrl, tracking };
+export { launch, visit, SIZES, pageUrl, tracking, speed };
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const [cmd, arg] = process.argv.slice(2);

@@ -10,9 +10,25 @@
   of itself instead of an empty mat. For one large picture, where a crop could cut the piece.
   mark (with no image): the shop's cat drawing and "Photography to follow" instead of the drawn
   study, for a piece whose own photograph is not taken yet (snippets/product-card).
+  first: the photograph is the page's largest thing (the first photograph of a piece), so it loads at
+  once and before the rest, not lazily: how fast that appears is what Google times (LCP).
+  The srcset steps every 120 to 270px up to the width, so a phone gets a photograph near the size it
+  shows (Shopify's own steps went 352 → 832: a 190px tile on a phone downloaded 832px, 2026-11-04).
 {%- endcomment -%}
 {%- assign r = ratio | default: 0.8 -%}
 {%- assign w = width | default: 1400 -%}
+{%- liquid
+  assign steps = '360, 480, 640, 832, 1100, 1400'
+  if w > 1400
+    assign steps = steps | append: ', ' | append: w
+  endif
+  assign load = 'lazy'
+  assign priority = 'auto'
+  if first
+    assign load = 'eager'
+    assign priority = 'high'
+  endif
+-%}
 <div class="plate{% if fill %} plate--fill{% endif %}{% if contain %} plate--contain{% endif %}"{% if fill %} style="aspect-ratio:1 / {{ r }}"{% endif %}>
   {%- if image and fill -%}
     {%- liquid
@@ -24,9 +40,10 @@
     {%- comment -%} Arguments are plain variables: a filter inside an argument list (alt: alt | default: '')
         ends image_tag there, and every argument after it is silently dropped. {%- endcomment -%}
     {%- if contain -%}{{ image | image_url: width: 240 | image_tag: loading: 'lazy', alt: '', class: 'plate-bg', aria-hidden: 'true', widths: '240', sizes: '240px' }}{%- endif -%}
-    {{ image | image_url: width: w | image_tag: loading: 'lazy', alt: img_alt, sizes: img_sizes, style: obj_style }}
+    {{ image | image_url: width: w | image_tag: loading: load, fetchpriority: priority, widths: steps, alt: img_alt, sizes: img_sizes, style: obj_style }}
   {%- elsif image -%}
-    {{ image | image_url: width: w | image_tag: loading: 'lazy', alt: alt | default: '' }}
+    {%- assign img_alt = alt | default: '' -%}{%- assign img_sizes = sizes | default: '(max-width: 860px) 100vw, 58vw' -%}
+    {{ image | image_url: width: w | image_tag: loading: load, fetchpriority: priority, widths: steps, sizes: img_sizes, alt: img_alt }}
   {%- elsif mark -%}
     <div class="plate-mark" role="img" aria-label="{{ 'general.photography_to_follow' | t }}">
       <span class="pm-cat" style="--mark:url({{ 'brand-mark.png' | asset_url }})" aria-hidden="true"></span>
