@@ -150,6 +150,8 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .rec{aspect-ratio:4/5;position:relative;display:flex;align-items:flex-end;padding:10px;background:color-mix(in srgb,currentColor 10%,transparent);filter:saturate(.35);opacity:.66;transition:filter .5s,opacity .5s;overflow:hidden}
 .rec:hover{filter:saturate(1);opacity:1}
 .rec b{position:relative;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.85}
+/* On a beige Archive the label's ink colour vanished on dark photos: it sits on a small paper ground (8 Nov 2026). */
+.rec b{background:color-mix(in srgb,var(--paper) 88%,transparent);color:var(--sumi);padding:3px 6px;border-radius:1px;opacity:1}
 
 /* product page */
 .pdp{display:grid;grid-template-columns:repeat(12,1fr);column-gap:clamp(20px,4vw,56px);row-gap:36px;align-items:start}

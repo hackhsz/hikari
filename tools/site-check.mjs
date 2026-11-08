@@ -525,7 +525,7 @@ async function tracking(cdp, urls) {
     const { targetId } = await cdp.send("Target.createTarget", { url: "about:blank" });
     const { sessionId } = await cdp.send("Target.attachToTarget", { targetId, flatten: true });
     const s = (m, p) => cdp.send(m, p, sessionId), sent = [];
-    const off = cdp.on(({ method, params: p, sessionId: id }) => { if (id === sessionId && method === "Network.requestWillBeSent") sent.push(p.request.url); });
+    const off = cdp.on(({ method, params: p, sessionId: id }) => { if (id === sessionId && method === "Network.requestWillBeSent") sent.push(p.request.url + (p.request.postData ? "\n" + p.request.postData : "")); });  // GA4 batches events into the body, one "en=" per line
     try {
       await s("Network.enable"); await s("Page.enable");
       await s("Network.clearBrowserCookies");  // a first visit each time: the consent given on the last page is a cookie
@@ -554,7 +554,7 @@ async function tracking(cdp, urls) {
       if (!after.some(u => /googletagmanager\.com\/gtag\/js/.test(u))) flag("FAIL", name, "Google Analytics doesn't start once analytics is allowed");
       else if (!after.some(u => /\/g\/collect/.test(u))) flag("FAIL", name, "Google Analytics started but sent nothing after consent");
       else {
-        const evs = new Set(after.filter(u => /\/g\/collect/.test(u)).flatMap(u => [...u.matchAll(/[?&]en=([^&]+)/g)].map(m => decodeURIComponent(m[1]))));
+        const evs = new Set(after.filter(u => /\/g\/collect/.test(u)).flatMap(u => [...u.matchAll(/(?:[?&]|^)en=([^&\s]+)/gm)].map(m => decodeURIComponent(m[1]))));
         for (const ev of ["page_view", ...expect]) if (!evs.has(ev)) flag("WARN", name, `"${ev}" didn't reach Google Analytics after consent`, `sent: ${[...evs].join(", ") || "nothing"}`);
       }
     } finally {
