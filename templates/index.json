@@ -16,13 +16,13 @@
         "image_mobile": "shopify://shop_images/karineko-banner-walnut-tray-phone.jpg",
         "image_alt": "Vintage Dior jewellery on a walnut tray in late sun: a crystal CD pendant, Dior logo earrings, a rope knot brooch, an oval CD pendant and an oblique tag pendant",
         "height": "standard",
-        "one_line": true,
+        "one_line": false,
         "logo": false,
         "heading": "We make vintage luxury accessible",
-        "body": "",
-        "link_label": "",
+        "body": "<p>Handpicked vintage pieces from Japan.</p><p>100% Authenticity Guaranteed.</p><p>London showings by appointment only.</p>",
+        "link_label": "Explore the collection",
         "link": "shopify://collections/all",
-        "link2_label": "",
+        "link2_label": "Book a private viewing",
         "link2": "/pages/private-viewing",
         "layout": "stacked"
       }
