@@ -102,7 +102,7 @@
           {%- endif -%}
           <form class="cat-sort" method="get">
             <label for="cat-sort-by">{{ 'collections.sort.label' | t }}</label>
-            <select id="cat-sort-by" name="sort_by" data-cat-sort>
+            <select id="cat-sort-by" name="sort_by" data-cat-sort data-default="{{ collection.default_sort_by }}">
               {%- assign sorts = 'manual,price-ascending,price-descending,created-descending,vendor' | split: ',' -%}
               {%- for s in sorts -%}
                 {%- assign sk = 'collections.sort.' | append: s | replace: '-', '_' -%}

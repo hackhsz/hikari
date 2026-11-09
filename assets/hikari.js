@@ -622,7 +622,7 @@
       if(count) count.textContent=plural("pieces",n,"[n] piece","[n] pieces");
       if(empty) empty.hidden=n>0;
       var u=new URL(location.href);
-      [["brand",b],["cat",c],["show",s],["hide",h?"sold":""],["sort_by",by==="manual"?"":by]].forEach(function(p){ if(p[1]) u.searchParams.set(p[0],p[1]); else u.searchParams.delete(p[0]); });
+      [["brand",b],["cat",c],["show",s],["hide",h?"sold":""],["sort_by",(by==="manual"||(sort&&by===sort.getAttribute("data-default")))?"":by]].forEach(function(p){ if(p[1]) u.searchParams.set(p[0],p[1]); else u.searchParams.delete(p[0]); });
       history.replaceState(history.state,"",u);
       markShopNav();
     }
