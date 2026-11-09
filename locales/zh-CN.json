@@ -92,7 +92,7 @@
       "transit_note": "正从日本运来。下单后 {{ days }} 天内寄出。",
       "goes_live": "{{ release }} 上线",
       "kept_on_record": "收录于典藏",
-      "reserved_note": "目前已为一位客人预留。",
+      "reserved_note": "目前为一位客人保留中。",
       "ask": "咨询这件单品",
       "share": "分享",
       "copy_link": "复制链接",
