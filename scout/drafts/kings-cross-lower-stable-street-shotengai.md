@@ -33,3 +33,7 @@
 
 - Your name in the sign-off
 - Public liability insurance: likely required once they say yes
+
+## Reply, 2 Nov 2026: ruled out
+
+Kiosk N1C: "the market is fully booked for the season, and we don't host buyers-and-sellers really - only makers. I'll bear you in mind if we launch anything more vintage focused."

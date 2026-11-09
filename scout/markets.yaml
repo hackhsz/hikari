@@ -97,14 +97,10 @@ markets:
   cost: Stand/cabinet rent not published; ask the Management Office (020 7723 6066)
   commission_pct: null
   requires: [Email info@alfiesantiques.com with a short introduction, 'Images, a portfolio or a website link']
-  watch_out: The call invites 'experienced antiques dealers and specialists', so a new business needs a strong visual
-    portfolio. It is a permanent monthly commitment. Whether a stand must be staffed Tue-Sat or a cabinet can be
-    left with a central till was not verified.
-  fit: 4
-  why: '70-80+ dealers on four floors, including established vintage fashion (Linda Bee) and antique/vintage jewellery
-    stands, drawing collectors, curators, stylists and interior designers. A Marylebone address builds the brand
-    and resellers are the norm. Main weakness: unknown ongoing rent and staffing load for a one-person business.'
-  checked: 2026-11-02
+  watch_out: 'Alfies replied on 3 Nov 2026 (Ethan, copying Clara, who handles lettings): the available units "may be too large for the selection that you currently have, and all spaces would need to be staffed". A cabinet left with a central desk isn''t on offer. A stand means staffing Tue–Sat, 10am–6pm.'
+  fit: 3
+  why: '70–80+ dealers across four floors, including vintage fashion and jewellery stands, and a Marylebone address that builds the brand. Lowered from 4 on 9 Nov 2026: Alfies says every space must be staffed and the available units are larger than our range, which is a heavy commitment for a one-person business. Rent still unknown.'
+  checked: 2026-11-09
   sources: ['https://alfiesantiques.com/dealers-at-alfies/', 'https://alfiesantiques.com/faqs/', 'https://alfiesantiques.com/the-eclectic-elegance-of-linda-bee-at-alfies-antiques-market/']
   decision: applied
   our_notes: Enquiry emailed to info@alfiesantiques.com on 2 Nov 2026 (asked about a cabinet, rent, staffing). Awaiting reply.
@@ -191,15 +187,12 @@ markets:
   cost: Not published
   commission_pct: null
   requires: [Email enquiry to market@kioskn1c.com]
-  watch_out: Kiosk N1C describes its stallholders as 'specialising in food, drink and craft' with a sustainability
-    focus, and acceptance of vintage resale is unconfirmed, so lead with the circular/pre-loved angle. Shotengai
-    is themed pan-Asian homeware and food, so a Japan-sourced Western designer jewellery stall needs to be framed
-    for the curators.
-  fit: 4
+  watch_out: Ruled out by the organiser. Kiosk N1C replied on 2 Nov 2026 that the market is fully booked for the season and "we don't host buyers-and-sellers really - only makers". They'll bear us in mind if they launch anything more vintage-focused.
+  fit: 1
   why: Design-led King's Cross crowd. The Japan-curated Shotengai market (Beams & Co, past vendors like (kits) London
     selling Japanese accessories and fashion) matches the brand's Japan-minimal story closely and would build the
     brand. Resale acceptance and fees are unverified.
-  checked: 2026-11-02
+  checked: 2026-11-09
   sources: ['https://www.kingscross.co.uk/event/lower-stable-street-market', 'https://www.kingscross.co.uk/event/shotengai-market',
     'https://www.kingscross.co.uk/the-shotengai-market', 'https://kioskn1c.com/pages/market']
   decision: applied
@@ -2089,18 +2082,16 @@ markets:
   apply_url: null
   dates: Open 7 days. Mon-Fri 11am-6:30pm, Sat 11am-6pm, Sun 10am-6pm. Permanent underground market of 100+ shops.
   next_date: null
-  apply: {status: unknown, deadline: null, opens: null}
-  window: No trader page found. The only routes are Truman's general retail lettings (/renting-space#retail) and
-    info@trumanbrewery.com, and neither confirms units in the vintage market.
-  fee_gbp: null
-  cost: Not published
+  apply: {status: closed, deadline: null, opens: null}
+  window: At capacity, with an extensive waiting list. Join it by email, and when a unit frees up they contact everyone on the list and hold viewings.
+  fee_gbp: 220
+  cost: 'From £220 per week, priced by size, location and visibility, including VAT, business rates and utilities. No long-term contract or minimum term. Units are dry hire: you fit them out yourself.'
   commission_pct: null
-  requires: [Retail letting enquiry to The Truman Brewery (route unconfirmed)]
-  watch_out: The market's own domains (bricklanevintagemarket.com and .co.uk) are parked, and vintage-market.co.uk
-    returned 503. These are permanent shop units, not day stalls, so they mean rent plus daily staffing.
+  requires: ['For the waiting list: your name, business name, social and website links, style inspiration for the unit ("we prioritise creativity"), and size wanted (small ~75–100 sq ft, medium 100–200, large 200+)', 'Open and trading on time every day: it''s a 7-day market']
+  watch_out: 'Truman Markets (Georgina) replied on 3 Nov 2026: the market is at capacity and has a waiting list, and every unit must open and trade 7 days a week. At £220 a week that''s about 3 sales a week to cover rent, before staffing every day.'
   fit: 3
   why: Raised from 2 on 2 Nov 2026 under the younger-generation pitch. The market bills itself as 'where London's trendsetters shop — from 1920s glam to Y2K streetwear', which is the audience we now target. No trader route is published; the enquiry goes to Truman Brewery's general address. A unit is a lease, not a day stall, so cost and term decide it.
-  checked: 2026-10-19
+  checked: 2026-11-09
   sources: ['https://www.trumanbrewery.com/web/markets.pl']
   decision: shortlist
   our_notes: null

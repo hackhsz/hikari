@@ -31,3 +31,9 @@
 
 - Your name in the sign-off
 - Answers on rent and staffing before committing
+
+## Reply, 3 Nov 2026
+
+Ethan at Alfies has passed the enquiry to his colleague Clara, who's copied in. He said: "the units that we have available I believe may be too large for the selection that you currently have, and all spaces would need to be staffed."
+
+There's no cabinet-only option, and staffing means Tue–Sat, 10am–6pm. Wait for Clara's rent figures before deciding.
