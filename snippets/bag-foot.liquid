@@ -9,8 +9,8 @@
   total become a subtotal (1-shop/21-checkout.md). Free delivery is for the UK only: a buyer
   in any other country always sees delivery added at checkout.
 
-  A piece that has sold since it was added is left out of the total, and checkout waits until
-  it is removed. Shopify would otherwise drop it on its own stock-problem screen, which is
+  A piece that has sold (or been reserved for a client) since it was added is left out of the
+  total, and checkout waits until it is removed. Shopify would otherwise drop it on its own stock-problem screen, which is
   a worse way to find out.
 
   The gift fields belong to the checkout form (the form attribute), so they reach the order as
@@ -26,7 +26,11 @@
   assign live_n = 0
   assign sold_n = 0
   for item in cart.items
-    if item.variant.available
+    assign held = false
+    if item.product.tags contains 'reserved'
+      assign held = true
+    endif
+    if item.variant.available and held == false
       assign live_total = live_total | plus: item.final_line_price
       assign live_n = live_n | plus: 1
     else

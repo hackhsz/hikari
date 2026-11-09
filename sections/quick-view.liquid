@@ -5,7 +5,7 @@
   and puts it into the #qv dialog (snippets/dialogs). Add to bag inside it is the ordinary
   product form, so the bag script handles it like any other.
 
-  Coming soon and sold pieces point to their page, where the "Tell me" forms are.
+  Coming soon, reserved and sold pieces point to their page, where the "Tell me" forms are.
 {%- endcomment -%}
 {%- assign p = product -%}
 {%- if p -%}
@@ -24,10 +24,11 @@
 
     {%- case status -%}
       {%- when 'presale' -%}
-        <p class="pdp-status">{{ 'products.product.pre_sale_note' | t: note: settings.presale_note }}</p>
+        {%- assign transit_note = 'products.product.transit_note' | t: days: settings.transit_days -%}
+        <p class="pdp-status">{{ transit_note }}</p>
         {%- form 'product', p -%}
           <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
-          <input type="hidden" name="properties[Pre-sale]" value="{{ settings.presale_note | escape }}">
+          <input type="hidden" name="properties[{{ 'products.badge.pre_sale' | t | escape }}]" value="{{ transit_note | escape }}">
           {%- assign pre_order = 'products.product.pre_order' | t -%}
           <button class="btn" type="submit" data-label="{{ pre_order }}">{{ pre_order }}</button>
         {%- endform -%}
@@ -35,6 +36,9 @@
         {%- capture release_at -%}{%- render 'release', p: p -%}{%- endcapture -%}
         <p class="pdp-status">{{ 'products.product.goes_live' | t: release: release_at }}</p>
         <a class="btn" href="{{ p.url }}">{{ 'products.notify.release_heading' | t }}</a>
+      {%- when 'reserved' -%}
+        <p class="pdp-status">{{ 'products.product.reserved_note' | t }}</p>
+        <a class="btn" href="{{ p.url }}">{{ 'products.notify.reserved_heading' | t }}</a>
       {%- when 'sold' -%}
         <p class="pdp-status">{{ 'products.product.kept_on_record' | t }}</p>
         <a class="btn" href="{{ p.url }}">{{ 'products.quick_view.similar' | t }}</a>

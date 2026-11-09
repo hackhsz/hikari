@@ -265,7 +265,7 @@
     var id=String(input.value), btn=form.querySelector('[type="submit"]');
     if(bagIds().indexOf(id)>-1){ openSheetById("bag",btn); note(str("already","Already in your bag.")); return; }
     if(btn) btn.setAttribute("aria-busy","true");
-    /* line properties ride along (a pre-sale says so on the order) */
+    /* line properties ride along (a piece in transit says so on the order) */
     var item={id:Number(id),quantity:1}, props={};
     [].forEach.call(form.querySelectorAll('[name^="properties["]'),function(i){ props[i.name.slice(11,-1)]=i.value; });
     if(Object.keys(props).length) item.properties=props;
@@ -614,7 +614,7 @@
       items.forEach(function(el){
         var st=el.getAttribute("data-status"),
             ok=(!b||el.getAttribute("data-brand")===b)&&(!c||el.getAttribute("data-cat")===c)&&
-               (!s||(s==="available"?(st!=="sold"&&st!=="soon"):st===s))&&!(h&&st==="sold");
+               (!s||(s==="available"?(st!=="sold"&&st!=="soon"&&st!=="reserved"):st===s))&&!(h&&st==="sold");
         el.hidden=!ok; if(ok) n++;
       });
       items.slice().sort(SORTS[by]||function(x,y){ return num(x,"pos")-num(y,"pos"); })
@@ -637,7 +637,7 @@
       var k=i.name.replace("cat-",""), v=i.value;
       n.textContent=items.filter(function(el){
         if(!v) return true;
-        if(k==="show"){ var st=el.getAttribute("data-status"); return v==="available"?(st!=="sold"&&st!=="soon"):st===v; }
+        if(k==="show"){ var st=el.getAttribute("data-status"); return v==="available"?(st!=="sold"&&st!=="soon"&&st!=="reserved"):st===v; }
         return el.getAttribute("data-"+(k==="cat"?"cat":"brand"))===v;
       }).length;
       /* nothing behind it: leave it out, unless the address asked for it */

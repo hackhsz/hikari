@@ -75,7 +75,7 @@
     "settings": [
       {
         "type": "paragraph",
-        "content": "Coming soon: tag a product coming-soon, keep its stock at 0, and give it a Date and time metafield hikari.release. It shows the release time instead of a price, and never counts as sold. Remove the tag and add stock when it goes live (D25)."
+        "content": "A piece's status comes from its tags (Products → the piece → Tags). No tag: available. Stock 0: sold, kept in the Archive. reserved: held for a client; it shows Reserved, can't be bought, and stays out of the Archive; remove the tag to sell it again. coming-soon: keep its stock at 0 and give it a Date and time metafield hikari.release; it shows the release time and never counts as sold; remove the tag and add stock when it goes live (D25). A piece in stock without a price also shows as coming soon."
       },
       {
         "type": "number",
@@ -86,14 +86,14 @@
       },
       {
         "type": "paragraph",
-        "content": "Pre-sale: tag a product pre-sale and keep its stock at 1. It can be bought now, the button says Pre-order, and the note below goes on the order. Remove the tag once it ships. On sale: give a product a compare-at price above its price; the old price shows struck through."
+        "content": "In transit: tag a piece in-transit (the older tag pre-sale works too). In stock, it can be bought now: the badge says In transit, the button says Pre-order, and the note \"On its way to us from Japan. Ships within N days of your order.\" shows on the page and goes on the order. On a coming-soon piece the note shows beside the release time. Remove the tag once it has arrived. On sale: give a product a compare-at price above its price; the old price shows struck through."
       },
       {
         "type": "text",
-        "id": "presale_note",
-        "label": "Pre-sale shipping note",
-        "default": "Ships within about a month of your order.",
-        "info": "Promise less than you expect to deliver."
+        "id": "transit_days",
+        "label": "In transit: ships within this many days",
+        "default": "10–14",
+        "info": "A number or a range, such as 10–14. Promise less than you expect to deliver."
       }
     ]
   },

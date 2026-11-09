@@ -29,7 +29,7 @@
     try{
       var j=JSON.parse(host.getAttribute("data-track-item")), it={item_id:j.item_id,item_name:j.item_name,item_brand:j.item_brand,price:j.price};
       if(j.item_category) it.item_category=j.item_category;
-      if(j.status) it.item_variant=j.status;   /* soon, presale or sold, so they can be told apart */
+      if(j.status) it.item_variant=j.status;   /* reserved, soon, sold, presale (in transit)…, so they can be told apart */
       if(index!==undefined) it.index=index;
       return it;
     }catch(e){ return null; }

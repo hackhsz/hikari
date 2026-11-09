@@ -163,7 +163,7 @@
           render 'status', p: product
         endcapture
         assign availability = 'https://schema.org/OutOfStock'
-        if product.available and st != 'soon'
+        if product.available and st != 'soon' and st != 'reserved'
           assign availability = 'https://schema.org/InStock'
         endif
         if st == 'presale'

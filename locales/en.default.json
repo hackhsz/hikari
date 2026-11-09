@@ -89,9 +89,10 @@
       "in_bag": "In your bag",
       "just_sold": "This piece has just sold.",
       "pre_order": "Pre-order",
-      "pre_sale_note": "Pre-sale. {{ note }}",
+      "transit_note": "On its way to us from Japan. Ships within {{ days }} days of your order.",
       "goes_live": "Goes live {{ release }}",
       "kept_on_record": "Kept in the Archive",
+      "reserved_note": "Held for a client for now.",
       "ask": "Ask about this piece",
       "share": "Share",
       "copy_link": "Copy link",
@@ -100,7 +101,8 @@
     },
     "badge": {
       "coming_soon": "Coming soon",
-      "pre_sale": "Pre-sale",
+      "reserved": "Reserved",
+      "pre_sale": "In transit",
       "sale": "Sale",
       "new": "New"
     },
@@ -121,6 +123,9 @@
       "similar_heading": "Tell me when something like this arrives",
       "similar_fine": "An email when a similar piece from this house comes in, and the Edition. Unsubscribe any time.",
       "similar_ok": "We'll write when a similar piece comes in.",
+      "reserved_heading": "Tell me if it becomes available",
+      "reserved_fine": "One email if this piece comes back on sale, then the monthly letter. Unsubscribe any time.",
+      "reserved_ok": "We'll email you if it comes back on sale.",
       "submit": "Notify me"
     },
     "frames": {
@@ -159,6 +164,7 @@
     "empty_body": "Pieces you add will appear here.",
     "see_every_piece": "See every piece",
     "sold_since": "Sold since you added it",
+    "reserved_since": "Reserved for another client since you added it",
     "remove": "Remove",
     "remove_label": "Remove {{ house }}, {{ piece }}",
     "gift_note": "Note for the card",

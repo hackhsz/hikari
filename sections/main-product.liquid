@@ -14,13 +14,18 @@
   in order. Real photographs only. Nothing in it is generated, so it sits beside the evidence
   frames rather than with the composed ones. It goes after frame 1.
 
-  The panel follows the piece's status (snippets/status, D25): Add to bag; or, pre-sale, Pre-order
-  with the shipping note (theme settings → Badges), which also goes on the order; or, coming soon, the
-  release time and a form to hear when it goes live; or, sold, a form to hear when something
-  similar arrives. Both forms add a tagged customer, so Shopify Email can find them.
+  The panel follows the piece's status (snippets/status, D25): Add to bag; or, in transit, Pre-order
+  with the shipping note (theme settings → Badges → days), which also goes on the order; or, coming
+  soon, the release time (and the shipping note if it is in transit) and a form to hear when it goes
+  live; or, reserved, a form to hear if it comes back (customers tagged notify-available); or, sold,
+  a form to hear when something similar arrives. The forms add a tagged customer, so Shopify Email
+  can find them.
 {%- endcomment -%}
 {%- assign p = product -%}
 {%- capture status -%}{%- render 'status', p: p -%}{%- endcapture -%}
+{%- assign in_transit = false -%}
+{%- if p.tags contains 'in-transit' or p.tags contains 'pre-sale' -%}{%- assign in_transit = true -%}{%- endif -%}
+{%- assign transit_note = 'products.product.transit_note' | t: days: settings.transit_days -%}
 {%- assign piece = p.metafields.hikari.piece | default: p.title -%}
 {%- assign spin = p.metafields.hikari.spin.value -%}
 {%- capture spin_html -%}
@@ -80,10 +85,10 @@
 
       {%- case status -%}
         {%- when 'presale' -%}
-          <p class="pdp-status pdp-status--soon"><span class="badge badge--soon">{{ 'products.badge.pre_sale' | t }}</span> {{ settings.presale_note }}</p>
+          <p class="pdp-status pdp-status--soon"><span class="badge badge--soon">{{ 'products.badge.pre_sale' | t }}</span> {{ transit_note }}</p>
           {%- form 'product', p -%}
             <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
-            <input type="hidden" name="properties[Pre-sale]" value="{{ settings.presale_note | escape }}">
+            <input type="hidden" name="properties[{{ 'products.badge.pre_sale' | t | escape }}]" value="{{ transit_note | escape }}">
             {%- assign pre_order = 'products.product.pre_order' | t -%}
             <button class="btn" type="submit" data-label="{{ pre_order }}">{{ pre_order }}</button>
           {%- endform -%}
@@ -92,6 +97,7 @@
           {%- capture release_at -%}{%- render 'release', p: p -%}{%- endcapture -%}
           <p class="pdp-status pdp-status--soon"><span class="badge badge--soon">{{ 'products.badge.coming_soon' | t }}</span>
             {{ 'products.product.goes_live' | t: release: release_at }}</p>
+          {%- if in_transit -%}<p class="pdp-status"><span class="badge badge--soon">{{ 'products.badge.pre_sale' | t }}</span> {{ transit_note }}</p>{%- endif -%}
           {%- capture tags -%}notify-release, piece-{{ p.handle }}{%- endcapture -%}
           {%- liquid
             assign heading = 'products.notify.release_heading' | t
@@ -99,6 +105,15 @@
             assign ok = 'products.notify.release_ok' | t
           -%}
           {%- render 'notify', form_id: 'notify-release', tags: tags, heading: heading, fine: fine, ok: ok -%}
+        {%- when 'reserved' -%}
+          <p class="pdp-status"><span class="badge badge--sold">{{ 'products.badge.reserved' | t }}</span> {{ 'products.product.reserved_note' | t }}</p>
+          {%- capture tags -%}notify-available, piece-{{ p.handle }}{%- endcapture -%}
+          {%- liquid
+            assign heading = 'products.notify.reserved_heading' | t
+            assign fine = 'products.notify.reserved_fine' | t
+            assign ok = 'products.notify.reserved_ok' | t
+          -%}
+          {%- render 'notify', form_id: 'notify-available', tags: tags, heading: heading, fine: fine, ok: ok -%}
         {%- when 'sold' -%}
           <p class="pdp-status"><span class="badge badge--sold">{{ 'products.product.sold_out' | t }}</span> {{ 'products.product.kept_on_record' | t }}</p>
           {%- capture tags -%}notify-similar, house-{{ p.vendor | handleize }}{%- endcapture -%}

@@ -3,7 +3,8 @@
   Beige, like the list band and the footer after it (owner, 2026-11-08): the site stays white and
   beige to the end. It went dark in October and green on 3 Nov; both were taken back.
 
-  A coming-soon piece is not available either, but it has not sold: it never appears here (D25).
+  A coming-soon or reserved piece may not be available either, but it has not sold: it never
+  appears here (D25).
 
   Three sources, in order: a collection chosen in the editor; on a collection page (the house
   template), the sold pieces of that collection; otherwise everything sold. With nothing sold yet
@@ -25,7 +26,7 @@
   {%- assign shown = 0 -%}
   {%- for p in recs -%}
     {%- if sold_only and p.available -%}{%- continue -%}{%- endif -%}
-    {%- if p.tags contains 'coming-soon' -%}{%- continue -%}{%- endif -%}
+    {%- if p.tags contains 'coming-soon' or p.tags contains 'reserved' -%}{%- continue -%}{%- endif -%}
     {%- if shown >= 6 -%}{%- break -%}{%- endif -%}
     {%- assign shown = shown | plus: 1 -%}
     <a class="rec" href="{{ p.url }}">

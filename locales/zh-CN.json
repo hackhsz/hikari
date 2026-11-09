@@ -89,9 +89,10 @@
       "in_bag": "已在购物袋中",
       "just_sold": "这件单品刚刚售出。",
       "pre_order": "预订",
-      "pre_sale_note": "预售。{{ note }}",
+      "transit_note": "正从日本运来。下单后 {{ days }} 天内寄出。",
       "goes_live": "{{ release }} 上线",
       "kept_on_record": "收录于典藏",
+      "reserved_note": "目前已为一位客人预留。",
       "ask": "咨询这件单品",
       "share": "分享",
       "copy_link": "复制链接",
@@ -100,7 +101,8 @@
     },
     "badge": {
       "coming_soon": "即将上线",
-      "pre_sale": "预售",
+      "reserved": "已预留",
+      "pre_sale": "运输中",
       "sale": "特价",
       "new": "新品"
     },
@@ -121,6 +123,9 @@
       "similar_heading": "有类似单品时通知我",
       "similar_fine": "这个品牌有类似单品到店时，我们会发邮件告诉您，每期上新也会寄给您。可随时退订。",
       "similar_ok": "有类似单品到店时，我们会写信给您。",
+      "reserved_heading": "重新开售时通知我",
+      "reserved_fine": "如果这件单品重新开售，我们会发一封邮件给您，之后每月寄给您一封来信。可随时退订。",
+      "reserved_ok": "重新开售时我们会通知您。",
       "submit": "通知我"
     },
     "frames": {
@@ -159,6 +164,7 @@
     "empty_body": "加入的作品会显示在这里。",
     "see_every_piece": "查看全部单品",
     "sold_since": "加入后已售出",
+    "reserved_since": "加入后已为其他客人预留",
     "remove": "移除",
     "remove_label": "移除 {{ house }}，{{ piece }}",
     "gift_note": "贺卡留言",

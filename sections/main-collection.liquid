@@ -77,6 +77,7 @@
           <label class="side-opt"><input type="radio" name="cat-show" value="available"><span>{{ 'collections.filters.available' | t }}</span><span class="n" data-n></span></label>
           {%- if has contains ' sale ' -%}<label class="side-opt"><input type="radio" name="cat-show" value="sale"><span>{{ 'collections.filters.on_sale' | t }}</span><span class="n" data-n></span></label>{%- endif -%}
           {%- if has contains ' presale ' -%}<label class="side-opt"><input type="radio" name="cat-show" value="presale"><span>{{ 'products.badge.pre_sale' | t }}</span><span class="n" data-n></span></label>{%- endif -%}
+          {%- if has contains ' reserved ' -%}<label class="side-opt"><input type="radio" name="cat-show" value="reserved"><span>{{ 'products.badge.reserved' | t }}</span><span class="n" data-n></span></label>{%- endif -%}
           {%- if has contains ' sold ' -%}<label class="side-opt"><input type="radio" name="cat-show" value="sold"><span>{{ 'products.product.sold_out' | t }}</span><span class="n" data-n></span></label>{%- endif -%}
         </fieldset>
         <button type="button" class="prefs-skip side-reset" data-cat-reset>{{ 'collections.reset' | t }}</button>

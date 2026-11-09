@@ -1,20 +1,32 @@
 {%- comment -%}
-  A piece's status, as one word (D25): soon, sold, presale, sale, new, or nothing.
-    soon     tagged coming-soon: shown before its Edition, not yet for sale. Never counted as sold,
-             so it stays off the Record. Keep its stock at 0 until it goes live, then remove the tag.
-    sold     not available, and not coming soon.
-    presale  tagged pre-sale and in stock: for sale now, ships later (settings.presale_note).
-    sale     a compare-at price above the price.
-    new      available, and published within settings.new_days days. 0 turns New off.
+  A piece's status, as one word (D25): reserved, soon, sold, presale, sale, new, or nothing.
+  The owner sets it with tags (Shopify → Products → the piece → Tags). A piece in stock with
+  none of these tags is simply available (2026-11-09).
+    reserved  tagged reserved: held for a client. Not for sale and not sold, so it stays off the
+              Archive. Stock can stay at 1 (the bag will not check it out, snippets/bag-foot) or
+              go to 0 for a firm hold; either way it reads Reserved. Remove the tag to sell it again.
+    soon      tagged coming-soon: shown before its Edition, not yet for sale. Never counted as sold,
+              so it stays off the Record. Keep its stock at 0 until it goes live, then remove the tag.
+              Also a piece in stock without a price: it can't be sold at £0 (2026-11-09).
+    sold      not available, and not reserved or coming soon.
+    presale   in transit: tagged in-transit (or pre-sale, the older word) and in stock. For sale
+              now, ships within settings.transit_days days. A coming-soon piece can be in transit
+              too: it stays soon, and its page says it is on its way.
+    sale      a compare-at price above the price.
+    new       available, and published within settings.new_days days. 0 turns New off.
   Use: {%- capture s -%}{%- render 'status', p: product -%}{%- endcapture -%}
 {%- endcomment -%}
 {%- liquid
   assign s = ''
-  if p.tags contains 'coming-soon'
+  if p.tags contains 'reserved'
+    assign s = 'reserved'
+  elsif p.tags contains 'coming-soon'
     assign s = 'soon'
   elsif p.available == false
     assign s = 'sold'
-  elsif p.tags contains 'pre-sale'
+  elsif p.price == 0
+    assign s = 'soon'
+  elsif p.tags contains 'in-transit' or p.tags contains 'pre-sale'
     assign s = 'presale'
   elsif p.compare_at_price > p.price
     assign s = 'sale'

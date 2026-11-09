@@ -88,10 +88,11 @@
       "one_of_one": "Pieza única",
       "in_bag": "En tu bolsa",
       "just_sold": "Esta pieza acaba de venderse.",
-      "pre_order": "Reservar",
-      "pre_sale_note": "Preventa. {{ note }}",
+      "pre_order": "Encargar",
+      "transit_note": "Está de camino desde Japón. Se envía en un plazo de {{ days }} días desde tu pedido.",
       "goes_live": "Disponible el {{ release }}",
       "kept_on_record": "Se conserva en el Archivo",
+      "reserved_note": "Reservada para otra persona por el momento.",
       "ask": "Preguntar por esta pieza",
       "share": "Compartir",
       "copy_link": "Copiar enlace",
@@ -100,7 +101,8 @@
     },
     "badge": {
       "coming_soon": "Próximamente",
-      "pre_sale": "Preventa",
+      "reserved": "Reservada",
+      "pre_sale": "En camino",
       "sale": "Rebaja",
       "new": "Nueva"
     },
@@ -121,6 +123,9 @@
       "similar_heading": "Avísame cuando llegue algo parecido",
       "similar_fine": "Un correo cuando llegue una pieza parecida de esta casa, y la Edición. Puedes darte de baja cuando quieras.",
       "similar_ok": "Te escribiremos cuando llegue una pieza parecida.",
+      "reserved_heading": "Avísame si vuelve a estar disponible",
+      "reserved_fine": "Un correo si esta pieza vuelve a la venta y, después, la carta mensual. Puedes darte de baja cuando quieras.",
+      "reserved_ok": "Te avisaremos si vuelve a estar disponible.",
       "submit": "Avísame"
     },
     "frames": {
@@ -159,6 +164,7 @@
     "empty_body": "Las piezas que añadas aparecerán aquí.",
     "see_every_piece": "Ver todas las piezas",
     "sold_since": "Vendida después de añadirla",
+    "reserved_since": "Reservada para otra persona después de añadirla",
     "remove": "Quitar",
     "remove_label": "Quitar {{ house }}, {{ piece }}",
     "gift_note": "Nota para la tarjeta",
