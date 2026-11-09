@@ -25,6 +25,7 @@
   assign live_total = 0
   assign live_n = 0
   assign sold_n = 0
+  assign held_n = 0
   for item in cart.items
     assign held = false
     if item.product.tags contains 'reserved'
@@ -35,8 +36,16 @@
       assign live_n = live_n | plus: 1
     else
       assign sold_n = sold_n | plus: 1
+      if held
+        assign held_n = held_n | plus: 1
+      endif
     endif
   endfor
+  # When every piece that can't be bought is reserved rather than sold, the warning says reserved.
+  assign why = 'sold'
+  if held_n > 0 and held_n == sold_n
+    assign why = 'reserved'
+  endif
   assign free_over = settings.delivery_free_over | default: 0 | times: 100
   assign in_uk = false
   if localization.country.iso_code == 'GB'
@@ -73,7 +82,7 @@
   <div class="bag-pay">
     {%- if live_n == 0 -%}
       <p class="bag-warn">
-        {%- if sold_n == 1 -%}{{ 'cart.all_sold_single' | t }}{%- else -%}{{ 'cart.all_sold_several' | t }}{%- endif -%}
+        {%- if sold_n == 1 -%}{{ 'cart.all_' | append: why | append: '_single' | t }}{%- else -%}{{ 'cart.all_' | append: why | append: '_several' | t }}{%- endif -%}
       </p>
       <p class="bag-again"><a class="bag-link" href="{{ routes.all_products_collection_url }}">{{ 'cart.see_every_piece' | t }}</a></p>
     {%- else -%}
@@ -89,8 +98,8 @@
     {%- if settings.vat_line != blank -%}<p class="bag-fine">{{ settings.vat_line }}</p>{%- endif -%}
     {%- if sold_n > 0 -%}
       <p class="bag-warn">
-        {%- if sold_n == 1 -%}{{ 'cart.some_sold_single' | t }}
-        {%- else -%}{{ 'cart.some_sold_several' | t }}{%- endif -%}
+        {%- if sold_n == 1 -%}{{ 'cart.some_' | append: why | append: '_single' | t }}
+        {%- else -%}{{ 'cart.some_' | append: why | append: '_several' | t }}{%- endif -%}
       </p>
     {%- endif -%}
     <form action="{{ routes.cart_url }}" method="post" class="bag-checkout" id="bag-checkout-{{ ctx }}">
