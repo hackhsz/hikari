@@ -23,12 +23,13 @@ const LANGS = { en: "", "zh-CN": "/zh", ja: "/ja", es: "/es", ar: "/ar" };  // <
 const PAGES = [  // name, path, the answer it should give
   ["home", "/"], ["shop all", "/collections/all"], ["category", "/collections/vintage-earrings"],
   ["Dior", "/collections/vintage-christian-dior-jewellery"], ["Chanel", "/collections/vintage-chanel-jewellery"],
+  ["archive", "/collections/archive"],
   ["product", null],  // the first piece in Shop all, so the check outlives any one sale
   ["about", "/pages/about-us"], ["viewing", "/pages/private-viewing"], ["contact", "/pages/contact"], ["questions", "/pages/questions"],
   ["guides", "/blogs/guides"], ["guide", "/blogs/guides/how-to-date-vintage-chanel-jewellery"],
   ["search", "/search?q=dior"], ["bag", "/cart"], ["missing page", "/pages/site-check-missing", 404],
 ];
-const DESCRIBED = ["home", "shop all", "category", "Dior", "Chanel", "product", "guides", "guide"];  // need a search description
+const DESCRIBED = ["home", "shop all", "category", "Dior", "Chanel", "archive", "product", "guides", "guide"];  // need a search description
 const SHOTS = ["home", "product"];  // photographed at both sizes and compared with the approved ones
 const SIZES = { desktop: { width: 1280, height: 800, deviceScaleFactor: 1, mobile: false },
                 phone: { width: 390, height: 844, deviceScaleFactor: 2, mobile: true } };

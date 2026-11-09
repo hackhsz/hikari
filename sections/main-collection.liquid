@@ -17,6 +17,10 @@
   (collections.titles), with no house in them; the collection's title, which names the houses,
   stays for search engines (snippets/seo). The collection's description is for search engines
   too, so the page shows no text under the heading.
+
+  The Archive (2026-11-09): the collection archive is on the archive template, which turns on the
+  archive setting. Its rules (stock 0, not tagged coming-soon or reserved) gather every sold piece;
+  the page is headed The Archive, shows only sold pieces, and leaves out Show and Hide sold.
 {%- endcomment -%}
 {%- liquid
   assign cat_tags = 'necklaces,earrings,bracelets,rings,brooches,sunglasses' | split: ','
@@ -27,6 +31,7 @@
     endif
   endfor
   assign cats_here = cats_here | split: ','
+  assign archive = section.settings.archive
   assign sort_now = collection.sort_by | default: collection.default_sort_by
   assign has = ''
   for p in collection.products
@@ -36,7 +41,9 @@
     assign has = has | append: ' ' | append: st | append: ' '
   endfor
   assign cat_h = collection.handle | remove_first: 'vintage-'
-  if collection.handle == 'all'
+  if archive
+    assign title = 'collections.archive_title' | t
+  elsif collection.handle == 'all'
     assign title = 'collections.all_title' | t
   elsif cat_tags contains cat_h
     assign title = 'collections.titles.' | append: cat_h | t
@@ -70,6 +77,7 @@
             {%- endfor -%}
           </fieldset>
         {%- endif -%}
+        {%- unless archive -%}
         <fieldset class="side-set">
           <legend>{{ 'collections.filters.show' | t }}</legend>
           <label class="side-opt"><input type="radio" name="cat-show" value="" checked><span>{{ 'collections.filters.everything' | t }}</span><span class="n" data-n></span></label>
@@ -80,6 +88,7 @@
           {%- if has contains ' reserved ' -%}<label class="side-opt"><input type="radio" name="cat-show" value="reserved"><span>{{ 'products.badge.reserved' | t }}</span><span class="n" data-n></span></label>{%- endif -%}
           {%- if has contains ' sold ' -%}<label class="side-opt"><input type="radio" name="cat-show" value="sold"><span>{{ 'products.product.sold_out' | t }}</span><span class="n" data-n></span></label>{%- endif -%}
         </fieldset>
+        {%- endunless -%}
         <button type="button" class="prefs-skip side-reset" data-cat-reset>{{ 'collections.reset' | t }}</button>
       </aside>
 
@@ -88,7 +97,7 @@
           <button type="button" class="cat-filter-btn" data-cat-toggle aria-controls="cat-side" aria-expanded="false" hidden>{{ 'collections.filters.label' | t }}</button>
           {%- comment -%} Hide sold (owner, 2026-11-04): one switch over the grid, on phones too, that keeps
             everything still to come and drops what has sold; it sits on top of the sidebar's choices. {%- endcomment -%}
-          {%- if has contains ' sold ' -%}
+          {%- if has contains ' sold ' and archive == false -%}
             <label class="cat-hide" hidden><input type="checkbox" value="sold" data-cat-hide> {{ 'collections.filters.hide_sold' | t }}</label>
           {%- endif -%}
           <form class="cat-sort" method="get">
@@ -107,6 +116,7 @@
         <div class="grid4 cat-grid" data-cat-grid>
           {%- for p in collection.products -%}
             {%- capture st -%}{%- render 'status', p: p -%}{%- endcapture -%}
+            {%- if archive and st != 'sold' -%}{%- continue -%}{%- endif -%}
             {%- assign c = '' -%}
             {%- for t in cat_tags -%}{%- if p.tags contains t -%}{%- assign c = t -%}{%- break -%}{%- endif -%}{%- endfor -%}
             <div class="cat-item" data-pos="{{ forloop.index }}" data-brand="{{ p.vendor | handleize }}" data-vendor="{{ p.vendor | escape }}"
@@ -120,4 +130,7 @@
     </div>
   </div>
 </section>
-{% schema %}{ "name": "Collection", "settings": [] }{% endschema %}
+{% schema %}{ "name": "Collection", "settings": [
+  { "type": "checkbox", "id": "archive", "label": "The Archive: sold pieces only", "default": false,
+    "info": "For the collection archive (template archive): headed The Archive, without Show or Hide sold." }
+] }{% endschema %}

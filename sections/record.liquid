@@ -9,6 +9,7 @@
   Three sources, in order: a collection chosen in the editor; on a collection page (the house
   template), the sold pieces of that collection; otherwise everything sold. With nothing sold yet
   the section renders nothing, rather than six empty frames (the frames show in the theme editor).
+  View all goes to the whole Archive (the collection archive) once it exists.
 {%- endcomment -%}
 {%- liquid
   if section.settings.collection != blank
@@ -39,7 +40,13 @@
 {%- if shown > 0 or request.design_mode -%}
 <section data-bg="#EFEAE0" data-fg="#1C1B18" style="--sec-bg:#EFEAE0;--sec-fg:#1C1B18;">
   <div class="shell pad" id="record">
-    <p class="eyebrow">{{ section.settings.heading }}</p>
+    {%- assign arc = collections['archive'] -%}
+    {%- if arc.handle == 'archive' and arc.products_count > 0 -%}
+      <div class="sec-head"><p class="eyebrow">{{ section.settings.heading }}</p>
+        <a class="sec-all" href="{{ arc.url }}">{{ 'home.all_pieces' | t }}</a></div>
+    {%- else -%}
+      <p class="eyebrow">{{ section.settings.heading }}</p>
+    {%- endif -%}
     <div class="grid6">
       {{ items }}
       {%- if shown == 0 -%}{%- for i in (1..6) -%}<div class="rec"><b>—</b></div>{%- endfor -%}{%- endif -%}

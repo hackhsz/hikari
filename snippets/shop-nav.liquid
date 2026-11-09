@@ -1,6 +1,8 @@
 {%- comment -%}
   The shop's own way in, built from the catalogue rather than a Shopify menu, so it always
-  matches what is there: all pieces, each category that has pieces, each house, and coming soon.
+  matches what is there: all pieces, each category that has pieces, each house, coming soon, and
+  the Archive (every sold piece, 2026-11-09: the collection with the handle archive, on the archive
+  template; without it, the catalogue showing sold pieces).
 
   Each link goes to a collection with the matching handle when one exists and has pieces
   (vintage-necklaces… for a category, vintage-christian-dior-jewellery… for a house as in
@@ -10,7 +12,7 @@
   collections['x'] with an object that has no url but a non-zero count. Used by the header (desktop bar and the phone menu) and the catalogue sidebar.
 
   Params: cls (class on each link), current (true to mark the link for the page being shown),
-  part (one group only: 'all', 'cats', 'houses' as in the masthead, or 'soon'; the phone menu
+  part (one group only: 'all', 'cats', 'houses' as in the masthead, 'soon' or 'archive'; the phone menu
   renders them one by one, with a label over the categories and over the houses).
   Liquid can only see the path, so a filtered catalogue (?cat=…) is marked by hikari.js
   (markShopNav), which also follows the filters as they change.
@@ -18,7 +20,7 @@
 {%- liquid
   assign cat_tags = 'necklaces,earrings,bracelets,rings,brooches,sunglasses' | split: ','
   assign all_url = routes.all_products_collection_url
-  assign g = part | default: 'all cats houses soon'
+  assign g = part | default: 'all cats houses soon archive'
   assign soon_n = 0
   if g contains 'soon'
     for p in collections.all.products
@@ -55,4 +57,20 @@
   {%- assign c = collections['coming-soon'] -%}
   {%- if c.handle == 'coming-soon' and c.products_count > 0 -%}{%- assign u = c.url -%}{%- else -%}{%- assign u = all_url | append: '?show=soon' -%}{%- endif -%}
   <a class="{{ cls }} {{ cls }}--soon" href="{{ u }}"{% if current and request.path == u %} aria-current="page"{% endif %}>{{ 'products.badge.coming_soon' | t }}</a>
+{%- endif -%}
+{%- if g contains 'archive' -%}
+  {%- assign u = '' -%}
+  {%- assign c = collections['archive'] -%}
+  {%- if c.handle == 'archive' and c.products_count > 0 -%}
+    {%- assign u = c.url -%}
+  {%- else -%}
+    {%- for p in collections.all.products -%}
+      {%- if p.available -%}{%- continue -%}{%- endif -%}
+      {%- if p.tags contains 'coming-soon' or p.tags contains 'reserved' -%}{%- continue -%}{%- endif -%}
+      {%- assign u = all_url | append: '?show=sold' -%}{%- break -%}
+    {%- endfor -%}
+  {%- endif -%}
+  {%- if u != blank -%}
+  <a class="{{ cls }} {{ cls }}--archive" href="{{ u }}"{% if current and request.path == u %} aria-current="page"{% endif %}>{{ 'collections.archive_title' | t }}</a>
+  {%- endif -%}
 {%- endif -%}
