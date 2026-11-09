@@ -43,6 +43,9 @@ Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manches
 - Craft & Flea London (Corner Corner, Canada Water): find it on the Craft & Flea Eventaly organiser page
 
 ### Aggregators that were useful as leads (verify before trusting)
+- **Go East Vintage** (young, vintage-only markets across East London): https://linktr.ee/go.east.vintage lists every booking Google Form with prices and dates; https://ma.to/venue/go.east.vintage has the date list. goeastvintage.co.uk is dead; goeast.uk refuses curl.
+- **Truman Markets** (Brick Lane): https://linktr.ee/bricklanetrumanmarkets, https://www.trumanbrewery.com/web/upcoming-events.pl, Eventbrite organiser https://www.eventbrite.co.uk/o/31510426709. Contact markets@trumanbrewery.com.
+- **Camden Market:** the trader route is https://camdenmarket.com/join-camden (a Typeform, plus a trader-pack PDF).
 - fleamapket.com event pages (dates for Frock Me!, Sunbury)
 - whereisthemarket.com (Kempton dates)
 - Time Out London listings, londonist weekend guides
@@ -57,6 +60,7 @@ Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manches
 - "Old Truman Brewery markets" leads to trumanbrewery.com/web/markets.pl (Backyard Market, Upmarket, Artisan, Brick Lane Vintage Market; no application route found yet)
 - Fetching an organiser's sitemap.xml (e.g. Alfies) surfaced recruitment posts that search did not.
 - Google Form og:description text gives full rules/prices (Urban Makers).
+- For a linktree, curl it and pull the title/url pairs. For a Google Form, the `FB_PUBLIC_LOAD_DATA_` blob holds the full price list (run 5).
 - `London Christmas market December 2026 "vintage" traders wanted apply` surfaced the Christmas leads in run 4.
 
 ### Blocked or unverifiable (retry with a different method)
@@ -68,8 +72,8 @@ Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manches
 - Classic Car Boot Sale trade deck (Adobe-hosted PDF): unreadable
 
 ### Leads not yet researched
-- Camden Market (Stables / Buck Street): young crowd. Its "Become a trader" page 404'd at run 4, so find the current trader route (the footer also links "Partner with us": /journal/partner-with-camden-market)
-- Truman Brewery's Backyard Market and Sunday Upmarket: young weekend markets on Brick Lane. TLS failed through the proxy at runs 1 and 4; check by hand
+- Not yet covered: student-union vintage fairs; So Last Century (Dulwich, Catford); Wembley Park; Go East's Ropewalk Festive Fridays form
+- Truman's Sunday Upmarket (now 7 days) and Backyard Market (arts and crafts): sites return 503 and no trader route is published (run 5)
 - Lou Lou's Midcentury Home Market, Canada Water (The Nest, Sun 1 Nov 2026): homeware-led, not on Lou Lou's Eventaly list
 
 ### Dead ends (don't re-check)

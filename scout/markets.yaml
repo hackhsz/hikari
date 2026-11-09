@@ -2291,7 +2291,7 @@ markets:
   why: The 2027 dates finally appeared (the open lead from run 1). It is a cheap London test, since about 1 sale
     covers the £45 car pitch, but the outdoor car-boot-style antiques frame is bargain-led and jewellery is not
     a recognised category, so it scores as weak.
-  checked: &id001 2026-10-26
+  checked: 2026-10-26
   sources: ['https://www.sunburyantiques.com/wimbledon/']
   decision: new
   our_notes: null
@@ -2351,7 +2351,308 @@ markets:
   fit: 3
   why: 'Tracked so the next Brighton date gets caught: the same curated craft-and-flea format scored 3 in Manchester
     and Glasgow, in a striking venue an hour from London. Dates and fee are null because none are currently published.'
-  checked: *id001
+  checked: 2026-10-26
   sources: ['https://eventaly.com/event/brightons-craft-flea-2/', 'https://eventaly.com/organiser/craft-flea/']
+  decision: new
+  our_notes: null
+
+- id: camden-market-casual-stalls
+  name: Camden Market — casual day stalls (Stables Market & Camden Lock)
+  type: market
+  city: London
+  where: 'Camden Market: Stables (Chalk Farm Road, NW1 8AH) and Camden Lock (Camden Lock Place, NW1 8AF). Casual
+    pitches in East Yard, Market Hall, and Camden Lock Place / Middle Yard'
+  organiser: Camden Market (market management team; bookings@camdenmarket.com)
+  url: https://camdenmarket.com/join-camden
+  apply_url: https://camdenmarket.typeform.com/to/rh0o2z
+  dates: Open daily. Trading hours are 10am-6pm in autumn and winter and 10am-7pm in spring and summer (trader pack).
+    Casual stalls are given out day by day, depending on availability. The form lets you tick any day, Monday to
+    Sunday.
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: No cycle. Submit the 'Camden Market Stalls' Typeform. Camden says it aims to reply within 2 weeks and
+    asks applicants not to chase by phone or email. Approved casual traders book days through bookings@camdenmarket.com,
+    and the booking team pre-allocates stalls. A casual trader can later ask a Market Manager for a regular slot.
+  fee_gbp: 80
+  cost: 'Daily rent is paid by card at the stall around midday. Trader pack v2024.1 rates: East Yard £20 Mon-Thu,
+    £30 Fri, £70 Sat-Sun. Market Hall £30 Mon-Thu, £50 Fri, £80 Sat-Sun. Camden Lock Place / Middle Yard £40 Mon-Fri,
+    £80 Sat-Sun. The stall frame and table are provided. fee_gbp uses the £80 weekend rate for an indoor Market
+    Hall or Lock stall. These are 2024 prices, still linked from the join page on 9 Nov 2026; confirm the current
+    rates.'
+  commission_pct: null
+  requires: ['Typeform: name, phone, email, postal address, trading name, business description, where you trade
+      now', Category (the options include 'Jewellery' and 'Vintage & antiques'), 'Uploads: valid photo ID, proof
+      of address, company or business-ownership details, public liability insurance and right-to-work documents',
+    Logo and up to 3 stock photos, Website / Etsy / Instagram links, Days you are willing to trade, 'Stall dressing:
+      tablecloth and a 4.5m x 0.8m stall skirt (Market Hall / East Yard) or a black cloth (Lock Place / Middle Yard),
+      plus signage, a price list, and your own lights and leads', Debit or credit card for the daily rent]
+  watch_out: Counterfeit goods are banned and Camden has a fake-designer reputation, so expect logo pieces to be
+    questioned; have proof of authenticity ready. The crowd is tourist-heavy and leans cheap or streetwear. Casual
+    stalls depend on availability on the day, the Market Manager assigns your spot, and East Yard is outdoors. The
+    join page still shows an old 'reopening 1 June' banner and the trader pack is v2024.1, so fees may have changed.
+    The pack only 'advises' public liability insurance, but the form asks you to upload it. A physical stall before
+    the website converts conflicts with D3.
+  fit: 3
+  why: 'This is the current trader route the last run couldn''t find: the footer ''Become a trader'' link goes to
+    /join-camden, and its market-stall Typeform lists ''Jewellery'' and ''Vintage & antiques'' as categories, so
+    resellers can apply. Casual day stalls with no long commitment suit a one-person seller. At £80 a weekend day,
+    break-even is about 1 piece (weekdays £20-£50). Camden is on the owner''s young-crowd list, but its tourist,
+    bargain-leaning audience and fake-designer reputation are a weak frame for £85-£300 logo pieces. A cheap test,
+    not a credential.'
+  checked: 2026-11-09
+  sources: ['https://camdenmarket.com/join-camden', 'https://camdenmarket.typeform.com/to/rh0o2z', 'https://wp-media.camdenmarket.com/wp-content/uploads/2024/05/15171555/CM_TI_New-Traders-The-Essentials-v2024-1.pdf',
+    'https://www.camdenmarket.com/journal/partner-with-camden-market']
+  decision: new
+  our_notes: null
+
+- id: go-east-vintage-wapping-power-station
+  name: Go East Vintage — Festive Weekender at Wapping Hydraulic Power Station
+  type: market
+  city: London
+  where: Wapping Hydraulic Power Station, Wapping Wall, London E1W 3SF (indoor and courtyard pitches)
+  organiser: Go East Vintage (@go.east.vintage; goeast.uk)
+  url: https://linktr.ee/go.east.vintage
+  apply_url: https://docs.google.com/forms/d/e/1FAIpQLSc5JyQylnqcezNVYiee_AFA_HnfacY4grdQVHQZ2ucZSKbLnQ/viewform
+  dates: Sat-Sun 5-6 Dec 2026; 6-7 Feb 2027; 3-4 Apr 2027. The form's date options list only 5-6 Dec and 3-4 Apr.
+    Friday set-up is offered. Visitor entry from £2.88 (Eventbrite).
+  next_date: 2026-12-05
+  apply: {status: open, deadline: null, opens: null}
+  window: Book each event on the trader booking form. Go East reviews applications for curation, then sends availability
+    and payment details. Saturday pitches are sold only as part of a full weekend, Sunday-only bookings are allowed,
+    and full-weekend bookings get priority. The form warns of 'High Demand — Limited Spaces'.
+  fee_gbp: 70
+  cost: Single pitch (8ft x 8ft) £70 per day; double (16ft x 8ft) £140 per day; table hire £10 per table per day.
+    A full weekend on a single pitch is £140 plus tables.
+  commission_pct: null
+  requires: ['Booking form: full name, business address for invoicing, email, Instagram, phone', Category (the options
+      include 'Vintage Jewellery' and 'Vintage Accessories'), 'Dates, full weekend or Sunday only, pitch size, indoor
+      or courtyard preference, Friday set-up, power, tables', Pay in full or a 25% deposit after approval; deposits
+      are non-refundable and non-transferable, 'Agreement that all items sold are authentic, plus Go East''s Safe
+      Space For All policy and payment terms', Public liability insurance (Go East's general new-trader form asks
+      whether you hold it)]
+  watch_out: Billed as a 'Festive Flea', so the price frame is likely below £85-£300. Indoor pitches are limited
+    and allocated 'based on curation', so a December courtyard pitch is possible, and that is cold and poor for
+    small jewellery. Deposits are non-refundable. A physical event before the website converts conflicts with D3.
+  fit: 4
+  why: 'A young, destination vintage crowd in a standout venue. Go East calls it ''a curated vintage market only'',
+    featured by Time Out and Secret London, with visitors ''who come specifically to shop''. ''Vintage Jewellery''
+    is a named category, and you book day or weekend pitches with no long commitment. At £70 a day, break-even is
+    under 1 piece. One weakness: the flea framing and likely lower price frame. The 5-6 Dec Christmas weekend is
+    still on the form.'
+  checked: 2026-11-09
+  sources: ['https://linktr.ee/go.east.vintage', 'https://docs.google.com/forms/d/e/1FAIpQLSc5JyQylnqcezNVYiee_AFA_HnfacY4grdQVHQZ2ucZSKbLnQ/viewform',
+    'https://ma.to/venue/go.east.vintage', 'https://www.eventbrite.co.uk/e/go-east-vintage-festive-weekender-at-wapping-power-station-tickets-2002378564188']
+  decision: new
+  our_notes: null
+
+- id: go-east-vintage-strongroom-shoreditch
+  name: Go East Vintage — Strongroom Christmas Market (Shoreditch)
+  type: market
+  city: London
+  where: Strongroom Bar & Studios, 120-124 Curtain Road, Shoreditch, London EC2A 3SQ (courtyard and venue, indoor
+    and outdoor)
+  organiser: Go East Vintage (@go.east.vintage; goeast.uk)
+  url: https://linktr.ee/go.east.vintage
+  apply_url: https://forms.gle/Vr4wiyxfeXEbtubJ9
+  dates: Sat 14 Nov 2026, evening market 5pm-9pm; Sat 12 Dec 2026, daytime market 11am-4pm. Go East says it runs
+    this 'as a regular event'.
+  next_date: 2026-11-14
+  apply: {status: open, deadline: null, opens: null}
+  window: Book on the Strongroom trader booking form. Every application is reviewed for 'a strong, well-balanced
+    curation', and a booking is confirmed only once you are sent a payment request and pay it. 'Spaces are limited
+    and first come, first served.'
+  fee_gbp: 50
+  cost: Single pitch (8ft x 8ft) £50; double (16ft x 8ft) £100, per event day; table hire £10 per table per day.
+  commission_pct: null
+  requires: ['Booking form: full name, business address for invoicing, email, Instagram, phone', Category (the options
+      include 'Vintage Accessories'; no separate jewellery option on this form), 'Dates, pitch size, power, tables',
+    Pay in full or a 25% deposit after approval; deposits are non-refundable and non-transferable, 'Agreement that
+      all items sold are authentic, plus Go East''s Safe Space For All policy and payment terms', Public liability
+      insurance (Go East's general new-trader form asks whether you hold it)]
+  watch_out: 'Trading windows are short: 4 hours on 14 Nov and 5 hours on 12 Dec. 14 Nov is five days away, so 12
+    Dec is the realistic target. The mix is vintage and makers (''fashion, art, jewellery, ceramics and vinyl''),
+    so handmade jewellery may trade alongside. Courtyard unloading is limited to a 20-minute window. Deposits are
+    non-refundable. D3 gate.'
+  fit: 4
+  why: 'Christmas in Shoreditch, next to Brick Lane, for ''locals, creatives, and destination visitors''. Go East
+    says it is looking for jewellery sellers by name, the market is curated, and vintage resellers are its core.
+    At £50, break-even is under 1 piece, with no commitment beyond one Saturday. One weakness: short hours and a
+    vintage-and-makers mix that pulls the price frame down.'
+  checked: 2026-11-09
+  sources: ['https://linktr.ee/go.east.vintage', 'https://forms.gle/Vr4wiyxfeXEbtubJ9', 'https://ma.to/venue/go.east.vintage',
+    'https://www.eventbrite.co.uk/e/go-east-vintage-christmas-night-market-at-strongroom-tickets-2004126760089']
+  decision: new
+  our_notes: null
+
+- id: go-east-vintage-doodle-bar-bermondsey
+  name: Go East Vintage at Doodle Bar Arches (Bermondsey)
+  type: market
+  city: London
+  where: Doodle Bar Arches, Bermondsey, London SE1; all pitches indoors (the booking form gives no street address).
+    Runs alongside Go East's outdoor Maltby Street market.
+  organiser: Go East Vintage (@go.east.vintage; goeast.uk)
+  url: https://linktr.ee/go.east.vintage
+  apply_url: https://docs.google.com/forms/d/e/1FAIpQLScas-0VpnPtanXIZuG_cPrk5D7O4UwJICnRIQNuJvay85o4ag/viewform
+  dates: 'About monthly weekends: Sat-Sun 21-22 Nov 2026; 16-17 Jan, 20-21 Feb and 20-21 Mar 2027. Free entry.'
+  next_date: 2026-11-21
+  apply: {status: open, deadline: null, opens: null}
+  window: Book each date on the Doodle Bar trader booking form; Go East reviews applications, then sends payment
+    details. Saturdays are sold only as part of a full weekend, Sunday-only bookings are allowed ('more indoor spaces
+    now available on Sundays'), and full-weekend bookings get priority.
+  fee_gbp: 65
+  cost: Single pitch (8ft x 8ft) £65 per day; double (16ft x 8ft) £130 per day; table hire £10 per table per day.
+  commission_pct: null
+  requires: ['Booking form: full name, business address for invoicing, email, Instagram, phone', Category (the options
+      include 'Vintage Jewellery'), 'Dates, Sunday only or full weekend, pitch size, power, tables', Pay in full
+      or a 25% deposit after approval; deposits are non-refundable and non-transferable, 'Agreement that all items
+      sold are authentic, plus Go East''s Safe Space For All policy and payment terms', Public liability insurance
+      (Go East's general new-trader form asks whether you hold it)]
+  watch_out: Billed elsewhere as the 'Big Vintage Flea Weekender', and the wanted list includes bric-a-brac, so
+    this is a bargain-leaning frame. Deposits are non-refundable. D3 gate.
+  fit: 3
+  why: An indoor, weatherproof vintage weekend in Bermondsey with a young crowd. 'Jewellery and accessories' is
+    on Go East's wanted list, Sunday-only days keep it to one day, and a dated run through March 2027 allows a repeat
+    test. At £65 a day, break-even is under 1 piece. Kept at 3 because the flea and bric-a-brac mix likely pays
+    less than £85-£300.
+  checked: 2026-11-09
+  sources: ['https://linktr.ee/go.east.vintage', 'https://docs.google.com/forms/d/e/1FAIpQLScas-0VpnPtanXIZuG_cPrk5D7O4UwJICnRIQNuJvay85o4ag/viewform',
+    'https://ma.to/venue/go.east.vintage', 'https://www.eventbrite.co.uk/o/go-east-vintage-39447572513']
+  decision: new
+  our_notes: null
+
+- id: go-east-eastway-baths-hackney-wick
+  name: Go East at Eastway Baths — Vintage, Creatives & Makers (Hackney Wick)
+  type: market
+  city: London
+  where: Eastway Baths, 80 Eastway, Hackney Wick, London E9 5JH
+  organiser: Go East Vintage (@go.east.vintage; goeast.uk)
+  url: https://linktr.ee/go.east.vintage
+  apply_url: https://docs.google.com/forms/d/e/1FAIpQLSeOHexhaV6mSTbV1aB8OFc-V8ETxmxrXJKNIQuPgw_Sl_vshQ/viewform
+  dates: 'Saturdays 23 Jan 2027 (afternoon/evening: set-up from 1pm, finish around 8pm, public hours TBC), then
+    6 Mar, 20 Mar and 15 May 2027 (trading 10am-4pm). No April event. Each date is a separate one-day event.'
+  next_date: 2027-01-23
+  apply: {status: open, deadline: null, opens: null}
+  window: 2027 booking form is open. You choose Vintage or Creatives & Makers and Go East curates the mix. A booking
+    is secured only after approval and payment.
+  fee_gbp: 55
+  cost: 'Per day: tabletop under a shared gazebo, bring your own table, £45; tabletop with a table included £55;
+    8ft x 8ft pitch £65 (tables £10 each, maximum four). These are ''introductory prices'', to be reviewed after
+    the second event.'
+  commission_pct: null
+  requires: ['Booking form: Vintage or Creatives & Makers, full name, trading name, email, mobile', 'What you will
+      sell; Instagram, website or online shop', 'Dates, pitch type, tables, electricity or access needs', 'Agreement
+      to trading hours, departure times and Go East trader terms', Public liability insurance (Go East's general
+      new-trader form asks whether you hold it)]
+  watch_out: A new event with introductory pricing and unproven footfall. Half the mix is creatives and makers.
+    The 23 Jan public opening hours are not confirmed yet, and there is one shared unloading space. D3 gate.
+  fit: 3
+  why: Hackney Wick is squarely the young East London crowd the owner wants, and a £45-£55 one-day tabletop is the
+    lightest-weight test found this run (break-even under 1 piece). Vintage is one of the two trader streams. Kept
+    at 3 because it is new, maker-mixed and unproven.
+  checked: 2026-11-09
+  sources: ['https://linktr.ee/go.east.vintage', 'https://docs.google.com/forms/d/e/1FAIpQLSeOHexhaV6mSTbV1aB8OFc-V8ETxmxrXJKNIQuPgw_Sl_vshQ/viewform',
+    'https://ma.to/venue/go.east.vintage']
+  decision: new
+  our_notes: null
+
+- id: go-east-vintage-maltby-street
+  name: Go East Vintage at Maltby Street Market (weekly, outdoor)
+  type: market
+  city: London
+  where: Maltby Street Market, Maltby Street, Bermondsey, London SE1 (outdoor stalls)
+  organiser: Go East Vintage (@go.east.vintage; goeast.uk); food and drink pitches via the Maltby Street manager
+  url: https://linktr.ee/go.east.vintage
+  apply_url: https://forms.gle/vMWX3TeRdZamoTQn9
+  dates: Every weekend, Sat-Sun. The booking form currently lists weekends up to 28-29 Nov 2026. Go East also runs
+    'Festive Fridays' at Ropewalk, Maltby Street (from Fri 27 Nov, 5:30pm), on a separate form not read this run.
+  next_date: null
+  apply: {status: open, deadline: null, opens: null}
+  window: Book weekends on the Maltby Street trader booking form, then wait for confirmation and pay. Saturday-only
+    is not available, Sunday-only is, and full-weekend traders get priority.
+  fee_gbp: 65
+  cost: Single pitch (8ft x 8ft) £65 per day; double £130 per day. Tables £10 (the Sunday table is free with a full
+    weekend). Overnight storage £10 for up to 4 suitcases. A gazebo can be provided, subject to availability.
+  commission_pct: null
+  requires: ['Booking form: full name, email, Instagram, mobile, business address', Category (the options include
+      'Jewellery and accessories'); optional product description, 'Weekend, full weekend or Sunday only, pitch size,
+      tables, storage', Payment after approval, Public liability insurance (Go East's general new-trader form asks
+      whether you hold it)]
+  watch_out: Outdoors through winter, which is risky for small, valuable jewellery. It is a food-market crowd, and
+    Go East's own listing pitches 'vintage coats, jackets, bags and tartan'. It runs weekly, so it could become
+    a commitment. D3 gate.
+  fit: 2
+  why: Recorded so the next run doesn't rediscover it. Same organiser and price as Doodle Bar, but an outdoor street-food
+    setting with a clothing-led, casual crowd is a weak frame for £85-£300 designer pieces. Doodle Bar indoors on
+    the same weekends is the better Go East option in Bermondsey.
+  checked: 2026-11-09
+  sources: ['https://linktr.ee/go.east.vintage', 'https://forms.gle/vMWX3TeRdZamoTQn9', 'https://ma.to/venue/go.east.vintage',
+    'https://ma.to/event/go-east-vintage-market-maltby-st-29-aug-2026']
+  decision: new
+  our_notes: null
+
+- id: brick-lane-flea-market-commercial-street
+  name: Brick Lane Flea Market (Truman Markets, 106 Commercial Street)
+  type: market
+  city: London
+  where: 106 Commercial Street, London E1 6LZ ('the gorgeous old horse stables', opposite Old Spitalfields Market)
+  organiser: Truman Markets (The Truman Brewery)
+  url: https://www.eventbrite.co.uk/e/brick-lane-flea-market-tickets-2000439988857
+  apply_url: null
+  dates: 'Sat 21 and Sun 22 Nov 2026 (Eventbrite: 10am start, about 6 hours, free entry). No other editions listed.'
+  next_date: 2026-11-21
+  apply: {status: unknown, deadline: null, opens: null}
+  window: No trader route is published. The Truman Markets team contact is markets@trumanbrewery.com or 020 7770
+    6028 (given on its Weekends sign-up form). We already have a thread with Truman Markets about Brick Lane Vintage
+    Market.
+  fee_gbp: null
+  cost: Not published.
+  commission_pct: null
+  requires: [Enquiry to Truman Markets (markets@trumanbrewery.com) to ask whether outside vintage traders can book
+      day stalls and at what fee]
+  watch_out: Only one edition is listed, so it may be a one-off or seasonal. Fees, stall format and trader terms
+    are unknown. Branded a 'flea'. The address is on Commercial Street, not inside the Brewery.
+  fit: 3
+  why: A weekend vintage event by the same team as Brick Lane Vintage Market, on the Spitalfields/Brick Lane strip
+    the owner wants, and the organiser lists 'vintage trinkets, clothes and jewellery'. That makes it the day-stall
+    alternative to the full, 7-day vintage market. Fee and trader route are unverified (null), so ask on the existing
+    Truman thread.
+  checked: 2026-11-09
+  sources: ['https://www.eventbrite.co.uk/e/brick-lane-flea-market-tickets-2000439988857', 'https://www.eventbrite.co.uk/o/31510426709',
+    'https://www.trumanbrewery.com/web/upcoming-events.pl']
+  decision: new
+  our_notes: null
+
+- id: truman-weekends-edit-market
+  name: Weekends — themed edit markets (Truman Markets, Brick Lane)
+  type: market
+  city: London
+  where: 'Old Truman Brewery, Brick Lane, London E1: Ely''s Yard (E1 6QR) and F Block G4'
+  organiser: Truman Markets (Instagram @weekends.market)
+  url: https://www.trumanbrewery.com/web/upcoming-events.pl
+  apply_url: https://docs.google.com/forms/d/e/1FAIpQLSd4yJysuyYQ6X-yAIaimKn9uvCTxblOoXrL3gaCbibold3__g/viewform
+  dates: Themed weekend edits, Sat-Sun 11am-6pm. Jewellery Edit 7-8 Nov 2026 (just passed); Craft Edit 28-29 Nov
+    2026 (F Block G4, billed as a makers' market). An Ethical Edit has also run (date not verified). No 2027 dates
+    published.
+  next_date: 2026-11-28
+  apply: {status: open, deadline: null, opens: null}
+  window: One sign-up form covers all the edits, and its options change each season (on 9 Nov it still offered the
+    Jewellery Edit 7-8 Nov and the Craft Edit 28-29 Nov). Contact markets@trumanbrewery.com or 020 7770 6028.
+  fee_gbp: null
+  cost: Not published.
+  commission_pct: null
+  requires: ['Sign-up form: full name, brand name, phone, email, Instagram, choice of edit', Brand ethos (may be
+      used on Truman's social media), '''Are your items handmade or self designed?'' and, if yes, how', Other markets
+      traded at]
+  watch_out: The form asks whether items are handmade or self-designed, and the Craft Edit is billed as a makers'
+    market, so resellers may be screened out. The Jewellery Edit already took place (7-8 Nov) and its next date
+    is unknown. Fees are not published.
+  fit: 2
+  why: A jewellery-themed weekend edit on Brick Lane is exactly the venue and crowd the owner wants, and it books
+    a weekend, not a 7-day unit. But the series looks maker-led, and whether it accepts vintage resale is unconfirmed.
+    Worth one question to Truman Markets when the next Jewellery Edit is announced; raise the fit if they say yes.
+  checked: 2026-11-09
+  sources: ['https://www.trumanbrewery.com/web/upcoming-events.pl', 'https://docs.google.com/forms/d/e/1FAIpQLSd4yJysuyYQ6X-yAIaimKn9uvCTxblOoXrL3gaCbibold3__g/viewform',
+    'https://linktr.ee/bricklanetrumanmarkets', 'https://www.eventbrite.co.uk/e/weekends-jewellery-edit-tickets-1982889944201',
+    'https://www.eventbrite.co.uk/o/31510426709']
   decision: new
   our_notes: null
