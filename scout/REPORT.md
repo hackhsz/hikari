@@ -2,6 +2,13 @@
 
 ## This week
 
+**Update, 10 Nov: pop-ups and Christmas markets.** A focused sweep added 17 places (107 tracked). Most London Christmas markets were full by November. What's still open:
+- **Second Life Markets, Brick Lane, Sat 5 Dec** (fit 5, £80). It has a "Vintage Designer" category. Apply on its form by about **21 Nov**; the form needs your photos.
+- **So Last Century, Goldsmiths, Sun 7 Mar 2027 (Mother's Day)**, plus the waiting lists for Dulwich 5–6 Dec and Goldsmiths 29 Nov. **Emailed 10 Nov.**
+- **Thriftmas, Hackney Flea, 19–20 Dec** (indoor). **Emailed 10 Nov.**
+
+Go East Wapping is now Sunday only, so that Saturday 5 Dec is free for Second Life. The rest of the new entries are full, maker-only, or a trade antiques crowd. The brief now prioritises pop-ups and seasonal markets, and starts the Christmas hunt each June.
+
 **Run 5 · 9 Nov 2026.** 90 tracked, up 8. This is the first sweep aimed at a younger vintage crowd.
 
 - **Replies:**
@@ -25,7 +32,7 @@
 > **Gates.** Physical fairs and pop-ups come after the website converts ([D3](../docs/DECISIONS.md)). Marketplaces are outposts, not the home ([D1](../docs/DECISIONS.md)). Both are tracked now because applications open months ahead. How it works: [README](README.md).
 
 <!-- generated:start -->
-_Tables generated from [`markets.yaml`](markets.yaml) on 10 Nov 2026. 90 tracked._
+_Tables generated from [`markets.yaml`](markets.yaml) on 10 Nov 2026. 107 tracked._
 
 ## Coming up in the next 60 days
 
@@ -41,7 +48,9 @@ Published deadlines, plus events at fit 3+ still taking applications.
 | **21 Nov** | [Craft & Flea — Glasgow (Christmas)](https://www.thecraftandflea.com/pages/trade-with-us) | Glasgow | open | 21 Nov 2026 | 3 | new |
 | **21 Nov** | [Go East Vintage at Doodle Bar Arches (Bermondsey)](https://linktr.ee/go.east.vintage) | London | open | 21 Nov 2026 | 3 | shortlist |
 | **22 Nov** | [Lou Lou's Vintage Fair — Manchester](https://www.loulousvintagefair.com/) | Manchester | open | 22 Nov 2026 | 4 | new |
+| **05 Dec** | [Second Life Markets — London curated vintage market (Boiler House, Brick Lane)](https://www.secondlifemarkets.com/) | London | open | 05 Dec 2026 | 5 | shortlist |
 | **05 Dec** | [Go East Vintage — Festive Weekender at Wapping Hydraulic Power Station](https://linktr.ee/go.east.vintage) | London | open | 05 Dec 2026 | 4 | shortlist |
+| **19 Dec** | [Thriftmas Market (Hackney Flea Market / DIY Art Market)](https://www.eventbrite.co.uk/e/thriftmas-market-tickets-1992335582359) | London | open | 19 Dec 2026 | 3 | applied |
 
 ## Our pipeline
 
@@ -56,11 +65,15 @@ Published deadlines, plus events at fit 3+ still taking applications.
 | shortlist | [Go East at Eastway Baths — Vintage, Creatives & Makers (Hackney Wick)](https://linktr.ee/go.east.vintage) | London | open | 23 Jan 2027 | — |
 | shortlist | [Lou Lou's Vintage Fair — London, Canada Water](https://www.loulousvintagefair.com/) | London | open | 15 Nov 2026 | — |
 | shortlist | [Old Spitalfields Market (incl. Thursday Antiques & Vintage Market)](https://oldspitalfieldsmarket.com/become-a-trader) | London | rolling | Stalls 7 days a week; Antiques Market every Thursday 8am-5p… | — |
+| shortlist | [Second Life Markets — London curated vintage market (Boiler House, Brick Lane)](https://www.secondlifemarkets.com/) | London | open | 05 Dec 2026 | — |
 | applied | [Alfies Antique Market](https://alfiesantiques.com/dealers-at-alfies/) | London | rolling | Permanent; open Tue-Sat 10am-6pm | Enquiry emailed to info@alfiesantiques.com on 2 Nov 2026 (asked about a cabinet, rent, staffing). Awaiting reply. |
 | applied | [Brick Lane Flea Market (Truman Markets, 106 Commercial Street)](https://www.eventbrite.co.uk/e/brick-lane-flea-market-tickets-2000439988857) | London | unknown | 21 Nov 2026 | Asked Truman Markets on 10 Nov, in the Brick Lane thread, for a stall on 21-22 Nov plus the fee and how to apply. |
 | applied | [Brick Lane Vintage Market (Old Truman Brewery)](https://www.trumanbrewery.com/web/markets.pl) | London | closed | Open 7 days. Mon-Fri 11am-6:30pm, Sat 11am-6pm, Sun 10am-6p… | Enquiry sent 2 Nov; Truman replied 3 Nov (full, waiting list, from £220/week, 7-day trading). Waiting-list details sent 10 Nov, asking whether two traders can share a unit. |
 | applied | [Lower Stable Street Market & Shotengai pan-Asian Market (King's Cross)](https://www.kingscross.co.uk/event/lower-stable-street-market) | London | rolling | 19 Nov 2026 | Enquiry emailed to market@kioskn1c.com on 2 Nov 2026 (asked for 19-22 Nov or a later market, fee, and whether resale fits). Awaiting reply. |
+| applied | [So Last Century Vintage Fair — Goldsmiths, New Cross](https://www.solastcenturyfair.co.uk/traders) | London | opens-later | 29 Nov 2026 | Emailed info@solastcenturyfair.co.uk on 10 Nov 2026: asked to be considered for 7 Mar 2027 (Mother's Day) when bookings open, and for the 29 Nov waiting list. |
+| applied | [So Last Century Vintage Market at Dulwich Picture Gallery](https://www.solastcenturyfair.co.uk/traders) | London | opens-later | 05 Dec 2026 | Same email, 10 Nov 2026: asked for the 5-6 Dec waiting list. |
 | applied | [The Classic Car Boot Sale](https://www.classiccarbootsale.co.uk/) | London | open | 24 Apr 2027 | Enquiry sent 2 Nov 2026 asking about pitches for traders without a classic car. No reply as of 10 Nov. |
+| applied | [Thriftmas Market (Hackney Flea Market / DIY Art Market)](https://www.eventbrite.co.uk/e/thriftmas-market-tickets-1992335582359) | London | open | 19 Dec 2026 | Emailed hackneyfleamarket@gmail.com on 10 Nov 2026: asked for a Thriftmas stall (19-20 Dec) and the monthly Hackney Flea, plus the fee and how to apply. |
 
 ## Fairs, markets and spaces
 
@@ -69,9 +82,11 @@ Break-even is pitch fee ÷ £84 contribution per piece (D14).
 | Fit | Name | Type | City | Next | Apply | Cost | Break-even |
 |---|---|---|---|---|---|---|---|
 | 5 | [Frock Me! Vintage Fashion Fair](https://www.frockmevintagefashion.com/fair-dates) | fair | London | 15 Nov 2026 | closed | Stand fee not published; ask info@frockmevintagefashion.com / 020 7503 9171. Vi… | — |
+| 5 | [Second Life Markets — London curated vintage market (Boiler House, Brick Lane)](https://www.secondlifemarkets.com/) | market | London | 05 Dec 2026 | open | Half Stall £80 [1 rail OR 1 table]; Single Stall £130 [2 rails & 1 table OR 3 r… | 1 pc |
 | 4 | [Go East Vintage — Strongroom Christmas Market (Shoreditch)](https://linktr.ee/go.east.vintage) | market | London | 14 Nov 2026 | open | Single pitch (8ft x 8ft) £50; double (16ft x 8ft) £100, per event day; table hi… | 1 pc |
 | 4 | [Lou Lou's Vintage Fair — London, Canada Water](https://www.loulousvintagefair.com/) | fair | London | 15 Nov 2026 | open | Pitch fee not published; Eventaly shows stall types and prices only after you l… | — |
 | 4 | [Lou Lou's Vintage Fair — Manchester](https://www.loulousvintagefair.com/) | fair | Manchester | 22 Nov 2026 | open | Pitch fee not published; Eventaly shows stall types and prices only after you l… | — |
+| 4 | [So Last Century Vintage Fair — Goldsmiths, New Cross](https://www.solastcenturyfair.co.uk/traders) | fair | London | 29 Nov 2026 | opens-later | Stand fee not published. Visitor entry at Catford was £4 on the door, £3 in adv… | — |
 | 4 | [Go East Vintage — Festive Weekender at Wapping Hydraulic Power Station](https://linktr.ee/go.east.vintage) | market | London | 05 Dec 2026 | open | Single pitch (8ft x 8ft) £70 per day; double (16ft x 8ft) £140 per day; table h… | 1 pc |
 | 4 | [The Textile Society — Manchester Antique & Vintage Textile Fair](https://www.textilesociety.org.uk/event/manchester-antique-vintage-textile-fair) | fair | Manchester | 13 Jun 2027 | open | Stands from £110 for the day | 2 pc |
 | 4 | [Camden Passage - Pierrepont Arcade & Charlton Place Markets](https://www.camdenpassageislington.co.uk/markets/pierrepont-arcade-market.html) | market | London | Antiques Wed & Sat (also general antiques/collectables Fri… | rolling | Not published. Covered, lit stall with a ~6ft x 3ft trestle table provided; bri… | — |
@@ -83,6 +98,9 @@ Break-even is pitch fee ÷ £84 contribution per piece (D14).
 | 3 | [Brick Lane Flea Market (Truman Markets, 106 Commercial Street)](https://www.eventbrite.co.uk/e/brick-lane-flea-market-tickets-2000439988857) | market | London | 21 Nov 2026 | unknown | Not published. | — |
 | 3 | [Craft & Flea — Glasgow (Christmas)](https://www.thecraftandflea.com/pages/trade-with-us) | fair | Glasgow | 21 Nov 2026 | open | From £60 for a 6ft x 3ft table-top pitch (prices vary by venue); table hire £10+ | 1 pc |
 | 3 | [Go East Vintage at Doodle Bar Arches (Bermondsey)](https://linktr.ee/go.east.vintage) | market | London | 21 Nov 2026 | open | Single pitch (8ft x 8ft) £65 per day; double (16ft x 8ft) £130 per day; table h… | 1 pc |
+| 3 | [Salad Days Market (curated small-brand pop-up markets)](https://www.saladdaysmarket.co.uk/) | market | London | 05 Dec 2026 | opens-later | Not published. The spot includes "one 5ft table, or, one 5ft rail only" (rails… | — |
+| 3 | [So Last Century Vintage Market at Dulwich Picture Gallery](https://www.solastcenturyfair.co.uk/traders) | market | London | 05 Dec 2026 | opens-later | Stand fee not published. | — |
+| 3 | [Thriftmas Market (Hackney Flea Market / DIY Art Market)](https://www.eventbrite.co.uk/e/thriftmas-market-tickets-1992335582359) | market | London | 19 Dec 2026 | open | Not published. hackneyfleamarket.com blocks automated fetches, so the pitch fee… | — |
 | 3 | [Sandown Antiques, Home & Interiors Fair](https://www.sunburyantiques.com/sandown/) | market | London | 17 Jan 2027 | open | Inside tabletop pitch (6ft x 2.5ft table supplied) £85 incl. VAT per fair, extr… | 2 pc |
 | 3 | [The Decorative Antiques & Textiles Fair](https://decorativefair.com/winter-fair/) | fair | London | 19 Jan 2027 | rolling | Stand fees not published | — |
 | 3 | [Go East at Eastway Baths — Vintage, Creatives & Makers (Hackney Wick)](https://linktr.ee/go.east.vintage) | market | London | 23 Jan 2027 | open | Per day: tabletop under a shared gazebo, bring your own table, £45; tabletop wi… | 1 pc |
@@ -106,8 +124,14 @@ Break-even is pitch fee ÷ £84 contribution per piece (D14).
 | 2 | [Sunbury Antiques Market at Kempton Park](https://www.sunburyantiques.com/kempton/) | market | London | 27 Oct 2026 | open | Inside stall incl. 6ft x 2.5ft table £85 incl. VAT (extra table £10); outside p… | 2 pc |
 | 2 | [Judy's Vintage Furniture & Flea / Big Kensington Vintage Flea Markets](https://judysvintagefair.com/traders/) | fair | London | 31 Oct 2026 | rolling | Stall prices shown only to logged-in approved traders; not published. Cancellat… | — |
 | 2 | [Southbank Centre Winter Market](https://southbank.london/whats-on/winter-market) | fair | London | 02 Nov 2026 | unknown | Chalet rates not published | — |
+| 2 | [SoLo Craft Fair — Pocket Park Christmas Market (Sky Garden)](https://www.solocraftfair.com/pocket-park-market) | market | London | 23 Nov 2026 | closed | 6ft x 2ft table in a shared cabin: weekdays £55, weekends £80, full two weeks £… | 1 pc |
+| 2 | [Love Wimbledon Christmas Market (The Piazza)](https://lovewimbledon.org/the-bid/trade-at-our-markets/christmas-market/) | market | London | 27 Nov 2026 | closed | Non-food: £70 one day, £130 two days, £195 three days (per weekend market). Inc… | 1 pc |
+| 2 | [Hackney Flea Market (monthly, Abney Public Hall)](https://www.eventbrite.co.uk/e/hackney-flea-market-tickets-1718407907309) | market | London | 28 Nov 2026 | unknown | Not published | — |
 | 2 | [Weekends — themed edit markets (Truman Markets, Brick Lane)](https://www.trumanbrewery.com/web/upcoming-events.pl) | market | London | 28 Nov 2026 | open | Not published. | — |
+| 2 | [Wembley Park Antiques & Vintage Market](https://wembleypark.com/whats-on/wembley-park-antiques-vintage-market/) | market | London | 29 Nov 2026 | open | Table only £100 (6ft table, pitch about 2.5m x 2m); car/small van £150; large v… | 2 pc |
 | 2 | [Brighton Etsy Team Christmas Market](https://www.brightonetsyteam.com/christmas-market) | fair | Brighton | 05 Dec 2026 | closed | Not published | — |
+| 2 | [So Last Century Vintage Market at the Mansion (Beckenham Place Park)](https://www.solastcenturyfair.co.uk/traders) | market | London | 12 Dec 2026 | opens-later | Stand fee not published. | — |
+| 2 | [So Last Century — Creekside Christmas Flea Market (Found Works, Deptford)](https://www.solastcenturyfair.co.uk/traders) | fair | London | 19 Dec 2026 | closed | Not published; ask info@solastcenturyfair.co.uk | — |
 | 2 | [Wimbledon Homes & Antiques Fair (Sunbury Antiques)](https://www.sunburyantiques.com/wimbledon/) | market | London | 04 Apr 2027 | open | Outside pitches only, cash on the day or BACS in advance: car £45, standard van… | 1 pc |
 | 2 | [Afflecks — trader units](https://afflecks.com/pages/space-to-let) | arcade | Manchester | Always-on (Mon–Fri 10:30–6, Sat 10–6, Sun 11–5) | rolling | Weekly licence fee, inclusive of VAT, utilities and business rates; amount not… | — |
 | 2 | [BOXPARK Shoreditch one-week pop-up unit](https://www.appearhere.co.uk/spaces/boxpark-1-week-retail-pop-up) | popup | London | One-week bookings: keys Monday 5pm, trade Tue-Sun, return k… | unknown | £1,000 + VAT per week (300 sq ft unit) incl. service charge, electricity and co… | 12 pc |
@@ -118,10 +142,13 @@ Break-even is pitch fee ÷ £84 contribution per piece (D14).
 | 2 | [Go East Vintage at Maltby Street Market (weekly, outdoor)](https://linktr.ee/go.east.vintage) | market | London | Every weekend, Sat-Sun. The booking form currently lists we… | open | Single pitch (8ft x 8ft) £65 per day; double £130 per day. Tables £10 (the Sund… | 1 pc |
 | 2 | [Greenwich Market](https://greenwichmarket.london/become-a-trader/) | market | London | Open daily 10am-5:30pm (closed Christmas Day and the first… | rolling | Craft & Collectables per day incl. VAT (published as 'from 1 September 2023'):… | 1 pc |
 | 2 | [Manchester City Council Specialist Markets (incl. Manchester Christmas Markets)](https://www.manchester.gov.uk/directory_record/451829/market_stalls_-_specialist_market_database_registration) | market | Manchester | Rolling registration. Christmas Markets 2026 reportedly run… | rolling | No application fee; market occupancy charges apply but aren't published | — |
+| 2 | [Pop Up Vintage Fairs London](https://www.popupvintagefairs.co.uk/) | fair | London | No dates: the homepage still says "2025 Dates Coming Soon!"… | unknown | Not published. Visitor entry £4 (£3 NUS) at The Engine Rooms. | — |
 | 2 | [St Nicholas Market — indoor stalls (Glass Arcade / Exchange)](https://www.bristol.gov.uk/st-nicholas-markets/trade-with-us) | arcade | Bristol | Always-on (permanent stalls) | rolling | Varies by stall; set out in each vacancy's guidance pack | — |
 | 2 | [The Barras Market — pop-up stalls](https://market.barrowland.co.uk/blogs/the-barras/pop-up-permanent) | market | Glasgow | Every Sat and Sun, 10am–4pm | rolling | £15 per day for a pop-up stall (from an undated blog post) | 1 pc |
 | 2 | [The Vintage Village — Stockport Market Hall](https://www.vintagevillagestockportmarket.co.uk/) | fair | Manchester | Sundays, about 10:00-16:00. FleaMapket says it runs "one Su… | unknown | Not published | — |
 | 2 | [Tobacco Factory Sunday Market](https://tobaccofactory.com/sunday-market/) | market | Bristol | Weekly Sundays; Eventaly lists 18 Oct, 25 Oct, 1 Nov, 8 Nov… | open | £38 for a carport pitch of about 2m x 2m per Sunday (other pitches £32–£44); no… | 1 pc |
+| 2 | [Wembley Park Festive Market (Pop Up Stalls)](https://wembleypark.com/wembley-park-market/) | market | London | Search-indexed wembleypark.com listings give Sat-Sun 5-6, 1… | unknown | Not published by the organiser. A Nov 2025 third-party call (Open Art Spaces) q… | — |
+| 2 | [co.lective rotating brand kiosk (Westfield London, White City)](https://colectivepopup.shop/signup/) | popup | London | Rotating kiosk: "Book a long weekend, a Full Week or Severa… | unknown | "From £100/ day" on the sign-up page; 2025 press (FashionUnited) said "from 100… | 2 pc |
 
 ## Online marketplaces
 
@@ -154,6 +181,7 @@ Kept so the weekly run doesn't rediscover them.
 - [Canopy Market, King's Cross (Real Food Markets)](https://www.realfoodfestival.co.uk/our_work/canopy-market/) (London) — The only application form is built for food traders (welfare standards, power, gas). The organiser lists the non-food offer as "designer-makers \| handmade cra…
 - [Chairish](https://support.chairish.com/hc/en-us/articles/44165603442321-Chairish-Selling-Plans-Commission-Rate-Overview) (Online) — Jewellery is invitation-only. Commission is 30–40%. The audience is US home decor.
 - [Charlton House Christmas Market](https://www.greenwichheritage.org/news/calling-all-christmas-stallholders-be-part-of-our-festive-market/) (London) — The call is for "talented makers, independent businesses and artisan producers": "If you make bake and create". The 2026 deadline has passed.
+- [Christmas Independent Jewellers' Market (DIY Art Market)](https://www.eventbrite.co.uk/e/christmas-independent-jewellers-market-tickets-1975824394953) (London) — 'Explore a stunning array of artist-made jewellery and buy directly from the makers' with 'over 100 established and emerging international jewellery artists an…
 - [Collector Square](https://www.collectorsquare.com/conditions-utilisation) (Online) — The jewellery offer is fine jewellery in gold, platinum and diamonds; no costume or bijoux fantaisie listings were found. Professional onboarding assumes a Fre…
 - [Crafty Fox Market](https://www.craftyfoxmarket.co.uk/applytotrade) (London) — Looks for 'items with a handmade element - whether made by you directly or produced in small runs in the UK from your original designs'.
 - [HEWI (Hardly Ever Worn It)](https://www.hardlyeverwornit.com/how-it-works/selling) (Online) — The site says it is 'not accepting new listings at the moment'. Companies House shows HardlyEver Limited (07002732) in liquidation (Begbies Traynor). Trustpilo…
@@ -161,9 +189,11 @@ Kept so the weekly run doesn't rediscover them.
 - [Lower Stable Street Market & Shotengai pan-Asian Market (King's Cross)](https://www.kingscross.co.uk/event/lower-stable-street-market) (London) — Ruled out by the organiser. Kiosk N1C replied on 2 Nov 2026 that the market is fully booked for the season and "we don't host buyers-and-sellers really - only…
 - [Manchester Craft and Design Centre — studios](https://www.craftanddesign.com/wp-content/uploads/2025/06/Studio-Recruitment-with-Pricing-17-1.pdf) (Manchester) — Studios are for makers who make and sell their own craft on site.
 - [Merchant Square Craft & Design Market, Glasgow](https://www.merchantsquareglasgow.com/events) (Glasgow) — VisitGlasgow says "All products are handmade in Glasgow". The organiser's own 2025 page lists "crafts, fashion, jewellery, homeware, baking" without stating th…
+- [Not A Phase Market (alt makers market, incl. Valentine's edition)](https://sites.google.com/view/not-a-phase-market/faqs) (London) — "If you make stuff that's emo/goth/punk/alternative then we'd love to hear from you", which makes it a makers market for alternative and pop-culture creators.…
 - [Portobello Road & Golborne Market (council casual pitches)](https://www.rbkc.gov.uk/markets) (London) — The council is not registering stalls for 'jewellery including charms, crystals, precious and semi-precious gemstones, and adornments' (also ladies' clothing,…
 - [Reluxe (Reluxe Fashion)](https://reluxefashion.com/) (Online) — reluxefashion.com returns Shopify 'This store is currently unavailable' (HTTP 402) as of 2026-10-13. It was a concierge consignment model for private wardrobes…
 - [Scottish Design Exchange (SDX) — Glasgow store](https://www.scottishdesignexchange.com/) (Glasgow) — The model exists to showcase 'Scotland's artists & designers'.
+- [Second Life Markets — London Closet Sale](https://www.secondlifemarkets.com/) (London) — "Strictly for people selling their wardrobes"; businesses and curated stock are excluded.
 - [Selency](https://help.selency.com/en/articles/6045634) (Online) — Furniture and decor only; jewellery appears only as jewellery boxes or prints. UK seller eligibility not stated.
 - [Seven Dials Market](https://www.sevendialsmarket.com/) (London) — Street-food hall (21 food traders, two bars); no retail stalls. Seven Dials retail pop-ups go through Appear Here listings instead.
 - [Snoopers Paradise — stalls & cabinets](https://snoopersparadise.co.uk/trade-with-us) (Brighton) — 'Our books are currently closed to clothes and jewellery traders.' Snoopers Attic upstairs is a separate makers and vintage-clothing collective with no publish…

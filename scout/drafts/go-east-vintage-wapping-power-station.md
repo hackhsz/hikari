@@ -20,7 +20,7 @@ The pre-filled links include our contact email, so they're kept out of this publ
 | Phone | `{MOBILE}`: **you fill this in** |
 | Category | Vintage Jewellery |
 | Dates | 5–6 December 2026 · 3–4 April 2027 |
-| Preferred day | Full weekend (priority) |
+| Preferred day | **Sunday only** (Saturday 5 Dec goes to Second Life Markets) |
 | Pitch | Single (8×8), £70/day |
 | Location | Indoor |
 | Friday set-up | No |

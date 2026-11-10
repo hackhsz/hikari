@@ -46,6 +46,15 @@ Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manches
 - **Go East Vintage** (young, vintage-only markets across East London): https://linktr.ee/go.east.vintage lists every booking Google Form with prices and dates; https://ma.to/venue/go.east.vintage has the date list. goeastvintage.co.uk is dead; goeast.uk refuses curl.
 - **Truman Markets** (Brick Lane): https://linktr.ee/bricklanetrumanmarkets, https://www.trumanbrewery.com/web/upcoming-events.pl, Eventbrite organiser https://www.eventbrite.co.uk/o/31510426709. Contact markets@trumanbrewery.com.
 - **Camden Market:** the trader route is https://camdenmarket.com/join-camden (a Typeform, plus a trader-pack PDF).
+- **Second Life Markets** (curated vintage pop-ups, Brick Lane): https://secondlifemarkets.com. Each event links to its MarketMate application form.
+- **So Last Century** (vintage fairs at Goldsmiths, Dulwich, Deptford and Beckenham): https://www.solastcenturyfair.co.uk/traders shows every date's open or sold-out status through Oct 2027. Apply at info@solastcenturyfair.co.uk.
+- **Hackney Flea Market / Thriftmas** (Abney Public Hall): active, despite run 2's dead-end note. Its own site gives 403; use the Eventbrite organiser page https://www.eventbrite.co.uk/o/hackney-flea-maket-4527233341 (curl the JSON for every date). Contact hackneyfleamarket@gmail.com.
+- **Other trader pages:**
+  - Salad Days: https://www.saladdaysmarket.co.uk/apply-for-the-market (maker-leaning)
+  - SoLo: https://www.solocraftfair.com/applications (makers)
+  - Wembley Park antiques: https://wembleyantiquesmarket.com/stallholders
+  - Love Wimbledon: https://lovewimbledon.org/the-bid/trade-at-our-markets/
+- **Lead list:** https://londonaire.co.uk/best-independent-christmas-markets-london (Londonist returns 403). Useful query: `"So Last Century" vintage Christmas traders`.
 - fleamapket.com event pages (dates for Frock Me!, Sunbury)
 - whereisthemarket.com (Kempton dates)
 - Time Out London listings, londonist weekend guides
@@ -72,12 +81,14 @@ Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manches
 - Classic Car Boot Sale trade deck (Adobe-hosted PDF): unreadable
 
 ### Leads not yet researched
+- Christmas markets not yet checked: Pop Brixton, Peckham Levels, Mercato, Leicester Square, Canary Wharf, Islington, Kingston (season chalets), Westfield, Boxpark, Carnaby/Kingly, Duke of York Square
+- Satanic Flea AntiChristmas Fayre, UNLOCKED Shoreditch, 13 Dec (vintage stalls)
+- A Current Affair (high-end vintage fair, London debut March 2026): acurrentaffair.com is blocked by this environment's network rules
 - Not yet covered: student-union vintage fairs; So Last Century (Dulwich, Catford); Wembley Park; Go East's Ropewalk Festive Fridays form
 - Truman's Sunday Upmarket (now 7 days) and Backyard Market (arts and crafts): sites return 503 and no trader route is published (run 5)
 - Lou Lou's Midcentury Home Market, Canada Water (The Nest, Sun 1 Nov 2026): homeware-led, not on Lou Lou's Eventaly list
 
 ### Dead ends (don't re-check)
-- Hackney Flea Market: site 403, nothing confirmed since Oct 2025, no trader route (run 2)
 - Antiques Anonymous: last held 2019; the Church Street Antiques Fair replaced it (run 2)
 - Clerkenwell Vintage Fashion Fair (clerkenwellvintagefashionfair.co.uk): its own site says 13 Apr 2025 was "our final show" (run 4)
 - Royal Greenwich Christmas huts: council page 403; check by hand in summer for the 2027 cycle (run 4)

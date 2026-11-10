@@ -2656,3 +2656,519 @@ markets:
     'https://www.eventbrite.co.uk/o/31510426709']
   decision: new
   our_notes: null
+
+- id: second-life-markets-london
+  name: Second Life Markets — London curated vintage market (Boiler House, Brick Lane)
+  type: market
+  city: London
+  where: The Boiler House, 152 Brick Lane, Shoreditch, London E1 6QL (indoor)
+  organiser: Second Life Markets (also runs vintage markets in Sydney and Melbourne; trader applications via MarketMate)
+  url: https://www.secondlifemarkets.com/
+  apply_url: http://marketmate.live/second-life-markets-uk/events/12d0992b-0087-4874-a177-b63e52ea4155
+  dates: 'Sat 5 Dec 2026, 10:30am-5pm: "70 stalls of the best curated vintage stores from across London & The UK".
+    The previous London market was Sun 10 May 2026 at Protein Studios, Shoreditch (90 stalls, tickets from £8 early
+    bird, according to a London On The Inside listing). No 2027 London dates are published yet.'
+  next_date: 2026-12-05
+  apply: {status: open, deadline: null, opens: null}
+  window: Each event has its own application on MarketMate. The form warns that applying "within 2 weeks of the
+    event" means it is "likely already at capacity", so apply before about 21 Nov 2026. London editions so far were
+    in May and December 2026, so expect a spring 2027 call.
+  fee_gbp: 80
+  cost: Half Stall £80 [1 rail OR 1 table]; Single Stall £130 [2 rails & 1 table OR 3 rails]. "All stalls are VAT
+    20% inclusive." "Equipment is not included in stall fees", so bring your own table or rail.
+  commission_pct: null
+  requires: ['MarketMate application: stall/brand name, full name, email, Instagram (required), website (optional),
+      stall description, gender stocked, categories (options include ''Vintage Designer'' and ''Jewellery/Watches''),
+      average price point, up to 5 images of stock, how you heard', Own table (and display), Card reader]
+  watch_out: Only successful applicants hear back; silence means no. Submit one application only. "Strict NO FAST
+    FASHION policy", and stalls with "the best curations" are favoured. No refunds for change of mind once confirmed.
+    Insurance is not mentioned (check). The event is clothing-led (rails). It clashes with the shortlisted Go East
+    Wapping weekend (5-6 Dec) and Flea London's Christmas weekend.
+  fit: 5
+  why: A one-day, indoor, curated vintage market on Brick Lane, which is exactly the young vintage crowd the owner
+    wants. The form lists 'Vintage Designer' and 'Jewellery/Watches' as categories, curated vintage stores are the
+    point of the event, and visitors pay for tickets. The £80 half stall (one table) breaks even at about one sale,
+    which makes it the cheapest low-commitment test found. Verified on the organiser's site and MarketMate form.
+  checked: 2026-11-10
+  sources: ['https://www.secondlifemarkets.com/', 'http://marketmate.live/second-life-markets-uk/events/12d0992b-0087-4874-a177-b63e52ea4155',
+    'https://www.secondlifemarkets.com/applytosell', 'https://londontheinside.com/second-life-markets-is-bringing-vintage-to-london/']
+  decision: shortlist
+  our_notes: null
+
+- id: so-last-century-new-cross-goldsmiths
+  name: So Last Century Vintage Fair — Goldsmiths, New Cross
+  type: fair
+  city: London
+  where: Great Hall, Richard Hoggart Building, Goldsmiths, University of London, New Cross, London SE14 6NW (indoor)
+  organiser: So Last Century (since 2015; also runs Catford, Dulwich, Beckenham and Deptford events)
+  url: https://www.solastcenturyfair.co.uk/traders
+  apply_url: null
+  dates: Sun 29 Nov 2026, 10:30am-4pm ("sold out - waiting list only"); Sun 7 Mar 2027 (Mother's Day UK), "Not yet
+    open for bookings".
+  next_date: 2026-11-29
+  apply: {status: opens-later, deadline: null, opens: null}
+  window: Email applications. Each date shows its availability on the Traders page, and the 7 Mar 2027 edition is
+    "Not yet open for bookings". Ask now to go on the waiting list for 29 Nov and to be first in line for 7 Mar.
+  fee_gbp: null
+  cost: Stand fee not published. Visitor entry at Catford was £4 on the door, £3 in advance.
+  commission_pct: null
+  requires: ['Email info@solastcenturyfair.co.uk with trading name, a description of what you sell, social media
+      handles / website links, shows, fairs or markets you''ve traded at, and up to five good-quality photos including
+      one of a typical stall set-up', Own public liability insurance, Original vintage or antique goods at least
+      25 years old]
+  watch_out: Goods must be "at least 25 years old", so only pre-2002 pieces qualify. Check each Dior logo piece,
+    since many look 1990s-2000s. Events are curated for "a balanced mix", which may cap jewellery stands. It is
+    a mixed vintage and mid-century fair with £3-4 entry, so the price frame may be lower than ours. Fees are unknown.
+  fit: 4
+  why: A one-day indoor fair with 50+ hand-picked vintage traders in a university Great Hall, giving a young South
+    London and student crowd. The 7 Mar 2027 edition falls on Mother's Day itself, the jewellery-gifting peak. The
+    weaknesses are the probably lower price frame and the 25-year age rule. The stand fee is not published (null).
+  checked: 2026-11-10
+  sources: ['https://www.solastcenturyfair.co.uk/traders', 'https://www.solastcenturyfair.co.uk/next-events', 'https://www.ianvisits.co.uk/calendar/?p=435526',
+    'https://www.gold.ac.uk/calendar/?id=16267']
+  decision: applied
+  our_notes: 'Emailed info@solastcenturyfair.co.uk on 10 Nov 2026: asked to be considered for 7 Mar 2027 (Mother''s Day) when bookings open, and for the 29 Nov waiting list.'
+
+- id: so-last-century-dulwich-picture-gallery
+  name: So Last Century Vintage Market at Dulwich Picture Gallery
+  type: market
+  city: London
+  where: Dulwich Picture Gallery, Gallery Road, London SE21 7AD
+  organiser: So Last Century
+  url: https://www.solastcenturyfair.co.uk/traders
+  apply_url: null
+  dates: 'Sat 5 and Sun 6 Dec 2026, 10am-5pm, Christmas Vintage Market ("sold out - waiting list only"); Sun 20
+    Jun 2027 Summer Vintage Market ("Not yet open for bookings"). Previous summer edition: Sun 7 Jun 2026.'
+  next_date: 2026-12-05
+  apply: {status: opens-later, deadline: null, opens: null}
+  window: Twice a year (early December and June). Apply by email; Christmas is waiting list only.
+  fee_gbp: null
+  cost: Stand fee not published.
+  commission_pct: null
+  requires: ['Email info@solastcenturyfair.co.uk with trading name, description, social/website links, previous
+      fairs, up to five photos incl. stall set-up', Own public liability insurance, Goods at least 25 years old]
+  watch_out: The 25-year age rule applies. Christmas is sold out and the next open date (20 Jun 2027) falls outside
+    the Nov-May window. It is a two-day commitment, and parts may be outdoors (unverified). The audience is affluent
+    rather than young.
+  fit: 3
+  why: A design-literate, affluent Dulwich audience and a gallery setting that suits a curated designer jewellery
+    table. The crowd is older than the owner's target and Christmas is waitlist-only, so this is a plausible test,
+    mainly via the waiting list.
+  checked: 2026-11-10
+  sources: ['https://www.solastcenturyfair.co.uk/traders', 'https://www.solastcenturyfair.co.uk/next-events']
+  decision: applied
+  our_notes: 'Same email, 10 Nov 2026: asked for the 5-6 Dec waiting list.'
+
+- id: so-last-century-beckenham-mansion
+  name: So Last Century Vintage Market at the Mansion (Beckenham Place Park)
+  type: market
+  city: London
+  where: Beckenham Place Mansion, Beckenham Place Park, London BR3 1SY
+  organiser: So Last Century
+  url: https://www.solastcenturyfair.co.uk/traders
+  apply_url: null
+  dates: Sat 12 and Sun 13 Dec 2026 Winter Vintage Market ("sold out - waiting list only"); Easter Mon 29 Mar 2027,
+    bank holiday Mon 3 May 2027, bank holiday Mon 31 May 2027, Sun 18 Jul 2027, bank holiday Mon 30 Aug 2027 (all
+    "Not yet open for bookings").
+  next_date: 2026-12-12
+  apply: {status: opens-later, deadline: null, opens: null}
+  window: Roughly monthly in spring and summer, on bank holidays. Apply by email.
+  fee_gbp: null
+  cost: Stand fee not published.
+  commission_pct: null
+  requires: ['Email info@solastcenturyfair.co.uk with trading name, description, social/website links, previous
+      fairs, up to five photos incl. stall set-up', Own public liability insurance, Goods at least 25 years old]
+  watch_out: 'This is a suburban park day out with street food: a family crowd rather than a young vintage one.
+    The 25-year rule applies. Indoor or outdoor pitches are unverified.'
+  fit: 2
+  why: Same curated organiser and one-day format, but the audience (family park visitors on bank holidays) is far
+    from the young vintage shopper the owner is targeting. Kept so it isn't rediscovered.
+  checked: 2026-11-10
+  sources: ['https://www.solastcenturyfair.co.uk/traders', 'https://www.solastcenturyfair.co.uk/next-events']
+  decision: new
+  our_notes: null
+
+- id: salad-days-market
+  name: Salad Days Market (curated small-brand pop-up markets)
+  type: market
+  city: London
+  where: 'Rotating London venues: Corner Corner, Canada Water (5-6 Dec 2026); past venues include Battersea Power
+    Station, Selfridges (six pop-ups), The Shard, The Hoxton, Dulwich Picture Gallery, Gipsy Hill Brewery'
+  organiser: Salad Days Market (@saladdaysmarketlondon)
+  url: https://www.saladdaysmarket.co.uk/
+  apply_url: https://www.saladdaysmarket.co.uk/apply-for-the-market
+  dates: Sat 5 and Sun 6 Dec 2026 at Corner Corner, Canada Water. No 2027 dates published.
+  next_date: 2026-12-05
+  apply: {status: opens-later, deadline: null, opens: null}
+  window: '"APPLICATIONS ARE NOW CLOSED" for 2026 (over 500 applications). For 2027 markets, sign up to the newsletter
+    (/newsletter-signup) to be told when applications open.'
+  fee_gbp: null
+  cost: Not published. The spot includes "one 5ft table, or, one 5ft rail only" (rails are not supplied).
+  commission_pct: null
+  requires: [Application form naming the date applied for, 'Brand story: who you are, why you started, your passion',
+    New or exclusive products planned for the market, How and where products are made, Best-sellers and why they
+      stand out, Proof of public liability insurance, 'Website, social media and storefront kept up to date', Everyone
+      on the stall 18+]
+  watch_out: 'The apply page asks for "original design, handmade processes and exclusive new products" and asks
+    how and where products are made. That question is awkward given the rule never to say where pieces come from:
+    answer about the maker houses (Dior, Chanel), not sourcing. An older blog post says they consider "handmade,
+    vintage, reworked or from a small brand", so resale is possible but not certain. Payment secures the place;
+    only successful applicants are contacted.'
+  fit: 3
+  why: Weekend shop-small markets in places with a young, style-conscious crowd (Selfridges, Battersea Power Station,
+    The Shard). They have taken vintage before, but the current application wording leans to makers. The fee is
+    unknown. Watch for the 2027 call.
+  checked: 2026-11-10
+  sources: ['https://www.saladdaysmarket.co.uk/', 'https://www.saladdaysmarket.co.uk/apply-for-the-market', 'https://rose-copper-gzty.squarespace.com/salad-days-market-blog/applications-process-apply-to-salad-days-market']
+  decision: new
+  our_notes: null
+
+- id: colective-westfield-white-city
+  name: co.lective rotating brand kiosk (Westfield London, White City)
+  type: popup
+  city: London
+  where: Westfield White City, 1081 Ariel Way, London W12 7GF (shared kiosk inside the centre)
+  organiser: co.lective (Retail Huddle Ltd; founder Ami Rabheru; @co.lectivepopup)
+  url: https://colectivepopup.shop/signup/
+  apply_url: https://colectivepopup.shop/signup/
+  dates: 'Rotating kiosk: "Book a long weekend, a Full Week or Several weeks at a time". Launched Sept 2025 "for
+    6 months", with "more openings to announce in 2026"; current operation not verified.'
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: Rolling. Register your brand with the dates you want; they "profile your brand against our opportunities"
+    and confirm if it fits.
+  fee_gbp: 100
+  cost: '"From £100/ day" on the sign-up page; 2025 press (FashionUnited) said "from 100 pounds a week". Lockable
+    storage included. Confirm the current rate.'
+  commission_pct: null
+  requires: ['Register-interest form: business email, first and last name, brand/trading name, Instagram handle',
+    Preferred dates, UK business only]
+  watch_out: Pitched at "scaling retail brands" and "next-gen product brands"; resale and vintage are not addressed.
+    The page is ©2025, describes a 6-month launch from Sept 2025, and the Westfield retailer listing for co.lective
+    now returns 404, so it may have ended. Themed weeks (e.g. a wellness "January Reset") may not suit jewellery.
+  fit: 2
+  why: Very low commitment (a weekend upwards) and huge footfall, with jewellery a named category in the 2025 launch
+    press. But it is a broad mall audience, a brand-incubator model built for new products, and whether it is still
+    running is unverified.
+  checked: 2026-11-10
+  sources: ['https://colectivepopup.shop/signup/', 'https://www.topdrawer.co.uk/show-partners-2/colective-pop-up',
+    'https://fashionunited.uk/news/retail/westfield-to-host-multi-brand-retail-incubator-co-lective/2025090983820']
+  decision: new
+  our_notes: null
+
+- id: wembley-park-antiques-vintage-market
+  name: Wembley Park Antiques & Vintage Market
+  type: market
+  city: London
+  where: Canada Lane, off First Way, Wembley Park, London HA9 0QA (indoor, undercover)
+  organiser: Paul Kelly (wembleyantiquesmarket.com); Wembley Park only hosts
+  url: https://wembleypark.com/whats-on/wembley-park-antiques-vintage-market/
+  apply_url: https://wembleyantiquesmarket.com/stallholders/
+  dates: Sun 29 Nov 2026 (first edition) and Sun 4 Apr 2027; public 10am-3pm, trade and early bird from 8am
+  next_date: 2026-11-29
+  apply: {status: open, deadline: null, opens: null}
+  window: Book and pay online on the stallholders page ("booked in within minutes"). Only these two dates are published.
+  fee_gbp: 100
+  cost: Table only £100 (6ft table, pitch about 2.5m x 2m); car/small van £150; large van £200; extra tables £10.
+    Booking both events gets 50% off with code "table241" (table).
+  commission_pct: null
+  requires: [Online booking and payment, Own chairs (none supplied)]
+  watch_out: Over 250 antiques and vintage dealers with drive-in van pitches and 8am trade entry, so it has an antiques
+    and flea frame. The stallholder page states no rules on what can be sold and no insurance requirement. "Bookings
+    are not transferable."
+  fit: 2
+  why: Cheap (£100, about 1.2 sales to break even), indoor and one day, and 'vintage fashion and jewellery' is a
+    listed category. But it is a dealer and bargain-hunter antiques market, not a young, style-conscious crowd.
+  checked: 2026-11-10
+  sources: ['https://wembleypark.com/whats-on/wembley-park-antiques-vintage-market/', 'https://wembleyantiquesmarket.com/stallholders/']
+  decision: new
+  our_notes: null
+
+- id: pop-up-vintage-fairs-london
+  name: Pop Up Vintage Fairs London
+  type: fair
+  city: London
+  where: 'Rotating: Old Hampstead Town Hall, Alexandra Palace, The Engine Rooms (East Finchley N2), St Paul''s Church
+    Hammersmith, Wilton''s Music Hall, Walthamstow Assembly Hall (on hold), Business Design Centre (past)'
+  organiser: Pop Up Vintage Fairs London (07716 295998)
+  url: https://www.popupvintagefairs.co.uk/
+  apply_url: https://www.popupvintagefairs.co.uk/new-stallholders
+  dates: 'No dates: the homepage still says "2025 Dates Coming Soon!" and every venue shows "NEXT DATE: To be confirmed".'
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Not published. Visitor entry £4 (£3 NUS) at The Engine Rooms.
+  commission_pct: null
+  requires: [New stallholder sign-up page (not read)]
+  watch_out: Looks dormant since 2024-25. A search extract of their About page says the focus is vintage from the
+    1920s to 1980s (not verified on the page), which would exclude 1990s-2000s Dior logo pieces.
+  fit: 2
+  why: A once award-winning London vintage fair that lists jewellery as a category, but no dates have been published
+    in over a year and it may have an era cut-off. Tracked so it isn't rediscovered; re-check in spring.
+  checked: 2026-11-10
+  sources: ['https://www.popupvintagefairs.co.uk/', 'https://popupvintagefairs.squarespace.com/the-engine-rooms']
+  decision: new
+  our_notes: null
+
+- id: second-life-markets-london-closet-sale
+  name: Second Life Markets — London Closet Sale
+  type: market
+  city: London
+  where: St Peter's Church, Notting Hill (21 Nov 2026); Shoreditch (8 Nov 2026)
+  organiser: Second Life Markets
+  url: https://www.secondlifemarkets.com/
+  apply_url: http://marketmate.live/second-life-markets-uk/events/0e5963f6-9816-4b42-8630-00f4a0c2f248
+  dates: Sat 8 Nov 2026 (Shoreditch, passed); 21 Nov 2026 (St Peter's Church, Notting Hill, "25 fantastic closets")
+  next_date: 2026-11-21
+  apply: {status: closed, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Not read.
+  commission_pct: null
+  requires: []
+  watch_out: '"Strictly for people selling their wardrobes"; businesses and curated stock are excluded.'
+  fit: 1
+  why: 'Excluded: a private-wardrobe sale, not open to vintage businesses. Use the organiser''s main London market
+    (second-life-markets-london) instead.'
+  checked: 2026-11-10
+  sources: ['https://www.secondlifemarkets.com/']
+  decision: new
+  our_notes: null
+
+- id: not-a-phase-market-walthamstow
+  name: Not A Phase Market (alt makers market, incl. Valentine's edition)
+  type: market
+  city: London
+  where: Signature Brew, Blackhorse Road, Walthamstow, London E17 5QJ
+  organiser: Not A Phase Market
+  url: https://sites.google.com/view/not-a-phase-market/faqs
+  apply_url: null
+  dates: Per-event; an 'Alt Valentines Market' has run. No Nov 2026-May 2027 dates on the FAQ page.
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: Applications open for each event individually, usually after the previous market, and are announced on
+    social media and the mailing list.
+  fee_gbp: 65
+  cost: Venue table (7.2ft) £65; bring your own 6ft table £55; table share £30; own gazebo £60
+  commission_pct: null
+  requires: [Public liability insurance of at least £5m, Trader application form]
+  watch_out: '"If you make stuff that''s emo/goth/punk/alternative then we''d love to hear from you", which makes
+    it a makers market for alternative and pop-culture creators. Vintage resale isn''t invited. No AI-made goods.'
+  fit: 1
+  why: 'Ruled out: a makers-led alternative scene market with no route for vintage designer resale. Kept so it isn''t
+    rediscovered via Valentine''s searches.'
+  checked: 2026-11-10
+  sources: ['https://sites.google.com/view/not-a-phase-market/faqs']
+  decision: new
+  our_notes: null
+
+- id: thriftmas-market-stoke-newington
+  name: Thriftmas Market (Hackney Flea Market / DIY Art Market)
+  type: market
+  city: London
+  where: Abney Public Hall, 73A Stoke Newington Church St, London N16 0AS (Abney Hall plus Room 71-73, first floor
+    and basement; indoor)
+  organiser: Hackney Flea Market Ltd, with the DIY Art Market team
+  url: https://www.eventbrite.co.uk/e/thriftmas-market-tickets-1992335582359
+  apply_url: https://hackneyfleamarket.com/
+  dates: Sat 19 and Sun 20 Dec 2026. The Eventbrite listing says 10am-5pm; diyartmarket.com says 11am-5pm. Free
+    entry.
+  next_date: 2026-12-19
+  apply: {status: open, deadline: null, opens: null}
+  window: First edition. Organiser runs dated one-off markets; trader calls are on hackneyfleamarket.com and Instagram
+    @hackneyfleamarket
+  fee_gbp: null
+  cost: Not published. hackneyfleamarket.com blocks automated fetches, so the pitch fee could not be read.
+  commission_pct: null
+  requires: ['Trader application via hackneyfleamarket.com (form not readable here: the site returns 403)', 'Organiser
+      contact: hackneyfleamarket@gmail.com']
+  watch_out: Billed as 'championing sustainability and affordability', with '£20 bins of vintage clothing' and 'discount
+    rails of preloved fashion', so the price frame sits below £85-£300. Fee, table size and insurance terms are
+    unverified. 'Trader applications open' comes from the organiser's own event text, not the application page.
+    Nine days before Christmas, any opening may fill fast.
+  fit: 3
+  why: Indoor, last full weekend before Christmas, in Stoke Newington's young, style-conscious crowd. Over 60 traders,
+    'from vintage sellers and emerging designers to jewellers and ceramic artists', so resellers and jewellery are
+    both in the mix. Held at 3 rather than 4 because of the thrift/affordability framing and an unknown fee.
+  checked: 2026-11-10
+  sources: ['https://www.eventbrite.co.uk/e/thriftmas-market-tickets-1992335582359', 'https://www.diyartmarket.com/',
+    'https://www.eventbrite.co.uk/o/hackney-flea-maket-4527233341']
+  decision: applied
+  our_notes: 'Emailed hackneyfleamarket@gmail.com on 10 Nov 2026: asked for a Thriftmas stall (19-20 Dec) and the monthly Hackney Flea, plus the fee and how to apply.'
+
+- id: so-last-century-creekside-christmas-flea
+  name: So Last Century — Creekside Christmas Flea Market (Found Works, Deptford)
+  type: fair
+  city: London
+  where: Found Works, Creekside, Deptford, London SE8
+  organiser: So Last Century
+  url: https://www.solastcenturyfair.co.uk/traders
+  apply_url: https://www.solastcenturyfair.co.uk/traders
+  dates: Sat 19 Dec 2026 (times not published)
+  next_date: 2026-12-19
+  apply: {status: closed, deadline: null, opens: null}
+  window: Appears to be a new Christmas edition; sold out (waiting list only)
+  fee_gbp: null
+  cost: Not published; ask info@solastcenturyfair.co.uk
+  commission_pct: null
+  requires: ['Email info@solastcenturyfair.co.uk with trading name, what you sell, website/social links, shows/fairs/markets
+      traded at, and up to five good-quality photos (one of your typical stall set-up if possible)', Own public
+      liability insurance, Stock must be original vintage or antique and at least 25 years old; reproductions only
+      if described as such]
+  watch_out: Only the name, date and venue are published (on the traders page); no event page was found, so size,
+    hours and indoor/outdoor are unverified. Billed as a flea. Sold out.
+  fit: 2
+  why: Deptford Creekside draws a young creative crowd, but this is a flea-format one-day market with no published
+    details, and it is full. Record it so it isn't rediscovered; worth a waiting-list line in the same So Last Century
+    email.
+  checked: 2026-11-10
+  sources: ['https://www.solastcenturyfair.co.uk/traders', 'https://www.solastcenturyfair.co.uk/next-events']
+  decision: new
+  our_notes: null
+
+- id: hackney-flea-market-stoke-newington
+  name: Hackney Flea Market (monthly, Abney Public Hall)
+  type: market
+  city: London
+  where: Abney Public Hall, 73A Stoke Newington Church St, London N16 0AS (indoor)
+  organiser: Hackney Flea Market Ltd
+  url: https://www.eventbrite.co.uk/e/hackney-flea-market-tickets-1718407907309
+  apply_url: https://hackneyfleamarket.com/
+  dates: 'Monthly. Next: Sat 28 Nov 2026 (the listing runs 10am Sat to 5pm Sun 29 Nov), then 9 Jan and 13 Feb 2027.
+    Free entry.'
+  next_date: 2026-11-28
+  apply: {status: unknown, deadline: null, opens: null}
+  window: Monthly; trader route via hackneyfleamarket.com (blocked to automated fetches)
+  fee_gbp: null
+  cost: Not published
+  commission_pct: null
+  requires: [Application via hackneyfleamarket.com (unreadable here), 'Organiser contact: hackneyfleamarket@gmail.com']
+  watch_out: sources.md lists Hackney Flea Market as a dead end; it is active, with dated editions on the organiser's
+    Eventbrite page. The mix is salvage and bric-a-brac ('Old Clobber', 'Kitschenalia', furniture, records), with
+    no jewellery named. Organiser also runs The Giant London Flea Market, The Big South London Flea and Peckham
+    Salvage Yard.
+  fit: 2
+  why: Indoor and in a young Stoke Newington crowd, with 40 'handpicked vintage traders', so resellers are the norm.
+    But it is a salvage-flea price frame, and the fee and application route can't be verified. A sibling of Thriftmas
+    (fit 3); ask about both at once.
+  checked: 2026-11-10
+  sources: ['https://www.eventbrite.co.uk/e/hackney-flea-market-tickets-1718407907309', 'https://www.eventbrite.co.uk/o/hackney-flea-maket-4527233341']
+  decision: new
+  our_notes: null
+
+- id: love-wimbledon-christmas-market
+  name: Love Wimbledon Christmas Market (The Piazza)
+  type: market
+  city: London
+  where: The Piazza, Wimbledon town centre, London SW19 (gazebo stalls; outdoor, inferred from the setup)
+  organiser: Love Wimbledon (Wimbledon Business Improvement District)
+  url: https://lovewimbledon.org/the-bid/trade-at-our-markets/christmas-market/
+  apply_url: https://lovewimbledon.org/the-bid/christmas-market-stall-application/
+  dates: 'Four Fri-Sun markets: 27-29 Nov, 4-6 Dec, 11-13 Dec, 18-20 Dec 2026. Fri 12-7pm, Sat-Sun 11am-6pm.'
+  next_date: 2026-11-27
+  apply: {status: closed, deadline: null, opens: null}
+  window: Fully booked for 2026; the online form still adds you to a waiting list ('already long')
+  fee_gbp: 70
+  cost: 'Non-food: £70 one day, £130 two days, £195 three days (per weekend market). Includes a 3m x 3m gazebo,
+    one 6ft table, festoon lighting and the street trading licence.'
+  commission_pct: null
+  requires: [Online stall application form, Comply with the Sustainability Code of Conduct; single-use-plastic-free;
+      bring your own festive decorations]
+  watch_out: '''NOTE TO TRADERS: WE ARE NOW FULLY BOOKED.'' Prioritises sustainable and ethical businesses, local
+    traders and unique handmade products; resellers are neither invited nor excluded. Outdoor gazebo in December.'
+  fit: 2
+  why: Day stalls at a fee under one sale's contribution, and vintage suits the sustainability brief. But it is
+    an outdoor suburban town-centre gift market with a long waiting list, not a young vintage crowd.
+  checked: 2026-11-10
+  sources: ['https://lovewimbledon.org/the-bid/trade-at-our-markets/christmas-market/']
+  decision: new
+  our_notes: null
+
+- id: solo-pocket-park-christmas-market
+  name: SoLo Craft Fair — Pocket Park Christmas Market (Sky Garden)
+  type: market
+  city: London
+  where: Pocket Park, Sky Garden Walk, London EC3M 8AF (tables inside shared covered cabins; no power; windy)
+  organiser: SoLo Craft Fair
+  url: https://www.solocraftfair.com/pocket-park-market
+  apply_url: https://www.solocraftfair.com/pocket-park-market
+  dates: Daily 23 Nov - 6 Dec 2026, 11am-6pm (set-up from 10am)
+  next_date: 2026-11-23
+  apply: {status: closed, deadline: null, opens: null}
+  window: Waiting list only. A 17 Aug 2026 update says weekend places are limited and weekday applications have
+    better odds.
+  fee_gbp: 55
+  cost: '6ft x 2ft table in a shared cabin: weekdays £55, weekends £80, full two weeks £770. Bring your own tablecloth.'
+  commission_pct: null
+  requires: [Application form on the market page (one application only; corrections to markets@solocraftfair.com),
+    Public liability insurance, Website or social page clearly showing your products, Arrive by public transport
+      (no vehicle drop-off)]
+  watch_out: '''We can only accept traders who make their own products or sell ethically sourced goods.'' Vintage
+    isn''t mentioned either way. Overnight locking only for full two-week bookings and security not guaranteed.
+    SoLo''s other Christmas markets (Between the Bridges Sundays to 20 Dec, St Martin-in-the-Fields 21-22 and 28-29
+    Nov, Leadenhall) are also waiting-list only and billed ''for Makers and Designers''.'
+  fit: 2
+  why: Covered day tables at a low fee (under one sale to break even) with a City office crowd buying Christmas
+    gifts. But it is a craft market whose resale stance is unclear, the crowd is not a vintage one, and it is waiting-list
+    only.
+  checked: 2026-11-10
+  sources: ['https://www.solocraftfair.com/pocket-park-market', 'https://solocraftfair.com/applications']
+  decision: new
+  our_notes: null
+
+- id: wembley-park-festive-market
+  name: Wembley Park Festive Market (Pop Up Stalls)
+  type: market
+  city: London
+  where: Market Square, off Olympic Way, Wembley Park, London HA9 (outdoor striped stalls in 2025)
+  organiser: Pop Up Stalls (for Wembley Park)
+  url: https://wembleypark.com/wembley-park-market/
+  apply_url: null
+  dates: Search-indexed wembleypark.com listings give Sat-Sun 5-6, 12-13 and 19-20 Dec 2026, 10am-7pm, but those
+    pages now return 404, so the dates are unverified.
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: 'Wembley Park''s market FAQ: ''traders are welcome to apply ... email hello@popupstalls.co.uk''. Covers
+    the year-round market; nothing festive-specific.'
+  fee_gbp: null
+  cost: Not published by the organiser. A Nov 2025 third-party call (Open Art Spaces) quoted £100 for a 7ft striped
+    stall with lighting at the 2025 festive market; unverified for 2026.
+  commission_pct: null
+  requires: [Email enquiry to hello@popupstalls.co.uk]
+  watch_out: Outdoor and food-led; eligibility rules aren't published. Dates unverified.
+  fit: 2
+  why: An open enquiry route and weekend day stalls, but an outdoor, mainstream event-district crowd with no vintage
+    angle, and the 2026 dates and fee can't be confirmed.
+  checked: 2026-11-10
+  sources: ['https://wembleypark.com/wembley-park-market/', 'https://openartspaces.substack.com/p/join-wembley-christmas-market']
+  decision: new
+  our_notes: null
+
+- id: diy-independent-jewellers-christmas-market
+  name: Christmas Independent Jewellers' Market (DIY Art Market)
+  type: market
+  city: London
+  where: Big Penny Social, 1 Priestley Way, Walthamstow, London E17 6AL
+  organiser: DIY Art Market (listed under Hackney Flea Market Ltd)
+  url: https://www.eventbrite.co.uk/e/christmas-independent-jewellers-market-tickets-1975824394953
+  apply_url: https://docs.google.com/forms/d/e/1FAIpQLSevqNkPC3PcdrhJ6ibD-1bt-KEHrpdmv3DNCmC_T58OGOtrwA/viewform
+  dates: Sun 29 Nov 2026, 11am-5pm
+  next_date: 2026-11-29
+  apply: {status: unknown, deadline: null, opens: null}
+  window: One general DIY Art Market form for all its markets; successful applicants hear within a week
+  fee_gbp: null
+  cost: Not published
+  commission_pct: null
+  requires: ['DIY Art Market Google Form: email, exhibitor name, website, Instagram, table size (full 6ft or half
+      3ft), table-share request']
+  watch_out: '''Explore a stunning array of artist-made jewellery and buy directly from the makers'' with ''over
+    100 established and emerging international jewellery artists and designers''. The form gives preference to applicants
+    ''actively creating new works''.'
+  fit: 1
+  why: 'Ruled out: a makers'' jewellery market. Resold vintage designer pieces don''t fit. Kept so the next run
+    doesn''t rediscover it.'
+  checked: 2026-11-10
+  sources: ['https://www.eventbrite.co.uk/e/christmas-independent-jewellers-market-tickets-1975824394953', 'https://www.diyartmarket.com/']
+  decision: new
+  our_notes: null
