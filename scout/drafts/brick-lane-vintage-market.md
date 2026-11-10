@@ -37,7 +37,7 @@ A unit here is a lease, not a day stall. Get the term and costs in writing befor
   - style inspiration for the unit (they say they prioritise creativity)
   - size: small ~75–100 sq ft, medium 100–200, large 200+
 
-## Waiting-list reply: Gmail draft, not sent
+## Waiting-list reply: sent 10 Nov 2026
 
 A reply in the same thread is in your Drafts. It covers:
 - name, business, links
@@ -46,3 +46,5 @@ A reply in the same thread is in your Drafts. It covers:
 - a question on whether two traders can share a small unit, to cover the seven-day opening
 
 Joining the list commits you to nothing. **Before taking a unit, decide whether you can staff it 7 days a week.**
+
+**Sent 10 Nov 2026** at the owner's request. It also asked about a stall at the Brick Lane Flea Market (21–22 Nov) on Commercial Street.

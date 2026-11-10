@@ -25,7 +25,7 @@
 > **Gates.** Physical fairs and pop-ups come after the website converts ([D3](../docs/DECISIONS.md)). Marketplaces are outposts, not the home ([D1](../docs/DECISIONS.md)). Both are tracked now because applications open months ahead. How it works: [README](README.md).
 
 <!-- generated:start -->
-_Tables generated from [`markets.yaml`](markets.yaml) on 09 Nov 2026. 90 tracked._
+_Tables generated from [`markets.yaml`](markets.yaml) on 10 Nov 2026. 90 tracked._
 
 ## Coming up in the next 60 days
 
@@ -33,28 +33,34 @@ Published deadlines, plus events at fit 3+ still taking applications.
 
 | By | Name | City | Apply | Event | Fit | Decision |
 |---|---|---|---|---|---|---|
-| **14 Nov** | [Go East Vintage — Strongroom Christmas Market (Shoreditch)](https://linktr.ee/go.east.vintage) | London | open | 14 Nov 2026 | 4 | new |
+| **14 Nov** | [Go East Vintage — Strongroom Christmas Market (Shoreditch)](https://linktr.ee/go.east.vintage) | London | open | 14 Nov 2026 | 4 | shortlist |
 | **14 Nov** | [Craft & Flea — London, Canada Water](https://eventaly.com/event/london-canada-waters-craft-flea/) | London | open | 14 Nov 2026 | 3 | new |
 | **15 Nov** | [Lou Lou's Vintage Fair — London, Canada Water](https://www.loulousvintagefair.com/) | London | open | 15 Nov 2026 | 4 | shortlist |
 | **15 Nov** | [Midcentury Modern (Dulwich)](https://www.modernshows.com/shows/dulwich-1/) | London | open | 15 Nov 2026 | 3 | new |
 | **15 Nov** | [Craft & Flea — Manchester](https://www.thecraftandflea.com/pages/trade-with-us) | Manchester | open | 15 Nov 2026 | 3 | new |
 | **21 Nov** | [Craft & Flea — Glasgow (Christmas)](https://www.thecraftandflea.com/pages/trade-with-us) | Glasgow | open | 21 Nov 2026 | 3 | new |
-| **21 Nov** | [Go East Vintage at Doodle Bar Arches (Bermondsey)](https://linktr.ee/go.east.vintage) | London | open | 21 Nov 2026 | 3 | new |
+| **21 Nov** | [Go East Vintage at Doodle Bar Arches (Bermondsey)](https://linktr.ee/go.east.vintage) | London | open | 21 Nov 2026 | 3 | shortlist |
 | **22 Nov** | [Lou Lou's Vintage Fair — Manchester](https://www.loulousvintagefair.com/) | Manchester | open | 22 Nov 2026 | 4 | new |
-| **05 Dec** | [Go East Vintage — Festive Weekender at Wapping Hydraulic Power Station](https://linktr.ee/go.east.vintage) | London | open | 05 Dec 2026 | 4 | new |
+| **05 Dec** | [Go East Vintage — Festive Weekender at Wapping Hydraulic Power Station](https://linktr.ee/go.east.vintage) | London | open | 05 Dec 2026 | 4 | shortlist |
 
 ## Our pipeline
 
 | Decision | Name | City | Apply | Next | Our notes |
 |---|---|---|---|---|---|
-| shortlist | [Brick Lane Vintage Market (Old Truman Brewery)](https://www.trumanbrewery.com/web/markets.pl) | London | closed | Open 7 days. Mon-Fri 11am-6:30pm, Sat 11am-6pm, Sun 10am-6p… | — |
+| shortlist | [Camden Market — casual day stalls (Stables Market & Camden Lock)](https://camdenmarket.com/join-camden) | London | rolling | Open daily. Trading hours are 10am-6pm in autumn and winter… | — |
 | shortlist | [Camden Passage - Pierrepont Arcade & Charlton Place Markets](https://www.camdenpassageislington.co.uk/markets/pierrepont-arcade-market.html) | London | rolling | Antiques Wed & Sat (also general antiques/collectables Fri… | — |
 | shortlist | [Flea London — Vintage & Makers Market at Hackney Bridge](https://flealondon.com/) | London | rolling | Every weekend, Sat and Sun 11:00-17:00. The booking form of… | — |
+| shortlist | [Go East Vintage at Doodle Bar Arches (Bermondsey)](https://linktr.ee/go.east.vintage) | London | open | 21 Nov 2026 | — |
+| shortlist | [Go East Vintage — Festive Weekender at Wapping Hydraulic Power Station](https://linktr.ee/go.east.vintage) | London | open | 05 Dec 2026 | — |
+| shortlist | [Go East Vintage — Strongroom Christmas Market (Shoreditch)](https://linktr.ee/go.east.vintage) | London | open | 14 Nov 2026 | — |
+| shortlist | [Go East at Eastway Baths — Vintage, Creatives & Makers (Hackney Wick)](https://linktr.ee/go.east.vintage) | London | open | 23 Jan 2027 | — |
 | shortlist | [Lou Lou's Vintage Fair — London, Canada Water](https://www.loulousvintagefair.com/) | London | open | 15 Nov 2026 | — |
 | shortlist | [Old Spitalfields Market (incl. Thursday Antiques & Vintage Market)](https://oldspitalfieldsmarket.com/become-a-trader) | London | rolling | Stalls 7 days a week; Antiques Market every Thursday 8am-5p… | — |
-| shortlist | [The Classic Car Boot Sale](https://www.classiccarbootsale.co.uk/) | London | open | 24 Apr 2027 | — |
 | applied | [Alfies Antique Market](https://alfiesantiques.com/dealers-at-alfies/) | London | rolling | Permanent; open Tue-Sat 10am-6pm | Enquiry emailed to info@alfiesantiques.com on 2 Nov 2026 (asked about a cabinet, rent, staffing). Awaiting reply. |
+| applied | [Brick Lane Flea Market (Truman Markets, 106 Commercial Street)](https://www.eventbrite.co.uk/e/brick-lane-flea-market-tickets-2000439988857) | London | unknown | 21 Nov 2026 | Asked Truman Markets on 10 Nov, in the Brick Lane thread, for a stall on 21-22 Nov plus the fee and how to apply. |
+| applied | [Brick Lane Vintage Market (Old Truman Brewery)](https://www.trumanbrewery.com/web/markets.pl) | London | closed | Open 7 days. Mon-Fri 11am-6:30pm, Sat 11am-6pm, Sun 10am-6p… | Enquiry sent 2 Nov; Truman replied 3 Nov (full, waiting list, from £220/week, 7-day trading). Waiting-list details sent 10 Nov, asking whether two traders can share a unit. |
 | applied | [Lower Stable Street Market & Shotengai pan-Asian Market (King's Cross)](https://www.kingscross.co.uk/event/lower-stable-street-market) | London | rolling | 19 Nov 2026 | Enquiry emailed to market@kioskn1c.com on 2 Nov 2026 (asked for 19-22 Nov or a later market, fee, and whether resale fits). Awaiting reply. |
+| applied | [The Classic Car Boot Sale](https://www.classiccarbootsale.co.uk/) | London | open | 24 Apr 2027 | Enquiry sent 2 Nov 2026 asking about pitches for traders without a classic car. No reply as of 10 Nov. |
 
 ## Fairs, markets and spaces
 

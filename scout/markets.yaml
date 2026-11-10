@@ -282,8 +282,8 @@ markets:
   checked: 2026-11-02
   sources: ['https://www.classiccarbootsale.co.uk/', 'https://www.classiccarbootsale.co.uk/trader-applications/',
     'http://www.classiccarbootsale.co.uk/exhibitor-application/', 'https://www.classiccarbootsale.co.uk/about/']
-  decision: shortlist
-  our_notes: null
+  decision: applied
+  our_notes: Enquiry sent 2 Nov 2026 asking about pitches for traders without a classic car. No reply as of 10 Nov.
 
 - id: covent-garden-monday-antiques
   name: Covent Garden Monday Antiques (Jubilee Market & Apple Market)
@@ -2090,8 +2090,8 @@ markets:
   why: Raised from 2 on 2 Nov 2026 under the younger-generation pitch. The market bills itself as 'where London's trendsetters shop — from 1920s glam to Y2K streetwear', which is the audience we now target. No trader route is published; the enquiry goes to Truman Brewery's general address. A unit is a lease, not a day stall, so cost and term decide it.
   checked: 2026-11-09
   sources: ['https://www.trumanbrewery.com/web/markets.pl']
-  decision: shortlist
-  our_notes: null
+  decision: applied
+  our_notes: Enquiry sent 2 Nov; Truman replied 3 Nov (full, waiting list, from £220/week, 7-day trading). Waiting-list details sent 10 Nov, asking whether two traders can share a unit.
 
 - id: stockport-vintage-village
   name: The Vintage Village — Stockport Market Hall
@@ -2402,7 +2402,7 @@ markets:
   checked: 2026-11-09
   sources: ['https://camdenmarket.com/join-camden', 'https://camdenmarket.typeform.com/to/rh0o2z', 'https://wp-media.camdenmarket.com/wp-content/uploads/2024/05/15171555/CM_TI_New-Traders-The-Essentials-v2024-1.pdf',
     'https://www.camdenmarket.com/journal/partner-with-camden-market']
-  decision: new
+  decision: shortlist
   our_notes: null
 
 - id: go-east-vintage-wapping-power-station
@@ -2442,7 +2442,7 @@ markets:
   checked: 2026-11-09
   sources: ['https://linktr.ee/go.east.vintage', 'https://docs.google.com/forms/d/e/1FAIpQLSc5JyQylnqcezNVYiee_AFA_HnfacY4grdQVHQZ2ucZSKbLnQ/viewform',
     'https://ma.to/venue/go.east.vintage', 'https://www.eventbrite.co.uk/e/go-east-vintage-festive-weekender-at-wapping-power-station-tickets-2002378564188']
-  decision: new
+  decision: shortlist
   our_notes: null
 
 - id: go-east-vintage-strongroom-shoreditch
@@ -2481,7 +2481,7 @@ markets:
   checked: 2026-11-09
   sources: ['https://linktr.ee/go.east.vintage', 'https://forms.gle/Vr4wiyxfeXEbtubJ9', 'https://ma.to/venue/go.east.vintage',
     'https://www.eventbrite.co.uk/e/go-east-vintage-christmas-night-market-at-strongroom-tickets-2004126760089']
-  decision: new
+  decision: shortlist
   our_notes: null
 
 - id: go-east-vintage-doodle-bar-bermondsey
@@ -2517,7 +2517,7 @@ markets:
   checked: 2026-11-09
   sources: ['https://linktr.ee/go.east.vintage', 'https://docs.google.com/forms/d/e/1FAIpQLScas-0VpnPtanXIZuG_cPrk5D7O4UwJICnRIQNuJvay85o4ag/viewform',
     'https://ma.to/venue/go.east.vintage', 'https://www.eventbrite.co.uk/o/go-east-vintage-39447572513']
-  decision: new
+  decision: shortlist
   our_notes: null
 
 - id: go-east-eastway-baths-hackney-wick
@@ -2552,7 +2552,7 @@ markets:
   checked: 2026-11-09
   sources: ['https://linktr.ee/go.east.vintage', 'https://docs.google.com/forms/d/e/1FAIpQLSeOHexhaV6mSTbV1aB8OFc-V8ETxmxrXJKNIQuPgw_Sl_vshQ/viewform',
     'https://ma.to/venue/go.east.vintage']
-  decision: new
+  decision: shortlist
   our_notes: null
 
 - id: go-east-vintage-maltby-street
@@ -2619,8 +2619,8 @@ markets:
   checked: 2026-11-09
   sources: ['https://www.eventbrite.co.uk/e/brick-lane-flea-market-tickets-2000439988857', 'https://www.eventbrite.co.uk/o/31510426709',
     'https://www.trumanbrewery.com/web/upcoming-events.pl']
-  decision: new
-  our_notes: null
+  decision: applied
+  our_notes: Asked Truman Markets on 10 Nov, in the Brick Lane thread, for a stall on 21-22 Nov plus the fee and how to apply.
 
 - id: truman-weekends-edit-market
   name: Weekends — themed edit markets (Truman Markets, Brick Lane)
