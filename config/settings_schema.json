@@ -65,7 +65,7 @@
         "type": "text",
         "id": "announcement",
         "label": "One line above the masthead",
-        "default": "Complimentary UK delivery over £250 · International shipping",
+        "default": "Complimentary UK delivery on two or more pieces · International shipping",
         "info": "Leave empty to hide. D13 asks for the all-in price claim in the headline."
       }
     ]
@@ -198,10 +198,10 @@
     "settings": [
       {
         "type": "number",
-        "id": "delivery_free_over",
-        "label": "Free UK delivery from (£)",
-        "default": 250,
-        "info": "Must match Settings → Shipping and delivery (UK market). At or over this, a UK buyer's bag says delivery is free and shows a Total; under it the bag says delivery is added at checkout and shows a Subtotal (D12). 0 means always free."
+        "id": "delivery_free_pieces",
+        "label": "Free UK delivery from (pieces)",
+        "default": 2,
+        "info": "Must match the automatic discount \"Complimentary UK delivery on two or more pieces\" (Discounts; free shipping, United Kingdom, minimum quantity of items). With this many pieces or more, a UK buyer's bag says delivery is free and shows a Total; with fewer it says delivery is added at checkout, shows a Subtotal (D12) and says how many more pieces make delivery free. 0 means always free."
       },
       {
         "type": "text",

@@ -176,6 +176,10 @@
     "delivery_abroad": "Envío",
     "free": "Gratis",
     "added_at_checkout": "Se calcula al finalizar la compra",
+    "free_more": {
+      "one": "Añade una pieza más y el envío en el Reino Unido es gratis",
+      "other": "Añade {{ count }} piezas más y el envío en el Reino Unido es gratis"
+    },
     "total": "Total",
     "subtotal": "Subtotal",
     "some_sold_single": "Una pieza de tu bolsa se vendió mientras estaba en ella. Quítala para finalizar la compra.",
@@ -388,7 +392,7 @@
     "q4": "¿Cada pieza es única?",
     "a4_html": "<p>Sí, cada artículo es una sola pieza. Una pieza en tu bolsa no queda reservada hasta que finalizas la compra, y cuando se vende pasa al Archivo, donde aún puedes verla.</p>",
     "q5": "¿Enviáis fuera del Reino Unido?",
-    "a5_html": "<p>Sí. Enviamos a toda Europa y a Estados Unidos, Canadá, Australia, Asia oriental, Singapur y gran parte de Oriente Medio; al pagar verás todos los países a los que enviamos. El envío dentro del Reino Unido es gratuito en pedidos superiores a 250 £, y los envíos en el Reino Unido van asegurados.</p><p>Fuera del Reino Unido, la aduana de tu país puede cobrar el IVA de importación y, a veces, aranceles cuando llega el paquete, normalmente junto con una tarifa de gestión de la empresa de transporte. No están incluidos en nuestros precios ni en el envío, y se pagan a la empresa de transporte antes de la entrega.</p>",
+    "a5_html": "<p>Sí. Enviamos a toda Europa y a Estados Unidos, Canadá, Australia, Asia oriental, Singapur y gran parte de Oriente Medio; al pagar verás todos los países a los que enviamos. El envío dentro del Reino Unido es gratuito en pedidos de dos o más piezas, y los envíos en el Reino Unido van asegurados.</p><p>Fuera del Reino Unido, la aduana de tu país puede cobrar el IVA de importación y, a veces, aranceles cuando llega el paquete, normalmente junto con una tarifa de gestión de la empresa de transporte. No están incluidos en nuestros precios ni en el envío, y se pagan a la empresa de transporte antes de la entrega.</p>",
     "q6": "¿Tendré que pagar aranceles?",
     "a6_html": "<p>En el Reino Unido no: los aranceles del Reino Unido están incluidos en el precio.</p>",
     "q7": "¿Puedo ver una pieza en persona?",

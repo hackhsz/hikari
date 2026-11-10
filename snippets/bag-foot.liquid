@@ -5,9 +5,11 @@
   1-shop/04-site-ia.md: the payment step is the last and most fragile moment of the trust
   architecture, so the trust block repeats here and the accepted payment marks are visible.
   D12: all-in pricing, so the total is the price paid. No fee or tax line, ever. Delivery gets
-  its own line so that stays true: free at or over the threshold, and only below it does the
-  total become a subtotal (1-shop/21-checkout.md). Free delivery is for the UK only: a buyer
-  in any other country always sees delivery added at checkout.
+  its own line so that stays true: free from settings.delivery_free_pieces pieces, and only below
+  that does the total become a subtotal (1-shop/21-checkout.md), with a line saying how many more
+  pieces make delivery free. Free delivery is for the UK only: a buyer in any other country always
+  sees delivery added at checkout. Checkout gets the same rule from the automatic discount
+  "Complimentary UK delivery on two or more pieces" (minimum quantity of items), 2026-11-10.
 
   A piece that has sold (or been reserved for a client) since it was added is left out of the
   total, and checkout waits until it is removed. Shopify would otherwise drop it on its own stock-problem screen, which is
@@ -24,6 +26,7 @@
   assign ctx = ctx | default: 'drawer'
   assign live_total = 0
   assign live_n = 0
+  assign live_qty = 0
   assign sold_n = 0
   assign held_n = 0
   for item in cart.items
@@ -34,6 +37,7 @@
     if item.variant.available and held == false
       assign live_total = live_total | plus: item.final_line_price
       assign live_n = live_n | plus: 1
+      assign live_qty = live_qty | plus: item.quantity
     else
       assign sold_n = sold_n | plus: 1
       if held
@@ -46,13 +50,14 @@
   if held_n > 0 and held_n == sold_n
     assign why = 'reserved'
   endif
-  assign free_over = settings.delivery_free_over | default: 0 | times: 100
+  assign free_from = settings.delivery_free_pieces | default: 0
+  assign free_more = free_from | minus: live_qty
   assign in_uk = false
   if localization.country.iso_code == 'GB'
     assign in_uk = true
   endif
   assign delivery_free = false
-  if in_uk and live_total >= free_over
+  if in_uk and live_qty >= free_from
     assign delivery_free = true
   endif
   assign is_gift = false
@@ -91,6 +96,9 @@
       <span class="bag-label">{% if in_uk %}{{ 'cart.delivery' | t }}{% else %}{{ 'cart.delivery_abroad' | t }}{% endif %}</span>
       <span>{% if delivery_free %}{{ 'cart.free' | t }}{% else %}{{ 'cart.added_at_checkout' | t }}{% endif %}</span>
     </div>
+    {%- if in_uk and delivery_free == false and free_more > 0 -%}
+      <p class="bag-fine bag-free-more">{{ 'cart.free_more' | t: count: free_more }}</p>
+    {%- endif -%}
     <div class="bag-total">
       <span class="bag-label">{% if delivery_free %}{{ 'cart.total' | t }}{% else %}{{ 'cart.subtotal' | t }}{% endif %}</span>
       <span class="price bag-sum">{{ live_total | money }}</span>
