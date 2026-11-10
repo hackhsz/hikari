@@ -176,7 +176,7 @@
     "delivery_abroad": "Delivery",
     "free": "Free",
     "added_at_checkout": "Added at checkout",
-    "free_by": "Free by Royal Mail Tracked 48. Special Delivery is extra at checkout.",
+    "free_by": "By Royal Mail Tracked 48. Special Delivery costs extra at checkout.",
     "free_more": {
       "one": "Add one more piece for complimentary UK delivery",
       "other": "Add {{ count }} more pieces for complimentary UK delivery"

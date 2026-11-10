@@ -180,7 +180,7 @@
     "delivery_abroad": "التوصيل",
     "free": "مجاني",
     "added_at_checkout": "يُضاف عند الدفع",
-    "free_by": "مجاني عبر Royal Mail Tracked 48، أما Special Delivery فبرسوم إضافية عند إتمام الطلب.",
+    "free_by": "عبر Royal Mail Tracked 48، أما Special Delivery فبرسوم إضافية عند إتمام الطلب.",
     "free_more": {
       "zero": "أضف قطعة أخرى ليصبح التوصيل داخل المملكة المتحدة مجانيًا",
       "one": "أضف قطعة أخرى ليصبح التوصيل داخل المملكة المتحدة مجانيًا",

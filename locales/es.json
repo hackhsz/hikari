@@ -176,7 +176,7 @@
     "delivery_abroad": "Envío",
     "free": "Gratis",
     "added_at_checkout": "Se calcula al finalizar la compra",
-    "free_by": "Gratis con Royal Mail Tracked 48. Special Delivery tiene un coste adicional al pagar.",
+    "free_by": "Por Royal Mail Tracked 48. Special Delivery tiene un coste adicional al pagar.",
     "free_more": {
       "one": "Añade una pieza más y el envío en el Reino Unido es gratis",
       "other": "Añade {{ count }} piezas más y el envío en el Reino Unido es gratis"

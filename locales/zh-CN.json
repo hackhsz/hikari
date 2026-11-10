@@ -176,7 +176,7 @@
     "delivery_abroad": "配送",
     "free": "免费",
     "added_at_checkout": "结账时计算",
-    "free_by": "Royal Mail Tracked 48 免运费；选 Special Delivery 需在结账时另付运费。",
+    "free_by": "以 Royal Mail Tracked 48 寄送；选 Special Delivery 需在结账时另付运费。",
     "free_more": {
       "one": "再加一件，即享英国境内免运费",
       "other": "再加 {{ count }} 件，即享英国境内免运费"
