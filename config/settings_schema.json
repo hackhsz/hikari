@@ -65,7 +65,7 @@
         "type": "text",
         "id": "announcement",
         "label": "One line above the masthead",
-        "default": "Complimentary UK delivery over £250 · Worldwide shipping",
+        "default": "Complimentary UK delivery over £250 · International shipping",
         "info": "Leave empty to hide. D13 asks for the all-in price claim in the headline."
       }
     ]
