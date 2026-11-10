@@ -201,7 +201,7 @@
         "id": "delivery_free_pieces",
         "label": "Free UK delivery from (pieces)",
         "default": 2,
-        "info": "Must match the automatic discount \"Complimentary UK delivery on two or more pieces\" (Discounts; free shipping, United Kingdom, minimum quantity of items). With this many pieces or more, a UK buyer's bag says delivery is free and shows a Total; with fewer it says delivery is added at checkout, shows a Subtotal (D12) and says how many more pieces make delivery free. 0 means always free."
+        "info": "Must match the automatic discount \"Complimentary UK delivery on two or more pieces\" (Discounts; free shipping, United Kingdom, minimum quantity of items, excluding rates over £5 so only Royal Mail Tracked 48 is free and Special Delivery is still charged). With this many pieces or more, a UK buyer's bag says delivery is free by Tracked 48 and shows a Total; with fewer it says delivery is added at checkout, shows a Subtotal (D12) and says how many more pieces make delivery free. 0 means always free."
       },
       {
         "type": "text",

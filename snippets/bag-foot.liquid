@@ -10,6 +10,8 @@
   pieces make delivery free. Free delivery is for the UK only: a buyer in any other country always
   sees delivery added at checkout. Checkout gets the same rule from the automatic discount
   "Complimentary UK delivery on two or more pieces" (minimum quantity of items), 2026-11-10.
+  That discount covers only rates up to £5, i.e. Royal Mail Tracked 48 (£4.95); Special Delivery
+  (£9.95) is still charged, so when delivery is free a line says which service is free.
 
   A piece that has sold (or been reserved for a client) since it was added is left out of the
   total, and checkout waits until it is removed. Shopify would otherwise drop it on its own stock-problem screen, which is
@@ -96,6 +98,9 @@
       <span class="bag-label">{% if in_uk %}{{ 'cart.delivery' | t }}{% else %}{{ 'cart.delivery_abroad' | t }}{% endif %}</span>
       <span>{% if delivery_free %}{{ 'cart.free' | t }}{% else %}{{ 'cart.added_at_checkout' | t }}{% endif %}</span>
     </div>
+    {%- if delivery_free -%}
+      <p class="bag-fine bag-free-by">{{ 'cart.free_by' | t }}</p>
+    {%- endif -%}
     {%- if in_uk and delivery_free == false and free_more > 0 -%}
       <p class="bag-fine bag-free-more">{{ 'cart.free_more' | t: count: free_more }}</p>
     {%- endif -%}
