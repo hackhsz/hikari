@@ -16,6 +16,27 @@ This is what the weekly run follows. One run every Monday morning, UK time. The 
 - "High-end designer jewellery" is fine. "Fine jewellery" is not; these are designer costume pieces.
 - Favour venues with a young vintage crowd: Brick Lane, Hackney, Spitalfields, King's Cross, Camden.
 
+**What to hunt first (owner's direction, 10 Nov 2026): limited-time pop-ups and Christmas or seasonal markets.**
+
+What counts:
+- day and weekend vintage pop-ups with dated editions
+- Christmas, winter and festive markets
+- shared or collective pop-up shops rented by the week or month
+- open calls for independent brands
+
+Within these, favour low commitment, indoor pitches, a young crowd, and organisers that allow resellers. Many Christmas markets are makers-only; record those at fit 1.
+
+Work to the seasonal calendar, so each window is found before it closes:
+
+| When it happens | When to hunt | What |
+|---|---|---|
+| Late Nov – 24 Dec | **June – September** (most are full by November) | Christmas and festive markets |
+| 14 Feb | December – January | Valentine's pop-ups and gifting markets |
+| Mother's Day UK: **7 Mar 2027**, then the 4th Sunday of Lent each year | January – February | Mother's Day markets and pop-ups. Jewellery gifting peaks here ([03](../docs/03-customer.md)). |
+| Spring / summer | February – April | Outdoor vintage season and summer fairs |
+
+From June each year, every run includes a Christmas-market sweep.
+
 **Who buys it:** design-aware women, 28–40, buying £120–220 pieces two to four times a year ([03](../docs/03-customer.md)). The brand is curated and Japanese-editorial, not bargain vintage ([D2](../docs/DECISIONS.md)).
 
 **In scope:**
