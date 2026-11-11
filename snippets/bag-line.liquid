@@ -20,7 +20,7 @@
 {%- capture track -%}{%- render 'track-item', p: item.product -%}{%- endcapture -%}
 <li class="bag-line{% if gone %} is-sold{% endif %}" data-variant-id="{{ item.variant_id }}" data-track-item="{{ track | strip | escape }}">
   <a class="bag-thumb" href="{{ item.url }}" tabindex="-1" aria-hidden="true">
-    {%- render 'plate', image: item.image, ratio: 1.25, seed: item.product_id, tone: 'grey',
+    {%- render 'plate', image: item.image, ratio: 1, fill: true, sizes: '110px', seed: item.product_id, tone: 'grey',
         comp: 'single', alt: piece, width: 240 -%}
   </a>
   <div class="bag-info">

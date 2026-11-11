@@ -470,6 +470,51 @@
     });
   }
 
+  /* ── the photographs, side to side (sections/main-product) ──
+     A row of squares that scrolls and snaps, so a finger swipes it. Previous / Next, the dots
+     and the arrow keys (with the row focused) move it one photograph at a time, and the count
+     follows. Right to left, the next photograph is on the left. The later photographs load once
+     the page has, so the next one is there when Next is pressed. */
+  function initGallery(){
+    [].forEach.call(document.querySelectorAll("[data-gal]:not([data-gal-on])"),function(g){
+      g.setAttribute("data-gal-on","1");
+      var tr=g.querySelector("[data-gal-track]"), slides=[].slice.call(g.querySelectorAll("[data-gal-slide]"));
+      var n=slides.length, at=0, raf=0, cnt=g.querySelector("[data-gal-count]");
+      var dots=[].slice.call(g.querySelectorAll("[data-gal-go]"));
+      var prev=g.querySelector('[data-gal-step="-1"]'), next=g.querySelector('[data-gal-step="1"]');
+      if(!tr||n<2) return;
+      function mark(i){
+        at=i; if(cnt) cnt.textContent=(i+1)+" / "+n;
+        dots.forEach(function(d,k){ d.setAttribute("aria-current",k===i?"true":"false"); });
+        if(prev) prev.disabled=i===0; if(next) next.disabled=i===n-1;
+      }
+      function go(i){
+        i=Math.max(0,Math.min(n-1,i));
+        tr.scrollTo({left:(rtl()?-1:1)*i*tr.clientWidth,behavior:"smooth"}); mark(i);
+      }
+      tr.addEventListener("scroll",function(){
+        if(raf) return;
+        raf=requestAnimationFrame(function(){ raf=0;
+          var i=Math.max(0,Math.min(n-1,Math.round(Math.abs(tr.scrollLeft)/(tr.clientWidth||1))));
+          if(i!==at) mark(i); });
+      },{passive:true});
+      g.addEventListener("click",function(e){
+        var t=e.target, s=t.closest&&t.closest("[data-gal-step]"), d=t.closest&&t.closest("[data-gal-go]");
+        if(s) go(at+Number(s.getAttribute("data-gal-step")));
+        else if(d) go(Number(d.getAttribute("data-gal-go")));
+      });
+      tr.addEventListener("keydown",function(e){
+        if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft") return;
+        if(e.target.closest&&e.target.closest("[data-spin]")) return; // the 360° view turns with them
+        e.preventDefault(); go(at+((e.key==="ArrowRight")!==rtl()?1:-1));
+      });
+      function eager(){ [].forEach.call(tr.querySelectorAll('img[loading="lazy"]'),function(im){ im.loading="eager"; }); }
+      if(document.readyState==="complete") setTimeout(eager,600);
+      else window.addEventListener("load",function(){ setTimeout(eager,600); });
+      mark(0);
+    });
+  }
+
   /* ── 360° (D26) ───────────────────────────────────────────
      One turntable turn of real photographs. Dragging across the full width turns it once;
      arrow keys step a frame. The frames load when the viewer comes near the screen. */
@@ -797,7 +842,7 @@
   function boot(){
     root.classList.add("js");
     initPlates(); initScroll(); bindOnce(); syncButtons();
-    initZoom(); initSpin(); initCountdown(); markShopNav(); initSearch(); initCatalog(); initPrefs(); initPopup(); initNotify(); initLang(); initPhrases(); initLater(); initMisc();
+    initZoom(); initGallery(); initSpin(); initCountdown(); markShopNav(); initSearch(); initCatalog(); initPrefs(); initPopup(); initNotify(); initLang(); initPhrases(); initLater(); initMisc();
   }
   if(document.readyState!=="loading") boot(); else document.addEventListener("DOMContentLoaded",boot);
   document.addEventListener("shopify:section:load",boot);

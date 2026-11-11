@@ -1,6 +1,6 @@
 <section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
   <div class="shell story">
-    <div class="art">{%- render 'plate', image: section.settings.image, ratio: 0.80, seed: 5,
+    <div class="art">{%- render 'plate', image: section.settings.image, ratio: 1, fill: true, sizes: '(max-width: 760px) 100vw, 50vw', seed: 5,
         tone: 'light', comp: 'single', stamp: section.settings.stamp -%}</div>
     <div class="txt">
       {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}

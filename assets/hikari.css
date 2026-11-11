@@ -93,7 +93,7 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .plate-mark .pm-cat{display:block;height:36%;aspect-ratio:1.55/2.3;background:currentColor;opacity:.5;
   -webkit-mask:var(--mark) center/contain no-repeat;mask:var(--mark) center/contain no-repeat}
 .plate-mark .pm-t{font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.45;text-align:center;padding-inline:10px}
-@media (max-width:600px){#alcove .plate--fill{aspect-ratio:4/5!important}}
+#alcove .plate--fill{max-width:min(100%,720px,78vh);margin-inline:auto}
 .plate .stamp{position:absolute;inset-inline-start:11px;bottom:9px;color:#fff;mix-blend-mode:difference;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.7}
 .plate .sold{position:absolute;inset-inline-end:11px;top:10px;color:#fff;mix-blend-mode:difference;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
 
@@ -147,7 +147,7 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .grid4 .chouse{font-size:clamp(16px,2.1vw,21px)}.grid4 .cpiece{font-size:13px}.grid4 .crow .price{font-size:15px}
 .grid6{display:grid;grid-template-columns:repeat(6,1fr);gap:1px}
 @media (max-width:860px){.grid6{grid-template-columns:repeat(3,1fr)}}
-.rec{aspect-ratio:4/5;position:relative;display:flex;align-items:flex-end;padding:10px;background:color-mix(in srgb,currentColor 10%,transparent);filter:saturate(.35);opacity:.66;transition:filter .5s,opacity .5s;overflow:hidden}
+.rec{aspect-ratio:1;position:relative;display:flex;align-items:flex-end;padding:10px;background:color-mix(in srgb,currentColor 10%,transparent);filter:saturate(.35);opacity:.66;transition:filter .5s,opacity .5s;overflow:hidden}
 .rec:hover{filter:saturate(1);opacity:1}
 .rec b{position:relative;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.85}
 /* On a beige Archive the label's ink colour vanished on dark photos: it sits on a small paper ground (8 Nov 2026). */
@@ -156,6 +156,30 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 /* product page */
 .pdp{display:grid;grid-template-columns:repeat(12,1fr);column-gap:clamp(20px,4vw,56px);row-gap:36px;align-items:start}
 .pdp .frames{grid-column:1/8;display:grid;gap:2px}
+/* the photographs, one square at a time, side to side (sections/main-product, hikari.js initGallery) */
+.pdp .frames.gal{display:block;position:relative;min-width:0}
+.gal-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.gal-track::-webkit-scrollbar{display:none}
+.gal-track:focus-visible{outline:2px solid var(--midori);outline-offset:2px}
+.gal-slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always}
+.gal-slide .spin img{aspect-ratio:1;object-fit:cover}
+.gal-ui{position:absolute;top:0;inset-inline:0;aspect-ratio:1;display:flex;align-items:center;justify-content:space-between;
+  padding-inline:clamp(8px,1.4vw,14px);pointer-events:none}
+.gal-nav{pointer-events:auto;width:42px;height:42px;display:grid;place-items:center;padding:0;border:0;border-radius:50%;cursor:pointer;
+  background:color-mix(in srgb,var(--paper) 88%,transparent);color:var(--sumi);box-shadow:0 1px 6px rgba(28,27,24,.08);transition:opacity .3s,background .3s}
+.gal-nav:hover{background:var(--paper)}
+.gal-nav:focus-visible{outline:2px solid var(--midori);outline-offset:2px}
+.gal-nav:disabled{opacity:0;pointer-events:none}
+.gal-nav svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+[dir="rtl"] .gal-nav svg{transform:scaleX(-1)}
+.gal-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:12px}
+.gal-count{font-size:10px;letter-spacing:.18em;font-weight:600;opacity:.6;font-variant-numeric:tabular-nums;white-space:nowrap}
+.gal-dots{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px}
+.gal-dot{position:relative;width:22px;height:22px;padding:0;border:0;background:none;color:inherit;cursor:pointer}
+.gal-dot::after{content:"";position:absolute;inset-inline:3px;top:50%;height:1.5px;background:currentColor;opacity:.2;transition:opacity .3s}
+.gal-dot:hover::after{opacity:.5}
+.gal-dot[aria-current="true"]::after{opacity:.85}
+html:not(.js) .gal-ui,html:not(.js) .gal-foot{display:none}
 .pdp .panel{grid-column:8/13;position:sticky;top:90px}
 @media (max-width:860px){.pdp .frames,.pdp .panel{grid-column:1/-1}.pdp .panel{position:static}}
 .pdp h1{font-family:var(--serif);font-weight:200;font-size:clamp(30px,5.4vw,52px);line-height:.98;margin:0 0 8px}

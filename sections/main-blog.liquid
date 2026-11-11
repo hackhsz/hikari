@@ -16,7 +16,7 @@
           {%- for a in blog.articles -%}
             <li>
               <a href="{{ a.url }}">
-                {%- if a.image -%}{%- render 'plate', image: a.image, ratio: 0.75, fill: true, first: forloop.first, alt: '', sizes: '(max-width: 600px) 100vw, 360px' -%}{%- endif -%}
+                {%- if a.image -%}{%- render 'plate', image: a.image, ratio: 1, fill: true, first: forloop.first, alt: '', sizes: '(max-width: 600px) 100vw, 360px' -%}{%- endif -%}
                 <span class="guide-list-h">{{ a.title }}</span>
                 {%- if a.excerpt != blank -%}<span class="guide-list-p">{{ a.excerpt | strip_html | strip }}</span>{%- endif -%}
                 <span class="house-fine">{{ a.published_at | time_tag: format: 'date' }}</span>

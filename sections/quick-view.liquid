@@ -14,7 +14,7 @@
 {%- capture track -%}{%- render 'track-item', p: p, status: status -%}{%- endcapture -%}
 <div class="qv" data-qv data-track-item="{{ track | strip | escape }}">
   <a class="qv-media" href="{{ p.url }}" tabindex="-1" aria-hidden="true">
-    {%- render 'plate', image: p.featured_image, ratio: 1.25, seed: p.id, tone: 'light',
+    {%- render 'plate', image: p.featured_image, ratio: 1, fill: true, sizes: '(max-width: 600px) 100vw, 440px', seed: p.id, tone: 'light',
         comp: 'single', alt: p.title, badge: status, width: 1000 -%}
   </a>
   <div class="qv-info">

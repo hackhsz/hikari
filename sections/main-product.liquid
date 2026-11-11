@@ -47,7 +47,26 @@
 {%- capture track -%}{%- render 'track-item', p: p, status: status -%}{%- endcapture -%}
 <section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;" data-track-item="{{ track | strip | escape }}" data-track-page>
   <div class="shell pdp">
-    <div class="frames">
+    {%- comment -%}
+      The photographs, one square at a time, side to side (user, 2026-11-11): swipe on touch, the
+      Previous / Next buttons on the picture, the dots and the arrow keys (assets/hikari.js,
+      initGallery). Each photograph is cropped to a square around its focal point (Shopify → the
+      product's media → Edit image → Focal point); full screen (#zoom) still shows it whole. The 360°
+      view is the second square. Without JavaScript the row still scrolls.
+    {%- endcomment -%}
+    {%- liquid
+      assign n_slides = p.images.size
+      if n_slides == 0
+        assign n_slides = 2
+      endif
+      if spin.size > 1
+        assign n_slides = n_slides | plus: 1
+      endif
+      assign gal_sizes = '(max-width: 860px) 100vw, 58vw'
+    -%}
+    <div class="frames gal" data-gal data-n="{{ n_slides }}" role="region" aria-roledescription="carousel"
+         aria-label="{{ 'products.zoom.label' | t: title: p.title | escape_once }}">
+      <div class="gal-track" data-gal-track tabindex="0">
       {%- if p.images.size > 0 -%}
         {%- for img in p.images -%}
           {%- assign styled = false -%}
@@ -56,23 +75,44 @@
           {%- if forloop.index == 2 or forloop.index == 4 %}{% unless styled %}{% assign evidence = true %}{% endunless %}{% endif -%}
           {%- if forloop.index == 1 -%}{%- assign b = status -%}{%- else -%}{%- assign b = '' -%}{%- endif -%}
           {%- assign frame_alt = img.alt | default: p.title -%}
-          <a class="frame" href="{{ img | image_url: width: 2400 }}" data-zoom
-             data-zoom-label="{% if evidence %}{{ 'products.frames.unretouched' | t }}{% elsif styled %}{{ 'products.frames.styled' | t }}{% endif %}"
-             aria-label="{{ 'products.frames.label' | t: index: forloop.index, total: p.images.size }}">
-            {%- render 'plate', image: img, alt: frame_alt, badge: b, first: forloop.first -%}
-          </a>
-          {%- if evidence -%}<p class="unret">{{ 'products.frames.unretouched_note' | t }}</p>{%- endif -%}
-          {%- if styled -%}<p class="unret">{{ 'products.frames.styled_note' | t }}</p>{%- endif -%}
-          {%- if forloop.index == 1 -%}{{ spin_html }}{%- endif -%}
+          <div class="gal-slide" data-gal-slide>
+            <a class="frame" href="{{ img | image_url: width: 2400 }}" data-zoom
+               data-zoom-label="{% if evidence %}{{ 'products.frames.unretouched' | t }}{% elsif styled %}{{ 'products.frames.styled' | t }}{% endif %}"
+               aria-label="{{ 'products.frames.label' | t: index: forloop.index, total: p.images.size }}">
+              {%- render 'plate', image: img, alt: frame_alt, badge: b, first: forloop.first, fill: true, ratio: 1, sizes: gal_sizes -%}
+            </a>
+            {%- if evidence -%}<p class="unret">{{ 'products.frames.unretouched_note' | t }}</p>{%- endif -%}
+            {%- if styled -%}<p class="unret">{{ 'products.frames.styled_note' | t }}</p>{%- endif -%}
+          </div>
+          {%- if forloop.index == 1 and spin.size > 1 -%}<div class="gal-slide" data-gal-slide>{{ spin_html }}</div>{%- endif -%}
         {%- endfor -%}
       {%- else -%}
         {%- assign seed2 = p.id | plus: 7 -%}
         {%- assign stamp1 = 'products.frames.plate_daylight' | t -%}
         {%- assign stamp2 = 'products.frames.plate_mark' | t -%}
-        {%- render 'plate', ratio: 0.8, seed: p.id, tone: 'light', comp: 'pair', stamp: stamp1, badge: status -%}
-        {{ spin_html }}
-        {%- render 'plate', ratio: 0.8, seed: seed2, tone: 'light', comp: 'single', stamp: stamp2 -%}
-        <p class="unret">{{ 'products.frames.unretouched' | t }}</p>
+        <div class="gal-slide" data-gal-slide>{%- render 'plate', ratio: 1, fill: true, seed: p.id, tone: 'light', comp: 'pair', stamp: stamp1, badge: status -%}</div>
+        {%- if spin.size > 1 -%}<div class="gal-slide" data-gal-slide>{{ spin_html }}</div>{%- endif -%}
+        <div class="gal-slide" data-gal-slide>
+          {%- render 'plate', ratio: 1, fill: true, seed: seed2, tone: 'light', comp: 'single', stamp: stamp2 -%}
+          <p class="unret">{{ 'products.frames.unretouched' | t }}</p>
+        </div>
+      {%- endif -%}
+      </div>
+      {%- if n_slides > 1 -%}
+        <div class="gal-ui">
+          <button type="button" class="gal-nav" data-gal-step="-1" aria-label="{{ 'products.zoom.prev_label' | t }}" disabled>
+            <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M12.5 4 6.5 10l6 6"/></svg></button>
+          <button type="button" class="gal-nav" data-gal-step="1" aria-label="{{ 'products.zoom.next_label' | t }}">
+            <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m7.5 4 6 6-6 6"/></svg></button>
+        </div>
+        <div class="gal-foot">
+          <span class="gal-count" data-gal-count aria-live="polite">1 / {{ n_slides }}</span>
+          <span class="gal-dots">
+            {%- for i in (1..n_slides) -%}
+              <button type="button" class="gal-dot" data-gal-go="{{ forloop.index0 }}" aria-label="{{ i }} / {{ n_slides }}"{% if forloop.first %} aria-current="true"{% endif %}></button>
+            {%- endfor -%}
+          </span>
+        </div>
       {%- endif -%}
     </div>
 
