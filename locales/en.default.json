@@ -138,8 +138,6 @@
     },
     "frames": {
       "label": "Photograph {{ index }} of {{ total }}, full screen",
-      "unretouched": "Unretouched",
-      "unretouched_note": "Unretouched",
       "styled": "Styled image · AI-generated",
       "styled_note": "Styled image · AI-generated. The piece itself is in the real photographs.",
       "plate_daylight": "Plate 01 · daylight",
@@ -262,7 +260,6 @@
     "marks": "Reading the mark",
     "period": "Period",
     "mark": "Mark",
-    "marks_fine": "Every listing shows the mark itself in its second photograph, unretouched.",
     "more_from": "More from {{ house }}",
     "every_piece": "All {{ house }} pieces"
   },
@@ -373,7 +370,7 @@
     "q2": "Where do the pieces come from?",
     "a2_html": "<p>We find them in person and at a few trusted auctions in Japan, and keep only those with something to say.</p>",
     "q3": "What condition are they in?",
-    "a3_html": "<p>They're vintage, so they have been worn and may show it. Before you order, read the piece's condition notes and look closely at its unretouched photographs.</p>",
+    "a3_html": "<p>They're vintage, so they have been worn and may show it. Each piece's page gives its condition; for a closer look at any detail, ask us before you order.</p>",
     "q4": "Is each piece one of a kind?",
     "a4_html": "<p>Yes, every listing is a single piece. A piece in your bag isn't held for you until you check out, and once it sells it moves to the Archive, where you can still see it.</p>",
     "q5": "Do you deliver outside the UK?",

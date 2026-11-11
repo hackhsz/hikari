@@ -424,8 +424,8 @@
   }
 
   /* ── full-screen photographs ──────────────────────────────
-     Every frame on the product page, in order, with its label: an evidence frame is still
-     marked Unretouched at full size. Click or tap to look closer; with a mouse the picture
+     Every frame on the product page, in order, with its label (a styled, AI-generated image
+     says so at full size too). Click or tap to look closer; with a mouse the picture
      then follows the pointer, on touch it scrolls. Swipe or arrow keys for the next frame. */
   var zoomList=[], zoomAt=0;
   function zoomStage(){ return document.querySelector("#zoom [data-zoom-stage]"); }

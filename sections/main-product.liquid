@@ -1,9 +1,9 @@
 {%- comment -%}
   Product page anatomy per 1-shop/04-site-ia.md. Information sits BELOW / BESIDE the image, never over it,
-  so no scrim is ever needed. Frames 2 and 4 — the maker's-mark macro and the condition frame — are
-  evidence: unretouched, ungrained, and labelled as such (D6, D10).
+  so no scrim is ever needed. No photograph is labelled Unretouched any more (user, 2026-11-11): the
+  label went by position (frames 2 and 4), not by what the photograph shows.
   A frame whose image alt text contains "AI-generated" (the image pipeline writes "Styled image, AI-generated: …")
-  is never evidence, wherever it sits: it is captioned as a styled image.
+  is captioned as a styled image, wherever it sits.
   Each frame's alt text is the photo's own (Shopify → the product's media → Alt text), saying what
   that photo shows; a photo without one falls back on the product title.
 
@@ -11,8 +11,7 @@
   frame is a plain link to the large image.
 
   The 360° view (D26) reads hikari.spin, a list of images: one turntable turn, 24–36 photographs,
-  in order. Real photographs only. Nothing in it is generated, so it sits beside the evidence
-  frames rather than with the composed ones. It goes after frame 1.
+  in order. Real photographs only; nothing in it is generated. It goes after frame 1.
 
   The panel follows the piece's status (snippets/status, D25): Add to bag; or, in transit, Pre-order
   with the shipping note (theme settings → Badges → days), which also goes on the order; or, coming
@@ -71,17 +70,14 @@
         {%- for img in p.images -%}
           {%- assign styled = false -%}
           {%- if img.alt contains 'AI-generated' %}{% assign styled = true %}{% endif -%}
-          {%- assign evidence = false -%}
-          {%- if forloop.index == 2 or forloop.index == 4 %}{% unless styled %}{% assign evidence = true %}{% endunless %}{% endif -%}
           {%- if forloop.index == 1 -%}{%- assign b = status -%}{%- else -%}{%- assign b = '' -%}{%- endif -%}
           {%- assign frame_alt = img.alt | default: p.title -%}
           <div class="gal-slide" data-gal-slide>
             <a class="frame" href="{{ img | image_url: width: 2400 }}" data-zoom
-               data-zoom-label="{% if evidence %}{{ 'products.frames.unretouched' | t }}{% elsif styled %}{{ 'products.frames.styled' | t }}{% endif %}"
+               data-zoom-label="{% if styled %}{{ 'products.frames.styled' | t }}{% endif %}"
                aria-label="{{ 'products.frames.label' | t: index: forloop.index, total: p.images.size }}">
               {%- render 'plate', image: img, alt: frame_alt, badge: b, first: forloop.first, fill: true, ratio: 1, sizes: gal_sizes -%}
             </a>
-            {%- if evidence -%}<p class="unret">{{ 'products.frames.unretouched_note' | t }}</p>{%- endif -%}
             {%- if styled -%}<p class="unret">{{ 'products.frames.styled_note' | t }}</p>{%- endif -%}
           </div>
           {%- if forloop.index == 1 and spin.size > 1 -%}<div class="gal-slide" data-gal-slide>{{ spin_html }}</div>{%- endif -%}
@@ -92,10 +88,7 @@
         {%- assign stamp2 = 'products.frames.plate_mark' | t -%}
         <div class="gal-slide" data-gal-slide>{%- render 'plate', ratio: 1, fill: true, seed: p.id, tone: 'light', comp: 'pair', stamp: stamp1, badge: status -%}</div>
         {%- if spin.size > 1 -%}<div class="gal-slide" data-gal-slide>{{ spin_html }}</div>{%- endif -%}
-        <div class="gal-slide" data-gal-slide>
-          {%- render 'plate', ratio: 1, fill: true, seed: seed2, tone: 'light', comp: 'single', stamp: stamp2 -%}
-          <p class="unret">{{ 'products.frames.unretouched' | t }}</p>
-        </div>
+        <div class="gal-slide" data-gal-slide>{%- render 'plate', ratio: 1, fill: true, seed: seed2, tone: 'light', comp: 'single', stamp: stamp2 -%}</div>
       {%- endif -%}
       </div>
       {%- if n_slides > 1 -%}

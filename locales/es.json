@@ -138,8 +138,6 @@
     },
     "frames": {
       "label": "Fotografía {{ index }} de {{ total }}, a pantalla completa",
-      "unretouched": "Sin retocar",
-      "unretouched_note": "Sin retocar",
       "styled": "Imagen ambientada · generada con IA",
       "styled_note": "Imagen ambientada · generada con IA. La pieza en sí aparece en las fotografías reales.",
       "plate_daylight": "Lámina 01 · luz de día",
@@ -262,7 +260,6 @@
     "marks": "Cómo leer la firma",
     "period": "Período",
     "mark": "Firma",
-    "marks_fine": "Cada ficha muestra la firma en su segunda fotografía, sin retocar.",
     "more_from": "Más de {{ house }}",
     "every_piece": "Todas las piezas de {{ house }}"
   },
@@ -397,7 +394,7 @@
     "q2": "¿De dónde vienen las piezas?",
     "a2_html": "<p>Las buscamos en persona y en unas pocas subastas de confianza en Japón, y solo nos quedamos con las que tienen algo que contar.</p>",
     "q3": "¿En qué estado están?",
-    "a3_html": "<p>Son vintage, así que se han usado y puede notarse. Antes de hacer el pedido, lee las notas sobre el estado de la pieza y mira con atención sus fotografías sin retocar.</p>",
+    "a3_html": "<p>Son vintage, así que se han usado y puede notarse. La página de cada pieza indica su estado; si quieres ver algún detalle más de cerca, escríbenos antes de hacer el pedido.</p>",
     "q4": "¿Cada pieza es única?",
     "a4_html": "<p>Sí, cada artículo es una sola pieza. Una pieza en tu bolsa no queda reservada hasta que finalizas la compra, y cuando se vende pasa al Archivo, donde aún puedes verla.</p>",
     "q5": "¿Enviáis fuera del Reino Unido?",
