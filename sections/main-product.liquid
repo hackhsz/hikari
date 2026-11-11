@@ -171,8 +171,16 @@
           <p class="pdp-note" data-product-note role="status" aria-live="polite"></p>
       {%- endcase -%}
 
+      {%- comment -%}
+        Condition and era lead the table; the description of how the piece looks is not shown
+        (user, 2026-11-11). It stays in Shopify for search engines and AI shopping agents
+        (snippets/seo). Each row shows only when its field is filled in.
+      {%- endcomment -%}
+      {%- capture cond -%}{%- render 'grade', p: p -%}{%- endcapture -%}
+      {%- capture era -%}{%- render 'era', p: p -%}{%- endcapture -%}
       <table class="spec">
-        {%- if p.metafields.hikari.grade -%}<tr><th>{{ 'products.spec.condition' | t }}</th><td>{{ 'products.spec.grade' | t: grade: p.metafields.hikari.grade }}{% if p.metafields.hikari.condition %} — {{ p.metafields.hikari.condition }}{% endif %}</td></tr>{%- endif -%}
+        {%- if cond != blank -%}<tr><th>{{ 'products.spec.condition' | t }}</th><td>{{ cond }}</td></tr>{%- endif -%}
+        {%- if era != blank -%}<tr><th>{{ 'products.spec.era' | t }}</th><td>{{ era }}</td></tr>{%- endif -%}
         <tr><th>{{ 'products.spec.availability' | t }}</th><td>{{ 'products.product.one_of_one' | t }}</td></tr>
         {%- if p.vendor != blank -%}
           {%- capture house_url -%}{%- render 'house-url', name: p.vendor -%}{%- endcapture -%}
@@ -180,11 +188,8 @@
         {%- endif -%}
         {%- if p.metafields.hikari.measurements -%}<tr><th>{{ 'products.spec.measurements' | t }}</th><td>{{ p.metafields.hikari.measurements }}</td></tr>{%- endif -%}
         {%- if p.metafields.hikari.mark -%}<tr><th>{{ 'products.spec.mark' | t }}</th><td>{{ p.metafields.hikari.mark }}</td></tr>{%- endif -%}
-        {%- if p.metafields.hikari.era -%}<tr><th>{{ 'products.spec.era' | t }}</th><td>{{ p.metafields.hikari.era }}</td></tr>{%- endif -%}
         {%- if p.metafields.hikari.provenance -%}<tr><th>{{ 'products.spec.provenance' | t }}</th><td>{{ p.metafields.hikari.provenance }}</td></tr>{%- endif -%}
       </table>
-
-      {%- if p.description != blank -%}<div class="rte">{{ p.description }}</div>{%- endif -%}
 
       {%- comment -%} Questions go to a named inbox, not a chat widget (D9). {%- endcomment -%}
       {%- assign ask = settings.ask_email | default: shop.email -%}

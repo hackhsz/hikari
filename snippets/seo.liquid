@@ -190,8 +190,10 @@
       "itemCondition": "https://schema.org/UsedCondition",
       {%- assign hm = product.metafields.hikari -%}
       {%- capture spec -%}
-        {%- if hm.era != blank -%}{"@type":"PropertyValue","name":{{ 'products.spec.era' | t | json }},"value":{{ hm.era.value | append: '' | json }}},{%- endif -%}
-        {%- if hm.grade != blank -%}{"@type":"PropertyValue","name":{{ 'products.spec.condition' | t | json }},"value":{{ 'products.spec.grade' | t: grade: hm.grade.value | json }}},{%- endif -%}
+        {%- capture seo_era -%}{%- render 'era', p: product -%}{%- endcapture -%}
+        {%- capture seo_cond -%}{%- render 'grade', p: product -%}{%- endcapture -%}
+        {%- if seo_era != blank -%}{"@type":"PropertyValue","name":{{ 'products.spec.era' | t | json }},"value":{{ seo_era | strip | json }}},{%- endif -%}
+        {%- if seo_cond != blank -%}{"@type":"PropertyValue","name":{{ 'products.spec.condition' | t | json }},"value":{{ seo_cond | strip | json }}},{%- endif -%}
         {%- if hm.measurements != blank -%}{"@type":"PropertyValue","name":{{ 'products.spec.measurements' | t | json }},"value":{{ hm.measurements.value | append: '' | json }}},{%- endif -%}
         {%- if hm.mark != blank -%}{"@type":"PropertyValue","name":{{ 'products.spec.mark' | t | json }},"value":{{ hm.mark.value | append: '' | json }}},{%- endif -%}
         {%- if hm.provenance != blank -%}{"@type":"PropertyValue","name":{{ 'products.spec.provenance' | t | json }},"value":{{ hm.provenance.value | append: '' | json }}},{%- endif -%}

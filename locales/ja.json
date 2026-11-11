@@ -114,7 +114,15 @@
       "measurements": "サイズ",
       "mark": "刻印",
       "era": "年代",
-      "provenance": "来歴"
+      "provenance": "来歴",
+      "decade": "{{ decade }}年代"
+    },
+    "grades": {
+      "unworn": "未使用",
+      "excellent": "極美品",
+      "very_good": "美品",
+      "good": "良品",
+      "fair": "使用感あり"
     },
     "notify": {
       "release_heading": "公開時にお知らせを受け取る",

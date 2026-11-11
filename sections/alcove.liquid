@@ -30,12 +30,15 @@
         </div>
         {%- capture status -%}{%- render 'status', p: p -%}{%- endcapture -%}
         <div style="text-align:end"><span class="price al-price">
-          {%- if status == 'sold' -%}{{ 'products.product.sold_out' | t }}{%- else -%}{%- render 'price', p: p -%}{%- endif -%}</span>
+          {%- if status == 'sold' and p.price == 0 -%}{{ 'products.product.sold_out' | t }}{%- else -%}{%- render 'price', p: p -%}{%- endif -%}</span>
           {%- if status == 'soon' %}<p class="pdp-status--soon" style="margin:10px 0 0;font-size:13.5px"><span class="badge badge--soon" style="position:static;margin-inline-end:8px">{{ 'products.badge.coming_soon' | t }}</span>{% render 'release', p: p %}</p>{% endif -%}
         </div>
       </div>
       <div class="meta">
-        {%- if p.metafields.hikari.grade %}<span class="pill">{{ 'products.spec.grade' | t: grade: p.metafields.hikari.grade }}</span>{% endif -%}
+        {%- capture cond -%}{%- render 'grade', p: p, note: false -%}{%- endcapture -%}
+        {%- capture era -%}{%- render 'era', p: p -%}{%- endcapture -%}
+        {%- if cond != blank %}<span class="pill">{{ cond }}</span>{% endif -%}
+        {%- if era != blank %}<span>{{ era }}</span>{% endif -%}
         <span>{{ 'products.product.one_of_one' | t }}</span>
         {%- if p.metafields.hikari.measurements %}<span>{{ p.metafields.hikari.measurements }}</span>{% endif -%}
         {%- if p.metafields.hikari.mark %}<span>{{ p.metafields.hikari.mark }}</span>{% endif -%}

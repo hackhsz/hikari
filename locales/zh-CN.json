@@ -114,7 +114,15 @@
       "measurements": "尺寸",
       "mark": "刻印",
       "era": "年代",
-      "provenance": "来源"
+      "provenance": "来源",
+      "decade": "{{ decade }} 年代"
+    },
+    "grades": {
+      "unworn": "全新未佩戴",
+      "excellent": "近全新",
+      "very_good": "成色很好",
+      "good": "成色良好",
+      "fair": "有明显使用痕迹"
     },
     "notify": {
       "release_heading": "上线时通知我",

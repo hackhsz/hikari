@@ -114,7 +114,15 @@
       "measurements": "Medidas",
       "mark": "Firma",
       "era": "Época",
-      "provenance": "Procedencia"
+      "provenance": "Procedencia",
+      "decade": "Década de {{ decade }}"
+    },
+    "grades": {
+      "unworn": "Sin usar",
+      "excellent": "Excelente",
+      "very_good": "Muy bueno",
+      "good": "Bueno",
+      "fair": "Aceptable"
     },
     "notify": {
       "release_heading": "Avísame cuando esté disponible",

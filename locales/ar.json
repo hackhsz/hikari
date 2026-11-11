@@ -118,7 +118,15 @@
       "measurements": "المقاسات",
       "mark": "علامة الصانع",
       "era": "الحقبة",
-      "provenance": "المصدر"
+      "provenance": "المصدر",
+      "decade": "عقد {{ decade }}"
+    },
+    "grades": {
+      "unworn": "غير مستعمل",
+      "excellent": "ممتازة",
+      "very_good": "جيدة جدًا",
+      "good": "جيدة",
+      "fair": "مقبولة"
     },
     "notify": {
       "release_heading": "أخبرني عند طرحها",

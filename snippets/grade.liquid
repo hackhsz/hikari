@@ -1,0 +1,24 @@
+{%- comment -%}
+  A piece's condition, in the page's language (user, 2026-11-11: condition and era instead of a
+  description of how the piece looks). The Condition field (hikari.grade: Unworn, Excellent,
+  Very good, Good or Fair; Shopify → the product → Metafields) becomes a word from locales
+  (products.grades), then the Condition note (hikari.condition) follows if there is one.
+  Any other wording in the field is shown as it is. Empty when neither is filled in.
+  Params: p; note: false leaves the note out (cards).
+{%- endcomment -%}
+{%- liquid
+  assign g = p.metafields.hikari.grade.value | append: ''
+  assign gw = ''
+  if g != blank
+    assign gkey = g | handleize | replace: '-', '_' | prepend: 'products.grades.'
+    assign gw = gkey | t
+    if gw contains 'translation missing'
+      assign gw = g
+    endif
+  endif
+  assign cn = p.metafields.hikari.condition.value | append: ''
+  if note == false
+    assign cn = ''
+  endif
+-%}
+{{- gw -}}{%- if cn != blank -%}{%- if gw != blank %} · {% endif -%}{{ cn }}{%- endif -%}

@@ -39,13 +39,15 @@
       <p class="cpiece">{{ piece }}</p>
       <div class="crow">
         <span class="price">
-          {%- if status == 'sold' -%}{{ 'products.product.sold_out' | t }}{%- else -%}{%- render 'price', p: p -%}{%- endif -%}
+          {%- comment -%} A sold piece shows what it sold for, so it can be looked up (user, 2026-11-11); the Sold badge is on the photograph. {%- endcomment -%}
+          {%- if status == 'sold' and p.price == 0 -%}{{ 'products.product.sold_out' | t }}{%- else -%}{%- render 'price', p: p -%}{%- endif -%}
         </span>
         {%- if status == 'soon' -%}
           <span class="when">{{ 'products.badge.coming_soon' | t }} · {% render 'release', p: p %}</span>
         {%- else -%}
-          <span class="tag">{%- if p.metafields.hikari.grade %}{{ 'products.spec.grade' | t: grade: p.metafields.hikari.grade }}{% endif -%}
-            {%- if p.metafields.hikari.measurements %} · {{ p.metafields.hikari.measurements }}{% endif -%}</span>
+          {%- capture cond -%}{%- render 'grade', p: p, note: false -%}{%- endcapture -%}
+          {%- capture era -%}{%- render 'era', p: p -%}{%- endcapture -%}
+          <span class="tag">{{ cond }}{% if cond != blank and era != blank %} · {% endif %}{{ era }}</span>
         {%- endif -%}
       </div>
     </div>

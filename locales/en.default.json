@@ -114,7 +114,15 @@
       "measurements": "Measurements",
       "mark": "Maker's mark",
       "era": "Era",
-      "provenance": "Provenance"
+      "provenance": "Provenance",
+      "decade": "{{ decade }}s"
+    },
+    "grades": {
+      "unworn": "Unworn",
+      "excellent": "Excellent",
+      "very_good": "Very good",
+      "good": "Good",
+      "fair": "Fair"
     },
     "notify": {
       "release_heading": "Tell me when it goes live",

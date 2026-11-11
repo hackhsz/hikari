@@ -1,0 +1,15 @@
+{%- comment -%}
+  A piece's era, in the page's language: the Era field (hikari.era, a decade such as 1980s;
+  Shopify → the product → Metafields) through products.spec.decade, so 1980s reads 1980 年代
+  in Chinese. Any other wording in the field is shown as it is. Params: p.
+{%- endcomment -%}
+{%- liquid
+  assign era = p.metafields.hikari.era.value | append: '' | strip
+  assign dec = era | remove: 's'
+  assign n = dec | plus: 0
+  if era.size == 5 and n > 1000 and n < 3000
+    echo 'products.spec.decade' | t: decade: n
+  else
+    echo era
+  endif
+-%}
