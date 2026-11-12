@@ -289,11 +289,21 @@
     "spend": "通常预算",
     "under_html": "{{ amount }} 以下",
     "over_html": "{{ amount }} 以上",
+    "found": "您是怎么知道我们的？",
+    "sources": {
+      "xiaohongshu": "小红书",
+      "wechat": "微信",
+      "instagram": "Instagram",
+      "search": "Google 等搜索引擎",
+      "friend": "朋友推荐",
+      "in_person": "线下见面",
+      "other": "其他"
+    },
     "wechat_html": "微信号（WeChat ID），如果您希望我们通过微信联系您",
     "save": "保存",
     "skip": "跳过",
     "fine_page": "将您的选择保存到您在名单中的信息里；如果您还不在名单上，也会一并加入。可随时退订。",
-    "fine": "选填。仅用于决定先向您展示哪些单品；微信号仅用于告诉您这些单品的消息。",
+    "fine": "选填。仅用于决定先向您展示哪些单品、以及在哪里发布新品；微信号仅用于告诉您这些单品的消息。",
     "thanks": "谢谢。我们会优先为您展示这些单品。"
   },
   "creators": {

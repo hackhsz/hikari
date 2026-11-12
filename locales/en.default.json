@@ -289,11 +289,21 @@
     "spend": "Usually spend",
     "under_html": "Under {{ amount }}",
     "over_html": "Over {{ amount }}",
+    "found": "How did you find us?",
+    "sources": {
+      "xiaohongshu": "Xiaohongshu",
+      "wechat": "WeChat",
+      "instagram": "Instagram",
+      "search": "Google or another search",
+      "friend": "A friend",
+      "in_person": "In person",
+      "other": "Elsewhere"
+    },
     "wechat_html": "WeChat ID <span lang=\"zh\">微信号</span>, if you would like to hear from us there",
     "save": "Save",
     "skip": "Skip",
     "fine_page": "Saves your choices to your place on the list, and adds you to the list if you are not on it yet. Unsubscribe any time.",
-    "fine": "Optional. We use it only to choose which pieces to show you first, and WeChat only to tell you about them.",
+    "fine": "Optional. We use it only to choose which pieces to show you first and where to share new ones, and WeChat only to tell you about them.",
     "thanks": "Thank you. We will show you those first."
   },
   "creators": {

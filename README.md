@@ -157,7 +157,9 @@ Shopify Customers is the CRM. A storefront form can only save an email and tags 
 | `ears-clip` | Wears clip-on earrings only | Preference step |
 | `budget-under-150` · `budget-150-250` · `budget-250-plus` | What they usually spend | Preference step |
 | `prefs` | Has answered the preference step | Preference step |
-| `wechat` · `wechat:{id}` | Gave a WeChat ID (微信号), held in the second tag. Add both by hand when someone gives it in person | Preference step, or by hand |
+| `wechat` · `wechat:{id}` | Gave a WeChat ID (微信号), held in the second tag. Add both by hand when someone gives it in person | Preference step, or `crm.py` |
+| `src-xiaohongshu` · `src-wechat` · `src-instagram` · `src-search` · `src-friend` · `src-in-person` · `src-other` | How they first found us (the first answer is kept) | Preference step, or `crm.py` |
+| `xhs` · `xhs:{id}` · `instagram` · `ig:{handle}` · `met-in-person` | Where we talk to them besides email | `crm.py` |
 | `creator` | In the creators programme | By hand |
 
 The **preference step** ("What do you collect?", `snippets/preferences.liquid`) shows once, optional, after someone joins the list. A page with the handle **`preferences`** shows the same form with an email field, for the people who skipped it: link it from the Edition.
@@ -170,6 +172,12 @@ Customer metafields, under Settings → Custom data → **Customers**, namespace
 | `social_handle` | Single line text |
 | `followers` | Integer |
 | `creator_status` | Single line text, choices: Applied · Accepted · Active · Paused · Declined |
+| `code` | Customer number, `K-0012`. Also written in the WeChat remark (备注), so a chat matches its record. Set by `crm.py` |
+| `last_contact` | Date of the last conversation on any channel. Set by `crm.py` |
+
+**Chats off the site.** WeChat, Xiaohongshu and Instagram messages and in-person meetings are logged with `pipeline/crm.py log` (outside this repo): it finds the customer by K-number, email, phone or WeChat/XHS/IG id, or creates one; adds the same tags as the site forms; writes a dated line in the Note; and sets `last_contact`. It never changes email-marketing consent. `crm.py sync` gives new customers a K-number.
+
+**Where visitors came from.** `/xhs`, `/wx` and `/ig` (Online Store → Navigation → URL redirects) send people to the home page with `utm_source` xiaohongshu, wechat or instagram, so Google Analytics counts each platform. Use them where a full link can't go (Xiaohongshu posts, WeChat Moments images).
 
 The creators form does not ask for marketing consent, so add creators by hand, tagged `creator`, without subscribing them. Notes go in the customer's own Note.
 

@@ -289,11 +289,21 @@
     "spend": "ご予算の目安",
     "under_html": "{{ amount }}未満",
     "over_html": "{{ amount }}以上",
+    "found": "どちらで私たちをお知りになりましたか？",
+    "sources": {
+      "xiaohongshu": "小紅書",
+      "wechat": "WeChat",
+      "instagram": "Instagram",
+      "search": "Googleなどの検索",
+      "friend": "知人の紹介",
+      "in_person": "対面で",
+      "other": "その他"
+    },
     "wechat_html": "WeChat ID <span lang=\"zh\">微信号</span>（WeChatでのご連絡をご希望の場合）",
     "save": "保存する",
     "skip": "スキップ",
     "fine_page": "お選びいただいた内容をリストのご登録情報に保存します。まだご登録でない場合は、あわせてリストに登録します。配信はいつでも停止できます。",
-    "fine": "任意です。最初にお見せするお品を選ぶためだけに使い、WeChatはそのお知らせにのみ使います。",
+    "fine": "任意です。最初にお見せするお品と、新着をどこでお知らせするかを決めるためだけに使い、WeChatはそのお知らせにのみ使います。",
     "thanks": "ありがとうございます。そうしたお品から先にお見せします。"
   },
   "creators": {

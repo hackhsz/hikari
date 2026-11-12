@@ -74,6 +74,11 @@
         if (clarity) {
           window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
           window.clarity('consentv2', { ad_Storage: m ? 'granted' : 'denied', analytics_Storage: 'granted' });
+          {%- if customer %}
+          /* signed in: Clarity groups their visits under the customer (it hashes the id) and shows the
+             K-number from pipeline/crm.py as the name, never their name or email */
+          window.clarity('identify', {{ customer.id | append: '' | json }}, null, null, {{ customer.metafields.hikari.code.value | default: 'customer' | json }});
+          {%- endif %}
           add('clarity', 'https://www.clarity.ms/tag/' + encodeURIComponent(clarity));
         }
       }

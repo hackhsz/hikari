@@ -3,7 +3,8 @@
   The answers become customer tags, the only thing a storefront form can save on a customer,
   so a segment can find people by them (README → Customers):
     house-{vendor handle} · type-{earrings|brooches|necklaces|bracelets} · ears-clip
-    budget-{under-150|150-250|250-plus}, and prefs on everyone who answers.
+    budget-{under-150|150-250|250-plus}, src-{xiaohongshu|wechat|instagram|search|friend|in-person|other}
+    (how they found us), and prefs on everyone who answers.
     A WeChat ID, if given, becomes wechat (so a segment can find everyone who gave one)
     and wechat:{id}, which holds the ID itself.
   house- is the tag the "similar" notify form already sets, so there is one tag per house.
@@ -50,6 +51,15 @@
       <label class="prefs-chip"><input type="radio" name="{{ form_id }}-budget" value="budget-under-150" data-tag><span>{{ 'preferences.under_html' | t: amount: low }}</span></label>
       <label class="prefs-chip"><input type="radio" name="{{ form_id }}-budget" value="budget-150-250" data-tag><span>{{ low }}–{{ high }}</span></label>
       <label class="prefs-chip"><input type="radio" name="{{ form_id }}-budget" value="budget-250-plus" data-tag><span>{{ 'preferences.over_html' | t: amount: high }}</span></label>
+    </fieldset>
+    <fieldset class="prefs-set">
+      <legend>{{ 'preferences.found' | t }}</legend>
+      {%- comment -%} src- tags, the same ones pipeline/crm.py sets for people met on WeChat, Xiaohongshu or in person. {%- endcomment -%}
+      {%- assign srcs = 'xiaohongshu,wechat,instagram,search,friend,in_person,other' | split: ',' -%}
+      {%- for sk in srcs -%}
+        {%- assign skey = 'preferences.sources.' | append: sk -%}
+        <label class="prefs-chip"><input type="radio" name="{{ form_id }}-src" value="src-{{ sk | replace: '_', '-' }}" data-tag><span>{{ skey | t }}</span></label>
+      {%- endfor -%}
     </fieldset>
     <div class="prefs-set prefs-field">
       <label for="{{ form_id }}-wechat">{{ 'preferences.wechat_html' | t }}</label>
