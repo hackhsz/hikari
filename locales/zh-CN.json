@@ -62,7 +62,8 @@
     },
     "footer": {
       "creators": "创作者合作，以及分享您的单品",
-      "registered": "，英格兰及威尔士注册公司编号 {{ number }}"
+      "registered": "，英格兰及威尔士注册公司编号 {{ number }}",
+      "cookies": "Cookie 设置"
     },
     "social": {
       "follow_us": "关注我们",

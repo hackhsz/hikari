@@ -240,6 +240,7 @@ html.scroll-colour .form button span{color:var(--bg)}
 .hero-link{display:inline-block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
   padding:8px 0 5px;border-bottom:1px solid;border-color:color-mix(in srgb,currentColor 45%,transparent);transition:border-color .25s}
 .hero-link:hover{border-color:currentColor}
+button.hero-link{background:none;border-width:0 0 1px;border-style:solid;font-family:inherit;color:inherit;cursor:pointer;border-radius:0}
 @media (max-width:760px){.hero-lead,.hero-side{grid-column:1/-1}}
 /* Words under the full-width picture (layout: stacked): one short centred column, so a brief
    headline does not leave the page split in two. */

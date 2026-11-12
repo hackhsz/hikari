@@ -19,6 +19,9 @@
       {%- if pages.questions.id -%}<a class="hero-link" href="{{ routes.root_url | append: '/pages/questions' | replace: '//', '/' }}">{{ 'guide.eyebrow' | t }}</a>{%- endif -%}
       {%- comment -%} The guides (sections/main-blog), once there is one to read. {%- endcomment -%}
       {%- if blogs.guides.articles_count > 0 -%}<a class="hero-link" href="{{ routes.root_url | append: '/blogs/guides' | replace: '//', '/' }}">{{ 'blog.title' | t }}</a>{%- endif -%}
+      {%- comment -%} Reopens Shopify's cookie banner so a choice can be changed as easily as it was made
+          (UK GDPR/PECR). hikari.js shows it only where the banner is loaded. {%- endcomment -%}
+      <button type="button" class="hero-link foot-cookies" data-cookie-prefs hidden>{{ 'layout.footer.cookies' | t }}</button>
       {%- render 'language-switcher', id: 'lang-foot' -%}
     </div>
     <div style="margin-top:clamp(40px,7vw,64px)">{%- render 'lockup', height: 'clamp(84px, 16vw, 120px)' -%}</div>

@@ -62,7 +62,8 @@
     },
     "footer": {
       "creators": "Creators, and sharing your piece",
-      "registered": ", registered in England and Wales no. {{ number }}"
+      "registered": ", registered in England and Wales no. {{ number }}",
+      "cookies": "Cookie settings"
     },
     "social": {
       "follow_us": "Follow us",

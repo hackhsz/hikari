@@ -62,7 +62,8 @@
     },
     "footer": {
       "creators": "クリエイターの方へ、お品のシェアについて",
-      "registered": "（イングランド・ウェールズ登記番号 {{ number }}）"
+      "registered": "（イングランド・ウェールズ登記番号 {{ number }}）",
+      "cookies": "Cookie設定"
     },
     "social": {
       "follow_us": "フォローする",

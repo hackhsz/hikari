@@ -62,7 +62,8 @@
     },
     "footer": {
       "creators": "Creadores, y compartir tu pieza",
-      "registered": ", registrada en Inglaterra y Gales con el n.º {{ number }}"
+      "registered": ", registrada en Inglaterra y Gales con el n.º {{ number }}",
+      "cookies": "Configuración de cookies"
     },
     "social": {
       "follow_us": "Síguenos",

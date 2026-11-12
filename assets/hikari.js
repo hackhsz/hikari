@@ -835,6 +835,14 @@
     // Private viewing: no day before today (local date, not UTC).
     [].forEach.call(document.querySelectorAll("[data-viewing-date]"),function(d){
       var t=new Date(); t.setMinutes(t.getMinutes()-t.getTimezoneOffset()); d.min=t.toISOString().slice(0,10); });
+    // Footer "Cookie settings": reopens Shopify's banner. It loads on its own time, so look again after load.
+    var ck=document.querySelector("[data-cookie-prefs]");
+    if(ck){
+      var can=function(){ return window.privacyBanner&&typeof window.privacyBanner.showPreferences==="function"; };
+      var show=function(){ if(can()) ck.hidden=false; };
+      ck.addEventListener("click",function(){ if(can()) window.privacyBanner.showPreferences(); });
+      show(); window.addEventListener("load",function(){ show(); setTimeout(show,2500); });
+    }
   }
 
   window.Hikari={plates:initPlates,openSheet:openSheetById,closeSheet:closeSheet,refreshBag:refreshBag,quickView:quickView,popup:initPopup};
