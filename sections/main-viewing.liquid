@@ -5,8 +5,9 @@
   The address is never on the page: it goes out with the confirmation.
 
   Cal.com (owner, 2026-11-14): with "Cal.com booking link" set, the page shows the Cal.com calendar
-  instead of the form. Every booking waits for the shop's Confirm or Decline in Cal.com, which then
-  emails the address and directions. The form stays as the fallback: it shows if Cal.com's script
+  instead of the form. 30-minute slots that stay open however many people book (Cal.com seats), so
+  bookings are confirmed at once; the shop texts or WeChats the exact address (Cal.com shows only
+  "伦敦市中心"). Every booking also reaches the private board (viewings-board/, a Cloudflare Worker). The form stays as the fallback: it shows if Cal.com's script
   can't load, and without JavaScript. Bookings open from the day after tomorrow, online and in the
   form; for today or tomorrow people message the shop on WeChat or Instagram (viewing.short_notice).
 

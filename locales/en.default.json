@@ -340,9 +340,9 @@
     "thanks": "Thank you. We will be in touch to confirm your viewing.",
     "eyebrow": "London, by appointment",
     "heading": "Book a private viewing",
-    "lede": "See the pieces in person. Choose a day and a time, and we will be in touch to confirm.",
+    "lede": "See the pieces in person, in central London. Choose a day and a time; we'll send you the exact address by text or WeChat.",
     "hours": "Monday to Sunday, 2pm to 8pm",
-    "note_html": "<p>Viewings are by appointment only. We send the address with your confirmation.</p>",
+    "note_html": "<p>Viewings are by appointment only. We send the exact address after you book.</p>",
     "short_notice": "For today or tomorrow, message us:",
     "short_wechat": "WeChat {{ id }}"
   },
