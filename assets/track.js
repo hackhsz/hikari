@@ -84,6 +84,10 @@
     var f=e.detail&&e.detail.form, it=item(f)||item(document.querySelector("[data-track-page]"));
     if(it) send("add_to_cart",{currency:currency,value:it.price,items:[it]});
   });
+  /* A viewing requested through the Cal.com calendar (sections/main-viewing). */
+  document.addEventListener("hikari:viewing",function(e){
+    if(e.detail&&e.detail.step==="requested") send("generate_lead",{lead_source:"private_viewing",form_id:"cal"});
+  });
   document.addEventListener("hikari:sheet",function(e){
     if(!e.detail||e.detail.id!=="bag") return;
     var items=[].map.call(document.querySelectorAll("#bag .bag-line[data-track-item]"),function(l,i){ return item(l,i); }).filter(Boolean);

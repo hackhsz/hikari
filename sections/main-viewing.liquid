@@ -4,6 +4,12 @@
   or message. Viewings run every day, in the afternoon; the time slots are a setting, one per line.
   The address is never on the page: it goes out with the confirmation.
 
+  Cal.com (owner, 2026-11-14): with "Cal.com booking link" set, the page shows the Cal.com calendar
+  instead of the form. Every booking waits for the shop's Confirm or Decline in Cal.com, which then
+  emails the address and directions. The form stays as the fallback: it shows if Cal.com's script
+  can't load, and without JavaScript. Bookings open from the day after tomorrow, online and in the
+  form; for today or tomorrow people message the shop on WeChat or Instagram (viewing.short_notice).
+
   Set up: Online Store → Pages → Add page with the handle "private-viewing". templates/page.liquid
   shows this section for that handle on any template, and page.private-viewing.json does too.
   The banner's second button links here once the page exists (sections/brand-hero.liquid).
@@ -16,6 +22,7 @@
 {%- assign std = 'viewing.hours' | t -%}{%- assign hours = s.hours | default: std -%}
 {%- assign std = 'viewing.note_html' | t -%}{%- assign note = s.note | default: std -%}
 {%- assign slots = s.slots | newline_to_br | split: '<br />' -%}
+{%- assign cal = s.cal_link | strip | remove: 'https://cal.com/' | remove: 'https://app.cal.com/' | remove: 'cal.com/' -%}
 <section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
   <div class="shell">
     <header class="house-head">
@@ -24,8 +31,12 @@
       {%- if lede != blank -%}<p class="house-lede">{{ lede }}</p>{%- endif -%}
     </header>
 
-    <div class="cr-cols">
+    <div class="cr-cols{% if cal != blank %} vw-has-cal{% endif %}">
       <div class="cr-col">
+        {%- if cal != blank -%}
+          <div class="vw-cal" id="vw-cal" data-vw-cal="{{ cal | escape }}"></div>
+        {%- endif -%}
+        <div data-vw-fallback{% if cal != blank %} hidden{% endif %}>
         {%- form 'contact', id: 'viewing-form', class: 'cr-form vw-form' -%}
           {%- if form.posted_successfully? -%}
             <p class="cr-ok" role="status">{{ 'viewing.thanks' | t }}</p>
@@ -57,17 +68,49 @@
             <button type="submit" class="btn">{{ 'viewing.submit' | t }}</button>
           {%- endif -%}
         {%- endform -%}
+        </div>
+        {%- if cal != blank -%}<noscript><style>[data-vw-fallback]{display:block!important}</style></noscript>{%- endif -%}
       </div>
 
       <div class="cr-col">
         {%- if hours != blank -%}<h2 class="cr-h">{{ hours }}</h2>{%- endif -%}
         {%- if note != blank -%}<div class="cr-steps vw-note">{{ note }}</div>{%- endif -%}
+        {%- comment -%} Short notice goes through a message, so the shop can say yes the same day. {%- endcomment -%}
+        {%- assign wc = settings.wechat_id | strip -%}
+        {%- assign ig = settings.social_instagram | strip -%}
+        {%- if wc != blank or ig != blank -%}
+          <p class="vw-soon">
+            {{- 'viewing.short_notice' | t -}}
+            {%- if wc != blank %} <span class="vw-soon-way">{{ 'viewing.short_wechat' | t: id: wc }}</span>{% endif -%}
+            {%- if wc != blank and ig != blank %} ·{% endif -%}
+            {%- if ig != blank %} <a class="vw-soon-way" href="{{ ig }}" target="_blank" rel="noopener">Instagram</a>{% endif -%}
+          </p>
+        {%- endif -%}
       </div>
     </div>
   </div>
 </section>
+{%- if cal != blank -%}
+<script>
+  /* Cal.com's own inline embed (cal.com/docs → Embed). If its script fails, or no calendar has appeared
+     after 12 s, the form comes back so a request can still be sent. Bookings are counted, never their details. */
+  (function () {
+    var box = document.getElementById('vw-cal'); if (!box) return;
+    var back = function () { var f = document.querySelector('[data-vw-fallback]'); if (f) f.hidden = false; box.hidden = true; };
+    (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; var sc = d.createElement('script'); sc.src = A; sc.onerror = back; d.head.appendChild(sc); cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, 'https://app.cal.com/embed/embed.js', 'init');
+    Cal('init', 'viewing', { origin: 'https://app.cal.com' });
+    Cal.ns.viewing('inline', { elementOrSelector: '#vw-cal', calLink: box.getAttribute('data-vw-cal'), config: { layout: 'month_view', theme: 'light' } });
+    Cal.ns.viewing('ui', { theme: 'light', hideEventTypeDetails: false, layout: 'month_view', cssVarsPerTheme: { light: { 'cal-brand': '#1C1B18' } } });
+    var tell = function (step) { document.dispatchEvent(new CustomEvent('hikari:viewing', { detail: { step: step } })); };
+    Cal.ns.viewing('on', { action: 'linkReady', callback: function () { box.classList.add('is-ready'); } });
+    Cal.ns.viewing('on', { action: 'bookingSuccessfulV2', callback: function () { tell('requested'); } });
+    setTimeout(function () { if (!box.querySelector('iframe')) back(); }, 12000);
+  })();
+</script>
+{%- endif -%}
 {% schema %}
 { "name": "Private viewing", "settings": [
+  { "type": "text", "id": "cal_link", "label": "Cal.com booking link", "info": "Your Cal.com event, e.g. karineko/private-viewing. When set, the page shows the Cal.com calendar instead of the form, and every booking waits for your Confirm or Decline in Cal.com. Empty: the form below is used." },
   { "type": "text", "id": "eyebrow", "label": "Eyebrow", "info": "Leave empty for the standard wording, which is translated into every language. Text here replaces it in English (translate it in Translate & Adapt)." },
   { "type": "text", "id": "heading", "label": "Heading", "info": "Leave empty for the standard wording, which is translated into every language. Text here replaces it in English (translate it in Translate & Adapt)." },
   { "type": "textarea", "id": "lede", "label": "Lede", "info": "Leave empty for the standard wording, which is translated into every language. Text here replaces it in English (translate it in Translate & Adapt)." },

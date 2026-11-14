@@ -342,7 +342,9 @@
     "heading": "Book a private viewing",
     "lede": "See the pieces in person. Choose a day and a time, and we will be in touch to confirm.",
     "hours": "Monday to Sunday, 2pm to 8pm",
-    "note_html": "<p>Viewings are by appointment only. We send the address with your confirmation.</p>"
+    "note_html": "<p>Viewings are by appointment only. We send the address with your confirmation.</p>",
+    "short_notice": "For today or tomorrow, message us:",
+    "short_wechat": "WeChat {{ id }}"
   },
   "countdown": {
     "now": "Going live now",

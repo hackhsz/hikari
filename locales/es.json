@@ -342,7 +342,9 @@
     "heading": "Reserva una visita privada",
     "lede": "Ve las piezas en persona. Elige un día y una hora, y te escribiremos para confirmar.",
     "hours": "De lunes a domingo, de 14:00 a 20:00",
-    "note_html": "<p>Las visitas son solo con cita previa. Te enviamos la dirección con la confirmación.</p>"
+    "note_html": "<p>Las visitas son solo con cita previa. Te enviamos la dirección con la confirmación.</p>",
+    "short_notice": "Para hoy o mañana, escríbenos:",
+    "short_wechat": "WeChat {{ id }}"
   },
   "countdown": {
     "now": "Sale a la venta ahora",

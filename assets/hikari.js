@@ -832,9 +832,10 @@
     if(navigator.share) [].forEach.call(document.querySelectorAll("[data-share]"),function(b){ b.hidden=false; });
     if(/[?&]contact_posted=true/.test(location.search)) [].forEach.call(document.querySelectorAll("[data-cr-ok]"),function(p){
       p.hidden=false; p.scrollIntoView({block:"center"}); });
-    // Private viewing: no day before today (local date, not UTC).
+    // Private viewing: the day after tomorrow at the earliest (local date, not UTC); today and
+    // tomorrow go through WeChat or Instagram (sections/main-viewing).
     [].forEach.call(document.querySelectorAll("[data-viewing-date]"),function(d){
-      var t=new Date(); t.setMinutes(t.getMinutes()-t.getTimezoneOffset()); d.min=t.toISOString().slice(0,10); });
+      var t=new Date(); t.setDate(t.getDate()+2); t.setMinutes(t.getMinutes()-t.getTimezoneOffset()); d.min=t.toISOString().slice(0,10); });
     // Footer "Cookie settings": reopens Shopify's banner. It loads on its own time, so look again after load.
     var ck=document.querySelector("[data-cookie-prefs]");
     if(ck){

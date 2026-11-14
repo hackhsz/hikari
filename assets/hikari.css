@@ -569,6 +569,12 @@ html.js .card .qv-btn{display:block}
 .vw-when>div{display:flex;flex-direction:column;gap:6px}
 .vw-form .cr-ok{margin-top:0}
 .vw-note p{margin:0 0 10px;max-width:42ch}
+.vw-has-cal{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}
+@media (max-width:760px){.vw-has-cal{grid-template-columns:minmax(0,1fr)}}
+.vw-cal{width:100%;min-height:620px;overflow:auto}
+.vw-soon{font-size:14.5px;line-height:1.6;max-width:42ch;margin:0}
+.vw-soon-way{white-space:nowrap}
+a.vw-soon-way{text-decoration:underline;text-underline-offset:3px}
 .ct-btns{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;max-width:360px}
 
 /* ── what do you collect? (snippets/preferences, CRM) ─────── */
