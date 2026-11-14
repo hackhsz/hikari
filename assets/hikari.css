@@ -569,8 +569,9 @@ html.js .card .qv-btn{display:block}
 .vw-when>div{display:flex;flex-direction:column;gap:6px}
 .vw-form .cr-ok{margin-top:0}
 .vw-note p{margin:0 0 10px;max-width:42ch}
-.vw-has-cal{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}
-@media (max-width:760px){.vw-has-cal{grid-template-columns:minmax(0,1fr)}}
+/* With Cal.com the calendar takes the full width (its three-panel layout needs ~900px), hours and notes above it */
+.cr-cols.vw-has-cal{grid-template-columns:minmax(0,1fr);gap:clamp(24px,4vw,40px)}
+.vw-has-cal>.cr-col:last-child{order:-1}
 .vw-cal{width:100%;min-height:620px;overflow:auto}
 .vw-soon{font-size:14.5px;line-height:1.6;max-width:42ch;margin:0}
 .vw-soon-way{white-space:nowrap}
