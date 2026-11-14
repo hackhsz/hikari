@@ -1,4 +1,11 @@
 {
-  "sections": { "main": { "type": "main-viewing" } },
+  "sections": {
+    "main": {
+      "type": "main-viewing",
+      "settings": {
+        "cal_link": "karineko/private-viewing"
+      }
+    }
+  },
   "order": ["main"]
 }
