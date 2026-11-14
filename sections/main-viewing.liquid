@@ -7,7 +7,11 @@
   Cal.com (owner, 2026-11-14): with "Cal.com booking link" set, the page shows the Cal.com calendar
   instead of the form. 30-minute slots that stay open however many people book (Cal.com seats), so
   bookings are confirmed at once; the shop texts or WeChats the exact address (Cal.com shows only
-  "伦敦市中心"). Every booking also reaches the private board (viewings-board/, a Cloudflare Worker). The form stays as the fallback: it shows if Cal.com's script
+  "central London"). Every booking also reaches the private board (viewings-board/, a Cloudflare Worker).
+  Two Cal.com events, one per language (owner: no Chinese on the English page): the Chinese page uses
+  "Cal.com booking link, Chinese", every other language the English one. Cal.com's own event panel
+  is hidden (owner: show no length; the time booked is the arrival time), so the page's lede says
+  what the visit is. The form stays as the fallback: it shows if Cal.com's script
   can't load, and without JavaScript. Bookings open from the day after tomorrow, online and in the
   form; for today or tomorrow people message the shop on WeChat or Instagram (viewing.short_notice).
 
@@ -23,7 +27,9 @@
 {%- assign std = 'viewing.hours' | t -%}{%- assign hours = s.hours | default: std -%}
 {%- assign std = 'viewing.note_html' | t -%}{%- assign note = s.note | default: std -%}
 {%- assign slots = s.slots | newline_to_br | split: '<br />' -%}
-{%- assign cal = s.cal_link | strip | remove: 'https://cal.com/' | remove: 'https://app.cal.com/' | remove: 'cal.com/' -%}
+{%- assign cal = s.cal_link -%}
+{%- if request.locale.iso_code contains 'zh' and s.cal_link_zh != blank -%}{%- assign cal = s.cal_link_zh -%}{%- endif -%}
+{%- assign cal = cal | strip | remove: 'https://cal.com/' | remove: 'https://app.cal.com/' | remove: 'cal.com/' -%}
 <section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
   <div class="shell">
     <header class="house-head">
@@ -101,7 +107,7 @@
     (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; var sc = d.createElement('script'); sc.src = A; sc.onerror = back; d.head.appendChild(sc); cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, 'https://app.cal.com/embed/embed.js', 'init');
     Cal('init', 'viewing', { origin: 'https://app.cal.com' });
     Cal.ns.viewing('inline', { elementOrSelector: '#vw-cal', calLink: box.getAttribute('data-vw-cal'), config: { layout: 'month_view', theme: 'light' } });
-    Cal.ns.viewing('ui', { theme: 'light', hideEventTypeDetails: false, layout: 'month_view', cssVarsPerTheme: { light: { 'cal-brand': '#1C1B18' } } });
+    Cal.ns.viewing('ui', { theme: 'light', hideEventTypeDetails: true, layout: 'month_view', cssVarsPerTheme: { light: { 'cal-brand': '#1C1B18' } } });
     var tell = function (step) { document.dispatchEvent(new CustomEvent('hikari:viewing', { detail: { step: step } })); };
     Cal.ns.viewing('on', { action: 'linkReady', callback: function () { box.classList.add('is-ready'); } });
     Cal.ns.viewing('on', { action: 'bookingSuccessfulV2', callback: function () { tell('requested'); } });
@@ -111,7 +117,8 @@
 {%- endif -%}
 {% schema %}
 { "name": "Private viewing", "settings": [
-  { "type": "text", "id": "cal_link", "label": "Cal.com booking link", "info": "Your Cal.com event, e.g. karineko/private-viewing. When set, the page shows the Cal.com calendar instead of the form, and every booking waits for your Confirm or Decline in Cal.com. Empty: the form below is used." },
+  { "type": "text", "id": "cal_link", "label": "Cal.com booking link", "info": "Your Cal.com event in English, e.g. karineko/private-viewing-en. When set, the page shows the Cal.com calendar instead of the form, in every language except Chinese. Empty: the form below is used." },
+  { "type": "text", "id": "cal_link_zh", "label": "Cal.com booking link, Chinese", "info": "The same event with Chinese questions, e.g. karineko/private-viewing. Shown on the Chinese page; empty: the Chinese page uses the link above." },
   { "type": "text", "id": "eyebrow", "label": "Eyebrow", "info": "Leave empty for the standard wording, which is translated into every language. Text here replaces it in English (translate it in Translate & Adapt)." },
   { "type": "text", "id": "heading", "label": "Heading", "info": "Leave empty for the standard wording, which is translated into every language. Text here replaces it in English (translate it in Translate & Adapt)." },
   { "type": "textarea", "id": "lede", "label": "Lede", "info": "Leave empty for the standard wording, which is translated into every language. Text here replaces it in English (translate it in Translate & Adapt)." },
