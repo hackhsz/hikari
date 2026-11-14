@@ -2,8 +2,8 @@
   Product page anatomy per 1-shop/04-site-ia.md. Information sits BELOW / BESIDE the image, never over it,
   so no scrim is ever needed. No photograph is labelled Unretouched any more (user, 2026-11-11): the
   label went by position (frames 2 and 4), not by what the photograph shows.
-  A frame whose image alt text contains "AI-generated" (the image pipeline writes "Styled image, AI-generated: …")
-  is captioned as a styled image, wherever it sits.
+  No caption under or over any photograph (owner, 2026-11-14: "take the caption off"; the "Styled
+  image · AI-generated" caption is gone). Rule: no AI-generated images of people on the shop.
   Each frame's alt text is the photo's own (Shopify → the product's media → Alt text), saying what
   that photo shows; a photo without one falls back on the product title.
 
@@ -68,17 +68,13 @@
       <div class="gal-track" data-gal-track tabindex="0">
       {%- if p.images.size > 0 -%}
         {%- for img in p.images -%}
-          {%- assign styled = false -%}
-          {%- if img.alt contains 'AI-generated' %}{% assign styled = true %}{% endif -%}
           {%- if forloop.index == 1 -%}{%- assign b = status -%}{%- else -%}{%- assign b = '' -%}{%- endif -%}
           {%- assign frame_alt = img.alt | default: p.title -%}
           <div class="gal-slide" data-gal-slide>
             <a class="frame" href="{{ img | image_url: width: 2400 }}" data-zoom
-               data-zoom-label="{% if styled %}{{ 'products.frames.styled' | t }}{% endif %}"
                aria-label="{{ 'products.frames.label' | t: index: forloop.index, total: p.images.size }}">
               {%- render 'plate', image: img, alt: frame_alt, badge: b, first: forloop.first, fill: true, ratio: 1, sizes: gal_sizes -%}
             </a>
-            {%- if styled -%}<p class="unret">{{ 'products.frames.styled_note' | t }}</p>{%- endif -%}
           </div>
           {%- if forloop.index == 1 and spin.size > 1 -%}<div class="gal-slide" data-gal-slide>{{ spin_html }}</div>{%- endif -%}
         {%- endfor -%}

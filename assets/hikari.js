@@ -424,8 +424,8 @@
   }
 
   /* ── full-screen photographs ──────────────────────────────
-     Every frame on the product page, in order, with its label (a styled, AI-generated image
-     says so at full size too). Click or tap to look closer; with a mouse the picture
+     Every frame on the product page, in order (a frame can still carry a data-zoom-label; none do
+     since the styled-image caption went, 2026-11-14). Click or tap to look closer; with a mouse the picture
      then follows the pointer, on touch it scrolls. Swipe or arrow keys for the next frame. */
   var zoomList=[], zoomAt=0;
   function zoomStage(){ return document.querySelector("#zoom [data-zoom-stage]"); }
