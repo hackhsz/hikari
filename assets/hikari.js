@@ -191,7 +191,14 @@
       sheet.classList.add("is-open");
     } else {
       sheet.classList.remove("is-open");
-      if(dlg) sheet._shut=setTimeout(function(){ if(!sheet.classList.contains("is-open")&&sheet.open) sheet.close(); },SHEET_MS);
+      if(dlg) sheet._shut=setTimeout(function(){
+        if(sheet.classList.contains("is-open")||!sheet.open) return;
+        sheet.close();
+        /* close() hands focus back to whatever had it before showModal(); after a move from one sheet
+           to another that was a link inside the first sheet, now closed, so focus would fall to the page. */
+        var r=sheet._return; sheet._return=null;
+        if(r&&!openSheet&&document.contains(r)&&r.focus&&(!document.activeElement||document.activeElement===document.body)) r.focus({preventScroll:true});
+      },SHEET_MS);
       else { sheet.setAttribute("aria-hidden","true"); sheet.inert=true; }
     }
     root.classList.toggle("sheet-open",on);
@@ -213,6 +220,7 @@
   function closeSheet(){
     if(!openSheet) return;
     if(openSheet.id==="popup"&&store("hk-list")!=="joined") store("hk-popup-shut",String(Date.now()));
+    openSheet._return=lastTrigger;
     setOpen(openSheet,false); openSheet=null; note("");
     if(lastTrigger&&document.contains(lastTrigger)&&lastTrigger.focus) lastTrigger.focus({preventScroll:true});
   }
