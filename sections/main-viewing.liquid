@@ -8,7 +8,7 @@
   instead of the form. 30-minute slots that stay open however many people book (Cal.com seats).
   Every booking reaches the private board (viewings-board/, a Cloudflare Worker) as "waiting": the
   guest gets a "request received" email, and the shop's 确认 on the board emails the exact address
-  from the shop's Gmail (Cal.com shows only "central London"). After booking, this page swaps Cal.com's
+  from the shop's Gmail (Cal.com shows only "central London"; the page says near Old Street, owner 2026-11-15, hours 1pm to 8pm). After booking, this page swaps Cal.com's
   "scheduled" screen for viewing.done_heading/done_body.
   Two Cal.com events, one per language (owner: no Chinese on the English page): the Chinese page uses
   "Cal.com booking link, Chinese" when it is set, every other language the English one. Since
@@ -136,7 +136,7 @@
   { "type": "text", "id": "heading", "label": "Heading", "info": "Leave empty for the standard wording, which is translated into every language. Text here replaces it in English (translate it in Translate & Adapt)." },
   { "type": "textarea", "id": "lede", "label": "Lede", "info": "Leave empty for the standard wording, which is translated into every language. Text here replaces it in English (translate it in Translate & Adapt)." },
   { "type": "textarea", "id": "slots", "label": "Time slots", "info": "One per line.",
-    "default": "14:00 – 15:00\n15:00 – 16:00\n16:00 – 17:00\n17:00 – 18:00\n18:00 – 19:00\n19:00 – 20:00" },
+    "default": "13:00 – 14:00\n14:00 – 15:00\n15:00 – 16:00\n16:00 – 17:00\n17:00 – 18:00\n18:00 – 19:00\n19:00 – 20:00" },
   { "type": "text", "id": "hours", "label": "Hours", "info": "Leave empty for the standard wording, which is translated into every language. Text here replaces it in English (translate it in Translate & Adapt)." },
   { "type": "richtext", "id": "note", "label": "Note", "info": "Leave empty for the standard wording, which is translated into every language. Text here replaces it in English (translate it in Translate & Adapt)." }
 ] }

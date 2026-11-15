@@ -640,6 +640,17 @@
     }
     box.addEventListener("input",function(){ clearTimeout(timer); timer=setTimeout(ask,200); });
   }
+  /* New arrivals (catalogue sidebar and the menu): each batch's day (YYYY-MM-DD from Liquid) in the
+     visitor's language, Latin digits; the year only when it is not this year. */
+  function initBatchDates(){
+    [].forEach.call(document.querySelectorAll("[data-batch-date]"),function(t){
+      var d=t.getAttribute("datetime"); if(!/^\d{4}-\d\d-\d\d$/.test(d)) return;
+      var o={day:"numeric",month:"long",timeZone:"UTC"};
+      if(Number(d.slice(0,4))!==new Date().getFullYear()) o.year="numeric";
+      var lg=document.documentElement.lang||"en"; if(lg==="en") lg="en-GB"; /* 15 November, as in the UK */
+      try{ t.textContent=new Intl.DateTimeFormat(lg+"-u-nu-latn",o).format(new Date(d+"T12:00:00Z")); }catch(e){}
+    });
+  }
   function initCatalog(){
     var grid=document.querySelector("[data-cat-grid]"), bar=document.querySelector("[data-cat-filters]");
     if(!grid||!bar||grid.hasAttribute("data-cat-on")) return;
@@ -650,15 +661,6 @@
     function choose(name,v){ var i=bar.querySelector('input[name="cat-'+name+'"][value="'+v+'"]'); if(i) i.checked=true; }
     function val(name){ var i=bar.querySelector('input[name="cat-'+name+'"]:checked'); return i?i.value:""; }
     ["batch","brand","cat","show"].forEach(function(k){ if(q.get(k)) choose(k,q.get(k)); });
-    /* New arrivals: each batch's day (YYYY-MM-DD from Liquid) in the visitor's language, Latin digits;
-       the year only when it is not this year */
-    [].forEach.call(bar.querySelectorAll("[data-batch-date]"),function(t){
-      var d=t.getAttribute("datetime"); if(!/^\d{4}-\d\d-\d\d$/.test(d)) return;
-      var o={day:"numeric",month:"long",timeZone:"UTC"};
-      if(Number(d.slice(0,4))!==new Date().getFullYear()) o.year="numeric";
-      var lg=document.documentElement.lang||"en"; if(lg==="en") lg="en-GB"; /* 15 November, as in the UK */
-      try{ t.textContent=new Intl.DateTimeFormat(lg+"-u-nu-latn",o).format(new Date(d+"T12:00:00Z")); }catch(e){}
-    });
     if(sort&&q.get("sort_by")&&sort.querySelector('option[value="'+q.get("sort_by")+'"]')) sort.value=q.get("sort_by");
     /* Hide sold: over the grid, and on top of whatever the sidebar shows */
     if(hide){ hide.checked=q.get("hide")==="sold"; hide.parentNode.hidden=false; hide.addEventListener("change",apply); }
@@ -860,7 +862,7 @@
   function boot(){
     root.classList.add("js");
     initPlates(); initScroll(); bindOnce(); syncButtons();
-    initZoom(); initGallery(); initSpin(); initCountdown(); markShopNav(); initSearch(); initCatalog(); initPrefs(); initPopup(); initNotify(); initLang(); initPhrases(); initLater(); initMisc();
+    initZoom(); initGallery(); initSpin(); initCountdown(); markShopNav(); initSearch(); initCatalog(); initBatchDates(); initPrefs(); initPopup(); initNotify(); initLang(); initPhrases(); initLater(); initMisc();
   }
   if(document.readyState!=="loading") boot(); else document.addEventListener("DOMContentLoaded",boot);
   document.addEventListener("shopify:section:load",boot);
