@@ -14,7 +14,7 @@
 {%- assign transit_label = 'products.badge.pre_sale' | t -%}
 {%- assign transit = false -%}
 {%- for prop in item.properties -%}
-  {%- if prop.first == transit_label or prop.first == 'In transit' or prop.first == 'Pre-sale' -%}{%- if prop.last != blank -%}{%- assign transit = true -%}{%- endif -%}{%- endif -%}
+  {%- if prop.first == transit_label or prop.first == 'In transit' or prop.first == 'Pre-sale' or prop.first == '运输中' or prop.first == '輸送中' or prop.first == 'En camino' or prop.first == 'في الطريق' -%}{%- if prop.last != blank -%}{%- assign transit = true -%}{%- endif -%}{%- endif -%}
 {%- endfor -%}
 {%- assign rm_house = item.vendor | default: piece -%}
 {%- capture track -%}{%- render 'track-item', p: item.product -%}{%- endcapture -%}

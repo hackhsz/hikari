@@ -90,7 +90,7 @@
       "in_bag": "已在购物袋中",
       "just_sold": "这件单品刚刚售出。",
       "pre_order": "预订",
-      "transit_note": "正从日本运来。下单后 {{ days }} 天内寄出。",
+      "transit_note": "下单后 {{ days }} 天内寄出。",
       "goes_live": "{{ release }} 上线",
       "kept_on_record": "收录于典藏",
       "reserved_note": "目前为一位客人保留中。",
@@ -103,7 +103,7 @@
     "badge": {
       "coming_soon": "即将上线",
       "reserved": "已预留",
-      "pre_sale": "运输中",
+      "pre_sale": "预订",
       "sale": "特价",
       "new": "新品"
     },

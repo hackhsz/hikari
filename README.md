@@ -56,7 +56,7 @@ A piece's status comes from its tags (Products → the piece → **Tags**). One 
 | **Sold** | stock **0** (Shopify does this when it sells) | no | yes |
 | **Reserved** | tag `reserved` (stock 1 or 0, either works) | no | no |
 | **Coming soon** | tag `coming-soon`, stock 0 | not yet | no |
-| **In transit** | tag `in-transit` on an available or coming-soon piece | yes, as *Pre-order* | no |
+| **Pre-order** | tag `in-transit` on an available or coming-soon piece | yes, as *Pre-order* | no |
 
 A piece in stock **without a price** shows as Coming soon, so nothing can be bought at £0.
 
@@ -64,7 +64,7 @@ A piece in stock **without a price** shows as Coming soon, so nothing can be bou
 
 - **Reserved:** tag the product `reserved`. Its badge and page say *Reserved*, there is no *Add to bag*, and the page offers *Tell me if it becomes available* (those customers are tagged `notify-available` and `piece-<handle>`). If it is already in someone's bag, the bag says so and won't check out. Leave stock at 1, or set it to 0 for a firm hold; it reads Reserved either way. **If the sale goes ahead:** sell it (draft order or POS), then remove the tag. **If not:** remove the tag (and set stock back to 1 if you changed it).
 - **Coming soon:** tag the product `coming-soon`, keep its stock at **0**, and set `hikari.release`. The card shows the release time instead of a price, the page offers *Tell me when it goes live*, and the piece appears in the homepage **Next Edition** section with a countdown. It never counts as sold. **When it goes live:** remove the tag and set stock to 1.
-- **In transit:** tag the product `in-transit` (the older tag `pre-sale` still works) and keep its stock at **1**. It can be bought now: the badge says *In transit*, the button says *Pre-order*, and the note "On its way to us from Japan. Ships within 10–14 days of your order." shows on the page, in the bag and on the order. The days are Theme settings → Badges → *In transit: ships within this many days*. It appears in the homepage **In transit** shelf. On a coming-soon piece the note shows beside the release time. **When it arrives:** remove the tag.
+- **Pre-order** (owner, 2026-11-15: shown as Pre-order, never "in transit", and no mention of Japan): tag the product `in-transit` (the older tag `pre-sale` still works) and keep its stock at **1**. It can be bought now: the badge and the button say *Pre-order*, and the note "Ships within 10–14 days of your order." shows on the page, in the bag and on the order. The days are Theme settings → Badges → *Pre-order: ships within this many days*. It appears in the homepage **Pre-order** shelf. On a coming-soon piece the note shows beside the release time. **When it arrives:** remove the tag.
 - **On sale:** give the product a compare-at price above its price. The old price shows struck through everywhere, with a *Sale* badge, and the piece appears in the homepage **On sale** shelf.
 - **New:** automatic, for a number of days after publishing. Theme settings → Badges.
 - **Sold:** automatic. The page offers *Tell me when something like this arrives*.

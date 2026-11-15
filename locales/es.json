@@ -90,7 +90,7 @@
       "in_bag": "En tu bolsa",
       "just_sold": "Esta pieza acaba de venderse.",
       "pre_order": "Encargar",
-      "transit_note": "Está de camino desde Japón. Se envía en un plazo de {{ days }} días desde tu pedido.",
+      "transit_note": "Se envía en un plazo de {{ days }} días desde tu pedido.",
       "goes_live": "Disponible el {{ release }}",
       "kept_on_record": "Se conserva en el Archivo",
       "reserved_note": "La guardamos para otra persona por el momento.",
@@ -103,7 +103,7 @@
     "badge": {
       "coming_soon": "Próximamente",
       "reserved": "Reservada",
-      "pre_sale": "En camino",
+      "pre_sale": "Preventa",
       "sale": "Rebaja",
       "new": "Nueva"
     },

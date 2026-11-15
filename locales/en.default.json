@@ -90,7 +90,7 @@
       "in_bag": "In your bag",
       "just_sold": "This piece has just sold.",
       "pre_order": "Pre-order",
-      "transit_note": "On its way to us from Japan. Ships within {{ days }} days of your order.",
+      "transit_note": "Ships within {{ days }} days of your order.",
       "goes_live": "Goes live {{ release }}",
       "kept_on_record": "Kept in the Archive",
       "reserved_note": "Held for a client for now.",
@@ -103,7 +103,7 @@
     "badge": {
       "coming_soon": "Coming soon",
       "reserved": "Reserved",
-      "pre_sale": "In transit",
+      "pre_sale": "Pre-order",
       "sale": "Sale",
       "new": "New"
     },
