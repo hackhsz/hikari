@@ -60,6 +60,10 @@
     page when the pointer rests on its link (moderate), and fully prepare a product or collection page
     the moment it is pressed (conservative), so it opens at once. Never the bag, checkout, account (sign
     out) or apps, nor a link marked data-no-prefetch. Other browsers ignore it. {%- endcomment -%}
+  {%- comment -%} Page changes (Modern Web Guidance, consistent-cross-document-transitions): on a product
+    page, paint waits until the first photo (#piece-photo, the top of the page) has been parsed, so a
+    photo gliding in from a card has somewhere to land. Parsing goes on meanwhile; nothing else waits. {%- endcomment -%}
+  {%- if template.name == 'product' -%}<link rel="expect" href="#piece-photo" blocking="render">{%- endif -%}
   <script type="speculationrules">{% raw %}{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/cart*","/*/cart*","/checkout*","/checkouts/*","/*/checkouts/*","/account*","/*/account*","/apps/*","/*/apps/*","/services/*"]}},{"not":{"selector_matches":"[data-no-prefetch], [target=_blank], [download]"}}]},"eagerness":"moderate"}],"prerender":[{"where":{"and":[{"href_matches":["/products/*","/*/products/*","/collections/*","/*/collections/*"]},{"not":{"selector_matches":"[data-no-prefetch], [target=_blank]"}}]},"eagerness":"conservative"}]}{% endraw %}</script>
   <script>
     /* Consent: Shopify's Customer Privacy API answers once the banner has (or wasn't needed). */

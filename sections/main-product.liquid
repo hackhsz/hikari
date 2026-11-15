@@ -70,7 +70,7 @@
         {%- for img in p.images -%}
           {%- if forloop.index == 1 -%}{%- assign b = status -%}{%- else -%}{%- assign b = '' -%}{%- endif -%}
           {%- assign frame_alt = img.alt | default: p.title -%}
-          <div class="gal-slide" data-gal-slide>
+          <div class="gal-slide" data-gal-slide{% if forloop.first %} id="piece-photo"{% endif %}>
             <a class="frame" href="{{ img | image_url: width: 2400 }}" data-zoom
                aria-label="{{ 'products.frames.label' | t: index: forloop.index, total: p.images.size }}">
               {%- render 'plate', image: img, alt: frame_alt, badge: b, first: forloop.first, fill: true, ratio: 1, sizes: gal_sizes -%}

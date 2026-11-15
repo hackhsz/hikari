@@ -261,13 +261,19 @@ button.hero-link{background:none;border-width:0 0 1px;border-style:solid;font-fa
 /* ── sheets: bag drawer and phone menu ─────────────────────
    Fixed surfaces in paper and sumi, whatever colour the page has scrolled to.
    z 80: above the masthead (70), under the grain (90) so they share the texture. */
+/* Page behind an open sheet doesn't scroll (Modern Web Guidance, prevent-page-scroll-under-modal-dialog):
+   overscroll-behavior on the dialog, its backdrop and panel is the modern way; Safari doesn't honour it
+   on non-scrolling boxes yet, so the old html lock stays as its fallback, and scrollbar-gutter keeps
+   the page from shifting sideways where scrollbars take room (Windows). */
+html{scrollbar-gutter:stable}
 html.sheet-open{overflow:hidden}
 .sheet{position:fixed;inset:0;z-index:80;visibility:hidden;pointer-events:none;transition:visibility 0s linear .26s}
 .sheet.is-open{visibility:visible;pointer-events:auto;transition-delay:0s}
 /* The sheets are <dialog>s (hikari.js): take off the browser's dialog box so .sheet covers the
    screen as before; the scrim inside is the backdrop. */
-dialog.sheet{margin:0;padding:0;border:0;width:auto;height:auto;max-width:none;max-height:none;background:none;color:inherit;overflow:visible}
-dialog.sheet::backdrop{background:transparent}
+dialog.sheet{margin:0;padding:0;border:0;width:auto;height:auto;max-width:none;max-height:none;background:none;color:inherit;overflow:hidden;overscroll-behavior:contain}
+dialog.sheet::backdrop{background:transparent;overflow:hidden;overscroll-behavior:contain}
+dialog.sheet .sheet-panel{overscroll-behavior:contain}
 .sheet-scrim{position:absolute;inset:0;background:color-mix(in srgb,var(--sumi) 36%,transparent);opacity:0;transition:opacity .26s ease-out}
 .sheet.is-open .sheet-scrim{opacity:1}
 /* The bag comes in from the end side and the menu (sheet--left) from the start side, so in a

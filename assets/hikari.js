@@ -700,8 +700,11 @@
         pick=p; return true;
       });
       if(!pick) return;
-      [].forEach.call(document.querySelectorAll("main .gal-slide:first-child .plate"),function(h){ h.style.viewTransitionName="none"; });
-      pick.style.viewTransitionName="piece";
+      var given=[].slice.call(document.querySelectorAll("main .gal-slide:first-child .plate"));
+      given.forEach(function(h){ h.style.viewTransitionName="none"; });
+      pick.style.viewTransitionName="piece"; given.push(pick);
+      /* take the names back once the snapshots are taken, so the page can go into the back-forward cache */
+      e.viewTransition.finished.finally(function(){ given.forEach(function(el){ el.style.viewTransitionName=""; }); });
     });
     window.addEventListener("pageshow",function(e){
       if(!e.persisted) return;
