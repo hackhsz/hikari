@@ -2008,8 +2008,8 @@ markets:
   checked: 2026-11-09
   sources: ['https://www.lazyflea.co.uk/', 'https://www.lazyflea.co.uk/traders', 'https://www.lazyflea.co.uk/calendar-1',
     'https://www.lazyflea.co.uk/about', 'https://chiswickhouseandgardens.org.uk/event/the-lazy-flea/']
-  decision: new
-  our_notes: null
+  decision: applied
+  our_notes: Emailed team@lazyflea.co.uk on 15 Nov 2026 asking to be considered for the Chiswick House Christmas Market (12-13 Dec) or a future Lazy Flea. Applications are officially closed.
 
 - id: flea-london-hackney-bridge
   name: Flea London — Vintage & Makers Market at Hackney Bridge
@@ -2091,7 +2091,7 @@ markets:
   checked: 2026-11-09
   sources: ['https://www.trumanbrewery.com/web/markets.pl']
   decision: applied
-  our_notes: Enquiry sent 2 Nov; Truman replied 3 Nov (full, waiting list, from £220/week, 7-day trading). Waiting-list details sent 10 Nov, asking whether two traders can share a unit.
+  our_notes: Enquiry 2 Nov; waiting-list details sent 10 Nov; Truman confirmed on 11 Nov that we're on the waiting list.
 
 - id: stockport-vintage-village
   name: The Vintage Village — Stockport Market Hall
@@ -2597,10 +2597,10 @@ markets:
   where: 106 Commercial Street, London E1 6LZ ('the gorgeous old horse stables', opposite Old Spitalfields Market)
   organiser: Truman Markets (The Truman Brewery)
   url: https://www.eventbrite.co.uk/e/brick-lane-flea-market-tickets-2000439988857
-  apply_url: null
-  dates: 'Sat 21 and Sun 22 Nov 2026 (Eventbrite: 10am start, about 6 hours, free entry). No other editions listed.'
-  next_date: 2026-11-21
-  apply: {status: unknown, deadline: null, opens: null}
+  apply_url: https://docs.google.com/forms/d/e/1FAIpQLSd5xQti80hN3LZmuz8xntGkwm615344LyUbn7ygITk3oZuxuw/viewform
+  dates: 21-22 Nov 2026 full, especially for jewellery traders (Truman, 11 Nov). A February 2027 edition is taking applications via Google Form.
+  next_date: null
+  apply: {status: closed, deadline: null, opens: null}
   window: No trader route is published. The Truman Markets team contact is markets@trumanbrewery.com or 020 7770
     6028 (given on its Weekends sign-up form). We already have a thread with Truman Markets about Brick Lane Vintage
     Market.
@@ -2609,18 +2609,17 @@ markets:
   commission_pct: null
   requires: [Enquiry to Truman Markets (markets@trumanbrewery.com) to ask whether outside vintage traders can book
       day stalls and at what fee]
-  watch_out: Only one edition is listed, so it may be a one-off or seasonal. Fees, stall format and trader terms
-    are unknown. Branded a 'flea'. The address is on Commercial Street, not inside the Brewery.
+  watch_out: Truman Markets said on 11 Nov 2026 that the November flea is at capacity, especially for jewellery traders, and invited us to apply for February via the form.
   fit: 3
   why: A weekend vintage event by the same team as Brick Lane Vintage Market, on the Spitalfields/Brick Lane strip
     the owner wants, and the organiser lists 'vintage trinkets, clothes and jewellery'. That makes it the day-stall
     alternative to the full, 7-day vintage market. Fee and trader route are unverified (null), so ask on the existing
     Truman thread.
-  checked: 2026-11-09
+  checked: 2026-11-15
   sources: ['https://www.eventbrite.co.uk/e/brick-lane-flea-market-tickets-2000439988857', 'https://www.eventbrite.co.uk/o/31510426709',
     'https://www.trumanbrewery.com/web/upcoming-events.pl']
   decision: applied
-  our_notes: Asked Truman Markets on 10 Nov, in the Brick Lane thread, for a stall on 21-22 Nov plus the fee and how to apply.
+  our_notes: November full (11 Nov reply). Apply for February via the form in apply_url.
 
 - id: truman-weekends-edit-market
   name: Weekends — themed edit markets (Truman Markets, Brick Lane)
@@ -2785,8 +2784,8 @@ markets:
     from the young vintage shopper the owner is targeting. Kept so it isn't rediscovered.
   checked: 2026-11-10
   sources: ['https://www.solastcenturyfair.co.uk/traders', 'https://www.solastcenturyfair.co.uk/next-events']
-  decision: new
-  our_notes: null
+  decision: applied
+  our_notes: Asked for the 12-13 Dec waiting list, 15 Nov 2026 (same thread).
 
 - id: salad-days-market
   name: Salad Days Market (curated small-brand pop-up markets)
@@ -3024,8 +3023,8 @@ markets:
     email.
   checked: 2026-11-10
   sources: ['https://www.solastcenturyfair.co.uk/traders', 'https://www.solastcenturyfair.co.uk/next-events']
-  decision: new
-  our_notes: null
+  decision: applied
+  our_notes: Asked for the 19 Dec waiting list, 15 Nov 2026 (reply in the So Last Century thread).
 
 - id: hackney-flea-market-stoke-newington
   name: Hackney Flea Market (monthly, Abney Public Hall)
@@ -3114,8 +3113,8 @@ markets:
     only.
   checked: 2026-11-10
   sources: ['https://www.solocraftfair.com/pocket-park-market', 'https://solocraftfair.com/applications']
-  decision: new
-  our_notes: null
+  decision: applied
+  our_notes: 'Emailed markets@solocraftfair.com on 15 Nov 2026: waiting list for Pocket Park (23 Nov-6 Dec) or other SoLo Christmas markets, and asked whether pre-owned vintage counts as ethically sourced.'
 
 - id: wembley-park-festive-market
   name: Wembley Park Festive Market (Pop Up Stalls)
@@ -3142,8 +3141,8 @@ markets:
     angle, and the 2026 dates and fee can't be confirmed.
   checked: 2026-11-10
   sources: ['https://wembleypark.com/wembley-park-market/', 'https://openartspaces.substack.com/p/join-wembley-christmas-market']
-  decision: new
-  our_notes: null
+  decision: applied
+  our_notes: Emailed hello@popupstalls.co.uk on 15 Nov 2026 asking for December dates, fee and how to apply.
 
 - id: diy-independent-jewellers-christmas-market
   name: Christmas Independent Jewellers' Market (DIY Art Market)
