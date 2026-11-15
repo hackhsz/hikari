@@ -3171,3 +3171,161 @@ markets:
   sources: ['https://www.eventbrite.co.uk/e/christmas-independent-jewellers-market-tickets-1975824394953', 'https://www.diyartmarket.com/']
   decision: new
   our_notes: null
+
+- id: go-east-ropewalk-festive-fridays
+  name: Go East Vintage — Rope Walk Festive Fridays (Maltby Street)
+  type: market
+  city: London
+  where: Rope Walk, Maltby Street, Bermondsey, London SE1 3PA (gazebo or tabletop pitches; open-air street, evening)
+  organiser: Go East Vintage (@go.east.vintage; goeast.uk), with Rope Walk / Maltby Street
+  url: https://linktr.ee/go.east.vintage
+  apply_url: https://docs.google.com/forms/d/e/1FAIpQLSfAau1CmnYXZ14a8CKpiHZmcziWbEK9OkEb1aSIODEfQSbh_g/viewform
+  dates: Fridays 27 Nov, 4 Dec, 11 Dec and 18 Dec 2026; trading 5:30-9pm, set-up from 3pm (ready by 5:15pm). Book
+    any or all of the four Fridays.
+  next_date: 2026-11-27
+  apply: {status: open, deadline: null, opens: null}
+  window: One-off festive series. Booking form is live on the Go East linktree; submitting it is a booking request,
+    subject to availability and organiser confirmation.
+  fee_gbp: 10
+  cost: 'No fixed pitch fee: 12.5% of gross sales (card payments only; report takings at close and Go East invoices).
+    Table hire £10 per day (optional: "0 X TABLE" is allowed). Limited spaces when checked: 2 single gazebo pitches
+    (3m x 2m) and 6 tabletop pitches.'
+  commission_pct: 12.5
+  requires: ['Google Form (no uploads): category (VINTAGE or CREATIVES & MAKERS), full name, trading name, email,
+      mobile, what you will sell, Instagram/website/online shop, Fridays wanted, pitch type, table hire, power/access
+      needs, acknowledgement of the 12.5% fee and timings', Card reader (card payments only), Own display; smaller
+      setups that come by public transport are preferred (no local street parking on Friday evenings)]
+  watch_out: 'Outdoor evening trading in December, under gazebos, for small high-value pieces: lighting and security
+    matter. Billed as "Christmas shopping, thoughtful gifts, independent makers" in a food-market setting, so the
+    price frame may sit below £85-£300. Only 8 pitches in total. Go East''s weekly Maltby Street weekends (tracked
+    as go-east-vintage-maltby-street, fit 2) are a separate form.'
+  fit: 3
+  why: A plausible low-risk test. Vintage is an explicit booking category, and the call names jewellery first among
+    the gifts it wants. Commission-only pricing means almost no downside, it runs one evening at a time, and it
+    draws Maltby Street's young Bermondsey crowd. Held at 3, not 4, because it is outdoors at night in December
+    and the crowd is food-and-gifts rather than designer vintage.
+  checked: 2026-11-15
+  sources: ['https://linktr.ee/go.east.vintage', 'https://docs.google.com/forms/d/e/1FAIpQLSfAau1CmnYXZ14a8CKpiHZmcziWbEK9OkEb1aSIODEfQSbh_g/viewform',
+    'https://www.eventbrite.co.uk/e/go-east-at-ropewalk-festive-fridays-tickets-2004504274244', 'https://thenudge.com/london-christmas-markets/']
+  decision: shortlist
+  our_notes: null
+
+- id: museum-of-the-home-winter-market
+  name: Museum of the Home — Winter Market
+  type: market
+  city: London
+  where: Museum of the Home, 136 Kingsland Road, Hoxton, London E2 8EA
+  organiser: Museum of the Home
+  url: https://museumofthehome.org.uk/whats-on/winter-market/
+  apply_url: null
+  dates: Sat 28 Nov 2026, 11am-4pm (early access from 10am, £8); pay-what-you-can entry
+  next_date: 2026-11-28
+  apply: {status: closed, deadline: null, opens: null}
+  window: Annual; applications run in summer. The 2025 call closed 20 Jul 2025 (museum's own 2025 application page);
+    a ma.to listing (not the organiser) says 2026 vendor applications closed 10 Aug 2026. Look for the call around
+    June 2027.
+  fee_gbp: null
+  cost: Not published. Fees are sent to successful applicants.
+  commission_pct: null
+  requires: [Online application via the museum's Work With Us pages when the call opens]
+  watch_out: The 2026 stallholder list is already published on the event page, so it is full for this year. The
+    museum bills it as a "festive makers market". The year's call is a museum web page, so it is easy to miss without
+    a reminder.
+  fit: 3
+  why: One curated day in Hoxton with a young, design-literate crowd. The museum's own page says the 50+ stalls
+    include "independent makers, small businesses and vintage sellers", so resellers are allowed. Too late for 2026;
+    worth tracking for 2027.
+  checked: 2026-11-15
+  sources: ['https://museumofthehome.org.uk/whats-on/winter-market/', 'https://museumofthehome.org.uk/about-us/work-with-us/winter-market-2025-applications',
+    'https://ma.to/event/winter-market-at-museum-of-the-home-28-nov-2026']
+  decision: new
+  our_notes: null
+
+- id: satanic-flea-antichristmas-fayre
+  name: Satanic Flea Market — AntiChristmas Fayre
+  type: market
+  city: London
+  where: UNLOCKED Shoreditch, 118 Curtain Road, London EC2A 3PJ (indoor, step-free with lifts)
+  organiser: Satanic Flea Market
+  url: https://www.satanicfleamarket.com/
+  apply_url: https://www.satanicfleamarket.com/apply.html
+  dates: Sun 13 Dec 2026, 12-6pm. About four markets a year; "2027 dates coming soon".
+  next_date: 2026-12-13
+  apply: {status: unknown, deadline: null, opens: null}
+  window: Rolling calls. The contact page says "We're on the look out for new sellers... please fill in an application"
+    and that calls are announced on the "SFM Vendor Updates" Instagram channel (link in @satanicfleamarket bio).
+  fee_gbp: null
+  cost: Not published.
+  commission_pct: null
+  requires: [Application via apply.html when a call is live (no form or details visible on 15 Nov 2026), Contact
+      form on /contact.html; the organiser says social media is usually fastest]
+  watch_out: The apply page showed only a heading and "Be the first to know - Follow us!" (no live form, fee or
+    deadline), so the 13 Dec market may already be full. No email address is published. Occult and alternative theme
+    (taxidermy, tarot, dark art).
+  fit: 2
+  why: Indoor Shoreditch Sunday with a young crowd and 160+ vendors. Press listings (The Nudge, Londonist) mention
+    vintage jewellery among the stalls, so resellers seem to be accepted. But the dark-alternative frame is a poor
+    match for Dior and Chanel logo pieces, and no open application could be verified.
+  checked: 2026-11-15
+  sources: ['https://www.satanicfleamarket.com/', 'https://www.satanicfleamarket.com/apply.html', 'https://www.satanicfleamarket.com/contact.html',
+    'https://thenudge.com/london-christmas-markets/']
+  decision: new
+  our_notes: null
+
+- id: pexmas-peckham
+  name: Pexmas (Peckham festive market, Copeland Park)
+  type: market
+  city: London
+  where: Copeland Park & Bussey Building, Rye Lane, Peckham, London SE15 (mostly indoors; Copeland Square pitches
+    outdoors)
+  organiser: Pexmas (info@pexmas.com)
+  url: https://www.pexmas.com/
+  apply_url: null
+  dates: 2026 edition not announced. The organiser's homepage still advertises Pexmas 2025 (Sat 6 - Sun 7 Dec 2025).
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: '2025 cycle: one deadline (5pm, 24 Oct 2025) followed by curated selection, then a waiting list. Traders
+    get one date only. Invoice payable within a week.'
+  fee_gbp: 115
+  cost: '2025 pack: Unit 8, 6ft table, £115 per day; Copeland Gallery, 4ft table, £80 per day (no VAT). 2026 fees
+    unknown.'
+  commission_pct: null
+  requires: [Online stallholder application (2025 form; choose Unit 8 or Gallery location), Public liability insurance,
+    Risk assessment, 'Optional: products under £20 for their Instagram "advent" campaign']
+  watch_out: 'No 2026 edition or application could be verified on 15 Nov 2026. A curated mix with limited slots
+    per category per day ("eg: jewellery..."). Unheated, doors open, no power at stalls, no gridwall, one extra
+    display item. Vintage and resale are neither invited nor excluded.'
+  fit: 2
+  why: Peckham's long-running independent festive market, mostly indoors, with a young South London crowd and jewellery
+    among its categories. Held at 2 because no 2026 date or open call exists on the organiser's site, and it is
+    a gift-led maker mix at £80-115 a day.
+  checked: 2026-11-15
+  sources: ['https://www.pexmas.com/', 'https://www.pexmas.com/wp-content/uploads/2026/10/TraderInfoPackPexmas2025.Final_.pdf']
+  decision: new
+  our_notes: null
+
+- id: angel-christmas-fair-candid-arts
+  name: Angel Christmas Fair (Candid Arts Trust)
+  type: fair
+  city: London
+  where: Candid Arts, 3 Torrens Street, Angel, Islington, London EC1V 1NQ (indoor gallery)
+  organiser: Candid Arts Trust
+  url: https://www.candidartslondon.com/angel-christmas-fair
+  apply_url: null
+  dates: Opening night Fri 11 Dec 2026 5-9pm; Sat 12 and Sun 13 Dec 2026, 11am-6pm. Free entry.
+  next_date: 2026-12-11
+  apply: {status: open, deadline: null, opens: null}
+  window: Email application (subject 'ACF26'); 50% deposit on acceptance, balance one month before.
+  fee_gbp: 250
+  cost: 2m x 1m stand with back wall £250; 4m x 1m or 2m x 2m £500; 6m x 1m or 3m x 2m £750. All three days.
+  commission_pct: null
+  requires: [Email images of your work and preferred stand size to the organiser]
+  watch_out: '"This Fair is open to all artists, designers & craftspeople to sell original work." Resellers are
+    not eligible. It is a three-day commitment including a Friday evening private view.'
+  fit: 1
+  why: 'Ruled out: original work by artists and designers only, so no vintage resale. Recorded so the next run does
+    not rediscover it.'
+  checked: 2026-11-15
+  sources: ['https://www.candidartslondon.com/angel-christmas-fair', 'https://www.artrabbit.com/events/angel-christmas-fair-2026']
+  decision: new
+  our_notes: null

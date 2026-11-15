@@ -19,7 +19,7 @@ The pre-filled links include our contact email, so they're kept out of this publ
 | Business address for invoicing | `{ADDRESS}`: **you fill this in** |
 | Phone | `{MOBILE}`: **you fill this in** |
 | Category | Vintage Accessories |
-| Dates | Sat 14 November (evening) · Sat 12 December (daytime) |
+| Dates | Sat 12 December (daytime). 14 Nov has passed. |
 | Pitch | Single (8ft × 8ft), £50 |
 | Power | No: bring battery lights for the evening market |
 | Tables | 1 |
