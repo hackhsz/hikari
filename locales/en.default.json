@@ -208,6 +208,7 @@
     },
     "shop_by_house": "Shop by house",
     "filters": {
+      "arrivals": "New arrivals",
       "brand": "Brand",
       "category": "Category",
       "show": "Show",

@@ -612,7 +612,7 @@
       var u=new URL(a.href,location.href); if(u.pathname!==location.pathname) return;
       var ok=true, n=0;
       u.searchParams.forEach(function(v,k){ n++; if(here.get(k)!==v) ok=false; });
-      ["cat","brand","show"].forEach(function(k){ if(here.get(k)&&!u.searchParams.get(k)) ok=false; });
+      ["cat","brand","show","batch"].forEach(function(k){ if(here.get(k)&&!u.searchParams.get(k)) ok=false; });
       if(ok&&n>bestN){ best=a; bestN=n; }
     });
     if(best) best.setAttribute("aria-current","page");
@@ -649,16 +649,24 @@
         hide=document.querySelector("[data-cat-hide]"), q=new URLSearchParams(location.search);
     function choose(name,v){ var i=bar.querySelector('input[name="cat-'+name+'"][value="'+v+'"]'); if(i) i.checked=true; }
     function val(name){ var i=bar.querySelector('input[name="cat-'+name+'"]:checked'); return i?i.value:""; }
-    ["brand","cat","show"].forEach(function(k){ if(q.get(k)) choose(k,q.get(k)); });
+    ["batch","brand","cat","show"].forEach(function(k){ if(q.get(k)) choose(k,q.get(k)); });
+    /* New arrivals: each batch's day (YYYY-MM-DD from Liquid) in the visitor's language, Latin digits;
+       the year only when it is not this year */
+    [].forEach.call(bar.querySelectorAll("[data-batch-date]"),function(t){
+      var d=t.getAttribute("datetime"); if(!/^\d{4}-\d\d-\d\d$/.test(d)) return;
+      var o={day:"numeric",month:"long",timeZone:"UTC"};
+      if(Number(d.slice(0,4))!==new Date().getFullYear()) o.year="numeric";
+      try{ t.textContent=new Intl.DateTimeFormat((document.documentElement.lang||"en")+"-u-nu-latn",o).format(new Date(d+"T12:00:00Z")); }catch(e){}
+    });
     if(sort&&q.get("sort_by")&&sort.querySelector('option[value="'+q.get("sort_by")+'"]')) sort.value=q.get("sort_by");
     /* Hide sold: over the grid, and on top of whatever the sidebar shows */
     if(hide){ hide.checked=q.get("hide")==="sold"; hide.parentNode.hidden=false; hide.addEventListener("change",apply); }
     bar.hidden=false;
     function apply(){
-      var b=val("brand"), c=val("cat"), s=val("show"), h=hide&&hide.checked, by=sort?sort.value:"", n=0;
+      var b=val("brand"), c=val("cat"), s=val("show"), t=val("batch"), h=hide&&hide.checked, by=sort?sort.value:"", n=0;
       items.forEach(function(el){
         var st=el.getAttribute("data-status"),
-            ok=(!b||el.getAttribute("data-brand")===b)&&(!c||el.getAttribute("data-cat")===c)&&
+            ok=(!b||el.getAttribute("data-brand")===b)&&(!c||el.getAttribute("data-cat")===c)&&(!t||el.getAttribute("data-batch")===t)&&
                (!s||(s==="available"?(st!=="sold"&&st!=="soon"&&st!=="reserved"):st===s))&&!(h&&st==="sold");
         el.hidden=!ok; if(ok) n++;
       });
@@ -667,14 +675,14 @@
       if(count) count.textContent=plural("pieces",n,"[n] piece","[n] pieces");
       if(empty) empty.hidden=n>0;
       var u=new URL(location.href);
-      [["brand",b],["cat",c],["show",s],["hide",h?"sold":""],["sort_by",(by==="manual"||(sort&&by===sort.getAttribute("data-default")))?"":by]].forEach(function(p){ if(p[1]) u.searchParams.set(p[0],p[1]); else u.searchParams.delete(p[0]); });
+      [["batch",t],["brand",b],["cat",c],["show",s],["hide",h?"sold":""],["sort_by",(by==="manual"||(sort&&by===sort.getAttribute("data-default")))?"":by]].forEach(function(p){ if(p[1]) u.searchParams.set(p[0],p[1]); else u.searchParams.delete(p[0]); });
       history.replaceState(history.state,"",u);
       markShopNav();
     }
     bar.addEventListener("change",apply);
     if(sort){ sort.addEventListener("change",apply); sort.form.addEventListener("submit",function(e){ e.preventDefault(); apply(); }); }
     [].forEach.call(document.querySelectorAll("[data-cat-reset]"),function(r){
-      r.addEventListener("click",function(){ ["brand","cat","show"].forEach(function(k){ choose(k,""); }); if(hide) hide.checked=false; apply(); });
+      r.addEventListener("click",function(){ ["batch","brand","cat","show"].forEach(function(k){ choose(k,""); }); if(hide) hide.checked=false; apply(); });
     });
     /* how many pieces each choice has, on its own */
     [].forEach.call(bar.querySelectorAll("input[type=radio]"),function(i){
@@ -683,7 +691,7 @@
       n.textContent=items.filter(function(el){
         if(!v) return true;
         if(k==="show"){ var st=el.getAttribute("data-status"); return v==="available"?(st!=="sold"&&st!=="soon"&&st!=="reserved"):st===v; }
-        return el.getAttribute("data-"+(k==="cat"?"cat":"brand"))===v;
+        return el.getAttribute("data-"+k)===v;
       }).length;
       /* nothing behind it: leave it out, unless the address asked for it */
       if(v&&n.textContent==="0"&&!i.checked) i.parentNode.hidden=true;

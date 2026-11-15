@@ -208,6 +208,7 @@
     },
     "shop_by_house": "Comprar por casa",
     "filters": {
+      "arrivals": "Novedades",
       "brand": "Marca",
       "category": "Categoría",
       "show": "Mostrar",

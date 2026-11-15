@@ -208,6 +208,7 @@
     },
     "shop_by_house": "按品牌选购",
     "filters": {
+      "arrivals": "新品到货",
       "brand": "品牌",
       "category": "类别",
       "show": "显示",

@@ -1,0 +1,19 @@
+{%- comment -%}
+  The batch a piece arrived with, as YYYY-MM-DD (owner, 2026-11-15: the catalogue sidebar's New arrivals
+  lists every batch). It is the piece's tag batch-YYYY-MM-DD (pipeline/listings.py adds it), or, for a
+  piece made in the admin without one, the day it was created. Move a piece to another batch by changing
+  that tag. Usage: {% render 'batch', p: product %}
+{%- endcomment -%}
+{%- liquid
+  assign k = ''
+  for t in p.tags
+    if t contains 'batch-'
+      assign k = t | remove_first: 'batch-' | strip
+      break
+    endif
+  endfor
+  if k == ''
+    assign k = p.created_at | date: '%Y-%m-%d'
+  endif
+  echo k
+-%}

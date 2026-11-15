@@ -21,7 +21,14 @@
   The Archive (2026-11-09): the collection archive is on the archive template, which turns on the
   archive setting. Its rules (stock 0, not tagged coming-soon or reserved) gather every sold piece;
   the page is headed The Archive, shows only sold pieces, and leaves out Show and Hide sold.
+
+  New arrivals (owner, 2026-11-15: "a new arrival side section that shows every latest batch"): the
+  sidebar's first group lists every batch, newest first, by the day it arrived (snippets/batch), with
+  its count; ?batch=2026-11-15 links to one batch. hikari.js writes the day in the visitor's language.
+  Not on The Archive. The page reads up to 250 pieces (paginate), so a new batch never pushes older
+  pieces off it; past 250, move to Shopify's own filters and real pages.
 {%- endcomment -%}
+{%- paginate collection.products by 250 -%}
 {%- liquid
   assign cat_tags = 'necklaces,earrings,bracelets,rings,brooches,sunglasses' | split: ','
   assign cats_here = ''
@@ -34,12 +41,20 @@
   assign archive = section.settings.archive
   assign sort_now = collection.sort_by | default: collection.default_sort_by
   assign has = ''
+  assign batch_list = ''
   for p in collection.products
     capture st
       render 'status', p: p
     endcapture
     assign has = has | append: ' ' | append: st | append: ' '
+    capture bk
+      render 'batch', p: p
+    endcapture
+    unless batch_list contains bk
+      assign batch_list = batch_list | append: bk | append: ','
+    endunless
   endfor
+  assign batches = batch_list | split: ',' | sort | reverse
   assign cat_h = collection.handle | remove_first: 'vintage-'
   if archive
     assign title = 'collections.archive_title' | t
@@ -58,6 +73,15 @@
 
     <div class="cat-layout" data-cat-layout>
       <aside class="cat-side" id="cat-side" data-cat-filters hidden aria-label="{{ 'collections.filters.label' | t }}">
+        {%- if batches.size > 0 and archive == false -%}
+          <fieldset class="side-set">
+            <legend>{{ 'collections.filters.arrivals' | t }}</legend>
+            <label class="side-opt"><input type="radio" name="cat-batch" value="" checked><span>{{ 'collections.filters.all' | t }}</span><span class="n" data-n></span></label>
+            {%- for bk in batches -%}
+              <label class="side-opt"><input type="radio" name="cat-batch" value="{{ bk }}"><span><time datetime="{{ bk }}" data-batch-date>{{ bk | date: '%-d %b %Y' }}</time></span><span class="n" data-n></span></label>
+            {%- endfor -%}
+          </fieldset>
+        {%- endif -%}
         {%- if cats_here.size > 0 -%}
           <fieldset class="side-set">
             <legend>{{ 'collections.filters.category' | t }}</legend>
@@ -119,8 +143,9 @@
             {%- if archive and st != 'sold' -%}{%- continue -%}{%- endif -%}
             {%- assign c = '' -%}
             {%- for t in cat_tags -%}{%- if p.tags contains t -%}{%- assign c = t -%}{%- break -%}{%- endif -%}{%- endfor -%}
+            {%- capture bk -%}{%- render 'batch', p: p -%}{%- endcapture -%}
             <div class="cat-item" data-pos="{{ forloop.index }}" data-brand="{{ p.vendor | handleize }}" data-vendor="{{ p.vendor | escape }}"
-                 data-cat="{{ c }}" data-status="{{ st }}" data-price="{{ p.price }}" data-date="{{ p.published_at | date: '%s' }}">
+                 data-cat="{{ c }}" data-batch="{{ bk }}" data-status="{{ st }}" data-price="{{ p.price }}" data-date="{{ p.published_at | date: '%s' }}">
               {%- render 'product-card', card_product: p, tone: 'grey', card_sizes: '(max-width: 600px) 50vw, (max-width: 900px) 33vw, 280px' -%}
             </div>
           {%- endfor -%}
@@ -130,6 +155,7 @@
     </div>
   </div>
 </section>
+{%- endpaginate -%}
 {% schema %}{ "name": "Collection", "settings": [
   { "type": "checkbox", "id": "archive", "label": "The Archive: sold pieces only", "default": false,
     "info": "For the collection archive (template archive): headed The Archive, without Show or Hide sold." }

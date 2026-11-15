@@ -220,6 +220,7 @@
     },
     "shop_by_house": "تسوّق حسب الدار",
     "filters": {
+      "arrivals": "وصل حديثًا",
       "brand": "العلامة",
       "category": "الفئة",
       "show": "عرض",

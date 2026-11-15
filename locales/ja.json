@@ -208,6 +208,7 @@
     },
     "shop_by_house": "メゾンから探す",
     "filters": {
+      "arrivals": "新着",
       "brand": "ブランド",
       "category": "カテゴリー",
       "show": "表示",
