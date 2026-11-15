@@ -13,10 +13,9 @@
 
   Params: cls (class on each link), current (true to mark the link for the page being shown),
   part (one group only: 'all', 'arrivals', 'cats', 'houses' as in the masthead, 'soon' or 'archive'; the
-  menu renders them one by one, with a label over new arrivals, the categories and the houses).
-  arrivals (owner, 2026-11-15: "the new arrival from the left ham menu"): the three newest batches, from
-  the products' batch-YYYY-MM-DD tags (snippets/batch; pipeline/listings.py adds them), each to the
-  catalogue showing that batch (?batch=); hikari.js writes the day in the visitor's language.
+  menu renders them one by one, with a label over the categories and over the houses).
+  arrivals (owner, 2026-11-15): one New arrivals link, the catalogue showing the latest delivery
+  (?show=new; sections/main-collection says which pieces that is).
   Liquid can only see the path, so a filtered catalogue (?cat=…) is marked by hikari.js
   (markShopNav), which also follows the filters as they change.
 {%- endcomment -%}
@@ -37,20 +36,8 @@
 <a class="{{ cls }}" href="{{ all_url }}"{% if current and request.path == all_url %} aria-current="page"{% endif %}>{{ 'layout.shop_nav.all' | t }}</a>
 {%- endif -%}
 {%- if part == 'arrivals' -%}
-{%- comment -%} From the products themselves (snippets/batch: the batch- tag, else the day made), as the
-  catalogue does: collections.all.all_tags lags behind new tags by a long while. Like New in, this reads
-  the first 50 pieces Shopify lists, newest first. {%- endcomment -%}
-{%- assign bl = '' -%}
-{%- assign items = collections.all.products | sort: 'created_at' | reverse -%}
-{%- for p in items -%}
-  {%- capture bk -%}{%- render 'batch', p: p -%}{%- endcapture -%}
-  {%- unless bl contains bk -%}{%- assign bl = bl | append: bk | append: ',' -%}{%- endunless -%}
-{%- endfor -%}
-{%- assign bl = bl | split: ',' | sort | reverse -%}
-{%- for bk in bl limit: 3 -%}
-  {%- assign u = all_url | append: '?batch=' | append: bk -%}
-  <a class="{{ cls }} {{ cls }}--batch" href="{{ u }}"><time datetime="{{ bk }}" data-batch-date>{{ bk | date: '%-d %B' }}</time></a>
-{%- endfor -%}
+  {%- assign u = all_url | append: '?show=new' -%}
+  <a class="{{ cls }} {{ cls }}--new" href="{{ u }}">{{ 'collections.filters.arrivals' | t }}</a>
 {%- endif -%}
 {%- if g contains 'cats' -%}
 {%- for t in cat_tags -%}

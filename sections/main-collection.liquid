@@ -22,10 +22,10 @@
   archive setting. Its rules (stock 0, not tagged coming-soon or reserved) gather every sold piece;
   the page is headed The Archive, shows only sold pieces, and leaves out Show and Hide sold.
 
-  New arrivals (owner, 2026-11-15: "a new arrival side section that shows every latest batch"): the
-  sidebar's first group lists every batch, newest first, by the day it arrived (snippets/batch), with
-  its count; ?batch=2026-11-15 links to one batch. hikari.js writes the day in the visitor's language.
-  Not on The Archive. The page reads up to 250 pieces (paginate), so a new batch never pushes older
+  New arrivals (owner, 2026-11-15: "one consolidated new arrival section instead of grouped by dates"):
+  one choice under Show, ?show=new. It is the latest delivery: the newest batch (snippets/batch) and any
+  batch that came within NEW_DAYS of it, so a delivery listed over a few days counts once; it moves on
+  by itself when the next batch is listed. Old ?batch= links open it too (hikari.js). The page reads up to 250 pieces (paginate), so a new batch never pushes older
   pieces off it; past 250, move to Shopify's own filters and real pages.
 {%- endcomment -%}
 {%- paginate collection.products by 250 -%}
@@ -55,6 +55,11 @@
     endunless
   endfor
   assign batches = batch_list | split: ',' | sort | reverse
+  # NEW_DAYS: the latest delivery is the newest batch and every batch up to 14 days (1209600 s) before it.
+  assign new_from = 0
+  if batches.size > 0
+    assign new_from = batches.first | date: '%s' | plus: 0 | minus: 1209600
+  endif
   assign cat_h = collection.handle | remove_first: 'vintage-'
   if archive
     assign title = 'collections.archive_title' | t
@@ -73,15 +78,6 @@
 
     <div class="cat-layout" data-cat-layout>
       <aside class="cat-side" id="cat-side" data-cat-filters hidden aria-label="{{ 'collections.filters.label' | t }}">
-        {%- if batches.size > 0 and archive == false -%}
-          <fieldset class="side-set">
-            <legend>{{ 'collections.filters.arrivals' | t }}</legend>
-            <label class="side-opt"><input type="radio" name="cat-batch" value="" checked><span>{{ 'collections.filters.all' | t }}</span><span class="n" data-n></span></label>
-            {%- for bk in batches -%}
-              <label class="side-opt"><input type="radio" name="cat-batch" value="{{ bk }}"><span><time datetime="{{ bk }}" data-batch-date>{{ bk | date: '%-d %b %Y' }}</time></span><span class="n" data-n></span></label>
-            {%- endfor -%}
-          </fieldset>
-        {%- endif -%}
         {%- if cats_here.size > 0 -%}
           <fieldset class="side-set">
             <legend>{{ 'collections.filters.category' | t }}</legend>
@@ -105,6 +101,7 @@
         <fieldset class="side-set">
           <legend>{{ 'collections.filters.show' | t }}</legend>
           <label class="side-opt"><input type="radio" name="cat-show" value="" checked><span>{{ 'collections.filters.everything' | t }}</span><span class="n" data-n></span></label>
+          {%- if batches.size > 0 -%}<label class="side-opt"><input type="radio" name="cat-show" value="new"><span>{{ 'collections.filters.arrivals' | t }}</span><span class="n" data-n></span></label>{%- endif -%}
           {%- if has contains ' soon ' -%}<label class="side-opt"><input type="radio" name="cat-show" value="soon"><span>{{ 'products.badge.coming_soon' | t }}</span><span class="n" data-n></span></label>{%- endif -%}
           <label class="side-opt"><input type="radio" name="cat-show" value="available"><span>{{ 'collections.filters.available' | t }}</span><span class="n" data-n></span></label>
           {%- if has contains ' sale ' -%}<label class="side-opt"><input type="radio" name="cat-show" value="sale"><span>{{ 'collections.filters.on_sale' | t }}</span><span class="n" data-n></span></label>{%- endif -%}
@@ -144,8 +141,9 @@
             {%- assign c = '' -%}
             {%- for t in cat_tags -%}{%- if p.tags contains t -%}{%- assign c = t -%}{%- break -%}{%- endif -%}{%- endfor -%}
             {%- capture bk -%}{%- render 'batch', p: p -%}{%- endcapture -%}
+            {%- assign bk_s = bk | date: '%s' | plus: 0 -%}
             <div class="cat-item" data-pos="{{ forloop.index }}" data-brand="{{ p.vendor | handleize }}" data-vendor="{{ p.vendor | escape }}"
-                 data-cat="{{ c }}" data-batch="{{ bk }}" data-status="{{ st }}" data-price="{{ p.price }}" data-date="{{ p.published_at | date: '%s' }}">
+                 data-cat="{{ c }}" data-batch="{{ bk }}"{% if bk_s >= new_from %} data-new="1"{% endif %} data-status="{{ st }}" data-price="{{ p.price }}" data-date="{{ p.published_at | date: '%s' }}">
               {%- render 'product-card', card_product: p, tone: 'grey', card_sizes: '(max-width: 600px) 50vw, (max-width: 900px) 33vw, 280px' -%}
             </div>
           {%- endfor -%}

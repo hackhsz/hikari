@@ -711,6 +711,14 @@
       [].forEach.call(document.querySelectorAll(".plate[style*='view-transition-name']"),function(p){ p.style.viewTransitionName=""; });
     });
   }
+  /* Show: available (not sold, coming or reserved), new (the latest delivery, data-new from
+     sections/main-collection) or a status. */
+  function showMatch(el,v){
+    var st=el.getAttribute("data-status");
+    if(v==="available") return st!=="sold"&&st!=="soon"&&st!=="reserved";
+    if(v==="new") return el.getAttribute("data-new")==="1";
+    return st===v;
+  }
   function initCatalog(){
     var grid=document.querySelector("[data-cat-grid]"), bar=document.querySelector("[data-cat-filters]");
     if(!grid||!bar||grid.hasAttribute("data-cat-on")) return;
@@ -721,6 +729,8 @@
     function choose(name,v){ var i=bar.querySelector('input[name="cat-'+name+'"][value="'+v+'"]'); if(i) i.checked=true; }
     function val(name){ var i=bar.querySelector('input[name="cat-'+name+'"]:checked'); return i?i.value:""; }
     ["batch","brand","cat","show"].forEach(function(k){ if(q.get(k)) choose(k,q.get(k)); });
+    /* a date link from before New arrivals was one choice (?batch=2026-11-15) opens New arrivals */
+    if(q.get("batch")&&!q.get("show")) choose("show","new");
     if(sort&&q.get("sort_by")&&sort.querySelector('option[value="'+q.get("sort_by")+'"]')) sort.value=q.get("sort_by");
     /* Hide sold: over the grid, and on top of whatever the sidebar shows */
     if(hide){ hide.checked=q.get("hide")==="sold"; hide.parentNode.hidden=false; hide.addEventListener("change",apply); }
@@ -730,7 +740,7 @@
       items.forEach(function(el){
         var st=el.getAttribute("data-status"),
             ok=(!b||el.getAttribute("data-brand")===b)&&(!c||el.getAttribute("data-cat")===c)&&(!t||el.getAttribute("data-batch")===t)&&
-               (!s||(s==="available"?(st!=="sold"&&st!=="soon"&&st!=="reserved"):st===s))&&!(h&&st==="sold");
+               (!s||showMatch(el,s))&&!(h&&st==="sold");
         el.hidden=!ok; if(ok) n++;
       });
       items.slice().sort(SORTS[by]||function(x,y){ return num(x,"pos")-num(y,"pos"); })
@@ -753,7 +763,7 @@
       var k=i.name.replace("cat-",""), v=i.value;
       n.textContent=items.filter(function(el){
         if(!v) return true;
-        if(k==="show"){ var st=el.getAttribute("data-status"); return v==="available"?(st!=="sold"&&st!=="soon"&&st!=="reserved"):st===v; }
+        if(k==="show") return showMatch(el,v);
         return el.getAttribute("data-"+k)===v;
       }).length;
       /* nothing behind it: leave it out, unless the address asked for it */

@@ -340,17 +340,26 @@ async function get(u) {
   }
 }
 
-/* Every link on the pages, once each. found: link → the first page it was on. */
+/* Every link on the pages, once each. found: link → the first page it was on.
+   Gentle on Shopify (2026-11-15, after a day of runs got this Mac rate-limited): a link that answered
+   fine in the last 24 hours is not asked again (link-cache.json), two at a time, a short pause each. */
+const LINK_CACHE = join(OUT, "link-cache.json"), LINK_FRESH = 24 * 3600 * 1000;
 async function checkLinks(found, problems) {
   let n = 0;
-  await pool([...found], 4, async ([u, p]) => {
+  let cache = {};
+  try { cache = JSON.parse(readFileSync(LINK_CACHE, "utf8")); } catch {}
+  const now = Date.now();
+  await pool([...found].filter(([u]) => !(cache[u] > now - LINK_FRESH)), 2, async ([u, p]) => {
     const r = await get(u);
+    await sleep(250);
+    if (r.status >= 200 && r.status < 400) cache[u] = Date.now();
     n++;
     /* turned away or no answer after five tries: Shopify's rate limit, not a dead page (a real outage
        fails the pages themselves, which Chrome loads) */
     if (r.status === 429 || r.status === 0) problems.push({ level: "WARN", lang: p.lang, page: p.name, what: "a link went unchecked: Shopify was turning requests away (rate limit)", detail: u });
     else if (r.status >= 400) problems.push({ level: "FAIL", lang: p.lang, page: p.name, what: `a link answers ${r.status}`, detail: u });
   });
+  try { writeFileSync(LINK_CACHE, JSON.stringify(cache)); } catch {}
   return n;
 }
 

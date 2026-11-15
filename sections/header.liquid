@@ -65,11 +65,7 @@
     </div>
     <nav class="menu-shop" aria-label="{{ 'layout.shop_nav.label' | t }}">
       {%- render 'shop-nav', cls: 'ms', part: 'all' -%}
-      {%- capture arrivals -%}{%- render 'shop-nav', cls: 'ms', part: 'arrivals' -%}{%- endcapture -%}
-      {%- if arrivals != blank -%}
-      <p class="ms-label">{{ 'collections.filters.arrivals' | t }}</p>
-      {{ arrivals }}
-      {%- endif -%}
+      {%- render 'shop-nav', cls: 'ms', part: 'arrivals' -%}
       <p class="ms-label">{{ 'layout.shop_nav.by_category' | t }}</p>
       {%- render 'shop-nav', cls: 'ms', part: 'cats' -%}
       <p class="ms-label">{{ 'layout.shop_nav.by_brand' | t }}</p>
