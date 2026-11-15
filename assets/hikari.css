@@ -264,6 +264,10 @@ button.hero-link{background:none;border-width:0 0 1px;border-style:solid;font-fa
 html.sheet-open{overflow:hidden}
 .sheet{position:fixed;inset:0;z-index:80;visibility:hidden;pointer-events:none;transition:visibility 0s linear .26s}
 .sheet.is-open{visibility:visible;pointer-events:auto;transition-delay:0s}
+/* The sheets are <dialog>s (hikari.js): take off the browser's dialog box so .sheet covers the
+   screen as before; the scrim inside is the backdrop. */
+dialog.sheet{margin:0;padding:0;border:0;width:auto;height:auto;max-width:none;max-height:none;background:none;color:inherit;overflow:visible}
+dialog.sheet::backdrop{background:transparent}
 .sheet-scrim{position:absolute;inset:0;background:color-mix(in srgb,var(--sumi) 36%,transparent);opacity:0;transition:opacity .26s ease-out}
 .sheet.is-open .sheet-scrim{opacity:1}
 /* The bag comes in from the end side and the menu (sheet--left) from the start side, so in a
@@ -816,3 +820,14 @@ s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thicknes
 @media (max-width:600px){.guide-index{grid-template-columns:1fr}}
 .house-essay .rte figure{margin:24px 0 28px;max-width:420px}
 .house-essay .rte figcaption{font-size:12.5px;line-height:1.5;opacity:.62;margin-top:8px}
+
+/* ── page changes (2026-11-15) ──
+   Same-site pages cross-fade in the brand's 260ms (brand/08-brand.md "Motion") instead of a hard cut;
+   the masthead stays still; a piece's photo glides from its card into the product page (hikari.js
+   initPageTransitions names the card's photo; the product page's first photo carries the name).
+   Browsers without view transitions change page as before; reduced motion turns it off. */
+@view-transition{navigation:auto}
+::view-transition-group(*){animation-duration:.26s;animation-timing-function:ease-out}
+.mast{view-transition-name:mast}
+main .gal-slide:first-child .plate{view-transition-name:piece}
+@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}}

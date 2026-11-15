@@ -7,9 +7,9 @@
     #saved   "Saved", after a Notify me form (snippets/notify) has gone through. The line under
              the heading is that form's own ok text; closing it leaves the visitor where they were.
 {%- endcomment -%}
-<div class="sheet sheet--center sheet--small" id="saved" aria-hidden="true" inert>
+<dialog aria-labelledby="saved-title" class="sheet sheet--center sheet--small" id="saved">
   <div class="sheet-scrim" data-sheet-close></div>
-  <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="saved-title" tabindex="-1">
+  <div class="sheet-panel" tabindex="-1">
     <div class="sheet-head">
       <h2 class="sheet-title" id="saved-title">{{ 'general.saved.heading' | t }}</h2>
       <button type="button" class="sheet-x" data-sheet-close>{{ 'general.close' | t }}</button>
@@ -19,23 +19,23 @@
       <button type="button" class="btn" data-sheet-close>{{ 'general.saved.back' | t }}</button>
     </div>
   </div>
-</div>
+</dialog>
 
-<div class="sheet sheet--center" id="qv" aria-hidden="true" inert>
+<dialog aria-labelledby="qv-title" class="sheet sheet--center" id="qv">
   <div class="sheet-scrim" data-sheet-close></div>
-  <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="qv-title" tabindex="-1">
+  <div class="sheet-panel" tabindex="-1">
     <div class="sheet-head">
       <span class="eyebrow" style="margin:0">{{ 'products.quick_view.title' | t }}</span>
       <button type="button" class="sheet-x" data-sheet-close>{{ 'general.close' | t }}</button>
     </div>
     <div class="qv-body" data-qv-body></div>
   </div>
-</div>
+</dialog>
 
 {%- if settings.wechat_id != blank or settings.wechat_qr -%}
-<div class="sheet sheet--center sheet--small" id="wechat" aria-hidden="true" inert>
+<dialog aria-labelledby="wechat-title" class="sheet sheet--center sheet--small" id="wechat">
   <div class="sheet-scrim" data-sheet-close></div>
-  <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="wechat-title" tabindex="-1">
+  <div class="sheet-panel" tabindex="-1">
     <div class="sheet-head">
       <h2 class="sheet-title" id="wechat-title">WeChat 微信</h2>
       <button type="button" class="sheet-x" data-sheet-close>{{ 'general.close' | t }}</button>
@@ -52,5 +52,5 @@
       {%- endif -%}
     </div>
   </div>
-</div>
+</dialog>
 {%- endif -%}

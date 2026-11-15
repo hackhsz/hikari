@@ -6,9 +6,9 @@
   One of one shapes it: no quantity steppers, every line reads "One of one", and the bag
   says plainly that a piece in it is not held. Checkout is Shopify's own.
 {%- endcomment -%}
-<div class="sheet bag" id="bag" data-sheet aria-hidden="true" inert>
+<dialog aria-labelledby="bag-title" class="sheet bag" id="bag" data-sheet>
   <div class="sheet-scrim" data-sheet-close></div>
-  <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="bag-title" tabindex="-1">
+  <div class="sheet-panel" tabindex="-1">
     <div class="sheet-head">
       <h2 class="sheet-title" id="bag-title">{{ 'layout.cart.title' | t }}</h2>
       <button type="button" class="sheet-x" data-sheet-close>{{ 'general.close' | t }}</button>
@@ -30,7 +30,7 @@
       {%- endif -%}
     </div>
   </div>
-</div>
+</dialog>
 {% schema %}
 { "name": "Bag drawer", "settings": [] }
 {% endschema %}

@@ -56,9 +56,9 @@
   The menu comes in from the left: the shop (Shop all, the categories, the houses, coming soon),
   then the pages from the Main menu (minus Home and the catalogue), the account and the bag.
 {%- endcomment -%}
-<div class="sheet sheet--left" id="menu" data-sheet aria-hidden="true" inert>
+<dialog aria-labelledby="menu-title" class="sheet sheet--left" id="menu" data-sheet>
   <div class="sheet-scrim" data-sheet-close></div>
-  <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="menu-title" tabindex="-1">
+  <div class="sheet-panel" tabindex="-1">
     <div class="sheet-head">
       <h2 class="sheet-title" id="menu-title">{{ 'layout.header.menu' | t }}</h2>
       <button type="button" class="sheet-x" data-sheet-close>{{ 'general.close' | t }}</button>
@@ -93,16 +93,16 @@
       {%- render 'lockup', height: '84px' -%}
     </div>
   </div>
-</div>
+</dialog>
 
 {%- comment -%}
   Search: drops from the top. As the visitor types, Shopify's predictive search sends back
   sections/predictive-search, rendered with the product cards (assets/hikari.js, initSearch).
   Enter, or See all results, goes to the search page.
 {%- endcomment -%}
-<div class="sheet sheet--top" id="search" data-sheet aria-hidden="true" inert>
+<dialog aria-label="{{ 'general.search.heading' | t }}" class="sheet sheet--top" id="search" data-sheet>
   <div class="sheet-scrim" data-sheet-close></div>
-  <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="{{ 'general.search.heading' | t }}" tabindex="-1">
+  <div class="sheet-panel" tabindex="-1">
     <div class="shell srch">
       <form class="srch-form" action="{{ routes.search_url }}" method="get" role="search">
         <input type="hidden" name="type" value="product">
@@ -113,7 +113,7 @@
       <div class="srch-results" data-search-results aria-live="polite"></div>
     </div>
   </div>
-</div>
+</dialog>
 
 <script>
   document.documentElement.dataset.scrollColour = "{{ settings.scroll_colour }}";

@@ -56,6 +56,11 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?{{ fonts }}&display=swap">
 
   {{ content_for_header }}
+  {%- comment -%} Speculation rules (2026-11-15, Chrome's Modern Web Guidance): Chrome and Edge fetch a
+    page when the pointer rests on its link (moderate), and fully prepare a product or collection page
+    the moment it is pressed (conservative), so it opens at once. Never the bag, checkout, account (sign
+    out) or apps, nor a link marked data-no-prefetch. Other browsers ignore it. {%- endcomment -%}
+  <script type="speculationrules">{% raw %}{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/cart*","/*/cart*","/checkout*","/checkouts/*","/*/checkouts/*","/account*","/*/account*","/apps/*","/*/apps/*","/services/*"]}},{"not":{"selector_matches":"[data-no-prefetch], [target=_blank], [download]"}}]},"eagerness":"moderate"}],"prerender":[{"where":{"and":[{"href_matches":["/products/*","/*/products/*","/collections/*","/*/collections/*"]},{"not":{"selector_matches":"[data-no-prefetch], [target=_blank]"}}]},"eagerness":"conservative"}]}{% endraw %}</script>
   <script>
     /* Consent: Shopify's Customer Privacy API answers once the banner has (or wasn't needed). */
     (function () {

@@ -170,16 +170,30 @@
   }
 
   /* ── sheets: the bag drawer and the phone menu ──────────
-     Opacity and an 18px slide, 260ms ease-out, per brand/08-brand.md "Motion". */
+     Opacity and an 18px slide, 260ms ease-out, per brand/08-brand.md "Motion".
+     Every sheet is a native <dialog> (2026-11-15, Chrome's Modern Web Guidance): showModal() puts it
+     in the top layer, makes the page behind inert and turns Esc and a phone's back gesture into a
+     "cancel" event. The look is unchanged: .is-open still drives the fade and slide, so showModal()
+     runs first and the class follows once the closed state has been laid out; closing takes the
+     class off and calls close() when the slide is over. */
   var openSheet=null, lastTrigger=null;
+  var SHEET_MS=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches?0:270;
   function focusables(el){
     return [].slice.call(el.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]):not([type="hidden"]),select,textarea,[tabindex]:not([tabindex="-1"])'))
       .filter(function(n){ return n.offsetWidth||n.offsetHeight||n===document.activeElement; });
   }
   function setOpen(sheet,on){
-    sheet.classList.toggle("is-open",on);
-    sheet.setAttribute("aria-hidden",on?"false":"true");
-    sheet.inert=!on;
+    var dlg=typeof sheet.showModal==="function";
+    clearTimeout(sheet._shut);
+    if(on){
+      if(dlg){ if(!sheet.open){ try{ sheet.showModal(); }catch(e){ sheet.setAttribute("open",""); } } void sheet.offsetWidth; }
+      else { sheet.setAttribute("aria-hidden","false"); sheet.inert=false; }
+      sheet.classList.add("is-open");
+    } else {
+      sheet.classList.remove("is-open");
+      if(dlg) sheet._shut=setTimeout(function(){ if(!sheet.classList.contains("is-open")&&sheet.open) sheet.close(); },SHEET_MS);
+      else { sheet.setAttribute("aria-hidden","true"); sheet.inert=true; }
+    }
     root.classList.toggle("sheet-open",on);
     [].forEach.call(document.querySelectorAll('[aria-controls="'+sheet.id+'"]'),function(b){
       b.setAttribute("aria-expanded",on?"true":"false"); });
@@ -341,6 +355,14 @@
       }
       if(t.closest&&t.closest("[data-sheet-close]")){ e.preventDefault(); closeSheet(); }
     });
+    /* cancel and close do not bubble; listening while they travel down reaches every sheet,
+       including sheets a section re-render brings in later. */
+    document.addEventListener("cancel",function(e){
+      if(openSheet&&e.target===openSheet){ e.preventDefault(); closeSheet(); }
+    },true);
+    document.addEventListener("close",function(e){
+      if(openSheet&&e.target===openSheet) closeSheet();
+    },true);
     document.addEventListener("keydown",function(e){
       if(!openSheet) return;
       if(e.key==="Escape"){ e.preventDefault(); closeSheet(); return; }
@@ -651,6 +673,32 @@
       try{ t.textContent=new Intl.DateTimeFormat(lg+"-u-nu-latn",o).format(new Date(d+"T12:00:00Z")); }catch(e){}
     });
   }
+  /* Page changes (2026-11-15): same-site pages cross-fade (hikari.css @view-transition). Following
+     a product link, the card's photo is named "piece", the name the product page gives its first
+     photo, so the photo glides into place. Names must be unique, so a product page's own photo
+     gives the name up first (a "More from" card leads to another product); a page brought back
+     from the back-forward cache drops the names it was given. */
+  function initPageTransitions(){
+    window.addEventListener("pageswap",function(e){
+      if(!e.viewTransition||!e.activation||!e.activation.entry) return;
+      var to; try{ to=new URL(e.activation.entry.url); }catch(x){ return; }
+      if(to.pathname.indexOf("/products/")<0) return;
+      var pick=null;
+      [].some.call(document.querySelectorAll('main a[href*="/products/"]'),function(a){
+        if(new URL(a.href,location.href).pathname!==to.pathname) return false;
+        var p=a.querySelector(".plate"); if(!p) return false;
+        var r=p.getBoundingClientRect(); if(r.bottom<0||r.top>innerHeight||!r.width) return false;
+        pick=p; return true;
+      });
+      if(!pick) return;
+      [].forEach.call(document.querySelectorAll("main .gal-slide:first-child .plate"),function(h){ h.style.viewTransitionName="none"; });
+      pick.style.viewTransitionName="piece";
+    });
+    window.addEventListener("pageshow",function(e){
+      if(!e.persisted) return;
+      [].forEach.call(document.querySelectorAll(".plate[style*='view-transition-name']"),function(p){ p.style.viewTransitionName=""; });
+    });
+  }
   function initCatalog(){
     var grid=document.querySelector("[data-cat-grid]"), bar=document.querySelector("[data-cat-filters]");
     if(!grid||!bar||grid.hasAttribute("data-cat-on")) return;
@@ -862,7 +910,7 @@
   function boot(){
     root.classList.add("js");
     initPlates(); initScroll(); bindOnce(); syncButtons();
-    initZoom(); initGallery(); initSpin(); initCountdown(); markShopNav(); initSearch(); initCatalog(); initBatchDates(); initPrefs(); initPopup(); initNotify(); initLang(); initPhrases(); initLater(); initMisc();
+    initZoom(); initGallery(); initSpin(); initCountdown(); markShopNav(); initSearch(); initCatalog(); initBatchDates(); initPageTransitions(); initPrefs(); initPopup(); initNotify(); initLang(); initPhrases(); initLater(); initMisc();
   }
   if(document.readyState!=="loading") boot(); else document.addEventListener("DOMContentLoaded",boot);
   document.addEventListener("shopify:section:load",boot);

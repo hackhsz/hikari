@@ -14,11 +14,11 @@
   once per customer, first order only.
 {%- endcomment -%}
 {%- if section.settings.enabled -%}
-<div class="sheet sheet--center sheet--popup" id="popup" aria-hidden="true" inert data-popup
+<dialog aria-labelledby="popup-title" class="sheet sheet--center sheet--popup" id="popup" data-popup
      data-trigger="{{ section.settings.trigger }}" data-pages="{{ section.settings.pages }}"
      data-delay="{{ section.settings.delay }}" data-rest="{{ section.settings.rest_days }}">
   <div class="sheet-scrim" data-sheet-close></div>
-  <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="popup-title" tabindex="-1">
+  <div class="sheet-panel" tabindex="-1">
     <div class="popup-inner">
       <button type="button" class="sheet-x popup-x" data-sheet-close>{{ 'general.close' | t }}</button>
       {%- form 'customer', id: 'popup-form', class: 'popup-form' -%}
@@ -57,7 +57,7 @@
       {%- if popup_joined -%}{% render 'preferences', form_id: 'prefs-popup', after: 'popup-form' %}{%- endif -%}
     </div>
   </div>
-</div>
+</dialog>
 {%- endif -%}
 {% schema %}
 { "name": "Sign-up pop-up", "settings": [
