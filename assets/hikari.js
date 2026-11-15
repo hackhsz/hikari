@@ -656,7 +656,8 @@
       var d=t.getAttribute("datetime"); if(!/^\d{4}-\d\d-\d\d$/.test(d)) return;
       var o={day:"numeric",month:"long",timeZone:"UTC"};
       if(Number(d.slice(0,4))!==new Date().getFullYear()) o.year="numeric";
-      try{ t.textContent=new Intl.DateTimeFormat((document.documentElement.lang||"en")+"-u-nu-latn",o).format(new Date(d+"T12:00:00Z")); }catch(e){}
+      var lg=document.documentElement.lang||"en"; if(lg==="en") lg="en-GB"; /* 15 November, as in the UK */
+      try{ t.textContent=new Intl.DateTimeFormat(lg+"-u-nu-latn",o).format(new Date(d+"T12:00:00Z")); }catch(e){}
     });
     if(sort&&q.get("sort_by")&&sort.querySelector('option[value="'+q.get("sort_by")+'"]')) sort.value=q.get("sort_by");
     /* Hide sold: over the grid, and on top of whatever the sidebar shows */
