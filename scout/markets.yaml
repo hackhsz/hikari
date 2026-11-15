@@ -2442,8 +2442,8 @@ markets:
   checked: 2026-11-09
   sources: ['https://linktr.ee/go.east.vintage', 'https://docs.google.com/forms/d/e/1FAIpQLSc5JyQylnqcezNVYiee_AFA_HnfacY4grdQVHQZ2ucZSKbLnQ/viewform',
     'https://ma.to/venue/go.east.vintage', 'https://www.eventbrite.co.uk/e/go-east-vintage-festive-weekender-at-wapping-power-station-tickets-2002378564188']
-  decision: shortlist
-  our_notes: null
+  decision: applied
+  our_notes: 'Form submitted 15 Nov 2026: Sun 6 Dec only, single indoor pitch £70, 1 table, 25% deposit option. Confirmation page shown; payment request follows if accepted.'
 
 - id: go-east-vintage-strongroom-shoreditch
   name: Go East Vintage — Strongroom Christmas Market (Shoreditch)
@@ -2481,8 +2481,8 @@ markets:
   checked: 2026-11-09
   sources: ['https://linktr.ee/go.east.vintage', 'https://forms.gle/Vr4wiyxfeXEbtubJ9', 'https://ma.to/venue/go.east.vintage',
     'https://www.eventbrite.co.uk/e/go-east-vintage-christmas-night-market-at-strongroom-tickets-2004126760089']
-  decision: shortlist
-  our_notes: null
+  decision: applied
+  our_notes: 'Form submitted 15 Nov 2026: Sat 12 Dec, single pitch £50, 1 table, 25% deposit option. Confirmation page shown; Go East will send a payment request if accepted.'
 
 - id: go-east-vintage-doodle-bar-bermondsey
   name: Go East Vintage at Doodle Bar Arches (Bermondsey)
@@ -3207,8 +3207,8 @@ markets:
   checked: 2026-11-15
   sources: ['https://linktr.ee/go.east.vintage', 'https://docs.google.com/forms/d/e/1FAIpQLSfAau1CmnYXZ14a8CKpiHZmcziWbEK9OkEb1aSIODEfQSbh_g/viewform',
     'https://www.eventbrite.co.uk/e/go-east-at-ropewalk-festive-fridays-tickets-2004504274244', 'https://thenudge.com/london-christmas-markets/']
-  decision: shortlist
-  our_notes: null
+  decision: applied
+  our_notes: 'Form submitted 15 Nov 2026: Fridays 4, 11 and 18 Dec, tabletop pitch, 1 table; 12.5% of sales, no fixed fee. Confirmation page shown; dates need organiser confirmation.'
 
 - id: museum-of-the-home-winter-market
   name: Museum of the Home — Winter Market

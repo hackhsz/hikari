@@ -1,5 +1,7 @@
 # Go East Vintage: Festive Weekender, Wapping Hydraulic Power Station
 
+> **Submitted 15 Nov 2026 for Sun 6 Dec only (single indoor pitch, 1 table, 25% deposit option).** The confirmation page was shown. Our phone and invoicing address were used, but they're kept out of this public repo.
+
 **Event:** 5–6 Dec 2026, then 3–4 Apr 2027 (6–7 Feb 2027 is advertised but not on the form) · Wapping Wall, E1W 3SF
 **Apply:** Google Form
 **Fee:** single 8×8 ft pitch £70/day, table £10/day. A full weekend is £140 plus £20 for tables.

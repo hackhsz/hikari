@@ -1,5 +1,7 @@
 # Go East Vintage: Strongroom Christmas Market, Shoreditch
 
+> **Submitted 15 Nov 2026 for Sat 12 Dec (single pitch, 1 table, 25% deposit option).** The confirmation page was shown. Our phone and invoicing address were used, but they're kept out of this public repo.
+
 **Event:** Sat 14 Nov 2026 (evening market, 5–9pm) and Sat 12 Dec 2026 (11am–4pm) · Strongroom, 120–124 Curtain Road, EC2A 3SQ
 **Apply:** Google Form, first come, first served
 **Fee:** single 8×8 ft pitch £50, table £10

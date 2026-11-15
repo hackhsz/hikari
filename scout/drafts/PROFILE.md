@@ -11,8 +11,8 @@ The facts every application draws on, taken from the live site on 28 Oct 2026. U
 | Instagram | [@karineko_vtg](https://www.instagram.com/karineko_vtg) · also on 小红书 (Xiaohongshu) as Karineko Vintage |
 | Contact email for applications | `{CONTACT_EMAIL}`: the founder's work address. It's kept out of this repo because the repo is public. The Gmail drafts already use it. |
 | Contact name | `{CONTACT_NAME}` |
-| Mobile (for trading days) | `{MOBILE}` |
-| Business / correspondence address | `{ADDRESS}`. The site doesn't publish one yet ([17](../../docs/17-entity-and-tax.md) recommends a registered-office service). |
+| Mobile (for trading days) | `{MOBILE}`: the owner gave it on 15 Nov 2026. It's kept out of this public repo, so ask in the session. |
+| Business / correspondence address | `{ADDRESS}`: the owner gave a London EC1 address on 15 Nov 2026. It's kept out of this public repo, so ask in the session. The site doesn't publish one yet ([17](../../docs/17-entity-and-tax.md) recommends a registered-office service). |
 | VAT | Not VAT registered (as stated on the site) |
 | Where we sell now | Online only, from London |
 

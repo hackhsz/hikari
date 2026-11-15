@@ -57,9 +57,9 @@ Published deadlines, plus events at fit 3+ still taking applications.
 | **21 Nov** | [Craft & Flea — Glasgow (Christmas)](https://www.thecraftandflea.com/pages/trade-with-us) | Glasgow | open | 21 Nov 2026 | 3 | new |
 | **21 Nov** | [Go East Vintage at Doodle Bar Arches (Bermondsey)](https://linktr.ee/go.east.vintage) | London | open | 21 Nov 2026 | 3 | shortlist |
 | **22 Nov** | [Lou Lou's Vintage Fair — Manchester](https://www.loulousvintagefair.com/) | Manchester | open | 22 Nov 2026 | 4 | new |
-| **27 Nov** | [Go East Vintage — Rope Walk Festive Fridays (Maltby Street)](https://linktr.ee/go.east.vintage) | London | open | 27 Nov 2026 | 3 | shortlist |
+| **27 Nov** | [Go East Vintage — Rope Walk Festive Fridays (Maltby Street)](https://linktr.ee/go.east.vintage) | London | open | 27 Nov 2026 | 3 | applied |
 | **05 Dec** | [Second Life Markets — London curated vintage market (Boiler House, Brick Lane)](https://www.secondlifemarkets.com/) | London | open | 05 Dec 2026 | 5 | shortlist |
-| **05 Dec** | [Go East Vintage — Festive Weekender at Wapping Hydraulic Power Station](https://linktr.ee/go.east.vintage) | London | open | 05 Dec 2026 | 4 | shortlist |
+| **05 Dec** | [Go East Vintage — Festive Weekender at Wapping Hydraulic Power Station](https://linktr.ee/go.east.vintage) | London | open | 05 Dec 2026 | 4 | applied |
 | **19 Dec** | [Thriftmas Market (Hackney Flea Market / DIY Art Market)](https://www.eventbrite.co.uk/e/thriftmas-market-tickets-1992335582359) | London | open | 19 Dec 2026 | 3 | applied |
 
 ## Our pipeline
@@ -70,9 +70,6 @@ Published deadlines, plus events at fit 3+ still taking applications.
 | shortlist | [Camden Passage - Pierrepont Arcade & Charlton Place Markets](https://www.camdenpassageislington.co.uk/markets/pierrepont-arcade-market.html) | London | rolling | Antiques Wed & Sat (also general antiques/collectables Fri… | — |
 | shortlist | [Flea London — Vintage & Makers Market at Hackney Bridge](https://flealondon.com/) | London | rolling | Every weekend, Sat and Sun 11:00-17:00. The booking form of… | — |
 | shortlist | [Go East Vintage at Doodle Bar Arches (Bermondsey)](https://linktr.ee/go.east.vintage) | London | open | 21 Nov 2026 | — |
-| shortlist | [Go East Vintage — Festive Weekender at Wapping Hydraulic Power Station](https://linktr.ee/go.east.vintage) | London | open | 05 Dec 2026 | — |
-| shortlist | [Go East Vintage — Rope Walk Festive Fridays (Maltby Street)](https://linktr.ee/go.east.vintage) | London | open | 27 Nov 2026 | — |
-| shortlist | [Go East Vintage — Strongroom Christmas Market (Shoreditch)](https://linktr.ee/go.east.vintage) | London | open | 14 Nov 2026 | — |
 | shortlist | [Go East at Eastway Baths — Vintage, Creatives & Makers (Hackney Wick)](https://linktr.ee/go.east.vintage) | London | open | 23 Jan 2027 | — |
 | shortlist | [Lou Lou's Vintage Fair — London, Canada Water](https://www.loulousvintagefair.com/) | London | open | 15 Nov 2026 | — |
 | shortlist | [Old Spitalfields Market (incl. Thursday Antiques & Vintage Market)](https://oldspitalfieldsmarket.com/become-a-trader) | London | rolling | Stalls 7 days a week; Antiques Market every Thursday 8am-5p… | — |
@@ -80,6 +77,9 @@ Published deadlines, plus events at fit 3+ still taking applications.
 | applied | [Alfies Antique Market](https://alfiesantiques.com/dealers-at-alfies/) | London | rolling | Permanent; open Tue-Sat 10am-6pm | Enquiry emailed to info@alfiesantiques.com on 2 Nov 2026 (asked about a cabinet, rent, staffing). Awaiting reply. |
 | applied | [Brick Lane Flea Market (Truman Markets, 106 Commercial Street)](https://www.eventbrite.co.uk/e/brick-lane-flea-market-tickets-2000439988857) | London | closed | 21-22 Nov 2026 full, especially for jewellery traders (Trum… | November full (11 Nov reply). Apply for February via the form in apply_url. |
 | applied | [Brick Lane Vintage Market (Old Truman Brewery)](https://www.trumanbrewery.com/web/markets.pl) | London | closed | Open 7 days. Mon-Fri 11am-6:30pm, Sat 11am-6pm, Sun 10am-6p… | Enquiry 2 Nov; waiting-list details sent 10 Nov; Truman confirmed on 11 Nov that we're on the waiting list. |
+| applied | [Go East Vintage — Festive Weekender at Wapping Hydraulic Power Station](https://linktr.ee/go.east.vintage) | London | open | 05 Dec 2026 | Form submitted 15 Nov 2026: Sun 6 Dec only, single indoor pitch £70, 1 table, 25% deposit option. Confirmation page shown; payment request follows if accepted. |
+| applied | [Go East Vintage — Rope Walk Festive Fridays (Maltby Street)](https://linktr.ee/go.east.vintage) | London | open | 27 Nov 2026 | Form submitted 15 Nov 2026: Fridays 4, 11 and 18 Dec, tabletop pitch, 1 table; 12.5% of sales, no fixed fee. Confirmation page shown; dates need organiser confirmation. |
+| applied | [Go East Vintage — Strongroom Christmas Market (Shoreditch)](https://linktr.ee/go.east.vintage) | London | open | 14 Nov 2026 | Form submitted 15 Nov 2026: Sat 12 Dec, single pitch £50, 1 table, 25% deposit option. Confirmation page shown; Go East will send a payment request if accepted. |
 | applied | [Lower Stable Street Market & Shotengai pan-Asian Market (King's Cross)](https://www.kingscross.co.uk/event/lower-stable-street-market) | London | rolling | 19 Nov 2026 | Enquiry emailed to market@kioskn1c.com on 2 Nov 2026 (asked for 19-22 Nov or a later market, fee, and whether resale fits). Awaiting reply. |
 | applied | [So Last Century Vintage Fair — Goldsmiths, New Cross](https://www.solastcenturyfair.co.uk/traders) | London | opens-later | 29 Nov 2026 | Emailed info@solastcenturyfair.co.uk on 10 Nov 2026: asked to be considered for 7 Mar 2027 (Mother's Day) when bookings open, and for the 29 Nov waiting list. |
 | applied | [So Last Century Vintage Market at Dulwich Picture Gallery](https://www.solastcenturyfair.co.uk/traders) | London | opens-later | 05 Dec 2026 | Same email, 10 Nov 2026: asked for the 5-6 Dec waiting list. |
