@@ -197,7 +197,8 @@
         /* close() hands focus back to whatever had it before showModal(); after a move from one sheet
            to another that was a link inside the first sheet, now closed, so focus would fall to the page. */
         var r=sheet._return; sheet._return=null;
-        if(r&&!openSheet&&document.contains(r)&&r.focus&&(!document.activeElement||document.activeElement===document.body)) r.focus({preventScroll:true});
+        var a=document.activeElement;
+        if(r&&!openSheet&&document.contains(r)&&r.focus&&(!a||a===document.body||(a.closest&&a.closest("dialog:not([open])")))) r.focus({preventScroll:true});
       },SHEET_MS);
       else { sheet.setAttribute("aria-hidden","true"); sheet.inert=true; }
     }
