@@ -2456,7 +2456,7 @@ markets:
   apply_url: https://forms.gle/Vr4wiyxfeXEbtubJ9
   dates: Sat 14 Nov 2026, evening market 5pm-9pm; Sat 12 Dec 2026, daytime market 11am-4pm. Go East says it runs
     this 'as a regular event'.
-  next_date: 2026-11-14
+  next_date: 2026-12-12
   apply: {status: open, deadline: null, opens: null}
   window: Book on the Strongroom trader booking form. Every application is reviewed for 'a strong, well-balanced
     curation', and a booking is confirmed only once you are sent a payment request and pay it. 'Spaces are limited
@@ -3123,26 +3123,23 @@ markets:
   where: Market Square, off Olympic Way, Wembley Park, London HA9 (outdoor striped stalls in 2025)
   organiser: Pop Up Stalls (for Wembley Park)
   url: https://wembleypark.com/wembley-park-market/
-  apply_url: null
-  dates: Search-indexed wembleypark.com listings give Sat-Sun 5-6, 12-13 and 19-20 Dec 2026, 10am-7pm, but those
-    pages now return 404, so the dates are unverified.
-  next_date: null
-  apply: {status: unknown, deadline: null, opens: null}
+  apply_url: https://form.jotform.com/263075080491355
+  dates: Sat-Sun 21-22 Nov, 28-29 Nov, 5-6 Dec, 12-13 Dec; Sat 19 - Wed 23 Dec 2026 (per Popup London's reply, 15 Nov)
+  next_date: 2026-11-21
+  apply: {status: open, deadline: null, opens: null}
   window: 'Wembley Park''s market FAQ: ''traders are welcome to apply ... email hello@popupstalls.co.uk''. Covers
     the year-round market; nothing festive-specific.'
-  fee_gbp: null
-  cost: Not published by the organiser. A Nov 2025 third-party call (Open Art Spaces) quoted £100 for a 7ft striped
-    stall with lighting at the 2025 festive market; unverified for 2026.
+  fee_gbp: 200
+  cost: £100 per day for a full 7ft dressed, covered Christmas show stall with LED lighting; minimum booking 2 days (so £200 minimum).
   commission_pct: null
-  requires: [Email enquiry to hello@popupstalls.co.uk]
-  watch_out: Outdoor and food-led; eligibility rules aren't published. Dates unverified.
-  fit: 2
-  why: An open enquiry route and weekend day stalls, but an outdoor, mainstream event-district crowd with no vintage
-    angle, and the 2026 dates and fee can't be confirmed.
-  checked: 2026-11-10
+  requires: [Jotform application choosing dates, £5m public liability insurance certificate, Vehicle registration if you want trader parking]
+  watch_out: 'Popup London (Katie) replied on 15 Nov 2026: "we''d love to have you". Spaces are filling quickly. The blocker is the £5m public liability certificate the form requires. Minimum 2 days at £100/day, so about 3 sales to break even.'
+  fit: 4
+  why: 'Raised from 2 to 4 on 16 Nov 2026: the organiser invited us, and the stall is covered and LED-lit, which suits small jewellery. Wembley Park footfall is broad rather than a young vintage crowd.'
+  checked: 2026-11-16
   sources: ['https://wembleypark.com/wembley-park-market/', 'https://openartspaces.substack.com/p/join-wembley-christmas-market']
   decision: applied
-  our_notes: Emailed hello@popupstalls.co.uk on 15 Nov 2026 asking for December dates, fee and how to apply.
+  our_notes: Enquiry 15 Nov; Katie replied the same day inviting an application via the Jotform (needs a £5m PLI certificate).
 
 - id: diy-independent-jewellers-christmas-market
   name: Christmas Independent Jewellers' Market (DIY Art Market)
@@ -3208,7 +3205,7 @@ markets:
   sources: ['https://linktr.ee/go.east.vintage', 'https://docs.google.com/forms/d/e/1FAIpQLSfAau1CmnYXZ14a8CKpiHZmcziWbEK9OkEb1aSIODEfQSbh_g/viewform',
     'https://www.eventbrite.co.uk/e/go-east-at-ropewalk-festive-fridays-tickets-2004504274244', 'https://thenudge.com/london-christmas-markets/']
   decision: applied
-  our_notes: 'Form submitted 15 Nov 2026: Fridays 4, 11 and 18 Dec, tabletop pitch, 1 table; 12.5% of sales, no fixed fee. Confirmation page shown; dates need organiser confirmation.'
+  our_notes: 'Form submitted 15 Nov 2026: Fridays 4, 11 and 18 Dec, tabletop, 1 table; 12.5% of sales. Go East emailed an "Application received" for each date on 15 Nov; awaiting confirmation.'
 
 - id: museum-of-the-home-winter-market
   name: Museum of the Home — Winter Market
