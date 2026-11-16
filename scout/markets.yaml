@@ -29,8 +29,8 @@ markets:
   organiser: Frock Me!
   url: https://www.frockmevintagefashion.com/fair-dates
   apply_url: https://www.frockmevintagefashion.com/exhibitors
-  dates: Sun 15 Nov 2026 (Victoria, Lindley Hall, ~80); Sun 6 Dec 2026 (Chelsea Old Town Hall); Sun 7 Feb 2027 (Chelsea Old Town Hall). Further 2027 dates not yet published
-  next_date: 2026-11-15
+  dates: Sun 6 Dec 2026 (Chelsea Old Town Hall, 60+ dealers); Sun 7 Feb 2027 (Chelsea Old Town Hall); Sun 14 Mar 2027 (Kensington Town Hall, 100+ dealers); all 11am-5.30pm. Last held Sun 15 Nov 2026 (Victoria, Lindley Hall, ~80). Further 2027 dates not yet published
+  next_date: 2026-12-06
   apply: {status: closed, deadline: null, opens: null}
   window: No cycle. Stands are fully booked with a 'substantial waiting list'; new exhibitors are considered only
     when a current one leaves ('very rare')
@@ -46,7 +46,7 @@ markets:
   why: London's benchmark vintage fashion fair. Dealers are vetted ('the very best in their chosen field'), the
     Victoria edition names vintage jewellery dealers as a core category, and visitors pay £8 to get in. The audience
     is ideal, but it is effectively closed (waitlist), so treat it as a long-term goal.
-  checked: 2026-11-09
+  checked: 2026-11-16
   sources: ['https://www.frockmevintagefashion.com/fair-dates', 'https://www.frockmevintagefashion.com/exhibitors',
     'https://www.frockmevintagefashion.com/frockmevictoria', 'https://www.frockmevintagefashion.com/plan-your-visit']
   decision: new
@@ -60,11 +60,10 @@ markets:
   organiser: Modern Shows
   url: https://www.modernshows.com/shows/dulwich-1/
   apply_url: null
-  dates: Sun 15 Nov 2026, 10am-4pm; next fair Sun 21 Mar 2027; twice a year at Dulwich
-  next_date: 2026-11-15
+  dates: Next fair Sun 21 Mar 2027 at Dulwich College; last held Sun 15 Nov 2026, 10am-4pm; twice a year at Dulwich
+  next_date: 2027-03-21
   apply: {status: open, deadline: null, opens: null}
-  window: Twice a year (Mar and Nov). The Oct 2026 newsletter says 'a couple of spaces left' for 15 Nov and applications
-    are 'now opening' for 21 Mar 2027
+  window: Twice a year (Mar and Nov). The Nov 2026 newsletter says 'Applications for designers and dealers are now open' for Sun 21 Mar 2027 (midcentury petra@modernshows.com; contemporary lucy@modernshows.com), or register interest via Instagram @midcentury_modern with email and web address
   fee_gbp: null
   cost: Stand fee not published; ask petra@modernshows.com (midcentury section)
   commission_pct: null
@@ -74,9 +73,8 @@ markets:
     as collectable design objects.
   fit: 3
   why: 'Affluent, design-literate crowd (advance tickets £11, trade early entry £20) shopping for ''sustainable, collectable design''. Lowered from 4 on 28 Oct 2026: the live stock is Dior and Chanel logo jewellery, not mid-century pieces, so it sits outside what this fair''s buyers come for. Stand fee unknown.'
-  checked: 2026-11-09
-  sources: ['https://www.modernshows.com/shows/dulwich-1/', 'https://www.modernshows.com/newsletters/october-2026-newsletter/',
-    'https://www.modernshows.com/contact/']
+  checked: 2026-11-16
+  sources: ['https://www.modernshows.com/shows/dulwich-1/', 'https://www.modernshows.com/newsletters/november-2026-newsletter/', 'https://www.modernshows.com/newsletters/october-2026-newsletter/', 'https://www.modernshows.com/contact/']
   decision: new
   our_notes: null
 
@@ -709,7 +707,7 @@ markets:
   why: Curated vintage fashion fair whose listed categories include jewellery, held in a striking venue, and resellers
     are its whole model. One notch below 5 because it's a broad 'affordable vintage' crowd rather than designer
     buyers, the fee is unknown and you'd travel from London.
-  checked: 2026-11-09
+  checked: 2026-11-16
   sources: ['https://www.loulousvintagefair.com/', 'https://eventaly.com/event/lou-lous-manchester/', 'https://eventaly.com/organiser/lou-lous-vintage-market/',
     'https://www.loulousvintagefair.com/trader-terms-and-conditions']
   decision: new
@@ -776,7 +774,7 @@ markets:
   organiser: Judy's Vintage Fair (The Vintage Furniture Flea)
   url: https://judysvintagefair.com/events/the-manchester-vintage-furniture-flea-market-sept/
   apply_url: https://judysvintagefair.com/become-a-trader/
-  dates: Last held Sun 27 Sep 2026. No next Manchester date on the traders page or in the sitemap as of 26 Oct 2026.
+  dates: Last held Sun 27 Sep 2026. No next Manchester date on the traders page or in the event sitemap as of 16 Nov 2026.
   next_date: null
   apply: {status: closed, deadline: null, opens: null}
   window: Roughly quarterly in 2026 (June and September editions). Once you're approved through the 'Become a Trader'
@@ -795,7 +793,7 @@ markets:
   why: A design-led interiors crowd (stylists, designers) in a good city-centre hall with about 30 traders, and
     vintage jewellery is a recognised application category. But jewellery is a side-line and the affordable framing
     undercuts £100–300 pieces.
-  checked: 2026-10-26
+  checked: 2026-11-16
   sources: ['https://judysvintagefair.com/events/the-manchester-vintage-furniture-flea-market-sept/', 'https://judysvintagefair.com/become-a-trader/', 'https://judysvintagefair.com/terms-conditions-of-booking/', 'https://judysvintagefair.com/traders/', 'https://judysvintagefair.com/sitemap/']
   decision: new
   our_notes: null
@@ -808,9 +806,9 @@ markets:
   organiser: Craft & Flea
   url: https://www.thecraftandflea.com/pages/trade-with-us
   apply_url: https://eventaly.com/event/manchesters-craft-and-flea/
-  dates: Sun 15 Nov 2026
-  next_date: 2026-11-15
-  apply: {status: open, deadline: null, opens: null}
+  dates: Last held Sun 15 Nov 2026. Eventaly shows no bookable dates as of 16 Nov 2026.
+  next_date: null
+  apply: {status: closed, deadline: null, opens: null}
   window: Per-event applications on Eventaly. They curate with category quotas and reply in 'a couple of working
     weeks'; chase after 3 weeks. Unsuccessful applicants go on a reserve list.
   fee_gbp: 60
@@ -825,7 +823,7 @@ markets:
   why: A curated, Instagram-literate shopping crowd in a beautiful venue, and about 1 sale covers the fee. But it's
     a mixed craft-and-flea audience with lower price expectations, and vintage resale sits at the edge of what they
     recruit. A plausible test.
-  checked: 2026-11-09
+  checked: 2026-11-16
   sources: ['https://www.thecraftandflea.com/pages/trade-with-us', 'https://www.thecraftandflea.com/pages/trader-faqs',
     'https://eventaly.com/event/manchesters-craft-and-flea/', 'https://eventaly.com/organiser/craft-flea/']
   decision: new
@@ -945,7 +943,7 @@ markets:
   organiser: Judy's Vintage Fair (The Vintage Furniture Flea)
   url: https://judysvintagefair.com/events/the-bristol-vintage-furniture-flea-market-october/
   apply_url: https://judysvintagefair.com/become-a-trader/
-  dates: Last held Sun 11 Oct 2026. No next Bristol date on the traders page or in the sitemap as of 26 Oct 2026.
+  dates: Last held Sun 11 Oct 2026. No next Bristol date on the traders page or in the event sitemap as of 16 Nov 2026.
   next_date: null
   apply: {status: closed, deadline: null, opens: null}
   window: Runs every 1–3 months. The organiser's event URLs show 2026 editions on 31 Jan, 10 May, July (Sun 5 Jul
@@ -958,7 +956,7 @@ markets:
   fit: 3
   why: A design-literate interiors crowd in Bristol's creative quarter, and jewellery is accepted, but as an add-on
     to furniture. A plausible test if the stall fee is around £80.
-  checked: 2026-10-26
+  checked: 2026-11-16
   sources: ['https://judysvintagefair.com/events/the-bristol-vintage-furniture-flea-market-october/', 'https://judysvintagefair.com/become-a-trader/', 'https://judysvintagefair.com/traders/', 'https://judysvintagefair.com/sitemap/']
   decision: new
   our_notes: null
@@ -1092,7 +1090,7 @@ markets:
   fit: 3
   why: The most curated option found in Glasgow, with a Christmas date and a modest fee. But it's a mixed craft
     crowd and the travel cost makes it a stretch test.
-  checked: 2026-11-09
+  checked: 2026-11-16
   sources: ['https://eventaly.com/event/glasgows-craft-flea/', 'https://www.thecraftandflea.com/pages/trade-with-us',
     'https://www.thecraftandflea.com/pages/trader-faqs']
   decision: new
@@ -1185,7 +1183,7 @@ markets:
   organiser: Judy's Vintage Fair (The Vintage Furniture Flea)
   url: https://judysvintagefair.com/events/the-brighton-vintage-furniture-flea-market-october/
   apply_url: https://judysvintagefair.com/become-a-trader/
-  dates: Last held Sat 24 Oct 2026. No next Brighton date on the traders page or in the sitemap as of 26 Oct 2026.
+  dates: Last held Sat 24 Oct 2026. No next Brighton date on the traders page or in the event sitemap as of 16 Nov 2026.
   next_date: null
   apply: {status: closed, deadline: null, opens: null}
   window: Roughly quarterly at St Bart's (17 Jan, 18 Apr and 24 Oct 2026; Jun and Sep 2025). You need approval as
@@ -1200,7 +1198,7 @@ markets:
   fit: 3
   why: A design-led vintage crowd in a dramatic venue, an hour from London, and about 1 sale covers the £80 stall.
     But furniture leads, fashion and jewellery are a 'sprinkling', and the brand frames itself as affordable.
-  checked: 2026-10-26
+  checked: 2026-11-16
   sources: ['https://judysvintagefair.com/events/the-brighton-vintage-furniture-flea-market-october/', 'https://judysvintagefair.com/trader-bookings/?eventid=23561', 'https://judysvintagefair.com/traders/', 'https://judysvintagefair.com/sitemap/']
   decision: new
   our_notes: null
@@ -1380,9 +1378,7 @@ markets:
   apply: {status: rolling, deadline: null, opens: null}
   window: null
   fee_gbp: 0
-  cost: 'No subscription or listing fee found. Pro commission in GBP, per the rate sheet updated 26 June 2026: Standard
-    is £15 flat on items up to £120, then 15% from £120 to £16,000. Reduced is £15 flat up to £120, then 12%. The
-    Reduced rate applies if your monthly repayment (cancellation) rate is 10% or less.'
+  cost: No subscription or listing fee found. Pro commission in GBP, per the rate grid applied to all listings from the 2 Nov 2026 update (GBP rates unchanged from the 26 June 2026 sheet). Standard is £15 flat on items up to £120, then 15% from £120 to £16,000. Reduced is £15 flat up to £120, then 12%. The Reduced rate applies if your monthly repayment (cancellation) rate is 10% or less.
   commission_pct: 15
   requires: ['Proof of a legally registered business. The en-gb pro page says: ''All we need is proof of your registered business. You''re a sole trader? No problem - you''re eligible too!''', 'VAT number, per the ''Becoming a Professional Seller'' help article (updated 15 Oct 2026): ''The seller must provide proof of a legally registered business and a valid VAT number'' and ''VAT Registration : The seller must have a valid VAT number, confirming that they are registered for VAT purposes''. The same article opens ''you just need to provide proof of your registered business... Sole traders are also eligible!'', and its DAC7 answer says Vestiaire reports the VAT number ''when the seller have one''', Pieces must be signed; unsigned jewellery can be refused, Seller ships within 7 days on a prepaid label]
   watch_out: Unsigned jewellery can be refused or delisted. Mother of pearl is on the import/export restricted list and natural pearls are banned (faux pearls are fine). Listings can be rejected if Vestiaire judges the price too high or too low against comparable sales. Cancellations for authenticity, conformity or late shipping count toward the repayment rate that sets your commission tier. Buyers pay a £15 authentication fee on Authenticated Shipping. VAT is unresolved, and it matters because we plan to stay VAT-unregistered (docs/17, D14). The help article both says sole traders are eligible and lists a valid VAT number as a required document. 'Apply now' opens a Zendesk ticket form whose fields cannot be read without signing in, so only the application review will settle it. If the VAT number is enforced, the programme is closed to us unless we register. The un-localised /professional-sellers/ URL geo-redirects to the US site, so use /en-gb/.
@@ -1391,8 +1387,8 @@ markets:
     15% (£27) leaves a £153 payout, about £57 contribution (12% tier: £158.40, about £62). At a 12.5% premium (£202.50)
     the payout is about £172, about £76 contribution. Docked from 5 because any registered business can join, so
     acceptance is not a credential.'
-  checked: 2026-10-26
-  sources: ['https://www.vestiairecollective.com/en-gb/professional-sellers/', 'https://faq.vestiairecollective.com/hc/en-gb/articles/11538017492241-Professional-seller-Commission', 'https://assets.vestiairecollective.com/email/CRM/2026/Commission+management+B2C.pdf', 'https://faq.vestiairecollective.com/hc/en-gb/articles/4408896527633-Becoming-a-Professional-Seller', 'https://faq.vestiairecollective.com/hc/en-gb/articles/16480403093393', 'https://faq.vestiairecollective.com/hc/en-gb/articles/16224868764049-Buyer-What-Shipping-Options-Are-Available-on-Vestiaire-Collective']
+  checked: 2026-11-16
+  sources: ['https://www.vestiairecollective.com/en-gb/professional-sellers/', 'https://faq.vestiairecollective.com/hc/en-gb/articles/11538017492241-Professional-seller-Commission', 'https://assets-prod.vestiairecollective.com/email/CRM/2026/Commission+management+B2C+-+NEW+FAQs+T%26C+grid.pdf', 'https://faq.vestiairecollective.com/hc/en-gb/articles/4408896527633-Becoming-a-Professional-Seller', 'https://faq.vestiairecollective.com/hc/en-gb/articles/16480403093393', 'https://faq.vestiairecollective.com/hc/en-gb/articles/16224868764049-Buyer-What-Shipping-Options-Are-Available-on-Vestiaire-Collective']
   decision: new
   our_notes: null
 
@@ -1457,7 +1453,7 @@ markets:
     about $649 on the Chanel costume page. Net per £180 cannot be computed because fees are unpublished. With commission
     somewhere in 5–50% plus about 3% processing plus a subscription, it only works if the jewellery plan quote is
     low. Get the plan sheet before committing.
-  checked: 2026-10-26
+  checked: 2026-11-16
   sources: ['https://support.1stdibs.com/hc/en-us/articles/17416136155291-What-Is-the-Monthly-Fee-for-1stDibs', 'https://support.1stdibs.com/hc/en-us/articles/17416185631387-What-Percentage-Does-1stDibs-Take-from-a-Sale', 'https://www.1stdibs.com/answers/how-do-you-become-a-dealer-on-1stdibs', 'https://www.1stdibs.com/about/vetted-sellers/', 'https://www.sec.gov/Archives/edgar/data/1600641/000160064126000007/dibs-20251231.htm', 'https://www.1stdibs.com/buy/vintage-chanel-costume-jewelry/']
   decision: new
   our_notes: null
@@ -1519,7 +1515,7 @@ markets:
     On £180, fees are about £20.12 (6.5% + 4% + £0.20 + 0.48% + listing), leaving about £159.88 payout and about
     £64 contribution, before VAT on fees. At £202.50 the payout is about £180, roughly own-site parity, unless Offsite
     Ads fires.
-  checked: 2026-10-26
+  checked: 2026-11-16
   sources: ['https://help.etsy.com/hc/en-gb/articles/115014483627-What-are-the-Fees-and-Taxes-for-Selling-on-Etsy', 'https://web.archive.org/web/20260628111944/https://www.etsy.com/uk/legal/fees/', 'https://help.etsy.com/hc/en-gb/articles/115015628847-What-are-Payment-Processing-Fees-for-Selling-on-Etsy', 'https://help.etsy.com/hc/en-us/articles/1500011073202-What-is-a-Regulatory-Operating-Fee', 'https://www.etsy.com/legal/policy/vintage-items-on-etsy/242665563649']
   decision: new
   our_notes: null
@@ -1537,10 +1533,7 @@ markets:
   apply: {status: open, deadline: null, opens: null}
   window: null
   fee_gbp: 0.3
-  cost: 'Business seller, Jewellery & Watches (#281): 14.9% final value fee on the total sale (item plus postage)
-    up to £1,000, plus £0.40 per order over £10, plus 0.35% regulatory operating fee. International fee 1.05% (eurozone)
-    or 1.8% (US/CA). Without a shop, extra fixed-price listings cost 30p; the Basic shop is £27/month. Page last
-    updated 30 Sep 2026.'
+  cost: 'Business seller, Jewellery & Watches (#281): 14.9% final value fee on the total sale (item plus postage) up to £1,000, plus £0.40 per order over £10, plus 0.35% regulatory operating fee. International fee 1.05% (eurozone) or 1.8% (US/CA). Without a shop, extra fixed-price listings cost 30p; the Basic shop is £27/month. Page last updated 5 Nov 2026.'
   commission_pct: 14.9
   requires: [Open sign-up; register as a business account (trading seller)]
   watch_out: Discount and auction framing. Final value fee is charged on postage too. eBay's 0% fees for UK private
@@ -1549,7 +1542,7 @@ markets:
   why: Plausible place to clear 90-day stock, with a big UK audience for signed costume jewellery, but no brand
     value. On £180, fees are about £27.85 (14.9% + 0.35% + £0.40), leaving about £152.15 payout and about £56 contribution.
     At £202.50 the payout is about £171.
-  checked: 2026-10-26
+  checked: 2026-11-16
   sources: ['https://www.ebay.co.uk/help/selling/fees-credits-invoices/fees-business-sellers-activated-managed-payments?id=4809',
     'https://community.ebay.co.uk/t5/Announcements/Final-value-fee-increases-for-business-sellers-in-the-Jewellery/ba-p/7545376/',
     'https://www.ebay.co.uk/sellercentre/news/2026-january/rate-card-change']
@@ -1582,7 +1575,7 @@ markets:
   why: 'Zero seller commission makes it the best payout per sale for clearing stale stock: £180 sale leaves £180
     payout (about £84 contribution). Achievable prices for £100–300 designer costume pieces are likely lower, and
     the context dilutes the brand. Use only for 90-day clearance.'
-  checked: 2026-10-26
+  checked: 2026-11-16
   sources: ['https://www.vinted.co.uk/pro-guide', 'https://www.vinted.co.uk/help/1460', 'https://www.vinted.co.uk/pricelist']
   decision: new
   our_notes: null
@@ -1667,7 +1660,7 @@ markets:
   fit: 3
   why: Design-aware audience and a vetted vendor list, and jewellery is explicitly allowed, but it is peripheral
     to Pamono's buyers. Net per £180 cannot be computed (commission unpublished).
-  checked: 2026-10-26
+  checked: 2026-11-16
   sources: ['https://www.pamono.com/becomeavendor-2', 'https://www.pamono.com/becomeavendor', 'https://www.pamono.eu/help']
   decision: new
   our_notes: null
@@ -1697,7 +1690,7 @@ markets:
   why: Genuinely vetted UK trade site that already carries 1980s Dior costume jewellery at £75–345, and no commission
     is mentioned (confirm on application). If there is none, £180 pays out £180 minus payment fees, about £84 contribution,
     less a £40/month fixed fee. The audience is narrow and not brand-enhancing for an editorial label.
-  checked: 2026-10-26
+  checked: 2026-11-16
   sources: ['https://www.antiques-atlas.com/selling/packages/', 'https://www.antiques-atlas.com/antiques/jewellery/french']
   decision: new
   our_notes: null
@@ -1987,8 +1980,8 @@ markets:
   organiser: The Lazy Flea (team@lazyflea.co.uk)
   url: https://www.lazyflea.co.uk/
   apply_url: https://www.lazyflea.co.uk/traders
-  dates: Sat-Sun 14-15 Nov 2026, Ferrier Street, Wandsworth; Sat-Sun 12-13 Dec 2026, Christmas Market, Chiswick House; 10:30-16:00. More dates TBC
-  next_date: 2026-11-14
+  dates: Sat-Sun 12-13 Dec 2026, Christmas Market, Chiswick House, 10:30-16:00. More dates TBC. Last held Sat-Sun 14-15 Nov 2026, Ferrier Street, Wandsworth
+  next_date: 2026-12-12
   apply: {status: closed, deadline: null, opens: null}
   window: No published cycle. The Trade With Us page says applications are closed and that reopening will be announced
     on their social media (Instagram @thelazyflea). Approved traders then book individual pitches through a trader
@@ -2005,7 +1998,7 @@ markets:
     names "one-of-a-kind jewellery pieces" alongside furniture, homeware and clothing, and its traders are vintage
     dealers rather than makers. Press listings (not verified) put the Chiswick House edition at 60+ traders. A plausible
     test where jewellery is an add-on to a homeware crowd. Fee unknown; closed to new traders for now.
-  checked: 2026-11-09
+  checked: 2026-11-16
   sources: ['https://www.lazyflea.co.uk/', 'https://www.lazyflea.co.uk/traders', 'https://www.lazyflea.co.uk/calendar-1',
     'https://www.lazyflea.co.uk/about', 'https://chiswickhouseandgardens.org.uk/event/the-lazy-flea/']
   decision: applied
@@ -2242,9 +2235,9 @@ markets:
   organiser: Lou Lou's Vintage Fair
   url: https://www.loulousvintagefair.com/
   apply_url: https://eventaly.com/event/lou-lous-london-canada-water/
-  dates: Sun 15 Nov 2026, 11am–4pm
-  next_date: 2026-11-15
-  apply: {status: open, deadline: null, opens: null}
+  dates: Last listed for Sun 15 Nov 2026, 11am-4pm (whether it ran is unconfirmed; it had dropped off the organiser's listings by 9 Nov). No further London date announced as of 16 Nov 2026.
+  next_date: null
+  apply: {status: closed, deadline: null, opens: null}
   window: Each event needs its own application on Eventaly; replies usually within 10 working days, and the stall
     is confirmed only when the pitch-fee invoice is paid
   fee_gbp: null
@@ -2252,12 +2245,12 @@ markets:
   commission_pct: null
   requires: [Eventaly trader account, Separate application per event, Pitch fee paid by the invoice deadline, Public
       and product liability insurance recommended (not required)]
-  watch_out: 'As of 9 Nov 2026 the London date is not on the organiser''s homepage events list or on the Eventaly organiser''s ''All future events'' list; only the direct Eventaly event page still offers Sun 15 Nov 2026. It may be full, cancelled or delisted, so confirm it is going ahead before preparing anything. With replies taking up to 10 working days, an application now is unlikely to be answered before the fair. Era focus: the Eventaly call invites "traders specialising in vintage fashion from the 1920s - 1980s", so apply only with pieces datable to 1989 or earlier (much of the Dior logo stock looks 1990s-2000s). Stock must match what the application describes; unapproved items can get a trader removed. Fees are non-refundable and non-transferable; trader cancellations need a replacement trader plus a £20 fee. Same day as Midcentury Modern Dulwich.'
+  watch_out: 'As of 16 Nov 2026 the Eventaly event page says "This event does not currently have any bookable dates available", and the organiser''s homepage 2026 events list (to 6 Dec) and Eventaly ''All future events'' list have no London date. Watch both for a 2027 London edition. Era focus: the Eventaly call invites "traders specialising in vintage fashion from the 1920s - 1980s", so apply only with pieces datable to 1989 or earlier (much of the Dior logo stock looks 1990s-2000s). Stock must match what the application describes; unapproved items can get a trader removed. Fees are non-refundable and non-transferable; trader cancellations need a replacement trader plus a £20 fee.'
   fit: 4
   why: The same curated Lou Lou's vintage fair as the Manchester entry, but in London with no travel. Resellers
     are its whole model and jewellery is a listed category. Held back from 5 by the broad 'affordable vintage' crowd
     and the unknown fee. Missed by run 1, which found no London edition.
-  checked: 2026-11-09
+  checked: 2026-11-16
   sources: ['https://www.loulousvintagefair.com/', 'https://eventaly.com/event/lou-lous-london-canada-water/', 'https://eventaly.com/organiser/lou-lous-vintage-market/',
     'https://www.loulousvintagefair.com/trader-terms-and-conditions']
   decision: shortlist
@@ -2304,8 +2297,8 @@ markets:
   organiser: Craft & Flea
   url: https://eventaly.com/event/london-canada-waters-craft-flea/
   apply_url: https://eventaly.com/event/london-canada-waters-craft-flea/
-  dates: Sat 14 and Sun 15 Nov 2026; Sat 12 and Sun 13 Dec 2026 (Christmas). Opening times not listed.
-  next_date: 2026-11-14
+  dates: Sat 12 and Sun 13 Dec 2026 (Christmas). Opening times not listed. Sat 14 and Sun 15 Nov 2026 have passed.
+  next_date: 2026-12-12
   apply: {status: open, deadline: null, opens: null}
   window: Per-date applications on Eventaly ("Send Application" is live with dates selectable). No deadline stated.
     At other venues they curate with category quotas, reply in a couple of working weeks and keep a reserve list.
@@ -2315,15 +2308,13 @@ markets:
     by venue.
   commission_pct: null
   requires: [Eventaly trader profile, Separate application per date]
-  watch_out: 'Makers-led market; the Eventaly page says nothing on whether vintage jewellery resellers are accepted,
-    and jewellery is usually a crowded quota category. Sun 15 Nov is also Lou Lou''s London at the same venue (Corner
-    Corner): check whether these overlap or compete before applying to either.'
+  watch_out: Makers-led market; the Eventaly page says nothing on whether vintage jewellery resellers are accepted, and jewellery is usually a crowded quota category. The 12-13 Dec Christmas dates fall the same weekend as Lazy Flea's Chiswick House Christmas Market and Go East Strongroom (Sat 12 Dec).
   fit: 3
   why: A new London edition of the Craft & Flea format already tracked at fit 3 in Manchester and Glasgow, with
     no travel and two Christmas dates still open. Curated, Instagram-literate crowd, but a craft-and-flea audience
     with lower price expectations, and resale sits at the edge of who they recruit. The fee is null because London
     prices sit behind the Eventaly login.
-  checked: 2026-11-09
+  checked: 2026-11-16
   sources: ['https://eventaly.com/event/london-canada-waters-craft-flea/', 'https://eventaly.com/organiser/craft-flea/']
   decision: new
   our_notes: null
@@ -2334,13 +2325,12 @@ markets:
   city: Brighton
   where: St Bartholomew's Church (St Bart's), Ann Street, Brighton BN1 4GP
   organiser: Craft & Flea
-  url: https://eventaly.com/event/brightons-craft-flea-2/
-  apply_url: https://eventaly.com/event/brightons-craft-flea-2/
-  dates: Last held Sat 17 Oct 2026 (per run-1 notes). Eventaly shows no bookable dates as of 26 Oct 2026.
-  next_date: null
-  apply: {status: closed, deadline: null, opens: null}
-  window: Per-date applications on Eventaly once new dates are listed. The page currently says "This event does
-    not currently have any bookable dates available."
+  url: https://eventaly.com/event/brightons-craft-flea-3/
+  apply_url: https://eventaly.com/event/brightons-craft-flea-3/
+  dates: Sat 5 Dec 2026, a "special Christmas Craft and Flea" at St Bart's (opening times not listed). Previous edition Sat 17 Oct 2026.
+  next_date: 2026-12-05
+  apply: {status: open, deadline: null, opens: null}
+  window: Per-date applications on Eventaly; 'Send Application' is live for 5 Dec 2026 on a new event page (the old brightons-craft-flea-2 page now returns 404). No deadline stated. At other venues they curate with category quotas, reply in a couple of working weeks and keep a reserve list.
   fee_gbp: null
   cost: Pitches 6ft x 3ft table top, 6ft x 6ft or 12ft x 6ft; table hire optional. No Brighton prices shown. The
     organiser's FAQ quotes from £60 for a 6ft x 3ft at other venues, prices varying by venue.
@@ -2349,10 +2339,9 @@ markets:
   watch_out: 'Makers-led; nothing on the page about vintage resellers. Church venue: the page asks that potentially
     inappropriate stock be kept out of view. Same venue as Judy''s Brighton.'
   fit: 3
-  why: 'Tracked so the next Brighton date gets caught: the same curated craft-and-flea format scored 3 in Manchester
-    and Glasgow, in a striking venue an hour from London. Dates and fee are null because none are currently published.'
-  checked: 2026-10-26
-  sources: ['https://eventaly.com/event/brightons-craft-flea-2/', 'https://eventaly.com/organiser/craft-flea/']
+  why: Tracked so the next Brighton date gets caught; it now has a Christmas date (Sat 5 Dec 2026). The same curated craft-and-flea format scored 3 in Manchester and Glasgow, in a striking venue an hour from London. Fee is null because Brighton prices sit behind the Eventaly login.
+  checked: 2026-11-16
+  sources: ['https://eventaly.com/event/brightons-craft-flea-3/', 'https://eventaly.com/organiser/craft-flea/']
   decision: new
   our_notes: null
 
@@ -2514,7 +2503,7 @@ markets:
     on Go East's wanted list, Sunday-only days keep it to one day, and a dated run through March 2027 allows a repeat
     test. At £65 a day, break-even is under 1 piece. Kept at 3 because the flea and bric-a-brac mix likely pays
     less than £85-£300.
-  checked: 2026-11-09
+  checked: 2026-11-16
   sources: ['https://linktr.ee/go.east.vintage', 'https://docs.google.com/forms/d/e/1FAIpQLScas-0VpnPtanXIZuG_cPrk5D7O4UwJICnRIQNuJvay85o4ag/viewform',
     'https://ma.to/venue/go.east.vintage', 'https://www.eventbrite.co.uk/o/go-east-vintage-39447572513']
   decision: shortlist
@@ -2549,7 +2538,7 @@ markets:
   why: Hackney Wick is squarely the young East London crowd the owner wants, and a £45-£55 one-day tabletop is the
     lightest-weight test found this run (break-even under 1 piece). Vintage is one of the two trader streams. Kept
     at 3 because it is new, maker-mixed and unproven.
-  checked: 2026-11-09
+  checked: 2026-11-16
   sources: ['https://linktr.ee/go.east.vintage', 'https://docs.google.com/forms/d/e/1FAIpQLSeOHexhaV6mSTbV1aB8OFc-V8ETxmxrXJKNIQuPgw_Sl_vshQ/viewform',
     'https://ma.to/venue/go.east.vintage']
   decision: shortlist
@@ -2688,7 +2677,7 @@ markets:
     wants. The form lists 'Vintage Designer' and 'Jewellery/Watches' as categories, curated vintage stores are the
     point of the event, and visitors pay for tickets. The £80 half stall (one table) breaks even at about one sale,
     which makes it the cheapest low-commitment test found. Verified on the organiser's site and MarketMate form.
-  checked: 2026-11-10
+  checked: 2026-11-16
   sources: ['https://www.secondlifemarkets.com/', 'http://marketmate.live/second-life-markets-uk/events/12d0992b-0087-4874-a177-b63e52ea4155',
     'https://www.secondlifemarkets.com/applytosell', 'https://londontheinside.com/second-life-markets-is-bringing-vintage-to-london/']
   decision: shortlist
@@ -2722,7 +2711,7 @@ markets:
   why: A one-day indoor fair with 50+ hand-picked vintage traders in a university Great Hall, giving a young South
     London and student crowd. The 7 Mar 2027 edition falls on Mother's Day itself, the jewellery-gifting peak. The
     weaknesses are the probably lower price frame and the 25-year age rule. The stand fee is not published (null).
-  checked: 2026-11-10
+  checked: 2026-11-16
   sources: ['https://www.solastcenturyfair.co.uk/traders', 'https://www.solastcenturyfair.co.uk/next-events', 'https://www.ianvisits.co.uk/calendar/?p=435526',
     'https://www.gold.ac.uk/calendar/?id=16267']
   decision: applied
@@ -2753,7 +2742,7 @@ markets:
   why: A design-literate, affluent Dulwich audience and a gallery setting that suits a curated designer jewellery
     table. The crowd is older than the owner's target and Christmas is waitlist-only, so this is a plausible test,
     mainly via the waiting list.
-  checked: 2026-11-10
+  checked: 2026-11-16
   sources: ['https://www.solastcenturyfair.co.uk/traders', 'https://www.solastcenturyfair.co.uk/next-events']
   decision: applied
   our_notes: 'Same email, 10 Nov 2026: asked for the 5-6 Dec waiting list.'
@@ -2817,7 +2806,7 @@ markets:
   why: Weekend shop-small markets in places with a young, style-conscious crowd (Selfridges, Battersea Power Station,
     The Shard). They have taken vintage before, but the current application wording leans to makers. The fee is
     unknown. Watch for the 2027 call.
-  checked: 2026-11-10
+  checked: 2026-11-16
   sources: ['https://www.saladdaysmarket.co.uk/', 'https://www.saladdaysmarket.co.uk/apply-for-the-market', 'https://rose-copper-gzty.squarespace.com/salad-days-market-blog/applications-process-apply-to-salad-days-market']
   decision: new
   our_notes: null
@@ -2990,7 +2979,7 @@ markets:
   why: Indoor, last full weekend before Christmas, in Stoke Newington's young, style-conscious crowd. Over 60 traders,
     'from vintage sellers and emerging designers to jewellers and ceramic artists', so resellers and jewellery are
     both in the mix. Held at 3 rather than 4 because of the thrift/affordability framing and an unknown fee.
-  checked: 2026-11-10
+  checked: 2026-11-16
   sources: ['https://www.eventbrite.co.uk/e/thriftmas-market-tickets-1992335582359', 'https://www.diyartmarket.com/',
     'https://www.eventbrite.co.uk/o/hackney-flea-maket-4527233341']
   decision: applied
@@ -3232,7 +3221,7 @@ markets:
   why: One curated day in Hoxton with a young, design-literate crowd. The museum's own page says the 50+ stalls
     include "independent makers, small businesses and vintage sellers", so resellers are allowed. Too late for 2026;
     worth tracking for 2027.
-  checked: 2026-11-15
+  checked: 2026-11-16
   sources: ['https://museumofthehome.org.uk/whats-on/winter-market/', 'https://museumofthehome.org.uk/about-us/work-with-us/winter-market-2025-applications',
     'https://ma.to/event/winter-market-at-museum-of-the-home-28-nov-2026']
   decision: new
