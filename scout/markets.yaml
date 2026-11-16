@@ -3278,9 +3278,7 @@ markets:
   commission_pct: null
   requires: [Online stallholder application (2025 form; choose Unit 8 or Gallery location), Public liability insurance,
     Risk assessment, 'Optional: products under £20 for their Instagram "advent" campaign']
-  watch_out: 'No 2026 edition or application could be verified on 15 Nov 2026. A curated mix with limited slots
-    per category per day ("eg: jewellery..."). Unheated, doors open, no power at stalls, no gridwall, one extra
-    display item. Vintage and resale are neither invited nor excluded.'
+  watch_out: No confirmed 2026 date. Brixton Village's own page now says Pexmas is "now with a permanent home in Market Row" in Brixton, so the Peckham edition may have moved (run 6).
   fit: 2
   why: Peckham's long-running independent festive market, mostly indoors, with a young South London crowd and jewellery
     among its categories. Held at 2 because no 2026 date or open call exists on the organiser's site, and it is
@@ -3313,5 +3311,191 @@ markets:
     not rediscover it.'
   checked: 2026-11-15
   sources: ['https://www.candidartslondon.com/angel-christmas-fair', 'https://www.artrabbit.com/events/angel-christmas-fair-2026']
+  decision: new
+  our_notes: null
+
+- id: giant-london-flea-olympic-park
+  name: The Giant London Flea Market (Queen Elizabeth Olympic Park)
+  type: market
+  city: London
+  where: Queen Elizabeth Olympic Park Multi-Storey Car Park, 3 Lesney Avenue, London E15 2GZ (next to Here East).
+    The organiser bills it as indoor.
+  organiser: Hackney Flea Market Ltd (Mark Farhall). Also runs Hackney Flea, Thriftmas, Walthamstow Flea, The Big
+    South London Flea and Peckham Salvage Yard.
+  url: https://www.eventbrite.co.uk/e/the-giant-london-flea-market-tickets-2002796056920
+  apply_url: https://hackneyfleamarket.com/
+  dates: Sun 3 Jan 2027 and Sun 7 Feb 2027, 10am-5pm. £2 entry for shoppers.
+  next_date: 2027-01-03
+  apply: {status: unknown, deadline: null, opens: null}
+  window: Dated one-off Sundays, listed on the organiser's Eventbrite page about two months ahead. The trader route
+    is hackneyfleamarket.com, which blocks automated fetches, or the organiser's email.
+  fee_gbp: null
+  cost: Not published. hackneyfleamarket.com returns 403, so the pitch fee could not be read.
+  commission_pct: null
+  requires: [Trader application via hackneyfleamarket.com (form unreadable here), 'Organiser email: hackneyfleamarket@gmail.com
+      (printed on the organiser''s own Eventbrite listing for The Big South London Flea)']
+  watch_out: The organiser's pitch is "over 100 of the finest traders of vintage home decor, & peddlers of preloved
+    bargains", so it is a homeware-and-bargain frame well below £85-£300. No jewellery is named. It is a concrete
+    multi-storey car park in January and February. Fee, table size and insurance terms are unknown.
+  fit: 2
+  why: A big January and February flea, which is exactly the slow-season gap, and the organiser describes its crowds
+    as "busy, lively, young, diverse". Resellers are the whole point. Held at 2 because the frame is home decor
+    and preloved bargains, and the fee is unverified. Ask in the existing Hackney Flea / Thriftmas email thread
+    rather than starting a new one.
+  checked: 2026-11-16
+  sources: ['https://www.eventbrite.co.uk/e/the-giant-london-flea-market-tickets-2002796056920', 'https://www.eventbrite.co.uk/e/the-giant-london-flea--tickets-2002795436063',
+    'https://www.eventbrite.co.uk/o/hackney-flea-maket-4527233341']
+  decision: new
+  our_notes: null
+
+- id: big-south-london-flea-peckham
+  name: The Big South London Flea (Unit 8, Copeland Park, Peckham)
+  type: market
+  city: London
+  where: Unit 8 (a former cricket-bat factory), 133 Copeland Road, Copeland Park, Peckham, London SE15 3SN (indoor)
+  organiser: Hackney Flea Market Ltd
+  url: https://www.eventbrite.co.uk/e/the-big-south-london-flea-tickets-1984116401568
+  apply_url: https://hackneyfleamarket.com/
+  dates: Sat 16 Jan 2027, 10am-5pm, £2 entry. Peckham Salvage Yard (salvage and homeware) follows at the same venue
+    on Sun 17 Jan 2027.
+  next_date: 2027-01-16
+  apply: {status: unknown, deadline: null, opens: null}
+  window: Dated one-off; trader route via hackneyfleamarket.com (blocked to automated fetches) or the organiser
+    email
+  fee_gbp: null
+  cost: Not published
+  commission_pct: null
+  requires: [Trader application via hackneyfleamarket.com (form unreadable here), 'Organiser email: hackneyfleamarket@gmail.com
+      (on this event''s own listing)']
+  watch_out: 'The listing text describes salvage: "vintage furniture, reclaimed industrial fixtures, unique lighting,
+    salvaged electricals, quirky homewares". It appears to be copied from Peckham Salvage Yard, so the real mix
+    on the Saturday is unclear. No fashion or jewellery is named. Fee unknown.'
+  fit: 2
+  why: An indoor January Saturday in Peckham, with a young South London crowd and resellers as standard. But it
+    is a salvage-and-bargain flea, and the fee and mix can't be verified. Worth one line in the same Hackney Flea
+    email.
+  checked: 2026-11-16
+  sources: ['https://www.eventbrite.co.uk/e/the-big-south-london-flea-tickets-1984116401568', 'https://www.eventbrite.co.uk/e/peckham-salvage-yard-tickets-1984116759639',
+    'https://www.eventbrite.co.uk/o/hackney-flea-maket-4527233341']
+  decision: new
+  our_notes: null
+
+- id: walthamstow-flea-market
+  name: Walthamstow Flea Market (Big Penny Social)
+  type: market
+  city: London
+  where: Big Penny Social (formerly Truman's Social Club), 1 Priestley Way, Walthamstow, London E17 6AL
+  organiser: Hackney Flea Market Ltd (first run in June 2021 with Truman's Social Club)
+  url: https://www.eventbrite.co.uk/o/hackney-flea-maket-4527233341
+  apply_url: https://hackneyfleamarket.com/
+  dates: '"Select Sundays", 11am-5pm. The last listed date was Sun 8 Nov 2026, on fleamapket.com, a listing site.
+    No further dates were on the organiser''s Eventbrite page on 16 Nov 2026.'
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: Irregular Sundays; dates appear on the organiser's Eventbrite page
+  fee_gbp: null
+  cost: Not published
+  commission_pct: null
+  requires: [Trader application via hackneyfleamarket.com (form unreadable here), 'Organiser email: hackneyfleamarket@gmail.com']
+  watch_out: No upcoming date. The listing names vinyl, books, clocks, glassware and cameras, not jewellery. The
+    organiser's own page only names the market in its bio, so the format details come from a listing site.
+  fit: 2
+  why: Walthamstow vintage flea with about 60 vendors, from the same organiser as Thriftmas. Resellers are normal,
+    but it is a flea and bric-a-brac frame with no date to aim for. Kept so the next run doesn't rediscover it from
+    Walthamstow searches.
+  checked: 2026-11-16
+  sources: ['https://www.fleamapket.com/event/walthamstow-flea-market/2026-11-08/', 'https://www.eventbrite.co.uk/o/hackney-flea-maket-4527233341']
+  decision: new
+  our_notes: null
+
+- id: diy-art-market-peckham
+  name: DIY Art Market — Peckham editions (Christmas Art Market, Christmas Ceramics Market, Valentine's Edition)
+  type: market
+  city: London
+  where: Copeland Park and Unit 8, 133 Copeland Road, Peckham, London SE15 3SN (indoor)
+  organiser: DIY Art Market (listed under Hackney Flea Market Ltd)
+  url: https://www.eventbrite.co.uk/e/diy-art-market-valentines-edition-tickets-1997326648773
+  apply_url: https://docs.google.com/forms/d/e/1FAIpQLSevqNkPC3PcdrhJ6ibD-1bt-KEHrpdmv3DNCmC_T58OGOtrwA/viewform
+  dates: DIY Christmas Art Market, Sat 12 Dec 2026 (from 11am, Copeland Park); Christmas Independent Ceramics Market,
+    Sun 13 Dec 2026 (from 11am, Copeland Park); DIY Art Market Valentines Edition, Sat 13 Feb 2027, 11am-5pm (Unit
+    8). £2 entry.
+  next_date: 2026-12-12
+  apply: {status: unknown, deadline: null, opens: null}
+  window: One general DIY Art Market form for all its markets (see diy-independent-jewellers-christmas-market)
+  fee_gbp: null
+  cost: Not published
+  commission_pct: null
+  requires: ['DIY Art Market Google Form: email, exhibitor name, website, Instagram, table size (full 6ft or half
+      3ft), table-share request']
+  watch_out: The Valentine's listing invites "over 150 national and international artists and independent publishers"
+    selling "original, affordable art". The form prefers applicants "actively creating new works".
+  fit: 1
+  why: 'Ruled out: an artists'' and publishers'' market, so resold vintage designer jewellery doesn''t fit. Recorded
+    because Valentine''s and Peckham Christmas searches surface it.'
+  checked: 2026-11-16
+  sources: ['https://www.eventbrite.co.uk/e/diy-art-market-valentines-edition-tickets-1997326648773', 'https://www.eventbrite.co.uk/e/diy-christmas-art-market-tickets-1963151466884',
+    'https://www.eventbrite.co.uk/e/christmas-independent-ceramics-market-tickets-1963164726544', 'https://www.eventbrite.co.uk/o/hackney-flea-maket-4527233341']
+  decision: new
+  our_notes: null
+
+- id: kingsland-market-dalston
+  name: Kingsland Market (Kingsland Waste), Dalston
+  type: market
+  city: London
+  where: Kingsland Road (A10), London E8, between Middleton Road and Richmond Road (open-air street market)
+  organiser: London Borough of Hackney — Markets Service
+  url: https://hackney.gov.uk/Kingsland-Market
+  apply_url: https://hackney.gov.uk/business-and-licensing/markets-and-street-trading/market-trading-licence
+  dates: Saturdays, 9am-4pm. Closed on public and bank holidays except Good Friday. A separate car boot sale runs
+    on Saturdays, 7am-2pm.
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: Rolling. Register interest through the council's market trading licence page, or apply through "Apply
+    to trade" on app.openmarkets.london.
+  fee_gbp: null
+  cost: Not published on the market page
+  commission_pct: null
+  requires: [Hackney market trading licence (via the licence page or app.openmarkets.london registration), 'Markets
+      Service contact: marketsservice@hackney.gov.uk, 020 8356 8550']
+  watch_out: Outdoor kerbside pitches every Saturday, winter included. It sits next to a car boot, so the frame
+    is second-hand and bric-a-brac. Jewellery isn't mentioned. The fee and licence conditions are not on the page.
+  fit: 2
+  why: The council is actively recruiting "vintage or second-hand clothing, retro items, antiques, collectibles"
+    traders in Dalston, so resellers are welcome and the route is simple. Held at 2 because it is an open-air second-hand
+    street market whose prices sit well below £85-£300.
+  checked: 2026-11-16
+  sources: ['https://hackney.gov.uk/Kingsland-Market']
+  decision: new
+  our_notes: null
+
+- id: capital-antique-market-pimlico
+  name: Capital Antique Market (Pimlico)
+  type: market
+  city: London
+  where: Pimlico, London SW1. The organiser's site says only "Pimlico"; listing sites place it at Pimlico Academy,
+    home of the Sunday Capital Carboot. Van, car and walk-in pitches; the van and car spots are outdoors.
+  organiser: Capital Antique Market (the team behind Capital Carboot Sale Pimlico, Sundays)
+  url: https://www.capitalantiquemarket.com/
+  apply_url: https://www.capitalantiquemarket.com/book
+  dates: First and third Saturday of each month. Sellers arrive from 9am; shoppers 10am-3pm, free entry. On 16 Nov
+    2026 the site said no upcoming events were scheduled. Listing sites give a June 2026 launch (6 or 20 June, unverified).
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: Book a pitch online by date once dates are published. Booking needs a seller account.
+  fee_gbp: null
+  cost: Not published (pitch prices sit behind the account login)
+  commission_pct: null
+  requires: [Seller account on capitalantiquemarket.com, 'Pitch type: van, car or walk-in (walk-in includes a free
+      table)']
+  watch_out: No dates were scheduled when checked, so it may be on a winter break or paused. Pitches are mostly
+    outdoors. No email is published, only a contact form and Instagram @capitalantiquemarketpimlico. A listing date
+    of 17 Jan 2027 (ianvisits) is a Sunday, which conflicts with the organiser's Saturday schedule.
+  fit: 2
+  why: Vintage jewellery is one of the organiser's named categories, and it is a low-commitment twice-monthly Saturday
+    in central London. But it is an antiques-and-flea crowd, mostly outdoors, with no dates or fees to check. Look
+    again in spring.
+  checked: 2026-11-16
+  sources: ['https://www.capitalantiquemarket.com/', 'https://www.capitalantiquemarket.com/book', 'https://www.ianvisits.co.uk/calendar/capital-antique-vintage-and-furniture-flea-market-430934/',
+    'https://ma.to/event/capital-antique-market-launch-06-june-2026']
   decision: new
   our_notes: null

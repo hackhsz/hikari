@@ -48,7 +48,8 @@ Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manches
 - **Camden Market:** the trader route is https://camdenmarket.com/join-camden (a Typeform, plus a trader-pack PDF).
 - **Second Life Markets** (curated vintage pop-ups, Brick Lane): https://secondlifemarkets.com. Each event links to its MarketMate application form.
 - **So Last Century** (vintage fairs at Goldsmiths, Dulwich, Deptford and Beckenham): https://www.solastcenturyfair.co.uk/traders shows every date's open or sold-out status through Oct 2027. Apply at info@solastcenturyfair.co.uk.
-- **Hackney Flea Market / Thriftmas** (Abney Public Hall): active, despite run 2's dead-end note. Its own site gives 403; use the Eventbrite organiser page https://www.eventbrite.co.uk/o/hackney-flea-maket-4527233341 (curl the JSON for every date). Contact hackneyfleamarket@gmail.com.
+- **Hackney Flea Market / Thriftmas / Giant London Flea / Big South London Flea** (one organiser): active, despite run 2's dead-end note. Its own site gives 403. Instead, curl the Eventbrite organiser page https://www.eventbrite.co.uk/o/hackney-flea-maket-4527233341 and regex `"name","url","start_date"`; that lists the next three months of events, with the venue in the JSON just after each. Contact hackneyfleamarket@gmail.com.
+- **Kingston First** (Ancient Market and Christmas): markets@kingstonfirst.co.uk. Start the hunt in summer.
 - **Other trader pages:**
   - Salad Days: https://www.saladdaysmarket.co.uk/apply-for-the-market (maker-leaning)
   - SoLo: https://www.solocraftfair.com/applications (makers)
@@ -69,6 +70,7 @@ Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manches
 - "Old Truman Brewery markets" leads to trumanbrewery.com/web/markets.pl (Backyard Market, Upmarket, Artisan, Brick Lane Vintage Market; no application route found yet)
 - Fetching an organiser's sitemap.xml (e.g. Alfies) surfaced recruitment posts that search did not.
 - Google Form og:description text gives full rules/prices (Urban Makers).
+- `London vintage market January 2027 traders wanted pop-up "2027" vintage fair stall booking` surfaced Pimlico and the Hackney Flea January dates (run 6).
 - For a linktree, curl it and pull the title/url pairs. For a Google Form, the `FB_PUBLIC_LOAD_DATA_` blob holds the full price list (run 5).
 - `London Christmas market December 2026 "vintage" traders wanted apply` surfaced the Christmas leads in run 4.
 
@@ -81,7 +83,8 @@ Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manches
 - Classic Car Boot Sale trade deck (Adobe-hosted PDF): unreadable
 
 ### Leads not yet researched
-- Christmas markets not yet checked: Pop Brixton, Peckham Levels, Mercato, Leicester Square, Canary Wharf, Islington, Kingston (season chalets), Westfield, Boxpark, Carnaby/Kingly, Duke of York Square
+- Christmas 2026, checked at runs 5–6 with no trader route: Mercato Metropolitano, Westfield, Boxpark, Carnaby/Kingly Court, Brockley, Islington (the council takes proposals from organisers only), Duke of York Square (food only), Herne Hill (food and crafts). Check these again from June 2027.
+- Unchecked city leads: BAaD Festive Market at the Barras, Glasgow (2 Dec); Bristol Folk House Craft & Flea; Zion Craft & Vintage, Bishopsworth
 - Satanic Flea AntiChristmas Fayre, UNLOCKED Shoreditch, 13 Dec (vintage stalls)
 - A Current Affair (high-end vintage fair, London debut March 2026): acurrentaffair.com is blocked by this environment's network rules
 - Not yet covered: student-union vintage fairs; So Last Century (Dulwich, Catford); Wembley Park; Go East's Ropewalk Festive Fridays form
