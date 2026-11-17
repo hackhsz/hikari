@@ -4,6 +4,8 @@
    The Share sheet on a product page (snippets/share-sheet) draws the piece as a finished picture in
    the browser, 1080×1440 (3:4: Instagram's feed takes it, and it sits well in a Story), three ways:
      ig      English: house, name, price, logo, karinekovtg.com · @handle, QR "Scan to shop"
+     threads the same picture as ig; Threads takes links, so its caption carries the piece's address,
+             and "Write a Threads post" opens Threads with that text ready (threads.com/intent/post)
      xhs     小红书: Chinese labels, "喜欢就私信我们", QR "扫码查看"
      wechat  微信: Chinese labels, the shop's WeChat ID, QR "微信扫码查看"
    The QR code opens the piece on the site (assets/qrcode.js, MIT, loaded when the sheet first draws).
@@ -104,7 +106,7 @@
   function draw(fmt, photo, logo, qr){
     var c = document.createElement("canvas"); c.width = W; c.height = H;
     var ctx = c.getContext("2d");
-    var zh = fmt !== "ig", top = W, L = 64;
+    var zh = fmt === "xhs" || fmt === "wechat", top = W, L = 64;
     var qs = 232, qx = W - 64 - qs, qy = top + 46, textR = qx - 56;
     ctx.fillStyle = C.paper; ctx.fillRect(0, 0, W, H);
     cover(ctx, photo, 0, 0, W, W);
@@ -116,17 +118,18 @@
     ctx.fillStyle = C.ink; ctx.font = "300 50px " + SERIF; ctx.fillText(D.price, L, top + 218);
     var lg = tinted(logo, C.ink, 210); ctx.drawImage(lg, L, top + 254);
 
-    var line = fmt === "ig" ? "KARINEKOVTG.COM" + (D.ig ? "  ·  @" + D.ig.toUpperCase() : "")
+    var en = !zh;
+    var line = en ? "KARINEKOVTG.COM" + (D.ig ? "  ·  @" + D.ig.toUpperCase() : "")
              : fmt === "wechat" ? (D.wechat ? "微信 " + D.wechat : "") : "喜欢就私信我们";
     if (line){
       ctx.fillStyle = C.nezu;
-      if (fmt === "ig"){ ctx.font = "500 21px " + SANS; spaced(ctx, line, L, top + 334, 3.5, "left"); }
+      if (en){ ctx.font = "500 21px " + SANS; spaced(ctx, line, L, top + 334, 3.5, "left"); }
       else { ctx.font = "500 25px " + CJK; ctx.fillText(line, L, top + 334); }
     }
 
     drawQR(ctx, qr, qx, qy, qs);
     ctx.fillStyle = C.nezu; ctx.textAlign = "center";
-    if (fmt === "ig"){ ctx.font = "600 19px " + SANS; spaced(ctx, "SCAN TO SHOP", qx + qs / 2, qy + qs + 46, 4, "center"); }
+    if (en){ ctx.font = "600 19px " + SANS; spaced(ctx, "SCAN TO SHOP", qx + qs / 2, qy + qs + 46, 4, "center"); }
     else { ctx.font = "500 23px " + CJK; ctx.fillText(fmt === "wechat" ? "微信扫码查看" : "扫码查看", qx + qs / 2, qy + qs + 48); }
     ctx.textAlign = "left";
     return c;
@@ -138,6 +141,7 @@
     var houseZh = /dior/i.test(D.house) ? "Dior" : /chanel/i.test(D.house) ? "香奈儿" : D.house;
     if (fmt === "xhs") return D.title + "｜" + D.house + " 中古  " + D.price + "\n伦敦中古首饰小店 Karineko Vintage，每件只有一件\n喜欢的话私信我们，或扫图上的二维码看详情" +
       "\n\n#中古首饰 #" + houseZh + "中古 #伦敦中古 #vintage #中古饰品";
+    if (fmt === "threads") return D.house + " — " + D.title + ", " + D.price + "\nOne of a kind, authenticity guaranteed. Found at Karineko Vintage, London" + (D.ig ? " (@" + D.ig + ")" : "") + "\n" + D.url;
     if (fmt === "wechat") return D.house + " " + D.title + "  " + D.price + "\n扫码看详情" + (D.wechat ? "，或加微信 " + D.wechat : "") + "\n" + D.url;
     return D.house + " — " + D.title + "\n" + D.price + "\n\nOne of a kind, authenticity guaranteed.\nShop it at karinekovtg.com" + (D.ig ? " · @" + D.ig : "") +
       "\n\n#vintage" + tag + " #vintagejewellery #" + tag + "vintage #londonvintage #karinekovintage";
@@ -148,6 +152,7 @@
   var img = sheet.querySelector("[data-share-preview]"), wait = sheet.querySelector("[data-share-wait]");
   var go = sheet.querySelector("[data-share-go]"), save = sheet.querySelector("[data-share-save]");
   var copyBtn = sheet.querySelector("[data-share-copy]"), note = sheet.querySelector("[data-share-note]");
+  var threads = sheet.querySelector("[data-share-threads]");
   var canFiles = !!(navigator.canShare && navigator.share);
 
   function make(fmt){
@@ -165,6 +170,7 @@
   }
   function show(fmt){
     current = fmt; note.textContent = "";
+    if (threads){ threads.hidden = fmt !== "threads"; threads.href = "https://www.threads.com/intent/post?text=" + encodeURIComponent(caption("threads")); }
     go.disabled = save.disabled = true; wait.hidden = false; img.hidden = true;
     var mine = busy = make(fmt);
     mine.then(function(r){
@@ -197,6 +203,7 @@
     });
   });
   copyBtn.addEventListener("click", function(){ copyCaption(); track("caption"); });
+  if (threads) threads.addEventListener("click", function(){ track("threads-post"); });
   [].forEach.call(sheet.querySelectorAll("input[name=share-fmt]"), function(r){
     r.addEventListener("change", function(){ if (r.checked) show(r.value); });
   });

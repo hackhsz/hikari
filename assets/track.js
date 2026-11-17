@@ -72,7 +72,7 @@
     var a=t.closest("a[href]");
     if(a){
       var h=a.getAttribute("href")||"", method=/wa\.me|whatsapp/i.test(h)?"whatsapp":/^mailto:/i.test(h)?"email":/^tel:/i.test(h)?"phone":
-        /instagram\.com/i.test(h)?"instagram":/xiaohongshu|xhslink/i.test(h)?"xiaohongshu":/pinterest\./i.test(h)?"pinterest":/weixin|wechat/i.test(h)?"wechat":"";
+        /instagram\.com/i.test(h)?"instagram":/threads\.(net|com)/i.test(h)?"threads":/xiaohongshu|xhslink/i.test(h)?"xiaohongshu":/pinterest\./i.test(h)?"pinterest":/weixin|wechat/i.test(h)?"wechat":"";
       if(method){ var pi=item(a); send("contact",{method:method,link_text:(a.textContent||"").trim().slice(0,60),items:pi?[pi]:[]}); return; }
     }
     var sh=t.closest("[data-share],[data-copy-link]");

@@ -111,6 +111,12 @@
       },
       {
         "type": "url",
+        "id": "social_threads",
+        "label": "Threads",
+        "info": "The shop's Threads profile, e.g. https://www.threads.com/@karineko_vtg (2026-11-17: customers find us there)."
+      },
+      {
+        "type": "url",
         "id": "social_x",
         "label": "X (Twitter)"
       },

@@ -1,11 +1,12 @@
 {%- comment -%}
-  Links to our accounts (Instagram, X, 小红书, WeChat, TikTok, Pinterest), from theme settings →
+  Links to our accounts (Instagram, Threads, X, 小红书, WeChat, TikTok, Pinterest), from theme settings →
   Social, in the footer and the phone menu. An empty setting shows nothing, so the
   handles can wait on the name (#57, #59). In the theme editor the empty ones show as a reminder.
   WeChat opens the QR dialog in snippets/dialogs.
 {%- endcomment -%}
 {%- capture items -%}
   {%- if settings.social_instagram != blank -%}<li><a href="{{ settings.social_instagram }}" target="_blank" rel="noopener me">Instagram</a></li>{%- elsif request.design_mode -%}<li class="social-unset">Instagram</li>{%- endif -%}
+  {%- if settings.social_threads != blank -%}<li><a href="{{ settings.social_threads }}" target="_blank" rel="noopener me">Threads</a></li>{%- elsif request.design_mode -%}<li class="social-unset">Threads</li>{%- endif -%}
   {%- if settings.social_x != blank -%}<li><a href="{{ settings.social_x }}" target="_blank" rel="noopener me">X</a></li>{%- elsif request.design_mode -%}<li class="social-unset">X</li>{%- endif -%}
   {%- if settings.social_xiaohongshu != blank -%}<li><a href="{{ settings.social_xiaohongshu }}" target="_blank" rel="noopener me" lang="zh">小红书</a></li>{%- elsif request.design_mode -%}<li class="social-unset" lang="zh">小红书</li>{%- endif -%}
   {%- if settings.wechat_id != blank or settings.wechat_qr -%}<li><a href="#wechat" data-sheet-open="wechat" aria-controls="wechat" aria-expanded="false">WeChat <span lang="zh">微信</span></a></li>{%- elsif request.design_mode -%}<li class="social-unset">WeChat</li>{%- endif -%}

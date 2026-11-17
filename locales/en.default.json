@@ -92,6 +92,7 @@
       "share": "Share",
       "save": "Save image",
       "copy_caption": "Copy caption",
+      "threads_post": "Write a Threads post",
       "copied": "Caption copied: paste it into your post.",
       "failed": "Couldn't make the picture. Please try again.",
       "hint": "Share opens your phone's apps and copies a caption. The QR code on the picture opens this piece."

@@ -1,6 +1,6 @@
 {%- comment -%}
   The Share sheet on a product page (owner, 2026-11-17): the piece as a finished picture for
-  Instagram, 小红书 and WeChat, made in the browser by assets/share-card.js from the data below,
+  Instagram, Threads, 小红书 and WeChat, made in the browser by assets/share-card.js from the data below,
   shared to the phone's apps in one tap, or saved, with a caption copied for that app. Every card
   carries a QR code that opens the piece on the site.
 
@@ -30,6 +30,7 @@
       <fieldset class="share-fmts">
         <legend>{{ 'products.share.where' | t }}</legend>
         <label><input type="radio" name="share-fmt" value="ig" checked><span>Instagram</span></label>
+        <label><input type="radio" name="share-fmt" value="threads"><span>Threads</span></label>
         <label><input type="radio" name="share-fmt" value="xhs"><span>小红书</span></label>
         <label><input type="radio" name="share-fmt" value="wechat"><span>{{ 'products.share.wechat' | t }}</span></label>
       </fieldset>
@@ -41,6 +42,7 @@
         <button type="button" class="btn" data-share-go hidden disabled>{{ 'products.share.share' | t }}</button>
         <button type="button" class="btn share-save" data-share-save disabled>{{ 'products.share.save' | t }}</button>
         <button type="button" class="share-copy" data-share-copy>{{ 'products.share.copy_caption' | t }}</button>
+        <a class="share-copy" data-share-threads href="https://www.threads.com/intent/post" target="_blank" rel="noopener" hidden>{{ 'products.share.threads_post' | t }}</a>
       </div>
       <p class="share-note" data-share-note aria-live="polite"></p>
       <p class="share-hint">{{ 'products.share.hint' | t }}</p>
