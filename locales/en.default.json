@@ -83,6 +83,20 @@
     }
   },
   "products": {
+    "share": {
+      "title": "Share this piece",
+      "where": "Where it's going",
+      "ig_post": "Instagram post",
+      "wechat": "WeChat",
+      "making": "Making the picture…",
+      "preview_alt": "Share picture of {{ title }}",
+      "share": "Share",
+      "save": "Save image",
+      "copy_caption": "Copy caption",
+      "copied": "Caption copied: paste it into your post.",
+      "failed": "Couldn't make the picture. Please try again.",
+      "hint": "Share opens your phone's apps and copies a caption. 小红书 doesn't allow links, so its picture carries the piece code {{ code }}: message us the code, or type it into our search."
+    },
     "product": {
       "sold_out": "Sold",
       "add_to_bag": "Add to bag",

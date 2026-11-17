@@ -83,6 +83,20 @@
     }
   },
   "products": {
+    "share": {
+      "title": "分享这件单品",
+      "where": "分享到",
+      "ig_post": "Instagram 帖子",
+      "wechat": "微信",
+      "making": "正在生成图片…",
+      "preview_alt": "{{ title }} 的分享图片",
+      "share": "分享",
+      "save": "保存图片",
+      "copy_caption": "复制文案",
+      "copied": "文案已复制，发布时粘贴即可。",
+      "failed": "图片没有生成成功，请再试一次。",
+      "hint": "点「分享」会打开手机里的应用，并自动复制文案。小红书不能放链接，所以图片上印着单品编号 {{ code }}：私信我们报编号，或在本站搜索编号。"
+    },
     "product": {
       "sold_out": "已售",
       "add_to_bag": "加入购物袋",

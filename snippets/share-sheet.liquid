@@ -1,0 +1,50 @@
+{%- comment -%}
+  The Share sheet on a product page (owner, 2026-11-17): the piece as a finished picture for
+  Instagram (Story, post), 小红书 and WeChat, made in the browser by assets/share-card.js from the
+  data below, shared to the phone's apps in one tap, or saved, with a caption copied for that app.
+
+  The piece code (KV + the last five digits of the product's id) goes on the 小红书 and WeChat cards,
+  where links are not welcome: people message it, and typing it into the site's search opens the
+  piece (templates/search.liquid). settings.xhs_name, when filled in, puts the shop's 小红书 name on
+  the card. Params: p (the product), status (snippets/status), piece (the piece's short name).
+{%- endcomment -%}
+{%- assign code_n = p.id | modulo: 100000 -%}
+{%- capture code_digits -%}0000{{ code_n }}{%- endcapture -%}
+{%- assign code = code_digits | slice: -5, 5 | prepend: 'KV-' -%}
+{%- assign ig = settings.social_instagram | split: 'instagram.com/' | last | remove: '/' | split: '?' | first -%}
+{%- if settings.social_instagram == blank -%}{%- assign ig = '' -%}{%- endif -%}
+{%- capture photo -%}{%- if p.featured_image -%}https:{{ p.featured_image | image_url: width: 1200 }}{%- endif -%}{%- endcapture -%}
+<dialog aria-labelledby="share-title" class="sheet sheet--center sheet--share" id="share" data-share-card
+  data-house="{{ p.vendor | escape }}" data-title="{{ piece | escape }}" data-price="{{ p.price | money | strip_html | escape }}"
+  data-status="{{ status }}" data-code="{{ code }}" data-url="{{ shop.url }}{{ p.url }}" data-photo="{{ photo }}"
+  data-logo="{{ 'logo-karineko-row.png' | asset_url }}" data-qr-src="{{ 'qrcode.js' | asset_url }}"
+  data-ig="{{ ig | escape }}" data-wechat="{{ settings.wechat_id | escape }}" data-xhs-name="{{ settings.xhs_name | escape }}"
+  data-copied="{{ 'products.share.copied' | t | escape }}" data-failed="{{ 'products.share.failed' | t | escape }}">
+  <div class="sheet-scrim" data-sheet-close></div>
+  <div class="sheet-panel" tabindex="-1">
+    <div class="sheet-head">
+      <h2 class="sheet-title" id="share-title">{{ 'products.share.title' | t }}</h2>
+      <button type="button" class="sheet-x" data-sheet-close>{{ 'general.close' | t }}</button>
+    </div>
+    <div class="share-body">
+      <fieldset class="share-fmts">
+        <legend>{{ 'products.share.where' | t }}</legend>
+        <label><input type="radio" name="share-fmt" value="story" checked><span>Instagram Story</span></label>
+        <label><input type="radio" name="share-fmt" value="post"><span>{{ 'products.share.ig_post' | t }}</span></label>
+        <label><input type="radio" name="share-fmt" value="xhs"><span>小红书</span></label>
+        <label><input type="radio" name="share-fmt" value="wechat"><span>{{ 'products.share.wechat' | t }}</span></label>
+      </fieldset>
+      <div class="share-stage">
+        <p class="share-wait" data-share-wait>{{ 'products.share.making' | t }}</p>
+        <img data-share-preview alt="{{ 'products.share.preview_alt' | t: title: piece | escape }}" hidden>
+      </div>
+      <div class="share-actions">
+        <button type="button" class="btn" data-share-go hidden disabled>{{ 'products.share.share' | t }}</button>
+        <button type="button" class="btn share-save" data-share-save disabled>{{ 'products.share.save' | t }}</button>
+        <button type="button" class="share-copy" data-share-copy>{{ 'products.share.copy_caption' | t }}</button>
+      </div>
+      <p class="share-note" data-share-note aria-live="polite"></p>
+      <p class="share-hint">{{ 'products.share.hint' | t: code: code }}</p>
+    </div>
+  </div>
+</dialog>

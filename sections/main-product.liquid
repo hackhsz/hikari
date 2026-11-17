@@ -191,7 +191,7 @@
           {%- capture page_url -%}{{ shop.url }}{{ p.url }}{%- endcapture -%}
           {%- capture pin_text -%}{{ p.vendor }}, {{ piece }}{%- endcapture -%}
           <span class="share" aria-label="{{ 'products.product.share' | t }}">
-            <button type="button" class="share-native" data-share hidden>{{ 'products.product.share' | t }}</button>
+            <button type="button" class="share-open" data-sheet-open="share" aria-controls="share" aria-expanded="false">{{ 'products.product.share' | t }}</button>
             {%- if p.featured_image -%}
               {%- capture media -%}https:{{ p.featured_image | image_url: width: 1200 }}{%- endcapture -%}
               <a href="https://www.pinterest.com/pin/create/button/?url={{ page_url | url_encode }}&media={{ media | url_encode }}&description={{ pin_text | url_encode }}"
@@ -211,6 +211,10 @@
     </div>
   </div>
 </section>
+{%- if settings.share_enabled -%}
+  {%- render 'share-sheet', p: p, status: status, piece: piece -%}
+  <script src="{{ 'share-card.js' | asset_url }}" defer></script>
+{%- endif -%}
 
 {%- comment -%} Full screen photographs. Filled by assets/hikari.js from the frames above. {%- endcomment -%}
 <dialog aria-label="{{ 'products.zoom.label' | t: title: p.title | escape_once }}" class="sheet sheet--zoom" id="zoom">

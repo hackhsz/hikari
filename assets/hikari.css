@@ -837,3 +837,26 @@ s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thicknes
 .mast{view-transition-name:mast}
 main .gal-slide:first-child .plate{view-transition-name:piece}
 @media (prefers-reduced-motion:reduce){@view-transition{navigation:none}}
+
+/* ── Share sheet (2026-11-17, snippets/share-sheet, assets/share-card.js) ──
+   Four places to share as quiet chips, the picture as it will be posted, then the actions.
+   The site's colours and type only. */
+.sheet--share .sheet-panel{width:min(560px,calc(100% - 32px))}
+.share-body{padding:0 24px 24px;overflow-y:auto}
+.share-fmts{border:0;padding:0;margin:0 0 16px;display:flex;flex-wrap:wrap;gap:8px}
+.share-fmts legend{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.6;padding:0;margin:0 0 8px}
+.share-fmts label{position:relative;cursor:pointer}
+.share-fmts input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.share-fmts span{display:inline-block;padding:8px 14px;border:1px solid var(--rule);border-radius:999px;font-size:13px;line-height:1.2;background:var(--paper)}
+.share-fmts input:checked + span{border-color:var(--sumi);background:var(--sumi);color:var(--paper)}
+.share-fmts input:focus-visible + span{outline:2px solid var(--midori);outline-offset:2px}
+.share-stage{display:grid;place-items:center;background:var(--paper-mid);border:1px solid var(--rule);min-height:240px;padding:16px;margin:0 0 16px}
+.share-stage img{display:block;max-width:100%;height:auto;max-height:min(52vh,560px);width:auto;box-shadow:0 1px 0 var(--rule),0 12px 28px color-mix(in srgb,var(--sumi) 12%,transparent)}
+.share-wait{margin:0;font-size:13px;color:var(--nezu)}
+.share-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.share-actions .btn{width:auto;flex:1 1 160px;padding:14px 22px}
+.share-actions .share-save{background:transparent;color:var(--sumi);box-shadow:inset 0 0 0 1px var(--sumi)}
+.share-actions .share-save[disabled]{box-shadow:none}
+.share-copy{background:none;border:0;padding:6px 2px;font:inherit;font-size:13px;color:var(--sumi);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.share-note{min-height:1.2em;margin:10px 0 0;font-size:13px;color:var(--midori)}
+.share-hint{margin:6px 0 0;font-size:12.5px;line-height:1.5;color:var(--nezu)}

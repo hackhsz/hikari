@@ -3,6 +3,24 @@
     <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" style="flex:1 1 240px;background:transparent;border:0;border-bottom:1px solid var(--rule);padding:11px 2px;font:inherit;font-size:18px">
     <button type="submit"><span>{{ 'general.search.submit' | t }}</span></button>
   </form>
+  {%- comment -%} A piece code from a share card (KV-12345, snippets/share-sheet): the piece whose id ends
+    in those five digits, shown first. Up to 250 pieces are looked through. {%- endcomment -%}
+  {%- assign code_hit = nil -%}
+  {%- assign t = search.terms | upcase | remove: 'KV' | remove: '-' | remove: ' ' | strip -%}
+  {%- assign n = t | plus: 0 -%}
+  {%- assign back = n | prepend: '0000' | slice: -5, 5 -%}
+  {%- if t.size == 5 and back == t -%}
+    {%- paginate collections.all.products by 250 -%}
+      {%- for p in collections.all.products -%}
+        {%- assign id5 = p.id | modulo: 100000 -%}
+        {%- if id5 == n -%}{%- assign code_hit = p -%}{%- break -%}{%- endif -%}
+      {%- endfor -%}
+    {%- endpaginate -%}
+  {%- endif -%}
+  {%- if code_hit -%}
+    <p class="eyebrow">KV-{{ t }}</p>
+    <div class="grid4" style="margin-bottom:40px">{%- render 'product-card', card_product: code_hit, tone: 'grey' -%}</div>
+  {%- endif -%}
   {%- if search.performed -%}
     <p class="eyebrow">{{ 'general.search.results' | t: count: search.results_count }}</p>
     <div class="grid4">{%- for item in search.results -%}{%- if item.object_type == 'product' -%}{%- render 'product-card', card_product: item, tone: 'grey' -%}{%- endif -%}{%- endfor -%}</div>
