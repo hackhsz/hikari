@@ -189,14 +189,8 @@
         {%- endif -%}
         {%- if settings.share_enabled -%}
           {%- capture page_url -%}{{ shop.url }}{{ p.url }}{%- endcapture -%}
-          {%- capture pin_text -%}{{ p.vendor }}, {{ piece }}{%- endcapture -%}
           <span class="share" aria-label="{{ 'products.product.share' | t }}">
             <button type="button" class="share-open" data-sheet-open="share" aria-controls="share" aria-expanded="false">{{ 'products.product.share' | t }}</button>
-            {%- if p.featured_image -%}
-              {%- capture media -%}https:{{ p.featured_image | image_url: width: 1200 }}{%- endcapture -%}
-              <a href="https://www.pinterest.com/pin/create/button/?url={{ page_url | url_encode }}&media={{ media | url_encode }}&description={{ pin_text | url_encode }}"
-                 target="_blank" rel="noopener">Pinterest</a>
-            {%- endif -%}
             <button type="button" data-copy-link="{{ page_url }}">{{ 'products.product.copy_link' | t }}</button>
           </span>
         {%- endif -%}

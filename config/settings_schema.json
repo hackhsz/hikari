@@ -121,12 +121,6 @@
       },
       {
         "type": "text",
-        "id": "xhs_name",
-        "label": "小红书号 (account ID, for share cards)",
-        "info": "The ID people type into 小红书's search to find the shop (profile: rednote ID). Shown on the 小红书 share card and in its caption. Leave empty to show only the piece code."
-      },
-      {
-        "type": "text",
         "id": "social_whatsapp",
         "label": "WhatsApp number",
         "info": "With the country code, e.g. +44 7700 900123. Shows a WhatsApp button on the Contact page."

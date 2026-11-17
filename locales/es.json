@@ -86,7 +86,6 @@
     "share": {
       "title": "Comparte esta pieza",
       "where": "Dónde compartir",
-      "ig_post": "Publicación de Instagram",
       "wechat": "WeChat",
       "making": "Creando la imagen…",
       "preview_alt": "Imagen para compartir de {{ title }}",
@@ -95,7 +94,7 @@
       "copy_caption": "Copiar texto",
       "copied": "Texto copiado: pégalo en tu publicación.",
       "failed": "No se pudo crear la imagen. Inténtalo de nuevo.",
-      "hint": "Compartir abre las apps de tu móvil y copia un texto. 小红书 no permite enlaces, así que su imagen lleva el código de la pieza {{ code }}: envíanos el código o escríbelo en nuestro buscador."
+      "hint": "Compartir abre las apps de tu móvil y copia un texto. El código QR de la imagen abre esta pieza."
     },
     "product": {
       "sold_out": "Vendida",

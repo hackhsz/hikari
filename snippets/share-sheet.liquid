@@ -1,12 +1,12 @@
 {%- comment -%}
   The Share sheet on a product page (owner, 2026-11-17): the piece as a finished picture for
-  Instagram (Story, post), 小红书 and WeChat, made in the browser by assets/share-card.js from the
-  data below, shared to the phone's apps in one tap, or saved, with a caption copied for that app.
+  Instagram, 小红书 and WeChat, made in the browser by assets/share-card.js from the data below,
+  shared to the phone's apps in one tap, or saved, with a caption copied for that app. Every card
+  carries a QR code that opens the piece on the site.
 
-  The piece code (KV + the last five digits of the product's id) goes on the 小红书 and WeChat cards,
-  where links are not welcome: people message it, and typing it into the site's search opens the
-  piece (templates/search.liquid). settings.xhs_name, when filled in, puts the shop's 小红书 name on
-  the card. Params: p (the product), status (snippets/status), piece (the piece's short name).
+  code (KV + the last five digits of the product's id) only names the saved file and the share event
+  now; the site's search still opens a piece from it (templates/search.liquid).
+  Params: p (the product), status (snippets/status), piece (the piece's short name).
 {%- endcomment -%}
 {%- assign code_n = p.id | modulo: 100000 -%}
 {%- capture code_digits -%}0000{{ code_n }}{%- endcapture -%}
@@ -18,7 +18,7 @@
   data-house="{{ p.vendor | escape }}" data-title="{{ piece | escape }}" data-price="{{ p.price | money | strip_html | escape }}"
   data-status="{{ status }}" data-code="{{ code }}" data-url="{{ shop.url }}{{ p.url }}" data-photo="{{ photo }}"
   data-logo="{{ 'logo-karineko-row.png' | asset_url }}" data-qr-src="{{ 'qrcode.js' | asset_url }}"
-  data-ig="{{ ig | escape }}" data-wechat="{{ settings.wechat_id | escape }}" data-xhs-name="{{ settings.xhs_name | escape }}"
+  data-ig="{{ ig | escape }}" data-wechat="{{ settings.wechat_id | escape }}"
   data-copied="{{ 'products.share.copied' | t | escape }}" data-failed="{{ 'products.share.failed' | t | escape }}">
   <div class="sheet-scrim" data-sheet-close></div>
   <div class="sheet-panel" tabindex="-1">
@@ -29,8 +29,7 @@
     <div class="share-body">
       <fieldset class="share-fmts">
         <legend>{{ 'products.share.where' | t }}</legend>
-        <label><input type="radio" name="share-fmt" value="story" checked><span>Instagram Story</span></label>
-        <label><input type="radio" name="share-fmt" value="post"><span>{{ 'products.share.ig_post' | t }}</span></label>
+        <label><input type="radio" name="share-fmt" value="ig" checked><span>Instagram</span></label>
         <label><input type="radio" name="share-fmt" value="xhs"><span>小红书</span></label>
         <label><input type="radio" name="share-fmt" value="wechat"><span>{{ 'products.share.wechat' | t }}</span></label>
       </fieldset>
@@ -44,7 +43,7 @@
         <button type="button" class="share-copy" data-share-copy>{{ 'products.share.copy_caption' | t }}</button>
       </div>
       <p class="share-note" data-share-note aria-live="polite"></p>
-      <p class="share-hint">{{ 'products.share.hint' | t: code: code }}</p>
+      <p class="share-hint">{{ 'products.share.hint' | t }}</p>
     </div>
   </div>
 </dialog>
