@@ -94,6 +94,14 @@
     send("view_cart",{currency:currency,value:value(items),items:items});
   });
 
+  /* Share cards (snippets/share-sheet, assets/share-card.js): GA4's own "share" event, which app
+     (method: story, post, xhs, wechat) and what was done (shared, saved, caption, share-tap). */
+  document.addEventListener("hikari:share",function(e){
+    var d=e.detail||{}; if(!d.action||d.action==="share-tap") return;
+    var it=item(document.querySelector("[data-track-page]"));
+    send("share",{method:d.format,content_type:"product",item_id:it?it.item_id:d.code,share_action:d.action,piece_code:d.code});
+  });
+
   /* Forms: a search, a sign-up, an enquiry. The fields stay on the page. */
   document.addEventListener("submit",function(e){
     var f=e.target; if(!f||!f.matches) return;
