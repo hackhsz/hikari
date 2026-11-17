@@ -21,7 +21,7 @@
     <p class="eyebrow">KV-{{ t }}</p>
     <div class="grid4" style="margin-bottom:40px">{%- render 'product-card', card_product: code_hit, tone: 'grey' -%}</div>
   {%- endif -%}
-  {%- if search.performed -%}
+  {%- if search.performed and code_hit == nil or search.results_count > 0 -%}
     <p class="eyebrow">{{ 'general.search.results' | t: count: search.results_count }}</p>
     <div class="grid4">{%- for item in search.results -%}{%- if item.object_type == 'product' -%}{%- render 'product-card', card_product: item, tone: 'grey' -%}{%- endif -%}{%- endfor -%}</div>
   {%- endif -%}
