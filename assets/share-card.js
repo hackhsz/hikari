@@ -159,7 +159,7 @@
       ctx.fillStyle = C.rule; ctx.fillRect(L, top + 184, R - L, 2);
       ctx.fillStyle = C.nezu; ctx.textAlign = "right"; ctx.fillText("喜欢就私信我们，报编号", R, top + 250);
       ctx.textAlign = "left"; ctx.font = "500 24px " + CJK;
-      ctx.fillText((D.xhsName ? "小红书 " + D.xhsName + "  ·  " : "") + "KARINEKO VINTAGE  ·  伦敦中古首饰", L, top + 318);
+      ctx.fillText((D.xhsName ? "小红书号 " + D.xhsName + "  ·  " : "") + "KARINEKO VINTAGE  ·  伦敦中古首饰", L, top + 318);
     } else {
       ctx.fillText(D.wechat ? "微信 " + D.wechat : "KARINEKO VINTAGE", L, top + 330);
       var qs = 260, qx = W - 64 - qs, qy = top + 34;
@@ -179,7 +179,7 @@
     var tag = (D.house || "").toLowerCase().replace(/^christian\s+/, "").replace(/[^a-z]/g, "");
     var houseZh = /dior/i.test(D.house) ? "Dior" : /chanel/i.test(D.house) ? "香奈儿" : D.house;
     var page = D.url;
-    if (fmt === "xhs") return D.title + "｜" + D.house + " 中古  " + D.price + "\n伦敦中古首饰小店 Karineko Vintage，每件只有一件\n喜欢的话私信我们，报编号 " + D.code +
+    if (fmt === "xhs") return D.title + "｜" + D.house + " 中古  " + D.price + "\n伦敦中古首饰小店 Karineko Vintage" + (D.xhsName ? "（小红书号 " + D.xhsName + "）" : "") + "，每件只有一件\n喜欢的话私信我们，报编号 " + D.code +
       "\n\n#中古首饰 #" + houseZh + "中古 #伦敦中古 #vintage #中古饰品";
     if (fmt === "wechat") return D.house + " " + D.title + "  " + D.price + "\n扫码看详情" + (D.wechat ? "，或加微信 " + D.wechat : "") + "，报编号 " + D.code + "\n" + page;
     return D.house + " — " + D.title + "\n" + D.price + "\n\nOne of a kind, authenticity guaranteed.\nShop it at karinekovtg.com" + (D.ig ? " · @" + D.ig : "") +

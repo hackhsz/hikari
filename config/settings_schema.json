@@ -122,8 +122,8 @@
       {
         "type": "text",
         "id": "xhs_name",
-        "label": "小红书 account name (for share cards)",
-        "info": "Shown on the 小红书 share card, so people can find the shop there. Leave empty to show only the piece code."
+        "label": "小红书号 (account ID, for share cards)",
+        "info": "The ID people type into 小红书's search to find the shop (profile: rednote ID). Shown on the 小红书 share card and in its caption. Leave empty to show only the piece code."
       },
       {
         "type": "text",
