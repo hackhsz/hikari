@@ -862,18 +862,24 @@ main .gal-slide:first-child .plate{view-transition-name:piece}
 .share-hint{margin:6px 0 0;font-size:12.5px;line-height:1.5;color:var(--nezu)}
 
 /* ── Home page, 18 Nov 2026 (owner asked for each of these) ─────────────────────────────────
-   The banner's words: the heading in Aboreto, the three short lines in a handwriting face
-   (Dawning of a New Day, the nearest free face to the owner's sample). Both are settings on the
-   banner (sections/brand-hero: heading_face, text_face), loaded on the home page only
+   The banner's words: a typeface setting each for the heading and for the three short lines
+   (sections/brand-hero: heading_face, text_face). The owner first had the heading in Aboreto and the
+   lines in handwriting (Dawning of a New Day, the nearest free face to their sample), then swapped
+   them: the heading in handwriting, the lines in Aboreto. Both faces load on the home page only
    (layout/theme.liquid). Latin pages only: Chinese, Japanese and Arabic keep the theme's faces, as
    neither font has those letters, and letter spacing would break Arabic joins. */
-:root:not(:lang(zh)):not(:lang(ja)):not(:lang(ar)) .hero--aboreto .hero-h{font-family:"Aboreto",var(--serif);font-weight:400;
+:root:not(:lang(zh)):not(:lang(ja)):not(:lang(ar)) .hero--h-hand .hero-h{font-family:"Dawning of a New Day",cursive;font-weight:400;
+  font-size:clamp(40px,5.4vw,70px);line-height:1.12;letter-spacing:0;max-width:20ch;margin-bottom:clamp(14px,1.8vw,22px)}
+:root:not(:lang(zh)):not(:lang(ja)):not(:lang(ar)) .hero--h-aboreto .hero-h{font-family:"Aboreto",var(--serif);font-weight:400;
   font-size:clamp(23px,3.7vw,44px);line-height:1.22;letter-spacing:.06em;max-width:26ch}
-:root:not(:lang(zh)):not(:lang(ja)):not(:lang(ar)) .hero--hand .hero-b p{font-family:"Dawning of a New Day",cursive;
+:root:not(:lang(zh)):not(:lang(ja)):not(:lang(ar)) .hero--t-aboreto .hero-b p{font-family:"Aboreto",var(--serif);
+  font-size:clamp(12px,1.1vw,14px);line-height:2.1;letter-spacing:.16em;opacity:.8}
+:root:not(:lang(zh)):not(:lang(ja)):not(:lang(ar)) .hero--t-hand .hero-b p{font-family:"Dawning of a New Day",cursive;
   font-size:clamp(21px,2.3vw,26px);line-height:1.32;letter-spacing:.01em;opacity:.86;margin-bottom:2px}
 
-/* The shell (snippets/conch): a spiral drawn in one thin line, a pearl at its mouth. It draws itself
-   once on load, the pearl rolls out and glints; it glints again later. Reduced motion: drawn already. */
+/* The shell (snippets/conch): a spiral drawn in one thin line, a pearl at its mouth. The spiral draws
+   from its centre, the chambers and the lip follow, the pearl rolls out and glints. Reduced motion:
+   the small ones are drawn already; the large opening never plays (its script checks). */
 .conch{display:block;overflow:visible;color:currentColor;height:auto}
 .conch--above{width:clamp(66px,7vw,92px);margin:0 auto clamp(14px,2vw,22px)}
 .conch--picture{position:absolute;inset-inline-end:clamp(16px,4vw,56px);bottom:clamp(14px,3vw,40px);width:clamp(86px,11vw,150px);color:#fff;
@@ -883,16 +889,46 @@ main .gal-slide:first-child .plate{view-transition-name:piece}
 .conch .c-pearl{fill:url(#conch-pearl);stroke:currentColor;stroke-width:.55}
 .conch .c-spark{fill:#fff;stroke:none;opacity:0}
 @media (prefers-reduced-motion:no-preference){
-  .conch .c-spiral,.conch .c-lip,.conch .c-sep{stroke-dasharray:1;stroke-dashoffset:1;animation:conch-draw 2.1s cubic-bezier(.45,.05,.25,1) .25s forwards}
-  .conch .c-lip{animation-duration:.45s;animation-delay:2.15s}
-  .conch .c-sep{animation-duration:.5s;animation-delay:calc(1.1s + var(--i,0) * .1s)}
-  .conch .c-pearl-g{opacity:0;transform:translate(var(--fx),var(--fy)) scale(.35);transform-box:fill-box;transform-origin:center;
+  .conch:not(.conch--intro) .c-spiral,.conch:not(.conch--intro) .c-lip,.conch:not(.conch--intro) .c-sep{stroke-dasharray:1 2;stroke-dashoffset:1.05;animation:conch-draw 2.1s cubic-bezier(.45,.05,.25,1) .25s forwards}
+  .conch:not(.conch--intro) .c-lip{animation-duration:.45s;animation-delay:2.15s}
+  .conch:not(.conch--intro) .c-sep{animation-duration:.5s;animation-delay:calc(1.1s + var(--i,0) * .1s)}
+  .conch:not(.conch--intro) .c-pearl-g{opacity:0;transform:translate(var(--fx),var(--fy)) scale(.35);transform-box:fill-box;transform-origin:center;
     animation:conch-roll 1s cubic-bezier(.2,.75,.25,1) 2.45s forwards}
-  .conch .c-spark{transform-box:fill-box;transform-origin:center;animation:conch-glint 1.3s ease-out 3.35s,conch-glint 1.3s ease-out 9.5s}
+  .conch:not(.conch--intro) .c-spark{transform-box:fill-box;transform-origin:center;animation:conch-glint 1.3s ease-out 3.35s,conch-glint 1.3s ease-out 9.5s}
 }
 @keyframes conch-draw{to{stroke-dashoffset:0}}
 @keyframes conch-roll{to{opacity:1;transform:none}}
 @keyframes conch-glint{0%{opacity:0;transform:scale(.2) rotate(0)}35%{opacity:1;transform:scale(1) rotate(30deg)}100%{opacity:0;transform:scale(.3) rotate(75deg)}}
+
+/* The opening (sections/brand-hero, shell "intro"): a veil the colour of the page over the picture, a
+   large shell drawn on it in a hairline; then the veil opens in a circle from the pearl (--ix/--iy,
+   set by the section's script) and fades, and the photograph comes through. The veil exists only
+   while the section has .is-intro, which only that script adds. */
+@property --iris{syntax:"<length>";inherits:false;initial-value:-70px}
+.hero-veil{display:none}
+.hero.is-intro .hero-veil{display:grid;place-items:center;position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:var(--sec-bg,#FAF8F3);color:var(--sec-fg,#1C1B18)}
+.conch--intro{width:min(42vw,640px);margin-top:-1%}
+.conch--intro path{stroke-width:.16}
+.conch--intro .c-sep{stroke-width:.14;opacity:.42}
+.conch--intro .c-pearl{stroke-width:.14}
+@media (max-width:749px){
+  .conch--intro{width:62vw}
+  .conch--intro path{stroke-width:.3}
+  .conch--intro .c-sep{stroke-width:.26}
+  .conch--intro .c-pearl{stroke-width:.24}
+}
+.hero.is-intro .conch--intro :is(.c-spiral,.c-lip,.c-sep){stroke-dasharray:1 2;stroke-dashoffset:1.05;animation:conch-draw 1.45s cubic-bezier(.45,.05,.25,1) .15s forwards}
+.hero.is-intro .conch--intro .c-sep{animation-duration:.5s;animation-delay:calc(.85s + var(--i,0) * .09s)}
+.hero.is-intro .conch--intro .c-lip{animation-duration:.4s;animation-delay:1.45s}
+.hero.is-intro .conch--intro .c-pearl-g{opacity:0;transform:translate(var(--fx),var(--fy)) scale(.35);transform-box:fill-box;transform-origin:center;
+  animation:conch-roll .8s cubic-bezier(.2,.75,.25,1) 1.75s forwards}
+.hero.is-intro .conch--intro .c-spark{transform-box:fill-box;transform-origin:center;animation:conch-glint .9s ease-out 2.3s}
+.hero.is-open .hero-veil{-webkit-mask:radial-gradient(circle at var(--ix,50%) var(--iy,50%),transparent var(--iris),#000 calc(var(--iris) + 70px));
+  mask:radial-gradient(circle at var(--ix,50%) var(--iy,50%),transparent var(--iris),#000 calc(var(--iris) + 70px));
+  animation:veil-iris 1.3s cubic-bezier(.6,0,.3,1) forwards,veil-fade .4s ease-in .95s forwards}
+@keyframes veil-iris{to{--iris:150vmax}}
+@keyframes veil-fade{to{opacity:0}}
 
 /* Shop by category and Shop by brand as line icons, on the page itself (no tile colour). Three looks,
    a setting on each section: line (the icon alone), ring (in a thin circle), chip (a small pill).
@@ -922,12 +958,12 @@ main .gal-slide:first-child .plate{view-transition-name:piece}
 }
 .icon-tile:focus-visible{outline:2px solid var(--midori);outline-offset:4px;border-radius:6px}
 @media (prefers-reduced-motion:no-preference){
-  .icon-tile .jicon path{stroke-dasharray:1;stroke-dashoffset:0}
-  .icon-tiles.is-waiting .jicon path{stroke-dashoffset:1}
+  .icon-tile .jicon path{stroke-dasharray:1 2;stroke-dashoffset:0}
+  .icon-tiles.is-waiting .jicon path{stroke-dashoffset:1.05}
   .icon-tiles.is-in .jicon path{animation:jicon-draw 1.1s cubic-bezier(.45,.05,.25,1) both;animation-delay:calc(var(--n,0) * .08s)}
   /* a separate name, so a second hover plays it again (the entrance class is gone by then: assets/hikari.js) */
   @media (hover:hover){.icon-tiles:not(.is-in) .icon-tile:hover .jicon path{animation:jicon-redraw .9s cubic-bezier(.45,.05,.25,1) both}}
   .icon-tiles:not(.is-in) .icon-tile:focus-visible .jicon path{animation:jicon-redraw .9s cubic-bezier(.45,.05,.25,1) both}
 }
-@keyframes jicon-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
-@keyframes jicon-redraw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes jicon-draw{from{stroke-dashoffset:1.05}to{stroke-dashoffset:0}}
+@keyframes jicon-redraw{from{stroke-dashoffset:1.05}to{stroke-dashoffset:0}}

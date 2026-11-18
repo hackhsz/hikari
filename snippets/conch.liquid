@@ -1,24 +1,26 @@
 {%- comment -%}
   The shell (海螺, owner 2026-11-18: "a minimalist conch that connects with our jewellery"). A spiral
-  shell in one thin line, with a pearl at its mouth: the sea, then the jewel. On load the spiral draws
-  from its centre outwards, the chambers and the lip follow, then the pearl rolls out of the mouth and
-  glints; it glints once more a little later. Decorative (aria-hidden). With reduced motion the
-  finished drawing shows at once (assets/hikari.css, "The shell").
-  Geometry, generated rather than drawn: r = 40·e^(0.26θ) over 2.4 turns, turned 135° so the mouth
-  faces down and left; the lip bows out along the spiral's tangent at the mouth, and the pearl sits
-  17.6 units along that tangent (--fx/--fy: where it rolls from).
-  place: 'above' (under the picture, above the heading) or 'picture' (on the photograph, in white).
+  shell in one thin line, with a pearl at its mouth: the sea, then the jewel. The spiral draws from its
+  centre outwards, the chambers and the lip follow, then the pearl rolls out of the mouth and glints.
+  Decorative (aria-hidden). With reduced motion it never moves (assets/hikari.css, "The shell").
+  Geometry, generated rather than drawn: r = 40·e^(0.26θ) over 2.4 turns, as smooth curves (an eighth
+  of a turn each, so it stays clean drawn large), turned 135° so the mouth faces down and left; the lip
+  bows out along the spiral's tangent at the mouth, and the pearl sits 17.6 units along that tangent
+  (--fx/--fy: where it rolls from).
+  place: 'intro' (large, on the banner as the page opens: sections/brand-hero, owner 2026-11-18 "a
+  海螺 that is large and minimalist"), 'above' (small, above the heading) or 'picture' (small, white,
+  in a corner of the photograph).
 {%- endcomment -%}
 <svg class="conch conch--{{ place | default: 'above' }}" viewBox="19.8 34.1 69.6 54.6" aria-hidden="true" focusable="false" style="--fx:15.2px;--fy:8.9px">
   <defs><radialGradient id="conch-pearl" cx="36%" cy="32%" r="72%"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#F2EDE3"/><stop offset="1" stop-color="#D6CBB8"/></radialGradient></defs>
-  <path class="c-spiral" pathLength="1" d="M64.8,51.9 64.8,51.9 64.8,52.0 64.8,52.0 64.8,52.0 64.8,52.1 64.8,52.1 64.9,52.2 64.9,52.2 64.9,52.3 64.9,52.3 64.8,52.4 64.8,52.4 64.8,52.4 64.8,52.5 64.8,52.5 64.8,52.6 64.8,52.6 64.7,52.7 64.7,52.7 64.7,52.8 64.6,52.8 64.6,52.9 64.6,52.9 64.5,52.9 64.5,53.0 64.5,53.0 64.4,53.1 64.4,53.1 64.3,53.1 64.3,53.1 64.2,53.2 64.1,53.2 64.1,53.2 64.0,53.2 64.0,53.3 63.9,53.3 63.8,53.3 63.8,53.3 63.7,53.3 63.6,53.3 63.6,53.3 63.5,53.3 63.4,53.3 63.3,53.2 63.3,53.2 63.2,53.2 63.1,53.2 63.1,53.2 63.0,53.1 62.9,53.1 62.9,53.0 62.8,53.0 62.7,52.9 62.7,52.9 62.6,52.8 62.5,52.8 62.5,52.7 62.4,52.6 62.4,52.6 62.3,52.5 62.3,52.4 62.2,52.3 62.2,52.2 62.2,52.1 62.1,52.1 62.1,52.0 62.1,51.9 62.1,51.8 62.1,51.7 62.1,51.6 62.1,51.5 62.1,51.4 62.1,51.3 62.1,51.1 62.1,51.0 62.1,50.9 62.2,50.8 62.2,50.7 62.3,50.6 62.3,50.5 62.4,50.4 62.4,50.3 62.5,50.2 62.6,50.1 62.6,50.0 62.7,49.9 62.8,49.8 62.9,49.7 63.0,49.7 63.1,49.6 63.2,49.5 63.4,49.4 63.5,49.4 63.6,49.3 63.7,49.3 63.9,49.2 64.0,49.2 64.2,49.1 64.3,49.1 64.5,49.1 64.6,49.1 64.8,49.1 64.9,49.1 65.1,49.1 65.2,49.1 65.4,49.2 65.6,49.2 65.7,49.2 65.9,49.3 66.0,49.4 66.2,49.4 66.4,49.5 66.5,49.6 66.7,49.7 66.8,49.8 67.0,49.9 67.1,50.1 67.2,50.2 67.4,50.3 67.5,50.5 67.6,50.6 67.7,50.8 67.8,51.0 67.9,51.2 68.0,51.4 68.1,51.6 68.2,51.8 68.2,52.0 68.3,52.2 68.3,52.4 68.3,52.6 68.4,52.9 68.4,53.1 68.4,53.3 68.4,53.6 68.3,53.8 68.3,54.1 68.2,54.3 68.2,54.5 68.1,54.8 68.0,55.0 67.9,55.3 67.8,55.5 67.6,55.7 67.5,56.0 67.3,56.2 67.2,56.4 67.0,56.6 66.8,56.8 66.6,57.0 66.3,57.2 66.1,57.4 65.8,57.6 65.6,57.7 65.3,57.9 65.0,58.0 64.7,58.1 64.4,58.2 64.1,58.3 63.8,58.4 63.5,58.5 63.1,58.5 62.8,58.6 62.4,58.6 62.1,58.6 61.7,58.6 61.4,58.5 61.0,58.5 60.6,58.4 60.3,58.3 59.9,58.2 59.5,58.0 59.2,57.9 58.8,57.7 58.5,57.5 58.1,57.3 57.8,57.1 57.5,56.8 57.1,56.5 56.8,56.2 56.5,55.9 56.2,55.6 56.0,55.2 55.7,54.9 55.5,54.5 55.2,54.1 55.0,53.7 54.8,53.2 54.7,52.8 54.5,52.3 54.4,51.8 54.3,51.3 54.2,50.8 54.1,50.3 54.1,49.8 54.1,49.3 54.1,48.7 54.2,48.2 54.2,47.6 54.4,47.1 54.5,46.5 54.7,46.0 54.8,45.4 55.1,44.9 55.3,44.4 55.6,43.8 55.9,43.3 56.3,42.8 56.7,42.3 57.1,41.8 57.5,41.3 58.0,40.9 58.5,40.4 59.0,40.0 59.5,39.6 60.1,39.2 60.7,38.9 61.3,38.6 62.0,38.3 62.7,38.0 63.4,37.8 64.1,37.6 64.8,37.4 65.6,37.3 66.3,37.2 67.1,37.1 67.9,37.1 68.7,37.1 69.5,37.2 70.4,37.3 71.2,37.4 72.0,37.6 72.8,37.9 73.7,38.2 74.5,38.5 75.3,38.9 76.1,39.3 76.9,39.7 77.7,40.3 78.4,40.8 79.2,41.4 79.9,42.1 80.6,42.7 81.3,43.5 81.9,44.3 82.5,45.1 83.1,45.9 83.6,46.8 84.1,47.8 84.6,48.7 85.0,49.8 85.3,50.8 85.6,51.9 85.9,53.0 86.1,54.1 86.3,55.2 86.4,56.4 86.4,57.6 86.4,58.8 86.3,60.0 86.2,61.3 86.0,62.5 85.7,63.7 85.3,65.0 84.9,66.2 84.5,67.5 83.9,68.7 83.3,69.9 82.6,71.1 81.9,72.3 81.1,73.4 80.2,74.5 79.2,75.6 78.2,76.7 77.1,77.7 75.9,78.7 74.7,79.6 73.5,80.5 72.1,81.3 70.7,82.1 69.3,82.8 67.8,83.4 66.2,84.0 64.6,84.4 63.0,84.9 61.3,85.2 59.6,85.5 57.8,85.6 56.0,85.7 54.2,85.7 52.4,85.6 50.5,85.4 48.7,85.1 46.8,84.7 44.9,84.3 43.1,83.7 41.2,83.0 39.3,82.2 37.5,81.3 35.7,80.3"/>
-  <path class="c-sep" pathLength="1" style="--i:0" d="M64.0,84.6 Q58.2,71.5 64.0,58.4"/>
-  <path class="c-sep" pathLength="1" style="--i:1" d="M82.8,70.8 Q71.9,66.6 67.7,55.7"/>
-  <path class="c-sep" pathLength="1" style="--i:2" d="M85.7,52.0 Q77.0,55.8 68.2,52.0"/>
-  <path class="c-sep" pathLength="1" style="--i:3" d="M76.5,39.5 Q73.7,46.7 66.4,49.6"/>
-  <path class="c-sep" pathLength="1" style="--i:4" d="M64.0,37.6 Q66.6,43.4 64.0,49.2"/>
-  <path class="c-sep" pathLength="1" style="--i:5" d="M55.7,43.7 Q60.5,45.6 62.4,50.4"/>
-  <path class="c-sep" pathLength="1" style="--i:6" d="M54.4,52.0 Q58.3,50.3 62.1,52.0"/>
-  <path class="c-lip" pathLength="1" d="M35.7,80.3 Q39.3,64.3 58.5,57.5"/>
+  <path class="c-spiral" pathLength="1" d="M64.78 51.88C64.87 52.06 64.88 52.31 64.8 52.54C64.71 52.78 64.53 53.01 64.26 53.15C63.98 53.28 63.63 53.33 63.27 53.23C62.92 53.13 62.56 52.87 62.33 52.48C62.1 52.1 62 51.58 62.12 51.04C62.23 50.5 62.58 49.96 63.13 49.58C63.68 49.2 64.44 49 65.24 49.13C66.05 49.25 66.88 49.71 67.49 50.49C68.1 51.27 68.47 52.37 68.36 53.57C68.25 54.77 67.65 56.05 66.56 57.02C65.46 57.99 63.87 58.63 62.09 58.58C60.31 58.53 58.36 57.77 56.82 56.24C55.29 54.72 54.19 52.42 54.1 49.79C54.01 47.16 54.95 44.21 57.07 41.8C59.18 39.39 62.47 37.55 66.35 37.18C70.23 36.8 74.67 37.91 78.43 40.81C82.18 43.7 85.2 48.4 86.12 54.09C87.04 59.79 85.8 66.46 81.87 72.27C77.95 78.09 71.29 82.98 62.97 84.86C54.64 86.75 44.67 85.54 35.72 80.28"/>
+  <path class="c-sep" pathLength="1" style="--i:0" d="M64 84.61Q58.23 71.49 64 58.37"/>
+  <path class="c-sep" pathLength="1" style="--i:1" d="M82.8 70.8Q71.91 66.56 67.67 55.67"/>
+  <path class="c-sep" pathLength="1" style="--i:2" d="M85.68 52Q76.95 55.84 68.23 52"/>
+  <path class="c-sep" pathLength="1" style="--i:3" d="M76.5 39.5Q73.68 46.74 66.44 49.56"/>
+  <path class="c-sep" pathLength="1" style="--i:4" d="M64 37.59Q66.55 43.39 64 49.19"/>
+  <path class="c-sep" pathLength="1" style="--i:5" d="M55.69 43.69Q60.51 45.56 62.38 50.38"/>
+  <path class="c-sep" pathLength="1" style="--i:6" d="M54.42 52Q58.28 50.3 62.13 52"/>
+  <path class="c-lip" pathLength="1" d="M35.72 80.28Q39.33 64.35 58.48 57.52"/>
   <g class="c-pearl-g"><circle class="c-pearl" cx="31.9" cy="60.0" r="5.6"/><path class="c-spark" d="M30.2 54.7Q30.6 57.5 33.4 57.9Q30.6 58.2 30.2 61.1Q29.9 58.2 27.0 57.9Q29.9 57.5 30.2 54.7Z"/></g>
 </svg>

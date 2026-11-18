@@ -26,9 +26,9 @@
         "link2": "/pages/private-viewing",
         "layout": "stacked",
         "show_link": false,
-        "heading_face": "aboreto",
-        "text_face": "hand",
-        "shell": "above"
+        "heading_face": "hand",
+        "text_face": "aboreto",
+        "shell": "intro"
       }
     },
     "alcove": {

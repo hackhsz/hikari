@@ -21,10 +21,20 @@
   Shopify) goes to the contact page instead, so the button never leads nowhere. The test is on
   the handle: for a missing handle Shopify can still answer pages['x'] with an object.
 
-  Owner, 2026-11-18: the heading in Aboreto and the three lines in handwriting (heading_face,
-  text_face; styles at the end of assets/hikari.css), only the viewing link under them, centred
-  (show_link off: a setting rather than an empty label, for the same reason as one_line above), and
-  the shell (snippets/conch) above the heading.
+  Owner, 2026-11-18: only the viewing link under the words, centred (show_link off: a setting rather
+  than an empty label, for the same reason as one_line above). The heading and the three lines each
+  have a typeface setting (heading_face, text_face; styles at the end of assets/hikari.css). First
+  the heading was in Aboreto and the lines in handwriting; the owner then swapped them the same day:
+  the heading in handwriting, the lines in Aboreto.
+
+  The opening (shell "intro", owner 2026-11-18: "a 海螺 that is large and minimalist" on the banner):
+  the picture starts under a veil the colour of the page, a large shell (snippets/conch) draws itself
+  on it and its pearl rolls out and glints; then the veil opens in a circle from the pearl and the
+  photograph comes through. The script just below the opening tag runs before the picture is parsed,
+  so nothing flashes. It plays once per visit (per tab), never with reduced motion, nor when the page
+  opens scrolled down; a click, key, tap or scroll opens it at once, and it opens after 7 seconds
+  whatever happens. Without JavaScript there is no veil. The photograph loads and paints underneath
+  all along, so the page is no slower; the veil waits for it before opening.
 {%- endcomment -%}
 {%- liquid
   assign img = section.settings.image
@@ -52,7 +62,38 @@
       assign ratio = 0.5625
   endcase
 -%}
-<section class="hero{% if split %} hero--split{% endif %}{% if line %} hero--line{% endif %}{% if section.settings.heading_face == 'aboreto' %} hero--aboreto{% endif %}{% if section.settings.text_face == 'hand' %} hero--hand{% endif %}" id="brand" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+<section class="hero{% if split %} hero--split{% endif %}{% if line %} hero--line{% endif %}{% if section.settings.heading_face != 'theme' %} hero--h-{{ section.settings.heading_face }}{% endif %}{% if section.settings.text_face != 'theme' %} hero--t-{{ section.settings.text_face }}{% endif %}" id="brand" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+  {%- if section.settings.shell == 'intro' -%}
+  <script>
+    (function (s) {
+      try {
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches || scrollY > 60 || sessionStorage.getItem('kv-shell')) return;
+        sessionStorage.setItem('kv-shell', '1');
+      } catch (e) { return; }
+      s.classList.add('is-intro');
+      var t0 = Date.now(), opened = false;
+      function open() {
+        if (opened) return; opened = true;
+        var v = s.querySelector('.hero-veil'), p = s.querySelector('.hero-veil .c-pearl');
+        if (v && p) {
+          var a = v.getBoundingClientRect(), b = p.getBoundingClientRect();
+          v.style.setProperty('--ix', Math.round(b.left + b.width / 2 - a.left) + 'px');
+          v.style.setProperty('--iy', Math.round(b.top + b.height / 2 - a.top) + 'px');
+        }
+        s.classList.add('is-open');
+        setTimeout(function () { s.classList.remove('is-intro', 'is-open'); }, 1500);
+      }
+      function go() { setTimeout(open, Math.max(0, 2850 - (Date.now() - t0))); }
+      function ready() {
+        var img = s.querySelector('.hero-media img');
+        if (img && img.decode) img.decode().then(go, go); else go();
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready); else ready();
+      ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(function (e) { addEventListener(e, open, { once: true, passive: true }); });
+      setTimeout(open, 7000);
+    })(document.currentScript.parentNode);
+  </script>
+  {%- endif -%}
   {%- if split -%}<div class="shell hero-split">{%- endif -%}
   <div class="hero-media hero-media--{{ fit }}{% if img_m %} has-mobile{% endif %}{% unless img %} is-empty{% endunless %}">
     {%- if img and split -%}
@@ -84,6 +125,7 @@
       {%- endif -%}
     {%- endif -%}
     {%- if section.settings.shell == 'picture' -%}{%- render 'conch', place: 'picture' -%}{%- endif -%}
+    {%- if section.settings.shell == 'intro' -%}<div class="hero-veil" aria-hidden="true">{%- render 'conch', place: 'intro' -%}</div>{%- endif -%}
   </div>
 
   <div class="{% unless split %}shell {% endunless %}hero-txt">
@@ -139,13 +181,13 @@
     { "type": "richtext", "id": "body", "label": "Text",
       "default": "<p>Handpicked vintage pieces from Japan.</p><p>100% Authenticity Guaranteed.</p><p>London showings by appointment only.</p>" },
     { "type": "select", "id": "heading_face", "label": "Heading typeface", "default": "theme",
-      "options": [ { "value": "theme", "label": "The site's serif" }, { "value": "aboreto", "label": "Aboreto (capitals)" } ],
+      "options": [ { "value": "theme", "label": "The site's serif" }, { "value": "hand", "label": "Handwriting" }, { "value": "aboreto", "label": "Aboreto (capitals)" } ],
       "info": "English and Spanish pages. Chinese, Japanese and Arabic keep the site's faces." },
     { "type": "select", "id": "text_face", "label": "Text typeface", "default": "theme",
-      "options": [ { "value": "theme", "label": "The site's sans" }, { "value": "hand", "label": "Handwriting" } ] },
+      "options": [ { "value": "theme", "label": "The site's sans" }, { "value": "aboreto", "label": "Aboreto (capitals)" }, { "value": "hand", "label": "Handwriting" } ] },
     { "type": "select", "id": "shell", "label": "Shell drawing", "default": "none",
-      "options": [ { "value": "none", "label": "None" }, { "value": "above", "label": "Above the heading" }, { "value": "picture", "label": "On the picture" } ],
-      "info": "A spiral shell with a pearl that draws itself once as the page opens." },
+      "options": [ { "value": "none", "label": "None" }, { "value": "intro", "label": "Large, opening the picture" }, { "value": "above", "label": "Small, above the heading" }, { "value": "picture", "label": "Small, on the picture" } ],
+      "info": "A spiral shell with a pearl that draws itself as the page opens. Large: it draws on a veil over the picture, which then opens from the pearl, once per visit." },
     { "type": "checkbox", "id": "show_link", "label": "Show the first link", "default": true },
     { "type": "text", "id": "link_label", "label": "Link label", "default": "Explore the collection" },
     { "type": "url", "id": "link", "label": "Link", "default": "/collections/all" },
