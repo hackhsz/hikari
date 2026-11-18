@@ -57,7 +57,7 @@
           -%}
           {%- if look != 'photo' -%}
           <a class="icon-tile" href="{{ c.url }}" style="--n:{{ forloop.index0 }}">
-            <span class="ico">{%- render 'jewel-icon', name: name -%}</span>
+            <span class="ti-ico">{%- render 'jewel-icon', name: name -%}</span>
             <span class="ct-name">{{ name }}</span>
             <span class="ct-n">{{ 'collections.pieces' | t: count: c.products_count }}</span>
           </a>
