@@ -28,7 +28,7 @@
         "show_link": false,
         "heading_face": "hand",
         "text_face": "aboreto",
-        "shell": "intro"
+        "shell": "banner"
       }
     },
     "alcove": {

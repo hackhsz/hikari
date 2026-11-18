@@ -35,6 +35,13 @@
   opens scrolled down; a click, key, tap or scroll opens it at once, and it opens after 7 seconds
   whatever happens. Without JavaScript there is no veil. The photograph loads and paints underneath
   all along, so the page is no slower; the veil waits for it before opening.
+
+  No photograph (shell "banner", owner 2026-11-18: "i dont want to see this photo, too realistic too
+  blurry too ugly"): the large shell is the banner's picture, drawn in a hairline on the page's own
+  ground above the words, and nothing is downloaded for it. It draws itself once per visit (per tab,
+  the same key as the opening), the pearl rolls out and glints; the words are there from the start,
+  so nothing waits on it. Reduced motion, no JavaScript, or a second look in the same tab: drawn
+  already. The image settings stay, so a photograph can come back by choosing another shell option.
 {%- endcomment -%}
 {%- liquid
   assign img = section.settings.image
@@ -53,6 +60,10 @@
     endunless
   endif
   assign line = section.settings.one_line
+  assign art = false
+  if section.settings.shell == 'banner'
+    assign art = true
+  endif
   case fit
     when 'wide'
       assign ratio = 0.4286
@@ -62,7 +73,7 @@
       assign ratio = 0.5625
   endcase
 -%}
-<section class="hero{% if split %} hero--split{% endif %}{% if line %} hero--line{% endif %}{% if section.settings.heading_face != 'theme' %} hero--h-{{ section.settings.heading_face }}{% endif %}{% if section.settings.text_face != 'theme' %} hero--t-{{ section.settings.text_face }}{% endif %}" id="brand" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+<section class="hero{% if split %} hero--split{% endif %}{% if line %} hero--line{% endif %}{% if art %} hero--art{% endif %}{% if section.settings.heading_face != 'theme' %} hero--h-{{ section.settings.heading_face }}{% endif %}{% if section.settings.text_face != 'theme' %} hero--t-{{ section.settings.text_face }}{% endif %}" id="brand" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
   {%- if section.settings.shell == 'intro' -%}
   <script>
     (function (s) {
@@ -93,8 +104,21 @@
       setTimeout(open, 7000);
     })(document.currentScript.parentNode);
   </script>
+  {%- elsif art -%}
+  <script>
+    (function (s) {
+      try {
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches || scrollY > 60 || sessionStorage.getItem('kv-shell')) return;
+        sessionStorage.setItem('kv-shell', '1');
+      } catch (e) { return; }
+      s.classList.add('is-drawing');
+    })(document.currentScript.parentNode);
+  </script>
   {%- endif -%}
   {%- if split -%}<div class="shell hero-split">{%- endif -%}
+  {%- if art -%}
+  <div class="hero-art">{%- render 'conch', place: 'banner' -%}</div>
+  {%- else -%}
   <div class="hero-media hero-media--{{ fit }}{% if img_m %} has-mobile{% endif %}{% unless img %} is-empty{% endunless %}">
     {%- if img and split -%}
       {%- assign split_img = img_m | default: img -%}
@@ -127,6 +151,7 @@
     {%- if section.settings.shell == 'picture' -%}{%- render 'conch', place: 'picture' -%}{%- endif -%}
     {%- if section.settings.shell == 'intro' -%}<div class="hero-veil" aria-hidden="true">{%- render 'conch', place: 'intro' -%}</div>{%- endif -%}
   </div>
+  {%- endif -%}
 
   <div class="{% unless split %}shell {% endunless %}hero-txt">
     <div class="hero-lead">
@@ -186,8 +211,8 @@
     { "type": "select", "id": "text_face", "label": "Text typeface", "default": "theme",
       "options": [ { "value": "theme", "label": "The site's sans" }, { "value": "aboreto", "label": "Aboreto (capitals)" }, { "value": "hand", "label": "Handwriting" } ] },
     { "type": "select", "id": "shell", "label": "Shell drawing", "default": "none",
-      "options": [ { "value": "none", "label": "None" }, { "value": "intro", "label": "Large, opening the picture" }, { "value": "above", "label": "Small, above the heading" }, { "value": "picture", "label": "Small, on the picture" } ],
-      "info": "A spiral shell with a pearl that draws itself as the page opens. Large: it draws on a veil over the picture, which then opens from the pearl, once per visit." },
+      "options": [ { "value": "none", "label": "None" }, { "value": "banner", "label": "Large, instead of the picture" }, { "value": "intro", "label": "Large, opening the picture" }, { "value": "above", "label": "Small, above the heading" }, { "value": "picture", "label": "Small, on the picture" } ],
+      "info": "A spiral shell with a pearl that draws itself as the page opens. Instead of the picture: no photograph, the shell above the words. Opening the picture: it draws on a veil over the picture, which then opens from the pearl, once per visit." },
     { "type": "checkbox", "id": "show_link", "label": "Show the first link", "default": true },
     { "type": "text", "id": "link_label", "label": "Link label", "default": "Explore the collection" },
     { "type": "url", "id": "link", "label": "Link", "default": "/collections/all" },

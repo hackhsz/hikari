@@ -889,12 +889,12 @@ main .gal-slide:first-child .plate{view-transition-name:piece}
 .conch .c-pearl{fill:url(#conch-pearl);stroke:currentColor;stroke-width:.55}
 .conch .c-spark{fill:#fff;stroke:none;opacity:0}
 @media (prefers-reduced-motion:no-preference){
-  .conch:not(.conch--intro) .c-spiral,.conch:not(.conch--intro) .c-lip,.conch:not(.conch--intro) .c-sep{stroke-dasharray:1 2;stroke-dashoffset:1.05;animation:conch-draw 2.1s cubic-bezier(.45,.05,.25,1) .25s forwards}
-  .conch:not(.conch--intro) .c-lip{animation-duration:.45s;animation-delay:2.15s}
-  .conch:not(.conch--intro) .c-sep{animation-duration:.5s;animation-delay:calc(1.1s + var(--i,0) * .1s)}
-  .conch:not(.conch--intro) .c-pearl-g{opacity:0;transform:translate(var(--fx),var(--fy)) scale(.35);transform-box:fill-box;transform-origin:center;
+  :is(.conch--above,.conch--picture) :is(.c-spiral,.c-lip,.c-sep){stroke-dasharray:1 2;stroke-dashoffset:1.05;animation:conch-draw 2.1s cubic-bezier(.45,.05,.25,1) .25s forwards}
+  :is(.conch--above,.conch--picture) .c-lip{animation-duration:.45s;animation-delay:2.15s}
+  :is(.conch--above,.conch--picture) .c-sep{animation-duration:.5s;animation-delay:calc(1.1s + var(--i,0) * .1s)}
+  :is(.conch--above,.conch--picture) .c-pearl-g{opacity:0;transform:translate(var(--fx),var(--fy)) scale(.35);transform-box:fill-box;transform-origin:center;
     animation:conch-roll 1s cubic-bezier(.2,.75,.25,1) 2.45s forwards}
-  .conch:not(.conch--intro) .c-spark{transform-box:fill-box;transform-origin:center;animation:conch-glint 1.3s ease-out 3.35s,conch-glint 1.3s ease-out 9.5s}
+  :is(.conch--above,.conch--picture) .c-spark{transform-box:fill-box;transform-origin:center;animation:conch-glint 1.3s ease-out 3.35s,conch-glint 1.3s ease-out 9.5s}
 }
 @keyframes conch-draw{to{stroke-dashoffset:0}}
 @keyframes conch-roll{to{opacity:1;transform:none}}
@@ -929,6 +929,31 @@ main .gal-slide:first-child .plate{view-transition-name:piece}
   animation:veil-iris 1.3s cubic-bezier(.6,0,.3,1) forwards,veil-fade .4s ease-in .95s forwards}
 @keyframes veil-iris{to{--iris:150vmax}}
 @keyframes veil-fade{to{opacity:0}}
+
+/* No photograph (sections/brand-hero, shell "banner", owner 2026-11-18): the large shell is the banner's
+   picture, a hairline on the page's own ground above the words. It draws once per visit, while the
+   section has .is-drawing (added by the section's script before the shell is parsed); otherwise it is
+   simply there. The words never wait for it. */
+.hero--art{padding-top:clamp(34px,5.4vw,78px)}
+.hero-art{display:flex;justify-content:center;padding-inline:var(--gut)}
+.conch--banner{width:min(30vw,420px)}
+.conch--banner path{stroke-width:.2}
+.conch--banner .c-sep{stroke-width:.17;opacity:.42}
+.conch--banner .c-pearl{stroke-width:.16}
+.hero--art:not(.hero--split) .hero-txt{padding-top:clamp(20px,2.6vw,36px)}
+@media (max-width:749px){
+  .hero--art{padding-top:clamp(26px,7vw,40px)}
+  .conch--banner{width:min(64vw,300px)}
+  .conch--banner path{stroke-width:.3}
+  .conch--banner .c-sep{stroke-width:.26}
+  .conch--banner .c-pearl{stroke-width:.24}
+}
+.hero.is-drawing .conch--banner :is(.c-spiral,.c-lip,.c-sep){stroke-dasharray:1 2;stroke-dashoffset:1.05;animation:conch-draw 1.9s cubic-bezier(.45,.05,.25,1) .3s forwards}
+.hero.is-drawing .conch--banner .c-sep{animation-duration:.55s;animation-delay:calc(1.2s + var(--i,0) * .1s)}
+.hero.is-drawing .conch--banner .c-lip{animation-duration:.45s;animation-delay:2.05s}
+.hero.is-drawing .conch--banner .c-pearl-g{opacity:0;transform:translate(var(--fx),var(--fy)) scale(.35);transform-box:fill-box;transform-origin:center;
+  animation:conch-roll .9s cubic-bezier(.2,.75,.25,1) 2.35s forwards}
+.hero.is-drawing .conch--banner .c-spark{transform-box:fill-box;transform-origin:center;animation:conch-glint 1.1s ease-out 3.05s,conch-glint 1.1s ease-out 9.5s}
 
 /* Shop by category and Shop by brand as line icons, on the page itself (no tile colour). Three looks,
    a setting on each section: line (the icon alone), ring (in a thin circle), chip (a small pill).
