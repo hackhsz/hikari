@@ -24,7 +24,11 @@
         "link": "shopify://collections/all",
         "link2_label": "Book a private viewing",
         "link2": "/pages/private-viewing",
-        "layout": "stacked"
+        "layout": "stacked",
+        "show_link": false,
+        "heading_face": "aboreto",
+        "text_face": "hand",
+        "shell": "above"
       }
     },
     "alcove": {
@@ -60,7 +64,8 @@
       "type": "houses",
       "settings": {
         "heading": "Shop by brand",
-        "style": "tiles"
+        "style": "tiles",
+        "look": "ring"
       }
     },
     "story": {
@@ -120,25 +125,26 @@
     "categories": {
       "type": "shop-categories",
       "settings": {
-        "heading": "Shop by category"
+        "heading": "Shop by category",
+        "look": "ring"
       }
     },
     "new_in": {
       "type": "new-in",
       "settings": {
         "heading": "New in",
-        "count": 8
+        "count": 4
       }
     }
   },
   "order": [
     "hero",
-    "trust",
+    "new_in",
+    "shelf-sale",
     "categories",
     "houses",
-    "new_in",
     "shelf-presale",
-    "shelf-sale",
+    "trust",
     "story",
     "record",
     "signup",

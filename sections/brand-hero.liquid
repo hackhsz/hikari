@@ -20,6 +20,11 @@
   A second link to a page that does not exist yet (the viewing page, before it is made in
   Shopify) goes to the contact page instead, so the button never leads nowhere. The test is on
   the handle: for a missing handle Shopify can still answer pages['x'] with an object.
+
+  Owner, 2026-11-18: the heading in Aboreto and the three lines in handwriting (heading_face,
+  text_face; styles at the end of assets/hikari.css), only the viewing link under them, centred
+  (show_link off: a setting rather than an empty label, for the same reason as one_line above), and
+  the shell (snippets/conch) above the heading.
 {%- endcomment -%}
 {%- liquid
   assign img = section.settings.image
@@ -47,7 +52,7 @@
       assign ratio = 0.5625
   endcase
 -%}
-<section class="hero{% if split %} hero--split{% endif %}{% if line %} hero--line{% endif %}" id="brand" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+<section class="hero{% if split %} hero--split{% endif %}{% if line %} hero--line{% endif %}{% if section.settings.heading_face == 'aboreto' %} hero--aboreto{% endif %}{% if section.settings.text_face == 'hand' %} hero--hand{% endif %}" id="brand" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
   {%- if split -%}<div class="shell hero-split">{%- endif -%}
   <div class="hero-media hero-media--{{ fit }}{% if img_m %} has-mobile{% endif %}{% unless img %} is-empty{% endunless %}">
     {%- if img and split -%}
@@ -78,10 +83,12 @@
         <span class="stamp">Brand image · choose it in this section's settings</span>
       {%- endif -%}
     {%- endif -%}
+    {%- if section.settings.shell == 'picture' -%}{%- render 'conch', place: 'picture' -%}{%- endif -%}
   </div>
 
   <div class="{% unless split %}shell {% endunless %}hero-txt">
     <div class="hero-lead">
+      {%- if section.settings.shell == 'above' -%}{%- render 'conch', place: 'above' -%}{%- endif -%}
       {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
       {%- if section.settings.logo and line == false -%}
         <h1 class="hero-logo">{%- render 'lockup', height: 'clamp(96px, 17vw, 168px)' -%}</h1>
@@ -94,7 +101,7 @@
     <div class="hero-side">
       {%- if section.settings.body != blank -%}<div class="hero-b">{{ section.settings.body }}</div>{%- endif -%}
       <div class="hero-ctas">
-        {%- if section.settings.link_label != blank and section.settings.link != blank -%}
+        {%- if section.settings.show_link and section.settings.link_label != blank and section.settings.link != blank -%}
           <a class="{% if split %}btn btn--inline{% else %}hero-link{% endif %}" href="{{ section.settings.link }}">{{ section.settings.link_label }}</a>
         {%- endif -%}
         {%- if section.settings.link2_label != blank and link2 != blank -%}
@@ -131,6 +138,15 @@
       "default": "We make vintage luxury accessible" },
     { "type": "richtext", "id": "body", "label": "Text",
       "default": "<p>Handpicked vintage pieces from Japan.</p><p>100% Authenticity Guaranteed.</p><p>London showings by appointment only.</p>" },
+    { "type": "select", "id": "heading_face", "label": "Heading typeface", "default": "theme",
+      "options": [ { "value": "theme", "label": "The site's serif" }, { "value": "aboreto", "label": "Aboreto (capitals)" } ],
+      "info": "English and Spanish pages. Chinese, Japanese and Arabic keep the site's faces." },
+    { "type": "select", "id": "text_face", "label": "Text typeface", "default": "theme",
+      "options": [ { "value": "theme", "label": "The site's sans" }, { "value": "hand", "label": "Handwriting" } ] },
+    { "type": "select", "id": "shell", "label": "Shell drawing", "default": "none",
+      "options": [ { "value": "none", "label": "None" }, { "value": "above", "label": "Above the heading" }, { "value": "picture", "label": "On the picture" } ],
+      "info": "A spiral shell with a pearl that draws itself once as the page opens." },
+    { "type": "checkbox", "id": "show_link", "label": "Show the first link", "default": true },
     { "type": "text", "id": "link_label", "label": "Link label", "default": "Explore the collection" },
     { "type": "url", "id": "link", "label": "Link", "default": "/collections/all" },
     { "type": "text", "id": "link2_label", "label": "Second link label", "default": "Book a private viewing" },

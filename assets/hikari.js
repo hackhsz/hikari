@@ -927,12 +927,32 @@
     }
   }
 
+  /* ── icon rows (Shop by category, Shop by brand): the lines draw in once when the row first
+     scrolls into view, then the entrance class goes so a hover can play the drawing again.
+     Without IntersectionObserver, or with reduced motion, the icons are simply there. */
+  function initIconRows(){
+    var rows=[].slice.call(document.querySelectorAll(".icon-tiles:not([data-io])"));
+    if(!rows.length) return;
+    var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(still||!("IntersectionObserver" in window)) return;
+    var o=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var row=e.target; o.unobserve(row);
+        row.classList.remove("is-waiting"); row.classList.add("is-in");
+        var n=row.querySelectorAll(".icon-tile").length;
+        setTimeout(function(){ row.classList.remove("is-in"); },1200+n*80);
+      });
+    },{rootMargin:"0px 0px -12% 0px"});
+    rows.forEach(function(row){ row.dataset.io="1"; row.classList.add("is-waiting"); o.observe(row); });
+  }
+
   window.Hikari={plates:initPlates,openSheet:openSheetById,closeSheet:closeSheet,refreshBag:refreshBag,quickView:quickView,popup:initPopup};
 
   function boot(){
     root.classList.add("js");
     initPlates(); initScroll(); bindOnce(); syncButtons();
-    initZoom(); initGallery(); initSpin(); initCountdown(); markShopNav(); initSearch(); initCatalog(); initBatchDates(); initPageTransitions(); initPrefs(); initPopup(); initNotify(); initLang(); initPhrases(); initLater(); initMisc();
+    initZoom(); initGallery(); initSpin(); initCountdown(); markShopNav(); initSearch(); initCatalog(); initBatchDates(); initPageTransitions(); initPrefs(); initPopup(); initNotify(); initLang(); initPhrases(); initLater(); initMisc(); initIconRows();
   }
   if(document.readyState!=="loading") boot(); else document.addEventListener("DOMContentLoaded",boot);
   document.addEventListener("shopify:section:load",boot);

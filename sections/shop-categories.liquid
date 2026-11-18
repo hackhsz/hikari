@@ -6,7 +6,12 @@
 
   New in shows the eight newest pieces that are not sold, so a tile looks for a piece outside
   those first; otherwise the same photograph would appear twice on the home page.
+
+  Look (owner, 2026-11-18: no background colour, icons, with a hover animation): "photo" is the tile
+  above; "line", "ring" and "chip" show a line icon per category instead (snippets/jewel-icon,
+  styles "Shop by category and Shop by brand as line icons" in assets/hikari.css).
 {%- endcomment -%}
+{%- assign look = section.settings.look | default: 'photo' -%}
 {%- assign cat_tags = 'necklaces,earrings,bracelets,rings,brooches,sunglasses' | split: ',' -%}
 {%- capture newest -%}{%- render 'newest-handles' -%}{%- endcapture -%}
 {%- assign all_url = routes.all_products_collection_url -%}
@@ -19,7 +24,7 @@
       </div>
       <a class="sec-all" href="{{ all_url }}">{{ 'home.all_pieces' | t: count: collections.all.products_count }}</a>
     </div>
-    <div class="cat-tiles">
+    <div class="{% if look == 'photo' %}cat-tiles{% else %}icon-tiles icon-tiles--{{ look }}{% endif %}">
       {%- for t in cat_tags -%}
         {%- unless collections.all.all_tags contains t -%}{%- continue -%}{%- endunless -%}
         {%- liquid
@@ -29,11 +34,13 @@
               assign n = n | plus: 1
             endif
           endfor
-          capture h
-            render 'pick', tag: t, avoid: newest
-          endcapture
-          assign h = h | strip
-          assign pick = all_products[h]
+          if look == 'photo'
+            capture h
+              render 'pick', tag: t, avoid: newest
+            endcapture
+            assign h = h | strip
+            assign pick = all_products[h]
+          endif
           assign ch = 'vintage-' | append: t
           assign c = collections[ch]
           if c.handle == ch and c.products_count > 0
@@ -43,11 +50,19 @@
           endif
           assign k = 'collections.categories.' | append: t
         -%}
+        {%- if look == 'photo' -%}
         <a class="cat-tile" href="{{ u }}">
           {%- render 'plate', image: pick.featured_image, ratio: 1, fill: true, later: true, sizes: '(max-width: 600px) 50vw, (max-width: 900px) 33vw, 200px', seed: forloop.index, tone: 'light', comp: 'single', alt: '' -%}
           <span class="ct-name">{{ k | t }}</span>
           <span class="ct-n">{{ 'collections.pieces' | t: count: n }}</span>
         </a>
+        {%- else -%}
+        <a class="icon-tile" href="{{ u }}" style="--n:{{ forloop.index0 }}">
+          <span class="ico">{%- render 'jewel-icon', name: t -%}</span>
+          <span class="ct-name">{{ k | t }}</span>
+          <span class="ct-n">{{ 'collections.pieces' | t: count: n }}</span>
+        </a>
+        {%- endif -%}
       {%- endfor -%}
     </div>
   </div>
@@ -56,7 +71,14 @@
 { "name": "Shop by category",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Shop by category" }
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Shop by category" },
+    { "type": "select", "id": "look", "label": "Look", "default": "photo",
+      "options": [
+        { "value": "photo", "label": "A photograph per category" },
+        { "value": "line", "label": "Line icons" },
+        { "value": "ring", "label": "Line icons in a circle" },
+        { "value": "chip", "label": "Small icons in pills" }
+      ] }
   ],
   "presets": [{ "name": "Shop by category" }] }
 {% endschema %}

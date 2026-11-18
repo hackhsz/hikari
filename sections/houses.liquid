@@ -11,6 +11,12 @@
   that is left empty, to its house page (snippets/house-url). With no blocks, as on the house
   template, it lists every collection on the house template by itself, and marks the one being viewed.
 {%- endcomment -%}
+{%- comment -%}
+  Look, for the tiles (owner, 2026-11-18, same as Shop by category): "photo" as above, or a line icon
+  per house, a motif rather than a logo (snippets/jewel-icon: a camellia, a star). With two houses
+  the icons sit centred.
+{%- endcomment -%}
+{%- assign look = section.settings.look | default: 'photo' -%}
 {%- if section.settings.style == 'tiles' -%}
   {%- liquid
     assign cat_tags = 'necklaces,earrings,bracelets,rings,brooches,sunglasses' | split: ','
@@ -19,6 +25,9 @@
     endcapture
     assign avoid = avoid | strip
     for t in cat_tags
+      if look != 'photo'
+        break
+      endif
       if collections.all.all_tags contains t
         capture h
           render 'pick', tag: t, avoid: avoid
@@ -30,18 +39,30 @@
   <section class="pad-s" id="houses" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
     <div class="shell">
       <div class="sec-head"><div><h2 class="sec-h">{{ section.settings.heading }}</h2></div></div>
-      <div class="house-tiles">
+      {%- assign n_houses = 0 -%}
+      {%- for c in collections -%}{%- if c.template_suffix == 'house' and c.products_count > 0 -%}{%- assign n_houses = n_houses | plus: 1 -%}{%- endif -%}{%- endfor -%}
+      <div class="{% if look == 'photo' %}house-tiles{% else %}icon-tiles icon-tiles--{{ look }}{% if n_houses <= 2 and look != 'chip' %} icon-tiles--2{% endif %}{% endif %}">
         {%- for c in collections -%}
           {%- if c.template_suffix != 'house' or c.products_count == 0 -%}{%- continue -%}{%- endif -%}
           {%- liquid
             assign name = c.metafields.hikari.house.value | default: c.products.first.vendor | default: c.title
-            capture h
-              render 'pick', list: c.products, avoid: avoid
-            endcapture
-            assign h = h | strip
-            assign pick = all_products[h]
-            assign avoid = avoid | append: h | append: ','
+            if look == 'photo'
+              capture h
+                render 'pick', list: c.products, avoid: avoid
+              endcapture
+              assign h = h | strip
+              assign pick = all_products[h]
+              assign avoid = avoid | append: h | append: ','
+            endif
           -%}
+          {%- if look != 'photo' -%}
+          <a class="icon-tile" href="{{ c.url }}" style="--n:{{ forloop.index0 }}">
+            <span class="ico">{%- render 'jewel-icon', name: name -%}</span>
+            <span class="ct-name">{{ name }}</span>
+            <span class="ct-n">{{ 'collections.pieces' | t: count: c.products_count }}</span>
+          </a>
+          {%- continue -%}
+          {%- endif -%}
           <a class="cat-tile house-tile" href="{{ c.url }}">
             {%- render 'plate', image: pick.featured_image, ratio: 1, fill: true, later: true, sizes: '(max-width: 600px) 50vw, (max-width: 900px) 33vw, 200px', seed: forloop.index, tone: 'light', comp: 'single', alt: '' -%}
             <span class="ct-name">{{ name }}</span>
@@ -88,6 +109,13 @@
       "options": [
         { "value": "tiles", "label": "Tiles, a photograph per house" },
         { "value": "names", "label": "Names" }
+      ] },
+    { "type": "select", "id": "look", "label": "Tiles look", "default": "photo",
+      "options": [
+        { "value": "photo", "label": "A photograph per house" },
+        { "value": "line", "label": "Line icons" },
+        { "value": "ring", "label": "Line icons in a circle" },
+        { "value": "chip", "label": "Small icons in pills" }
       ] }
   ],
   "blocks": [{ "type": "house", "name": "House", "settings": [

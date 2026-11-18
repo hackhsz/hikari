@@ -10,7 +10,13 @@ Run it after every push to staging, and on staging again before any push live. F
 WARN is for a person to look at. The report, its screenshots and results.json go to previews/site-check/,
 and the command prints where. Exit code 1 when anything failed.
 
-Needs Google Chrome and Node 22 or later, nothing else: it drives Chrome through its DevTools protocol. */
+Needs Google Chrome and Node 22 or later, nothing else: it drives Chrome through its DevTools protocol.
+
+EVERGREEN CHECKS (the owner's must-never-break list; each one FAILs, so a push stops):
+  - green end (owner, 2026-11-18): on the home page the background starts light and fades into green
+    (#2F5B45) as you scroll down to the Archive, the sign-up band and the footer (assets/hikari.js,
+    scroll-driven colour). It was lost once when those bands went beige; it must stay.
+  Add new ones to EVERGREEN below. */
 import { spawn } from "node:child_process";
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync, readdirSync, copyFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -458,7 +464,8 @@ async function run(target) {
     if (process.stdout.isTTY) process.stdout.write("\n");
 
     const problems = [...lint(), ...judge(pages),
-      ...await tracking(cdp, [["home", pageUrl("en", "/", theme), ["view_item_list"]], ["product", pageUrl("en", product, theme), ["view_item"]]])];
+      ...await tracking(cdp, [["home", pageUrl("en", "/", theme), ["view_item_list"]], ["product", pageUrl("en", product, theme), ["view_item"]]]),
+      ...await evergreen(cdp, pageUrl("en", "/", theme))];
     const fast = await speed(cdp, [["home", pageUrl("en", "/", theme)], ["shop all", pageUrl("en", "/collections/all", theme)],
       ["Dior", pageUrl("en", "/collections/vintage-christian-dior-jewellery", theme)], ["product", pageUrl("en", product, theme)]]);
     problems.push(...fast.problems);
@@ -571,6 +578,39 @@ async function tracking(cdp, urls) {
       off();
       await cdp.send("Target.closeTarget", { targetId }).catch(() => {});
     }
+  }
+  return problems;
+}
+
+/* The owner's evergreen list (see the top of this file). Each check gets a fresh tab on the home page. */
+const GREEN = "#2f5b45";
+const EVERGREEN = [
+  { name: "green end", why: "the home page must fade from white into green as you scroll down (Archive, sign-up, footer)",
+    expression: `(async () => {
+      const h = document.documentElement, bg = () => getComputedStyle(h).getPropertyValue("--bg").trim().toLowerCase();
+      const top = bg();
+      for (let i = 0; i < 3; i++) { scrollTo(0, h.scrollHeight); await new Promise(r => setTimeout(r, 700)); }
+      return { on: h.classList.contains("scroll-colour"), top, end: bg(),
+        bands: [...document.querySelectorAll("[data-bg]")].map(e => (e.dataset.bg || "").toLowerCase()).filter(c => c === "${GREEN}").length };
+    })()`,
+    judge: r => !r ? "the page didn't answer" : !r.on ? "the scroll colour is off (settings: scroll_colour, or assets/hikari.js)"
+      : !r.bands ? "no section on the home page is green any more (data-bg #2F5B45 on the Archive, sign-up band or footer)"
+      : r.end !== GREEN ? `the page ends ${r.end || "with no colour"}, not green` : r.top === GREEN ? "the page is green from the top, so there is no transition" : null },
+];
+async function evergreen(cdp, url) {
+  const problems = [];
+  for (const c of EVERGREEN) {
+    const { targetId } = await cdp.send("Target.createTarget", { url: "about:blank" });
+    const { sessionId } = await cdp.send("Target.attachToTarget", { targetId, flatten: true });
+    const s = (m, p) => cdp.send(m, p, sessionId);
+    try {
+      await s("Page.enable");
+      await s("Emulation.setDeviceMetricsOverride", SIZES.desktop);
+      await s("Page.navigate", { url }); await sleep(6000);
+      const r = (await s("Runtime.evaluate", { expression: c.expression, awaitPromise: true, returnByValue: true })).result.value;
+      const wrong = c.judge(r);
+      if (wrong) problems.push({ level: "FAIL", lang: "en", page: "home", what: `evergreen "${c.name}" broken: ${wrong}`, detail: c.why + " · read: " + JSON.stringify(r) });
+    } finally { await cdp.send("Target.closeTarget", { targetId }).catch(() => {}); }
   }
   return problems;
 }
