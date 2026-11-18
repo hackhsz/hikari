@@ -867,8 +867,9 @@
     });
   }
 
-  /* Japanese has no spaces, so a phone breaks the one-line banner wherever the line runs out, even inside
-     a word (ラグ|ジュアリー). Split it into phrases, each word with the particles after it
+  /* Japanese has no spaces, so a phone breaks the banner's heading wherever the line runs out, even inside
+     a word (ラグ|ジュアリー). Every banner heading, not just the one-line banner (2026-11-18: the banner
+     without a photograph broke there on a phone). Split it into phrases, each word with the particles after it
      (ヴィンテージの / ラグジュアリーを / 身近に), and let it break only between them. CSS can do this
      (word-break:auto-phrase) only in Chrome, not on iPhones. Browsers without Intl.Segmenter keep
      their usual breaking. The marks are zero-width spaces, not <wbr>: Chrome breaks at a <wbr> even
@@ -876,7 +877,7 @@
   function initPhrases(){
     if(!/^ja/.test(root.lang)||!window.Intl||!Intl.Segmenter) return;
     var seg=new Intl.Segmenter("ja",{granularity:"word"});
-    [].forEach.call(document.querySelectorAll(".hero--line .hero-h:not([data-phrases])"),function(h){
+    [].forEach.call(document.querySelectorAll(".hero .hero-h:not([data-phrases])"),function(h){
       if(h.children.length) return;
       var parts=[];
       Array.from(seg.segment(h.textContent.trim())).forEach(function(s){
