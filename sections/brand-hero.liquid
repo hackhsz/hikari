@@ -42,6 +42,14 @@
   the same key as the opening), the pearl rolls out and glints; the words are there from the start,
   so nothing waits on it. Reduced motion, no JavaScript, or a second look in the same tab: drawn
   already. The image settings stay, so a photograph can come back by choosing another shell option.
+
+  Backdrop "bloom" (owner, 2026-11-19, after a video of ours, 0:19-0:23: dappled light, a warm glow,
+  then the words): behind the shell and the words, pale flowers on ivory linen (generated, no people,
+  no jewellery: tools/banner-source), with the shadows of leaves swaying over it and a warm peach light
+  that breathes. Once per visit, with the shell's drawing (.is-drawing), the picture comes up out of
+  bright light, the leaf shadows pass across it, the glow blooms, and the words come into focus one
+  after another. Reduced motion: all of it still, from the start. The words stay ink on a high-key
+  picture, so nothing sits under a scrim.
 {%- endcomment -%}
 {%- liquid
   assign img = section.settings.image
@@ -73,7 +81,7 @@
       assign ratio = 0.5625
   endcase
 -%}
-<section class="hero{% if split %} hero--split{% endif %}{% if line %} hero--line{% endif %}{% if art %} hero--art{% endif %}{% if section.settings.heading_face != 'theme' %} hero--h-{{ section.settings.heading_face }}{% endif %}{% if section.settings.text_face != 'theme' %} hero--t-{{ section.settings.text_face }}{% endif %}" id="brand" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+<section class="hero{% if split %} hero--split{% endif %}{% if line %} hero--line{% endif %}{% if art %} hero--art{% endif %}{% if section.settings.backdrop == 'bloom' %} hero--bloom{% endif %}{% if section.settings.heading_face != 'theme' %} hero--h-{{ section.settings.heading_face }}{% endif %}{% if section.settings.text_face != 'theme' %} hero--t-{{ section.settings.text_face }}{% endif %}" id="brand" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
   {%- if section.settings.shell == 'intro' -%}
   <script>
     (function (s) {
@@ -114,6 +122,18 @@
       s.classList.add('is-drawing');
     })(document.currentScript.parentNode);
   </script>
+  {%- endif -%}
+  {%- if section.settings.backdrop == 'bloom' -%}
+  <div class="hero-bloom" aria-hidden="true">
+    <picture>
+      <source media="(max-width: 749px)" sizes="100vw"
+        srcset="{{ 'banner-bloom-phone-750.jpg' | asset_url }} 750w, {{ 'banner-bloom-phone-1100.jpg' | asset_url }} 1100w">
+      <img src="{{ 'banner-bloom-1700.jpg' | asset_url }}" alt="" width="2752" height="1536" loading="eager" fetchpriority="high" decoding="async"
+        srcset="{{ 'banner-bloom-1200.jpg' | asset_url }} 1200w, {{ 'banner-bloom-1700.jpg' | asset_url }} 1700w, {{ 'banner-bloom-2200.jpg' | asset_url }} 2200w" sizes="100vw">
+    </picture>
+    <span class="hero-leaves" style="--leaves:url({{ 'banner-leaves.jpg' | asset_url }})"></span>
+    <span class="hero-glow"></span>
+  </div>
   {%- endif -%}
   {%- if split -%}<div class="shell hero-split">{%- endif -%}
   {%- if art -%}
@@ -213,6 +233,9 @@
     { "type": "select", "id": "shell", "label": "Shell drawing", "default": "none",
       "options": [ { "value": "none", "label": "None" }, { "value": "banner", "label": "Large, instead of the picture" }, { "value": "intro", "label": "Large, opening the picture" }, { "value": "above", "label": "Small, above the heading" }, { "value": "picture", "label": "Small, on the picture" } ],
       "info": "A spiral shell with a pearl that draws itself as the page opens. Instead of the picture: no photograph, the shell above the words. Opening the picture: it draws on a veil over the picture, which then opens from the pearl, once per visit." },
+    { "type": "select", "id": "backdrop", "label": "Background", "default": "none",
+      "options": [ { "value": "none", "label": "The page colour" }, { "value": "bloom", "label": "Pale flowers on linen, with moving light" } ],
+      "info": "Behind the shell and the words. Leaf shadows sway over it and a warm light breathes; the first time each visit it comes up out of bright light and the words come into focus. Still with reduced motion." },
     { "type": "checkbox", "id": "show_link", "label": "Show the first link", "default": true },
     { "type": "text", "id": "link_label", "label": "Link label", "default": "Explore the collection" },
     { "type": "url", "id": "link", "label": "Link", "default": "/collections/all" },

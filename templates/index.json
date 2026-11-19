@@ -28,7 +28,8 @@
         "show_link": false,
         "heading_face": "hand",
         "text_face": "theme",
-        "shell": "banner"
+        "shell": "banner",
+        "backdrop": "bloom"
       }
     },
     "alcove": {

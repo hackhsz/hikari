@@ -959,6 +959,49 @@ main .gal-slide:first-child .plate{view-transition-name:piece}
   animation:conch-roll .9s cubic-bezier(.2,.75,.25,1) 2.35s forwards}
 .hero.is-drawing .conch--banner .c-spark{transform-box:fill-box;transform-origin:center;animation:conch-glint 1.1s ease-out 3.05s,conch-glint 1.1s ease-out 9.5s}
 
+/* Backdrop "bloom" (sections/brand-hero, owner 2026-11-19, after our video at 0:19-0:23): pale flowers on
+   linen behind the shell and the words, leaf shadows swaying over it, a warm peach light breathing.
+   Once per visit (.is-drawing, with the shell) the picture comes up out of bright light, the leaf
+   shadows pass across, the glow blooms and the words come into focus in turn. The words start at
+   opacity .01, not 0, so the browser still counts them as painted (largest contentful paint). */
+.hero--bloom{position:relative;isolation:isolate;overflow:hidden;padding-bottom:clamp(56px,7vw,104px)}
+.hero-bloom{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.hero-bloom img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.hero-leaves{position:absolute;inset:-14%;background:var(--leaves) 78% 0/cover no-repeat;mix-blend-mode:multiply;opacity:.26;transform-origin:88% 6%}
+.hero-glow{position:absolute;inset:0;opacity:.8;
+  background:radial-gradient(58% 72% at 84% 10%,rgba(244,172,142,.30),rgba(244,172,142,0) 72%),
+             radial-gradient(46% 58% at 8% 96%,rgba(248,206,178,.22),rgba(248,206,178,0) 70%)}
+/* the warm light at its brightest, only while the opening plays */
+.hero-glow::after{content:"";position:absolute;inset:0;opacity:0;
+  background:radial-gradient(72% 86% at 80% 14%,rgba(246,168,136,.42),rgba(246,168,136,0) 70%)}
+@media (max-width:749px){
+  .hero-leaves{inset:-20%;background-position:70% 0;opacity:.22}
+  .hero-glow{background:radial-gradient(90% 60% at 88% 6%,rgba(244,172,142,.30),rgba(244,172,142,0) 72%),
+                        radial-gradient(80% 50% at 6% 98%,rgba(248,206,178,.22),rgba(248,206,178,0) 70%)}
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero-leaves{animation:leaves-sway 24s ease-in-out infinite alternate}
+  .hero-glow{animation:glow-breathe 10s ease-in-out infinite alternate}
+  .hero--bloom.is-drawing .hero-bloom img{animation:bloom-in 2s cubic-bezier(.3,.1,.2,1) both}
+  .hero--bloom.is-drawing .hero-leaves{animation:leaves-pass 2.8s cubic-bezier(.25,.1,.2,1) both,leaves-sway 24s ease-in-out 2.8s infinite alternate}
+  .hero--bloom.is-drawing .hero-glow{animation:glow-bloom 3.6s ease-out both,glow-breathe 10s ease-in-out 3.6s infinite alternate}
+  .hero--bloom.is-drawing .hero-glow::after{animation:glow-flash 3.6s ease-in-out both}
+  .hero--bloom.is-drawing :is(.hero-h,.hero-b p,.hero-ctas){animation:words-in 1.5s cubic-bezier(.2,.6,.2,1) both}
+  .hero--bloom.is-drawing .hero-h{animation-delay:.7s}
+  .hero--bloom.is-drawing .hero-b p:nth-child(1){animation-delay:1.35s}
+  .hero--bloom.is-drawing .hero-b p:nth-child(2){animation-delay:1.55s}
+  .hero--bloom.is-drawing .hero-b p:nth-child(3){animation-delay:1.75s}
+  .hero--bloom.is-drawing .hero-ctas{animation-delay:2.1s}
+}
+@keyframes leaves-sway{0%{transform:translate3d(0,0,0) rotate(0) scale(1)}
+  50%{transform:translate3d(-1.8%,1.2%,0) rotate(-1.4deg) scale(1.02)}100%{transform:translate3d(1.2%,-.8%,0) rotate(.9deg) scale(1.01)}}
+@keyframes leaves-pass{from{transform:translate3d(-34%,8%,0) rotate(-5deg);opacity:.5}to{transform:none;opacity:.26}}
+@keyframes glow-breathe{from{opacity:.8}to{opacity:1}}
+@keyframes glow-bloom{0%{opacity:0}40%{opacity:1}100%{opacity:.8}}
+@keyframes glow-flash{0%{opacity:0}38%{opacity:1}100%{opacity:0}}
+@keyframes bloom-in{from{filter:brightness(1.22) saturate(.55) blur(10px);transform:scale(1.05)}to{filter:none;transform:none}}
+@keyframes words-in{from{opacity:.01;filter:blur(9px);transform:translateY(8px)}to{opacity:1;filter:none;transform:none}}
+
 /* Shop by category and Shop by brand as line icons, on the page itself (no tile colour). Three looks,
    a setting on each section: line (the icon alone), ring (in a thin circle), chip (a small pill).
    Hover, keyboard focus, and the first time the row scrolls in: the lines draw in again and the tile
