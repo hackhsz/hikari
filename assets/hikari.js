@@ -682,35 +682,9 @@
       try{ t.textContent=new Intl.DateTimeFormat(lg+"-u-nu-latn",o).format(new Date(d+"T12:00:00Z")); }catch(e){}
     });
   }
-  /* Page changes (2026-11-15): same-site pages cross-fade (hikari.css @view-transition). Following
-     a product link, the card's photo is named "piece", the name the product page gives its first
-     photo, so the photo glides into place. Names must be unique, so a product page's own photo
-     gives the name up first (a "More from" card leads to another product); a page brought back
-     from the back-forward cache drops the names it was given. */
-  function initPageTransitions(){
-    window.addEventListener("pageswap",function(e){
-      if(!e.viewTransition||!e.activation||!e.activation.entry) return;
-      var to; try{ to=new URL(e.activation.entry.url); }catch(x){ return; }
-      if(to.pathname.indexOf("/products/")<0) return;
-      var pick=null;
-      [].some.call(document.querySelectorAll('main a[href*="/products/"]'),function(a){
-        if(new URL(a.href,location.href).pathname!==to.pathname) return false;
-        var p=a.querySelector(".plate"); if(!p) return false;
-        var r=p.getBoundingClientRect(); if(r.bottom<0||r.top>innerHeight||!r.width) return false;
-        pick=p; return true;
-      });
-      if(!pick) return;
-      var given=[].slice.call(document.querySelectorAll("main .gal-slide:first-child .plate"));
-      given.forEach(function(h){ h.style.viewTransitionName="none"; });
-      pick.style.viewTransitionName="piece"; given.push(pick);
-      /* take the names back once the snapshots are taken, so the page can go into the back-forward cache */
-      e.viewTransition.finished.finally(function(){ given.forEach(function(el){ el.style.viewTransitionName=""; }); });
-    });
-    window.addEventListener("pageshow",function(e){
-      if(!e.persisted) return;
-      [].forEach.call(document.querySelectorAll(".plate[style*='view-transition-name']"),function(p){ p.style.viewTransitionName=""; });
-    });
-  }
+  /* Page changes: same-site pages cross-fade (hikari.css @view-transition). The card's photo used to
+     glide and grow into the product page's first photo (2026-11-15); the owner had that taken out
+     (2026-11-19: "remove the enlarge animation"), so nothing is named here any more. */
   /* Show: available (not sold, coming or reserved), new (the latest delivery, data-new from
      sections/main-collection) or a status. */
   function showMatch(el,v){
@@ -953,7 +927,7 @@
   function boot(){
     root.classList.add("js");
     initPlates(); initScroll(); bindOnce(); syncButtons();
-    initZoom(); initGallery(); initSpin(); initCountdown(); markShopNav(); initSearch(); initCatalog(); initBatchDates(); initPageTransitions(); initPrefs(); initPopup(); initNotify(); initLang(); initPhrases(); initLater(); initMisc(); initIconRows();
+    initZoom(); initGallery(); initSpin(); initCountdown(); markShopNav(); initSearch(); initCatalog(); initBatchDates(); initPrefs(); initPopup(); initNotify(); initLang(); initPhrases(); initLater(); initMisc(); initIconRows();
   }
   if(document.readyState!=="loading") boot(); else document.addEventListener("DOMContentLoaded",boot);
   document.addEventListener("shopify:section:load",boot);

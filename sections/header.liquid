@@ -115,6 +115,19 @@
   document.documentElement.dataset.scrollColour = "{{ settings.scroll_colour }}";
   document.documentElement.style.setProperty('--grain', {{ settings.grain_opacity | divided_by: 100.0 }});
   {% if settings.grain_animate %}document.body.classList.add('grain-on');{% endif %}
+  /* The masthead floats, transparent, over the home page's film, and turns a frosted, mostly opaque
+     page colour once the page is scrolled (owner, 2026-11-19). Its height and the delivery line's are
+     kept in --mast-h and --ann-h, so the film can slide up under it and fill the screen. */
+  (function (m) {
+    if (!m) return;
+    var a = document.querySelector('.announce'), r = document.documentElement;
+    function size() { r.style.setProperty('--mast-h', m.offsetHeight + 'px'); r.style.setProperty('--ann-h', (a ? a.offsetHeight : 0) + 'px'); }
+    function scrolled() { m.classList.toggle('is-scrolled', scrollY > 8); }
+    size(); scrolled();
+    if (window.ResizeObserver) new ResizeObserver(size).observe(m);
+    addEventListener('resize', size, { passive: true });
+    addEventListener('scroll', scrolled, { passive: true });
+  })(document.querySelector('.mast'));
 </script>
 {% schema %}
 { "name": "Header", "settings": [
