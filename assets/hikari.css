@@ -1010,17 +1010,17 @@ main .gal-slide:first-child .plate{view-transition-name:piece}
 /* Backdrop "film" (sections/brand-hero, 2026-11-19): our 2.8-second film is the banner, its own words in
    it, nothing laid over it and no fade at its edge. Phone: the whole portrait film (9:16) as the first
    screen under the header. Laptop: a 16:9 band of it (the file is already cropped), never taller than the
-   screen under the header. Its first frame shows until it plays (background, chosen by width); with
+   screen under the header. Its first frame (an image, fetched first) shows until it plays; with
    reduced motion or no JavaScript (.is-still, html:not(.js)) the last frame, words and all. */
 .hero--film{padding-top:0}
-.film{position:relative;width:100%;aspect-ratio:16/9;max-height:calc(100svh - 110px);overflow:hidden;
-  background:#EDE7DF var(--first-d) 50% 50%/cover no-repeat}
-.film-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
-.film.is-still,html:not(.js) .film{background-image:var(--last-d)}
+.film{position:relative;width:100%;aspect-ratio:16/9;max-height:calc(100svh - 110px);overflow:hidden;background:#EDE7DF}
+.film :is(.film-poster img,.film-video,.film-end){position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.film-end{display:none;background:var(--last-d) 50% 50%/cover no-repeat}
+.film.is-still .film-end,html:not(.js) .film-end{display:block}
 .film.is-still .film-video,html:not(.js) .film-video{display:none}
 @media (max-width:749px){
-  .film{aspect-ratio:9/16;max-height:none;background-image:var(--first-p)}
-  .film.is-still,html:not(.js) .film{background-image:var(--last-p)}
+  .film{aspect-ratio:9/16;max-height:none}
+  .film-end{background-image:var(--last-p)}
 }
 .hero--film:not(.hero--split) .hero-txt{padding-top:clamp(36px,5vw,64px)}
 
