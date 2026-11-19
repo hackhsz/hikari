@@ -29,7 +29,10 @@
         "heading_face": "hand",
         "text_face": "theme",
         "shell": "none",
-        "backdrop": "bloom"
+        "backdrop": "film",
+        "film_video": "shopify://files/videos/karineko-banner-film.mp4",
+        "film_title": "KARINEKO VINTAGE",
+        "film_line": "Make vintage luxury accessible"
       }
     },
     "alcove": {

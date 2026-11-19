@@ -50,7 +50,16 @@
   bright light, the leaf shadows pass across it, the glow blooms, and the words come into focus one
   after another. Reduced motion: all of it still, from the start. With the backdrop the photograph is
   never shown (the flowers are the picture), with or without the shell (owner, 2026-11-19: "get rid of
-  the shell": shell none, the words centred on the flowers). The words stay ink on a high-key
+  the shell": shell none, the words centred on the flowers).
+
+  Backdrop "film" (owner and 刘总, 2026-11-19: "动效和背景以这个视频最后的5秒为准"): the banner is the end of
+  our unboxing video (17.9-20.75 s: the box, the dappled light, the flat lay in warm light; cut before the
+  title the video has burned in from 20.9 s, so the words appear once), from Settings > Files (film_video),
+  played once and held on its last frame. Under it the words, KARINEKO VINTAGE in Aboreto and the line in
+  handwriting (Nothing You Could Do, the nearest free face to the video's), sit on that same last frame,
+  which stays put (sticky) while they scroll over it and come into focus as they arrive; then the picture
+  ends in a fade to the page colour, and the three lines and the viewing link follow on it. Still with
+  reduced motion and without JavaScript (the last frame, assets/banner-film-last.jpg). The words stay ink on a high-key
   picture, so nothing sits under a scrim.
 {%- endcomment -%}
 {%- liquid
@@ -78,6 +87,10 @@
   if section.settings.backdrop == 'bloom'
     assign bloom = true
   endif
+  assign filmed = false
+  if section.settings.backdrop == 'film'
+    assign filmed = true
+  endif
   case fit
     when 'wide'
       assign ratio = 0.4286
@@ -87,7 +100,7 @@
       assign ratio = 0.5625
   endcase
 -%}
-<section class="hero{% if split %} hero--split{% endif %}{% if line %} hero--line{% endif %}{% if art %} hero--art{% endif %}{% if section.settings.backdrop == 'bloom' %} hero--bloom{% endif %}{% if section.settings.heading_face != 'theme' %} hero--h-{{ section.settings.heading_face }}{% endif %}{% if section.settings.text_face != 'theme' %} hero--t-{{ section.settings.text_face }}{% endif %}" id="brand" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+<section class="hero{% if split %} hero--split{% endif %}{% if line %} hero--line{% endif %}{% if art %} hero--art{% endif %}{% if section.settings.backdrop == 'bloom' %} hero--bloom{% endif %}{% if filmed %} hero--film{% endif %}{% if section.settings.heading_face != 'theme' %} hero--h-{{ section.settings.heading_face }}{% endif %}{% if section.settings.text_face != 'theme' %} hero--t-{{ section.settings.text_face }}{% endif %}" id="brand" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
   {%- if section.settings.shell == 'intro' -%}
   <script>
     (function (s) {
@@ -129,6 +142,57 @@
     })(document.currentScript.parentNode);
   </script>
   {%- endif -%}
+  {%- if filmed -%}
+  {%- liquid
+    assign film = section.settings.film_video
+    assign film_src = ''
+    assign film_type = 'video/mp4'
+    assign best = 0
+    for v in film.sources
+      if v.format == 'mp4' and v.height > best
+        assign best = v.height
+        assign film_src = v.url
+        assign film_type = v.mime_type
+      endif
+    endfor
+    assign film_title = section.settings.film_title | default: 'KARINEKO VINTAGE'
+    assign film_words = film_title | split: ' '
+  -%}
+  <div class="film">
+    <div class="film-bg" aria-hidden="true">
+      <img class="film-still" src="{{ 'banner-film-last.jpg' | asset_url }}" alt="" width="720" height="1184" loading="eager">
+      {%- if film_src != blank -%}
+      <video class="film-video" muted playsinline preload="auto" width="720" height="1184"
+        poster="{{ 'banner-film-first.jpg' | asset_url }}"><source src="{{ film_src }}" type="{{ film_type }}"></video>
+      {%- endif -%}
+      <span class="film-shade"></span>
+    </div>
+    <div class="film-stage"></div>
+    <div class="film-words">
+      <h1 class="film-title">{%- for w in film_words -%}<span>{{ w }}</span>{%- endfor -%}</h1>
+      {%- if section.settings.film_line != blank -%}<p class="film-line">{{ section.settings.film_line }}</p>{%- endif -%}
+    </div>
+    <div class="film-fade"></div>
+  </div>
+  <script>
+    (function (s) {
+      var v = s.querySelector('.film-video'), w = s.querySelector('.film-words');
+      var still = false;
+      try { still = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+      if (v && !still) {
+        s.classList.add('film-on');
+        var p = v.play(); if (p && p.catch) p.catch(function () { s.classList.remove('film-on'); });
+      }
+      if (w && !still && 'IntersectionObserver' in window) {
+        s.classList.add('film-words-wait');
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) { if (e.isIntersecting) { s.classList.add('film-words-in'); io.disconnect(); } });
+        }, { threshold: 0.35 });
+        io.observe(w);
+      }
+    })(document.currentScript.parentNode);
+  </script>
+  {%- endif -%}
   {%- if section.settings.backdrop == 'bloom' -%}
   <div class="hero-bloom" aria-hidden="true">
     <picture>
@@ -144,8 +208,8 @@
   {%- if split -%}<div class="shell hero-split">{%- endif -%}
   {%- if art -%}
   <div class="hero-art">{%- render 'conch', place: 'banner' -%}</div>
-  {%- elsif bloom -%}
-    {%- comment -%} The flowers are the picture: no photograph, no placeholder. {%- endcomment -%}
+  {%- elsif bloom or filmed -%}
+    {%- comment -%} The flowers or the film are the picture: no photograph, no placeholder. {%- endcomment -%}
   {%- else -%}
   <div class="hero-media hero-media--{{ fit }}{% if img_m %} has-mobile{% endif %}{% unless img %} is-empty{% endunless %}">
     {%- if img and split -%}
@@ -182,6 +246,7 @@
   {%- endif -%}
 
   <div class="{% unless split %}shell {% endunless %}hero-txt">
+    {%- unless filmed -%}
     <div class="hero-lead">
       {%- if section.settings.shell == 'above' -%}{%- render 'conch', place: 'above' -%}{%- endif -%}
       {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
@@ -192,6 +257,7 @@
         <h1 class="hero-h">{{ section.settings.heading }}</h1>
       {%- endif -%}
     </div>
+    {%- endunless -%}
     {%- unless line -%}
     <div class="hero-side">
       {%- if section.settings.body != blank -%}<div class="hero-b">{{ section.settings.body }}</div>{%- endif -%}
@@ -242,8 +308,12 @@
       "options": [ { "value": "none", "label": "None" }, { "value": "banner", "label": "Large, instead of the picture" }, { "value": "intro", "label": "Large, opening the picture" }, { "value": "above", "label": "Small, above the heading" }, { "value": "picture", "label": "Small, on the picture" } ],
       "info": "A spiral shell with a pearl that draws itself as the page opens. Instead of the picture: no photograph, the shell above the words. Opening the picture: it draws on a veil over the picture, which then opens from the pearl, once per visit." },
     { "type": "select", "id": "backdrop", "label": "Background", "default": "none",
-      "options": [ { "value": "none", "label": "The page colour" }, { "value": "bloom", "label": "Pale flowers on linen, with moving light" } ],
+      "options": [ { "value": "none", "label": "The page colour" }, { "value": "bloom", "label": "Pale flowers on linen, with moving light" }, { "value": "film", "label": "The film (video below), then the words on its last frame" } ],
       "info": "Behind the shell and the words. Leaf shadows sway over it and a warm light breathes; the first time each visit it comes up out of bright light and the words come into focus. Still with reduced motion." },
+    { "type": "video", "id": "film_video", "label": "Film (Background: the film)",
+      "info": "Played once, muted, held on its last frame. Its first and last frames are theme images (banner-film-first.jpg, banner-film-last.jpg): remake them with the clip." },
+    { "type": "text", "id": "film_title", "label": "Words on the film: name", "default": "KARINEKO VINTAGE" },
+    { "type": "text", "id": "film_line", "label": "Words on the film: handwritten line", "default": "Make vintage luxury accessible" },
     { "type": "checkbox", "id": "show_link", "label": "Show the first link", "default": true },
     { "type": "text", "id": "link_label", "label": "Link label", "default": "Explore the collection" },
     { "type": "url", "id": "link", "label": "Link", "default": "/collections/all" },

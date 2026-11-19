@@ -872,13 +872,13 @@ main .gal-slide:first-child .plate{view-transition-name:piece}
    (text_face theme) and Aboreto to the KARINEKO of the logo (tools/make-logo.mjs). Both faces load on the home page only
    (layout/theme.liquid). Latin pages only: Chinese, Japanese and Arabic keep the theme's faces, as
    neither font has those letters, and letter spacing would break Arabic joins. */
-:root:not(:lang(zh)):not(:lang(ja)):not(:lang(ar)) .hero--h-hand .hero-h{font-family:"Dawning of a New Day",cursive;font-weight:400;
+:root:not(:lang(zh)):not(:lang(ja)):not(:lang(ar)) .hero--h-hand .hero-h{font-family:"Nothing You Could Do",cursive;font-weight:400;
   font-size:clamp(40px,5.4vw,70px);line-height:1.12;letter-spacing:0;max-width:20ch;margin-bottom:clamp(14px,1.8vw,22px)}
 :root:not(:lang(zh)):not(:lang(ja)):not(:lang(ar)) .hero--h-aboreto .hero-h{font-family:"Aboreto",var(--serif);font-weight:400;
   font-size:clamp(23px,3.7vw,44px);line-height:1.22;letter-spacing:.06em;max-width:26ch}
 :root:not(:lang(zh)):not(:lang(ja)):not(:lang(ar)) .hero--t-aboreto .hero-b p{font-family:"Aboreto",var(--serif);
   font-size:clamp(12px,1.1vw,14px);line-height:2.1;letter-spacing:.16em;opacity:.8}
-:root:not(:lang(zh)):not(:lang(ja)):not(:lang(ar)) .hero--t-hand .hero-b p{font-family:"Dawning of a New Day",cursive;
+:root:not(:lang(zh)):not(:lang(ja)):not(:lang(ar)) .hero--t-hand .hero-b p{font-family:"Nothing You Could Do",cursive;
   font-size:clamp(21px,2.3vw,26px);line-height:1.32;letter-spacing:.01em;opacity:.86;margin-bottom:2px}
 
 /* The shell (snippets/conch): a spiral drawn in one thin line, a pearl at its mouth. The spiral draws
@@ -1006,6 +1006,35 @@ main .gal-slide:first-child .plate{view-transition-name:piece}
 @keyframes glow-flash{0%{opacity:0}38%{opacity:1}100%{opacity:0}}
 @keyframes bloom-in{from{filter:brightness(1.22) saturate(.55) blur(10px);transform:scale(1.05)}to{filter:none;transform:none}}
 @keyframes words-in{from{opacity:.01;filter:blur(9px);transform:translateY(8px)}to{opacity:1;filter:none;transform:none}}
+
+/* Backdrop "film" (sections/brand-hero, 2026-11-19): the end of our unboxing video as the banner, played
+   once and held on its last frame; that frame stays (sticky, under the header) while the words scroll up
+   over it, then the picture fades into the page colour and the three lines follow on it. A soft shade
+   keeps white words readable on the pale silk, as in the video. */
+.hero--film{padding-top:0}
+.film{position:relative}
+.film-bg{position:sticky;top:0;height:100svh;margin-bottom:-100svh;overflow:hidden;z-index:0;background:#EDE7DF}
+.film-bg :is(img,video){position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.film-video{opacity:0;transition:opacity .4s}
+.film-on .film-video{opacity:1}
+.film-shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,27,24,.18),rgba(28,27,24,0) 22%,rgba(28,27,24,0) 62%,rgba(28,27,24,.16))}
+.film-stage{position:relative;height:calc(100svh - 76px)}
+.film-words{position:relative;z-index:1;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:clamp(14px,2vw,26px);padding:0 var(--gut);text-align:center;color:#FFFDF9;text-shadow:0 1px 22px rgba(70,48,36,.38)}
+.film-title{margin:0;font-family:"Aboreto",var(--serif);font-weight:400;font-size:clamp(34px,5.6vw,72px);line-height:1.08;letter-spacing:.06em}
+.film-title span{display:block}
+.film-line{margin:0;font-family:"Nothing You Could Do",cursive;font-size:clamp(26px,3.2vw,42px);line-height:1.3;max-width:12em;text-wrap:balance;letter-spacing:.02em}
+.film-fade{position:relative;z-index:1;height:46svh;background:linear-gradient(to bottom,rgba(250,248,243,0),var(--sec-bg,#FAF8F3) 92%)}
+.hero--film .hero-txt{position:relative;z-index:1;background:var(--sec-bg,#FAF8F3);padding-top:0}
+@media (max-width:749px){.film-stage{height:calc(100svh - 120px)}.film-fade{height:38svh}}
+/* the words come into focus as they arrive, as in the video: the name, then the handwriting */
+.film-words-wait .film-title,.film-words-wait .film-line{opacity:.01;filter:blur(10px);transform:translateY(10px)}
+.film-words-in .film-title,.film-words-in .film-line{opacity:1;filter:none;transform:none;transition:opacity 1.4s ease,filter 1.4s ease,transform 1.4s cubic-bezier(.2,.6,.2,1)}
+.film-words-in .film-line{transition-delay:.55s}
+@media (prefers-reduced-motion:reduce){.film-video{display:none}}
+/* the scripts and fonts of Chinese, Japanese and Arabic pages: the words in the theme's own faces */
+:root:is(:lang(zh),:lang(ja),:lang(ar)) .film-title{font-family:var(--serif);letter-spacing:.02em}
+:root:is(:lang(zh),:lang(ja),:lang(ar)) .film-line{font-family:var(--serif);font-style:italic}
 
 /* Shop by category and Shop by brand as line icons, on the page itself (no tile colour). Three looks,
    a setting on each section: line (the icon alone), ring (in a thin circle), chip (a small pill).
