@@ -29,7 +29,8 @@
       The shop's published policies (Settings → Policies), each on every page: Google Merchant Center
       looks for the refund policy, terms and contact details before it lists the pieces, and shoppers
       expect them here. A policy shows once it has text; the short names are in the locale files
-      (layout.footer.policy_<handle>), else Shopify's own title.
+      (layout.footer.policy_<handle>), else Shopify's own title. policy.url already carries the
+      language (/ja/policies/…), so it is used as it is.
     {%- endcomment -%}
     {%- if shop.policies.size > 0 -%}
     <nav class="foot-policies" aria-label="{{ 'layout.footer.policies' | t }}">
@@ -38,7 +39,7 @@
         {%- assign key = 'layout.footer.policy_' | append: handle | replace: '-', '_' -%}
         {%- assign label = key | t -%}
         {%- if label contains 'translation missing' -%}{%- assign label = policy.title -%}{%- endif -%}
-        <a href="{{ routes.root_url | append: policy.url | replace: '//', '/' }}">{{ label }}</a>
+        <a href="{{ policy.url }}">{{ label }}</a>
       {%- endfor -%}
     </nav>
     {%- endif -%}
