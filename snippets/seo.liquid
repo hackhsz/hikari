@@ -14,7 +14,9 @@
   what its page lists (era, grade, measurements, mark, provenance), an Offer once it has a price,
   and the path to it (BreadcrumbList); on a collection, the page and its pieces (CollectionPage,
   ItemList); About and Contact as AboutPage and ContactPage; a guide as BlogPosting with its
-  breadcrumb, and the guides page as Blog. Search engines and AI assistants
+  breadcrumb, and the guides page as Blog. A piece's Offer also says what UK delivery costs for one
+  piece (theme settings → Search; the FAQ's Tracked 48 price). Returns are left out: the shop's policy
+  is final sale, which Google would show as "No returns". Search engines and AI assistants
   both read it. A coming-soon or sold piece is OutOfStock: it cannot be bought now.
 
   Params: brand.
@@ -215,6 +217,14 @@
         "availability": {{ availability | json }},
         "itemCondition": "https://schema.org/UsedCondition",
         "seller": { "@id": {{ shop.url | append: '/#org' | json }} }
+        {%- assign uk_ship = settings.seo_uk_delivery | remove: '£' | strip -%}
+        {%- if uk_ship != blank -%}
+        ,"shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": { "@type": "MonetaryAmount", "value": {{ uk_ship | json }}, "currency": "GBP" },
+          "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "GB" }
+        }
+        {%- endif %}
       }
       {%- endif %}
     },

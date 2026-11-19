@@ -290,6 +290,13 @@
         "info": "Shorter or other names people search for, separated by commas. Google may show one as the site name."
       },
       {
+        "type": "text",
+        "id": "seo_uk_delivery",
+        "label": "UK delivery for one piece, for Google (£)",
+        "info": "The cheapest UK delivery at checkout for a single piece, e.g. 3.90. Google can show it beside the price in search. Keep it the same as checkout; leave empty to say nothing.",
+        "default": "3.90"
+      },
+      {
         "type": "textarea",
         "id": "seo_home_description",
         "label": "Home page description",
