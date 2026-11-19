@@ -63,7 +63,14 @@
     "footer": {
       "creators": "创作者合作，以及分享您的单品",
       "registered": "，英格兰及威尔士注册公司编号 {{ number }}",
-      "cookies": "Cookie 设置"
+      "cookies": "Cookie 设置",
+      "policies": "政策",
+      "policy_shipping_policy": "配送",
+      "policy_refund_policy": "退款",
+      "policy_privacy_policy": "隐私",
+      "policy_terms_of_service": "条款",
+      "policy_contact_information": "联系我们",
+      "policy_legal_notice": "法律声明"
     },
     "social": {
       "follow_us": "关注我们",

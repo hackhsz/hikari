@@ -63,7 +63,14 @@
     "footer": {
       "creators": "Creadores, y compartir tu pieza",
       "registered": ", registrada en Inglaterra y Gales con el n.º {{ number }}",
-      "cookies": "Configuración de cookies"
+      "cookies": "Configuración de cookies",
+      "policies": "Políticas",
+      "policy_shipping_policy": "Envíos",
+      "policy_refund_policy": "Reembolsos",
+      "policy_privacy_policy": "Privacidad",
+      "policy_terms_of_service": "Términos",
+      "policy_contact_information": "Contacto",
+      "policy_legal_notice": "Aviso legal"
     },
     "social": {
       "follow_us": "Síguenos",

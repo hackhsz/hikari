@@ -67,7 +67,14 @@
     "footer": {
       "creators": "صُنّاع المحتوى، ومشاركة قطعتك",
       "registered": "، مسجّلة في إنجلترا وويلز برقم {{ number }}",
-      "cookies": "إعدادات ملفات تعريف الارتباط"
+      "cookies": "إعدادات ملفات تعريف الارتباط",
+      "policies": "السياسات",
+      "policy_shipping_policy": "التوصيل",
+      "policy_refund_policy": "الاسترداد",
+      "policy_privacy_policy": "الخصوصية",
+      "policy_terms_of_service": "الشروط",
+      "policy_contact_information": "التواصل",
+      "policy_legal_notice": "إشعار قانوني"
     },
     "social": {
       "follow_us": "تابعونا",

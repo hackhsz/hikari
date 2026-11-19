@@ -211,6 +211,9 @@ html.scroll-colour .form button span{color:var(--bg)}
 .fcols h4{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.5;margin:0 0 11px}
 .fcols a{display:block;font-size:13.5px;opacity:.76;padding:3px 0}
 .fcols a:hover{opacity:1}
+.foot-policies{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:clamp(28px,5vw,40px);font-size:11.5px;line-height:1.6}
+.foot-policies a{opacity:.74;padding:4px 0}
+.foot-policies a:hover{opacity:1}
 .legal{margin-top:clamp(40px,7vw,68px);padding-top:18px;border-top:1px solid;border-color:color-mix(in srgb,currentColor 16%,transparent);font-size:11.5px;line-height:1.6;opacity:.5;max-width:66ch}
 
 /* ── brand image (sections/brand-hero.liquid) ──────────────

@@ -63,7 +63,14 @@
     "footer": {
       "creators": "Creators, and sharing your piece",
       "registered": ", registered in England and Wales no. {{ number }}",
-      "cookies": "Cookie settings"
+      "cookies": "Cookie settings",
+      "policies": "Policies",
+      "policy_shipping_policy": "Delivery",
+      "policy_refund_policy": "Refunds",
+      "policy_privacy_policy": "Privacy",
+      "policy_terms_of_service": "Terms",
+      "policy_contact_information": "Contact",
+      "policy_legal_notice": "Legal notice"
     },
     "social": {
       "follow_us": "Follow us",

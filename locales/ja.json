@@ -63,7 +63,14 @@
     "footer": {
       "creators": "クリエイターの方へ、お品のシェアについて",
       "registered": "（イングランド・ウェールズ登記番号 {{ number }}）",
-      "cookies": "Cookie設定"
+      "cookies": "Cookie設定",
+      "policies": "ポリシー",
+      "policy_shipping_policy": "配送",
+      "policy_refund_policy": "返金",
+      "policy_privacy_policy": "プライバシー",
+      "policy_terms_of_service": "利用規約",
+      "policy_contact_information": "お問い合わせ",
+      "policy_legal_notice": "法的通知"
     },
     "social": {
       "follow_us": "フォローする",
