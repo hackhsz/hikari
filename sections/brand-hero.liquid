@@ -184,8 +184,16 @@
       try { still = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
       var src = matchMedia('(max-width: 749px)').matches ? v.getAttribute('data-phone') : v.getAttribute('data-desktop');
       if (still || !src) { f.classList.add('is-still'); return; }
-      v.src = src;
-      var p = v.play(); if (p && p.catch) p.catch(function () { f.classList.add('is-still'); });
+      /* the film only starts loading once its first frame is on screen: on a slow phone the 3.6 MB film
+         otherwise took the bandwidth and the first frame arrived seconds late */
+      var img = f.querySelector('.film-poster img'), started = false;
+      function go() {
+        if (started) return; started = true;
+        v.src = src;
+        var p = v.play(); if (p && p.catch) p.catch(function () { f.classList.add('is-still'); });
+      }
+      if (img && !(img.complete && img.naturalWidth)) { img.addEventListener('load', go); img.addEventListener('error', go); setTimeout(go, 6000); }
+      else go();
     })(document.currentScript.previousElementSibling);
   </script>
   {%- endif -%}
