@@ -22,10 +22,12 @@ const JOBS = [
 ];
 const font = b64("Aboreto-Regular.ttf");
 
+const SPACING = 0.12, THIN = 1.8;  // letter spacing in em; px pared off the strokes (half on each side)
 const html = `<!doctype html><html><body><pre id="out"></pre><script>
 const WORD = "KARINEKO";
 const load = (src) => new Promise((ok) => { const i = new Image(); i.onload = () => ok(i); i.src = "data:image/png;base64," + src; });
 (async () => {
+  const SPACING = ${SPACING}, THIN = ${THIN};
   const face = new FontFace("Aboreto", "url(data:font/ttf;base64,${font})");
   document.fonts.add(await face.load());
   const res = {};
@@ -53,18 +55,28 @@ const load = (src) => new Promise((ok) => { const i = new Image(); i.onload = ()
     }
     const bw = lx1 - lx0 + 1, bh = ly1 - ly0 + 1;
     x.clearRect(lx0 - 2, ly0 - 2, bw + 4, bh + 4);
-    // Aboreto at the drawn letters' cap height, spaced out to their width.
+    // Aboreto at the drawn letters' cap height, SPACING apart, its strokes pared down by THIN px (owner,
+    // 2026-11-19: "变细，间距变小": thinner, the letters closer). The word sits where the drawn one did:
+    // centred under the cat (stacked), or starting where it started beside it (row).
     const capOf = (px) => { x.font = px + "px Aboreto"; x.letterSpacing = "0px"; return x.measureText("K").actualBoundingBoxAscent; };
-    const size = 200 * bh / capOf(200);
-    x.font = size + "px Aboreto"; x.letterSpacing = "0px";
-    const bare = x.measureText(WORD), inkW = bare.actualBoundingBoxLeft + bare.actualBoundingBoxRight;
-    const spacing = (bw - inkW) / (WORD.length - 1);
-    x.letterSpacing = spacing + "px";
-    const m = x.measureText(WORD);
+    const size = 200 * bh / capOf(200), spacing = SPACING * size;
+    x.font = size + "px Aboreto"; x.letterSpacing = spacing + "px";
+    const m = x.measureText(WORD), inkW = m.actualBoundingBoxLeft + m.actualBoundingBoxRight - spacing;
+    const wx0 = job.stacked ? Math.round(lx0 + (bw - inkW) / 2) : lx0;
     x.fillStyle = "#000"; x.textBaseline = "alphabetic";
-    x.fillText(WORD, lx0 + m.actualBoundingBoxLeft, ly0 + m.actualBoundingBoxAscent);
-    res[job.out] = { png: c.toDataURL("image/png"), box: [lx0, ly0, bw, bh], size: +size.toFixed(1), spacing: +spacing.toFixed(1),
-      spacingEm: +(spacing / size).toFixed(3) };
+    x.fillText(WORD, wx0 + m.actualBoundingBoxLeft, ly0 + m.actualBoundingBoxAscent);
+    // Thinner: rub THIN/2 px off every edge of the letters (only inside the word's box, so the cat is untouched).
+    x.save(); x.beginPath(); x.rect(wx0 - 4, ly0 - 4, inkW + 8, bh + 8); x.clip();
+    x.globalCompositeOperation = "destination-out"; x.lineWidth = THIN; x.lineJoin = "round"; x.strokeStyle = "#000";
+    x.strokeText(WORD, wx0 + m.actualBoundingBoxLeft, ly0 + m.actualBoundingBoxAscent); x.restore();
+    // Crop to what is drawn, with a small margin, so the logo has no empty side.
+    const e = x.getImageData(0, 0, W, H).data; let cx0 = W, cx1 = 0;
+    for (let y = 0; y < H; y++) for (let k = 0; k < W; k++) if (e[(y * W + k) * 4 + 3] > 8) { if (k < cx0) cx0 = k; if (k > cx1) cx1 = k; }
+    const left = Math.max(0, cx0 - 8), right = Math.min(W - 1, cx1 + 8), cw = right - left + 1;
+    const o = document.createElement("canvas"); o.width = cw; o.height = H;
+    o.getContext("2d").drawImage(c, left, 0, cw, H, 0, 0, cw, H);
+    res[job.out] = { png: o.toDataURL("image/png"), w: cw, h: H, word: [wx0 - left, ly0, Math.round(inkW), bh], size: +size.toFixed(1),
+      spacing: +spacing.toFixed(1) };
   }
   document.getElementById("out").textContent = JSON.stringify(res);
 })();
@@ -80,5 +92,5 @@ if (!json) throw new Error("Chrome drew nothing");
 const res = JSON.parse(json[1].replace(/&quot;/g, '"').replace(/&amp;/g, "&"));
 for (const [name, r] of Object.entries(res)) {
   writeFileSync(join(ROOT, "assets", name), Buffer.from(r.png.split(",")[1], "base64"));
-  console.log(`assets/${name}: word at ${r.box.join(", ")} (x, y, w, h), Aboreto ${r.size}px, spacing ${r.spacing}px (${r.spacingEm} em)`);
+  console.log(`assets/${name}: ${r.w} × ${r.h} (CSS aspect-ratio ${r.w}/${r.h}), word at ${r.word.join(", ")}, Aboreto ${r.size}px, spacing ${r.spacing}px, strokes ${THIN}px thinner`);
 }

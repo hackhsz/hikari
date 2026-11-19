@@ -36,10 +36,10 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 @media (prefers-reduced-motion:reduce){#grain{animation:none!important}}
 
 /* the logo (snippets/lockup): the owner's drawing, cat over KARINEKO, as a mask so it takes the text colour */
-.lockup{display:block;height:var(--lk-h);aspect-ratio:723/496;background:currentColor;
+.lockup{display:block;height:var(--lk-h);aspect-ratio:605/496;background:currentColor;
   -webkit-mask:var(--logo) center/contain no-repeat;mask:var(--logo) center/contain no-repeat}
 /* the cat beside KARINEKO (row: true), for the masthead from a tablet up; a phone keeps the stacked one */
-.lockup--row{aspect-ratio:843/183}
+.lockup--row{aspect-ratio:731/183}
 .mast-logo .lockup:not(.lockup--row){display:none}
 @media (max-width:760px){.mast-logo .lockup--row{display:none}.mast-logo .lockup:not(.lockup--row){display:block}}
 /* The pages sit on the left beside Shop; under 1200px they are in the menu only, so the line fits. */
