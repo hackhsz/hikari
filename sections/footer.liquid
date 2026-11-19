@@ -35,10 +35,13 @@
     {%- if shop.policies.size > 0 -%}
     <nav class="foot-policies" aria-label="{{ 'layout.footer.policies' | t }}">
       {%- for policy in shop.policies -%}
+        {%- comment -%} Shopify lists "Your privacy choices" here too, as #shopifyReshowConsentBanner:
+            the Cookie settings button above already does that. {%- endcomment -%}
+        {%- if policy.url contains '#' -%}{%- continue -%}{%- endif -%}
         {%- assign handle = policy.url | split: '/' | last -%}
         {%- assign key = 'layout.footer.policy_' | append: handle | replace: '-', '_' -%}
         {%- assign label = key | t -%}
-        {%- if label contains 'translation missing' -%}{%- assign label = policy.title -%}{%- endif -%}
+        {%- if label contains 'ranslation missing' -%}{%- assign label = policy.title -%}{%- endif -%}
         <a href="{{ policy.url }}">{{ label }}</a>
       {%- endfor -%}
     </nav>

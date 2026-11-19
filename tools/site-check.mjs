@@ -292,6 +292,9 @@ function judge(pages) {
     if (d.languages.join() !== Object.keys(LANGS).sort().join()) flag("FAIL", lang, name, `language menu lists ${d.languages.join(", ") || "nothing"}`);
     if (!d.logo) flag("FAIL", lang, name, "no logo showing");
     // The tab icon, which Google also shows beside the shop in its results (it wants a size that is a multiple of 48).
+    // A locale key the theme asks for but no file has: Shopify prints "Translation missing: <key>" on the page.
+    const missing = d.text.find(t => /translation missing/i.test(t));
+    if (missing) flag("FAIL", lang, name, "a theme word is missing from the locale files", missing);
     if (!(d.icons || []).length) flag("FAIL", lang, name, "no tab icon (favicon)");
     else if (!d.icons.some(i => i.sizes.split(/\s+/).some(z => /^(\d+)x\1$/.test(z) && +z.split("x")[0] % 48 === 0)))
       flag("WARN", lang, name, "no tab icon sized for Google (a multiple of 48 px)", d.icons.map(i => i.sizes).join(", "));
