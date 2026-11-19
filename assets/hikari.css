@@ -967,7 +967,7 @@ main .gal-slide:first-child .plate{view-transition-name:piece}
 .hero--bloom{position:relative;isolation:isolate;overflow:hidden;padding-bottom:clamp(56px,7vw,104px)}
 .hero-bloom{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
 .hero-bloom img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
-.hero-leaves{position:absolute;inset:-14%;background:var(--leaves) 78% 0/cover no-repeat;mix-blend-mode:multiply;opacity:.26;transform-origin:88% 6%}
+.hero-leaves{position:absolute;inset:-14%;background:var(--leaves) 78% 0/cover no-repeat;mix-blend-mode:multiply;opacity:.16;transform-origin:88% 6%}
 .hero-glow{position:absolute;inset:0;opacity:.8;
   background:radial-gradient(58% 72% at 84% 10%,rgba(244,172,142,.30),rgba(244,172,142,0) 72%),
              radial-gradient(46% 58% at 8% 96%,rgba(248,206,178,.22),rgba(248,206,178,0) 70%)}
@@ -975,7 +975,7 @@ main .gal-slide:first-child .plate{view-transition-name:piece}
 .hero-glow::after{content:"";position:absolute;inset:0;opacity:0;
   background:radial-gradient(72% 86% at 80% 14%,rgba(246,168,136,.42),rgba(246,168,136,0) 70%)}
 @media (max-width:749px){
-  .hero-leaves{inset:-20%;background-position:70% 0;opacity:.22}
+  .hero-leaves{inset:-20%;background-position:70% 0;opacity:.14}
   .hero-glow{background:radial-gradient(90% 60% at 88% 6%,rgba(244,172,142,.30),rgba(244,172,142,0) 72%),
                         radial-gradient(80% 50% at 6% 98%,rgba(248,206,178,.22),rgba(248,206,178,0) 70%)}
 }
@@ -995,7 +995,7 @@ main .gal-slide:first-child .plate{view-transition-name:piece}
 }
 @keyframes leaves-sway{0%{transform:translate3d(0,0,0) rotate(0) scale(1)}
   50%{transform:translate3d(-1.8%,1.2%,0) rotate(-1.4deg) scale(1.02)}100%{transform:translate3d(1.2%,-.8%,0) rotate(.9deg) scale(1.01)}}
-@keyframes leaves-pass{from{transform:translate3d(-34%,8%,0) rotate(-5deg);opacity:.5}to{transform:none;opacity:.26}}
+@keyframes leaves-pass{from{transform:translate3d(-34%,8%,0) rotate(-5deg);opacity:.42}to{transform:none;opacity:.16}}
 @keyframes glow-breathe{from{opacity:.8}to{opacity:1}}
 @keyframes glow-bloom{0%{opacity:0}40%{opacity:1}100%{opacity:.8}}
 @keyframes glow-flash{0%{opacity:0}38%{opacity:1}100%{opacity:0}}
