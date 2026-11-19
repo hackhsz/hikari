@@ -42,6 +42,12 @@ async function record(name, width, height, mobile) {
   await s("Page.startScreencast", { format: "jpeg", quality: 85, everyNthFrame: 1 });
   await s("Page.navigate", { url });
   await sleep(secs * 1000);
+  // SCROLL=1: then scroll slowly down two and a half screens, as someone reading on would (the film's words, its fade)
+  if (process.env.SCROLL) {
+    await s("Runtime.evaluate", { expression: `document.getElementById("shopify-pc__banner")?.remove()` });
+    for (let i = 1; i <= 60; i++) { await s("Runtime.evaluate", { expression: `scrollTo(0, ${Math.round(height * 2.5 * i / 60)})` }); await sleep(90); }
+    await sleep(2500);
+  }
   await s("Page.stopScreencast");
   cdp.close(); proc.kill(); await sleep(300); rmSync(profile, { recursive: true, force: true });
   // Constant 25 fps from the timestamped frames (the screencast only sends a frame when something changes).
@@ -50,7 +56,7 @@ async function record(name, width, height, mobile) {
     const next = frames[i + 1] ? frames[i + 1].t : f.t + 0.5; list.push(`file '${file}'\nduration ${Math.max(0.01, next - f.t).toFixed(3)}`); });
   writeFileSync(join(dir, "list.txt"), list.join("\n") + `\nfile '${join(dir, `f${String(frames.length - 1).padStart(4, "0")}.jpg`)}'\n`);
   mkdirSync(join(ROOT, "previews"), { recursive: true });
-  const out = join(ROOT, "previews", `banner-${target}-${name}${process.env.REDUCED ? "-still" : ""}.mp4`);
+  const out = join(ROOT, "previews", `banner-${target}-${name}${process.env.REDUCED ? "-still" : ""}${process.env.SCROLL ? "-scroll" : ""}.mp4`);
   execFileSync("ffmpeg", ["-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", join(dir, "list.txt"), "-vf", "fps=25,scale=trunc(iw/2)*2:trunc(ih/2)*2",
     "-pix_fmt", "yuv420p", "-movflags", "+faststart", out]);
   rmSync(dir, { recursive: true, force: true });

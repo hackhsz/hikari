@@ -682,7 +682,13 @@ function lint() {
       if (open !== close) flag("FAIL", file, `Shopify would refuse this file: ${open} "${tag}" and ${close} "end${tag}"`);
     }
     const schema = plain.match(/\{%-?\s*schema\s*-?%\}([\s\S]*?)\{%-?\s*endschema\s*-?%\}/);
-    if (schema) json(file, schema[1]);
+    if (schema) {
+      const sc = json(file, schema[1]);
+      // Shopify refuses a section whose select option label is over 50 characters (2026-11-19: the whole file stayed old)
+      for (const st of [...(sc?.settings || []), ...(sc?.blocks || []).flatMap(b => b.settings || [])])
+        for (const o of st.options || []) if ((o.label || "").length > 50)
+          flag("FAIL", file, `Shopify would refuse this file: setting "${st.id}" has an option label over 50 characters`, o.label);
+    }
     for (const m of plain.matchAll(/['"]([a-z0-9_]+(?:\.[a-z0-9_]+)+)['"]\s*\|\s*t\b/g)) if (!used.has(m[1])) used.set(m[1], file);
   }
   for (const file of [...files("templates"), ...files("config")].filter(f => f.endsWith(".json"))) json(file, readFileSync(join(ROOT, file), "utf8"));
