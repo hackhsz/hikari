@@ -1012,7 +1012,7 @@ main .gal-slide:first-child .plate{view-transition-name:piece}
    over it, then the picture fades into the page colour and the three lines follow on it. A soft shade
    keeps white words readable on the pale silk, as in the video. */
 .hero--film{padding-top:0}
-/* the picture and the words share one grid cell: the picture sticks while the words pass over it, and stops
+/* The picture and the words share one grid cell: the picture sticks while the words pass over it, and stops
    where the film ends (a negative margin let it run a screen past the end, under the next section) */
 .film{position:relative;display:grid}
 .film-bg,.film-over{grid-area:1/1}
