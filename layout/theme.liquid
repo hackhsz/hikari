@@ -34,6 +34,14 @@
   {%- assign brand = settings.brand_name | default: shop.name -%}
   {%- comment -%} Title, description, link previews and structured data: snippets/seo. {%- endcomment -%}
   {%- render 'seo', brand: brand %}
+  {%- comment -%}
+    The icon in the browser tab and beside the shop in Google's results: the Karineko cat, solid at
+    small sizes; 96 and 192 are multiples of 48 as Google asks. Remake with node tools/make-favicon.mjs.
+  {%- endcomment %}
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ 'favicon-32.png' | asset_url }}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{ 'favicon-96.png' | asset_url }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ 'favicon-192.png' | asset_url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ 'apple-touch-icon.png' | asset_url }}">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -104,6 +104,7 @@ function readPage() {
     source: html.outerHTML.match(/Liquid (syntax )?error[^<]{0,80}|translation missing[^<"]{0,60}/g) || [],
     languages: [...new Set([...document.querySelectorAll('select[name="language_code"] option')].map(o => o.value))].sort(),
     logo: [...document.querySelectorAll(".lockup")].some(e => e.getBoundingClientRect().height > 0),
+    icons: [...document.querySelectorAll('link[rel~="icon"]')].map(l => ({ href: l.href, sizes: l.getAttribute("sizes") || "" })),
     sideways: html.scrollWidth - innerWidth,
     /* what starts on screen and runs past its right edge, innermost first, to say where a sideways
        scroll comes from; closed drawers sit wholly off screen and fixed layers don't scroll */
@@ -290,6 +291,10 @@ function judge(pages) {
       flag("WARN", lang, name, `"Karineko" written as "${w}"`, d.text.find(t => t.includes(w)) || d.title);
     if (d.languages.join() !== Object.keys(LANGS).sort().join()) flag("FAIL", lang, name, `language menu lists ${d.languages.join(", ") || "nothing"}`);
     if (!d.logo) flag("FAIL", lang, name, "no logo showing");
+    // The tab icon, which Google also shows beside the shop in its results (it wants a size that is a multiple of 48).
+    if (!(d.icons || []).length) flag("FAIL", lang, name, "no tab icon (favicon)");
+    else if (!d.icons.some(i => i.sizes.split(/\s+/).some(z => /^(\d+)x\1$/.test(z) && +z.split("x")[0] % 48 === 0)))
+      flag("WARN", lang, name, "no tab icon sized for Google (a multiple of 48 px)", d.icons.map(i => i.sizes).join(", "));
     for (const u of new Set([...d.images, ...ph.images])) flag("FAIL", lang, name, "image doesn't load", u);
     for (const f of new Set([...d.files, ...ph.files])) flag("FAIL", lang, name, "a theme file or image is missing", f);
     for (const e of [...d.errors, ...ph.errors]) flag(e.ours ? "FAIL" : "WARN", lang, name, `${e.ours ? "theme script" : "another script"} failed: ${e.what}`);
