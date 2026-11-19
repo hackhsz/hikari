@@ -150,27 +150,13 @@
   {%- if filmed -%}
   {%- liquid
     comment
-      The film's mp4 from Settings > Files: the largest rendition Shopify made of it.
+      The films are theme files (assets/banner-film-desktop.mp4, 2560 x 1440; banner-film-phone.mp4,
+      1440 x 2560), served as they are. Settings > Files re-encodes every film to at most 1080 on its
+      longer side, which cut the upright phone film to 606 x 1080 (owner: "the video quality on mobile
+      is not great", 2026-11-19). The two video settings stay as a way back.
     endcomment
-    assign src_d = ''
-    assign best = 0
-    for v in section.settings.film_video.sources
-      if v.format == 'mp4' and v.height > best
-        assign best = v.height
-        assign src_d = v.url
-      endif
-    endfor
-    assign src_p = ''
-    assign best = 0
-    for v in section.settings.film_video_phone.sources
-      if v.format == 'mp4' and v.height > best
-        assign best = v.height
-        assign src_p = v.url
-      endif
-    endfor
-    if src_p == blank
-      assign src_p = src_d
-    endif
+    assign src_d = 'banner-film-desktop.mp4' | asset_url
+    assign src_p = 'banner-film-phone.mp4' | asset_url
     assign film_title = section.settings.film_title | default: 'KARINEKO VINTAGE'
   -%}
   <div class="film">
@@ -180,7 +166,7 @@
       <source media="(max-width: 749px)" srcset="{{ 'banner-video-phone-first.jpg' | asset_url }}" width="1080" height="1920">
       <img src="{{ 'banner-video-desktop-first.jpg' | asset_url }}" alt="" width="1440" height="810" loading="eager" fetchpriority="high">
     </picture>
-    <video class="film-video" muted playsinline preload="auto" aria-hidden="true" data-desktop="{{ src_d }}" data-phone="{{ src_p }}" data-renditions="{% for x in section.settings.film_video_phone.sources %}{{ x.format }}:{{ x.width }}x{{ x.height }} {% endfor %}"></video>
+    <video class="film-video" muted playsinline preload="auto" aria-hidden="true" data-desktop="{{ src_d }}" data-phone="{{ src_p }}"></video>
     {%- comment -%} The last frame, words and all: only fetched when shown (reduced motion, no JavaScript). {%- endcomment -%}
     <div class="film-end" style="--last-d:url({{ 'banner-video-desktop-last.jpg' | asset_url }});--last-p:url({{ 'banner-video-phone-last.jpg' | asset_url }})"></div>
     {%- comment -%} A small cue at the film's foot that there is more below (owner, 2026-11-19); it fades once the page moves. {%- endcomment -%}
@@ -346,9 +332,9 @@
       "options": [ { "value": "none", "label": "The page colour" }, { "value": "bloom", "label": "Pale flowers on linen, with moving light" }, { "value": "film", "label": "The film, then the words on its last frame" } ],
       "info": "Behind the shell and the words. Leaf shadows sway over it and a warm light breathes; the first time each visit it comes up out of bright light and the words come into focus. Still with reduced motion." },
     { "type": "video", "id": "film_video", "label": "Film, laptop (16:9)",
-      "info": "Played once, muted, held on its last frame. Its first and last frames are theme images (banner-video-desktop-first.jpg, -last.jpg): remake them with the film." },
+      "info": "Not used while the films are theme files (assets/banner-film-desktop.mp4, -phone.mp4): Files cuts films to 1080 on the longer side." },
     { "type": "video", "id": "film_video_phone", "label": "Film, phone (portrait)",
-      "info": "The whole portrait film, first screen on a phone. First and last frames: banner-video-phone-first.jpg, -last.jpg." },
+      "info": "Not used while the films are theme files (see above). First and last frames: banner-video-*-first.jpg, -last.jpg." },
     { "type": "text", "id": "film_title", "label": "Words in the film: name", "default": "KARINEKO VINTAGE",
       "info": "Not shown: read aloud and given to search as the page's heading." },
     { "type": "text", "id": "film_line", "label": "Words in the film: line", "default": "Make vintage luxury accessible" },
