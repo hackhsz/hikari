@@ -287,6 +287,7 @@
     "every_piece": "Todas las piezas de {{ house }}"
   },
   "home": {
+    "scroll_cue": "Desliza",
     "alcove_line": "La Hornacina · Edición n.º {{ number }} · {{ day }}",
     "alcove_plate": "Lámina 01 · luz de día, ventana al norte",
     "brand_image_to_follow": "Imagen de la marca en camino",

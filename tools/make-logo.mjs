@@ -17,14 +17,15 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = join(ROOT, "tools", "logo-source");
 const b64 = (f) => readFileSync(join(SRC, f)).toString("base64");
 const JOBS = [
-  { out: "logo-karineko.png", src: b64("logo-karineko-drawn.png"), stacked: true },
-  { out: "logo-karineko-row.png", src: b64("logo-karineko-row-drawn.png"), stacked: false },
+  // the cat over KARINEKO (phones, the footer); the cat beside KARINEKO VINTAGE (the laptop masthead, owner 2026-11-19)
+  { out: "logo-karineko.png", src: b64("logo-karineko-drawn.png"), stacked: true, word: "KARINEKO" },
+  { out: "logo-karineko-row.png", src: b64("logo-karineko-row-drawn.png"), stacked: false, word: "KARINEKO VINTAGE" },
 ];
 const font = b64("Aboreto-Regular.ttf");
 
 const SPACING = 0.12, THIN = 1.8;  // letter spacing in em; px pared off the strokes (half on each side)
 const html = `<!doctype html><html><body><pre id="out"></pre><script>
-const WORD = "KARINEKO";
+const WORD0 = "KARINEKO";
 const load = (src) => new Promise((ok) => { const i = new Image(); i.onload = () => ok(i); i.src = "data:image/png;base64," + src; });
 (async () => {
   const SPACING = ${SPACING}, THIN = ${THIN};
@@ -32,8 +33,9 @@ const load = (src) => new Promise((ok) => { const i = new Image(); i.onload = ()
   document.fonts.add(await face.load());
   const res = {};
   for (const job of ${JSON.stringify(JOBS)}) {
-    const img = await load(job.src), W = img.width, H = img.height;
-    const c = document.createElement("canvas"); c.width = W; c.height = H;
+    const img = await load(job.src), W = img.width, H = img.height, WORD = job.word || WORD0;
+    // room to the right for a longer word beside the cat; the crop at the end trims what is not drawn
+    const c = document.createElement("canvas"); c.width = W + (job.stacked ? 0 : 1600); c.height = H; const CW = c.width;
     const x = c.getContext("2d"); x.drawImage(img, 0, 0);
     const d = x.getImageData(0, 0, W, H).data, ink = (k, y) => d[(y * W + k) * 4 + 3] > 40;
     // Where the drawn letters are.
@@ -70,9 +72,9 @@ const load = (src) => new Promise((ok) => { const i = new Image(); i.onload = ()
     x.globalCompositeOperation = "destination-out"; x.lineWidth = THIN; x.lineJoin = "round"; x.strokeStyle = "#000";
     x.strokeText(WORD, wx0 + m.actualBoundingBoxLeft, ly0 + m.actualBoundingBoxAscent); x.restore();
     // Crop to what is drawn, with a small margin, so the logo has no empty side.
-    const e = x.getImageData(0, 0, W, H).data; let cx0 = W, cx1 = 0;
-    for (let y = 0; y < H; y++) for (let k = 0; k < W; k++) if (e[(y * W + k) * 4 + 3] > 8) { if (k < cx0) cx0 = k; if (k > cx1) cx1 = k; }
-    const left = Math.max(0, cx0 - 8), right = Math.min(W - 1, cx1 + 8), cw = right - left + 1;
+    const e = x.getImageData(0, 0, CW, H).data; let cx0 = CW, cx1 = 0;
+    for (let y = 0; y < H; y++) for (let k = 0; k < CW; k++) if (e[(y * CW + k) * 4 + 3] > 8) { if (k < cx0) cx0 = k; if (k > cx1) cx1 = k; }
+    const left = Math.max(0, cx0 - 8), right = Math.min(CW - 1, cx1 + 8), cw = right - left + 1;
     const o = document.createElement("canvas"); o.width = cw; o.height = H;
     o.getContext("2d").drawImage(c, left, 0, cw, H, 0, 0, cw, H);
     res[job.out] = { png: o.toDataURL("image/png"), w: cw, h: H, word: [wx0 - left, ly0, Math.round(inkW), bh], size: +size.toFixed(1),

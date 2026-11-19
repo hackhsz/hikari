@@ -39,7 +39,7 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
 .lockup{display:block;height:var(--lk-h);aspect-ratio:605/496;background:currentColor;
   -webkit-mask:var(--logo) center/contain no-repeat;mask:var(--logo) center/contain no-repeat}
 /* the cat beside KARINEKO (row: true), for the masthead from a tablet up; a phone keeps the stacked one */
-.lockup--row{aspect-ratio:731/183}
+.lockup--row{aspect-ratio:1307/183}
 .mast-logo .lockup:not(.lockup--row){display:none}
 @media (max-width:760px){.mast-logo .lockup--row{display:none}.mast-logo .lockup:not(.lockup--row){display:block}}
 /* The pages sit on the left beside Shop; under 1200px they are in the menu only, so the line fits. */
@@ -52,10 +52,14 @@ body.grain-on #grain{animation:gs 640ms steps(1) infinite}
    "less transparency later when scrolled down"). sections/header sets .is-scrolled. */
 .mast{position:sticky;top:0;z-index:70;background:transparent;color:var(--fg);transition:background-color .35s ease}
 .mast.is-scrolled{background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(14px) saturate(1.1);backdrop-filter:blur(14px) saturate(1.1)}
-/* On the home page's film it floats over the top of the film; its letters and icons get a faint light halo
-   there, as the film's top holds a black box on a laptop. */
-body:has(.hero--film) .mast:not(.is-scrolled) :is(nav a,.bag-btn,.menu-btn){opacity:1;text-shadow:0 0 2px rgba(250,248,243,.9),0 0 12px rgba(250,248,243,.95)}
-body:has(.hero--film) .mast:not(.is-scrolled) :is(.mast-ico,.mast-logo){opacity:1;filter:drop-shadow(0 0 1px rgba(250,248,243,.9)) drop-shadow(0 0 8px rgba(250,248,243,.9))}
+/* On the home page's film it floats, white on a soft shade that fades from its top edge, all the way down
+   the film (owner: "not readable", then "more transparent until it reaches the white section"); the film
+   holds both a black box and pale silk under it, so neither ink nor a halo read on both. Once it has passed
+   the film's end (.off-film) it is the page's own masthead again. */
+body:has(.hero--film) .mast:not(.off-film){color:#FFFDF9;
+  background:linear-gradient(to bottom,rgba(26,22,18,.46),rgba(26,22,18,.22) 62%,rgba(26,22,18,0))}
+body:has(.hero--film) .mast:not(.off-film) :is(nav a,.bag-btn,.menu-btn,.mast-ico,.lang select){opacity:1;text-shadow:0 1px 10px rgba(0,0,0,.28)}
+body:has(.hero--film) .mast:not(.off-film) .mast-logo{filter:drop-shadow(0 1px 6px rgba(0,0,0,.25))}
 .mast .inner{max-width:var(--max);margin:0 auto;padding:12px var(--gut);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px}
 .mast nav{display:flex;gap:28px}
 .mast-l{justify-self:start;display:flex;align-items:center;gap:28px}
@@ -1030,6 +1034,20 @@ s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thicknes
   .film-end{background-image:var(--last-p)}
 }
 .hero--film:not(.hero--split) .hero-txt{padding-top:clamp(36px,5vw,64px)}
+/* the cue at the film's foot: a hairline with a bead running down it, and the word; ink, as the film's
+   foot is pale silk and shell on phone and laptop; it fades once the page has moved (html.has-scrolled) */
+.film-cue{position:absolute;left:50%;bottom:clamp(14px,2.4vw,26px);transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;
+  align-items:center;gap:8px;color:var(--sumi);text-decoration:none;transition:opacity .5s ease;
+  filter:drop-shadow(0 0 6px rgba(250,248,243,.85))}
+.film-cue-line{position:relative;display:block;width:1px;height:34px;background:color-mix(in srgb,currentColor 40%,transparent);overflow:hidden}
+.film-cue-line::after{content:"";position:absolute;left:-1.5px;top:-6px;width:4px;height:6px;border-radius:2px;background:currentColor;
+  animation:cue-run 1.9s cubic-bezier(.5,0,.3,1) infinite}
+@keyframes cue-run{0%{transform:translateY(0);opacity:0}15%{opacity:1}80%{opacity:1}100%{transform:translateY(40px);opacity:0}}
+.film-cue-word{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:600}
+html.has-scrolled .film-cue{opacity:0;pointer-events:none}
+.film.is-still .film-cue-line::after{animation:none;top:14px;opacity:1}
+@media (prefers-reduced-motion:reduce){.film-cue-line::after{animation:none;top:14px;opacity:1}}
+@media (max-width:749px){.film-cue{bottom:14px}.film-cue-line{height:28px}}
 
 /* Shop by category and Shop by brand as line icons, on the page itself (no tile colour). Three looks,
    a setting on each section: line (the icon alone), ring (in a thin circle), chip (a small pill).

@@ -100,6 +100,12 @@
   endcase
 -%}
 <section class="hero{% if split %} hero--split{% endif %}{% if line %} hero--line{% endif %}{% if art %} hero--art{% endif %}{% if section.settings.backdrop == 'bloom' %} hero--bloom{% endif %}{% if filmed %} hero--film{% endif %}{% if section.settings.heading_face != 'theme' %} hero--h-{{ section.settings.heading_face }}{% endif %}{% if section.settings.text_face != 'theme' %} hero--t-{{ section.settings.text_face }}{% endif %}" id="brand" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+  {%- comment -%} The banner's own faces (Aboreto, the handwriting), only when it shows words in them: the film has its words in the picture. {%- endcomment -%}
+  {%- unless filmed -%}{%- unless request.locale.iso_code == 'ar' or request.locale.iso_code == 'zh-CN' or request.locale.iso_code == 'ja' -%}
+  {%- if section.settings.heading_face != 'theme' or section.settings.text_face != 'theme' -%}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aboreto&family=Nothing+You+Could+Do&display=swap">
+  {%- endif -%}
+  {%- endunless -%}{%- endunless -%}
   {%- if section.settings.shell == 'intro' -%}
   <script>
     (function (s) {
@@ -177,6 +183,8 @@
     <video class="film-video" muted playsinline preload="auto" aria-hidden="true" data-desktop="{{ src_d }}" data-phone="{{ src_p }}"></video>
     {%- comment -%} The last frame, words and all: only fetched when shown (reduced motion, no JavaScript). {%- endcomment -%}
     <div class="film-end" style="--last-d:url({{ 'banner-video-desktop-last.jpg' | asset_url }});--last-p:url({{ 'banner-video-phone-last.jpg' | asset_url }})"></div>
+    {%- comment -%} A small cue at the film's foot that there is more below (owner, 2026-11-19); it fades once the page moves. {%- endcomment -%}
+    <a class="film-cue" href="#after-film"><span class="film-cue-line" aria-hidden="true"></span><span class="film-cue-word">{{ 'home.scroll_cue' | t }}</span></a>
   </div>
   <script>
     (function (f) {
@@ -249,7 +257,7 @@
   </div>
   {%- endif -%}
 
-  <div class="{% unless split %}shell {% endunless %}hero-txt">
+  <div class="{% unless split %}shell {% endunless %}hero-txt"{% if filmed %} id="after-film"{% endif %}>
     {%- unless filmed -%}
     <div class="hero-lead">
       {%- if section.settings.shell == 'above' -%}{%- render 'conch', place: 'above' -%}{%- endif -%}

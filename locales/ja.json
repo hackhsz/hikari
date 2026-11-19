@@ -287,6 +287,7 @@
     "every_piece": "{{ house }}のすべてのアイテム"
   },
   "home": {
+    "scroll_cue": "スクロール",
     "alcove_line": "床の間 · エディション No. {{ number }} · {{ day }}",
     "alcove_plate": "図版 01 · 自然光、北の窓",
     "brand_image_to_follow": "ブランド画像は追って掲載します",

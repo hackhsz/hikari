@@ -115,18 +115,27 @@
   document.documentElement.dataset.scrollColour = "{{ settings.scroll_colour }}";
   document.documentElement.style.setProperty('--grain', {{ settings.grain_opacity | divided_by: 100.0 }});
   {% if settings.grain_animate %}document.body.classList.add('grain-on');{% endif %}
-  /* The masthead floats, transparent, over the home page's film, and turns a frosted, mostly opaque
-     page colour once the page is scrolled (owner, 2026-11-19). Its height and the delivery line's are
-     kept in --mast-h and --ann-h, so the film can slide up under it and fill the screen. */
+  /* The masthead (owner, 2026-11-19): on the home page's film it floats, white on a soft shade, all the
+     way down the film (.off-film once it has passed the film's end); after that, or on any other page,
+     it is clear at the top and a frosted, mostly opaque page colour once scrolled (.is-scrolled).
+     Its height and the delivery line's are kept in --mast-h and --ann-h, so the film can slide up
+     under it and fill the screen; html.has-scrolled hides the film's scroll cue. */
   (function (m) {
     if (!m) return;
-    var a = document.querySelector('.announce'), r = document.documentElement;
+    var a = document.querySelector('.announce'), r = document.documentElement, film = null;
     function size() { r.style.setProperty('--mast-h', m.offsetHeight + 'px'); r.style.setProperty('--ann-h', (a ? a.offsetHeight : 0) + 'px'); }
-    function scrolled() { m.classList.toggle('is-scrolled', scrollY > 8); }
-    size(); scrolled();
+    function place() {
+      film = film || document.querySelector('.film');
+      var off = !film || film.getBoundingClientRect().bottom <= m.offsetHeight + 1;
+      m.classList.toggle('off-film', off);
+      m.classList.toggle('is-scrolled', off && scrollY > 8);
+      r.classList.toggle('has-scrolled', scrollY > 40);
+    }
+    size(); place();
     if (window.ResizeObserver) new ResizeObserver(size).observe(m);
-    addEventListener('resize', size, { passive: true });
-    addEventListener('scroll', scrolled, { passive: true });
+    addEventListener('resize', function () { size(); place(); }, { passive: true });
+    addEventListener('scroll', place, { passive: true });
+    document.addEventListener('DOMContentLoaded', place);
   })(document.querySelector('.mast'));
 </script>
 {% schema %}

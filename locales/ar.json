@@ -303,6 +303,7 @@
     "every_piece": "كل قطع {{ house }}"
   },
   "home": {
+    "scroll_cue": "مرّر للأسفل",
     "alcove_line": "الركن · الإصدار رقم {{ number }} · {{ day }}",
     "alcove_plate": "لوحة 01 · ضوء النهار، نافذة شمالية",
     "brand_image_to_follow": "صورة العلامة قريبًا",
