@@ -31,7 +31,8 @@
         "shell": "none",
         "backdrop": "film",
         "film_title": "KARINEKO VINTAGE",
-        "film_video": "shopify://files/videos/karineko-banner-film.mp4",
+        "film_video": "shopify://files/videos/karineko-banner-desktop.mp4",
+        "film_video_phone": "shopify://files/videos/karineko-banner-phone.mp4",
         "film_line": "Make vintage luxury accessible"
       }
     },

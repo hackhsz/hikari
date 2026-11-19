@@ -52,15 +52,14 @@
   never shown (the flowers are the picture), with or without the shell (owner, 2026-11-19: "get rid of
   the shell": shell none, the words centred on the flowers).
 
-  Backdrop "film" (owner and 刘总, 2026-11-19: "动效和背景以这个视频最后的5秒为准"): the banner is the end of
-  our unboxing video (17.9-20.75 s: the box, the dappled light, the flat lay in warm light; cut before the
-  title the video has burned in from 20.9 s, so the words appear once), from Settings > Files (film_video),
-  played once and held on its last frame. Under it the words, KARINEKO VINTAGE in Aboreto and the line in
-  handwriting (Nothing You Could Do, the nearest free face to the video's), sit on that same last frame,
-  which stays put (sticky, sharing a grid cell with them) while they scroll over it and come into focus as they arrive; then the picture
-  ends in a fade to the page colour, and the three lines and the viewing link follow on it. Still with
-  reduced motion and without JavaScript (the last frame, assets/banner-film-last.jpg). The words stay ink on a high-key
-  picture, so nothing sits under a scrim.
+  Backdrop "film" (owner and 刘总, 2026-11-19, second version: "直接拿这个视频来做banner"): the banner is our
+  2.8-second film (iPhone 4K HDR, made standard-range with macOS avconvert; tools/banner-source/film2), with
+  its own words in it, so nothing is laid over it. Phone: the whole portrait film fills the first screen
+  under the header. Laptop: a 16:9 band of it, cropped top and bottom around the words (1920 x 1080). Each
+  from Settings > Files (film_video, film_video_phone), played once, muted, and held on its last frame; no
+  fade into the page, a clean edge, then the three lines and the viewing link on the page colour. Until it
+  plays, its first frame (theme image) shows; with reduced motion or without JavaScript, its last frame,
+  words and all. The words are also the page's h1, for screen readers and search.
 {%- endcomment -%}
 {%- liquid
   assign img = section.settings.image
@@ -144,55 +143,43 @@
   {%- endif -%}
   {%- if filmed -%}
   {%- liquid
-    assign film = section.settings.film_video
-    assign film_src = ''
-    assign film_type = 'video/mp4'
+    comment
+      The film's mp4 from Settings > Files: the largest rendition Shopify made of it.
+    endcomment
+    assign src_d = ''
     assign best = 0
-    for v in film.sources
+    for v in section.settings.film_video.sources
       if v.format == 'mp4' and v.height > best
         assign best = v.height
-        assign film_src = v.url
-        assign film_type = v.mime_type
+        assign src_d = v.url
       endif
     endfor
+    assign src_p = ''
+    assign best = 0
+    for v in section.settings.film_video_phone.sources
+      if v.format == 'mp4' and v.height > best
+        assign best = v.height
+        assign src_p = v.url
+      endif
+    endfor
+    if src_p == blank
+      assign src_p = src_d
+    endif
     assign film_title = section.settings.film_title | default: 'KARINEKO VINTAGE'
-    assign film_words = film_title | split: ' '
   -%}
-  <div class="film">
-    <div class="film-bg" aria-hidden="true">
-      <img class="film-still" src="{{ 'banner-film-last.jpg' | asset_url }}" alt="" width="720" height="1184" loading="eager">
-      {%- if film_src != blank -%}
-      <video class="film-video" muted playsinline preload="auto" width="720" height="1184"
-        poster="{{ 'banner-film-first.jpg' | asset_url }}"><source src="{{ film_src }}" type="{{ film_type }}"></video>
-      {%- endif -%}
-      <span class="film-shade"></span>
-    </div>
-    <div class="film-over">
-      <div class="film-stage"></div>
-      <div class="film-words">
-        <h1 class="film-title">{%- for w in film_words -%}<span>{{ w }}</span>{%- endfor -%}</h1>
-        {%- if section.settings.film_line != blank -%}<p class="film-line">{{ section.settings.film_line }}</p>{%- endif -%}
-      </div>
-      <div class="film-fade"></div>
-    </div>
+  <div class="film" style="--first-d:url({{ 'banner-video-desktop-first.jpg' | asset_url }});--first-p:url({{ 'banner-video-phone-first.jpg' | asset_url }});--last-d:url({{ 'banner-video-desktop-last.jpg' | asset_url }});--last-p:url({{ 'banner-video-phone-last.jpg' | asset_url }})">
+    <h1 class="vh">{{ film_title }}{% if section.settings.film_line != blank %}: {{ section.settings.film_line }}{% endif %}</h1>
+    <video class="film-video" muted playsinline preload="auto" aria-hidden="true" data-desktop="{{ src_d }}" data-phone="{{ src_p }}"></video>
   </div>
   <script>
-    (function (s) {
-      var v = s.querySelector('.film-video'), w = s.querySelector('.film-words');
-      var still = false;
+    (function (f) {
+      var v = f.querySelector('.film-video'), still = true;
       try { still = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-      if (v && !still) {
-        s.classList.add('film-on');
-        var p = v.play(); if (p && p.catch) p.catch(function () { s.classList.remove('film-on'); });
-      }
-      if (w && !still && 'IntersectionObserver' in window) {
-        s.classList.add('film-words-wait');
-        var io = new IntersectionObserver(function (es) {
-          es.forEach(function (e) { if (e.isIntersecting) { s.classList.add('film-words-in'); io.disconnect(); } });
-        }, { threshold: 0.35 });
-        io.observe(w);
-      }
-    })(document.currentScript.parentNode);
+      var src = matchMedia('(max-width: 749px)').matches ? v.getAttribute('data-phone') : v.getAttribute('data-desktop');
+      if (still || !src) { f.classList.add('is-still'); return; }
+      v.src = src;
+      var p = v.play(); if (p && p.catch) p.catch(function () { f.classList.add('is-still'); });
+    })(document.currentScript.previousElementSibling);
   </script>
   {%- endif -%}
   {%- if section.settings.backdrop == 'bloom' -%}
@@ -312,10 +299,13 @@
     { "type": "select", "id": "backdrop", "label": "Background", "default": "none",
       "options": [ { "value": "none", "label": "The page colour" }, { "value": "bloom", "label": "Pale flowers on linen, with moving light" }, { "value": "film", "label": "The film, then the words on its last frame" } ],
       "info": "Behind the shell and the words. Leaf shadows sway over it and a warm light breathes; the first time each visit it comes up out of bright light and the words come into focus. Still with reduced motion." },
-    { "type": "video", "id": "film_video", "label": "Film (Background: the film)",
-      "info": "Played once, muted, held on its last frame. Its first and last frames are theme images (banner-film-first.jpg, banner-film-last.jpg): remake them with the clip." },
-    { "type": "text", "id": "film_title", "label": "Words on the film: name", "default": "KARINEKO VINTAGE" },
-    { "type": "text", "id": "film_line", "label": "Words on the film: handwritten line", "default": "Make vintage luxury accessible" },
+    { "type": "video", "id": "film_video", "label": "Film, laptop (16:9)",
+      "info": "Played once, muted, held on its last frame. Its first and last frames are theme images (banner-video-desktop-first.jpg, -last.jpg): remake them with the film." },
+    { "type": "video", "id": "film_video_phone", "label": "Film, phone (portrait)",
+      "info": "The whole portrait film, first screen on a phone. First and last frames: banner-video-phone-first.jpg, -last.jpg." },
+    { "type": "text", "id": "film_title", "label": "Words in the film: name", "default": "KARINEKO VINTAGE",
+      "info": "Not shown: read aloud and given to search as the page's heading." },
+    { "type": "text", "id": "film_line", "label": "Words in the film: line", "default": "Make vintage luxury accessible" },
     { "type": "checkbox", "id": "show_link", "label": "Show the first link", "default": true },
     { "type": "text", "id": "link_label", "label": "Link label", "default": "Explore the collection" },
     { "type": "url", "id": "link", "label": "Link", "default": "/collections/all" },
