@@ -48,7 +48,9 @@
   no jewellery: tools/banner-source), with the shadows of leaves swaying over it and a warm peach light
   that breathes. Once per visit, with the shell's drawing (.is-drawing), the picture comes up out of
   bright light, the leaf shadows pass across it, the glow blooms, and the words come into focus one
-  after another. Reduced motion: all of it still, from the start. The words stay ink on a high-key
+  after another. Reduced motion: all of it still, from the start. With the backdrop the photograph is
+  never shown (the flowers are the picture), with or without the shell (owner, 2026-11-19: "get rid of
+  the shell": shell none, the words centred on the flowers). The words stay ink on a high-key
   picture, so nothing sits under a scrim.
 {%- endcomment -%}
 {%- liquid
@@ -71,6 +73,10 @@
   assign art = false
   if section.settings.shell == 'banner'
     assign art = true
+  endif
+  assign bloom = false
+  if section.settings.backdrop == 'bloom'
+    assign bloom = true
   endif
   case fit
     when 'wide'
@@ -112,7 +118,7 @@
       setTimeout(open, 7000);
     })(document.currentScript.parentNode);
   </script>
-  {%- elsif art -%}
+  {%- elsif art or bloom -%}
   <script>
     (function (s) {
       try {
@@ -138,6 +144,8 @@
   {%- if split -%}<div class="shell hero-split">{%- endif -%}
   {%- if art -%}
   <div class="hero-art">{%- render 'conch', place: 'banner' -%}</div>
+  {%- elsif bloom -%}
+    {%- comment -%} The flowers are the picture: no photograph, no placeholder. {%- endcomment -%}
   {%- else -%}
   <div class="hero-media hero-media--{{ fit }}{% if img_m %} has-mobile{% endif %}{% unless img %} is-empty{% endunless %}">
     {%- if img and split -%}
