@@ -167,12 +167,14 @@
       {%- endif -%}
       <span class="film-shade"></span>
     </div>
-    <div class="film-stage"></div>
-    <div class="film-words">
-      <h1 class="film-title">{%- for w in film_words -%}<span>{{ w }}</span>{%- endfor -%}</h1>
-      {%- if section.settings.film_line != blank -%}<p class="film-line">{{ section.settings.film_line }}</p>{%- endif -%}
+    <div class="film-over">
+      <div class="film-stage"></div>
+      <div class="film-words">
+        <h1 class="film-title">{%- for w in film_words -%}<span>{{ w }}</span>{%- endfor -%}</h1>
+        {%- if section.settings.film_line != blank -%}<p class="film-line">{{ section.settings.film_line }}</p>{%- endif -%}
+      </div>
+      <div class="film-fade"></div>
     </div>
-    <div class="film-fade"></div>
   </div>
   <script>
     (function (s) {
