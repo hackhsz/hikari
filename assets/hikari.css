@@ -868,7 +868,8 @@ main .gal-slide:first-child .plate{view-transition-name:piece}
    The banner's words: a typeface setting each for the heading and for the three short lines
    (sections/brand-hero: heading_face, text_face). The owner first had the heading in Aboreto and the
    lines in handwriting (Dawning of a New Day, the nearest free face to their sample), then swapped
-   them: the heading in handwriting, the lines in Aboreto. Both faces load on the home page only
+   them: the heading in handwriting, the lines in Aboreto; on 2026-11-19 the lines went to the site's sans
+   (text_face theme) and Aboreto to the KARINEKO of the logo (tools/make-logo.mjs). Both faces load on the home page only
    (layout/theme.liquid). Latin pages only: Chinese, Japanese and Arabic keep the theme's faces, as
    neither font has those letters, and letter spacing would break Arabic joins. */
 :root:not(:lang(zh)):not(:lang(ja)):not(:lang(ar)) .hero--h-hand .hero-h{font-family:"Dawning of a New Day",cursive;font-weight:400;

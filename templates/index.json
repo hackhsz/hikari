@@ -27,7 +27,7 @@
         "layout": "stacked",
         "show_link": false,
         "heading_face": "hand",
-        "text_face": "aboreto",
+        "text_face": "theme",
         "shell": "banner"
       }
     },
