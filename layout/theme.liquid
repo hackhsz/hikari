@@ -31,6 +31,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <script>document.documentElement.classList.add("js")</script>
   <link rel="canonical" href="{{ canonical_url }}">
+  {%- comment -%}
+    The home film's first frame is the first screen's largest picture: ask for it before anything else
+    (sections/brand-hero, backdrop "film"; on a slow phone it otherwise queued behind Shopify's own
+    scripts and came at 4-7 s). One per width; only the matching one is fetched.
+  {%- endcomment -%}
+  {%- if template.name == 'index' -%}
+  <link rel="preload" as="image" href="{{ 'banner-video-phone-first.jpg' | asset_url }}" media="(max-width: 749px)" fetchpriority="high">
+  <link rel="preload" as="image" href="{{ 'banner-video-desktop-first.jpg' | asset_url }}" media="(min-width: 750px)" fetchpriority="high">
+  {%- endif -%}
   {%- assign brand = settings.brand_name | default: shop.name -%}
   {%- comment -%} Title, description, link previews and structured data: snippets/seo. {%- endcomment -%}
   {%- render 'seo', brand: brand %}

@@ -177,7 +177,7 @@
     <h1 class="vh">{{ film_title }}{% if section.settings.film_line != blank %}: {{ section.settings.film_line }}{% endif %}</h1>
     {%- comment -%} The first frame, a real image fetched first (the page's largest paint), small for phones. {%- endcomment -%}
     <picture class="film-poster">
-      <source media="(max-width: 749px)" srcset="{{ 'banner-video-phone-first.jpg' | asset_url }}" width="720" height="1280">
+      <source media="(max-width: 749px)" srcset="{{ 'banner-video-phone-first.jpg' | asset_url }}" width="540" height="960">
       <img src="{{ 'banner-video-desktop-first.jpg' | asset_url }}" alt="" width="1440" height="810" loading="eager" fetchpriority="high">
     </picture>
     <video class="film-video" muted playsinline preload="auto" aria-hidden="true" data-desktop="{{ src_d }}" data-phone="{{ src_p }}"></video>
