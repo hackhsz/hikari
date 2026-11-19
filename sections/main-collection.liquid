@@ -144,7 +144,7 @@
             {%- assign bk_s = bk | date: '%s' | plus: 0 -%}
             <div class="cat-item" data-pos="{{ forloop.index }}" data-brand="{{ p.vendor | handleize }}" data-vendor="{{ p.vendor | escape }}"
                  data-cat="{{ c }}" data-batch="{{ bk }}"{% if bk_s >= new_from %} data-new="1"{% endif %} data-status="{{ st }}" data-price="{{ p.price }}" data-date="{{ p.published_at | date: '%s' }}">
-              {%- render 'product-card', card_product: p, tone: 'grey', card_sizes: '(max-width: 600px) 50vw, (max-width: 900px) 33vw, 280px' -%}
+              {%- render 'product-card', card_product: p, tone: 'grey', bare: archive, card_sizes: '(max-width: 600px) 50vw, (max-width: 900px) 33vw, 280px' -%}
             </div>
           {%- endfor -%}
         </div>

@@ -15,7 +15,15 @@
 {%- assign cat_tags = 'necklaces,earrings,bracelets,rings,brooches,sunglasses' | split: ',' -%}
 {%- capture newest -%}{%- render 'newest-handles' -%}{%- endcapture -%}
 {%- assign all_url = routes.all_products_collection_url -%}
-<section class="pad-s" id="shop-categories" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+{%- liquid
+  assign g_bg = '#FAF8F3'
+  assign g_fg = '#1C1B18'
+  if section.settings.ground == 'green'
+    assign g_bg = '#2F5B45'
+    assign g_fg = '#FAF8F3'
+  endif
+-%}
+<section class="pad-s" id="shop-categories" data-bg="{{ g_bg }}" data-fg="{{ g_fg }}" style="--sec-bg:{{ g_bg }};--sec-fg:{{ g_fg }};">
   <div class="shell">
     <div class="sec-head">
       <div>
@@ -70,6 +78,9 @@
 {% schema %}
 { "name": "Shop by category",
   "settings": [
+    { "type": "select", "id": "ground", "label": "Ground", "default": "page",
+      "options": [ { "value": "page", "label": "The page colour" }, { "value": "green", "label": "Green, white words and icons" } ],
+      "info": "Green from Shop by category to the end of the home page (owner, 2026-11-19)." },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Shop by category" },
     { "type": "select", "id": "look", "label": "Look", "default": "photo",

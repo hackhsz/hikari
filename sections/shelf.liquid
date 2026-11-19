@@ -26,7 +26,15 @@
   {%- endfor -%}
 {%- endcapture -%}
 {%- if shown > 0 or request.design_mode -%}
-<section class="pad" id="shelf-{{ section.id }}" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
+{%- liquid
+  assign g_bg = '#FAF8F3'
+  assign g_fg = '#1C1B18'
+  if section.settings.ground == 'green'
+    assign g_bg = '#2F5B45'
+    assign g_fg = '#FAF8F3'
+  endif
+-%}
+<section class="pad" id="shelf-{{ section.id }}" data-bg="{{ g_bg }}" data-fg="{{ g_fg }}" style="--sec-bg:{{ g_bg }};--sec-fg:{{ g_fg }};">
   <div class="shell">
     <div class="ne-head">
       <div>
@@ -50,6 +58,9 @@
 {%- endif -%}
 {% schema %}
 { "name": "Shelf: sale or pre-order", "settings": [
+    { "type": "select", "id": "ground", "label": "Ground", "default": "page",
+      "options": [ { "value": "page", "label": "The page colour" }, { "value": "green", "label": "Green, white words and icons" } ],
+      "info": "Green from Shop by category to the end of the home page (owner, 2026-11-19)." },
   { "type": "select", "id": "kind", "label": "Show", "default": "sale",
     "options": [ { "value": "sale", "label": "On sale" }, { "value": "presale", "label": "Pre-order" } ] },
   { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "On sale" },

@@ -16,6 +16,9 @@
   Tag a piece photo-to-come when its only photograph is shared with another listing (a pair shot
   together): its card shows the shop's cat instead, so the same photograph never appears on two
   cards. The piece's own page still shows the photograph. Remove the tag once it has its own.
+
+  bare: the photograph alone (the Archive, owner 2026-11-19): the words stay for screen readers and
+  search, hidden from sight, as do the badges.
 {%- endcomment -%}
 {%- capture status -%}{%- render 'status', p: p -%}{%- endcapture -%}
 {%- assign piece = p.metafields.hikari.piece | default: p.title -%}
@@ -24,7 +27,7 @@
 {%- assign to_come = false -%}
 {%- if p.tags contains 'photo-to-come' -%}{%- assign card_img = nil -%}{%- assign to_come = true -%}{%- endif -%}
 {%- capture track -%}{%- render 'track-item', p: p, status: status -%}{%- endcapture -%}
-<div class="card" data-track-item="{{ track | strip | escape }}">
+<div class="card{% if bare %} card--bare{% endif %}" data-track-item="{{ track | strip | escape }}">
   <div class="card-media">
     <a href="{{ p.url }}" tabindex="-1" aria-hidden="true">
       {%- render 'plate', image: card_img, ratio: 1, fill: true, sizes: img_sizes, seed: p.id, tone: tone,

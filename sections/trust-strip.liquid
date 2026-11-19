@@ -2,7 +2,15 @@
   The four promises (theme settings → Trust lines) in one band under the brand image, so a first
   visit knows straight away why to buy here: authenticated, refund if not, duty paid, delivery.
 {%- endcomment -%}
-<section class="trust-strip" data-bg="#F4F0E8" data-fg="#1C1B18" style="--sec-bg:#F4F0E8;--sec-fg:#1C1B18;">
+{%- liquid
+  assign g_bg = '#F4F0E8'
+  assign g_fg = '#1C1B18'
+  if section.settings.ground == 'green'
+    assign g_bg = '#2F5B45'
+    assign g_fg = '#FAF8F3'
+  endif
+-%}
+<section class="trust-strip" data-bg="{{ g_bg }}" data-fg="{{ g_fg }}" style="--sec-bg:{{ g_bg }};--sec-fg:{{ g_fg }};">
   <ul class="shell trust-list">
     {%- if settings.trust_1 != blank %}<li>{{ settings.trust_1 }}</li>{% endif -%}
     {%- if settings.trust_2 != blank %}<li>{{ settings.trust_2 }}</li>{% endif -%}
@@ -10,4 +18,8 @@
     {%- if settings.trust_4 != blank %}<li>{{ settings.trust_4 }}</li>{% endif -%}
   </ul>
 </section>
-{% schema %}{ "name": "Trust line", "settings": [], "presets": [{ "name": "Trust line" }] }{% endschema %}
+{% schema %}{ "name": "Trust line", "settings": [
+    { "type": "select", "id": "ground", "label": "Ground", "default": "page",
+      "options": [ { "value": "page", "label": "The page colour" }, { "value": "green", "label": "Green, white words and icons" } ],
+      "info": "Green from Shop by category to the end of the home page (owner, 2026-11-19)." }
+  ], "presets": [{ "name": "Trust line" }] }{% endschema %}

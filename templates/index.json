@@ -31,8 +31,8 @@
         "shell": "none",
         "backdrop": "film",
         "film_title": "KARINEKO VINTAGE",
-        "film_video": "shopify://files/videos/karineko-banner-desktop.mp4",
-        "film_video_phone": "shopify://files/videos/karineko-banner-phone.mp4",
+        "film_video": "shopify://files/videos/karineko-banner-desktop-1440.mp4",
+        "film_video_phone": "shopify://files/videos/karineko-banner-phone-1440.mp4",
         "film_line": "Make vintage luxury accessible"
       }
     },
@@ -70,7 +70,8 @@
       "settings": {
         "heading": "Shop by brand",
         "style": "tiles",
-        "look": "ring"
+        "look": "ring",
+        "ground": "green"
       }
     },
     "story": {
@@ -80,7 +81,8 @@
         "stamp": "Plate 05 · At the stall, October",
         "eyebrow": "About Karineko",
         "heading": "The beauty of finding something rare.",
-        "body": "<p>Karineko is a small, independent shop in London.</p><p>We find our pieces in person and at a few trusted auctions in Japan, and keep only those with something to say. Each one is checked by hand, for authenticity and condition, before it comes to you.</p><p>Luxury, we think, should feel personal, not out of reach.</p><p><em>A past worth keeping.</em></p>"
+        "body": "<p>Karineko is a small, independent shop in London.</p><p>We find our pieces in person and at a few trusted auctions in Japan, and keep only those with something to say. Each one is checked by hand, for authenticity and condition, before it comes to you.</p><p>Luxury, we think, should feel personal, not out of reach.</p><p><em>A past worth keeping.</em></p>",
+        "ground": "green"
       }
     },
     "recent": {
@@ -111,7 +113,8 @@
       "settings": {
         "kind": "presale",
         "eyebrow": "Pre-order",
-        "heading": "Available to order"
+        "heading": "Available to order",
+        "ground": "green"
       }
     },
     "shelf-sale": {
@@ -125,13 +128,16 @@
     "trust": {
       "type": "trust-strip",
       "disabled": true,
-      "settings": {}
+      "settings": {
+        "ground": "green"
+      }
     },
     "categories": {
       "type": "shop-categories",
       "settings": {
         "heading": "Shop by category",
-        "look": "ring"
+        "look": "ring",
+        "ground": "green"
       }
     },
     "new_in": {
