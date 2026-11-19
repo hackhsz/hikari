@@ -34,6 +34,8 @@ async function record(name, width, height, mobile) {
   const s = (m, p) => cdp.send(m, p, sessionId);
   await s("Page.enable");
   await s("Emulation.setDeviceMetricsOverride", { width, height, deviceScaleFactor: mobile ? 2 : 1, mobile });
+  // REDUCED=1: as someone who has turned animations off sees it (and as the site check's screenshots do)
+  if (process.env.REDUCED) await s("Emulation.setEmulatedMedia", { features: [{ name: "prefers-reduced-motion", value: "reduce" }] });
   const dir = mkdtempSync(join(tmpdir(), "banner-frames-")); const frames = [];
   cdp.on(m => { if (m.method === "Page.screencastFrame" && m.sessionId === sessionId) {
     frames.push({ t: m.params.metadata.timestamp, data: m.params.data }); s("Page.screencastFrameAck", { sessionId: m.params.sessionId }); } });
@@ -48,7 +50,7 @@ async function record(name, width, height, mobile) {
     const next = frames[i + 1] ? frames[i + 1].t : f.t + 0.5; list.push(`file '${file}'\nduration ${Math.max(0.01, next - f.t).toFixed(3)}`); });
   writeFileSync(join(dir, "list.txt"), list.join("\n") + `\nfile '${join(dir, `f${String(frames.length - 1).padStart(4, "0")}.jpg`)}'\n`);
   mkdirSync(join(ROOT, "previews"), { recursive: true });
-  const out = join(ROOT, "previews", `banner-${target}-${name}.mp4`);
+  const out = join(ROOT, "previews", `banner-${target}-${name}${process.env.REDUCED ? "-still" : ""}.mp4`);
   execFileSync("ffmpeg", ["-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", join(dir, "list.txt"), "-vf", "fps=25,scale=trunc(iw/2)*2:trunc(ih/2)*2",
     "-pix_fmt", "yuv420p", "-movflags", "+faststart", out]);
   rmSync(dir, { recursive: true, force: true });
