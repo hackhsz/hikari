@@ -184,7 +184,7 @@
     {%- comment -%} The last frame, words and all: only fetched when shown (reduced motion, no JavaScript). {%- endcomment -%}
     <div class="film-end" style="--last-d:url({{ 'banner-video-desktop-last.jpg' | asset_url }});--last-p:url({{ 'banner-video-phone-last.jpg' | asset_url }})"></div>
     {%- comment -%} A small cue at the film's foot that there is more below (owner, 2026-11-19); it fades once the page moves. {%- endcomment -%}
-    <a class="film-cue" href="#after-film"><span class="film-cue-line" aria-hidden="true"></span><span class="film-cue-word">{{ 'home.scroll_cue' | t }}</span></a>
+    <a class="film-cue" href="#after-film"><span class="film-cue-word">{{ 'home.scroll_cue' | t }}</span><svg class="film-cue-arrow" viewBox="0 0 34 18" aria-hidden="true"><path d="M2 2l15 14L32 2"/></svg></a>
   </div>
   <script>
     (function (f) {
