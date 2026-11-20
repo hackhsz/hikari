@@ -100,8 +100,9 @@
       k = Math.min(1, Math.max(0, k));
       var g = MID + (1 - MID) * k * k * (3 - 2 * k);
       r.style.setProperty('--rise', g.toFixed(3));
-      /* the ink flips from dark to white over a short step, where both read on the green (4.5:1 or more) */
-      r.style.setProperty('--rise-fg', Math.min(1, Math.max(0, (g - 0.74) / 0.08)).toFixed(3));
+      /* the ink turns from dark to white in one step (a short fade in the CSS), where both read on the green
+         (4.5:1 or more): with the hold one can stop anywhere, so it never rests half-way */
+      r.style.setProperty('--rise-fg', g >= 0.78 ? '1' : '0');
     }
     addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(rise); } }, { passive: true });
     addEventListener('resize', rise, { passive: true });

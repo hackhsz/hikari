@@ -198,7 +198,6 @@
       assign l_half = l_words.size | plus: 1 | divided_by: 2
     -%}
     {%- capture fw_text -%}
-      <filter id="fw-thin" x="-5%" y="-20%" width="110%" height="140%"><feMorphology operator="erode" radius="1.5"/></filter>
       <g class="fw-title">
         {%- if t_words.size > 1 -%}
           <text class="fw" style="--i:0" x="1080" y="1889">{% for w in t_words limit: t_half %}{{ w }}{% unless forloop.last %} {% endunless %}{% endfor %}</text>
@@ -216,8 +215,8 @@
       </g>
       {%- endif -%}
     {%- endcapture -%}
-    <svg class="film-words film-words--d" viewBox="0 1400 2160 1215" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">{{ fw_text | replace: 'class="fw-hand"', 'class="fw-hand" filter="url(#fw-thin)"' }}</svg>
-    <svg class="film-words film-words--p" viewBox="0 0 2160 3840" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">{{ fw_text | replace: 'id="fw-thin"', 'id="fw-thin-p"' | replace: 'class="fw-hand"', 'class="fw-hand" filter="url(#fw-thin-p)"' }}</svg>
+    <svg class="film-words film-words--d" viewBox="0 1400 2160 1215" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">{{ fw_text }}</svg>
+    <svg class="film-words film-words--p" viewBox="0 0 2160 3840" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">{{ fw_text }}</svg>
     {%- comment -%} A small cue at the film's foot that there is more below (owner, 2026-11-19); it fades once the page moves. {%- endcomment -%}
     <a class="film-cue" href="#after-film"><span class="film-cue-word">{{ 'home.scroll_cue' | t }}</span><svg class="film-cue-arrow" viewBox="0 0 34 18" aria-hidden="true"><path d="M2 2l15 14L32 2"/></svg></a>
   </div>
