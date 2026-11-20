@@ -134,6 +134,7 @@
       var off = !film || film.getBoundingClientRect().bottom <= m.offsetHeight + 1;
       m.classList.toggle('off-film', off);
       m.classList.toggle('is-scrolled', off && scrollY > 8);
+      r.classList.toggle('past-film', !!film && off);
       r.classList.toggle('has-scrolled', scrollY > 40);
     }
     size(); place();

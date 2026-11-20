@@ -1032,12 +1032,11 @@ s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thicknes
    screen under the header. Its first frame (an image, fetched first) shows until it plays; with
    reduced motion or no JavaScript (.is-still, html:not(.js)) the last frame, words and all. */
 .hero--film{padding-top:0}
-/* The film fills the whole first screen, edge to edge (owner, 2026-11-19: "people have to scroll down",
-   "fill all spaces" on a phone: no delivery line above it there, and the large viewport so no strip shows
-   when a phone's toolbar slides away), sliding up under the floating masthead. On a laptop, scrolling eases
-   it back into a framed card with rounded corners (--shrink from the section's script), Dior-like. */
-.film{position:relative;width:100%;height:100vh;height:100lvh;overflow:hidden;background:#EDE7DF;
-  transform:scale(calc(1 - .07 * var(--shrink,0)));transform-origin:50% 40%;border-radius:calc(22px * var(--shrink,0));will-change:transform}
+/* The film fills the whole first screen, edge to edge (owner, 2026-11-19/20: "people have to scroll down",
+   "fill all spaces", no edge when scrolling), sliding up under the floating masthead. It holds still for
+   a while as the page starts to scroll: sticky inside .film-hold, which is a screen plus --stall tall. */
+.film-hold{position:relative;height:calc(100vh + var(--stall,55vh));height:calc(100lvh + var(--stall,55vh))}
+.film{position:sticky;top:0;width:100%;height:100vh;height:100lvh;overflow:hidden;background:#EDE7DF}
 .hero--film{margin-top:calc(-1 * var(--mast-h,76px))}
 .film :is(.film-poster img,.film-video,.film-end){position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
 /* the film fades in over its first frame once it starts */
@@ -1046,7 +1045,7 @@ s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thicknes
 .film-cue{z-index:3}
 .film-end{display:none;background:var(--last-d) 50% 50%/cover no-repeat}
 .film.is-still .film-end,html:not(.js) .film-end{display:block}
-@media (prefers-reduced-motion:reduce){.film{transform:none;border-radius:0}}
+@media (prefers-reduced-motion:reduce){.film-hold{height:auto}}
 .film.is-still .film-video,html:not(.js) .film-video{display:none}
 @media (max-width:749px){
   .film-end{background-image:var(--last-p)}
@@ -1108,9 +1107,11 @@ html.has-scrolled .film-cue{opacity:0;pointer-events:none}
 .card--bare .cinfo{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .card--bare :is(.badge,.stamp){display:none}
 
-/* Green from Shop by category on (owner, 2026-11-19): the page keeps its colours above and the green begins
-   there, rising out of the page colour through a long soft band (half as long again as the old scroll
-   blend: 35% of a screen, now ~52%), rather than the whole screen turning green as it scrolls. The
-   section's own words sit below the band, on full green. */
-.ground-fade{background:linear-gradient(to bottom,var(--fade-from,#FAF8F3) 0,var(--sec-bg) var(--fade-h)) !important;
-  padding-top:calc(var(--fade-h) + clamp(28px,4vw,56px)) !important;--fade-h:clamp(240px,52vh,560px)}
+/* Green from Shop by category on (owner, 2026-11-20): a clean edge, no band. The green part of the page
+   arrives in a soft in-between green and deepens to full green as it scrolls up (--rise, set by
+   sections/shop-categories); --rise is unset elsewhere, so other pages' green is full green. */
+[data-bg="#2F5B45"]{background:color-mix(in srgb,#2F5B45 calc(var(--rise,1) * 100%),#FAF8F3);
+  color:color-mix(in srgb,#FAF8F3 calc(var(--rise-fg,1) * 100%),#1C1B18)}
+/* the chat bubble waits until the film is passed (owner, 2026-11-20) */
+body:has(.hero--film) shopify-chat{opacity:0;visibility:hidden;transition:opacity .4s ease,visibility 0s linear .4s}
+html.past-film body:has(.hero--film) shopify-chat{opacity:1;visibility:visible;transition:opacity .4s ease}

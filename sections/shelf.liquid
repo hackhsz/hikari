@@ -20,7 +20,8 @@
       {%- if st != 'sale' and st != 'presale' -%}{%- continue -%}{%- endif -%}
       {%- unless p.compare_at_price > p.price -%}{%- continue -%}{%- endunless -%}
     {%- endif -%}
-    {%- if shown >= 8 -%}{%- break -%}{%- endif -%}
+    {%- assign shelf_max = section.settings.count | default: 8 | plus: 0 -%}
+    {%- if shown >= shelf_max -%}{%- break -%}{%- endif -%}
     {%- assign shown = shown | plus: 1 -%}
     {%- render 'product-card', card_product: p, tone: 'light' -%}
   {%- endfor -%}
@@ -61,6 +62,8 @@
     { "type": "select", "id": "ground", "label": "Ground", "default": "page",
       "options": [ { "value": "page", "label": "The page colour" }, { "value": "green", "label": "Green, white words and icons" } ],
       "info": "Green from Shop by category to the end of the home page (owner, 2026-11-19)." },
+  { "type": "select", "id": "count", "label": "How many", "default": "8",
+    "options": [ { "value": "4", "label": "4, one row" }, { "value": "8", "label": "8, two rows" } ] },
   { "type": "select", "id": "kind", "label": "Show", "default": "sale",
     "options": [ { "value": "sale", "label": "On sale" }, { "value": "presale", "label": "Pre-order" } ] },
   { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "On sale" },

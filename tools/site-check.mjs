@@ -13,9 +13,10 @@ and the command prints where. Exit code 1 when anything failed.
 Needs Google Chrome and Node 22 or later, nothing else: it drives Chrome through its DevTools protocol.
 
 EVERGREEN CHECKS (the owner's must-never-break list; each one FAILs, so a push stops):
-  - green end (owner, 2026-11-18): on the home page the background starts light and fades into green
-    (#2F5B45) as you scroll down to the Archive, the sign-up band and the footer (assets/hikari.js,
-    scroll-driven colour). It was lost once when those bands went beige; it must stay.
+  - green end (owner, 2026-11-18 to 11-20): on the home page the page is light at the top and green
+    (#2F5B45) from Shop by category to the footer, with a clean edge where the green begins; the green
+    arrives as an in-between green and deepens to full green as it rises (sections/shop-categories).
+    It was lost once when those bands went beige; it must stay.
   Add new ones to EVERGREEN below. */
 import { spawn } from "node:child_process";
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync, readdirSync, copyFileSync, rmSync } from "node:fs";
@@ -593,17 +594,29 @@ async function tracking(cdp, urls) {
 /* The owner's evergreen list (see the top of this file). Each check gets a fresh tab on the home page. */
 const GREEN = "#2f5b45";
 const EVERGREEN = [
-  { name: "green end", why: "the home page must be green from Shop by category to the end, rising out of the page colour through a soft band, and not green at the top (owner, 2026-11-18 and 11-19)",
+  { name: "green end", why: "the home page must be green from Shop by category to the end, with a clean edge (no band), arriving in an in-between green that deepens to full green, and not green at the top (owner, 2026-11-18 to 11-20)",
     expression: `(async () => {
       const bgOf = e => e ? getComputedStyle(e).backgroundColor : "", imgOf = e => e ? getComputedStyle(e).backgroundImage : "";
+      const rgb = c => { const n = (c.match(/[\\d.]+/g) || []).map(Number); return /^color\\(/.test(c) ? n.slice(0, 3).map(v => v * 255) : n.slice(0, 3); };
+      const off = (a, b) => Math.round(Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]));
+      const G = [47, 91, 69], P = [250, 248, 243], wait = () => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(r, 120))));
       const cats = document.getElementById("shop-categories"), first = document.querySelector("[data-bg]"), foot = document.querySelector("footer[data-bg]");
-      return { cats: !!cats, catsGreen: cats ? (cats.dataset.bg || "").toLowerCase() === "${GREEN}" : false, catsFade: /gradient/.test(imgOf(cats)),
-        top: (first && first.dataset.bg || "").toLowerCase(), end: (foot && foot.dataset.bg || "").toLowerCase(), endBg: bgOf(foot),
-        bands: [...document.querySelectorAll("[data-bg]")].map(e => (e.dataset.bg || "").toLowerCase()).filter(c => c === "${GREEN}").length };
+      let arriving = null, risen = null;
+      if (cats) {
+        const y = cats.getBoundingClientRect().top + scrollY;
+        scrollTo(0, y - innerHeight + 40); await wait(); arriving = rgb(bgOf(cats));
+        scrollTo(0, y - 10); await wait(); risen = rgb(bgOf(cats));
+      }
+      return { cats: !!cats, catsGreen: cats ? (cats.dataset.bg || "").toLowerCase() === "${GREEN}" : false, catsBand: /gradient/.test(imgOf(cats)),
+        arriving: arriving && { fromGreen: off(arriving, G), fromPage: off(arriving, P) }, risen: risen && off(risen, G),
+        top: (first && first.dataset.bg || "").toLowerCase(), end: (foot && foot.dataset.bg || "").toLowerCase(), endBg: bgOf(foot) };
     })()`,
     judge: r => !r ? "the page didn't answer" : !r.cats ? "no Shop by category section on the home page"
       : !r.catsGreen ? "Shop by category isn't green (its Ground setting, templates/index.json)"
-      : !r.catsFade ? "no soft band into the green above Shop by category (its Fade in setting)"
+      : r.catsBand ? "a soft band runs into the green above Shop by category; the owner wants a clean edge"
+      : !r.arriving || r.arriving.fromPage < 60 ? "Shop by category arrives in the page colour, so there is no clean edge into the green"
+      : r.arriving.fromGreen < 40 ? "Shop by category arrives already full green, with no in-between green first"
+      : r.risen > 8 ? "Shop by category doesn't deepen to full green once it reaches the top"
       : r.end !== GREEN ? `the page ends ${r.end || "with no colour"}, not green` : r.top === GREEN ? "the page is green from the top" : null },
 ];
 async function evergreen(cdp, url) {

@@ -159,6 +159,10 @@
     assign src_p = 'banner-film-phone.mp4' | asset_url
     assign film_title = section.settings.film_title | default: 'KARINEKO VINTAGE'
   -%}
+  {%- comment -%} The film holds still for a while as the page starts to scroll (owner, 2026-11-20: "stop/stall
+      before it gets down, so you feel you have to scroll harder"): it sticks inside .film-hold, a screen and
+      a half tall, then scrolls away with a clean edge. {%- endcomment -%}
+  <div class="film-hold">
   <div class="film">
     <h1 class="vh">{{ film_title }}{% if section.settings.film_line != blank %}: {{ section.settings.film_line }}{% endif %}</h1>
     {%- comment -%} The first frame, a real image fetched first (the page's largest paint), small for phones. {%- endcomment -%}
@@ -172,11 +176,11 @@
     {%- comment -%} A small cue at the film's foot that there is more below (owner, 2026-11-19); it fades once the page moves. {%- endcomment -%}
     <a class="film-cue" href="#after-film"><span class="film-cue-word">{{ 'home.scroll_cue' | t }}</span><svg class="film-cue-arrow" viewBox="0 0 34 18" aria-hidden="true"><path d="M2 2l15 14L32 2"/></svg></a>
   </div>
+  </div>
   <script>
     /* The film (owner, 2026-11-19): plays once and holds its last frame (it looped for an hour; "change
        back to play once"). It only starts loading once its first frame is on screen (on a slow phone it
-       otherwise took the bandwidth). On a laptop, as the page scrolls through the first screen the film
-       eases back into a framed card (--shrink 0 to 1); on a phone it stays edge to edge. */
+       otherwise took the bandwidth). It stays edge to edge (the framed-card ease-back is gone, 2026-11-20). */
     (function (f) {
       var v = f.querySelector('.film-video'), still = true;
       try { still = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
@@ -191,12 +195,7 @@
       }
       if (img && !(img.complete && img.naturalWidth)) { img.addEventListener('load', go); img.addEventListener('error', go); setTimeout(go, 6000); }
       else go();
-      if (phone) return;
-      var ticking = false;
-      function shrink() { ticking = false; var h = f.offsetHeight || 1; f.style.setProperty('--shrink', Math.min(1, Math.max(0, scrollY / (h * 0.85))).toFixed(3)); }
-      addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(shrink); } }, { passive: true });
-      shrink();
-    })(document.currentScript.previousElementSibling);
+    })(document.currentScript.previousElementSibling.querySelector('.film'));
   </script>
   {%- endif -%}
   {%- if section.settings.backdrop == 'bloom' -%}

@@ -114,7 +114,8 @@
         "kind": "presale",
         "eyebrow": "Pre-order",
         "heading": "Available to order",
-        "ground": "green"
+        "ground": "green",
+        "count": "4"
       }
     },
     "shelf-sale": {
