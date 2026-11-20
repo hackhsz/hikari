@@ -189,7 +189,8 @@
       The words, line by line (owner, 2026-11-20). Places and sizes measured on the original film, in its 4K
       source's pixels (2160 x 3840): the name's capitals 95 px tall (Aboreto at 136), baselines at 1889 and
       2044; the line's baselines at 2230 and 2360. The laptop film is the band from row 1400, 1215 rows
-      tall; the phone film is the whole frame. Each line is split in two at its middle word.
+      tall; the phone film is the whole frame. Each line is split in two at its middle word (joined with
+      join: a block holding only a space prints nothing in Liquid).
     {%- endcomment -%}
     {%- liquid
       assign t_words = film_title | split: ' '
@@ -200,17 +201,17 @@
     {%- capture fw_text -%}
       <g class="fw-title">
         {%- if t_words.size > 1 -%}
-          <text class="fw" style="--i:0" x="1080" y="1889">{% for w in t_words limit: t_half %}{{ w }}{% unless forloop.last %} {% endunless %}{% endfor %}</text>
-          <text class="fw" style="--i:1" x="1080" y="2044">{% for w in t_words offset: t_half %}{{ w }}{% unless forloop.last %} {% endunless %}{% endfor %}</text>
+          <text class="fw" style="--i:0" x="1080" y="1889">{{ t_words | slice: 0, t_half | join: ' ' }}</text>
+          <text class="fw" style="--i:1" x="1080" y="2044">{{ t_words | slice: t_half, 50 | join: ' ' }}</text>
         {%- else -%}
           <text class="fw" style="--i:0" x="1080" y="1966">{{ film_title }}</text>
         {%- endif -%}
       </g>
       {%- if l_words.size > 0 -%}
       <g class="fw-hand">
-        <text class="fw" style="--i:2" x="1080" y="2230">{% for w in l_words limit: l_half %}{{ w }}{% unless forloop.last %} {% endunless %}{% endfor %}</text>
+        <text class="fw" style="--i:2" x="1080" y="2230">{{ l_words | slice: 0, l_half | join: ' ' }}</text>
         {%- if l_words.size > 1 -%}
-        <text class="fw" style="--i:3" x="1080" y="2360">{% for w in l_words offset: l_half %}{{ w }}{% unless forloop.last %} {% endunless %}{% endfor %}</text>
+        <text class="fw" style="--i:3" x="1080" y="2360">{{ l_words | slice: l_half, 50 | join: ' ' }}</text>
         {%- endif -%}
       </g>
       {%- endif -%}
