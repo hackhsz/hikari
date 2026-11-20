@@ -594,7 +594,7 @@ async function tracking(cdp, urls) {
 /* The owner's evergreen list (see the top of this file). Each check gets a fresh tab on the home page. */
 const GREEN = "#2f5b45";
 const EVERGREEN = [
-  { name: "green end", why: "the home page must be green from Shop by category to the end, with a clean edge (no band), arriving in an in-between green that deepens to full green, and not green at the top (owner, 2026-11-18 to 11-20)",
+  { name: "green end", why: "the home page must be green from Shop by category to the end, with a clean edge (no band), arriving in an in-between green that deepens to full green once it is at the top, and not green at the top of the page (owner, 2026-11-18 to 11-20)",
     expression: `(async () => {
       const bgOf = e => e ? getComputedStyle(e).backgroundColor : "", imgOf = e => e ? getComputedStyle(e).backgroundImage : "";
       const rgb = c => { const n = (c.match(/[\\d.]+/g) || []).map(Number); return /^color\\(/.test(c) ? n.slice(0, 3).map(v => v * 255) : n.slice(0, 3); };
@@ -603,9 +603,11 @@ const EVERGREEN = [
       const cats = document.getElementById("shop-categories"), first = document.querySelector("[data-bg]"), foot = document.querySelector("footer[data-bg]");
       let arriving = null, risen = null;
       if (cats) {
-        const y = cats.getBoundingClientRect().top + scrollY;
+        /* measured on its division when sections/divisions has gathered it (it then holds at the top while it deepens) */
+        const d = cats.closest(".division") || cats, y = d.getBoundingClientRect().top + scrollY;
         scrollTo(0, y - innerHeight + 40); await wait(); arriving = rgb(bgOf(cats));
-        scrollTo(0, y - 10); await wait(); risen = rgb(bgOf(cats));
+        scrollTo(0, y + innerHeight * 1.6); await wait(); risen = rgb(bgOf(cats));
+        scrollTo(0, 0); await wait();
       }
       return { cats: !!cats, catsGreen: cats ? (cats.dataset.bg || "").toLowerCase() === "${GREEN}" : false, catsBand: /gradient/.test(imgOf(cats)),
         arriving: arriving && { fromGreen: off(arriving, G), fromPage: off(arriving, P) }, risen: risen && off(risen, G),
@@ -616,7 +618,7 @@ const EVERGREEN = [
       : r.catsBand ? "a soft band runs into the green above Shop by category; the owner wants a clean edge"
       : !r.arriving || r.arriving.fromPage < 60 ? "Shop by category arrives in the page colour, so there is no clean edge into the green"
       : r.arriving.fromGreen < 40 ? "Shop by category arrives already full green, with no in-between green first"
-      : r.risen > 8 ? "Shop by category doesn't deepen to full green once it reaches the top"
+      : r.risen > 8 ? "Shop by category doesn't deepen to full green after it reaches the top"
       : r.end !== GREEN ? `the page ends ${r.end || "with no colour"}, not green` : r.top === GREEN ? "the page is green from the top" : null },
 ];
 async function evergreen(cdp, url) {

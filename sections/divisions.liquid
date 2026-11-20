@@ -1,0 +1,110 @@
+{%- comment -%}
+  Divisions (owner, 2026-11-20: "we want big division and each division comes with animation ... each big
+  part should be a section: available to order, now reduced, new in; shop by category and shop by brand can
+  be one"). Nothing of its own to show: on the home page it gathers the parts it names into divisions,
+  each at least a screen tall with its contents in the middle, and each comes in once as it arrives
+  (heading, then the pieces one after another, then its link).
+
+  Parts are named by their element ids (or the end of them, for sections Shopify numbers: shelf-sale),
+  divisions split by "|", parts of one division joined by "+". A part that isn't on the page is skipped.
+
+  The green division (the one that starts at Shop by category, which has data-rise): it arrives in the
+  in-between green with a clean edge, rises to the top under the masthead and holds there while the page
+  keeps going for a while ("hold"), deepening to full green as it does (the colour is set by
+  sections/shop-categories from --pin and the hold, read off this division); a scroll cue sits at the
+  foot of the screen through the hold, the first time only ("have the scroll button there, once only").
+
+  Reduced motion: divisions, but no entrances and no hold. Without JavaScript, or in the theme editor
+  (which needs the sections where it put them), the page is as it was.
+{%- endcomment -%}
+{%- unless request.design_mode -%}
+<a class="division-cue" href="#" hidden aria-label="{{ 'home.scroll_cue' | t }}"><span class="film-cue-word">{{ 'home.scroll_cue' | t }}</span><svg class="film-cue-arrow" viewBox="0 0 34 18" aria-hidden="true"><path d="M2 2l15 14L32 2"/></svg></a>
+<script>
+  (function (cue) {
+    var GROUPS = {{ section.settings.groups | default: '' | json }}, HOLD = {{ section.settings.hold | default: 60 }};
+    var still = false;
+    try { still = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    function find(id) { return id && (document.getElementById(id) || document.querySelector('[id$="__' + id + '"]')); }
+    function build() {
+      var divs = [];
+      GROUPS.split('|').forEach(function (g) {
+        var parts = g.split('+').map(function (s) { return find(s.trim()); }).filter(Boolean);
+        if (!parts.length) return;
+        var first = parts[0], wraps = parts.map(function (p) { return p.closest('.shopify-section') || p; });
+        var d = document.createElement('div');
+        d.className = 'division';
+        if (first.dataset.bg) { d.setAttribute('data-bg', first.dataset.bg); d.style.setProperty('--sec-bg', first.dataset.bg); d.style.setProperty('--sec-fg', first.dataset.fg || ''); }
+        wraps[0].parentNode.insertBefore(d, wraps[0]);
+        var box = d;
+        if (first.hasAttribute('data-rise') && !still) {
+          d.classList.add('division--hold'); d.style.setProperty('--hold', HOLD + 'vh');
+          box = document.createElement('div'); box.className = 'division-panel'; d.appendChild(box);
+          var space = document.createElement('div'); space.className = 'division-space'; space.setAttribute('aria-hidden', 'true'); d.appendChild(space);
+          if (cue) { cue.hidden = false; d.appendChild(cue); }
+        }
+        wraps.forEach(function (w) { box.appendChild(w); });
+        divs.push(d);
+      });
+      if (!divs.length) return;
+      document.documentElement.classList.add('has-divisions');
+      if (!still && 'IntersectionObserver' in window) entrances(divs);
+      var hold = document.querySelector('.division--hold');
+      if (hold) holding(hold);
+    }
+    /* each division comes in once: the heading, then the pieces one after another, then the link */
+    function entrances(divs) {
+      var o = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var d = e.target; o.unobserve(d);
+          d.classList.remove('dv-wait');
+          setTimeout(function () { [].forEach.call(d.querySelectorAll('.dv-a'), function (a) { a.classList.remove('dv-a'); a.style.removeProperty('--d'); }); }, 2600);
+        });
+      }, { rootMargin: '0px 0px -18% 0px' });
+      divs.forEach(function (d) {
+        var n = 0, mark = function (el, ms) { el.classList.add('dv-a'); el.style.setProperty('--d', ms + 'ms'); };
+        [].forEach.call(d.querySelectorAll('section'), function (sec) {
+          [].forEach.call(sec.querySelectorAll('.sec-head, .ne-head'), function (h) { mark(h, n * 120); });
+          [].forEach.call(sec.querySelectorAll('.grid4 > *, .icon-tiles > *, .cat-tiles > *, .house-tiles > *'), function (c, i) { mark(c, n * 120 + 160 + Math.min(i, 8) * 90); });
+          [].forEach.call(sec.querySelectorAll('.sec-more, .ne-foot'), function (f) { mark(f, n * 120 + 700); });
+          n++;
+        });
+        if (d.getBoundingClientRect().top > innerHeight * 0.82) { d.classList.add('dv-wait'); o.observe(d); }
+      });
+    }
+    /* the green division: pinned under the masthead (and the delivery line) through the hold; the cue
+       shows while it holds, until the hold has been gone through once */
+    function holding(d) {
+      var m = document.querySelector('.mast'), ma = document.querySelector('.mast-announce'), done = false, ticking = false;
+      function pin() { var p = (m ? m.offsetHeight : 0) + (ma && ma.offsetParent ? ma.offsetHeight : 0); d.style.setProperty('--pin', p + 'px'); return p; }
+      var p = pin();
+      function tick() {
+        ticking = false;
+        var top = d.getBoundingClientRect().top, h = d.querySelector('.division-space').offsetHeight || 1;
+        var on = top <= p + 1 && top > p - h;
+        d.classList.toggle('is-holding', on);
+        if (!done && top <= p - h * 0.85) { done = true; d.classList.add('cue-done'); }
+      }
+      addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(tick); } }, { passive: true });
+      addEventListener('resize', function () { p = pin(); tick(); }, { passive: true });
+      if (cue) cue.addEventListener('click', function (e) {
+        e.preventDefault();
+        var h = d.querySelector('.division-space').offsetHeight;
+        scrollTo({ top: d.getBoundingClientRect().top + scrollY - p + h + 2, behavior: still ? 'auto' : 'smooth' });
+      });
+      tick();
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build); else build();
+  })(document.currentScript.previousElementSibling);
+</script>
+{%- endunless -%}
+{% schema %}
+{ "name": "Divisions",
+  "settings": [
+    { "type": "text", "id": "groups", "label": "Divisions", "default": "new-in | shelf-sale | shop-categories + houses | shelf-presale",
+      "info": "Parts by id, divisions split by |, parts of one division joined by +." },
+    { "type": "range", "id": "hold", "label": "Green division: hold at the top", "min": 20, "max": 120, "step": 10, "unit": "%", "default": 60,
+      "info": "How far the page goes on, in screen heights, while the green division holds at the top and deepens to full green." }
+  ],
+  "presets": [{ "name": "Divisions" }] }
+{% endschema %}

@@ -147,10 +147,18 @@
         "heading": "New in",
         "count": 4
       }
+    },
+    "divisions": {
+      "type": "divisions",
+      "settings": {
+        "groups": "new-in | shelf-sale | shop-categories + houses | shelf-presale",
+        "hold": 60
+      }
     }
   },
   "order": [
     "hero",
+    "divisions",
     "new_in",
     "shelf-sale",
     "categories",

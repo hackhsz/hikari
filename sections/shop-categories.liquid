@@ -78,23 +78,34 @@
 {%- if section.settings.ground == 'green' and section.settings.fade_in -%}
 <script>
   /* Owner, 2026-11-20: a clean edge where the green begins, no band ("still clean cut"); the green part of
-     the page (this section to the footer, every [data-bg="#2F5B45"]) arrives in the in-between green, holds
-     it while it rises through the first half of the screen ("shows the in-transition colour a bit longer"),
-     then deepens to full green. Above it the page keeps its colours. Sets --rise (how much green, 0.5 to 1)
+     the page (this section to the footer, every [data-bg="#2F5B45"]) arrives in the in-between green.
+     Then (later the same day: "when scrolled, it goes to the top and show the transition color when kept
+     going down"): it keeps that green while it rises to the top, and deepens to full green as the page
+     goes on while it holds there (sections/divisions pins it under the masthead, at --pin, for the
+     length of its .division-space). Without the divisions (reduced motion, the theme editor) it deepens
+     as its top rises from the middle of the screen to the top. Sets --rise (how much green, 0.5 to 1)
      and --rise-fg (dark ink to white) on <html>; elsewhere they are unset and the green is full green. */
   (function (s) {
     if (!s) return;
     var r = document.documentElement, ticking = false, MID = 0.5;
     function rise() {
       ticking = false;
-      var h = innerHeight || 1, p = (h - s.getBoundingClientRect().top) / h;
-      var k = Math.min(1, Math.max(0, (p - 0.45) / 0.4)), g = MID + (1 - MID) * k * k * (3 - 2 * k);
+      var h = innerHeight || 1, d = s.closest('.division--hold'), k;
+      if (d) {
+        var pin = parseFloat(d.style.getPropertyValue('--pin')) || 0, sp = d.querySelector('.division-space');
+        k = (pin - d.getBoundingClientRect().top) / ((sp && sp.offsetHeight) || h * 0.6) / 0.9;
+      } else {
+        k = ((h - s.getBoundingClientRect().top) / h - 0.5) / 0.45;
+      }
+      k = Math.min(1, Math.max(0, k));
+      var g = MID + (1 - MID) * k * k * (3 - 2 * k);
       r.style.setProperty('--rise', g.toFixed(3));
       /* the ink flips from dark to white over a short step, where both read on the green (4.5:1 or more) */
       r.style.setProperty('--rise-fg', Math.min(1, Math.max(0, (g - 0.74) / 0.08)).toFixed(3));
     }
     addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(rise); } }, { passive: true });
     addEventListener('resize', rise, { passive: true });
+    document.addEventListener('DOMContentLoaded', rise);
     rise();
   })(document.getElementById('shop-categories'));
 </script>
@@ -106,7 +117,7 @@
       "options": [ { "value": "page", "label": "The page colour" }, { "value": "green", "label": "Green, white words and icons" } ],
       "info": "Green from Shop by category to the end of the home page (owner, 2026-11-19)." },
     { "type": "checkbox", "id": "fade_in", "label": "Deepen into the green as it arrives", "default": true,
-      "info": "With a green ground: a clean edge; the green from here to the end arrives as an in-between green, holds it a while, then deepens to full green as the page scrolls." },
+      "info": "With a green ground: a clean edge; the green from here to the end arrives as an in-between green and deepens to full green once it has reached the top (while it holds there, with the Divisions section)." },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Shop by category" },
     { "type": "select", "id": "look", "label": "Look", "default": "photo",

@@ -53,13 +53,18 @@
   the shell": shell none, the words centred on the flowers).
 
   Backdrop "film" (owner and 刘总, 2026-11-19, second version: "直接拿这个视频来做banner"): the banner is our
-  2.8-second film (iPhone 4K HDR, made standard-range with macOS avconvert; tools/banner-source/film2), with
-  its own words in it, so nothing is laid over it. Phone: the whole portrait film fills the first screen
+  2.8-second film (iPhone 4K HDR, made standard-range with macOS avconvert; tools/banner-source/film2).
+  Since 2026-11-20 (owner: "get rid of the words on the video but then later make each line appear in
+  sequence") the film carries no words (tools/film-without-words.py takes them out) and the page sets
+  them over it, line by line, in the film's own places and sizes: KARINEKO / VINTAGE in Aboreto (the
+  video's face), then the line in the handwriting, each fading up in turn just after the film starts.
+  They are drawn in an SVG whose view is the film's own frame (the 4K source's pixels), cropped and
+  scaled exactly as the film is (cover), so they stay where they were at any screen size. Phone: the whole portrait film fills the first screen
   under the header. Laptop: a 16:9 band of it, cropped top and bottom around the words (1920 x 1080). Each
   from Settings > Files (film_video, film_video_phone), played once, muted, and held on its last frame; no
   fade into the page, a clean edge, then the three lines and the viewing link on the page colour. Until it
-  plays, its first frame (theme image) shows; with reduced motion or without JavaScript, its last frame,
-  words and all. The words are also the page's h1, for screen readers and search.
+  plays, its first frame (theme image) shows; with reduced motion or without JavaScript, its last frame
+  with the words already there. The words are also the page's h1, for screen readers and search.
 {%- endcomment -%}
 {%- liquid
   assign img = section.settings.image
@@ -100,7 +105,14 @@
   endcase
 -%}
 <section class="hero{% if split %} hero--split{% endif %}{% if line %} hero--line{% endif %}{% if art %} hero--art{% endif %}{% if section.settings.backdrop == 'bloom' %} hero--bloom{% endif %}{% if filmed %} hero--film{% endif %}{% if section.settings.heading_face != 'theme' %} hero--h-{{ section.settings.heading_face }}{% endif %}{% if section.settings.text_face != 'theme' %} hero--t-{{ section.settings.text_face }}{% endif %}" id="brand" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
-  {%- comment -%} The banner's own faces (Aboreto, the handwriting), only when it shows words in them: the film has its words in the picture. {%- endcomment -%}
+  {%- comment -%} The banner's own faces (Aboreto, the handwriting), only when it shows words in them. For the film,
+      just the letters of its words (text=), loaded without holding up the page: the words wait for them. {%- endcomment -%}
+  {%- if filmed -%}
+  {%- assign fw_letters = section.settings.film_title | append: section.settings.film_line | default: 'KARINEKO VINTAGE Make vintage luxury accessible' | url_encode -%}
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Aboreto&family=Nothing+You+Could+Do&display=swap&text={{ fw_letters }}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aboreto&family=Nothing+You+Could+Do&display=swap&text={{ fw_letters }}"></noscript>
+  {%- endif -%}
   {%- unless filmed -%}{%- unless request.locale.iso_code == 'ar' or request.locale.iso_code == 'zh-CN' or request.locale.iso_code == 'ja' -%}
   {%- if section.settings.heading_face != 'theme' or section.settings.text_face != 'theme' -%}
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aboreto&family=Nothing+You+Could+Do&display=swap">
@@ -171,8 +183,41 @@
       <img src="{{ 'banner-video-desktop-first.jpg' | asset_url }}" alt="" width="1440" height="810" loading="eager" fetchpriority="high">
     </picture>
     <video class="film-video" muted playsinline preload="auto" aria-hidden="true" data-desktop="{{ src_d }}" data-phone="{{ src_p }}"></video>
-    {%- comment -%} The last frame, words and all: only fetched when shown (reduced motion, no JavaScript). {%- endcomment -%}
+    {%- comment -%} The last frame: only fetched when shown (reduced motion, no JavaScript). {%- endcomment -%}
     <div class="film-end" style="--last-d:url({{ 'banner-video-desktop-last.jpg' | asset_url }});--last-p:url({{ 'banner-video-phone-last.jpg' | asset_url }})"></div>
+    {%- comment -%}
+      The words, line by line (owner, 2026-11-20). Places and sizes measured on the original film, in its 4K
+      source's pixels (2160 x 3840): the name's capitals 95 px tall (Aboreto at 136), baselines at 1889 and
+      2044; the line's baselines at 2230 and 2360. The laptop film is the band from row 1400, 1215 rows
+      tall; the phone film is the whole frame. Each line is split in two at its middle word.
+    {%- endcomment -%}
+    {%- liquid
+      assign t_words = film_title | split: ' '
+      assign t_half = t_words.size | plus: 1 | divided_by: 2
+      assign l_words = section.settings.film_line | default: 'Make vintage luxury accessible' | split: ' '
+      assign l_half = l_words.size | plus: 1 | divided_by: 2
+    -%}
+    {%- capture fw_text -%}
+      <filter id="fw-thin" x="-5%" y="-20%" width="110%" height="140%"><feMorphology operator="erode" radius="1.5"/></filter>
+      <g class="fw-title">
+        {%- if t_words.size > 1 -%}
+          <text class="fw" style="--i:0" x="1080" y="1889">{% for w in t_words limit: t_half %}{{ w }}{% unless forloop.last %} {% endunless %}{% endfor %}</text>
+          <text class="fw" style="--i:1" x="1080" y="2044">{% for w in t_words offset: t_half %}{{ w }}{% unless forloop.last %} {% endunless %}{% endfor %}</text>
+        {%- else -%}
+          <text class="fw" style="--i:0" x="1080" y="1966">{{ film_title }}</text>
+        {%- endif -%}
+      </g>
+      {%- if l_words.size > 0 -%}
+      <g class="fw-hand">
+        <text class="fw" style="--i:2" x="1080" y="2230">{% for w in l_words limit: l_half %}{{ w }}{% unless forloop.last %} {% endunless %}{% endfor %}</text>
+        {%- if l_words.size > 1 -%}
+        <text class="fw" style="--i:3" x="1080" y="2360">{% for w in l_words offset: l_half %}{{ w }}{% unless forloop.last %} {% endunless %}{% endfor %}</text>
+        {%- endif -%}
+      </g>
+      {%- endif -%}
+    {%- endcapture -%}
+    <svg class="film-words film-words--d" viewBox="0 1400 2160 1215" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">{{ fw_text | replace: 'class="fw-hand"', 'class="fw-hand" filter="url(#fw-thin)"' }}</svg>
+    <svg class="film-words film-words--p" viewBox="0 0 2160 3840" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">{{ fw_text | replace: 'id="fw-thin"', 'id="fw-thin-p"' | replace: 'class="fw-hand"', 'class="fw-hand" filter="url(#fw-thin-p)"' }}</svg>
     {%- comment -%} A small cue at the film's foot that there is more below (owner, 2026-11-19); it fades once the page moves. {%- endcomment -%}
     <a class="film-cue" href="#after-film"><span class="film-cue-word">{{ 'home.scroll_cue' | t }}</span><svg class="film-cue-arrow" viewBox="0 0 34 18" aria-hidden="true"><path d="M2 2l15 14L32 2"/></svg></a>
   </div>
@@ -187,7 +232,18 @@
       var phone = matchMedia('(max-width: 749px)').matches;
       var src = phone ? v.getAttribute('data-phone') : v.getAttribute('data-desktop');
       if (still || !src) { f.classList.add('is-still'); return; }
-      var img = f.querySelector('.film-poster img'), started = false;
+      var img = f.querySelector('.film-poster img'), started = false, said = false;
+      /* The words come in line by line a little after the film starts (where its own words used to fade
+         in), once their faces are here; if the film never starts, they come anyway. */
+      function say() {
+        if (said) return; said = true;
+        var faces = [];
+        try { faces = [document.fonts.load('136px Aboreto'), document.fonts.load('118px "Nothing You Could Do"')]; } catch (e) {}
+        var done = false, show = function () { if (!done) { done = true; f.classList.add('is-words'); } };
+        Promise.all(faces).then(show, show); setTimeout(show, 1500);
+      }
+      v.addEventListener('playing', function () { setTimeout(say, 550); }, { once: true });
+      setTimeout(say, 5000);
       function go() {
         if (started) return; started = true;
         v.src = src; v.classList.add('is-in');
