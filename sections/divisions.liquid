@@ -108,24 +108,22 @@
       watch();
     }
     /* one part to a screen: where a part is a little taller than the screen under the masthead, its pieces come
-       in a little (to no less than 72%, the green one's tiles 60%) until it fits; where even that is not enough
-       (a 2 x 2 shelf on a phone) it keeps its size and takes two stops, its top and its foot */
+       in a little (--fit: the shelves to no less than 72%, the green part's round tiles 60%) until it fits;
+       where even that is not enough (a 2 x 2 shelf on a phone) it keeps its size and takes two stops, its top
+       and its foot */
     function fit() {
       var avail = (probe ? probe.offsetHeight : innerHeight) - p, key = innerWidth + 'x' + avail;
       if (key === seen) return;
       seen = key;
       pages.forEach(function (d) {
-        var box = d.querySelector('.division-panel') || d, held = box !== d;
-        var sh = [].slice.call(box.querySelectorAll('.grid4, .icon-tiles, .cat-tiles, .house-tiles'));
-        var size = function (f) { sh.forEach(function (g, i) { if (f >= 1) { g.style.removeProperty('max-width'); g.style.removeProperty('margin-inline'); } else { g.style.maxWidth = Math.floor(w[i] * f) + 'px'; g.style.marginInline = 'auto'; } }); };
-        var cs = getComputedStyle(box), pad = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+        var box = d.querySelector('.division-panel') || d, cs = getComputedStyle(box);
+        var pad = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
         var need = function () { var h = pad; [].forEach.call(box.children, function (c) { if (!/page-(mark|end)/.test(c.className)) h += c.offsetHeight; }); return h; };
-        var w = [];
+        var size = function (f) { if (f >= 1) box.style.removeProperty('--fit'); else box.style.setProperty('--fit', f.toFixed(3)); };
         size(1);
-        w = sh.map(function (g) { return g.getBoundingClientRect().width; });
         var tall = need() > avail + 2;
-        if (tall && sh.length) {
-          var lo = held ? 0.6 : 0.72, hi = 1;
+        if (tall && box.querySelector('.grid4, .icon-tiles, .cat-tiles, .house-tiles')) {
+          var lo = box.querySelector('.icon-tiles--ring') ? 0.6 : 0.72, hi = 1;
           size(lo);
           if (need() <= avail + 2) {
             for (var k = 0; k < 7; k++) { var f = (lo + hi) / 2; size(f); if (need() <= avail + 2) lo = f; else hi = f; }

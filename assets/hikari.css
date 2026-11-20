@@ -1156,7 +1156,12 @@ html:is(.has-scrolled,.cue-seen) .film-cue{opacity:0;pointer-events:none}
 .division-cue[hidden]{display:none}
 /* The words under the film are a division of their own: a screen of their own, the lines coming in one
    after another, and a cue */
-.hero .hero-txt.division{display:flex;align-items:stretch}
+.hero .hero-txt.division{display:flex;align-items:stretch;padding-block:0}
+/* one part to a screen: where a part is a little taller than the screen, the script brings its pieces in
+   (--fit, from 1 down to 0.72; the round tiles of the green part to 0.6) */
+.division :is(.grid4,.cat-tiles,.house-tiles){max-width:calc(var(--fit,1) * 100%);margin-inline:auto}
+.division .icon-tiles{row-gap:calc(var(--fit,1) * clamp(18px,2.4vw,32px))}
+.division .icon-tiles--ring .ti-ico{width:calc(var(--fit,1) * clamp(76px,8.6vw,104px))}
 /* Pages (owner, 2026-11-20: "划一下，一个上来，划一下，一个上来，不要连续": one swipe, one part comes up,
    not a continuous scroll). The home page snaps from part to part: the film, the words under it, each
    division (its top under the masthead), and the green one twice, arriving and then deepened at the end of
