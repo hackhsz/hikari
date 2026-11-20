@@ -1171,7 +1171,9 @@ html:is(.has-scrolled,.cue-seen) .film-cue{opacity:0;pointer-events:none}
    What follows the divisions (the story, the archive, the signup, the footer) stops the same way: at each
    part's top, and at its foot when it is taller than the screen. The film no longer stalls: the paging is the "scroll harder". */
 html.has-pages{scroll-snap-type:y mandatory;scroll-padding-top:var(--pin,0px)}
-html.has-pages .film-hold{height:auto}
+/* the film no longer stalls, but keeps 1px of its frame: with none, Chrome counts the film's first frame (8s in
+   on a slow phone) as the page's main paint (LCP), where the poster under it shows at once */
+html.has-pages .film-hold{height:calc(100vh + 1px);height:calc(100lvh + 1px)}
 .page-mark{height:1px;margin-bottom:-1px;scroll-snap-align:start;scroll-snap-stop:always;pointer-events:none}
 .page-end{height:1px;margin-top:-1px;pointer-events:none}
 .is-tall>.page-end,.division--hold>.division-space{scroll-snap-align:end;scroll-snap-stop:always}
