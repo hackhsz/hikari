@@ -122,7 +122,8 @@
      way down the film (.off-film once it has passed the film's end); after that, or on any other page,
      it is clear at the top and a frosted, mostly opaque page colour once scrolled (.is-scrolled).
      Its height and the delivery line's are kept in --mast-h and --ann-h, so the film can slide up
-     under it and fill the screen; html.has-scrolled hides the film's scroll cue. */
+     under it and fill the screen; html.has-scrolled hides the film's scroll cue, and
+     html.cue-seen keeps it hidden once it has been gone past. */
   (function (m) {
     if (!m) return;
     var a = document.querySelector('.announce'), r = document.documentElement, film = null;
@@ -137,7 +138,10 @@
       r.classList.toggle('past-film', !!film && off);
       /* on the film page the cue stays through most of the film's hold, so it keeps saying "keep going" */
       var hold = film && film.parentNode ? film.parentNode.offsetHeight - film.offsetHeight : 0;
-      r.classList.toggle('has-scrolled', scrollY > Math.max(40, hold * 0.8));
+      var past = scrollY > Math.max(40, hold * 0.8);
+      r.classList.toggle('has-scrolled', past);
+      /* once only (owner, 2026-11-20): the cue doesn't come back when the film is scrolled back to */
+      if (past && film) r.classList.add('cue-seen');
     }
     size(); place();
     if (window.ResizeObserver) new ResizeObserver(size).observe(m);

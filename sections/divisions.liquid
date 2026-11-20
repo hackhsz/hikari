@@ -2,31 +2,46 @@
   Divisions (owner, 2026-11-20: "we want big division and each division comes with animation ... each big
   part should be a section: available to order, now reduced, new in; shop by category and shop by brand can
   be one"). Nothing of its own to show: on the home page it gathers the parts it names into divisions,
-  each at least a screen tall with its contents in the middle, and each comes in once as it arrives
-  (heading, then the pieces one after another, then its link).
+  each filling the screen under the masthead with its contents in the middle, and each comes in once as it
+  arrives (heading, then the pieces one after another, then its link, then its scroll cue).
 
   Parts are named by their element ids (or the end of them, for sections Shopify numbers: shelf-sale),
   divisions split by "|", parts of one division joined by "+". A part that isn't on the page is skipped.
 
+  A scroll cue at the foot of every division (owner, 2026-11-20: "have the scroll button there, once
+  only", then "every division"): it comes in last, takes you to whatever follows, and once the division
+  has been gone past it doesn't come back.
+
   The green division (the one that starts at Shop by category, which has data-rise): it arrives in the
   in-between green with a clean edge, rises to the top under the masthead and holds there while the page
   keeps going for a while ("hold"), deepening to full green as it does (the colour is set by
-  sections/shop-categories from --pin and the hold, read off this division); a scroll cue sits at the
-  foot of the screen through the hold, the first time only ("have the scroll button there, once only").
+  sections/shop-categories from --pin and the hold, read off this division); its cue sits at the foot of
+  the screen through the hold.
 
-  Reduced motion: divisions, but no entrances and no hold. Without JavaScript, or in the theme editor
-  (which needs the sections where it put them), the page is as it was.
+  Reduced motion: divisions and cues, but no entrances and no hold. Without JavaScript, or in the theme
+  editor (which needs the sections where it put them), the page is as it was.
 {%- endcomment -%}
 {%- unless request.design_mode -%}
-<a class="division-cue" href="#" hidden aria-label="{{ 'home.scroll_cue' | t }}"><span class="film-cue-word">{{ 'home.scroll_cue' | t }}</span><svg class="film-cue-arrow" viewBox="0 0 34 18" aria-hidden="true"><path d="M2 2l15 14L32 2"/></svg></a>
+<a class="division-cue" href="#" hidden><span class="film-cue-word">{{ 'home.scroll_cue' | t }}</span><svg class="film-cue-arrow" viewBox="0 0 34 18" aria-hidden="true"><path d="M2 2l15 14L32 2"/></svg></a>
 <script>
   (function (cue) {
     var GROUPS = {{ section.settings.groups | default: '' | json }}, HOLD = {{ section.settings.hold | default: 60 }};
     var still = false;
     try { still = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    var root = document.documentElement, divs = [], p = 0;
     function find(id) { return id && (document.getElementById(id) || document.querySelector('[id$="__' + id + '"]')); }
+    /* the masthead (and the delivery line under it): divisions fill the screen below it, the green one holds under it */
+    function pin() {
+      var m = document.querySelector('.mast'), ma = document.querySelector('.mast-announce'), h = document.querySelector('.division--hold');
+      p = (m ? m.offsetHeight : 0) + (ma && ma.offsetParent ? ma.offsetHeight : 0);
+      root.style.setProperty('--pin', p + 'px');
+      if (h) h.style.setProperty('--pin', p + 'px');
+    }
+    function after(d) {
+      for (var n = d.nextElementSibling; n; n = n.nextElementSibling) if (n.offsetHeight && n.tagName !== 'SCRIPT') return n;
+      return null;
+    }
     function build() {
-      var divs = [];
       GROUPS.split('|').forEach(function (g) {
         var parts = g.split('+').map(function (s) { return find(s.trim()); }).filter(Boolean);
         if (!parts.length) return;
@@ -40,18 +55,31 @@
           d.classList.add('division--hold'); d.style.setProperty('--hold', HOLD + 'vh');
           box = document.createElement('div'); box.className = 'division-panel'; d.appendChild(box);
           var space = document.createElement('div'); space.className = 'division-space'; space.setAttribute('aria-hidden', 'true'); d.appendChild(space);
-          if (cue) { cue.hidden = false; d.appendChild(cue); }
         }
         wraps.forEach(function (w) { box.appendChild(w); });
         divs.push(d);
       });
       if (!divs.length) return;
-      document.documentElement.classList.add('has-divisions');
+      root.classList.add('has-divisions');
+      pin();
+      /* the cues, once every division is in place (each takes you to what follows its division) */
+      if (cue) divs.forEach(function (d) {
+        var n = after(d);
+        if (!n) return;
+        var c = cue.cloneNode(true);
+        c.hidden = false;
+        if (n.id) c.href = '#' + n.id;
+        (d.querySelector('.division-panel') || d).appendChild(c);
+        c.addEventListener('click', function (e) {
+          e.preventDefault();
+          d.classList.add('cue-done');
+          scrollTo({ top: n.getBoundingClientRect().top + scrollY - p, behavior: still ? 'auto' : 'smooth' });
+        });
+      });
       if (!still && 'IntersectionObserver' in window) entrances(divs);
-      var hold = document.querySelector('.division--hold');
-      if (hold) holding(hold);
+      watch();
     }
-    /* each division comes in once: the heading, then the pieces one after another, then the link */
+    /* each division comes in once: the heading, then the pieces one after another, then the link, then the cue */
     function entrances(divs) {
       var o = new IntersectionObserver(function (es) {
         es.forEach(function (e) {
@@ -69,29 +97,23 @@
           [].forEach.call(sec.querySelectorAll('.sec-more, .ne-foot'), function (f) { mark(f, n * 120 + 700); });
           n++;
         });
+        var c = d.querySelector('.division-cue');
+        if (c) mark(c, (n - 1) * 120 + 1000);
         if (d.getBoundingClientRect().top > innerHeight * 0.82) { d.classList.add('dv-wait'); o.observe(d); }
       });
     }
-    /* the green division: pinned under the masthead (and the delivery line) through the hold; the cue
-       shows while it holds, until the hold has been gone through once */
-    function holding(d) {
-      var m = document.querySelector('.mast'), ma = document.querySelector('.mast-announce'), done = false, ticking = false;
-      function pin() { var p = (m ? m.offsetHeight : 0) + (ma && ma.offsetParent ? ma.offsetHeight : 0); d.style.setProperty('--pin', p + 'px'); return p; }
-      var p = pin();
+    /* once only: a division's cue goes for good once the division has been gone past */
+    function watch() {
+      var ticking = false;
       function tick() {
         ticking = false;
-        var top = d.getBoundingClientRect().top, h = d.querySelector('.division-space').offsetHeight || 1;
-        var on = top <= p + 1 && top > p - h;
-        d.classList.toggle('is-holding', on);
-        if (!done && top <= p - h * 0.85) { done = true; d.classList.add('cue-done'); }
+        divs.forEach(function (d) {
+          if (!d.classList.contains('cue-done') && d.getBoundingClientRect().bottom <= innerHeight * 0.55) d.classList.add('cue-done');
+        });
       }
       addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(tick); } }, { passive: true });
-      addEventListener('resize', function () { p = pin(); tick(); }, { passive: true });
-      if (cue) cue.addEventListener('click', function (e) {
-        e.preventDefault();
-        var h = d.querySelector('.division-space').offsetHeight;
-        scrollTo({ top: d.getBoundingClientRect().top + scrollY - p + h + 2, behavior: still ? 'auto' : 'smooth' });
-      });
+      addEventListener('resize', function () { pin(); tick(); }, { passive: true });
+      addEventListener('load', function () { pin(); tick(); });
       tick();
     }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build); else build();
