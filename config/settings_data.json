@@ -14,7 +14,7 @@
     "edition_day": "Thursday 19:00",
     "grain_opacity": 0,
     "grain_animate": false,
-    "scroll_colour": true,
+    "scroll_colour": false,
     "announcement": "Complimentary UK delivery on two or more pieces · International shipping",
     "new_days": 14,
     "transit_days": "10–14",

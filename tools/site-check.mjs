@@ -593,17 +593,18 @@ async function tracking(cdp, urls) {
 /* The owner's evergreen list (see the top of this file). Each check gets a fresh tab on the home page. */
 const GREEN = "#2f5b45";
 const EVERGREEN = [
-  { name: "green end", why: "the home page must fade from white into green as you scroll down (Archive, sign-up, footer)",
+  { name: "green end", why: "the home page must be green from Shop by category to the end, rising out of the page colour through a soft band, and not green at the top (owner, 2026-11-18 and 11-19)",
     expression: `(async () => {
-      const h = document.documentElement, bg = () => getComputedStyle(h).getPropertyValue("--bg").trim().toLowerCase();
-      const top = bg();
-      for (let i = 0; i < 3; i++) { scrollTo(0, h.scrollHeight); await new Promise(r => setTimeout(r, 700)); }
-      return { on: h.classList.contains("scroll-colour"), top, end: bg(),
+      const bgOf = e => e ? getComputedStyle(e).backgroundColor : "", imgOf = e => e ? getComputedStyle(e).backgroundImage : "";
+      const cats = document.getElementById("shop-categories"), first = document.querySelector("[data-bg]"), foot = document.querySelector("footer[data-bg]");
+      return { cats: !!cats, catsGreen: cats ? (cats.dataset.bg || "").toLowerCase() === "${GREEN}" : false, catsFade: /gradient/.test(imgOf(cats)),
+        top: (first && first.dataset.bg || "").toLowerCase(), end: (foot && foot.dataset.bg || "").toLowerCase(), endBg: bgOf(foot),
         bands: [...document.querySelectorAll("[data-bg]")].map(e => (e.dataset.bg || "").toLowerCase()).filter(c => c === "${GREEN}").length };
     })()`,
-    judge: r => !r ? "the page didn't answer" : !r.on ? "the scroll colour is off (settings: scroll_colour, or assets/hikari.js)"
-      : !r.bands ? "no section on the home page is green any more (data-bg #2F5B45 on the Archive, sign-up band or footer)"
-      : r.end !== GREEN ? `the page ends ${r.end || "with no colour"}, not green` : r.top === GREEN ? "the page is green from the top, so there is no transition" : null },
+    judge: r => !r ? "the page didn't answer" : !r.cats ? "no Shop by category section on the home page"
+      : !r.catsGreen ? "Shop by category isn't green (its Ground setting, templates/index.json)"
+      : !r.catsFade ? "no soft band into the green above Shop by category (its Fade in setting)"
+      : r.end !== GREEN ? `the page ends ${r.end || "with no colour"}, not green` : r.top === GREEN ? "the page is green from the top" : null },
 ];
 async function evergreen(cdp, url) {
   const problems = [];

@@ -173,40 +173,25 @@
     <a class="film-cue" href="#after-film"><span class="film-cue-word">{{ 'home.scroll_cue' | t }}</span><svg class="film-cue-arrow" viewBox="0 0 34 18" aria-hidden="true"><path d="M2 2l15 14L32 2"/></svg></a>
   </div>
   <script>
-    /* The film (owner, 2026-11-19): it loops, and the join is a crossfade between two copies, so the words
-       dissolve and return rather than cut. It only starts loading once its first frame is on screen (on
-       a slow phone it otherwise took the bandwidth). As the page scrolls through the first screen the
-       film eases back into a framed card (--shrink 0 to 1), while what follows slides up over its foot. */
+    /* The film (owner, 2026-11-19): plays once and holds its last frame (it looped for an hour; "change
+       back to play once"). It only starts loading once its first frame is on screen (on a slow phone it
+       otherwise took the bandwidth). On a laptop, as the page scrolls through the first screen the film
+       eases back into a framed card (--shrink 0 to 1); on a phone it stays edge to edge. */
     (function (f) {
-      var v = f.querySelector('.film-video'), still = true, FADE = 0.9;
+      var v = f.querySelector('.film-video'), still = true;
       try { still = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-      var src = matchMedia('(max-width: 749px)').matches ? v.getAttribute('data-phone') : v.getAttribute('data-desktop');
+      var phone = matchMedia('(max-width: 749px)').matches;
+      var src = phone ? v.getAttribute('data-phone') : v.getAttribute('data-desktop');
       if (still || !src) { f.classList.add('is-still'); return; }
       var img = f.querySelector('.film-poster img'), started = false;
-      function loop() {
-        var w = v.cloneNode(false); w.removeAttribute('src'); f.insertBefore(w, v.nextSibling);
-        w.muted = true; w.playsInline = true; w.src = src; w.preload = 'auto';
-        var cur = v, nxt = w, busy = false; cur.classList.add('is-top');
-        function watch() {
-          if (!busy && cur.duration && cur.currentTime > cur.duration - FADE) {
-            busy = true; nxt.currentTime = 0;
-            var p = nxt.play(); if (p && p.catch) p.catch(function () {});
-            nxt.classList.add('is-top', 'is-in'); cur.classList.remove('is-top');
-            setTimeout(function () { cur.classList.remove('is-in'); cur.pause(); var t = cur; cur = nxt; nxt = t; busy = false; }, FADE * 1000 + 80);
-          }
-          requestAnimationFrame(watch);
-        }
-        requestAnimationFrame(watch);
-      }
       function go() {
         if (started) return; started = true;
         v.src = src; v.classList.add('is-in');
         var p = v.play(); if (p && p.catch) p.catch(function () { f.classList.add('is-still'); });
-        v.addEventListener('loadedmetadata', loop, { once: true });
       }
       if (img && !(img.complete && img.naturalWidth)) { img.addEventListener('load', go); img.addEventListener('error', go); setTimeout(go, 6000); }
       else go();
-      /* the ease-back */
+      if (phone) return;
       var ticking = false;
       function shrink() { ticking = false; var h = f.offsetHeight || 1; f.style.setProperty('--shrink', Math.min(1, Math.max(0, scrollY / (h * 0.85))).toFixed(3)); }
       addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(shrink); } }, { passive: true });

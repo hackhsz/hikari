@@ -7,6 +7,9 @@
   <p class="announce">{{ settings.announcement }}</p>
 {%- endif -%}
 <header class="mast">
+  {%- comment -%} On the home page's film the delivery line is not shown at first (owner, 2026-11-19: "too obvious,
+      dont show that at spawn"); it slides in under the masthead once the film is passed and the pieces begin. {%- endcomment -%}
+  {%- if settings.announcement != blank -%}<p class="mast-announce" aria-hidden="true">{{ settings.announcement }}</p>{%- endif -%}
   <div class="inner">
     {%- comment -%}
       One line, with room around the logo (owner, 2026-11-03). On a laptop: the menu (three lines),

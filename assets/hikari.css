@@ -427,6 +427,16 @@ dialog.sheet .sheet-panel{overscroll-behavior:contain}
 #shopify-section-header{display:contents}
 .announce{margin:0;padding:9px var(--gut);background:var(--paper-deep);color:var(--sumi);text-align:center;
   font-size:10px;line-height:1.5;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+/* On the home page's film: no delivery line at the top; it slides in under the masthead once the film is
+   passed (.off-film), as a slim strip over the page, so nothing below moves. Elsewhere it is the line above
+   the masthead, as before. */
+.mast-announce{display:none}
+body:has(.hero--film) .announce{display:none}
+body:has(.hero--film) .mast-announce{display:block;position:absolute;left:0;right:0;top:100%;margin:0;padding:7px var(--gut);
+  background:color-mix(in srgb,var(--paper-deep) 94%,transparent);color:var(--sumi);text-align:center;text-shadow:none;
+  font-size:9.5px;line-height:1.5;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .35s ease,transform .35s ease}
+body:has(.hero--film) .mast.off-film .mast-announce{opacity:1;transform:none}
 
 /* ── badges (snippets/status, D25) ──────────────────────────
    Square-cornered labels on the first frame. Green marks what you can still act on; Sold is ink. */
@@ -1022,17 +1032,17 @@ s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thicknes
    screen under the header. Its first frame (an image, fetched first) shows until it plays; with
    reduced motion or no JavaScript (.is-still, html:not(.js)) the last frame, words and all. */
 .hero--film{padding-top:0}
-/* The film fills the whole first screen under the delivery line (owner, 2026-11-19: "people have to scroll
-   down"), sliding up under the floating masthead; scrolling eases it back into a framed card with rounded
-   corners on the page colour (--shrink from the section's script), Dior-like. */
-.film{position:relative;width:100%;height:calc(100svh - var(--ann-h,34px));overflow:hidden;background:#EDE7DF;
+/* The film fills the whole first screen, edge to edge (owner, 2026-11-19: "people have to scroll down",
+   "fill all spaces" on a phone: no delivery line above it there, and the large viewport so no strip shows
+   when a phone's toolbar slides away), sliding up under the floating masthead. On a laptop, scrolling eases
+   it back into a framed card with rounded corners (--shrink from the section's script), Dior-like. */
+.film{position:relative;width:100%;height:100vh;height:100lvh;overflow:hidden;background:#EDE7DF;
   transform:scale(calc(1 - .07 * var(--shrink,0)));transform-origin:50% 40%;border-radius:calc(22px * var(--shrink,0));will-change:transform}
 .hero--film{margin-top:calc(-1 * var(--mast-h,76px))}
 .film :is(.film-poster img,.film-video,.film-end){position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
-/* the loop's two copies: the one coming in sits on top and fades in */
+/* the film fades in over its first frame once it starts */
 .film-video{opacity:0;transition:opacity .9s ease}
 .film-video.is-in{opacity:1}
-.film-video.is-top{z-index:1}
 .film-cue{z-index:3}
 .film-end{display:none;background:var(--last-d) 50% 50%/cover no-repeat}
 .film.is-still .film-end,html:not(.js) .film-end{display:block}
@@ -1097,3 +1107,10 @@ html.has-scrolled .film-cue{opacity:0;pointer-events:none}
 /* Archive cards: the photograph alone (owner, 2026-11-19); the words stay for screen readers and search */
 .card--bare .cinfo{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .card--bare :is(.badge,.stamp){display:none}
+
+/* Green from Shop by category on (owner, 2026-11-19): the page keeps its colours above and the green begins
+   there, rising out of the page colour through a long soft band (half as long again as the old scroll
+   blend: 35% of a screen, now ~52%), rather than the whole screen turning green as it scrolls. The
+   section's own words sit below the band, on full green. */
+.ground-fade{background:linear-gradient(to bottom,var(--fade-from,#FAF8F3) 0,var(--sec-bg) var(--fade-h)) !important;
+  padding-top:calc(var(--fade-h) + clamp(28px,4vw,56px)) !important;--fade-h:clamp(240px,52vh,560px)}
