@@ -1139,7 +1139,8 @@ html:is(.has-scrolled,.cue-seen) .film-cue{opacity:0;pointer-events:none}
 .division-panel{position:sticky;top:var(--pin,0px);min-height:calc(100vh - var(--pin,0px));min-height:calc(100svh - var(--pin,0px));
   display:flex;flex-direction:column;justify-content:center}
 .division-space{height:var(--hold,60vh)}
-:is(.division:not(.division--hold),.division-panel)>.shopify-section:first-child{margin-top:auto}
+/* the contents sit in the middle (the cue's auto margin keeps it at the foot); a division starts with its page mark */
+:is(.division:not(.division--hold)>.page-mark:first-child+*,.division-panel>.shopify-section:first-child){margin-top:auto}
 .division>.shopify-section>:is(.pad,.pad-s){padding-block:clamp(16px,2.5vw,36px)}
 /* Shop by category and Shop by brand are one division: closer together, so both fit a laptop screen while it holds */
 .division-panel>.shopify-section:first-child>.pad-s{padding-top:clamp(16px,2.5vw,36px);padding-bottom:clamp(10px,1.6vw,22px)}
@@ -1151,7 +1152,25 @@ html:is(.has-scrolled,.cue-seen) .film-cue{opacity:0;pointer-events:none}
 .division-cue>*{opacity:.8}
 .division-cue:hover>*{opacity:1}
 .division.cue-done .division-cue{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .5s ease,visibility 0s linear .5s}
-@media (max-width:749px){.division-cue .film-cue-arrow{width:40px}.division-cue .film-cue-word{font-size:11px}}
+@media (max-width:749px){.division-cue{gap:4px;padding:6px 16px 10px}.division-cue .film-cue-arrow{width:40px}.division-cue .film-cue-word{font-size:11px}}
+.division-cue[hidden]{display:none}
+/* The words under the film are a division of their own: a screen of their own, the lines coming in one
+   after another, and a cue */
+.hero .hero-txt.division{display:flex;align-items:stretch}
+/* Pages (owner, 2026-11-20: "划一下，一个上来，划一下，一个上来，不要连续": one swipe, one part comes up,
+   not a continuous scroll). The home page snaps from part to part: the film, the words under it, each
+   division (its top under the masthead), and the green one twice, arriving and then deepened at the end of
+   its hold. Every stop is a page mark (no height of its own, so a division never lets the page drift inside
+   it), and a swipe or a flick never goes past one (scroll-snap-stop). A division taller than the screen even
+   with its pieces brought in a little (a 2 x 2 shelf on a phone) has a second stop at its foot (.is-tall).
+   What follows the divisions (the story, the archive, the signup, the footer) snaps to each part's top and
+   scrolls freely inside a long one. The film no longer stalls: the paging is the "scroll harder". */
+html.has-pages{scroll-snap-type:y mandatory;scroll-padding-top:var(--pin,0px)}
+html.has-pages .film-hold{height:auto}
+.page-mark{height:1px;margin-bottom:-1px;scroll-snap-align:start;scroll-snap-stop:always;pointer-events:none}
+.page-end{height:1px;margin-top:-1px;pointer-events:none}
+.division.is-tall>.page-end,.division--hold>.division-space{scroll-snap-align:end;scroll-snap-stop:always}
+.page-area{scroll-snap-align:start}
 .dv-a{transition:opacity .9s cubic-bezier(.3,.1,.3,1) var(--d,0ms),translate 1.1s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
 .dv-wait .dv-a{opacity:0;translate:0 34px}
 /* the chat bubble waits until the film is passed (owner, 2026-11-20) */

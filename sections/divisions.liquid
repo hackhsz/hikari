@@ -18,7 +18,13 @@
   sections/shop-categories from --pin and the hold, read off this division); its cue sits at the foot of
   the screen through the hold.
 
-  Reduced motion: divisions and cues, but no entrances and no hold. Without JavaScript, or in the theme
+  Pages (owner, 2026-11-20: "划一下，一个上来，划一下，一个上来，不要连续"): the home page snaps from part to
+  part, one swipe one part: the film, the words under it (a division of their own here), each division,
+  and the green one twice (arriving, then deepened at the end of its hold). A part a little too tall for
+  the screen brings its pieces in a little to fit; one that still doesn't fit (a 2 x 2 shelf on a phone)
+  takes two stops, its top and its foot. The stops are page marks the script adds (see assets/hikari.css).
+
+  Reduced motion: divisions, pages and cues, but no entrances and no hold. Without JavaScript, or in the theme
   editor (which needs the sections where it put them), the page is as it was.
 {%- endcomment -%}
 {%- unless request.design_mode -%}
@@ -28,7 +34,7 @@
     var GROUPS = {{ section.settings.groups | default: '' | json }}, HOLD = {{ section.settings.hold | default: 60 }};
     var still = false;
     try { still = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-    var root = document.documentElement, divs = [], p = 0;
+    var root = document.documentElement, divs = [], pages = [], p = 0, probe = null, seen = '';
     /* a numbered part's own section (it carries the colours) before Shopify's wrapper, whose id ends the same way */
     function find(id) { return id && (document.getElementById(id) || document.querySelector('[data-bg][id$="__' + id + '"]') || document.querySelector('[id$="__' + id + '"]')); }
     /* the masthead (and the delivery line under it): divisions fill the screen below it, the green one holds under it */
@@ -42,6 +48,7 @@
       for (var n = d.nextElementSibling; n; n = n.nextElementSibling) if (n.offsetHeight && n.tagName !== 'SCRIPT') return n;
       return null;
     }
+    function mark(cls) { var m = document.createElement('div'); m.className = cls; m.setAttribute('aria-hidden', 'true'); return m; }
     function build() {
       GROUPS.split('|').forEach(function (g) {
         var parts = g.split('+').map(function (s) { return find(s.trim()); }).filter(Boolean);
@@ -61,11 +68,13 @@
         divs.push(d);
       });
       if (!divs.length) return;
-      root.classList.add('has-divisions');
-      pin();
-      /* the cues, once every division is in place (each takes you to what follows its division) */
-      if (cue) divs.forEach(function (d) {
-        var n = after(d);
+      /* the words under the film: a division of their own, before the others */
+      var lead = document.getElementById('after-film');
+      pages = (lead ? [lead] : []).concat(divs);
+      if (lead) lead.classList.add('division', 'division--lead');
+      /* the cues, once every division is in place: each takes you to the next part */
+      if (cue) pages.forEach(function (d, i) {
+        var n = pages[i + 1] || after(d);
         if (!n) return;
         var c = cue.cloneNode(true);
         c.hidden = false;
@@ -77,8 +86,54 @@
           scrollTo({ top: n.getBoundingClientRect().top + scrollY - p, behavior: still ? 'auto' : 'smooth' });
         });
       });
-      if (!still && 'IntersectionObserver' in window) entrances(divs);
+      /* the stops: the film, each division's top (and foot when it is taller than the screen), the end of the
+         green one's hold; then each part that follows */
+      var film = document.querySelector('.film-hold');
+      if (film) film.insertBefore(mark('page-mark'), film.firstChild);
+      pages.forEach(function (d) {
+        d.insertBefore(mark('page-mark'), d.firstChild);
+        if (!d.classList.contains('division--hold')) d.appendChild(mark('page-end'));
+      });
+      var last = divs[divs.length - 1], foot = document.querySelector('footer[data-bg]');
+      for (var n = last.nextElementSibling; n; n = n.nextElementSibling) if (n.offsetHeight && n.tagName !== 'SCRIPT') n.classList.add('page-area');
+      foot = foot && (foot.closest('.shopify-section') || foot);
+      if (foot) foot.classList.add('page-area');
+      probe = document.createElement('div');
+      probe.style.cssText = 'position:fixed;top:0;left:0;width:0;height:100vh;height:100svh;visibility:hidden;pointer-events:none';
+      document.body.appendChild(probe);
+      root.classList.add('has-divisions', 'has-pages');
+      pin();
+      fit();
+      if (!still && 'IntersectionObserver' in window) entrances(pages);
       watch();
+    }
+    /* one part to a screen: where a part is a little taller than the screen under the masthead, its pieces come
+       in a little (to no less than 72%, the green one's tiles 60%) until it fits; where even that is not enough
+       (a 2 x 2 shelf on a phone) it keeps its size and takes two stops, its top and its foot */
+    function fit() {
+      var avail = (probe ? probe.offsetHeight : innerHeight) - p, key = innerWidth + 'x' + avail;
+      if (key === seen) return;
+      seen = key;
+      pages.forEach(function (d) {
+        var box = d.querySelector('.division-panel') || d, held = box !== d;
+        var sh = [].slice.call(box.querySelectorAll('.grid4, .icon-tiles, .cat-tiles, .house-tiles'));
+        var size = function (f) { sh.forEach(function (g, i) { if (f >= 1) { g.style.removeProperty('max-width'); g.style.removeProperty('margin-inline'); } else { g.style.maxWidth = Math.floor(w[i] * f) + 'px'; g.style.marginInline = 'auto'; } }); };
+        var cs = getComputedStyle(box), pad = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+        var need = function () { var h = pad; [].forEach.call(box.children, function (c) { if (!/page-(mark|end)/.test(c.className)) h += c.offsetHeight; }); return h; };
+        var w = [];
+        size(1);
+        w = sh.map(function (g) { return g.getBoundingClientRect().width; });
+        var tall = need() > avail + 2;
+        if (tall && sh.length) {
+          var lo = held ? 0.6 : 0.72, hi = 1;
+          size(lo);
+          if (need() <= avail + 2) {
+            for (var k = 0; k < 7; k++) { var f = (lo + hi) / 2; size(f); if (need() <= avail + 2) lo = f; else hi = f; }
+            size(lo); tall = false;
+          } else size(1);
+        }
+        d.classList.toggle('is-tall', tall);
+      });
     }
     /* each division comes in once: the heading, then the pieces one after another, then the link, then the cue */
     function entrances(divs) {
@@ -92,6 +147,8 @@
       }, { rootMargin: '0px 0px -18% 0px' });
       divs.forEach(function (d) {
         var n = 0, mark = function (el, ms) { el.classList.add('dv-a'); el.style.setProperty('--d', ms + 'ms'); };
+        /* the words under the film: line by line, then the link */
+        [].forEach.call(d.querySelectorAll('.division--lead :is(.hero-b > *, .hero-ctas)'), function (l, i) { mark(l, i * 140); n = 1; });
         [].forEach.call(d.querySelectorAll('section'), function (sec) {
           [].forEach.call(sec.querySelectorAll('.sec-head, .ne-head'), function (h) { mark(h, n * 120); });
           [].forEach.call(sec.querySelectorAll('.grid4 > *, .icon-tiles > *, .cat-tiles > *, .house-tiles > *'), function (c, i) { mark(c, n * 120 + 160 + Math.min(i, 8) * 90); });
@@ -105,16 +162,18 @@
     }
     /* once only: a division's cue goes for good once the division has been gone past */
     function watch() {
-      var ticking = false;
+      var ticking = false, later = 0;
       function tick() {
         ticking = false;
-        divs.forEach(function (d) {
+        pages.forEach(function (d) {
           if (!d.classList.contains('cue-done') && d.getBoundingClientRect().bottom <= innerHeight * 0.55) d.classList.add('cue-done');
         });
       }
+      function again() { pin(); fit(); tick(); }
       addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(tick); } }, { passive: true });
-      addEventListener('resize', function () { pin(); tick(); }, { passive: true });
-      addEventListener('load', function () { pin(); tick(); });
+      addEventListener('resize', function () { clearTimeout(later); later = setTimeout(again, 150); }, { passive: true });
+      addEventListener('load', function () { seen = ''; again(); });
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { seen = ''; again(); });
       tick();
     }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build); else build();

@@ -206,6 +206,8 @@ async function visit(cdp, url, size, shot) {
       const js = async e => (await s("Runtime.evaluate", { expression: e, awaitPromise: true, returnByValue: true })).result.value;
       const names = await js(`(async () => {
         document.querySelectorAll("img").forEach(i => { i.loading = "eager"; });
+        /* the home page's paging (snapping from part to part) would move each part's picture to the nearest stop */
+        document.head.insertAdjacentHTML("beforeend", "<style>html{scroll-snap-type:none!important}</style>");
         for (let y = 0; y < document.documentElement.scrollHeight; y += innerHeight * 0.8) { scrollTo(0, y); await new Promise(r => setTimeout(r, 120)); }
         await Promise.race([Promise.all([...document.images].map(i => i.decode().catch(() => {}))), new Promise(r => setTimeout(r, 8000))]);
         document.head.insertAdjacentHTML("beforeend", "<style>#shopify-section-header{visibility:hidden!important}</style>");
