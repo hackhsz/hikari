@@ -29,7 +29,8 @@
     var still = false;
     try { still = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
     var root = document.documentElement, divs = [], p = 0;
-    function find(id) { return id && (document.getElementById(id) || document.querySelector('[id$="__' + id + '"]')); }
+    /* a numbered part's own section (it carries the colours) before Shopify's wrapper, whose id ends the same way */
+    function find(id) { return id && (document.getElementById(id) || document.querySelector('[data-bg][id$="__' + id + '"]') || document.querySelector('[id$="__' + id + '"]')); }
     /* the masthead (and the delivery line under it): divisions fill the screen below it, the green one holds under it */
     function pin() {
       var m = document.querySelector('.mast'), ma = document.querySelector('.mast-announce'), h = document.querySelector('.division--hold');
@@ -47,7 +48,7 @@
         if (!parts.length) return;
         var first = parts[0], wraps = parts.map(function (p) { return p.closest('.shopify-section') || p; });
         var d = document.createElement('div');
-        d.className = 'division';
+        d.className = 'division'; d.id = 'division-' + (divs.length + 1);
         if (first.dataset.bg) { d.setAttribute('data-bg', first.dataset.bg); d.style.setProperty('--sec-bg', first.dataset.bg); d.style.setProperty('--sec-fg', first.dataset.fg || ''); }
         wraps[0].parentNode.insertBefore(d, wraps[0]);
         var box = d;
