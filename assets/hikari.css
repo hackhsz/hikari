@@ -1035,7 +1035,7 @@ s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thicknes
 /* The film fills the whole first screen, edge to edge (owner, 2026-11-19/20: "people have to scroll down",
    "fill all spaces", no edge when scrolling), sliding up under the floating masthead. It holds still for
    a while as the page starts to scroll: sticky inside .film-hold, which is a screen plus --stall tall. */
-.film-hold{position:relative;height:calc(100vh + var(--stall,55vh));height:calc(100lvh + var(--stall,55vh))}
+.film-hold{position:relative;height:calc(100vh + var(--stall,70vh));height:calc(100lvh + var(--stall,70vh))}
 .film{position:sticky;top:0;width:100%;height:100vh;height:100lvh;overflow:hidden;background:#EDE7DF}
 .hero--film{margin-top:calc(-1 * var(--mast-h,76px))}
 .film :is(.film-poster img,.film-video,.film-end){position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
@@ -1052,7 +1052,7 @@ s.was{opacity:.5;font-size:.8em;margin-inline-end:.35em;text-decoration-thicknes
 }
 .hero--film:not(.hero--split) .hero-txt{padding-top:clamp(36px,5vw,64px)}
 /* the cue at the film's foot (owner, 2026-11-19: "bigger and white"): the word and a down arrow that bobs,
-   white with a soft shadow so it reads on the pale silk; it fades once the page has moved (html.has-scrolled) */
+   white with a soft shadow so it reads on the pale silk; it stays through most of the film's hold and fades as the page starts to move (html.has-scrolled) */
 .film-cue{position:absolute;left:50%;bottom:clamp(16px,2.6vw,30px);transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;
   align-items:center;gap:6px;color:#FFFDF9;text-decoration:none;transition:opacity .5s ease;
   filter:drop-shadow(0 1px 3px rgba(0,0,0,.35)) drop-shadow(0 2px 12px rgba(0,0,0,.25))}

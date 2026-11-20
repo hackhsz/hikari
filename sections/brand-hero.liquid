@@ -160,8 +160,8 @@
     assign film_title = section.settings.film_title | default: 'KARINEKO VINTAGE'
   -%}
   {%- comment -%} The film holds still for a while as the page starts to scroll (owner, 2026-11-20: "stop/stall
-      before it gets down, so you feel you have to scroll harder"): it sticks inside .film-hold, a screen and
-      a half tall, then scrolls away with a clean edge. {%- endcomment -%}
+      before it gets down, so you feel you have to scroll harder"): it sticks inside .film-hold, a screen plus
+      70% tall, then scrolls away with a clean edge. {%- endcomment -%}
   <div class="film-hold">
   <div class="film">
     <h1 class="vh">{{ film_title }}{% if section.settings.film_line != blank %}: {{ section.settings.film_line }}{% endif %}</h1>

@@ -135,7 +135,9 @@
       m.classList.toggle('off-film', off);
       m.classList.toggle('is-scrolled', off && scrollY > 8);
       r.classList.toggle('past-film', !!film && off);
-      r.classList.toggle('has-scrolled', scrollY > 40);
+      /* on the film page the cue stays through most of the film's hold, so it keeps saying "keep going" */
+      var hold = film && film.parentNode ? film.parentNode.offsetHeight - film.offsetHeight : 0;
+      r.classList.toggle('has-scrolled', scrollY > Math.max(40, hold * 0.8));
     }
     size(); place();
     if (window.ResizeObserver) new ResizeObserver(size).observe(m);
