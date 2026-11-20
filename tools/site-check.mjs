@@ -180,6 +180,9 @@ async function visit(cdp, url, size, shot) {
   try {
     await Promise.all([s("Page.enable"), s("Network.enable"), s("Runtime.enable")]);
     await s("Emulation.setDeviceMetricsOverride", size);
+    /* no scrollbar in the layout either: with macOS set to show scroll bars "automatically", a connected mouse
+       gave the page a 15px gutter and every desktop picture moved by half of it (2026-11-20) */
+    await s("Emulation.setScrollbarsHidden", { hidden: true }).catch(() => {});
     if (shot) await s("Emulation.setEmulatedMedia", { features: [{ name: "prefers-reduced-motion", value: "reduce" }] });
     const nav = await s("Page.navigate", { url });
     if (nav.errorText) return { status: 0, error: nav.errorText };
