@@ -42,10 +42,11 @@ async function record(name, width, height, mobile) {
   await s("Page.startScreencast", { format: "jpeg", quality: 85, everyNthFrame: 1 });
   await s("Page.navigate", { url });
   await sleep(secs * 1000);
-  // SCROLL=1: then scroll slowly down two and a half screens, as someone reading on would (the film's words, its fade)
+  // SCROLL=1: then scroll slowly down two and a half screens (SCROLL=6: six screens), as someone reading on would
   if (process.env.SCROLL) {
     await s("Runtime.evaluate", { expression: `document.getElementById("shopify-pc__banner")?.remove()` });
-    for (let i = 1; i <= 60; i++) { await s("Runtime.evaluate", { expression: `scrollTo(0, ${Math.round(height * 2.5 * i / 60)})` }); await sleep(90); }
+    const screens = Number(process.env.SCROLL) > 1 ? Number(process.env.SCROLL) : 2.5, steps = Math.round(24 * screens);
+    for (let i = 1; i <= steps; i++) { await s("Runtime.evaluate", { expression: `scrollTo(0, ${Math.round(height * screens * i / steps)})` }); await sleep(90); }
     await sleep(2500);
   }
   await s("Page.stopScreencast");
