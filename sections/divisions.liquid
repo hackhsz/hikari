@@ -22,7 +22,8 @@
   part, one swipe one part: the film, the words under it (a division of their own here), each division,
   and the green one twice (arriving, then deepened at the end of its hold). A part a little too tall for
   the screen brings its pieces in a little to fit; one that still doesn't fit (a 2 x 2 shelf on a phone)
-  takes two stops, its top and its foot. The stops are page marks the script adds (see assets/hikari.css).
+  takes two stops, its top and its foot. What follows (the story, the archive, the signup, the footer)
+  stops the same way, at each part's top and, when it is taller than the screen, at its foot. The stops are page marks the script adds (see assets/hikari.css).
 
   Reduced motion: divisions, pages and cues, but no entrances and no hold. Without JavaScript, or in the theme
   editor (which needs the sections where it put them), the page is as it was.
@@ -34,7 +35,7 @@
     var GROUPS = {{ section.settings.groups | default: '' | json }}, HOLD = {{ section.settings.hold | default: 60 }};
     var still = false;
     try { still = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-    var root = document.documentElement, divs = [], pages = [], p = 0, probe = null, seen = '';
+    var root = document.documentElement, divs = [], pages = [], tail = [], p = 0, probe = null, seen = '';
     /* a numbered part's own section (it carries the colours) before Shopify's wrapper, whose id ends the same way */
     function find(id) { return id && (document.getElementById(id) || document.querySelector('[data-bg][id$="__' + id + '"]') || document.querySelector('[id$="__' + id + '"]')); }
     /* the masthead (and the delivery line under it): divisions fill the screen below it, the green one holds under it */
@@ -95,9 +96,10 @@
         if (!d.classList.contains('division--hold')) d.appendChild(mark('page-end'));
       });
       var last = divs[divs.length - 1], foot = document.querySelector('footer[data-bg]');
-      for (var n = last.nextElementSibling; n; n = n.nextElementSibling) if (n.offsetHeight && n.tagName !== 'SCRIPT') n.classList.add('page-area');
+      for (var n = last.nextElementSibling; n; n = n.nextElementSibling) if (n.offsetHeight && n.tagName !== 'SCRIPT') tail.push(n);
       foot = foot && (foot.closest('.shopify-section') || foot);
-      if (foot) foot.classList.add('page-area');
+      if (foot) tail.push(foot);
+      tail.forEach(function (t) { t.insertBefore(mark('page-mark'), t.firstChild); t.appendChild(mark('page-end')); });
       probe = document.createElement('div');
       probe.style.cssText = 'position:fixed;top:0;left:0;width:0;height:100vh;height:100svh;visibility:hidden;pointer-events:none';
       document.body.appendChild(probe);
@@ -108,7 +110,7 @@
       watch();
     }
     /* one part to a screen: where a part is a little taller than the screen under the masthead, its pieces come
-       in a little (--fit: the shelves to no less than 72%, the green part's round tiles 60%) until it fits;
+       in a little (--fit: the shelves to no less than 70%, the green part's round tiles 60%) until it fits;
        where even that is not enough (a 2 x 2 shelf on a phone) it keeps its size and takes two stops, its top
        and its foot */
     function fit() {
@@ -123,7 +125,7 @@
         size(1);
         var tall = need() > avail + 2;
         if (tall && box.querySelector('.grid4, .icon-tiles, .cat-tiles, .house-tiles')) {
-          var lo = box.querySelector('.icon-tiles--ring') ? 0.6 : 0.72, hi = 1;
+          var lo = box.querySelector('.icon-tiles--ring') ? 0.6 : 0.7, hi = 1;
           size(lo);
           if (need() <= avail + 2) {
             for (var k = 0; k < 7; k++) { var f = (lo + hi) / 2; size(f); if (need() <= avail + 2) lo = f; else hi = f; }
@@ -132,6 +134,8 @@
         }
         d.classList.toggle('is-tall', tall);
       });
+      /* what follows the divisions: a stop at each part's top, and at its foot when it is taller than the screen */
+      tail.forEach(function (t) { t.classList.toggle('is-tall', t.offsetHeight > avail + 2); });
     }
     /* each division comes in once: the heading, then the pieces one after another, then the link, then the cue */
     function entrances(divs) {
