@@ -129,6 +129,8 @@
     function size() { r.style.setProperty('--mast-h', m.offsetHeight + 'px'); r.style.setProperty('--ann-h', (a ? a.offsetHeight : 0) + 'px'); }
     function place() {
       film = film || document.querySelector('.film');
+      /* the masthead is parsed before the page: wait for it, or the delivery line flashed over the film at first */
+      if (!film && document.readyState === 'loading') return;
       var off = !film || film.getBoundingClientRect().bottom <= m.offsetHeight + 1;
       m.classList.toggle('off-film', off);
       m.classList.toggle('is-scrolled', off && scrollY > 8);
