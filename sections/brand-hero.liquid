@@ -271,7 +271,7 @@
       }
       /* the original if this phone plays 4K HEVC smoothly; if it then fails, the phone film after all */
       function original(done) {
-        var o = v.getAttribute('data-phone-original'), type = 'video/mp4; codecs="hvc1.2.4.L156.B0"', mc = navigator.mediaCapabilities;
+        var o = v.getAttribute('data-phone-original'), type = 'video/mp4; codecs="hvc1.2.4.L153.B0"', mc = navigator.mediaCapabilities;
         if (!phone || !o || !v.canPlayType(type)) return done(false);
         if (!mc || !mc.decodingInfo) return done(true);
         mc.decodingInfo({ type: 'file', video: { contentType: type, width: 2160, height: 3840, bitrate: 68558846, framerate: 60 } })
