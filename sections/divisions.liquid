@@ -201,7 +201,7 @@
        first, once the film has gone entirely); and in a part taller than the screen, about one a screen down
        to its foot. One swipe, one stop on or back, wherever the finger let go. */
     function glide() {
-      var x0 = 0, y0 = 0, s0 = 0, mode = 0, track = [], anim = 0, cue = document.querySelector('.film-cue');
+      var x0 = 0, y0 = 0, s0 = 0, mode = 0, track = [], anim = 0, cue = document.querySelector('.film-cue'), lo = 0, hi = 0;
       root.classList.add('is-glide');
       function stops() {
         var vh = innerHeight, room = vh - p, y = scrollY, max = root.scrollHeight - vh, out = [0];
@@ -241,6 +241,11 @@
         if (mode) return;
         cancelAnimationFrame(anim); anim = 0;
         x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; s0 = scrollY; track = [[e.timeStamp, y0]];
+        /* one swipe goes no further than the next stop either way: past it the page only gives a little */
+        var list = stops(), k;
+        lo = 0; hi = list[list.length - 1];
+        for (k = 0; k < list.length; k++) if (list[k] > s0 + 8) { hi = list[k]; break; }
+        for (k = list.length - 1; k >= 0; k--) if (list[k] < s0 - 8) { lo = list[k]; break; }
       }, { passive: true });
       addEventListener('touchmove', function (e) {
         if (mode === 2) return;
@@ -253,7 +258,9 @@
           mode = 1;
         }
         if (e.cancelable) e.preventDefault();
-        scrollTo(0, s0 - dy);
+        var y = s0 - dy;
+        if (y > hi) y = hi + (y - hi) * 0.2; else if (y < lo) y = lo - (lo - y) * 0.2;
+        scrollTo(0, y);
         track.push([e.timeStamp, t.clientY]);
         if (track.length > 8) track.shift();
       }, { passive: false });

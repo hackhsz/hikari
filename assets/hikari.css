@@ -1147,6 +1147,9 @@ html:is(.has-scrolled,.cue-seen) .film-cue{opacity:0;pointer-events:none}
 /* Shop by category and Shop by brand are one division: closer together, so both fit a laptop screen while it holds */
 .division-panel>.shopify-section:first-child>.pad-s{padding-top:clamp(16px,2.5vw,36px);padding-bottom:clamp(10px,1.6vw,22px)}
 .division-panel>.shopify-section+.shopify-section>.pad-s{padding-top:clamp(10px,1.6vw,22px);padding-bottom:clamp(16px,2.5vw,36px)}
+/* the same on a phone, where the green part has no hold (and so no panel) */
+.division>.shopify-section:has(+.shopify-section)>.pad-s{padding-bottom:clamp(10px,1.6vw,22px)}
+.division>.shopify-section+.shopify-section>.pad-s{padding-top:clamp(10px,1.6vw,22px)}
 /* the cue at a division's foot (owner, 2026-11-20: "every division", "once only"): the film's cue in the
    division's own ink; it goes for good once the division has been gone past (.cue-done) */
 .division-cue{margin-top:auto;align-self:center;display:flex;flex-direction:column;align-items:center;gap:6px;
