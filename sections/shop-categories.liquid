@@ -84,9 +84,13 @@
      goes on while it holds there (sections/divisions pins it under the masthead, at --pin, for the
      length of its .division-space). Without the divisions (reduced motion, the theme editor) it deepens
      as its top rises from the middle of the screen to the top. Sets --rise (how much green, 0.5 to 1)
-     and --rise-fg (dark ink to white) on <html>; elsewhere they are unset and the green is full green. */
+     and --rise-fg (dark ink to white) on <html>; elsewhere they are unset and the green is full green.
+     Phones (owner, 2026-11-22: "get rid of the transition color page that we have for the shop by
+     category"): no in-between green and no hold there, just the full green. */
   (function (s) {
-    if (!s) return;
+    var phone = false;
+    try { phone = matchMedia('(max-width: 749px)').matches; } catch (e) {}
+    if (!s || phone) return;
     var r = document.documentElement, ticking = false, MID = 0.5;
     function rise() {
       ticking = false;

@@ -166,9 +166,17 @@
       1440 x 2560), served as they are. Settings > Files re-encodes every film to at most 1080 on its
       longer side, which cut the upright phone film to 606 x 1080 (owner: "the video quality on mobile
       is not great", 2026-11-19). The two video settings stay as a way back.
+
+      Phones play the original film itself (owner, 2026-11-22: "use the original 4k video for mobile
+      version first page, do not change anything at all"): the iPhone's own file, 2160 x 3840 HEVC HDR,
+      60 fps, 26.7 MB, with its own words in it, byte for byte as filmed. It is too big for a theme file
+      (20 MB), so it is in Settings > Files (karineko-film-original-4k.mov), which keeps every upload's
+      original at this address beside the copies it makes. A phone that can't play it smoothly (no HEVC,
+      or not 4K at 60) gets banner-film-phone.mp4 and the page's words, as before.
     endcomment
     assign src_d = 'banner-film-desktop.mp4' | asset_url
     assign src_p = 'banner-film-phone.mp4' | asset_url
+    assign src_o = 'https://cdn.shopify.com/videos/c/o/v/70759d863a6c4a729b32f156cbe5dec5.mov'
     assign film_title = section.settings.film_title | default: 'KARINEKO VINTAGE'
   -%}
   {%- comment -%} The film holds still for a while as the page starts to scroll (owner, 2026-11-20: "stop/stall
@@ -182,7 +190,7 @@
       <source media="(max-width: 749px)" srcset="{{ 'banner-video-phone-first.jpg' | asset_url }}" width="1080" height="1920">
       <img src="{{ 'banner-video-desktop-first.jpg' | asset_url }}" alt="" width="1440" height="810" loading="eager" fetchpriority="high">
     </picture>
-    <video class="film-video" muted playsinline preload="auto" aria-hidden="true" data-desktop="{{ src_d }}" data-phone="{{ src_p }}"></video>
+    <video class="film-video" muted playsinline preload="auto" aria-hidden="true" data-desktop="{{ src_d }}" data-phone="{{ src_p }}" data-phone-original="{{ src_o }}"></video>
     {%- comment -%} The last frame: only fetched when shown (reduced motion, no JavaScript). {%- endcomment -%}
     <div class="film-end" style="--last-d:url({{ 'banner-video-desktop-last.jpg' | asset_url }});--last-p:url({{ 'banner-video-phone-last.jpg' | asset_url }})"></div>
     {%- comment -%}
@@ -232,11 +240,12 @@
       var phone = matchMedia('(max-width: 749px)').matches;
       var src = phone ? v.getAttribute('data-phone') : v.getAttribute('data-desktop');
       if (still || !src) { f.classList.add('is-still'); return; }
-      var img = f.querySelector('.film-poster img'), started = false, said = false;
+      var img = f.querySelector('.film-poster img'), started = false, said = false, own = false;
       /* The words come in line by line a little after the film starts (where its own words used to fade
-         in), once their faces are here; if the film never starts, they come anyway. */
+         in), once their faces are here; if the film never starts, they come anyway. The original film
+         (phones) has its own words, so none are laid over it. */
       function say() {
-        if (said) return; said = true;
+        if (said || own) return; said = true;
         var faces = [];
         try { faces = [document.fonts.load('136px Aboreto'), document.fonts.load('118px "Nothing You Could Do"')]; } catch (e) {}
         var done = false, show = function () { if (!done) { done = true; f.classList.add('is-words'); } };
@@ -244,11 +253,34 @@
       }
       v.addEventListener('playing', function () { setTimeout(say, 550); }, { once: true });
       setTimeout(say, 5000);
+      function play(s) {
+        v.src = s; v.classList.add('is-in');
+        var p = v.play();
+        if (p && p.catch) p.catch(function (e) {
+          var n = e && e.name;
+          if (n === 'AbortError' || (own && n === 'NotSupportedError')) return;   /* a new source took over, or will (see 'error') */
+          own = false; f.classList.remove('is-own'); f.classList.add('is-still');   /* not allowed to play: the last frame and the words */
+        });
+      }
       function go() {
         if (started) return; started = true;
-        v.src = src; v.classList.add('is-in');
-        var p = v.play(); if (p && p.catch) p.catch(function () { f.classList.add('is-still'); });
+        original(function (yes) {
+          own = yes; f.classList.toggle('is-own', yes);
+          play(yes ? v.getAttribute('data-phone-original') : src);
+        });
       }
+      /* the original if this phone plays 4K HEVC smoothly; if it then fails, the phone film after all */
+      function original(done) {
+        var o = v.getAttribute('data-phone-original'), type = 'video/mp4; codecs="hvc1.2.4.L156.B0"', mc = navigator.mediaCapabilities;
+        if (!phone || !o || !v.canPlayType(type)) return done(false);
+        if (!mc || !mc.decodingInfo) return done(true);
+        mc.decodingInfo({ type: 'file', video: { contentType: type, width: 2160, height: 3840, bitrate: 68558846, framerate: 60 } })
+          .then(function (d) { done(!!(d.supported && d.smooth)); }, function () { done(true); });
+      }
+      v.addEventListener('error', function () {
+        if (!own) return;
+        own = false; f.classList.remove('is-own'); play(src); setTimeout(say, 550);
+      });
       if (img && !(img.complete && img.naturalWidth)) { img.addEventListener('load', go); img.addEventListener('error', go); setTimeout(go, 6000); }
       else go();
     })(document.currentScript.previousElementSibling.querySelector('.film'));
