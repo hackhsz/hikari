@@ -1,5 +1,7 @@
 # Second Life Markets: London Christmas Market, Brick Lane
 
+> **Submitted 23 Nov 2026**: half stall, £80, with 5 product photos. MarketMate showed "Application Submitted!". If approved they invoice £80; if you don't hear back, it wasn't successful. If accepted, bring your own table: equipment isn't included.
+
 **Event:** Sat 5 Dec 2026, 10:30am–5pm · The Boiler House, 152 Brick Lane, E1 6QL. 70 curated vintage stores.
 **Apply:** the MarketMate form at https://www.marketmate.live/second-life-markets-uk/events/12d0992b-0087-4874-a177-b63e52ea4155. Submit **one** application only.
 **Apply by:** **about Sat 21 Nov**. The organiser says applications within 2 weeks of the event are "likely already at capacity". Only successful applicants hear back.
