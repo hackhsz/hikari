@@ -46,7 +46,7 @@ markets:
   why: London's benchmark vintage fashion fair. Dealers are vetted ('the very best in their chosen field'), the
     Victoria edition names vintage jewellery dealers as a core category, and visitors pay £8 to get in. The audience
     is ideal, but it is effectively closed (waitlist), so treat it as a long-term goal.
-  checked: 2026-11-16
+  checked: 2026-11-23
   sources: ['https://www.frockmevintagefashion.com/fair-dates', 'https://www.frockmevintagefashion.com/exhibitors',
     'https://www.frockmevintagefashion.com/frockmevictoria', 'https://www.frockmevintagefashion.com/plan-your-visit']
   decision: new
@@ -130,7 +130,7 @@ markets:
   why: 'An Angel/Islington antiques destination where vintage designer costume jewellery is already an established
     category, with a dedicated Thursday vintage fashion day and a simple enquiry route. Weaknesses: lower-priced
     costume jewellery competitors and an unpublished fee.'
-  checked: 2026-11-09
+  checked: 2026-11-23
   sources: ['https://www.camdenpassageislington.co.uk/market-stall-enquiry.html', 'https://www.camdenpassageislington.co.uk/markets/pierrepont-arcade-market.html',
     'https://www.camdenpassageislington.co.uk/markets/camden-passage-market.html', 'https://www.islington.gov.uk/business/markets/market-information-for-customers']
   decision: shortlist
@@ -163,7 +163,7 @@ markets:
   why: 'The Thursday antiques market explicitly lists jewellery and fashion among 80+ stalls and draws stylists
     and vintage collectors. Open registration with day-by-day booking makes it an easy, repeatable test. Weaknesses:
     mixed/tourist audience on other days and unpublished fees.'
-  checked: 2026-11-09
+  checked: 2026-11-23
   sources: ['https://oldspitalfieldsmarket.com/become-a-trader', 'https://oldspitalfieldsmarket.com/events/antiques-market',
     'https://oldspitalfieldsmarket.com/cms/2026/09/New-trader-information-pack-26.pdf', 'https://oldspitalfieldsmarket.com/trader-information']
   decision: shortlist
@@ -219,7 +219,7 @@ markets:
   why: Nearly 100 dealers, about 29 of them listing jewellery, next to Bond Street, with Elizabeth line traffic.
     Strong jewellery footfall, but the fine-jewellery price frame, weekday-only hours and unknown rent make it a
     later-stage option.
-  checked: 2026-11-02
+  checked: 2026-11-23
   sources: ['https://www.graysantiques.com/contact', 'https://www.graysantiques.com/dealers', 'https://www.graysantiques.com/']
   decision: new
   our_notes: null
@@ -232,8 +232,7 @@ markets:
   organiser: The Decorative Antiques & Textiles Fair (family-owned, est. 1985)
   url: https://decorativefair.com/winter-fair/
   apply_url: https://decorativefair.com/exhibit-or-sell/
-  dates: Winter Fair 19-24 Jan 2027; Spring Fair 11-16 May 2027; Autumn Fair late Sep/early Oct 2027 (dates 'coming
-    soon')
+  dates: Winter Fair 19-24 Jan 2027 (Evolution London, Battersea Park); Spring Fair 11-16 May 2027; Autumn Fair 28 Sep - 3 Oct 2027
   next_date: 2027-01-19
   apply: {status: rolling, deadline: null, opens: null}
   window: Three fairs a year (Jan, mid-May, late Sep/early Oct). Send an enquiry; if you meet the criteria you are
@@ -250,7 +249,7 @@ markets:
   why: 'The audience is right: the Fair cites a dealer saying more than half their sales go to 25-40-year-olds,
     alongside interior designers. But jewellery is a side category and the dealer references and vetting are a real
     barrier for a new business. A target for 2027-28 once established.'
-  checked: 2026-11-02
+  checked: 2026-11-23
   sources: ['https://decorativefair.com/exhibit-or-sell/', 'https://decorativefair.com/winter-fair/', 'https://decorativefair.com/']
   decision: new
   our_notes: null
@@ -277,7 +276,7 @@ markets:
   fit: 3
   why: Curated, style-conscious vintage crowd in King's Cross; the site lists vintage clothing, accessories and
     jewellery. The vehicle requirement and unknown fees make it a plausible test rather than a core channel.
-  checked: 2026-11-02
+  checked: 2026-11-23
   sources: ['https://www.classiccarbootsale.co.uk/', 'https://www.classiccarbootsale.co.uk/trader-applications/',
     'http://www.classiccarbootsale.co.uk/exhibitor-application/', 'https://www.classiccarbootsale.co.uk/about/']
   decision: applied
@@ -299,14 +298,11 @@ markets:
   cost: Not published
   commission_pct: null
   requires: []
-  watch_out: jubileemarket.co.uk blocked automated access. The trading-enquiry contact (Jubilee Market Manager,
-    0207 379 4242) comes from an indexed Covent Garden contact page that may be out of date. The Apple Market is
-    handmade-focused Tue-Sun and Jubilee weekends are arts & crafts. An Appear Here listing for a Jubilee Sunday
-    stall said 'Jewellery brands cannot be accommodated'.
+  watch_out: jubileemarket.co.uk blocked automated access. The Covent Garden markets page gives a Jubilee Market phone number (020 7379 4242, confirmed 23 Nov 2026) but no trader route, application page or fees. The Apple Market is handmade-focused Tue-Sun and Jubilee weekends are arts & crafts. An Appear Here listing for a Jubilee Sunday stall said 'Jewellery brands cannot be accommodated'.
   fit: 3
   why: Central, high-footfall Monday antiques market where jewellery is part of the stock, but the crowd is largely
     tourists, and no application route or fee could be verified. Worth a phone call to confirm.
-  checked: 2026-11-02
+  checked: 2026-11-23
   sources: ['https://www.coventgarden.london/shop/markets', 'https://www.appearhere.co.uk/spaces/tavistock-court-market-sunday-market-stall-2']
   decision: new
   our_notes: null
@@ -318,16 +314,14 @@ markets:
   where: 'Various London districts and places: Shoreditch, Soho, Covent Garden, Notting Hill, Marylebone, Old Spitalfields,
     Burlington Arcade, Carnaby, Truman Brewery, etc.'
   organiser: Appear Here
-  url: https://www.appearhere.co.uk/destinations/london
-  apply_url: https://www.appearhere.co.uk/how-it-works
+  url: https://www.appearhere.com/destinations/london
+  apply_url: https://www.appearhere.com/how-it-works
   dates: Always-on marketplace; book by the day, week, month or year
   next_date: null
   apply: {status: rolling, deadline: null, opens: null}
   window: Rolling; listings change constantly
   fee_gbp: null
-  cost: 'Varies by listing. Homepage examples on 13 Oct 2026: from £99/day (Kingsland Road, Dalston, 283 sq ft),
-    from £164/day (The Sidings, Waterloo, 886 sq ft), from £2,000/day (Soho gallery). Many have minimum bookings
-    (often 7 days) and damage deposits'
+  cost: 'Varies by listing. Homepage examples on 23 Nov 2026: from £99/day (Kingsland Road, Dalston), from £164/day (The Sidings, Waterloo, UG10), from £187/day (The Sidings, Waterloo, G18), from £2,000/day (Bateman Street, Soho gallery). Many have minimum bookings (often 7 days) and damage deposits'
   commission_pct: null
   requires: [Appear Here account, Booking request approved by the landlord, Damage deposit and insurance as each
       listing specifies]
@@ -338,8 +332,8 @@ markets:
   why: The main application route for short-let pop-ups in London, including market stalls and shop-in-shops in
     brand-enhancing districts. Fit depends on the specific listing and day rate, so it's a plausible test with careful
     selection.
-  checked: 2026-11-02
-  sources: ['https://www.appearhere.co.uk/', 'https://www.appearhere.co.uk/destinations/london', 'https://www.appearhere.co.uk/how-it-works']
+  checked: 2026-11-23
+  sources: ['https://www.appearhere.com/', 'https://www.appearhere.com/destinations/london', 'https://www.appearhere.com/how-it-works']
   decision: new
   our_notes: null
 
@@ -363,7 +357,7 @@ markets:
   watch_out: Quarterly only. Broad suburban antiques/homewares crowd; outside the London postcode.
   fit: 3
   why: A Sunday fair aimed at private buyers ('decorative antiques, vintage ... vintage clothing, jewellery'), and the £85 table breaks even on about one sale, so it's a low-risk test. The audience is broader and more bargain-minded than the target customer.
-  checked: 2026-11-09
+  checked: 2026-11-23
   sources: ['https://www.sunburyantiques.com/sandown/', 'https://www.sunburyantiques.com/', 'https://www.thejockeyclub.co.uk/kempton/events-tickets/sunbury-antiques-market-7/sunbury-antiques-market/']
   decision: new
   our_notes: null
@@ -384,11 +378,11 @@ markets:
   cost: Not published
   commission_pct: null
   requires: [Email thechurchstreetantiquesfair@gmail.com]
-  watch_out: 'Irregular history (trade press: returned in 2023 after a four-year gap). No 2026 edition was announced: as of 2 Nov 2026 the Alfies post sitemap has no post after the April 2025 announcement (page last modified Jul 2025), so the early-summer 2026 slot passed without a fair. Outdoor street fair.'
+  watch_out: 'Irregular history (trade press: returned in 2023 after a four-year gap). No 2026 edition was announced: as of 23 Nov 2026 the Alfies post sitemap has no Church Street post after the April 2025 announcement (page last modified Jul 2025), so the early-summer 2026 slot passed without a fair. Outdoor street fair.'
   fit: 3
   why: One-day Marylebone street fair (5,000+ visitors expected in 2025) aimed at the Alfies collector crowd. A
     low-commitment way to test that audience before taking a stand, but no future date has been confirmed.
-  checked: 2026-11-02
+  checked: 2026-11-23
   sources: ['https://alfiesantiques.com/church-street-antiques-fair/']
   decision: new
   our_notes: null
@@ -690,9 +684,9 @@ markets:
   organiser: Lou Lou's Vintage Fair
   url: https://www.loulousvintagefair.com/
   apply_url: https://eventaly.com/event/lou-lous-manchester/
-  dates: Sun 22 Nov 2026, 11am–4pm (trader set-up from 9am)
-  next_date: 2026-11-22
-  apply: {status: open, deadline: null, opens: null}
+  dates: Last held Sun 22 Nov 2026, 11am-4pm, Victoria Baths. No next Manchester date announced (the organiser's homepage lists only Nottingham, Sat 28 Nov 2026; the Eventaly page has no bookable dates)
+  next_date: null
+  apply: {status: closed, deadline: null, opens: null}
   window: Each event needs its own application on Eventaly; organiser says replies usually come within 10 working
     days, and the stall is confirmed only when the pitch-fee invoice (due 1 week from issue) is paid.
   fee_gbp: null
@@ -707,7 +701,7 @@ markets:
   why: Curated vintage fashion fair whose listed categories include jewellery, held in a striking venue, and resellers
     are its whole model. One notch below 5 because it's a broad 'affordable vintage' crowd rather than designer
     buyers, the fee is unknown and you'd travel from London.
-  checked: 2026-11-16
+  checked: 2026-11-23
   sources: ['https://www.loulousvintagefair.com/', 'https://eventaly.com/event/lou-lous-manchester/', 'https://eventaly.com/organiser/lou-lous-vintage-market/',
     'https://www.loulousvintagefair.com/trader-terms-and-conditions']
   decision: new
@@ -737,7 +731,7 @@ markets:
   why: A serious collector, designer and stylist audience that pays proper prices for vintage fashion and accessories,
     run by a respected society. Designer costume jewellery suits the 'costume and accessories' strand. The main
     weakness is that textiles lead and jewellery is secondary. About 2 sales cover the stand.
-  checked: 2026-11-02
+  checked: 2026-11-23
   sources: ['https://www.textilesociety.org.uk/event/manchester-antique-vintage-textile-fair', 'https://www.textilesociety.org.uk/?p=15657']
   decision: new
   our_notes: null
@@ -1077,9 +1071,9 @@ markets:
   organiser: Craft & Flea
   url: https://www.thecraftandflea.com/pages/trade-with-us
   apply_url: https://eventaly.com/event/glasgows-craft-flea/
-  dates: Sat 21 Nov 2026
-  next_date: 2026-11-21
-  apply: {status: open, deadline: null, opens: null}
+  dates: Last held Sat 21 Nov 2026. No next Glasgow date announced (Eventaly says 'This event does not currently have any bookable dates available')
+  next_date: null
+  apply: {status: closed, deadline: null, opens: null}
   window: Per-event applications on Eventaly; decisions in about 2 weeks; reserve list for unsuccessful applicants
   fee_gbp: 60
   cost: From £60 for a 6ft x 3ft table-top pitch (prices vary by venue); table hire £10+
@@ -1090,7 +1084,7 @@ markets:
   fit: 3
   why: The most curated option found in Glasgow, with a Christmas date and a modest fee. But it's a mixed craft
     crowd and the travel cost makes it a stretch test.
-  checked: 2026-11-16
+  checked: 2026-11-23
   sources: ['https://eventaly.com/event/glasgows-craft-flea/', 'https://www.thecraftandflea.com/pages/trade-with-us',
     'https://www.thecraftandflea.com/pages/trader-faqs']
   decision: new
@@ -2011,7 +2005,7 @@ markets:
   organiser: Flea London
   url: https://flealondon.com/
   apply_url: https://form.jotform.com/FleaLondon/flea-hackney-bridge-date-request
-  dates: Every weekend, Sat and Sun 11:00-17:00. The booking form offers every weekend from 24-25 Oct to 28-29 Nov 2026, then Christmas weekends 5-6, 12-13 and 19-20 Dec 2026.
+  dates: Every weekend, Sat and Sun 11:00-17:00. The booking form now offers 14-15 Nov to 28-29 Nov 2026, then Christmas weekends 5-6, 12-13 and 19-20 Dec 2026. No 2027 dates on the form or homepage yet.
   next_date: null
   apply: {status: rolling, deadline: null, opens: null}
   window: Request dates on the Jotform trader booking form; bookings are confirmed only once approved and paid (approval email includes a payment link). No deadline stated.
@@ -2022,7 +2016,7 @@ markets:
   watch_out: Requires £5M public liability cover, higher than the £1M most fairs ask for. East London weekend crowd mixing vintage homewares, clothing and jewellery with makers, records and food. Cancellation terms not stated on the form.
   fit: 3
   why: 'Organiser site now loads: vintage goods are a named trader category, jewellery is part of the described mix, and about 1 sale covers the £45 day pitch, with Christmas weekends still bookable. Kept at 3 because the casual Hackney Wick weekend crowd likely pays less than £100-300.'
-  checked: 2026-11-09
+  checked: 2026-11-23
   sources: ['https://flealondon.com/', 'https://form.jotform.com/FleaLondon/flea-hackney-bridge-date-request', 'https://ma.to/event/flea-london-market-18-jul-2026', 'https://bermondseystreet.london/last-flea-vintage-market-weekend-4-5-april/']
   decision: shortlist
   our_notes: null
@@ -2313,7 +2307,7 @@ markets:
     no travel and two Christmas dates still open. Curated, Instagram-literate crowd, but a craft-and-flea audience
     with lower price expectations, and resale sits at the edge of who they recruit. The fee is null because London
     prices sit behind the Eventaly login.
-  checked: 2026-11-16
+  checked: 2026-11-23
   sources: ['https://eventaly.com/event/london-canada-waters-craft-flea/', 'https://eventaly.com/organiser/craft-flea/']
   decision: new
   our_notes: null
@@ -2339,7 +2333,7 @@ markets:
     inappropriate stock be kept out of view. Same venue as Judy''s Brighton.'
   fit: 3
   why: Tracked so the next Brighton date gets caught; it now has a Christmas date (Sat 5 Dec 2026). The same curated craft-and-flea format scored 3 in Manchester and Glasgow, in a striking venue an hour from London. Fee is null because Brighton prices sit behind the Eventaly login.
-  checked: 2026-11-16
+  checked: 2026-11-23
   sources: ['https://eventaly.com/event/brightons-craft-flea-3/', 'https://eventaly.com/organiser/craft-flea/']
   decision: new
   our_notes: null
@@ -2387,7 +2381,7 @@ markets:
     break-even is about 1 piece (weekdays £20-£50). Camden is on the owner''s young-crowd list, but its tourist,
     bargain-leaning audience and fake-designer reputation are a weak frame for £85-£300 logo pieces. A cheap test,
     not a credential.'
-  checked: 2026-11-09
+  checked: 2026-11-23
   sources: ['https://camdenmarket.com/join-camden', 'https://camdenmarket.typeform.com/to/rh0o2z', 'https://wp-media.camdenmarket.com/wp-content/uploads/2024/05/15171555/CM_TI_New-Traders-The-Essentials-v2024-1.pdf',
     'https://www.camdenmarket.com/journal/partner-with-camden-market']
   decision: shortlist
@@ -2479,8 +2473,8 @@ markets:
   organiser: Go East Vintage (@go.east.vintage; goeast.uk)
   url: https://linktr.ee/go.east.vintage
   apply_url: https://docs.google.com/forms/d/e/1FAIpQLScas-0VpnPtanXIZuG_cPrk5D7O4UwJICnRIQNuJvay85o4ag/viewform
-  dates: 'About monthly weekends: Sat-Sun 21-22 Nov 2026; 16-17 Jan, 20-21 Feb and 20-21 Mar 2027. Free entry.'
-  next_date: 2026-11-21
+  dates: 'About monthly weekends: Sat-Sun 16-17 Jan, 20-21 Feb and 20-21 Mar 2027 (no December date on the form). Last held Sat-Sun 21-22 Nov 2026. Free entry.'
+  next_date: 2027-01-16
   apply: {status: open, deadline: null, opens: null}
   window: Book each date on the Doodle Bar trader booking form; Go East reviews applications, then sends payment
     details. Saturdays are sold only as part of a full weekend, Sunday-only bookings are allowed ('more indoor spaces
@@ -2488,11 +2482,7 @@ markets:
   fee_gbp: 65
   cost: Single pitch (8ft x 8ft) £65 per day; double (16ft x 8ft) £130 per day; table hire £10 per table per day.
   commission_pct: null
-  requires: ['Booking form: full name, business address for invoicing, email, Instagram, phone', Category (the options
-      include 'Vintage Jewellery'), 'Dates, Sunday only or full weekend, pitch size, power, tables', Pay in full
-      or a 25% deposit after approval; deposits are non-refundable and non-transferable, 'Agreement that all items
-      sold are authentic, plus Go East''s Safe Space For All policy and payment terms', Public liability insurance
-      (Go East's general new-trader form asks whether you hold it)]
+  requires: ['Booking form: full name, business address for invoicing, email, Instagram, phone', Category (the options include 'Vintage Jewellery'), 'Dates, Sunday only or full weekend, pitch size, location preference (indoor / courtyard / no preference), power, tables', Pay in full or a 25% deposit after approval; deposits are non-refundable and non-transferable, 'Agreement that all items sold are authentic, plus Go East''s Safe Space For All policy and payment terms', Public liability insurance (Go East's general new-trader form asks whether you hold it)]
   watch_out: Billed elsewhere as the 'Big Vintage Flea Weekender', and the wanted list includes bric-a-brac, so
     this is a bargain-leaning frame. Deposits are non-refundable. D3 gate.
   fit: 3
@@ -2500,7 +2490,7 @@ markets:
     on Go East's wanted list, Sunday-only days keep it to one day, and a dated run through March 2027 allows a repeat
     test. At £65 a day, break-even is under 1 piece. Kept at 3 because the flea and bric-a-brac mix likely pays
     less than £85-£300.
-  checked: 2026-11-16
+  checked: 2026-11-23
   sources: ['https://linktr.ee/go.east.vintage', 'https://docs.google.com/forms/d/e/1FAIpQLScas-0VpnPtanXIZuG_cPrk5D7O4UwJICnRIQNuJvay85o4ag/viewform',
     'https://ma.to/venue/go.east.vintage', 'https://www.eventbrite.co.uk/o/go-east-vintage-39447572513']
   decision: shortlist
@@ -2674,7 +2664,7 @@ markets:
     wants. The form lists 'Vintage Designer' and 'Jewellery/Watches' as categories, curated vintage stores are the
     point of the event, and visitors pay for tickets. The £80 half stall (one table) breaks even at about one sale,
     which makes it the cheapest low-commitment test found. Verified on the organiser's site and MarketMate form.
-  checked: 2026-11-16
+  checked: 2026-11-23
   sources: ['https://www.secondlifemarkets.com/', 'http://marketmate.live/second-life-markets-uk/events/12d0992b-0087-4874-a177-b63e52ea4155',
     'https://www.secondlifemarkets.com/applytosell', 'https://londontheinside.com/second-life-markets-is-bringing-vintage-to-london/']
   decision: shortlist
@@ -2803,7 +2793,7 @@ markets:
   why: Weekend shop-small markets in places with a young, style-conscious crowd (Selfridges, Battersea Power Station,
     The Shard). They have taken vintage before, but the current application wording leans to makers. The fee is
     unknown. Watch for the 2027 call.
-  checked: 2026-11-16
+  checked: 2026-11-23
   sources: ['https://www.saladdaysmarket.co.uk/', 'https://www.saladdaysmarket.co.uk/apply-for-the-market', 'https://rose-copper-gzty.squarespace.com/salad-days-market-blog/applications-process-apply-to-salad-days-market']
   decision: new
   our_notes: null
@@ -3110,8 +3100,8 @@ markets:
   organiser: Pop Up Stalls (for Wembley Park)
   url: https://wembleypark.com/wembley-park-market/
   apply_url: https://form.jotform.com/263075080491355
-  dates: Sat-Sun 21-22 Nov, 28-29 Nov, 5-6 Dec, 12-13 Dec; Sat 19 - Wed 23 Dec 2026 (per Popup London's reply, 15 Nov)
-  next_date: 2026-11-21
+  dates: Sat-Sun 28-29 Nov, 5-6 Dec, 12-13 Dec; Sat 19 - Wed 23 Dec 2026 (13 trading dates in all; Sat-Sun 21-22 Nov has passed). Dates as listed on the festive-market Jotform, 23 Nov 2026
+  next_date: 2026-11-28
   apply: {status: open, deadline: null, opens: null}
   window: 'Wembley Park''s market FAQ: ''traders are welcome to apply ... email hello@popupstalls.co.uk''. Covers
     the year-round market; nothing festive-specific.'
@@ -3119,11 +3109,11 @@ markets:
   cost: £100 per day for a full 7ft dressed, covered Christmas show stall with LED lighting; minimum booking 2 days (so £200 minimum).
   commission_pct: null
   requires: [Jotform application choosing dates, £5m public liability insurance certificate, Vehicle registration if you want trader parking]
-  watch_out: 'Popup London (Katie) replied on 15 Nov 2026: "we''d love to have you". Spaces are filling quickly. The blocker is the £5m public liability certificate the form requires. Minimum 2 days at £100/day, so about 3 sales to break even.'
+  watch_out: 'Popup London (Katie) replied on 15 Nov 2026 inviting an application (2-day minimum at £100/day). But the Jotform, checked 23 Nov, now says the minimum is FOUR trading days, names the organiser as "Market Quarter", and adds cheaper pitch types: shared table £65, half-corner £75 and corner £125 a day. Confirm the minimum with Katie before applying. Still needs a £5m public liability certificate.'
   fit: 4
   why: 'Raised from 2 to 4 on 16 Nov 2026: the organiser invited us, and the stall is covered and LED-lit, which suits small jewellery. Wembley Park footfall is broad rather than a young vintage crowd.'
-  checked: 2026-11-16
-  sources: ['https://wembleypark.com/wembley-park-market/', 'https://openartspaces.substack.com/p/join-wembley-christmas-market']
+  checked: 2026-11-23
+  sources: ['https://wembleypark.com/wembley-park-market/', 'https://form.jotform.com/263075080491355', 'https://openartspaces.substack.com/p/join-wembley-christmas-market']
   decision: applied
   our_notes: Enquiry 15 Nov; Katie replied the same day inviting an application via the Jotform (needs a £5m PLI certificate).
 
@@ -3218,7 +3208,7 @@ markets:
   why: One curated day in Hoxton with a young, design-literate crowd. The museum's own page says the 50+ stalls
     include "independent makers, small businesses and vintage sellers", so resellers are allowed. Too late for 2026;
     worth tracking for 2027.
-  checked: 2026-11-16
+  checked: 2026-11-23
   sources: ['https://museumofthehome.org.uk/whats-on/winter-market/', 'https://museumofthehome.org.uk/about-us/work-with-us/winter-market-2025-applications',
     'https://ma.to/event/winter-market-at-museum-of-the-home-28-nov-2026']
   decision: new
