@@ -169,10 +169,18 @@
       smoothly (no HEVC, or not 4K at 60; or it hasn't arrived within 20 s) gets the 1440 films made from it,
       its own words in them (banner-film-desktop.mp4 is that band, banner-film-phone.mp4 the whole frame).
       The last frames shown with reduced motion are the original's too, words and all.
+
+      Since 2026-11-23 (owner: "think about how you can trim the video to keep it under 20mb", then "Yes,
+      switch it") the 4K film is a theme file, banner-film-4k.mp4: the original re-encoded by Apple's own
+      HEVC export (avconvert PresetHEVC3840x2160), the same 2160 x 3840, 60 fps, HDR (HLG with its Dolby
+      Vision layer), sound and frames, 13.9 MB instead of 26.7 (PSNR 46.7 dB, SSIM 0.990 against the
+      original: no difference to see), its index at the front so it starts sooner. The untouched original
+      stays in Settings > Files, at the address above, as a way back.
     endcomment
     assign src_d = 'banner-film-desktop.mp4' | asset_url
     assign src_p = 'banner-film-phone.mp4' | asset_url
-    assign src_o = 'https://cdn.shopify.com/videos/c/o/v/70759d863a6c4a729b32f156cbe5dec5.mov'
+    comment The untouched original: https://cdn.shopify.com/videos/c/o/v/70759d863a6c4a729b32f156cbe5dec5.mov endcomment
+    assign src_o = 'banner-film-4k.mp4' | asset_url
     assign film_title = section.settings.film_title | default: 'KARINEKO VINTAGE'
   -%}
   {%- comment -%} The film holds still for a while as the page starts to scroll (owner, 2026-11-20: "stop/stall
@@ -221,7 +229,7 @@
         var type = 'video/mp4; codecs="hvc1.2.4.L153.B0"', mc = navigator.mediaCapabilities;
         if (!o || !window.fetch || !window.URL || !v.canPlayType(type)) return done(false);
         if (!mc || !mc.decodingInfo) return done(true);
-        mc.decodingInfo({ type: 'file', video: { contentType: type, width: 2160, height: 3840, bitrate: 68558846, framerate: 60 } })
+        mc.decodingInfo({ type: 'file', video: { contentType: type, width: 2160, height: 3840, bitrate: 39448742, framerate: 60 } })
           .then(function (d) { done(!!(d.supported && d.smooth)); }, function () { done(true); });
       }
       function go() {
