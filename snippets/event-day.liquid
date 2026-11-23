@@ -1,0 +1,39 @@
+{%- comment -%}
+  The viewing day (owner, 2026-11-23: "we are doing an event this Saturday ... figure out somewhere we can
+  showcase this and do the promotion"; a viewing day at our place, Saturday 28 November, 1pm to 8pm, booked
+  through its own Cal.com event, no offer). Theme settings → Viewing day turn it on and say when it ends; the
+  words are in the language files under event. After it ends nothing here shows (the storefront page isn't
+  cached, so this is worked out on every visit).
+
+  Params: kind
+    'on'    prints 1 while the viewing day is on (capture it to decide)
+    'strip' the line above the masthead: Viewing day · Saturday 28 November, 1pm to 8pm · Book a time
+    'hero'  the note under the home film's words, the same three things
+{%- endcomment -%}
+{%- liquid
+  assign ev_on = false
+  if settings.event_on and settings.event_ends != blank
+    assign ev_now = 'now' | date: '%s' | plus: 0
+    assign ev_end = settings.event_ends | date: '%s' | plus: 0
+    if ev_end > ev_now
+      assign ev_on = true
+    endif
+  endif
+  if ev_on
+    assign ev_when = 'event.when' | t
+    assign ev_today = 'now' | date: '%Y-%m-%d'
+    if ev_today == settings.event_date
+      assign ev_when = 'event.when_today' | t
+    endif
+    assign ev_url = routes.root_url | append: '/pages/viewing-day' | replace: '//', '/'
+  endif
+-%}
+{%- if ev_on -%}
+  {%- case kind -%}
+    {%- when 'on' -%}1
+    {%- when 'strip' -%}
+      <span class="ev-strip"><span class="ev-label">{{ 'event.label' | t }}</span> · {{ ev_when }} · <a class="ev-book" href="{{ ev_url }}">{{ 'event.book' | t }}</a></span>
+    {%- when 'hero' -%}
+      <p class="ev-note"><span class="ev-label">{{ 'event.label' | t }}</span><span class="ev-when">{{ ev_when }}</span><a class="hero-link ev-book" href="{{ ev_url }}">{{ 'event.book' | t }}</a></p>
+  {%- endcase -%}
+{%- endif -%}

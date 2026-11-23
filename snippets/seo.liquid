@@ -43,6 +43,10 @@
       assign og_type = 'product'
       assign og_image = product.featured_image
     when 'collection'
+      if collection.handle == 'archive'
+        # Sold (owner, 2026-11-23: "change the name for the archive to sold"), in every language from the theme
+        assign title = 'collections.archive_seo_title' | t
+      endif
       if collection.handle == 'all'
         assign title = 'collections.all_title' | t
         if collection.description == blank
@@ -73,6 +77,10 @@
       if page.handle == 'faq' or page.handle == 'questions'
         assign title = 'guide.title' | t
         assign desc = 'guide.description' | t
+      endif
+      if page.handle == 'viewing-day'
+        assign title = 'event.page_title' | t
+        assign desc = 'event.description' | t
       endif
   endcase
   if current_tags
@@ -241,6 +249,7 @@
     {%- if template.name == 'collection' -%}
       {%- assign list_name = collection.title -%}
       {%- if collection.handle == 'all' %}{% assign list_name = 'collections.all_title' | t %}{% endif -%}
+      {%- if collection.handle == 'archive' %}{% assign list_name = 'collections.archive_title' | t %}{% endif -%}
     ,{
       "@type": "CollectionPage",
       "@id": {{ canonical_url | append: '#page' | json }},

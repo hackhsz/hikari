@@ -169,7 +169,7 @@
       divs.forEach(function (d) {
         var n = 0, mark = function (el, ms) { el.classList.add('dv-a'); el.style.setProperty('--d', ms + 'ms'); };
         /* the words under the film: line by line, then the link */
-        [].forEach.call(d.querySelectorAll(':is(.division--lead, .division--words > .hero-txt) :is(.hero-b > *, .hero-ctas)'), function (l, i) { mark(l, i * 140); n = 1; });
+        [].forEach.call(d.querySelectorAll(':is(.division--lead, .division--words > .hero-txt) :is(.hero-b > *, .hero-ctas, .ev-note)'), function (l, i) { mark(l, i * 140); n = 1; });
         [].forEach.call(d.querySelectorAll('section'), function (sec) {
           [].forEach.call(sec.querySelectorAll('.sec-head, .ne-head'), function (h) { mark(h, n * 120); });
           [].forEach.call(sec.querySelectorAll('.grid4 > *, .icon-tiles > *, .cat-tiles > *, .house-tiles > *'), function (c, i) { mark(c, n * 120 + 160 + Math.min(i, 8) * 90); });

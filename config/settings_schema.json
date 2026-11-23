@@ -71,11 +71,54 @@
     ]
   },
   {
+    "name": "Viewing day",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "A viewing day (owner, 2026-11-23: an event at our place, booked through its own Cal.com event). While it is on, the line above the masthead and the words under the home film say when it is, with a link to the page with the handle viewing-day, where it is booked. It all goes by itself once it ends. The words (day, hours, page text) are in the theme's language files under event, in every language."
+      },
+      {
+        "type": "checkbox",
+        "id": "event_on",
+        "label": "Show the viewing day",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "event_date",
+        "label": "Day",
+        "default": "2026-11-28",
+        "info": "YYYY-MM-DD. On this day the home page says Today."
+      },
+      {
+        "type": "text",
+        "id": "event_starts",
+        "label": "Starts, London time",
+        "default": "2026-11-28 13:00",
+        "info": "YYYY-MM-DD HH:MM"
+      },
+      {
+        "type": "text",
+        "id": "event_ends",
+        "label": "Ends, London time",
+        "default": "2026-11-28 20:00",
+        "info": "YYYY-MM-DD HH:MM. Nothing about it shows after this."
+      },
+      {
+        "type": "text",
+        "id": "event_cal",
+        "label": "Cal.com booking link",
+        "default": "karineko/viewing-day-en",
+        "info": "The viewing day's own Cal.com event, open on that day only."
+      }
+    ]
+  },
+  {
     "name": "Badges",
     "settings": [
       {
         "type": "paragraph",
-        "content": "A piece's status comes from its tags (Products → the piece → Tags). No tag: available. Stock 0: sold, kept in the Archive. reserved: held for a client; it shows Reserved, can't be bought, and stays out of the Archive; remove the tag to sell it again. coming-soon: keep its stock at 0 and give it a Date and time metafield hikari.release; it shows the release time and never counts as sold; remove the tag and add stock when it goes live (D25). A piece in stock without a price also shows as coming soon."
+        "content": "A piece's status comes from its tags (Products → the piece → Tags). No tag: available. Stock 0: sold, kept on view under Sold. reserved: held for a client; it shows Reserved, can't be bought, and stays out of Sold; remove the tag to sell it again. coming-soon: keep its stock at 0 and give it a Date and time metafield hikari.release; it shows the release time and never counts as sold; remove the tag and add stock when it goes live (D25). A piece in stock without a price also shows as coming soon."
       },
       {
         "type": "number",

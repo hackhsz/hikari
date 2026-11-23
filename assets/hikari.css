@@ -1168,6 +1168,16 @@ html.has-pages{scroll-snap-type:y mandatory;scroll-padding-top:var(--pin,0px)}
 /* the film no longer stalls, but keeps 1px of its frame: with none, Chrome counts the film's first frame (8s in
    on a slow phone) as the page's main paint (LCP), where the poster under it shows at once */
 html.has-pages .film-hold{height:calc(100vh + 1px);height:calc(100lvh + 1px)}
+/* Phones: the film fills the screen as it is when the page opens, the browser's bars showing (svh), like the
+   pages after it. Sized to the taller screen left once the bars hide (lvh), it ran under the bars on a Pro Max
+   with Safari's address bar at the top: the film's sides were cut and its words sat low (owner, 2026-11-23) */
+@media (max-width:749px){
+  .film{height:100svh}
+  html.has-pages .film-hold{height:calc(100svh + 1px)}
+}
+@media (max-width:749px) and (prefers-reduced-motion:no-preference){
+  .film-hold{height:calc(100svh + var(--stall,70vh))}
+}
 .page-mark{height:1px;margin-bottom:-1px;scroll-snap-align:start;scroll-snap-stop:always;pointer-events:none}
 .page-end{height:1px;margin-top:-1px;pointer-events:none}
 .is-tall>.page-end,.division--hold>.division-space{scroll-snap-align:end;scroll-snap-stop:always}
@@ -1180,6 +1190,17 @@ html.has-pages.is-glide{scroll-snap-type:none}
 .division--words>.hero-txt{display:block;text-align:center;padding-top:calc(var(--pin,0px) + 30px);padding-bottom:14px}
 .division--words>.hero-txt .hero-b p{margin:0 auto;max-width:52ch;text-wrap:balance}
 .division--words>.hero-txt .hero-ctas{justify-content:center;gap:14px 36px}
+/* The viewing day (snippets/event-day, owner 2026-11-23): under the film's words, after a hairline, the day
+   and a link to book; in the line above the masthead, the same with the link underlined. Theme fonts and green. */
+.ev-note{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:8px 16px;max-width:52ch;margin:24px auto 0;
+  padding-top:18px;border-top:1px solid color-mix(in srgb,currentColor 16%,transparent);text-align:center}
+.ev-note .ev-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--midori)}
+.ev-note .ev-when{font-family:var(--serif);font-size:16px;line-height:1.4}
+.hero--split .ev-note{justify-content:flex-start;margin-left:0;text-align:start}
+.ev-strip .ev-book{color:inherit;text-decoration:underline;text-underline-offset:3px}
+body:has(.hero--film) .mast.off-film .mast-announce--event{pointer-events:auto}
+.vw-over{max-width:62ch;font-size:15px;line-height:1.7;margin:0}
+.vw-over .hero-link{margin-inline-start:6px}
 .division--words>.page-mark{scroll-margin-top:calc(-1 * var(--pin,0px))}
 .dv-a{transition:opacity .9s cubic-bezier(.3,.1,.3,1) var(--d,0ms),translate 1.1s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
 .dv-wait .dv-a{opacity:0;translate:0 34px}

@@ -42,11 +42,15 @@
 <section data-bg="#2F5B45" data-fg="#FAF8F3" style="--sec-bg:#2F5B45;--sec-fg:#FAF8F3;">
   <div class="shell pad" id="record">
     {%- assign arc = collections['archive'] -%}
+    {%- comment -%} Headed Sold (owner, 2026-11-23: "change the name for the archive to sold"), in the visitor's
+        language from the theme's own words, unless a heading is typed in the editor. {%- endcomment -%}
+    {%- assign head = section.settings.heading -%}
+    {%- if head == blank -%}{%- assign head = 'collections.archive_title' | t -%}{%- endif -%}
     {%- if arc.handle == 'archive' and arc.products_count > 0 -%}
-      <div class="sec-head"><p class="eyebrow">{{ section.settings.heading }}</p>
+      <div class="sec-head"><p class="eyebrow">{{ head }}</p>
         <a class="sec-all" href="{{ arc.url }}">{{ 'home.all_pieces' | t }}</a></div>
     {%- else -%}
-      <p class="eyebrow">{{ section.settings.heading }}</p>
+      <p class="eyebrow">{{ head }}</p>
     {%- endif -%}
     <div class="grid6">
       {{ items }}
@@ -57,7 +61,7 @@
 {%- endif -%}
 {% schema %}
 { "name": "The Record", "settings": [
-  { "type": "text", "id": "heading", "label": "Eyebrow", "default": "The Archive" },
+  { "type": "text", "id": "heading", "label": "Eyebrow", "info": "Leave empty for Sold, in every language" },
   { "type": "collection", "id": "collection", "label": "Sold collection" }
 ], "presets": [{ "name": "The Record" }] }
 {% endschema %}

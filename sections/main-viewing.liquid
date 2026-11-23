@@ -23,15 +23,24 @@
   The banner's second button links here once the page exists (sections/brand-hero.liquid).
 {%- endcomment -%}
 {%- assign s = section.settings -%}
+{%- comment -%} The viewing day (owner, 2026-11-23; snippets/event-day): the page with the handle viewing-day is this
+    booking with its own words (event.* in the language files) and its own Cal.com event (theme settings → Viewing
+    day), open on that day only. Once the day is over it says so and points to a private viewing instead. {%- endcomment -%}
+{%- assign day = false -%}{%- if page.handle == 'viewing-day' -%}{%- assign day = true -%}{%- endif -%}
+{%- assign k = 'viewing.' -%}{%- if day -%}{%- assign k = 'event.' -%}{%- endif -%}
+{%- capture day_on -%}{%- if day -%}{%- render 'event-day', kind: 'on' -%}{%- endif -%}{%- endcapture -%}
+{%- assign day_over = false -%}{%- if day and day_on == blank -%}{%- assign day_over = true -%}{%- endif -%}
 {%- comment -%} Empty fields use the standard wording in locales (viewing.*), so every language has it: Translate & Adapt cannot translate a schema default. {%- endcomment -%}
-{%- assign std = 'viewing.eyebrow' | t -%}{%- assign eyebrow = s.eyebrow | default: std -%}
-{%- assign std = 'viewing.heading' | t -%}{%- assign heading = s.heading | default: std -%}
-{%- assign std = 'viewing.lede' | t -%}{%- assign lede = s.lede | default: std -%}
-{%- assign std = 'viewing.hours' | t -%}{%- assign hours = s.hours | default: std -%}
-{%- assign std = 'viewing.note_html' | t -%}{%- assign note = s.note | default: std -%}
+{%- assign std = k | append: 'eyebrow' | t -%}{%- assign eyebrow = s.eyebrow | default: std -%}{%- if day -%}{%- assign eyebrow = std -%}{%- endif -%}
+{%- assign std = k | append: 'heading' | t -%}{%- assign heading = s.heading | default: std -%}{%- if day -%}{%- assign heading = std -%}{%- endif -%}
+{%- assign std = k | append: 'lede' | t -%}{%- assign lede = s.lede | default: std -%}{%- if day -%}{%- assign lede = std -%}{%- endif -%}
+{%- assign std = k | append: 'hours' | t -%}{%- assign hours = s.hours | default: std -%}{%- if day -%}{%- assign hours = std -%}{%- endif -%}
+{%- assign std = k | append: 'note_html' | t -%}{%- assign note = s.note | default: std -%}{%- if day -%}{%- assign note = std -%}{%- endif -%}
 {%- assign slots = s.slots | newline_to_br | split: '<br />' -%}
 {%- assign cal = s.cal_link -%}
 {%- if request.locale.iso_code contains 'zh' and s.cal_link_zh != blank -%}{%- assign cal = s.cal_link_zh -%}{%- endif -%}
+{%- if day -%}{%- assign cal = settings.event_cal -%}{%- endif -%}
+{%- if day_over -%}{%- assign cal = '' -%}{%- endif -%}
 {%- assign cal = cal | strip | remove: 'https://cal.com/' | remove: 'https://app.cal.com/' | remove: 'cal.com/' -%}
 <section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
   <div class="shell">
@@ -41,6 +50,9 @@
       {%- if lede != blank -%}<p class="house-lede">{{ lede }}</p>{%- endif -%}
     </header>
 
+    {%- if day_over -%}
+    <p class="vw-over">{{ 'event.over' | t }} <a class="hero-link" href="{{ routes.root_url | append: '/pages/private-viewing' | replace: '//', '/' }}">{{ 'event.over_link' | t }}</a></p>
+    {%- else -%}
     <div class="cr-cols{% if cal != blank %} vw-has-cal{% endif %}">
       <div class="cr-col">
         {%- if cal != blank -%}
@@ -59,15 +71,19 @@
           {%- else -%}
             {{ form.errors | default_errors }}
             {%- comment -%} The values reach the shop's inbox, so they stay in English. {%- endcomment -%}
-            <input type="hidden" name="contact[Form]" value="Private viewing">
+            <input type="hidden" name="contact[Form]" value="{% if day %}Viewing day{% else %}Private viewing{% endif %}">
             <label for="vw-name">{{ 'viewing.name' | t }}</label><input id="vw-name" name="contact[name]" autocomplete="name" required>
             <label for="vw-phone">{{ 'viewing.phone' | t }}</label><input id="vw-phone" type="tel" name="contact[phone]" autocomplete="tel" required>
             <label for="vw-email">{{ 'viewing.email' | t }}</label><input id="vw-email" type="email" name="contact[email]" autocomplete="email" required>
             <div class="vw-when">
+              {%- if day -%}
+              <input type="hidden" name="contact[Date]" value="{{ settings.event_date }}">
+              {%- else -%}
               <div>
                 <label for="vw-date">{{ 'viewing.date' | t }}</label>
                 <input id="vw-date" type="date" name="contact[Date]" required data-viewing-date>
               </div>
+              {%- endif -%}
               <div>
                 <label for="vw-time">{{ 'viewing.time' | t }}</label>
                 <select id="vw-time" name="contact[Time]" required>
@@ -94,6 +110,7 @@
         {%- comment -%} Short notice goes through a message, so the shop can say yes the same day. {%- endcomment -%}
         {%- assign wc = settings.wechat_id | strip -%}
         {%- assign ig = settings.social_instagram | strip -%}
+        {%- if day -%}{%- assign wc = '' -%}{%- assign ig = '' -%}{%- endif -%}
         {%- if wc != blank or ig != blank -%}
           <p class="vw-soon">
             {{- 'viewing.short_notice' | t -}}
@@ -104,8 +121,28 @@
         {%- endif -%}
       </div>
     </div>
+    {%- endif -%}
   </div>
 </section>
+{%- if day and day_over == false -%}
+{%- comment -%} The viewing day as an event, for search engines and AI answers. {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": {{ 'event.page_title' | t | json }},
+  "description": {{ 'event.description' | t | json }},
+  "startDate": {{ settings.event_starts | replace: ' ', 'T' | append: ':00+00:00' | json }},
+  "endDate": {{ settings.event_ends | replace: ' ', 'T' | append: ':00+00:00' | json }},
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "isAccessibleForFree": true,
+  "location": { "@type": "Place", "name": "Karineko Vintage, near Old Street", "address": { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" } },
+  "organizer": { "@type": "Organization", "name": {{ shop.name | json }}, "url": {{ shop.url | json }} },
+  "url": {{ canonical_url | json }}
+}
+</script>
+{%- endif -%}
 {%- if cal != blank -%}
 <script>
   /* Cal.com's own inline embed (cal.com/docs → Embed). If its script fails, or no calendar has appeared

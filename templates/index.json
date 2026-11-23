@@ -92,9 +92,7 @@
     },
     "record": {
       "type": "record",
-      "settings": {
-        "heading": "The Archive"
-      }
+      "settings": {}
     },
     "signup": {
       "type": "signup",

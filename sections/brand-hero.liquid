@@ -327,6 +327,8 @@
           <a class="hero-link" href="{{ link2 }}">{{ section.settings.link2_label }}</a>
         {%- endif -%}
       </div>
+      {%- comment -%} The viewing day, while it is on (snippets/event-day): the first thing under the film. {%- endcomment -%}
+      {%- render 'event-day', kind: 'hero' -%}
     </div>
     {%- endunless -%}
   </div>
