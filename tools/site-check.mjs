@@ -63,11 +63,14 @@ function connect(url) {
     const m = JSON.parse(e.data);
     if (!m.id) { for (const f of subs) f(m); return; }
     const c = calls.get(m.id); calls.delete(m.id);
+    if (!c) return;  // answered after its 90 s were up
     m.error ? c.no(new Error(`${c.method}: ${m.error.message}`)) : c.ok(m.result);
   };
+  /* every call has 90 s to answer: one that never did hung whole runs for a day (2026-11-21, 2026-11-22) */
   const send = (method, params = {}, sessionId) => new Promise((ok, no) => {
-    calls.set(++n, { ok, no, method });
-    ws.send(JSON.stringify({ id: n, method, params, sessionId }));
+    const id = ++n, t = setTimeout(() => { calls.delete(id); no(new Error(`${method}: no answer from Chrome in 90s`)); }, 90000);
+    calls.set(id, { ok: v => { clearTimeout(t); ok(v); }, no: e => { clearTimeout(t); no(e); }, method });
+    ws.send(JSON.stringify({ id, method, params, sessionId }));
   });
   return new Promise((ok, no) => {
     ws.onopen = () => ok({ send, on: f => (subs.add(f), () => subs.delete(f)), close: () => ws.close() });
