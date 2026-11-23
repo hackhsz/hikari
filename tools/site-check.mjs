@@ -78,10 +78,22 @@ function connect(url) {
   });
 }
 
+/* Runs stalled while the Mac was left idle (2026-11-22/23: a page's script waiting on its own timers never
+   came back): the Mac stays awake while a check runs (caffeinate, gone when this process is), and Chrome
+   doesn't slow the timers of a page it thinks is in the background. */
+let awake = false;
+function stayAwake() {
+  if (awake || process.platform !== "darwin") return;
+  awake = true;
+  try { spawn("caffeinate", ["-i", "-w", String(process.pid)], { stdio: "ignore" }).on("error", () => {}).unref(); } catch {}
+}
+
 async function launch() {
+  stayAwake();
   const profile = mkdtempSync(join(tmpdir(), "site-check-"));  // a fresh profile: no cookies, no sign-in
   const proc = spawn(CHROME, ["--headless=new", "--remote-debugging-port=0", `--user-data-dir=${profile}`,
-    "--no-first-run", "--no-default-browser-check", "--hide-scrollbars", "--mute-audio", "about:blank"],
+    "--no-first-run", "--no-default-browser-check", "--hide-scrollbars", "--mute-audio",
+    "--disable-background-timer-throttling", "--disable-renderer-backgrounding", "--disable-backgrounding-occluded-windows", "about:blank"],
     { stdio: ["ignore", "ignore", "pipe"] });
   const url = await new Promise((ok, no) => {
     let err = "";
