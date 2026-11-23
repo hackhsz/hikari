@@ -1991,14 +1991,13 @@ markets:
   commission_pct: null
   requires: [Trader application when it reopens (watch Instagram @thelazyflea), Approved-trader account to book
       each pitch]
-  watch_out: Applications closed as of 19 Oct 2026. Pitch fees are not public. The mix is furniture- and homeware-led,
-    with clothing and jewellery alongside. It is branded as a "flea", but runs in grand West London venues.
+  watch_out: 'Lazy Flea (Jade) replied on 19 Nov 2026: applications are closed, they''re so oversubscribed they can''t take new traders even for cancellations, and reopening will be announced on social media. Effectively a no for Christmas 2026; watch Instagram @thelazyflea for the reopening.'
   fit: 3
   why: A curated vintage market in affluent West London venues (Chiswick House, Chiswick Town Hall). The organiser
     names "one-of-a-kind jewellery pieces" alongside furniture, homeware and clothing, and its traders are vintage
     dealers rather than makers. Press listings (not verified) put the Chiswick House edition at 60+ traders. A plausible
     test where jewellery is an add-on to a homeware crowd. Fee unknown; closed to new traders for now.
-  checked: 2026-11-16
+  checked: 2026-11-23
   sources: ['https://www.lazyflea.co.uk/', 'https://www.lazyflea.co.uk/traders', 'https://www.lazyflea.co.uk/calendar-1',
     'https://www.lazyflea.co.uk/about', 'https://chiswickhouseandgardens.org.uk/event/the-lazy-flea/']
   decision: applied
@@ -2419,16 +2418,14 @@ markets:
       are non-refundable and non-transferable, 'Agreement that all items sold are authentic, plus Go East''s Safe
       Space For All policy and payment terms', Public liability insurance (Go East's general new-trader form asks
       whether you hold it)]
-  watch_out: Billed as a 'Festive Flea', so the price frame is likely below £85-£300. Indoor pitches are limited
-    and allocated 'based on curation', so a December courtyard pitch is possible, and that is cold and poor for
-    small jewellery. Deposits are non-refundable. A physical event before the website converts conflicts with D3.
+  watch_out: 'Go East replied on 16 Nov 2026: for 5-6 Dec only courtyard spaces are available while they work through the site plan, and they''ll say if indoor frees up. They asked for photos of the stock. A December courtyard is cold and poor for small jewellery. Deposits are non-refundable.'
   fit: 4
   why: 'A young, destination vintage crowd in a standout venue. Go East calls it ''a curated vintage market only'',
     featured by Time Out and Secret London, with visitors ''who come specifically to shop''. ''Vintage Jewellery''
     is a named category, and you book day or weekend pitches with no long commitment. At £70 a day, break-even is
     under 1 piece. One weakness: the flea framing and likely lower price frame. The 5-6 Dec Christmas weekend is
     still on the form.'
-  checked: 2026-11-09
+  checked: 2026-11-23
   sources: ['https://linktr.ee/go.east.vintage', 'https://docs.google.com/forms/d/e/1FAIpQLSc5JyQylnqcezNVYiee_AFA_HnfacY4grdQVHQZ2ucZSKbLnQ/viewform',
     'https://ma.to/venue/go.east.vintage', 'https://www.eventbrite.co.uk/e/go-east-vintage-festive-weekender-at-wapping-power-station-tickets-2002378564188']
   decision: applied

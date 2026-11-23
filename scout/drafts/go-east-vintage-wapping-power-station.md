@@ -32,3 +32,10 @@ The pre-filled links include our contact email, so they're kept out of this publ
 | Agreement | **Your call:** confirm items are authentic and accept Go East's terms. Deliberately left unticked. |
 
 Applying commits nothing until Go East approves and sends a payment request.
+
+## Reply, 16 Nov 2026 (Onur & Louisa, Go East)
+
+- Only **courtyard** spaces are left for 5–6 Dec while they work through the site plan. They'll say if indoor frees up.
+- They asked for **photos of the stock**.
+
+**A reply is drafted in Gmail, not sent.** It attaches 5 product photos from the site, says indoor suits small jewellery best, and asks whether courtyard pitches are covered. Whether to accept a courtyard pitch is **your call**.
