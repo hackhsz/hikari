@@ -211,6 +211,9 @@ async function visit(cdp, url, size, shot) {
          and goes from one run to the next, and the Inbox chat button. The checks above still saw the page with them. */
       await s("Runtime.evaluate", { awaitPromise: true, expression: `(async () => {
         document.head.insertAdjacentHTML("beforeend", "<style>#shopify-pc__banner,#PBarNextFrameWrapper,#preview-bar-iframe,shopify-chat{display:none!important}</style>");
+        /* no scrollbar in the layout, whatever the Mac's own setting (with a mouse connected macOS gives
+           windows a classic scrollbar, and every desktop picture moved 7px; 2026-11-23) */
+        document.head.insertAdjacentHTML("beforeend", "<style>html{scrollbar-width:none!important}html::-webkit-scrollbar{display:none!important}</style>");
         const on = [...document.images].filter(i => { const r = i.getBoundingClientRect(); return r.width && r.bottom > 0 && r.top < innerHeight; });
         on.forEach(i => { i.loading = "eager"; });
         await Promise.race([Promise.all(on.map(i => i.decode().catch(() => {}))), new Promise(r => setTimeout(r, 8000))]);
