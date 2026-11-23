@@ -3486,3 +3486,132 @@ markets:
     'https://ma.to/event/capital-antique-market-launch-06-june-2026']
   decision: new
   our_notes: null
+
+- id: better-things-london-popup
+  name: Better Things London — whole-shop pop-up weeks (Forest Hill)
+  type: popup
+  city: London
+  where: 8 Dartmouth Road, Forest Hill, London SE23 3XU (indoor shop)
+  organiser: Better Things London
+  url: https://www.betterthingslondon.com/pages/pop-up-shop-availability
+  apply_url: https://www.betterthingslondon.com/pages/pop-up-shop-availability
+  dates: 'Whole-shop takeover by the week. 2027 weeks shown as available: w/c 25 Jan, 22 Mar, 29 Mar, 7 Jun, 14
+    Jun, 23 Aug, 30 Aug, 8 Nov (w/c 18 Jan booked). No week around Valentine''s (14 Feb) or Mother''s Day (7 Mar)
+    is offered. Shop hours Mon-Sat 10am-5pm or 5:30pm (the site gives both), Sun 11am-4pm.'
+  next_date: null
+  apply: {status: rolling, deadline: null, opens: null}
+  window: 'Pop-up weeks: book by email, first come first served from the availability page. Separately, the shop
+    runs 6-8 week "curations" of small brands; that route says "Applications are currently closed, but will reopen
+    later this year for our first curations of 2027", with dates announced on Instagram and the newsletter.'
+  fee_gbp: null
+  cost: Not published. The availability page says to email for "how it works & pricing". A pop-up lets you "Take
+    over the whole space for 1 or more weeks", alone or with other brands.
+  commission_pct: null
+  requires: [Email to hello@betterthingslondon.com with information about your brand and your pop-up idea, Staffing
+      the shop for the whole week (7 days)]
+  watch_out: The shop describes itself as celebrating "independent makers & creators" and its pages speak only of
+    "brands"; resale is not addressed. A vintage jewellery dealer (Sorrell Jewels) lists Better Things curations
+    on its own market calendar for 2024-2026, which suggests vintage is accepted, but that is a lead, not confirmed
+    by Better Things. The curations are likely staffed by the shop (consignment-style, out of scope); the pop-up
+    takeover is the in-scope route. Forest Hill is not one of the target young-vintage neighbourhoods. Price unknown.
+    D3 gate.
+  fit: 3
+  why: A shared or collective pop-up shop rented by the week, which is a format the brief asks for, with 2027 weeks
+    open to book now and an email route. Held at 3 by the location (Forest Hill, not Brick Lane, Hackney or King's
+    Cross), the commitment of staffing a whole shop for a week, the unpublished price, and no week on the Valentine's
+    or Mother's Day peaks.
+  checked: 2026-11-23
+  sources: ['https://www.betterthingslondon.com/pages/pop-up-shop-availability', 'https://www.betterthingslondon.com/pages/apply-now',
+    'https://www.betterthingslondon.com/pages/contact', 'https://www.betterthingslondon.com/', 'https://www.sorrelljewels.com/market-dates']
+  decision: new
+  our_notes: null
+
+- id: london-streetwear-market
+  name: London Streetwear Market (LSM) — seasonal brand market
+  type: market
+  city: London
+  where: Venue not stated on the vendor form. A Spring 2026 edition was listed at Acres, London (ticket listing
+    seen in search only, not verified).
+  organiser: London Streetwear Market (Instagram @londonstreetwearmarket)
+  url: https://tally.so/r/J9vEyK
+  apply_url: https://tally.so/r/J9vEyK
+  dates: Seasonal one-day editions. Autumn 2026 was 7 Nov (passed). The vendor form says "We're also planning a
+    Winter 2027 market"; no date or venue published.
+  next_date: null
+  apply: {status: unknown, deadline: null, opens: null}
+  window: One Tally vendor form per season. The Autumn 2026 form has a tick-box to be contacted about the Winter
+    2027 market. A spot is confirmed only once payment is received.
+  fee_gbp: null
+  cost: 'Winter 2027 fee not published. Autumn 2026 form: "vendor table at £270, which includes: 1 table, 1 rail,
+    custom LSM shopping bags"; extra rails £10, power £10 ("very limited availability"). A Summer 2026 table was
+    £250 according to a search extract (not verified).'
+  commission_pct: null
+  requires: ['Tally vendor form: brand name, Instagram, email, phone/WhatsApp, returning brand or not, rails needed,
+      power needed', Consent to feature on LSM social media; agreement to terms, Payment to confirm the spot]
+  watch_out: Built for "independent brands, creatives" and emerging streetwear labels; vintage resale is not mentioned,
+    so it may not take us. The Winter 2027 date, venue and fee are all unknown. At £270 a table, break-even is over
+    3 pieces.
+  fit: 2
+  why: A young, fashion-led London crowd and a winter 2027 edition planned, which is why it surfaced. But it is
+    a streetwear brand market rather than a vintage one, resale is unaddressed, and the table is expensive for a
+    one-day test. Tracked so the next run doesn't rediscover it; raise the fit only if they confirm vintage designer
+    accessories are welcome.
+  checked: 2026-11-23
+  sources: ['https://tally.so/r/J9vEyK']
+  decision: new
+  our_notes: null
+
+- id: vintage-home-show-primrose-hill
+  name: Vintage Home Show — Primrose Hill (Ginger Biscuit Events)
+  type: fair
+  city: London
+  where: St Mary's, Primrose Hill, London NW3 3DJ
+  organiser: Ginger Biscuit Events Limited
+  url: https://www.tickettailor.com/events/gingerbiscuitevents/2421396
+  apply_url: null
+  dates: Sat 20 Feb 2027, 10am-3:30pm
+  next_date: 2027-02-20
+  apply: {status: unknown, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Not published. The organiser's ticket page gives no dealer booking route, only a "Contact event organiser"
+    form.
+  commission_pct: null
+  requires: []
+  watch_out: An interiors show. The listing names "furniture, ceramics, art, homewares and records" from roughly
+    the 1930s to 1990s; jewellery and fashion are not mentioned. No organiser website or email found.
+  fit: 1
+  why: 'Ruled out unless the organiser says otherwise: a vintage interiors fair with no jewellery or fashion category.
+    Recorded because February 2027 vintage-fair searches keep surfacing it.'
+  checked: 2026-11-23
+  sources: ['https://www.tickettailor.com/events/gingerbiscuitevents/2421396']
+  decision: new
+  our_notes: null
+
+- id: vintage-home-show-manchester
+  name: Vintage Home Show — Manchester, Victoria Baths (Ginger Biscuit Events)
+  type: fair
+  city: Manchester
+  where: Victoria Baths, Hathersage Road, Manchester M13 0FE (main hall, swimming pool and balcony)
+  organiser: Ginger Biscuit Events Limited
+  url: https://www.tickettailor.com/events/gingerbiscuitevents/2421397
+  apply_url: null
+  dates: Sun 28 Feb 2027, 10:30am-3:30pm (early bird from 10:30am, standard from 11:30am). 60 specialist dealers.
+  next_date: 2027-02-28
+  apply: {status: unknown, deadline: null, opens: null}
+  window: null
+  fee_gbp: null
+  cost: Not published. No dealer booking route on the ticket page; contact is via TicketTailor's "Contact event
+    organiser" form only.
+  commission_pct: null
+  requires: []
+  watch_out: An interiors show. Categories named are furniture, ceramics, art, homewares and records (sideboards,
+    lighting, retro artwork, atomic fabrics, radios); jewellery and fashion are not mentioned.
+  fit: 1
+  why: 'Ruled out unless the organiser says otherwise: a vintage interiors fair with no jewellery or fashion category.
+    Same venue as the tracked Lou Lou''s Manchester fair, but a different organiser and audience. Recorded so it
+    isn''t rediscovered.'
+  checked: 2026-11-23
+  sources: ['https://www.tickettailor.com/events/gingerbiscuitevents/2421397']
+  decision: new
+  our_notes: null

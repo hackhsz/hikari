@@ -55,6 +55,13 @@ Contents: [London](#london) · [Manchester, Bristol, Glasgow, Brighton](#manches
   - SoLo: https://www.solocraftfair.com/applications (makers)
   - Wembley Park antiques: https://wembleyantiquesmarket.com/stallholders
   - Love Wimbledon: https://lovewimbledon.org/the-bid/trade-at-our-markets/
+- **Peer calendar:** https://www.sorrelljewels.com/market-dates. A vintage-jewellery dealer's list of the pop-ups it trades at, which shows which ones take vintage jewellery. It lists Salad Days repeatedly.
+- **Better Things London** (Forest Hill week-long shop takeovers): check its availability page monthly. Apply at hello@betterthingslondon.com.
+- **Ginger Biscuit Events** (Vintage Home Shows, on TicketTailor): interiors only, so skip.
+- **Unverified leads:**
+  - Jumble & Pearls Valentine's Fayre (Book Club, Shoreditch): jumbleandpearls@gmail.com, per a Time Out listing; check their Instagram by hand.
+  - Wanstead Vintage Fashion & Brocante Fair (E11): no organiser site found.
+- **Searches that don't work:** Valentine's and Mother's Day queries mostly return undated Time Out lists plus Greenwich.
 - **Lead list:** https://londonaire.co.uk/best-independent-christmas-markets-london (Londonist returns 403). Useful query: `"So Last Century" vintage Christmas traders`.
 - fleamapket.com event pages (dates for Frock Me!, Sunbury)
 - whereisthemarket.com (Kempton dates)
