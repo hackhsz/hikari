@@ -436,18 +436,18 @@
   },
   "event": {
     "label": "Pop-up",
-    "when": "Saturday 28 November, 1pm to 8pm",
-    "when_today": "Today, 1pm to 8pm",
-    "where": "Near Old Street, London",
+    "when": "Saturday 28 November, 12pm to 7:30pm",
+    "when_today": "Today, 12pm to 7:30pm",
+    "where": "Old Street, East London",
     "book": "Book a time",
-    "eyebrow": "Pop-up",
+    "eyebrow": "Our first pop-up",
     "heading": "Saturday 28 November",
-    "lede": "A pop-up at our place near Old Street, in central London: a first look at new pieces, everything out to try on, and Christmas shopping in person. Choose the time you'll arrive; we'll confirm by email, with the exact address.",
-    "hours": "Saturday 28 November, 1pm to 8pm",
-    "note_html": "<p>Come any time between 1pm and 8pm: just choose when you'll arrive. We confirm every booking ourselves and email you the exact address.</p>",
+    "lede": "A month after opening, our first weekend pop-up, at Old Street in East London: newly arrived vintage Chanel, Dior and more, all out to try on. Bring a friend.",
+    "hours": "Saturday 28 November, 12pm to 7:30pm",
+    "note_html": "<p>£5 off two pieces, £10 off three.</p><p>Post about us on Xiaohongshu (RED) and tag @karineko_vtg for another £10 off. The offers can be combined.</p><p>Booking only: choose when you'll arrive, and we'll email you the address once we confirm.</p>",
     "over": "This pop-up has ended. You can still see the pieces in person:",
     "over_link": "Book a private viewing",
     "page_title": "Pop-up, Saturday 28 November: vintage Chanel and Dior in London",
-    "description": "Our pop-up near Old Street, London, on Saturday 28 November from 1pm to 8pm: see vintage Chanel and Christian Dior jewellery in person. Book the time you'll arrive."
+    "description": "Our first weekend pop-up at Old Street, East London: Saturday 28 November, 12pm to 7:30pm. New vintage Chanel and Dior to try on, £5 off two pieces, £10 off three. Book a time."
   }
 }

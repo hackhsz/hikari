@@ -94,14 +94,14 @@
         "type": "text",
         "id": "event_starts",
         "label": "Starts, London time",
-        "default": "2026-11-28 13:00",
+        "default": "2026-11-28 12:00",
         "info": "YYYY-MM-DD HH:MM"
       },
       {
         "type": "text",
         "id": "event_ends",
         "label": "Ends, London time",
-        "default": "2026-11-28 20:00",
+        "default": "2026-11-28 19:30",
         "info": "YYYY-MM-DD HH:MM. Nothing about it shows after this."
       },
       {
