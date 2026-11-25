@@ -28,7 +28,8 @@
       assign ev_when = 'event.when_today' | t
     endif
     assign ev_handle = 'viewing-day'
-    if pages['pop-up'].id
+    # a missing page is an empty object that still counts as true, so compare its handle
+    if pages['pop-up'].handle == 'pop-up'
       assign ev_handle = 'pop-up'
     endif
     assign ev_url = routes.root_url | append: '/pages/' | append: ev_handle | replace: '//', '/'
