@@ -14,8 +14,8 @@ Needs Google Chrome and Node 22 or later, nothing else: it drives Chrome through
 
 EVERGREEN CHECKS (the owner's must-never-break list; each one FAILs, so a push stops):
   - green end (owner, 2026-11-18 to 11-20): on the home page the page is light at the top and green
-    (#2F5B45) from Shop by category to the footer, with a clean edge where the green begins; the green
-    arrives as an in-between green and deepens to full green as it rises (sections/shop-categories).
+    (#2F5B45) from Shop by category to the footer, with a clean edge where the green begins, full green as
+    soon as it arrives (2026-11-25: the in-between green and the hold are gone, "remove this ... color is off").
     It was lost once when those bands went beige; it must stay.
   Add new ones to EVERGREEN below. */
 import { spawn } from "node:child_process";
@@ -617,7 +617,7 @@ async function tracking(cdp, urls) {
 /* The owner's evergreen list (see the top of this file). Each check gets a fresh tab on the home page. */
 const GREEN = "#2f5b45";
 const EVERGREEN = [
-  { name: "green end", why: "the home page must be green from Shop by category to the end, with a clean edge (no band), arriving in an in-between green that deepens to full green once it is at the top, and not green at the top of the page (owner, 2026-11-18 to 11-20)",
+  { name: "green end", why: "the home page must be green from Shop by category to the end, with a clean edge (no band), full green as soon as it arrives (no in-between green, owner 2026-11-25), and not green at the top of the page (owner, 2026-11-18 to 11-25)",
     expression: `(async () => {
       const bgOf = e => e ? getComputedStyle(e).backgroundColor : "", imgOf = e => e ? getComputedStyle(e).backgroundImage : "";
       const rgb = c => { const n = (c.match(/[\\d.]+/g) || []).map(Number); return /^color\\(/.test(c) ? n.slice(0, 3).map(v => v * 255) : n.slice(0, 3); };
@@ -626,7 +626,7 @@ const EVERGREEN = [
       const cats = document.getElementById("shop-categories"), first = document.querySelector("[data-bg]"), foot = document.querySelector("footer[data-bg]");
       let arriving = null, risen = null;
       if (cats) {
-        /* measured on its division when sections/divisions has gathered it (it then holds at the top while it deepens) */
+        /* measured on its division when sections/divisions has gathered it */
         const d = cats.closest(".division") || cats, y = d.getBoundingClientRect().top + scrollY;
         scrollTo(0, y - innerHeight + 40); await wait(); arriving = rgb(bgOf(cats));
         scrollTo(0, y + innerHeight * 1.6); await wait(); risen = rgb(bgOf(cats));
@@ -640,8 +640,8 @@ const EVERGREEN = [
       : !r.catsGreen ? "Shop by category isn't green (its Ground setting, templates/index.json)"
       : r.catsBand ? "a soft band runs into the green above Shop by category; the owner wants a clean edge"
       : !r.arriving || r.arriving.fromPage < 60 ? "Shop by category arrives in the page colour, so there is no clean edge into the green"
-      : r.arriving.fromGreen < 40 ? "Shop by category arrives already full green, with no in-between green first"
-      : r.risen > 8 ? "Shop by category doesn't deepen to full green after it reaches the top"
+      : r.arriving.fromGreen > 8 ? "Shop by category arrives in an in-between green; the owner wants it full green as soon as it arrives"
+      : r.risen > 8 ? "Shop by category isn't full green once it reaches the top"
       : r.end !== GREEN ? `the page ends ${r.end || "with no colour"}, not green` : r.top === GREEN ? "the page is green from the top" : null },
 ];
 async function evergreen(cdp, url) {
