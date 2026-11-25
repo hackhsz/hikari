@@ -134,6 +134,7 @@
     "categories": {
       "type": "shop-categories",
       "settings": {
+        "fade_in": false,
         "heading": "Shop by category",
         "look": "ring",
         "ground": "green"

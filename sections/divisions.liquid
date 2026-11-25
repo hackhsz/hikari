@@ -124,7 +124,7 @@
       fit();
       if (!still && 'IntersectionObserver' in window) entrances(pages);
       watch();
-      if (phone && touch && !still) glide();
+      if (!still) glide(phone && touch);
     }
     /* one part to a screen: where a part is a little taller than the screen under the masthead, its pieces come
        in a little (--fit: the shelves to no less than 70%, the green part's round tiles 60%) until it fits;
@@ -197,11 +197,14 @@
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { seen = ''; again(); });
       tick();
     }
-    /* phones: the page's own glide from stop to stop (see the top). The stops: the film; each part's top (the
-       first, once the film has gone entirely); and in a part taller than the screen, about one a screen down
-       to its foot. One swipe, one stop on or back, wherever the finger let go. */
-    function glide() {
-      var x0 = 0, y0 = 0, s0 = 0, mode = 0, track = [], anim = 0, cue = document.querySelector('.film-cue'), lo = 0, hi = 0;
+    /* the page's own glide from stop to stop (see the top). The stops: the film; each part's top (the first, on
+       a phone, once the film has gone entirely); and in a part taller than the screen, about one a screen down to
+       its foot. Phones: one swipe, one stop on or back, wherever the finger let go. Laptops (owner, 2026-11-25:
+       "very clunky"; measured: the browser's own snap let the page stop where the wheel left it, then threw it
+       the rest of the way to the next part in about a tenth of a second): one turn of the wheel or one swipe of
+       the trackpad glides to the next part, and the coasting of that same swipe is taken in, not fought. */
+    function glide(touchy) {
+      var x0 = 0, y0 = 0, s0 = 0, mode = 0, track = [], anim = 0, goal = 0, cue = document.querySelector('.film-cue'), lo = 0, hi = 0;
       root.classList.add('is-glide');
       function stops() {
         var vh = innerHeight, room = vh - p, y = scrollY, max = root.scrollHeight - vh, out = [0];
@@ -218,11 +221,12 @@
       }
       /* from here to y: it sets off at the speed the finger let go with (v, px/ms down the page) and settles
          gently (a cubic with that speed at the start and none at the end); from still, it eases in and out */
-      function to(y, v) {
+      function to(y, v, kick) {
         cancelAnimationFrame(anim); anim = 0;
         var a = scrollY, d = y - a;
+        goal = y;
         if (Math.abs(d) < 1) return;
-        var dur = Math.max(520, Math.min(900, 440 + Math.abs(d) * 0.5)), c = v && v * d > 0 ? Math.min(3, v * dur / d) : 0, t0 = 0;
+        var dur = Math.max(520, Math.min(900, 440 + Math.abs(d) * 0.5)), c = v && v * d > 0 ? Math.min(3, v * dur / d) : (kick || 0), t0 = 0;
         function step(now) {
           if (!t0) t0 = now;
           var k = Math.min(1, (now - t0) / dur);
@@ -235,7 +239,54 @@
         var y = scrollY, list = stops();
         for (var i = 0; i < list.length; i++) if (list[i] > y + 8) return to(list[i], 0);
       }
+      /* one stop on (dir 1) or back (-1) from where the page is, or from where a glide under way is going */
+      function step(dir) {
+        var y = anim ? goal : scrollY, list = stops(), k;
+        if (dir > 0) { for (k = 0; k < list.length; k++) if (list[k] > y + 8) return to(list[k], 0, 0.9); }
+        else { for (k = list.length - 1; k >= 0; k--) if (list[k] < y - 8) return to(list[k], 0, 0.9); }
+      }
       function ours(t) { return t && t.closest && t.closest('#main, footer') && !t.closest('dialog, iframe'); }
+      if (!touchy) {
+        /* laptops: the wheel and the trackpad. A swipe is a run of wheel events less than 160 ms apart (a trackpad
+           keeps sending them as it coasts): its first one starts the glide, the rest are taken in. A clearly
+           harder push after the glide has ended is a new swipe. Inside something that scrolls on its own (the bag,
+           a menu, a dialog), with a pinch (ctrl) or sideways, the page leaves the wheel alone. */
+        var last = 0, peak = 0, acc = 0, armed = true;
+        var own = function (t) {
+          for (var el = t; el && el !== document.body && el !== root; el = el.parentElement) {
+            if (el.matches && el.matches('dialog, iframe, .sheet, [role="dialog"]')) return true;
+            if (el.scrollHeight > el.clientHeight + 1 && /(auto|scroll)/.test(getComputedStyle(el).overflowY)) return true;
+          }
+          return false;
+        };
+        addEventListener('wheel', function (e) {
+          if (e.ctrlKey || !e.deltaY || Math.abs(e.deltaX) > Math.abs(e.deltaY) || own(e.target)) return;
+          var dy = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaMode === 2 ? e.deltaY * innerHeight : e.deltaY, mag = Math.abs(dy);
+          if (e.timeStamp - last > 160) { armed = true; peak = 0; acc = 0; }
+          else if (!anim && mag > Math.max(24, peak * 1.8)) { armed = true; acc = 0; }
+          last = e.timeStamp; peak = armed ? mag : Math.max(peak * 0.9, mag);
+          if (e.cancelable) e.preventDefault();
+          if (!armed) return;
+          /* a light brush of the trackpad (a few px) doesn't turn the page: about 30 px of one swipe does */
+          acc += dy;
+          if (Math.abs(acc) < 30) return;
+          armed = false; peak = mag;
+          step(acc > 0 ? 1 : -1);
+        }, { passive: false });
+        /* the keys that page: Page Down / Up, the space bar, the arrows (not while typing, or on a button) */
+        addEventListener('keydown', function (e) {
+          var t = e.target, k = e.key;
+          if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || own(t)) return;
+          if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON|A|SUMMARY)$/.test(t.tagName))) return;
+          var dir = k === 'PageDown' || k === 'ArrowDown' || (k === ' ' && !e.shiftKey) ? 1 : k === 'PageUp' || k === 'ArrowUp' || (k === ' ' && e.shiftKey) ? -1 : 0;
+          if (!dir) return;
+          e.preventDefault();
+          step(dir);
+        });
+        if (cue) cue.addEventListener('click', function (e) { e.preventDefault(); next(); });
+        glider = { next: next, stops: stops };
+        return;
+      }
       addEventListener('touchstart', function (e) {
         mode = e.touches.length === 1 && ours(e.target) ? 0 : 2;
         if (mode) return;
@@ -292,7 +343,7 @@
     { "type": "text", "id": "groups", "label": "Divisions", "default": "new-in | shelf-sale | shop-categories + houses | shelf-presale",
       "info": "Parts by id, divisions split by |, parts of one division joined by +." },
     { "type": "range", "id": "hold", "label": "Green division: hold at the top", "min": 20, "max": 120, "step": 10, "unit": "%", "default": 60,
-      "info": "How far the page goes on, in screen heights, while the green division holds at the top and deepens to full green." }
+      "info": "Only when Shop by category's 'Deepen into the green' is on (off since 2026-11-25): how far the page goes on, in screen heights, while the green division holds at the top." }
   ],
   "presets": [{ "name": "Divisions" }] }
 {% endschema %}

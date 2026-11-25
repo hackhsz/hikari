@@ -90,7 +90,10 @@
   (function (s) {
     var phone = false;
     try { phone = matchMedia('(max-width: 749px)').matches; } catch (e) {}
-    if (!s || phone) return;
+    /* Owner, 2026-11-25 (on a laptop screenshot of the in-between green: "remove this ... color is off"): the fade
+       is off on the home page too (its setting), so the green is full green on every screen; this runs only
+       where the setting is on. */
+    if (!s || phone || !s.hasAttribute('data-rise')) return;
     var r = document.documentElement, ticking = false, MID = 0.5;
     function rise() {
       ticking = false;
