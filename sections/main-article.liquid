@@ -3,6 +3,10 @@
   (sections/main-guide): the house header (the blog's name, the title in the size article titles
   always had here, the summary, the date), the photograph, then the text in the essay's measure.
   After the text, the pieces the guide links to, as cards, and the other guides.
+  Cards (2026-11-25): the linked pieces still for sale first, then, while fewer than four are for
+  sale, pieces for sale from the collections the guide links to (not all or archive), then the
+  linked pieces that have sold; eight at most. So a guide whose own pieces have all sold still
+  leads to something to buy.
 
   The text is written in Shopify (Online Store → Blog posts) with plain links to /products/… and
   /collections/…; here those links get the shop's underline (spec-link). Shopify itself puts the
@@ -21,6 +25,19 @@
     endunless
   endfor
   assign handles = handles | split: ','
+  assign colls = ','
+  assign cparts = article.content | split: '/collections/'
+  for part in cparts offset: 1
+    assign c = part | split: '"' | first | split: '?' | first | split: '#' | first | split: '/' | first
+    if c == blank or c == 'all' or c == 'archive'
+      continue
+    endif
+    assign ck = ',' | append: c | append: ','
+    unless colls contains ck
+      assign colls = colls | append: c | append: ','
+    endunless
+  endfor
+  assign colls = colls | split: ','
 -%}
 <section class="pad" data-bg="#FAF8F3" data-fg="#1C1B18" style="--sec-bg:#FAF8F3;--sec-fg:#1C1B18;">
   <div class="shell">
@@ -40,9 +57,35 @@
 </section>
 {%- capture cards -%}
   {%- assign shown = 0 -%}
+  {%- assign forsale = 0 -%}
+  {%- assign used = ',' -%}
   {%- for h in handles -%}
     {%- assign q = all_products[h] -%}
-    {%- if q.id == blank -%}{%- continue -%}{%- endif -%}
+    {%- if q.id == blank or q.available == false -%}{%- continue -%}{%- endif -%}
+    {%- if shown >= 8 -%}{%- break -%}{%- endif -%}
+    {%- assign shown = shown | plus: 1 -%}
+    {%- assign forsale = forsale | plus: 1 -%}
+    {%- assign used = used | append: q.handle | append: ',' -%}
+    {%- render 'product-card', card_product: q, tone: 'grey' -%}
+  {%- endfor -%}
+  {%- for c in colls -%}
+    {%- if forsale >= 4 or shown >= 8 -%}{%- break -%}{%- endif -%}
+    {%- assign col = collections[c] -%}
+    {%- if col.id == blank -%}{%- continue -%}{%- endif -%}
+    {%- for q in col.products -%}
+      {%- if forsale >= 4 or shown >= 8 -%}{%- break -%}{%- endif -%}
+      {%- if q.available == false -%}{%- continue -%}{%- endif -%}
+      {%- assign qk = ',' | append: q.handle | append: ',' -%}
+      {%- if used contains qk -%}{%- continue -%}{%- endif -%}
+      {%- assign shown = shown | plus: 1 -%}
+      {%- assign forsale = forsale | plus: 1 -%}
+      {%- assign used = used | append: q.handle | append: ',' -%}
+      {%- render 'product-card', card_product: q, tone: 'grey' -%}
+    {%- endfor -%}
+  {%- endfor -%}
+  {%- for h in handles -%}
+    {%- assign q = all_products[h] -%}
+    {%- if q.id == blank or q.available -%}{%- continue -%}{%- endif -%}
     {%- if shown >= 8 -%}{%- break -%}{%- endif -%}
     {%- assign shown = shown | plus: 1 -%}
     {%- render 'product-card', card_product: q, tone: 'grey' -%}
