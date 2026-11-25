@@ -1203,7 +1203,7 @@ html.has-pages.is-glide{scroll-snap-type:none}
 .ev-note .ev-book:hover{background:var(--paper-mid)}
 .hero--split .ev-note{margin-left:0}
 .announce:has(.ev-strip),body:has(.hero--film) .mast-announce--event{background:var(--midori);color:var(--paper)}
-.ev-strip .ev-book{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.ev-strip .ev-book{color:inherit;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
 body:has(.hero--film) .mast.off-film .mast-announce--event{pointer-events:auto}
 .vw-over{max-width:62ch;font-size:15px;line-height:1.7;margin:0}
 .vw-over .hero-link{margin-inline-start:6px}
