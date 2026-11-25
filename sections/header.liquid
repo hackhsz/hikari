@@ -3,7 +3,7 @@
   masthead stays. The section wrapper is display: contents (hikari.css) so that position: sticky
   measures against the page, not against Shopify's wrapper div, which is only as tall as the header.
 {%- endcomment -%}
-{%- comment -%} While the viewing day is on (theme settings → Viewing day) the line says when it is, with a link
+{%- comment -%} While the pop-up is on (theme settings → Pop-up) the line says when it is, with a link
     to book, instead of the delivery line (owner, 2026-11-23: "do the promotion"); it goes back by itself after. {%- endcomment -%}
 {%- capture ev_line -%}{%- render 'event-day', kind: 'strip' -%}{%- endcapture -%}
 {%- assign ann = settings.announcement -%}

@@ -1,14 +1,16 @@
 {%- comment -%}
-  The viewing day (owner, 2026-11-23: "we are doing an event this Saturday ... figure out somewhere we can
-  showcase this and do the promotion"; a viewing day at our place, Saturday 28 November, 1pm to 8pm, booked
-  through its own Cal.com event, no offer). Theme settings → Viewing day turn it on and say when it ends; the
-  words are in the language files under event. After it ends nothing here shows (the storefront page isn't
-  cached, so this is worked out on every visit).
+  The pop-up (owner, 2026-11-23: "we are doing an event this Saturday ... figure out somewhere we can
+  showcase this and do the promotion": at our place, Saturday 28 November, 1pm to 8pm, booked through its own
+  Cal.com event, no offer; 2026-11-25: "we dont want to say viewing day, just say pop-up" and "create a banner
+  to make this pop up look more obvious"). Theme settings → Pop-up turn it on and say when it ends; the words
+  are in the language files under event. After it ends nothing here shows (the storefront page isn't cached,
+  so this is worked out on every visit).
 
   Params: kind
-    'on'    prints 1 while the viewing day is on (capture it to decide)
-    'strip' the line above the masthead: Viewing day · Saturday 28 November, 1pm to 8pm · Book a time
-    'hero'  the note under the home film's words, the same three things
+    'on'    prints 1 while the pop-up is on (capture it to decide)
+    'strip' the line above the masthead, on the green: Pop-up · Saturday 28 November, 1pm to 8pm · Book a time
+    'hero'  the banner under the home film's words: a green card with the day, the hours, where, and a button
+  Its page has the handle pop-up (viewing-day until it was renamed; both still work).
 {%- endcomment -%}
 {%- liquid
   assign ev_on = false
@@ -25,7 +27,11 @@
     if ev_today == settings.event_date
       assign ev_when = 'event.when_today' | t
     endif
-    assign ev_url = routes.root_url | append: '/pages/viewing-day' | replace: '//', '/'
+    assign ev_handle = 'viewing-day'
+    if pages['pop-up'].id
+      assign ev_handle = 'pop-up'
+    endif
+    assign ev_url = routes.root_url | append: '/pages/' | append: ev_handle | replace: '//', '/'
   endif
 -%}
 {%- if ev_on -%}
@@ -34,6 +40,11 @@
     {%- when 'strip' -%}
       <span class="ev-strip"><span class="ev-label">{{ 'event.label' | t }}</span> · {{ ev_when }} · <a class="ev-book" href="{{ ev_url }}">{{ 'event.book' | t }}</a></span>
     {%- when 'hero' -%}
-      <p class="ev-note"><span class="ev-label">{{ 'event.label' | t }}</span><span class="ev-when">{{ ev_when }}</span><a class="hero-link ev-book" href="{{ ev_url }}">{{ 'event.book' | t }}</a></p>
+      <div class="ev-note">
+        <p class="ev-label">{{ 'event.label' | t }}</p>
+        <p class="ev-when">{{ ev_when }}</p>
+        <p class="ev-where">{{ 'event.where' | t }}</p>
+        <a class="ev-book" href="{{ ev_url }}">{{ 'event.book' | t }}</a>
+      </div>
   {%- endcase -%}
 {%- endif -%}

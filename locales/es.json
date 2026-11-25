@@ -459,18 +459,19 @@
     "empty": "Las primeras guías están en camino."
   },
   "event": {
-    "label": "Jornada de visitas",
+    "label": "Pop-up",
     "when": "Sábado 28 de noviembre, de 13:00 a 20:00",
     "when_today": "Hoy, de 13:00 a 20:00",
+    "where": "Cerca de Old Street, Londres",
     "book": "Reserva una hora",
-    "eyebrow": "Jornada de visitas",
+    "eyebrow": "Pop-up",
     "heading": "Sábado 28 de noviembre",
-    "lede": "Una tarde en nuestro espacio cerca de Old Street, en el centro de Londres: las piezas nuevas antes que nadie, todo para probártelo y tus compras de Navidad en persona. Elige la hora a la que llegarás; te confirmaremos por email, con la dirección exacta.",
+    "lede": "Un pop-up en nuestro espacio cerca de Old Street, en el centro de Londres: las piezas nuevas antes que nadie, todo para probártelo y tus compras de Navidad en persona. Elige la hora a la que llegarás; te confirmaremos por email, con la dirección exacta.",
     "hours": "Sábado 28 de noviembre, de 13:00 a 20:00",
     "note_html": "<p>Ven cuando quieras entre las 13:00 y las 20:00: solo elige la hora a la que llegarás. Confirmamos cada reserva personalmente y te enviamos la dirección exacta por email.</p>",
-    "over": "Esta jornada de visitas ya ha pasado. Aún puedes ver las piezas en persona:",
+    "over": "Este pop-up ya ha terminado. Aún puedes ver las piezas en persona:",
     "over_link": "Reserva una visita privada",
-    "page_title": "Jornada de visitas, sábado 28 de noviembre: Chanel y Dior vintage en Londres",
-    "description": "Ven a ver joyas vintage de Chanel y Christian Dior en persona cerca de Old Street, Londres, el sábado 28 de noviembre de 13:00 a 20:00. Reserva la hora a la que llegarás."
+    "page_title": "Pop-up, sábado 28 de noviembre: Chanel y Dior vintage en Londres",
+    "description": "Nuestro pop-up cerca de Old Street, Londres, el sábado 28 de noviembre de 13:00 a 20:00: ve joyas vintage de Chanel y Christian Dior en persona. Reserva la hora a la que llegarás."
   }
 }

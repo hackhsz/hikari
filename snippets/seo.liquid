@@ -78,7 +78,7 @@
         assign title = 'guide.title' | t
         assign desc = 'guide.description' | t
       endif
-      if page.handle == 'viewing-day'
+      if page.handle == 'viewing-day' or page.handle == 'pop-up'
         assign title = 'event.page_title' | t
         assign desc = 'event.description' | t
       endif

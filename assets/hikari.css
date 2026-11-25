@@ -1190,13 +1190,19 @@ html.has-pages.is-glide{scroll-snap-type:none}
 .division--words>.hero-txt{display:block;text-align:center;padding-top:calc(var(--pin,0px) + 30px);padding-bottom:14px}
 .division--words>.hero-txt .hero-b p{margin:0 auto;max-width:52ch;text-wrap:balance}
 .division--words>.hero-txt .hero-ctas{justify-content:center;gap:14px 36px}
-/* The viewing day (snippets/event-day, owner 2026-11-23): under the film's words, after a hairline, the day
-   and a link to book; in the line above the masthead, the same with the link underlined. Theme fonts and green. */
-.ev-note{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:8px 16px;max-width:52ch;margin:24px auto 0;
-  padding-top:18px;border-top:1px solid color-mix(in srgb,currentColor 16%,transparent);text-align:center}
-.ev-note .ev-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--midori)}
-.ev-note .ev-when{font-family:var(--serif);font-size:16px;line-height:1.4}
-.hero--split .ev-note{justify-content:flex-start;margin-left:0;text-align:start}
+/* The pop-up (snippets/event-day, owner 2026-11-23; 2026-11-25: "create a banner to make this pop up look more
+   obvious"): under the film's words, a card in the shop's green with the day, the hours, where and a cream
+   button; the line above the masthead goes green with it while the pop-up is on. Theme fonts and colours only. */
+.ev-note{max-width:420px;margin:26px auto 0;padding:22px 20px 24px;background:var(--midori);color:var(--paper);border-radius:2px;text-align:center}
+.ev-note p{margin:0}
+.ev-note .ev-label{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;opacity:.85;padding-inline-start:.26em}
+.ev-note .ev-when{margin-top:10px;font-family:var(--serif);font-size:clamp(20px,2.2vw,24px);line-height:1.3}
+.ev-note .ev-where{margin-top:4px;font-size:13px;opacity:.8}
+.ev-note .ev-book{display:inline-block;margin-top:16px;padding:12px 24px;background:var(--paper);color:var(--midori);border-radius:2px;
+  font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;text-decoration:none}
+.ev-note .ev-book:hover{background:var(--paper-mid)}
+.hero--split .ev-note{margin-left:0}
+.announce:has(.ev-strip),body:has(.hero--film) .mast-announce--event{background:var(--midori);color:var(--paper)}
 .ev-strip .ev-book{color:inherit;text-decoration:underline;text-underline-offset:3px}
 body:has(.hero--film) .mast.off-film .mast-announce--event{pointer-events:auto}
 .vw-over{max-width:62ch;font-size:15px;line-height:1.7;margin:0}

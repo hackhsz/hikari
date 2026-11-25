@@ -23,10 +23,10 @@
   The banner's second button links here once the page exists (sections/brand-hero.liquid).
 {%- endcomment -%}
 {%- assign s = section.settings -%}
-{%- comment -%} The viewing day (owner, 2026-11-23; snippets/event-day): the page with the handle viewing-day is this
+{%- comment -%} The pop-up (owner, 2026-11-23; snippets/event-day): the page with the handle pop-up (or viewing-day, its first name) is this
     booking with its own words (event.* in the language files) and its own Cal.com event (theme settings → Viewing
     day), open on that day only. Once the day is over it says so and points to a private viewing instead. {%- endcomment -%}
-{%- assign day = false -%}{%- if page.handle == 'viewing-day' -%}{%- assign day = true -%}{%- endif -%}
+{%- assign day = false -%}{%- if page.handle == 'viewing-day' or page.handle == 'pop-up' -%}{%- assign day = true -%}{%- endif -%}
 {%- assign k = 'viewing.' -%}{%- if day -%}{%- assign k = 'event.' -%}{%- endif -%}
 {%- capture day_on -%}{%- if day -%}{%- render 'event-day', kind: 'on' -%}{%- endif -%}{%- endcapture -%}
 {%- assign day_over = false -%}{%- if day and day_on == blank -%}{%- assign day_over = true -%}{%- endif -%}
@@ -71,7 +71,7 @@
           {%- else -%}
             {{ form.errors | default_errors }}
             {%- comment -%} The values reach the shop's inbox, so they stay in English. {%- endcomment -%}
-            <input type="hidden" name="contact[Form]" value="{% if day %}Viewing day{% else %}Private viewing{% endif %}">
+            <input type="hidden" name="contact[Form]" value="{% if day %}Pop-up{% else %}Private viewing{% endif %}">
             <label for="vw-name">{{ 'viewing.name' | t }}</label><input id="vw-name" name="contact[name]" autocomplete="name" required>
             <label for="vw-phone">{{ 'viewing.phone' | t }}</label><input id="vw-phone" type="tel" name="contact[phone]" autocomplete="tel" required>
             <label for="vw-email">{{ 'viewing.email' | t }}</label><input id="vw-email" type="email" name="contact[email]" autocomplete="email" required>
@@ -125,7 +125,7 @@
   </div>
 </section>
 {%- if day and day_over == false -%}
-{%- comment -%} The viewing day as an event, for search engines and AI answers. {%- endcomment -%}
+{%- comment -%} The pop-up as an event, for search engines and AI answers. {%- endcomment -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

@@ -71,16 +71,16 @@
     ]
   },
   {
-    "name": "Viewing day",
+    "name": "Pop-up",
     "settings": [
       {
         "type": "paragraph",
-        "content": "A viewing day (owner, 2026-11-23: an event at our place, booked through its own Cal.com event). While it is on, the line above the masthead and the words under the home film say when it is, with a link to the page with the handle viewing-day, where it is booked. It all goes by itself once it ends. The words (day, hours, page text) are in the theme's language files under event, in every language."
+        "content": "The pop-up (owner, 2026-11-23: an event at our place, booked through its own Cal.com event; called a pop-up since 2026-11-25). While it is on, the line above the masthead turns green and a green banner under the home film says when and where it is, with a button to the page with the handle pop-up, where it is booked. It all goes by itself once it ends. The words (day, hours, page text) are in the theme's language files under event, in every language."
       },
       {
         "type": "checkbox",
         "id": "event_on",
-        "label": "Show the viewing day",
+        "label": "Show the pop-up",
         "default": true
       },
       {
@@ -109,7 +109,7 @@
         "id": "event_cal",
         "label": "Cal.com booking link",
         "default": "karineko/viewing-day-en",
-        "info": "The viewing day's own Cal.com event, open on that day only."
+        "info": "The pop-up's own Cal.com event, open on that day only."
       }
     ]
   },

@@ -435,18 +435,19 @@
     "empty": "The first guides are on their way."
   },
   "event": {
-    "label": "Viewing day",
+    "label": "Pop-up",
     "when": "Saturday 28 November, 1pm to 8pm",
     "when_today": "Today, 1pm to 8pm",
+    "where": "Near Old Street, London",
     "book": "Book a time",
-    "eyebrow": "Viewing day",
+    "eyebrow": "Pop-up",
     "heading": "Saturday 28 November",
-    "lede": "An afternoon at our place near Old Street, in central London: a first look at new pieces, everything out to try on, and Christmas shopping in person. Choose the time you'll arrive; we'll confirm by email, with the exact address.",
+    "lede": "A pop-up at our place near Old Street, in central London: a first look at new pieces, everything out to try on, and Christmas shopping in person. Choose the time you'll arrive; we'll confirm by email, with the exact address.",
     "hours": "Saturday 28 November, 1pm to 8pm",
     "note_html": "<p>Come any time between 1pm and 8pm: just choose when you'll arrive. We confirm every booking ourselves and email you the exact address.</p>",
-    "over": "This viewing day has passed. You can still see the pieces in person:",
+    "over": "This pop-up has ended. You can still see the pieces in person:",
     "over_link": "Book a private viewing",
-    "page_title": "Viewing day, Saturday 28 November: vintage Chanel and Dior in London",
-    "description": "See vintage Chanel and Christian Dior jewellery in person near Old Street, London, on Saturday 28 November from 1pm to 8pm. Book the time you'll arrive."
+    "page_title": "Pop-up, Saturday 28 November: vintage Chanel and Dior in London",
+    "description": "Our pop-up near Old Street, London, on Saturday 28 November from 1pm to 8pm: see vintage Chanel and Christian Dior jewellery in person. Book the time you'll arrive."
   }
 }
