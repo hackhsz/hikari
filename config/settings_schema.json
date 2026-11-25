@@ -94,7 +94,7 @@
         "type": "text",
         "id": "event_starts",
         "label": "Starts, London time",
-        "default": "2026-11-28 12:00",
+        "default": "2026-11-28 11:30",
         "info": "YYYY-MM-DD HH:MM"
       },
       {
