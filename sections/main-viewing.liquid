@@ -37,6 +37,8 @@
 {%- assign std = k | append: 'hours' | t -%}{%- assign hours = s.hours | default: std -%}{%- if day -%}{%- assign hours = std -%}{%- endif -%}
 {%- assign std = k | append: 'note_html' | t -%}{%- assign note = s.note | default: std -%}{%- if day -%}{%- assign note = std -%}{%- endif -%}
 {%- assign slots = s.slots | newline_to_br | split: '<br />' -%}
+{%- comment -%} The pop-up's form (the fallback when Cal.com can't load) offers the day's own hours, 12pm to 7pm as the page says (owner 2026-11-25), not the private viewings' afternoon slots. {%- endcomment -%}
+{%- if day -%}{%- assign slots = '12:00 – 13:00|13:00 – 14:00|14:00 – 15:00|15:00 – 16:00|16:00 – 17:00|17:00 – 18:00|18:00 – 19:00' | split: '|' -%}{%- endif -%}
 {%- assign cal = s.cal_link -%}
 {%- if request.locale.iso_code contains 'zh' and s.cal_link_zh != blank -%}{%- assign cal = s.cal_link_zh -%}{%- endif -%}
 {%- if day -%}{%- assign cal = settings.event_cal -%}{%- endif -%}
